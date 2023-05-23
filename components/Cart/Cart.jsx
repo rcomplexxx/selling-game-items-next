@@ -3,8 +3,9 @@ import { Container, Typography, Button, Grid } from '@mui/material';
 import Link from 'next/link';
 
 import CartItem from './CartItem/CartItem';
-import useStyles from './styles';
+import styles from './cart.module.css'
 import AppContext from '@/contexts/AppContext';
+import classNames from 'classnames';
 
 const Cart = ({    emptyCartText='true' }) => {
 
@@ -24,13 +25,13 @@ const Cart = ({    emptyCartText='true' }) => {
 
 
 
-  const classes = useStyles();
+ 
 
   
 
   const renderEmptyCart = () => (
-    emptyCartText && <Typography variant="subtitle1" className='emptyCartText'>You have no items in your shopping cart,
-      <Link className={classes.link} href="/">start adding some</Link>!
+    emptyCartText && <Typography variant="subtitle1" className={classNames(styles.emptyCartText)}>You have no items in your shopping cart,
+      <Link className={styles.link} href="/">start adding some</Link>!
     </Typography>
   );
 
@@ -47,11 +48,11 @@ const Cart = ({    emptyCartText='true' }) => {
           </Grid>
         ))}
       </Grid>
-      <div className={classes.cardDetails}>
+      <div className={styles.cardDetails}>
         <Typography variant="h4" >Subtotal: ${s.toFixed(2)}</Typography>
         <div>
-          <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty cart</Button>
-          <Button className={classes.checkoutButton} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
+          <Button className={classNames(styles.emptyButton)} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty cart</Button>
+          <Button className={classNames(styles.checkoutButton)} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
         </div>
       </div>
     </>
@@ -59,8 +60,8 @@ const Cart = ({    emptyCartText='true' }) => {
 
   return (
     <Container>
-      <div className={classes.toolbar} />
-      {(emptyCartText || cartProducts.length!==0) && <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>}
+      <div className={styles.toolbar} />
+      {(emptyCartText || cartProducts.length!==0) && <Typography className={classNames(styles.title)} variant="h3" gutterBottom>Your Shopping Cart</Typography>}
       { cartProducts.length==0 ? renderEmptyCart() : renderCart() }
     </Container>
   );

@@ -5,7 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { commerce } from '../../../lib/commerce';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
-import useStyles from './styles';
+import styles from './checkout.module.css';
+import classNames from 'classnames';
 
 const steps = ['Shipping address', 'Payment details'];
 
@@ -13,7 +14,7 @@ const Checkout = ({  onCaptureCheckout, order, error }) => {
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [activeStep, setActiveStep] = useState(0);
   const [shippingData, setShippingData] = useState({});
-  const classes = useStyles();
+  
   const history = useHistory();
 
   const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -45,14 +46,14 @@ const Checkout = ({  onCaptureCheckout, order, error }) => {
     <>
       <div>
         <Typography variant="h5">Thank you for your purchase, {order.customer.firstname} {order.customer.lastname}!</Typography>
-        <Divider className={classes.divider} />
+        <Divider className={classNames(styles.divider)} />
         <Typography variant="subtitle2">Order ref: {order.customer_reference}</Typography>
       </div>
       <br />
       <Button component={Link} variant="outlined" type="button" to="/">Back to home</Button>
     </>
   ) : (
-    <div className={classes.spinner}>
+    <div className={styles.spinner}>
       <CircularProgress />
     </div>
   ));
@@ -74,11 +75,11 @@ const Checkout = ({  onCaptureCheckout, order, error }) => {
   return (
     <>
       <CssBaseline />
-      <div className={classes.toolbar} />
-      <main className={classes.layout}>
-        <Paper className={classes.paper}>
+      <div className={styles.toolbar} />
+      <main className={styles.layout}>
+        <Paper className={classNames(styles.paper)}>
           <Typography variant="h4" align="center">Checkout</Typography>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
+          <Stepper activeStep={activeStep} className={classNames(styles.stepper)}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>

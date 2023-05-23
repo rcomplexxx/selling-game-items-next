@@ -1,0 +1,35 @@
+.toolbar {
+    min-height: 64px; /* Replace with the desired height value */
+  }
+  
+  .title {
+    margin-top: 5%;
+    color: white;
+  }
+  
+  .emptyButton {
+    background-color: transparent;
+    color: white;
+    min-width: 150px;
+  }
+  
+  .checkoutButton {
+    min-width: 150px;
+  }
+  
+  .link {
+    text-decoration: none;
+  }
+  
+  .cardDetails {
+    display: flex;
+    margin-top: 15vh;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+  }
+  
+  .emptyCartText {
+    color: white;
+    margin-bottom: 5vh;
+  }

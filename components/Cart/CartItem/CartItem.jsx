@@ -1,7 +1,9 @@
 import React, {useContext} from 'react';
 import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@mui/material';
 
-import useStyles from './styles';
+import styles from './cartitem.module.css'
+
+import classNames from 'classnames';
 
 import AppContext from '@/contexts/AppContext';
 
@@ -45,20 +47,19 @@ const CartItem = ({ item}) => {
 
 
 
-  const classes = useStyles();
 
   
 
   return (
     <Card style={{color:'white',
     backgroundColor:"black"}}>
-      <CardMedia image={'/images/'+item.image} alt={item.name} className={classes.media} />
-      <CardContent className={classes.cardContent}>
+      <CardMedia image={'/images/'+item.image} alt={item.name} className={classNames(styles.media)} />
+      <CardContent className={classNames(styles.cardContent)}>
         <Typography variant="h4">{item.name}</Typography>
         <Typography variant="h5">${item.price}</Typography>
       </CardContent>
-      <CardActions className={classes.cardActions}>
-        <div className={classes.buttons}>
+      <CardActions className={classNames(styles.cardActions)}>
+        <div className={styles.buttons}>
           <Button type="button" size="small" style={{color:'white'}} onClick={() => handleUpdateCartQty( -1)}>-</Button>
           <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
           <Button type="button" size="small" style={{color:'white'}} onClick={() => handleUpdateCartQty( 1)}>+</Button>
