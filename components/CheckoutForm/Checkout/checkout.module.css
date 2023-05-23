@@ -1,61 +1,61 @@
 .appBar {
-    position: relative;
+  position: relative;
+}
+
+/* .toolbar {
+  Replace with the desired styles for the toolbar
+} */
+
+.layout {
+  margin-top: 5%;
+  width: auto;
+  margin-left: 8px; /* theme.spacing(2) = 8px */
+  margin-right: 8px; /* theme.spacing(2) = 8px */
+
+  @media screen and (min-width: 616px) { /* 600 + theme.spacing(2) * 2 = 616 */
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  
-  .toolbar {
-    /* Replace with the desired styles for the toolbar */
+}
+
+.paper {
+  margin-top: 24px; /* theme.spacing(3) = 24px */
+  margin-bottom: 24px; /* theme.spacing(3) = 24px */
+  padding: 16px; /* theme.spacing(2) = 16px */
+
+  @media screen and (max-width: /* Provide the desired value */) {
+    width: 100%;
+    margin-top: 60px;
   }
-  
-  .layout {
-    margin-top: 5%;
-    width: auto;
-    margin-left: ${theme.spacing(2)};
-    margin-right: ${theme.spacing(2)};
-  
-    @media screen and (min-width: ${600 + theme.spacing(2) * 2}px) {
-      width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+
+  @media screen and (min-width: /* Provide the desired value */) {
+    margin-top: /* Provide the desired value */;
+    margin-bottom: /* Provide the desired value */;
+    padding: /* Provide the desired value */;
   }
-  
-  .paper {
-    margin-top: ${theme.spacing(3)};
-    margin-bottom: ${theme.spacing(3)};
-    padding: ${theme.spacing(2)};
-  
-    @media screen and (max-width: ${theme.breakpoints.down('xs')}px) {
-      width: 100%;
-      margin-top: 60px;
-    }
-  
-    @media screen and (min-width: ${600 + theme.spacing(3) * 2}px) {
-      margin-top: ${theme.spacing(6)};
-      margin-bottom: ${theme.spacing(6)};
-      padding: ${theme.spacing(3)};
-    }
-  }
-  
-  .stepper {
-    padding: ${theme.spacing(3)}px 0 ${theme.spacing(5)}px;
-  }
-  
-  .buttons {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .button {
-    margin-top: ${theme.spacing(3)};
-    margin-left: ${theme.spacing(1)};
-  }
-  
-  .divider {
-    margin: 20px 0;
-  }
-  
-  .spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+}
+
+.stepper {
+  padding: 16px 0 40px; /* theme.spacing(2) = 16px, theme.spacing(5) = 40px */
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  margin-top: 24px; /* theme.spacing(3) = 24px */
+  margin-left: 8px; /* theme.spacing(1) = 8px */
+}
+
+.divider {
+  margin: 20px 0;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
