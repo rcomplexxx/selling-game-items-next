@@ -1,38 +1,34 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@mui/styles";
 
 export default makeStyles((theme) => ({
-  toolbar: theme.mixins.toolbar,
+  toolbar: {
+    minHeight: "64px", // Replace with the desired height value
+  },
   title: {
-    marginTop: '5%',
-    color:"white"
+    marginTop: "5%",
+    color: "white",
   },
   emptyButton: {
-    backgroundColor:"transparent",
-    color:"white",
-    minWidth: '150px',
-    [theme.breakpoints.down('xs')]: {
-      marginBottom: '5px',
-    },
-    [theme.breakpoints.up('xs')]: {
-      marginRight: '20px',
-    }
+    backgroundColor: "transparent",
+    color: "white",
+    minWidth: "150px",
+   
   },
   checkoutButton: {
-    minWidth: '150px',
+    minWidth: "150px",
   },
   link: {
-    textDecoration: 'none',
+    textDecoration: "none",
   },
   cardDetails: {
-    
-    display: 'flex',
-    marginTop: '15vh',
-    width: '100%',
-    justifyContent: 'space-between',
-    marginBottom:'5vh'
+    display: "flex",
+    marginTop: "15vh",
+    width: "100%",
+    justifyContent: "space-between",
+    marginBottom: "5vh",
   },
-  emptyCartText:{
-    color:"white",
-     marginBottom:'5vh'
-  }
+  emptyCartText: {
+    color: "white",
+    marginBottom: "5vh",
+  },
 }));

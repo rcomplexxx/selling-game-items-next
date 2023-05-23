@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Grid from "@material-ui/core/Grid";
+import Grid from "@mui/material/Grid";
 
 import Product from "./Product/Product";
 import styles from "./products.module.css";

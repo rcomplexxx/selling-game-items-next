@@ -7,8 +7,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerLinks}>
       <Link href="/" className={styles.footerLink}>Home</Link>
-        <Link href="/shop" className={styles.footerLink}>Shop</Link>
-        <Link href="/track-order" className={styles.footerLink}>Track order</Link>
+        <Link href="/products" className={styles.footerLink}>Shop</Link>
+        <Link href="/trackorder" className={styles.footerLink}>Track order</Link>
         <Link href="/faq" className={styles.footerLink}>FAQ</Link>
         <Link href="/aboutus" className={styles.footerLink}>About Us</Link>
         <Link href="/contactus" className={styles.footerLink}>Contact Us</Link>   

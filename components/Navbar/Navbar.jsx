@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
-import { ShoppingCart } from '@material-ui/icons';
+import { Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@mui/material';
+import { ShoppingCart } from '@mui/icons-material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -26,11 +26,13 @@ const NavBar = ({ totalItems }) => {
     <Menu anchorEl={mobileMoreAnchorEl} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} id={mobileMenuId} keepMounted transformOrigin={{ 
       vertical: 'top', horizontal: 'right' }} open={isMobileMenuOpen} onClose={handleMobileMenuClose}>
       <MenuItem>
-        <IconButton component={Link} href="/cart" aria-label="Show cart items" color="inherit">
+      <Link href="/cart">
+        <IconButton  aria-label="Show cart items" color="inherit">
           <Badge badgeContent={totalItems} color="secondary" overlap="rectangular">
             <ShoppingCart />
           </Badge>
         </IconButton>
+        </Link>
         <p>Cart</p>
       </MenuItem>
     </Menu>
@@ -42,8 +44,12 @@ const NavBar = ({ totalItems }) => {
       <nav className={classes.appBar}>
         
         <Toolbar className={classes.toolbar}>
-          <Typography component={Link} href="/" variant="h6" className={classes.title} color="inherit">
-            <img src='/images/commerce.png' alt="Game Smoke Gear" height="25px" className={classes.image} />GameSmoke Gear</Typography>
+        <Link href="/">
+          <Typography  variant="h6" className={classes.title} color="inherit">
+         
+            <img src='/images/commerce.png' alt="Game Smoke Gear" height="25px" className={classes.image} />GameSmoke Gear
+            </Typography></Link>
+            
           <div className={classes.grow} >
             <Link href='/' className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}>Home</Link>
             <Link href='/products' className={`${classes.linkStyle} ${pathname === '/shop' ? classes.currentLink : ''}`}>Shop</Link>
@@ -53,11 +59,13 @@ const NavBar = ({ totalItems }) => {
           </div>
           
           <div className={classes.button}>
-            <IconButton component={Link} href="/cart" className={classes.cartStyle}   aria-label="Show cart items" color="inherit">
+            <Link href="/cart">
+            <IconButton  className={classes.cartStyle}   aria-label="Show cart items" color="inherit">
               <Badge badgeContent={totalItems} overlap="rectangular" color="secondary">
                 <ShoppingCart />
               </Badge>
             </IconButton>
+            </Link>
           </div>
           
         </Toolbar>

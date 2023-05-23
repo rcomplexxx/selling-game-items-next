@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
-import { AddShoppingCart } from '@material-ui/icons';
+import { IconButton, CardActions, Typography } from '@mui/material';
+import { AddShoppingCart } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 import Image from 'next/image'
 import classNames from 'classnames';
