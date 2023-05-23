@@ -1,0 +1,72 @@
+import React, {useContext} from 'react';
+import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@material-ui/core';
+
+import useStyles from './styles';
+
+import AppContext from '@/contexts/AppContext';
+
+const CartItem = ({ item}) => {
+
+
+
+  const { cartProducts, setCartProducts } = useContext(AppContext);
+
+
+
+          const handleUpdateCartQty = async (quantity) => {
+       
+        
+            return setCartProducts(
+              cartProducts.filter((cp) =>{
+               if(cp.id === item.id){
+                cp.quantity=cp.quantity+quantity;
+                return cp.quantity !== 0
+               }
+              
+              return true;
+              }
+              )
+            );
+
+       
+      };
+    
+      const handleRemoveFromCart = async (lineItemId) => {
+        const newCartProducts = cartProducts.filter((cp) => cp.id != lineItemId);
+        console.log(lineItemId);
+        console.log(newCartProducts);
+        setCartProducts(newCartProducts);
+      };
+
+   
+
+
+
+
+
+
+  const classes = useStyles();
+
+  
+
+  return (
+    <Card style={{color:'white',
+    backgroundColor:"black"}}>
+      <CardMedia image={'/images/'+item.image} alt={item.name} className={classes.media} />
+      <CardContent className={classes.cardContent}>
+        <Typography variant="h4">{item.name}</Typography>
+        <Typography variant="h5">${item.price}</Typography>
+      </CardContent>
+      <CardActions className={classes.cardActions}>
+        <div className={classes.buttons}>
+          <Button type="button" size="small" style={{color:'white'}} onClick={() => handleUpdateCartQty( -1)}>-</Button>
+          <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
+          <Button type="button" size="small" style={{color:'white'}} onClick={() => handleUpdateCartQty( 1)}>+</Button>
+        </div>
+        <Button variant="contained" type="button" color="secondary" onClick={() => handleRemoveFromCart(item.id)}>Remove</Button>
+      </CardActions>
+    </Card>
+  );
+};
+
+export default CartItem;

@@ -1,0 +1,69 @@
+import React from 'react';
+import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
+import { AddShoppingCart } from '@material-ui/icons';
+import { useRouter } from 'next/router';
+import Image from 'next/image'
+import classNames from 'classnames';
+import Link from 'next/link';
+
+
+
+
+
+import styles from './product.module.css';
+
+const Product = ({ product, onAddToCart }) => {
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+  const handleAddToCart = () => onAddToCart(product, 1);
+
+
+const router = useRouter();
+
+  return (
+    <div className={styles.root}>
+     <Link href={'products/'+product.id}>
+    <div className={styles.media}>
+      <Image 
+        src={`/images/`+ product.image} // Path to your image from the `public` directory
+        alt="Example Image"
+
+        style={{objectFit:'cover'}}
+        fill
+      />
+      </div>
+      </Link>
+      <div className={styles.cardContent}>
+        <div className={styles.cardContent}>
+          <Typography gutterBottom variant="h5" component="h2">
+            {product.name}
+          </Typography>
+          <Typography gutterBottom variant="h5" component="h2">
+            ${product.price}
+          </Typography>
+        </div>
+        <Typography style={{color:'white'}} dangerouslySetInnerHTML={{ __html: product.description }} variant="body2" color="textSecondary" component="p" />
+      </div>
+      <CardActions disableSpacing className={styles.cardActions}>
+        <IconButton className={classNames(styles.cartStyle)} aria-label="Add to Cart" onClick={handleAddToCart}>
+          <AddShoppingCart style={{color:'white'}} />
+        </IconButton>
+      </CardActions>
+    </div>
+  );
+};
+
+export default Product;
+

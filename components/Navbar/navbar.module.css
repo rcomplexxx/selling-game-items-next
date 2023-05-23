@@ -1,0 +1,184 @@
+.appBar {
+  position:static;
+    box-shadow: none;
+    background-color: var(--gray-9-elegant);
+    color: white;
+    border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+    z-index: 2;
+   
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .title {
+    color: var(--blue-2);
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: transform 0.08s ease-in;
+  }
+  
+  .title:hover {
+    transform: scale(1.1);
+  }
+  
+  .title:active {
+    transform: scale(1);
+  }
+  
+  .menuButton {
+    border: none;
+    background-color: red;
+    font-size: 28px;
+    color: #0f0f0f;
+    margin-left: 10px;
+  }
+  
+  .menuButton:hover {
+    cursor: pointer;
+  }
+  
+  .menuButton:active {
+    transform: scale(1);
+  }
+  
+  .image {
+    margin-right: 10px;
+  }
+  
+  .grow {
+    width: 60%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (max-width: 600px) {
+    .grow {
+      width: 30%;
+    }
+  }
+  
+  @media (max-width: 960px) {
+    .grow {
+      width: 60%;
+    }
+  }
+  
+  @media (max-width: 1280px) {
+    .grow {
+      width: 55%;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .grow {
+      width: 65%;
+    }
+  }
+  
+  .linkStyle {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: var(--red-2);
+    text-decoration: none;
+    transition: transform 0.08s ease-in;
+  }
+  
+  .linkStyle:hover {
+    transform: scale(1.1);
+  }
+  
+  .linkStyle:active {
+    transform: scale(1);
+  }
+  
+  @media (max-width: 600px) {
+    .linkStyle {
+      margin-left: 1px;
+      margin-right: 1px;
+    }
+  }
+  
+  @media (max-width: 960px) {
+    .linkStyle {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+  
+  @media (max-width: 1280px) {
+    .linkStyle {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .linkStyle {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
+  
+  .currentLink {
+    color: var(--blue-1);
+  }
+  
+  .cartStyle {
+    color: #888b88;
+    transition: transform 0.1s ease-in;
+  }
+  
+  .cartStyle:hover {
+    transform: scale(1.1);
+  }
+  
+  .cartStyle:active {
+    transform: scale(1);
+  }
+  
+  .search {
+    position: relative;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .search:hover {
+    background-color: rgba(255, 255, 255, 0.25); 
+
+  }
+  
+  .searchIcon {
+    padding-top: 0;
+    padding-right: 8px;
+    padding-bottom: 0;
+    padding-left: 8px;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .inputRoot {
+    color: inherit;
+  }
+  
+  .inputInput {
+    padding: 8px 8px 8px 0; /* Adjust the padding values as needed */
+    /* vertical padding + font size from searchIcon */
+    padding-left: calc(1em + 32px); /* Adjust the value as needed */
+    transition: width 0.3s ease-in-out; /* Adjust the transition properties as needed */
+    width: 100%;
+  
+    @media (min-width: 960px) {
+      width: 20ch; /* Adjust the value as needed */
+    }
+  }

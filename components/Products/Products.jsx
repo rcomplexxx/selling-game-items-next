@@ -1,0 +1,65 @@
+import React, { useContext } from "react";
+import Grid from "@material-ui/core/Grid";
+
+import Product from "./Product/Product";
+import styles from "./products.module.css";
+import AppContext from "@/contexts/AppContext";
+
+const Products = ({ products }) => {
+  const { cartProducts, setCartProducts } = useContext(AppContext);
+
+  const onAddToCart = async (product, quantity = 1) => {
+    let foundProduct = false;
+    let newCartProducts = cartProducts.map((cp) => {
+      if (cp.id === product.id) {
+        cp.quantity = cp.quantity + 1;
+        foundProduct = true;
+      }
+      return cp;
+    });
+    if (!foundProduct) {
+      newCartProducts = [
+        ...newCartProducts,
+        {
+          id: product.id,
+          quantity,
+          name: product.name,
+          image: product.image,
+          price: product.price,
+        },
+      ];
+    }
+
+    console.log(newCartProducts);
+    setCartProducts(newCartProducts);
+  };
+
+  return (
+    <div className={styles.toolbar}>
+      <h1 className={styles.title}>Explore our collection</h1>
+      <div>
+        <Grid
+          className={styles.mainGridStyle}
+          container
+          justifyContent="center"
+        >
+          {products.map((product) => (
+            <Grid
+              className={styles.productGridStyle}
+              key={product.id}
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+            >
+              <Product key={product.id} product={product} onAddToCart={onAddToCart} />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
+    </div>
+  );
+};
+
+export default Products;
