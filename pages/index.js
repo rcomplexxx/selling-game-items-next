@@ -1,10 +1,11 @@
 
-import React from 'react';
+import React,{useContext} from 'react';
 import HomeText from '@/components/HomeText';
 import HomeReviews from '../components/HomeReviews/HomeReviews.jsx'
 import Products from '@/components/Products/Products.jsx';
 import products from "../data/products.json";
 import styles from "../styles/appStyle.module.css";
+import AppContext from "@/contexts/AppContext";
 const HomePage = ({products}) => {
   return ( <>
      
