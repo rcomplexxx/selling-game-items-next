@@ -47,8 +47,6 @@
   }
 
   .product_style_options {
-    
-     position:relative;
     display: flex;
     align-items: center;
     margin-top: 20px;
@@ -56,8 +54,8 @@
   }
   
   .product_style_button {
-    height: auto;
-   
+ 
+    padding-top: 56.25%;
     position:relative;
     flex-grow: 1;
     margin-right: 10px;
