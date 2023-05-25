@@ -32,9 +32,9 @@ export default function App({ Component, pageProps }) {
         color: "white",
         minHeight: "100vh",
         minWidth: "100vw",
+        marginRight:hasScrollbar ? "10px" : "0",
       }}
     >
-      {/* Rest of your components */}
  
         <Navbar
           totalItems={cartProducts.length}
