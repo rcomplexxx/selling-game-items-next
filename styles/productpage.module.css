@@ -54,6 +54,7 @@
   }
   
   .product_style_button {
+    position:relative;
     flex-grow: 1;
     margin-right: 10px;
     border: none;
@@ -144,10 +145,11 @@
 
 
   .productPageDiv{
+   
     display: flex;
      justify-content: center ;
        margin-top: 25vh ;
-       position:relative;
+      
   }
 
   @media (max-width: 980px)  {
