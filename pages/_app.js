@@ -6,7 +6,7 @@ import Footer from '@/components/Footer/Footer';
 // import { commerce } from "./lib/commerce";
 import React, { useState, useEffect } from "react";
 
-export default function App(Component, pageProps ) {
+export default function App() {
   const [hasScrollbar, setHasScrollbar] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function App(Component, pageProps ) {
     setHasScrollbar(hasVerticalScrollbar);
   }, []);
 
-  return (
+  return (<>
     <div
       id="hronika"
       style={{
@@ -30,6 +30,7 @@ export default function App(Component, pageProps ) {
         minWidth: "100vw",
       }}
     >
+      {/* Rest of your components */}
  
         <Navbar
           totalItems={cartProducts.length}
@@ -41,7 +42,7 @@ export default function App(Component, pageProps ) {
         </AppContext.Provider>
 
         <Footer/>
-        </div>
+      </div>
+    </>
   );
-
 }
