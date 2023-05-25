@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
     <div
       id="hronika"
       style={{
-        width: hasScrollbar ? "calc(100% - 10px)" : "100%",
+        width: "100%",
         height: "fit-content",
         display: "flex",
         flexDirection: "column",
@@ -31,10 +31,10 @@ export default function App({ Component, pageProps }) {
         color: "white",
         minHeight: "100vh",
         minWidth: "100vw",
-        marginRight:hasScrollbar ? "10px" : "0",
+        marginRight:hasScrollbar ? "50px" : "100",
       }}
     >
-      {hasScrollbar && <span>Hello</span>}
+    
  
         <Navbar
           totalItems={cartProducts.length}
