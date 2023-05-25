@@ -54,7 +54,8 @@
   }
   
   .product_style_button {
-    height: 25px;
+    height: auto;
+    padding-top: 56.25%;
     position:relative;
     flex-grow: 1;
     margin-right: 10px;
