@@ -28,6 +28,10 @@ box-sizing: border-box;
    
 }
 
+.marginRight{
+  margin-right: 10px;
+}
+
 .big-top-margin{
   margin-top: 64px;
 }

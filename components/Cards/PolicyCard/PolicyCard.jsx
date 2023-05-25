@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './policyCard.module.css';
+import AppContext from "@/contexts/AppContext";
 
 
 export function PolicyMiniCard(props){
+  miniCardStyle=styles['policy-main-div'] +' '+hasScrollbar?'marginRight':"";
+  
+
+  const { hasScrollbar } = useContext(AppContext);
  
-  return <div  className={props.bigTopMargin?styles['policy-main-div'] +' '+ styles['big-top-margin']:styles['policy-main-div']}>
+  return <div  className={props.bigTopMargin?miniCardStyle +' '+ styles['big-top-margin']:miniCardStyle}>
   {props.children}
   
   </div>
