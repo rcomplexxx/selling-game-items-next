@@ -6,7 +6,12 @@ import Footer from '@/components/Footer/Footer';
 // import { commerce } from "./lib/commerce";
 import React, { useState, useEffect } from "react";
 
-export default function App() {
+export default function App({ Component, pageProps }) {
+
+
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [cartProducts, setCartProducts] = useState([]);
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const [hasScrollbar, setHasScrollbar] = useState(false);
 
   useEffect(() => {
