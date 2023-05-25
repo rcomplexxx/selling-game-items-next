@@ -23,8 +23,8 @@ export default function App({ Component, pageProps }) {
     <div
       id="hronika"
       style={{
-        marginRight:"10px",
-        width: "100%",
+        
+        width: "calc(100% - 31px)",
         height: "fit-content",
         display: "flex",
         flexDirection: "column",
