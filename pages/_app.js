@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
   const [cartProducts, setCartProducts] = useState([]);
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const [hasScrollbar, setHasScrollbar] = useState(false);
-  console.log(hasScrollbar)
+  console.log('my Scroll'+hasScrollbar)
 
   useEffect(() => {
     const hasVerticalScrollbar = window.visualViewport.width < document.body.clientHeight;
