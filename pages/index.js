@@ -20,7 +20,8 @@ const HomePage = ({products}) => {
                   <button className={styles.linkButton}>On Sale</button>
                 </div>
     
-                <main className={styles.content + hasScrollbar?' '+styles.marginRight:''}>
+                <main className={`${styles.content}${hasScrollbar ? ' ' + styles.marginRight : ''}`}>
+  
                   <HomeText></HomeText>
                   <HomeReviews></HomeReviews>
                  <Products products={products}/>
