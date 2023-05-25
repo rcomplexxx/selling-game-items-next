@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
       const [hasScrollbar, setHasScrollbar] = useState(false);
 
   useEffect(() => {
-    const hasScrollbar = window.innerWidth < document.documentElement.clientWidth;
+    const hasScrollbar = window.innerWidth !== document.documentElement.clientWidth;
     setHasScrollbar(hasScrollbar);
   }, []);
 
