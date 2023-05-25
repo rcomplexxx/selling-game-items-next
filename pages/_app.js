@@ -85,35 +85,3 @@ style={{
 }
 
 
-
-
-
-
-
-
-
-  const [hasScrollbar, setHasScrollbar] = useState(false);
-
-  useEffect(() => {
-    const hasVerticalScrollbar = document.documentElement.scrollHeight > window.innerHeight;
-    setHasScrollbar(hasVerticalScrollbar);
-  }, []);
-
-  const mainDivStyle = {
-    width: hasScrollbar ? 'calc(100% - 10px)' : '100%',
-    height: "fit-content",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "black",
-    color: "white",
-    minHeight: "100vh",
-    minWidth: "100vw",
-    overflowY: hasScrollbar ? 'auto' : 'visible',
-  };
-
-  return (
-    <div id="hronika" style={mainDivStyle}>
-      {/* Content */}
-    </div>
-  );
-};
