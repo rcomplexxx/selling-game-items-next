@@ -39,7 +39,7 @@ export default function App({ Component, pageProps }) {
 <div
 id="hronika"
 style={{
-  
+  width:'100%',
   height: "fit-content",
   display: "flex",
   flexDirection: "column",
