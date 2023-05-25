@@ -82,7 +82,7 @@ import Image from 'next/image';
              selectedImage === image ? styles.selected : ''
            }`}
          >
-           <Image src={image} alt={`Thumbnail ${index}`} width={80} height={45} />
+           <Image src={image} alt={`Thumbnail ${index}`} width={80} height={45} style={{margin:"auto"}} />
          </button>
 
             
