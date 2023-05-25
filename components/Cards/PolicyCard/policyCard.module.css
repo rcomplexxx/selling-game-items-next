@@ -19,6 +19,7 @@ box-sizing: border-box;
     border-radius:8px;
      padding-left:10px;
      padding-right:15px;
+     max-height: calc(100vh - 175px);
      max-width:720px;
      min-height: 370px;
      width: 90%;
