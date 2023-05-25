@@ -7,6 +7,10 @@ import products from "../data/products.json";
 import styles from "../styles/appStyle.module.css";
 import AppContext from "@/contexts/AppContext";
 const HomePage = ({products}) => {
+
+
+  const { hasScrollbar } = useContext(AppContext);
+
   return ( <>
      
      <div className={styles.heroImageDiv}></div>
@@ -16,7 +20,7 @@ const HomePage = ({products}) => {
                   <button className={styles.linkButton}>On Sale</button>
                 </div>
     
-                <main className={styles.content}>
+                <main className={styles.content + hasScrollbar?' '+styles.marginRight:''}>
                   <HomeText></HomeText>
                   <HomeReviews></HomeReviews>
                  <Products products={products}/>
