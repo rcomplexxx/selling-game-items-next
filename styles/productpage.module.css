@@ -85,30 +85,36 @@
     width: 400px;
     height: auto;
   }
+  .thumbnail_image_button{
+    border:none;
+    box-shadow: none;
+  }
   
   .thumbnail_images {
-    position: relative;
     display: flex;
     justify-content: center;
   }
   
-
-  
-  .thumbnail_images img:last-child {
-    margin-right: 0;
-  }
-  
-  .thumbnail_images img.selected {
-    
-    border-color: #f00;
-  }
-
-  .thumbnail_image{
-   
+  .thumbnail_images button {
+    width: 80px;
+    height: auto;
     margin-right: 10px;
     cursor: pointer;
     border: 1px solid #ccc;
   }
+  
+  .thumbnail_images button:last-child {
+    margin-right: 0;
+  }
+  
+  .thumbnail_images button.selected {
+    border-color: #f00;
+  }
+
+  
+
+
+
 
   .arrow {
     position: absolute;

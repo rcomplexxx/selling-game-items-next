@@ -78,7 +78,7 @@ import Image from 'next/image';
            <button
            key={index}
            onClick={() => selectImage(image)}
-           className={`${styles.thumbnail_image} ${
+           className={`${styles.thumbnail_image_button} ${
              selectedImage === image ? styles.selected : ''
            }`}
          >
