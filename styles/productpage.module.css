@@ -87,14 +87,15 @@
   }
   
   .thumbnail_images {
+    position: relative;
+    width: 80px;
+    aspect-ratio: 16 / 9;
     display: flex;
     justify-content: center;
   }
   
   .thumbnail_images img {
-    position: relative;
-    width: 80px;
-    aspect-ratio: 16 / 9;
+    
     height: auto;
     margin-right: 10px;
     cursor: pointer;
