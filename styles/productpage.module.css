@@ -141,3 +141,14 @@
     overflow: hidden;
     
   }
+
+
+  .productPageDiv{
+    display: flex;
+     justify-content: center ;
+       margin-top: 25vh ;
+  }
+
+  @media (max-width: 600px)  {
+    .productPageDiv{flex-direction: column; align-items: center;}
+  }

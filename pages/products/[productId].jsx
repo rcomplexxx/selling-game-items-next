@@ -139,7 +139,7 @@ export default function ProductPage({productId,product}){
             ?
             <>
             
-            <div style={{display:'flex', justifyContent:"center",  marginTop:"25vh"}}> 
+            <div className={styles.productPageDiv}> 
             <div>
                <ProductInfoBuy product={product}/>
                
