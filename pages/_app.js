@@ -34,6 +34,7 @@ export default function App({ Component, pageProps }) {
         marginRight:hasScrollbar ? "10px" : "0",
       }}
     >
+      {hasScrollbar && <span>Hello</span>}
  
         <Navbar
           totalItems={cartProducts.length}
