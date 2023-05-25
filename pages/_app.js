@@ -29,6 +29,13 @@ export default function App({ Component, pageProps }) {
 
       const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
+      const [hasScrollbar, setHasScrollbar] = useState(false);
+
+  useEffect(() => {
+    const hasVerticalScrollbar = document.documentElement.scrollHeight > window.innerHeight;
+    setHasScrollbar(hasVerticalScrollbar);
+  }, []);
+
 
 
   return (
@@ -39,6 +46,7 @@ export default function App({ Component, pageProps }) {
 <div
 id="hronika"
 style={{
+  width: hasScrollbar ? 'calc(100% - 10px)' : '100%',
   width:'100%',
   height: "fit-content",
   display: "flex",
@@ -73,3 +81,11 @@ style={{
       
   );
 }
+
+
+
+
+
+
+
+
