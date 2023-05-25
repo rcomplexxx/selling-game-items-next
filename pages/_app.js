@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar/Navbar.jsx";
 import AppContext from '@/contexts/AppContext';
 import Footer from '@/components/Footer/Footer';
 // import { commerce } from "./lib/commerce";
-import React, { useState, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
 
