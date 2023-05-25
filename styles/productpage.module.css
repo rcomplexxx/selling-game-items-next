@@ -85,10 +85,7 @@
     width: 400px;
     height: auto;
   }
-  .thumbnail_image_button{
-    border:none;
-    box-shadow: none;
-  }
+ 
   
   .thumbnail_images {
     display: flex;
@@ -101,6 +98,8 @@
     margin-right: 10px;
     cursor: pointer;
     border: 1px solid #ccc;
+    box-shadow: none;
+    padding: 0;
   }
   
   .thumbnail_images button:last-child {
