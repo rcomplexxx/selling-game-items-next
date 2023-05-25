@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }) {
         color: "white",
         minHeight: "100vh",
         minWidth: "100vw",
-        marginRight:"200px",
+        
       }}
     >
     
