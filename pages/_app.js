@@ -24,14 +24,14 @@ export default function App({ Component, pageProps }) {
       id="hronika"
       style={{
         
-        width: "calc(100% - 31px)",
+        width: hasScrollbar?"calc(100vw - 10px)":"100vw",
         height: "fit-content",
         display: "flex",
         flexDirection: "column",
         backgroundColor: "black",
         color: "white",
         minHeight: "100vh",
-        minWidth: "calc(100vw - 31px)",
+        minWidth: hasScrollbar?"calc(100vw - 10px)":"100vw",
         
       }}
     >
