@@ -74,44 +74,45 @@ const NavBar = ({ totalItems }) => {
           </Link>
 
           <div className={classes.grow}>
-            {window.innerWidth < 600 ? (
-              <IconButton
-                className={classes.menuButton}
-                onClick={handleMobileMenuOpen}
-                aria-label="Menu"
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-            ) : (
-              <>
-                <Link
-                  href="/"
-                  className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/products"
-                  className={`${classes.linkStyle} ${pathname === '/shop' ? classes.currentLink : ''}`}
-                >
-                  Shop
-                </Link>
-                <Link
-                  href="/aboutus"
-                  className={`${classes.linkStyle} ${pathname === '/about-us' ? classes.currentLink : ''}`}
-                >
-                  About
-                </Link>
-                <Link
-                  href="/contactus"
-                  className={`${classes.linkStyle} ${pathname === '/contact-us' ? classes.currentLink : ''}`}
-                >
-                  Contact us
-                </Link>
-              </>
-            )}
-          </div>
+  {window.innerWidth < 600 ? (
+    <IconButton
+      className={classes.menuButton}
+      onClick={handleMobileMenuOpen}
+      aria-label="Menu"
+      color="inherit"
+    >
+      <MenuIcon />
+    </IconButton>
+  ) : null}
+  {isMobileMenuOpen ? (
+    <>
+      <Link
+        href="/"
+        className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}
+      >
+        Home
+      </Link>
+      <Link
+        href="/products"
+        className={`${classes.linkStyle} ${pathname === '/shop' ? classes.currentLink : ''}`}
+      >
+        Shop
+      </Link>
+      <Link
+        href="/aboutus"
+        className={`${classes.linkStyle} ${pathname === '/about-us' ? classes.currentLink : ''}`}
+      >
+        About
+      </Link>
+      <Link
+        href="/contactus"
+        className={`${classes.linkStyle} ${pathname === '/contact-us' ? classes.currentLink : ''}`}
+      >
+        Contact us
+      </Link>
+    </>
+  ) : null}
+</div>
 
           <div className={classes.button}>
             <Link href="/cart">
