@@ -11,7 +11,6 @@ box-sizing: border-box;
 
 .policy-main-div{
   height: max-content;
-  margin-right:200px;
     color:var(--yellow-white);
     background-color:var(--gray-9-elegant);
      overflow: auto;
