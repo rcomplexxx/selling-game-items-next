@@ -54,7 +54,7 @@
   }
   
   .product_style_button {
-    height: auto;
+    height: 25px;
     position:relative;
     flex-grow: 1;
     margin-right: 10px;
