@@ -19,6 +19,7 @@ a{
 ::-webkit-scrollbar {
   width: 10px;
   background-color: #1a1a1a;
+  z-index: 2;
 }
 
 /* Track */

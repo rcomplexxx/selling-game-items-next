@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
   console.log(hasScrollbar)
 
   useEffect(() => {
-    const hasVerticalScrollbar = window.visualViewport.width < window.Width;
+    const hasVerticalScrollbar = window.visualViewport.width < document.body.clientHeight;
     setHasScrollbar(hasVerticalScrollbar);
   }, []);
 
