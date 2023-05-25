@@ -134,7 +134,7 @@ const NavBar = ({ totalItems }) => {
           </div>
         </Toolbar>
       </nav>
-      {renderMobileMenu}
+      {isMobileMenuOpen && renderMobileMenu}
     </>
   );
 };
