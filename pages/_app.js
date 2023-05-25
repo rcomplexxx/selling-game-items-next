@@ -23,6 +23,7 @@ export default function App({ Component, pageProps }) {
     <div
       id="hronika"
       style={{
+        marginRight:"10px",
         width: "100%",
         height: "fit-content",
         display: "flex",
@@ -42,9 +43,9 @@ export default function App({ Component, pageProps }) {
         />
 
         <AppContext.Provider value={{ cartProducts, setCartProducts }}>
-          <div style={hasScrollbar?{marginRight:'10px'}:{}}>
+       
           <Component {...pageProps} />
-          </div>
+         
         </AppContext.Provider>
 
         <Footer/>
