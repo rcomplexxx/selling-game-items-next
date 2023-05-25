@@ -4,7 +4,7 @@ import styles from './policyCard.module.css';
 
 export function PolicyMiniCard(props){
  
-  return <div className='centered'><div  className={props.bigTopMargin?styles['policy-main-div'] +' '+ styles['big-top-margin']:styles['policy-main-div']}></div>
+  return <div  className={props.bigTopMargin?styles['policy-main-div'] +' '+ styles['big-top-margin']:styles['policy-main-div']}>
   {props.children}
   
   </div>

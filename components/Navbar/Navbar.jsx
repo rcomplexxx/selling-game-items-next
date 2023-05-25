@@ -23,6 +23,9 @@ const NavBar = ({ totalItems }) => {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleMobileMenuOpen = (event) => {
+    if (window.innerWidth >= 600) {
+      return;
+    }
     setMobileMoreAnchorEl(event.currentTarget);
     setIsMenuOpen(true);
   };
@@ -31,6 +34,8 @@ const NavBar = ({ totalItems }) => {
     setMobileMoreAnchorEl(null);
     setIsMenuOpen(false);
   };
+
+  
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
 
