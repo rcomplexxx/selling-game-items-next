@@ -63,8 +63,7 @@
   .product_style_image {
   
     width: 100%;
-  height: 0;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  height: 56.25%; /* 16:9 aspect ratio */
   object-fit: cover;
   }
 
