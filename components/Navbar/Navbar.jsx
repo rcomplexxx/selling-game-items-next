@@ -35,8 +35,6 @@ const NavBar = ({ totalItems }) => {
     setIsMenuOpen(false);
   };
 
-  
-
   const mobileMenuId = 'primary-search-account-menu-mobile';
 
   const renderMobileMenu = (
@@ -79,45 +77,44 @@ const NavBar = ({ totalItems }) => {
           </Link>
 
           <div className={classes.grow}>
-  {window.innerWidth < 600 ? (
-    <IconButton
-      className={classes.menuButton}
-      onClick={handleMobileMenuOpen}
-      aria-label="Menu"
-      color="inherit"
-    >
-      <MenuIcon />
-    </IconButton>
-  ) : null}
-  {isMobileMenuOpen ? (
-    <>
-      <Link
-        href="/"
-        className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}
-      >
-        Home
-      </Link>
-      <Link
-        href="/products"
-        className={`${classes.linkStyle} ${pathname === '/shop' ? classes.currentLink : ''}`}
-      >
-        Shop
-      </Link>
-      <Link
-        href="/aboutus"
-        className={`${classes.linkStyle} ${pathname === '/about-us' ? classes.currentLink : ''}`}
-      >
-        About
-      </Link>
-      <Link
-        href="/contactus"
-        className={`${classes.linkStyle} ${pathname === '/contact-us' ? classes.currentLink : ''}`}
-      >
-        Contact us
-      </Link>
-    </>
-  ) : null}
-</div>
+            {window.innerWidth < 600 ? (
+              <IconButton
+                className={classes.menuButton}
+                onClick={handleMobileMenuOpen}
+                aria-label="Menu"
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+            ) : (
+              <>
+                <Link
+                  href="/"
+                  className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/products"
+                  className={`${classes.linkStyle} ${pathname === '/shop' ? classes.currentLink : ''}`}
+                >
+                  Shop
+                </Link>
+                <Link
+                  href="/aboutus"
+                  className={`${classes.linkStyle} ${pathname === '/about-us' ? classes.currentLink : ''}`}
+                >
+                  About
+                </Link>
+                <Link
+                  href="/contactus"
+                  className={`${classes.linkStyle} ${pathname === '/contact-us' ? classes.currentLink : ''}`}
+                >
+                  Contact us
+                </Link>
+              </>
+            )}
+          </div>
 
           <div className={classes.button}>
             <Link href="/cart">
@@ -125,7 +122,7 @@ const NavBar = ({ totalItems }) => {
                 className={classes.cartStyle}
                 aria-label="Show cart items"
                 color="inherit"
-              >
+                >
                 <Badge badgeContent={totalItems} overlap="rectangular" color="secondary">
                   <ShoppingCart />
                 </Badge>
@@ -134,7 +131,7 @@ const NavBar = ({ totalItems }) => {
           </div>
         </Toolbar>
       </nav>
-      {isMobileMenuOpen && renderMobileMenu}
+      {isMenuOpen && renderMobileMenu}
     </>
   );
 };
