@@ -56,6 +56,7 @@
   .product_style_button {
     position:relative;
     flex-grow: 1;
+    aspect-ratio: 16 / 9;
     margin-right: 10px;
     border: none;
   }
@@ -63,7 +64,7 @@
   .product_style_image {
   
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 100%;
   object-fit: cover;
   }
 
