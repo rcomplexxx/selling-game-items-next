@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }) {
         backgroundColor: "black",
         color: "white",
         minHeight: "100vh",
-        minWidth: "100vw",
+        minWidth: "calc(100vw - 31px)",
         
       }}
     >
