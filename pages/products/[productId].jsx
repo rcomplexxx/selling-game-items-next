@@ -82,7 +82,7 @@ import Image from 'next/image';
             src={image} // Path to your image from the `public` directory
             alt={`Thumbnail ${index}`}
             onClick={() => selectImage(image)}
-        className={selectedImage === image ? styles.selected : null}
+        className={selectedImage === image ? styles.thumbnail_image+ ' ' + styles.selected : styles.thumbnail_image}
         style={{objectFit:'cover'}}
         fill
       />
