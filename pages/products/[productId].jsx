@@ -75,13 +75,17 @@ import Image from 'next/image';
         </div>
         <div className={styles.thumbnail_images}>
           {images.map((image, index) => (
-            <img
-              key={index}
-              src={image}
-              alt={`Thumbnail ${index}`}
-              onClick={() => selectImage(image)}
-              className={selectedImage === image ? styles.selected : null}
-            />
+          
+
+            <Image 
+            key={index}
+            src={image} // Path to your image from the `public` directory
+            alt={`Thumbnail ${index}`}
+            onClick={() => selectImage(image)}
+        className={selectedImage === image ? styles.selected : null}
+        style={{objectFit:'cover'}}
+        fill
+      />
           ))}
         </div>
       </div>
