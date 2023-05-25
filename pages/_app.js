@@ -42,7 +42,9 @@ export default function App({ Component, pageProps }) {
         />
 
         <AppContext.Provider value={{ cartProducts, setCartProducts }}>
+          <div style={hasScrollbar?{marginRight:'10px'}:{}}>
           <Component {...pageProps} />
+          </div>
         </AppContext.Provider>
 
         <Footer/>
