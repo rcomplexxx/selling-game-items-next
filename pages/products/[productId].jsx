@@ -160,13 +160,33 @@ export default function ProductPage({productId,product}){
           <div className={styles.product_style_options}>
          
             <button className={styles.product_style_button} onClick={() => handleStyleChange('Black Kitten')}>
-              <img src={'/images/' + product.image} alt="Black Kitten" className={styles.product_style_image} />
+            <Image 
+       src={'/images/' + product.image} alt="Black Kitten" className={styles.product_style_image}
+        
+      
+        style={{objectFit:'cover'}}
+        fill
+      />
+            
             </button>
             <button className={styles.product_style_button} onClick={() => handleStyleChange('Gray Kitten')}>
-              <img src={'/images/' + product.image} alt="Gray Kitten" className={styles.product_style_image} />
+           
+              <Image 
+       src={'/images/' + product.image} alt="Gray Kitten" className={styles.product_style_image}
+        
+      
+        style={{objectFit:'cover'}}
+        fill
+      />
             </button>
             <button className={styles.product_style_button} onClick={() => handleStyleChange('White Kitten')}>
-              <img src={'/images/' + product.image} alt="White Kitten" className={styles.product_style_image} />
+              <Image 
+       src={'/images/' + product.image} alt="White Kitten" className={styles.product_style_image}
+        
+      
+        style={{objectFit:'cover'}}
+        fill
+      />
             </button>
           </div>
           <button className={styles.add_to_cart_button} onClick={onAddToCart}>Add to Cart</button>
