@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
         minWidth: hasScrollbar?"calc(100vw - 10px)":"100vw",
        
   
-      overflowY: auto,
+      overflowY: 'auto',
         
       }}
     >
