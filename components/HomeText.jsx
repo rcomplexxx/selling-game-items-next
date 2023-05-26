@@ -9,7 +9,7 @@ export default function HomeText(){
 
  
 
-return <PolicyMiniCard bigTopMargin={true}>
+return <PolicyMiniCard homeCard={true}>
     
     <h1>Enjoy your games more, as you play like a pro!</h1>
 
