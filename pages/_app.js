@@ -1,3 +1,10 @@
+import '../styles/globals.css';
+import React, { useState, useEffect } from "react";
+import Navbar from "../components/Navbar/Navbar.jsx";
+import AppContext from '@/contexts/AppContext';
+import Footer from '@/components/Footer/Footer';
+// import { commerce } from "./lib/commerce";
+
 export default function App({ Component, pageProps }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
