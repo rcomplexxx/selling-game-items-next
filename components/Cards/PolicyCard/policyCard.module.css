@@ -31,12 +31,13 @@ box-sizing: border-box;
   margin-right: 10px;
 }
 
-.big-top-margin{
+.homeCard{
   margin-top: 64px;
 }
 
 .bigBackDiv{
   min-height:calc(100vh - 135px);
+  max-height: max-content;
 }
 
 

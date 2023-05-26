@@ -32,6 +32,7 @@ export default function App({ Component, pageProps }) {
         color: "white",
         minHeight: "100vh",
         minWidth: hasScrollbar?"calc(100vw - 10px)":"100vw",
+        maxWidth: hasScrollbar?"calc(100vw - 10px)":"100vw",
         
       }}
     >
