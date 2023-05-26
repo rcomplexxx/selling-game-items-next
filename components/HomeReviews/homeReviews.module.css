@@ -21,22 +21,11 @@
   box-shadow: 0 -0.3px 4px 1px rgba(211, 211, 211, 0.2);
 }
 
-.reviewsContainer {
+.mainDiv {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
-}
-
-.reviewsContainer::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Chrome, Safari, and Opera */
-}
-
-.reviewDiv:not(:last-child) {
-  margin-right: 20px;
+  justify-content: space-between;
+  width: 60vw;
 }
 
 .arrow {
@@ -68,15 +57,16 @@
 }
 
 @media screen and (max-width: 1080px) {
-  .reviewsContainer {
+  .mainDiv {
     flex-direction: column;
     align-items: center;
   }
 
   .arrowsContainer {
+    position: relative;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    width: 100%;
     margin-top: 10px;
   }
 
