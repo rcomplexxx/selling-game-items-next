@@ -8,7 +8,6 @@ body{
   color:var(--yellow-white);
   margin: 0;
   padding: 0;
-  scrollbar-gutter: auto;
 }
 
 a{
