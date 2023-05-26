@@ -19,7 +19,6 @@
     margin-top: 20px;
     margin-bottom: 40px;
     box-shadow: 0 -0.3px 4px 1px rgba(211, 211, 211, 0.2);
-    /* box Shadow */
   }
   
   .mainDiv {
@@ -61,6 +60,20 @@
     .mainDiv {
       flex-direction: row;
       align-items: center;
+    }
+  
+    .arrowsContainer {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+  
+    .arrowsContainer .arrow {
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
     }
   }
   
