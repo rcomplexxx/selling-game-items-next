@@ -45,12 +45,7 @@ export default function HomeReviews() {
             <Review key={review.id} title={review.title} style={{ display: "flex" }} />
           ))
         ) : (
-          <Review
-            title={reviews[currentReview].title}
-            style={{
-              display: "flex",
-            }}
-          />
+          <Review title={reviews[0].title} style={{ display: "flex" }} />
         )}
       </div>
       {windowWidth <= 1080 && (
