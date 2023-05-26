@@ -1,4 +1,5 @@
 .appBar {
+  width:100%;
   max-width: 100vw;
   position:static;
     box-shadow: none;
