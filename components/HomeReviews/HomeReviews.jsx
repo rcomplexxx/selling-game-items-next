@@ -68,16 +68,7 @@ export default function HomeReviews() {
           />
         )}
       </div>
-      {windowWidth <= 1080 && (
-        <div className={styles.arrowsContainer}>
-          <button className={`${styles.arrow} ${styles.left}`} onClick={prevReview}>
-            &lt;
-          </button>
-          <button className={`${styles.arrow} ${styles.right}`} onClick={nextReview}>
-            &gt;
-          </button>
-        </div>
-      )}
+     
     </>
   );
 }
