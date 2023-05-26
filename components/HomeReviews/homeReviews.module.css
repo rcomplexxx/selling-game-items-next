@@ -1,78 +1,80 @@
 .title {
-  margin-top: 60px;
-  margin-bottom: 10px;
-}
-
-.reviewTitle {
-  color: var(--gray-1);
-  margin-top: 4px;
-}
-
-.reviewDiv {
-  background-color: var(--gray-9);
-  height: 350px;
-  width: 340px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  box-shadow: 0 -0.3px 4px 1px rgba(211, 211, 211, 0.2);
-}
-
-.mainDiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 60vw;
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.5);
-  border: none;
-  color: black;
-  font-size: 24px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.arrow:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-}
-
-.left {
-  left: 10px;
-}
-
-.right {
-  right: 10px;
-}
-
-@media screen and (max-width: 1080px) {
-  .mainDiv {
-    flex-direction: column;
-    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 10px;
   }
-
-  .arrowsContainer {
-    position: relative;
-    width: 100%;
+  
+  .reviewTitle {
+    color: var(--gray-1);
+    margin-top: 4px;
+  }
+  
+  .reviewDiv {
+    background-color: var(--gray-9);
+    height: 350px;
+    width: 340px;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 -0.3px 4px 1px rgba(211, 211, 211, 0.2);
+  }
+  
+  .mainDiv {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    margin-top: 10px;
+    width: 60vw;
   }
-
-  .arrowsContainer .arrow {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: black;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
   }
-}
+  
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+  
+  .left {
+    left: 10px;
+  }
+  
+  .right {
+    right: 10px;
+  }
+  
+  @media screen and (max-width: 1080px) {
+    .mainDiv {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .arrowsContainer {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+  
+    .arrowsContainer .arrow {
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+    }
+  }
+  
+ 
