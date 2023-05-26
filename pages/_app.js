@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
       id="hronika"
       style={{
         
-        width: hasVerticalScrollbar?'calc(100%-10px)':"100%",
+        width: hasVerticalScrollbar?'calc(100%-10px)':'100%',
         height: "fit-content",
         display: "flex",
         flexDirection: "column",
