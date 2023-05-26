@@ -22,7 +22,6 @@ function Review({ title, style }) {
 }
 
 export default function HomeReviews() {
-  const [currentReview, setCurrentReview] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
@@ -37,27 +36,13 @@ export default function HomeReviews() {
     };
   }, []);
 
-  const prevReview = () => {
-    setCurrentReview((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
-  };
-
-  const nextReview = () => {
-    setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
-  };
-
   return (
     <>
       <h2 className={styles.title}>WHAT OUR CUSTOMERS HAVE TO SAY</h2>
       <div className={styles.mainDiv}>
         {windowWidth > 1080 ? (
-          reviews.map((review, index) => (
-            <Review
-              key={review.id}
-              title={review.title}
-              style={{
-                display: currentReview === index ? "flex" : "none",
-              }}
-            />
+          reviews.map((review) => (
+            <Review key={review.id} title={review.title} style={{ display: "flex" }} />
           ))
         ) : (
           <Review
