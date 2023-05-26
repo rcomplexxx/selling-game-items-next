@@ -4,17 +4,19 @@ import Navbar from "../components/Navbar/Navbar.jsx";
 import AppContext from '@/contexts/AppContext';
 import Footer from '@/components/Footer/Footer';
 // import { commerce } from "./lib/commerce";
+import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const [hasScrollbar, setHasScrollbar] = useState(false);
+  const router=useRouter();
 
   useEffect(() => {
     const hasVerticalScrollbar = window.innerWidth > document.documentElement.clientWidth;
     setHasScrollbar(hasVerticalScrollbar);
-  }, [Component]);
+  }, [router.pathname]);
 
   return (
     <>
