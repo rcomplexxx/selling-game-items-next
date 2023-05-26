@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
       id="hronika"
       style={{
         
-        width: "calc(100vw - 10px)",
+        width: "100%",
         height: "fit-content",
         display: "flex",
         flexDirection: "column",
@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }) {
         color: "white",
         minHeight: "100vh",
         minWidth:"calc(100vw - 10px)",
-       
+       alignItems:"center",
       overflowY: 'auto'
         
       }}
