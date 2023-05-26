@@ -3,9 +3,9 @@ import { RatingStar } from 'rating-star';
 import styles from './homeReviews.module.css';
 
 const reviews = [
-  { id: 1, title: "Thanks GameSmoke Gear" },
-  { id: 2, title: "Thanks GameSmoke Gear" },
-  { id: 3, title: "Thanks GameSmoke Gear" }
+  { id: 1, title: "Thanks GameSmoke Gear1" },
+  { id: 2, title: "Thanks GameSmoke Gear2" },
+  { id: 3, title: "Thanks GameSmoke Gear3" }
 ];
 
 function Review({ title, style }) {
@@ -55,7 +55,7 @@ export default function HomeReviews() {
               key={review.id}
               title={review.title}
               style={{
-                display: currentReview === index ? "flex" : "none",
+                display: "flex" 
               }}
             />
           ))
