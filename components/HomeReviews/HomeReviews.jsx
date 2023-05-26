@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { RatingStar } from 'rating-star';
 import styles from './homeReviews.module.css';
 
@@ -24,6 +24,7 @@ function Review({ title, style }) {
 export default function HomeReviews() {
   const [windowWidth, setWindowWidth] = useState(0);
   const [currentReview, setCurrentReview] = useState(0);
+  const reviewsRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,28 +46,37 @@ export default function HomeReviews() {
     setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
   };
 
+  const handleSlide = () => {
+    const containerWidth = reviewsRef.current.offsetWidth;
+    const numReviews = reviews.length;
+    const reviewWidth = containerWidth / numReviews;
+    const maxScrollLeft = containerWidth - reviewWidth;
+
+    reviewsRef.current.scrollTo({
+      left: currentReview * reviewWidth,
+      behavior: "smooth",
+    });
+
+    if (reviewsRef.current.scrollLeft >= maxScrollLeft) {
+      setCurrentReview(0);
+    } else {
+      setCurrentReview((prev) => prev + 1);
+    }
+  };
+
   return (
     <>
       <h2 className={styles.title}>WHAT OUR CUSTOMERS HAVE TO SAY</h2>
-      <div className={styles.mainDiv}>
-        {windowWidth > 1080 ? (
-          reviews.map((review, index) => (
-            <Review
-              key={review.id}
-              title={review.title}
-              style={{
-                display: "flex" 
-              }}
-            />
-          ))
-        ) : (
+      <div className={styles.reviewsContainer} ref={reviewsRef}>
+        {reviews.map((review, index) => (
           <Review
-            title={reviews[currentReview].title}
+            key={review.id}
+            title={review.title}
             style={{
-              display: "flex",
+              width: windowWidth > 1080 ? "340px" : "100%",
             }}
           />
-        )}
+        ))}
       </div>
       {windowWidth <= 1080 && (
         <div className={styles.arrowsContainer}>
