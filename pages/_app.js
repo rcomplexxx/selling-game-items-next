@@ -28,14 +28,12 @@ export default function App({ Component, pageProps }) {
         height: "fit-content",
         display: "flex",
         flexDirection: "column",
-        alignItems:'center',
         backgroundColor: "black",
         color: "white",
         minHeight: "100vh",
         minWidth: hasScrollbar?"calc(100vw - 10px)":"100vw",
        
-  
-      overflowY: 'auto',
+      overflowY: 'auto'
         
       }}
     >
