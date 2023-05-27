@@ -5,7 +5,7 @@ body{
  flex-direction: column; 
   background-color: black;
   overflow-x: hidden;
-  overflow-y: overlay;
+  overflow-y: scroll;
   color:var(--yellow-white);
   margin: 0;
   padding: 0;
@@ -20,13 +20,11 @@ a{
 
 
 ::-webkit-scrollbar {
- 
   background-color: #1a1a1a;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  
   background-color: #1a1a1a;
 }
 
