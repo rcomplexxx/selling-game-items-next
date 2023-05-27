@@ -18,19 +18,17 @@ a{
 
 
 ::-webkit-scrollbar {
-  width: 0.5vw;
+  width: 10px;
   background-color: #1a1a1a;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  width: 0.5vw;
   background-color: #1a1a1a;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  width: 0.5vw;
   background-color: #606060;
 }
 
