@@ -39,6 +39,7 @@ export default function App({ Component, pageProps }) {
           color: 'white',
           minHeight: '100vh',
           minWidth: 'calc(100vw - 10px)',
+          maxWidth:"100vw",
           alignItems: 'center',
           overflowY: 'scroll'
         }}
