@@ -59,3 +59,10 @@
     flex-direction: column;
     align-items: center;
   }
+
+  @media (max-width: 980px)  {
+    .linkButton{
+    width:62px;
+      margin-left: 10px;
+  }
+  }
