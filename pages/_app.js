@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
 
 
     const handleResize = () => {
-    const hasVerticalScrollbar = window.visualViewport.width < document.body.clientWidth;
+    const hasVerticalScrollbar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
     setHasScrollbar(hasVerticalScrollbar);
   }
     handleResize();
