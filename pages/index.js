@@ -8,12 +8,6 @@ import styles from "../styles/appStyle.module.css";
 const HomePage = ({products}) => {
   return ( <>
      
-
-    <div className={styles.content} style={{backgroundColor:'red'}}>
-      <p>Yoyo</p>
-
-    </div>
-
      <div className={styles.heroImageDiv}></div>
                 <div className={styles.heroWindow}>
                   <button className={styles.linkButton +' '+ styles.linkButtonFirst}>Shop Now</button>
