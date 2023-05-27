@@ -1,23 +1,28 @@
 import React from "react";
-import  Link  from "next/link";
-import styles from './footer.module.css'
+import Link from "next/link";
+import styles from './footer.module.css';
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerLinks}>
-      <Link href="/" className={styles.footerLink}>Home</Link>
+        <Link href="/" className={styles.footerLink}>Home</Link>
         <Link href="/products" className={styles.footerLink}>Shop</Link>
         <Link href="/trackorder" className={styles.footerLink}>Track order</Link>
         <Link href="/faq" className={styles.footerLink}>FAQ</Link>
         <Link href="/aboutus" className={styles.footerLink}>About Us</Link>
-        <Link href="/contactus" className={styles.footerLink}>Contact Us</Link>   
+        <Link href="/contactus" className={styles.footerLink}>Contact Us</Link>
         <Link href="/privacypolicy" className={styles.footerLink}>Privacy Policy</Link>
         <Link href="/shippingpolicy" className={styles.footerLink}>Shipping Policy</Link>
+      </div>
+      <div className={styles.footerCreditCards}>
+        <img src="/gray-credit-card-1.png" alt="Credit Card" className={styles.creditCard} />
+        <img src="/gray-credit-card-2.png" alt="Credit Card" className={styles.creditCard} />
+        <img src="/gray-credit-card-3.png" alt="Credit Card" className={styles.creditCard} />
+        <img src="/gray-credit-card-4.png" alt="Credit Card" className={styles.creditCard} />
+        <img src="/gray-credit-card-5.png" alt="Credit Card" className={styles.creditCard} />
       </div>
     </footer>
   );
 }
-
-
 
