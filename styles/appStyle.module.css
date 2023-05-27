@@ -16,7 +16,7 @@
 
   .heroImageDiv{
     z-index:1;
-    background-image: url('../public/images/gamerwp.png');
+    background: red;
 
          position:fixed;
          min-height:100vh;
