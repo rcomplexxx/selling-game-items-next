@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar.jsx";
 import AppContext from '@/contexts/AppContext';
 import Footer from '@/components/Footer/Footer';
+import { useRouter } from 'next/router';
 // import { commerce } from "./lib/commerce";
 
 export default function App({ Component, pageProps }) {
@@ -11,21 +12,19 @@ export default function App({ Component, pageProps }) {
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const [hasScrollbar, setHasScrollbar] = useState(false);
 
+
+  
+
   useEffect(() => {
+   
+   
+      const hasVerticalScrollbar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
+      setHasScrollbar(hasVerticalScrollbar);
+  
 
 
-    const handleResize = () => {
-    const hasVerticalScrollbar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
-    setHasScrollbar(hasVerticalScrollbar);
-  }
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  
+  }, [router.pathname]);
 
   return (
     <>
