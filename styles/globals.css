@@ -19,25 +19,6 @@ a{
 
 
 
-::-webkit-scrollbar {
-  background-color: #1a1a1a;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background-color: #1a1a1a;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background-color: #606060;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #808080;
-}
-
 
 :root {
   --blue-1: #c0b5db;
