@@ -25,6 +25,7 @@
          height:100vh;
          z-index:2;
          overflow: hidden;
+         border: red solid 4px;
         
   
   }
