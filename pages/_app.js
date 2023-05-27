@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
   const router=useRouter();
 
   useEffect(() => {
-    const hasVerticalScrollbar = window.innerWidth > document.documentElement.clientWidth;
+    const hasVerticalScrollbar = window.visualViewport.width < document.body.clientWidth;
     setHasScrollbar(hasVerticalScrollbar);
   }, [router.pathname]);
 
