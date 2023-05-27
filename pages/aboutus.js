@@ -6,7 +6,7 @@ export default function AboutUs(){
 
  
 
-return <div className="centered"><PolicyCard smallContent={true}>
+return <div className="centered"><PolicyCard homeCard={true} smallContent={true}>
     
     <h1>About us</h1>
 
