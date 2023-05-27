@@ -31,8 +31,7 @@ export default function App({ Component, pageProps }) {
       <div
         id="hronika"
         style={{
-          width: '100%',
-          marginRight: hasScrollbar ? '10px' : '0',
+          width: hasScrollbar ? 'calc(100% - 10px)' : '100%',
           height: 'fit-content',
           display: 'flex',
           flexDirection: 'column',
