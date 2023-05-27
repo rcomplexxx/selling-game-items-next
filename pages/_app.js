@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }) {
       <div
         id="hronika"
         style={{
-          width: hasScrollbar ? '100%' : '100%',
+          width: hasScrollbar ? 'calc(100% - 10px)' : '100%',
           height: 'fit-content',
           display: 'flex',
           flexDirection: 'column',
@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }) {
           minHeight: '100vh',
           minWidth: 'calc(100vw - 10px)',
           alignItems: 'center',
-          overflowY: 'auto'
+          overflowY: 'overlay'
         }}
       >
         <Navbar
