@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const [hasScrollbar, setHasScrollbar] = useState(false);
 
-
+  const router=useRouter();
   
 
   useEffect(() => {
