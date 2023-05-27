@@ -10,6 +10,8 @@ box-sizing: border-box;
 }
 
 .policy-main-div{
+    margin:auto;
+
   height: max-content;
     color:var(--yellow-white);
     background-color:var(--gray-9-elegant);
