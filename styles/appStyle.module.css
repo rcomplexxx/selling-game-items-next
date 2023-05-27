@@ -16,10 +16,12 @@
 
   .heroImageDiv{
     z-index:1;
+    display:flex; 
     background-image: url('../public/images/gamerwp.png');
 
          position:fixed;
          min-height:100vh;
+         height:100vh;
           width:100%;
          background-size: cover;
   max-width: 100vw;
@@ -28,7 +30,7 @@
   .heroWindow{
     z-index:2;
     display:flex;  
-    background-color:blue;
+    background-color:transparent;
     height:calc(100vh - 128px);
     width:100% ; 
     border-bottom:1px #2e2e31 solid;
