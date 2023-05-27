@@ -9,6 +9,7 @@ const HomePage = ({products}) => {
   return ( <>
      
      <div className={styles.heroImageDiv}></div>
+     <div className={styles.heroImage}></div>
                 <div className={styles.heroWindow}>
                   <button className={styles.linkButton +' '+ styles.linkButtonFirst}>Shop Now</button>
                   <button className={styles.linkButton}>New Items</button>
