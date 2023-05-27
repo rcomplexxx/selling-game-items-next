@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
       const hasVerticalScrollbar =  window.visualViewport.width < document.body.clientWidth;
       setHasScrollbar(hasVerticalScrollbar);
   
-
+    console.log(hasScrollbar);
 
   
   }, [router.pathname]);
