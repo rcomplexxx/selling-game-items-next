@@ -13,7 +13,7 @@ export function PolicyMiniCard(props){
 export default function PolicyCard(props){
 
     return <div className={props.smallContent?styles['policy-background-div']+  styles.bigBackDiv:styles['policy-background-div']}
-  > <PolicyMiniCard hoomeCard={peops.homeCard}>{props.children}</PolicyMiniCard>
+  > <PolicyMiniCard hoomeCard={props.homeCard}>{props.children}</PolicyMiniCard>
   
     </div>
 
