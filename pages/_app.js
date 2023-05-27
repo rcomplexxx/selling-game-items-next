@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
    
    
-      const hasVerticalScrollbar = document.documentElement.scrollHeight > document.documentElement.clientHeight;
+      const hasVerticalScrollbar =  window.visualViewport.width < document.body.clientWidth;
       setHasScrollbar(hasVerticalScrollbar);
   
 
@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }) {
       <div
         id="hronika"
         style={{
-          width: '100%',
+          width: hasVerticalScrollbar?'calc(100% - 10px)':'100%',
           height: 'fit-content',
           display: 'flex',
           flexDirection: 'column',
