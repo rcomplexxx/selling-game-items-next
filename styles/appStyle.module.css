@@ -53,7 +53,7 @@
 
   .content {
     width:100%;
-    flex-grow: 1;
+   
     background-color: var(--gray-9-elegant);
     z-index: 2;
     display: flex ;
