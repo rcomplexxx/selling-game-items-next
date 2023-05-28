@@ -60,7 +60,7 @@ export default function HomeReviews() {
             />
           ))
         ) : (
-          <div style={{width:"100%",display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
+          <div style={{width:"100%",display:"flex", flexDirection:"row", justifyContent:"space-around", alignItems:"center"}}>
           <button style={{height:"30px",backgroundColor:"transparent", border:"none"}}>Left</button>
           <Review
             title={reviews[currentReview].title}
@@ -68,7 +68,7 @@ export default function HomeReviews() {
               display: "flex",
             }}
           />
-<button>Right</button>
+<button style={{height:"30px",backgroundColor:"transparent", border:"none"}}>Right</button>
     </div>
         )}
       </div>
