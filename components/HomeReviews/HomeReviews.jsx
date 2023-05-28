@@ -61,7 +61,7 @@ export default function HomeReviews() {
           ))
         ) : (
           <div style={{width:"100%",display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
-          <button>Left</button>
+          <button style={{height:"30px",backgroundColor:"transparent", border:"none"}}>Left</button>
           <Review
             title={reviews[currentReview].title}
             style={{
