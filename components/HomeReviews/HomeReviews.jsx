@@ -60,15 +60,22 @@ export default function HomeReviews() {
             />
           ))
         ) : (
-          <Review
-            title={reviews[currentReview].title}
-            style={{
-              display: "flex",
-            }}
-          />
+          <>
+            <button className={`${styles.arrow} ${styles.left}`} onClick={prevReview}>
+              &lt;
+            </button>
+            <Review
+              title={reviews[currentReview].title}
+              style={{
+                display: "flex",
+              }}
+            />
+            <button className={`${styles.arrow} ${styles.right}`} onClick={nextReview}>
+              &gt;
+            </button>
+          </>
         )}
       </div>
-     
     </>
   );
 }
