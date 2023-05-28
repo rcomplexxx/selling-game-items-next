@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { RatingStar } from 'rating-star';
 import styles from './homeReviews.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const reviews = [
   { id: 1, title: "Thanks GameSmoke Gear1" },
@@ -61,15 +63,19 @@ export default function HomeReviews() {
           ))
         ) : (
           <div style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
-          <button style={{ height: "30px", width: "30px", borderRadius: "50%", backgroundColor: "rgba(128, 128, 128, 0.5)", border: "none" }}>Left</button>
-          <Review
-            title={reviews[currentReview].title}
-            style={{
-              display: "flex",
-            }}
-          />
-          <button style={{ height: "30px", width: "30px", borderRadius: "50%", backgroundColor: "rgba(128, 128, 128, 0.5)", border: "none" }}>Right</button>
-        </div>
+  <button style={{ height: "30px", width: "30px", borderRadius: "50%", backgroundColor: "rgba(128, 128, 128, 0.5)", border: "none" }}>
+    <FontAwesomeIcon icon={faArrowLeft} />
+  </button>
+  <Review
+    title={reviews[currentReview].title}
+    style={{
+      display: "flex",
+    }}
+  />
+  <button style={{ height: "30px", width: "30px", borderRadius: "50%", backgroundColor: "rgba(128, 128, 128, 0.5)", border: "none" }}>
+    <FontAwesomeIcon icon={faArrowRight} />
+  </button>
+</div>
         )}
       </div>
      
