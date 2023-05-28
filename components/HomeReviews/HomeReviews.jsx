@@ -48,7 +48,7 @@ export default function HomeReviews() {
   return (
     <>
       <h2 className={styles.title}>WHAT OUR CUSTOMERS HAVE TO SAY</h2>
-      <div className={styles.mainDiv}>
+      <div className={windowWidth > 1080?styles.mainDiv:styles.mainDiv +' '+styles.SSMainDiv}>
         {windowWidth > 1080 ? (
           reviews.map((review, index) => (
             <Review

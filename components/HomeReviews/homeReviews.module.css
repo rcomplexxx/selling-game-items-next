@@ -28,6 +28,10 @@
     justify-content: space-between;
     width: 60vw;
   }
+
+  .SSMainDiv{
+    width: 90%;
+  }
   
   .arrow {
     position: absolute;
