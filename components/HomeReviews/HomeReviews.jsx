@@ -60,16 +60,16 @@ export default function HomeReviews() {
             />
           ))
         ) : (
-          <div style={{width:"100%",display:"flex", flexDirection:"row", justifyContent:"space-around", alignItems:"center"}}>
-          <button style={{height:"30px",backgroundColor:"transparent", border:"none"}}>Left</button>
+          <div style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
+          <button style={{ height: "30px", width: "30px", borderRadius: "50%", backgroundColor: "rgba(128, 128, 128, 0.5)", border: "none" }}>Left</button>
           <Review
             title={reviews[currentReview].title}
             style={{
               display: "flex",
             }}
           />
-<button style={{height:"30px",backgroundColor:"transparent", border:"none"}}>Right</button>
-    </div>
+          <button style={{ height: "30px", width: "30px", borderRadius: "50%", backgroundColor: "rgba(128, 128, 128, 0.5)", border: "none" }}>Right</button>
+        </div>
         )}
       </div>
      
