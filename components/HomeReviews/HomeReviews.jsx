@@ -60,7 +60,7 @@ export default function HomeReviews() {
             />
           ))
         ) : (
-          <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
+          <div style={{width:"100%",display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
           <button>Left</button>
           <Review
             title={reviews[currentReview].title}
