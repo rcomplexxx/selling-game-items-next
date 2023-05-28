@@ -16,7 +16,7 @@ function Review({ title, style }) {
       <h1 className={styles.reviewTitle}>{title}</h1>
       <RatingStar maxScore={5} id="123" rating={5} />
       <p>
-        I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and 3 hoes sucked my cock! Love it!
+        I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!
       </p>
       <h4>- Monika W.</h4>
     </div>
