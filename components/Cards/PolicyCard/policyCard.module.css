@@ -1,7 +1,7 @@
 
 .policy-background-div{
 width:100%;
-height:100%;
+height:max-content;
 min-height:calc(100vh - 131px);
 background-color:var(--gray-8);
 display:flex;
