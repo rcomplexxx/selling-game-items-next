@@ -40,7 +40,7 @@ const NavBar = ({ totalItems }) => {
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       id="primary-search-account-menu-mobile"
       keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -48,14 +48,24 @@ const NavBar = ({ totalItems }) => {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <Link href="/cart">
-          <IconButton aria-label="Show cart items" color="inherit">
-            <Badge badgeContent={totalItems} color="secondary" overlap="rectangular">
-              <ShoppingCart />
-            </Badge>
-          </IconButton>
+        <Link href="/">
+          <Typography variant="body1">Home</Typography>
         </Link>
-        <Typography variant="body1">Cart</Typography>
+      </MenuItem>
+      <MenuItem>
+        <Link href="/products">
+          <Typography variant="body1">Shop</Typography>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link href="/aboutus">
+          <Typography variant="body1">About</Typography>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link href="/contactus">
+          <Typography variant="body1">Contact us</Typography>
+        </Link>
       </MenuItem>
     </Menu>
   );
@@ -81,35 +91,6 @@ const NavBar = ({ totalItems }) => {
               >
                 <MenuIcon />
               </IconButton>
-            )}
-
-            {isMenuOpen && windowWidth < 980 && (
-              <>
-                <Link
-                  href="/"
-                  className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}
-                >
-                  Home
-                </Link>
-                <Link
-                  href="/products"
-                  className={`${classes.linkStyle} ${pathname === '/shop' ? classes.currentLink : ''}`}
-                >
-                  Shop
-                </Link>
-                <Link
-                  href="/aboutus"
-                  className={`${classes.linkStyle} ${pathname === '/about-us' ? classes.currentLink : ''}`}
-                >
-                  About
-                </Link>
-                <Link
-                  href="/contactus"
-                  className={`${classes.linkStyle} ${pathname === '/contact-us' ? classes.currentLink : ''}`}
-                  >
-                    Contact us
-                    </Link>
-              </>
             )}
           </div>
 
