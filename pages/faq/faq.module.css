@@ -36,7 +36,8 @@
   margin: 0;
   transform: rotateY(0deg) rotate(0deg);
   transform-origin: center;
-  transition: transform 0.2s;
+  transition: transform 0.2s;align-self: start;
+  background-color: gray;
 }
 
 .plusStyleRotate {
