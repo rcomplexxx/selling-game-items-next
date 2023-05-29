@@ -12,7 +12,7 @@ function Question(props){
     }
 
     return <><button className={styles.question_div} onClick={summonAnswer}>{props.question}<span>{!showAnswer? '＋':'➖'}</span></button>
-    <p className={showAnswer?styles["emerge.show"]:styles.emerge}>{props.answer}</p></>
+    <p className={`${showAnswer ? styles["emerge.show"] : styles.emerge}`}>{props.answer}</p></>
 }
 
 
