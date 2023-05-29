@@ -82,7 +82,7 @@ const NavBar = ({ totalItems }) => {
           </Link>
 
           <div className={classes.grow}>
-            {windowWidth < 980 && (
+            {windowWidth < 980 ? (
               <IconButton
                 className={classes.menuButton}
                 onClick={handleMobileMenuOpen}
@@ -91,7 +91,32 @@ const NavBar = ({ totalItems }) => {
               >
                 <MenuIcon />
               </IconButton>
-            )}
+            ): <>
+            <Link
+              href="/"
+              className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}
+            >
+              Home
+            </Link>
+            <Link
+              href="/products"
+              className={`${classes.linkStyle} ${pathname === '/shop' ? classes.currentLink : ''}`}
+            >
+              Shop
+            </Link>
+            <Link
+              href="/aboutus"
+              className={`${classes.linkStyle} ${pathname === '/about-us' ? classes.currentLink : ''}`}
+            >
+              About
+            </Link>
+            <Link
+              href="/contactus"
+              className={`${classes.linkStyle} ${pathname === '/contact-us' ? classes.currentLink : ''}`}
+              >
+                Contact us
+                </Link>
+          </>}
           </div>
 
           <div className={classes.button}>
