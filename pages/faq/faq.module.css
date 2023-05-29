@@ -45,14 +45,14 @@
 .emerge {
   margin: 0;
   margin-left: 5px;
-  max-height: 0;
+  height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: height 0.5s ease;
 }
 
 .emerge.show {
   margin-top: 20px;
   margin-bottom: 20px;
-  max-height: max-content;
-  transition: max-height 0.5s ease;
+  height: auto;
+  transition: height 0.5s ease;
 }
