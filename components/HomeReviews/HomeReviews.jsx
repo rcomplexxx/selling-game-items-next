@@ -63,7 +63,7 @@ export default function HomeReviews() {
             />
           ))
         ) : (
-          <div style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
+          <>
   <button className={styles.arrow} onClick={prevReview}>
     <FontAwesomeIcon icon={faArrowLeft} />
   </button>
@@ -76,7 +76,7 @@ export default function HomeReviews() {
   <button className={styles.arrow} onClick={nextReview}>
     <FontAwesomeIcon icon={faArrowRight} />
   </button>
-</div>
+</>
         )}
       </div>
      
