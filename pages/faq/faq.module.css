@@ -49,14 +49,12 @@
   overflow: hidden;
   transform-origin: top;
   transition: transform 0.5s ease;
-  transform: scaleY(0);
 }
 
 .emerge.show {
   margin-top: 20px;
   margin-bottom: 20px;
-  max-height: max-content;
-  transform: scaleY(1);
+  max-height: 30px;
 }
 
 
