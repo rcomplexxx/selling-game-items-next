@@ -32,7 +32,6 @@
 .plusStyle {
   padding:0;
   margin: 0;
-  margin-right: 5px;
   transform: rotateY(0deg) rotate(0deg);
   transform-origin: center;
   transition: transform 0.2s;align-self: start;
