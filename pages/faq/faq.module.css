@@ -47,16 +47,22 @@
   margin-left: 5px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  transform: scaleY(0);
 }
 
 .emerge.show {
   margin-top: 20px;
   margin-bottom: 20px;
-  max-height: none;
-  height: auto;
-  transition: max-height 0.5s ease, height 0.5s ease;
+  max-height: max-content;
+  transform: scaleY(1);
 }
+
+
+
+
+
 
 
 
