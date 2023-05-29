@@ -71,7 +71,7 @@
     }
   }
 
-  @media screen and (min-width: 1680px) {
+  @media screen and (min-width: 1420px) {
     .mainDiv {
       width: 60vw;
     }
