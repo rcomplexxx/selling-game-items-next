@@ -31,7 +31,7 @@
 
 .plusStyle {
   transform: rotateY(0deg) rotate(0deg);
-  transition: transform 2s;
+  transition: transform 0.2s;
 }
 
 .plusStyleRotate {
@@ -53,6 +53,11 @@
 .emerge.show {
   margin-top: 20px;
   margin-bottom: 20px;
-  max-height: auto;
-  transition: max-height 0.5s ease;
+  max-height: none;
+  height: auto;
+  transition: max-height 0.5s ease, height 0.5s ease;
 }
+
+
+
+
