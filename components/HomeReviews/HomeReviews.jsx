@@ -63,8 +63,7 @@ export default function HomeReviews() {
           ))
         ) : (
           <div style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
-  <button style={{ height: "40px", width: "40px", borderRadius: "50%", backgroundColor: "rgba(128, 128, 128, 0.5)", border: "none" }}
-  onClick={prevReview}>
+  <button className={styles.arrow} onClick={prevReview}>
     <FontAwesomeIcon icon={faArrowLeft} />
   </button>
   <Review
@@ -73,8 +72,7 @@ export default function HomeReviews() {
       display: "flex",
     }}
   />
-  <button style={{ height: "40px", width: "40px", borderRadius: "50%", backgroundColor: "rgba(128, 128, 128, 0.5)", border: "none" }}
-  onClick={nextReview}>
+  <button className={styles.arrow} onClick={nextReview}>
     <FontAwesomeIcon icon={faArrowRight} />
   </button>
 </div>

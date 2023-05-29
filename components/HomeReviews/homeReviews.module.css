@@ -34,32 +34,17 @@
   }
   
   .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    color: black;
-    font-size: 24px;
-    width: 40px;
     height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    width: 40px; 
+    border-radius: 50%; 
+    background-color: rgba(128, 128, 128, 0.5); 
+    border: none; 
+    cursor:pointer;
   }
   
-  .arrow:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-  }
+
   
-  .left {
-    left: 10px;
-  }
-  
-  .right {
-    right: 10px;
-  }
+ 
   
   @media screen and (max-width: 1080px) {
     .mainDiv {
