@@ -27,6 +27,7 @@
     flex-direction: row;
     justify-content: space-between;
     width: 60vw;
+    background-color: gray;
   }
 
   .SSMainDiv{
