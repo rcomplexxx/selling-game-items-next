@@ -58,7 +58,7 @@ export default function HomeReviews() {
               title={review.title}
               style={{
                 display: "flex" ,
-                width: '25%'
+                width: '30%'
               }}
             />
           ))
