@@ -71,7 +71,7 @@
     }
   }
 
-  @media screen and (min-width: 1081px) {
+  @media screen and (min-width: 1280px) {
     .mainDiv {
       width: 80vw;
     }
@@ -85,7 +85,7 @@
 
   @media screen and (min-width: 1620px) {
     .mainDiv {
-      width: 80vw;
+      width: 60vw;
     }
   }
   
