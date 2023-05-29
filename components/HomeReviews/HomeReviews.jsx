@@ -57,7 +57,8 @@ export default function HomeReviews() {
               key={review.id}
               title={review.title}
               style={{
-                display: "flex" 
+                display: "flex" ,
+                width: '25%'
               }}
             />
           ))
