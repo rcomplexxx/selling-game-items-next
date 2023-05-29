@@ -30,8 +30,8 @@
 }
 
 .plusStyle {
-  background-color: gray;
   padding:0;
+  padding-right: 100%;
   margin: 0;
   transform: rotateY(0deg) rotate(0deg);
   transform-origin: center;
