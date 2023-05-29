@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
-  const [hasScrollbar, setHasScrollbar] = useState(false);
+  const [hasScrollbar, setHasScrollbar] = useState(true);
 
   const router=useRouter();
   console.log(hasScrollbar);
