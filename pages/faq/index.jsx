@@ -15,7 +15,7 @@ function Question(props){
     <button className={styles.question_div} onClick={summonAnswer}>
       {props.question}
       <span className={`${styles.plusStyle} ${showAnswer ? styles.plusStyleRotate : ""}`}>
-        ＋
+        +
       </span>
     </button>
     <p className={`${styles.emerge} ${showAnswer ? styles.show : ""}`}>{props.answer}</p>
@@ -69,7 +69,7 @@ export default function Faq(){
 <p>Here are a few of the frequently asked questions. To provide you with the best customer experience, your feedback is greatly encouraged. If you have any questions please send us an email at: support@petboutique.co.</p>
 
 <div style={{width:"100%", display:"flex", justifyContent:"center"}}>
-    <div  style={{display:"flex", flexDirection:"column", color:'white',  width:"40vw", marginTop:"76px",overflow: 'hidden'}} >
+    <div  style={{display:"flex", flexDirection:"column", color:'white',  width:"40vw", marginTop:"76px"}} >
        { questionData.map((q,i)=>{return <Question key={i} question={q.question} answer={q.answer}></Question> }) }
         </div></div>
 </div></div>
