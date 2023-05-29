@@ -47,7 +47,7 @@
     .emerge  {
         margin: 0;
         margin-left:5px;
-      max-height: 0;
+      height: 0;
       overflow: hidden;
       transition: all 0.5s ease;
     }
@@ -56,7 +56,6 @@
         margin-top:20px;
         margin-bottom: 20px;
       height: auto;
-      max-height: 999px;
       transition: all 0.5s ease;
     }
     
