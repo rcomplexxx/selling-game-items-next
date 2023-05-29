@@ -11,8 +11,15 @@ function Question(props){
         setShowAnswer(!showAnswer)
     }
 
-    return <><button className={styles.question_div} onClick={summonAnswer}>{props.question}<span>{!showAnswer? '＋':'➖'}</span></button>
-    <p className={`${showAnswer ? styles["emerge.show"] : styles.emerge}`}>{props.answer}</p></>
+    return   <>
+    <button className={styles.question_div} onClick={summonAnswer}>
+      {props.question}
+      <span className={`${styles.plusStyle} ${showAnswer ? styles.plusStyleRotate : ""}`}>
+        {!showAnswer ? "＋" : "➖"}
+      </span>
+    </button>
+    <p className={`${styles.emerge} ${showAnswer ? styles.show : ""}`}>{props.answer}</p>
+  </>
 }
 
 

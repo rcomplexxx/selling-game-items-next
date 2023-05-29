@@ -1,63 +1,58 @@
+.question_div {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  color: white;
+  margin-left: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #b1b1b1;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+}
 
-.question_div{
-    background-color: transparent;
-     border:none;
-      text-align:left;
-      color:white;
-      margin-left: 0;
-      padding-left: 5px;
-      padding-right: 5px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      border-top: 1px solid #b1b1b1;
-      display: flex;
-      justify-content: space-between;
-      font-size: 20px;
-      font-weight: bold;
-    
-    }
-    
-    .coverDiv{
-      display: flex;
-       flex-direction:column;
-        align-items:center ;
-        
-    }
-    
-    .mainDiv{color:white;
-      width:49vw;
-       margin-top:20px;
-       flex-direction:column;
-       align-items:center ;}
-    
-    .plusStyle{
-      transform: rotateY(0deg) rotate(0deg);
-      transition: transform 2s;
-    }
-    
-    .plusStyleRotate{
-      transform: rotateY(0deg) rotate(45deg);
-    }
-    
-    .question-div:hover{
-        cursor: pointer;
-    }
-    
-    
-    .emerge  {
-        margin: 0;
-        margin-left:5px;
-      height: 0;
-      overflow: hidden;
-      transition: all 0.5s ease;
-    }
-    
-    .emerge.show {
-        margin-top:20px;
-        margin-bottom: 20px;
-      height: auto;
-      transition: all 0.5s ease;
-    }
-    
-    
-    
+.coverDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainDiv {
+  color: white;
+  width: 49vw;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plusStyle {
+  transform: rotateY(0deg) rotate(0deg);
+  transition: transform 2s;
+}
+
+.plusStyleRotate {
+  transform: rotateY(0deg) rotate(45deg);
+}
+
+.question_div:hover {
+  cursor: pointer;
+}
+
+.emerge {
+  margin: 0;
+  margin-left: 5px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.emerge.show {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-height: 999px;
+  transition: max-height 0.5s ease;
+}
