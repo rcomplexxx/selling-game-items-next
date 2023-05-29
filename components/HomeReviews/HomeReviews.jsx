@@ -69,9 +69,7 @@ export default function HomeReviews() {
   </button>
   <Review
     title={reviews[currentReview].title}
-    style={{
-      display: "flex",
-    }}
+  
   />
   <button className={styles.arrow} onClick={nextReview}>
     <FontAwesomeIcon icon={faArrowRight} />
