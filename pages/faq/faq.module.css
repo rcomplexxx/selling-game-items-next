@@ -31,13 +31,11 @@
 
 .plusStyle {
   padding:0;
-  height: max-content;
-  aspect-ratio: 1/1;
   margin: 0;
+  margin-right: 5px;
   transform: rotateY(0deg) rotate(0deg);
   transform-origin: center;
   transition: transform 0.2s;align-self: start;
-  background-color: gray;
 }
 
 .plusStyleRotate {
