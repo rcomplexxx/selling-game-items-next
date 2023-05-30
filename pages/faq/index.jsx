@@ -67,12 +67,12 @@ export default function Faq(){
 
     return <div className={styles.coverDiv}> <div  className={styles.mainDiv}><h1>FAQ</h1>
 <p>Here are a few of the frequently asked questions. To provide you with the best customer experience, your feedback is greatly encouraged. If you have any questions please send us an email at: support@petboutique.co.</p>
+</div>
 
-<div style={{width:"100%", display:"flex", justifyContent:"center"}}>
     <div  style={{display:"flex", flexDirection:"column", color:'white',  width:"50vw", marginTop:"76px"}} >
        { questionData.map((q,i)=>{return <Question key={i} question={q.question} answer={q.answer}></Question> }) }
-        </div></div>
-</div></div>
+        </div>
+</div>
 
 
 
