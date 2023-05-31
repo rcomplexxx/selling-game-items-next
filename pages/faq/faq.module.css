@@ -75,29 +75,3 @@
     width: 90vw;
   }
 }
-
-@media screen and (min-width: 1280px) {
-  .questions_div{
-    width:70vw;
-  }
-}
-
-@media screen and (min-width: 1420px) {
-  .questions_div {
-    width: 60vw;
-  }
-}
-
-@media screen and (min-width: 1620px) {
-  .questions_div {
-    width: 50vw;
-  }
-}
-
-
-
-
-
-
-
-
