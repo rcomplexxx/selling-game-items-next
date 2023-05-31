@@ -70,6 +70,30 @@
 }
 
 
+@media screen and (max-width: 1080px) {
+  .questions_div{
+    width: 90vw;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .questions_div{
+    width:70vw;
+  }
+}
+
+@media screen and (min-width: 1420px) {
+  .mainDiv {
+    width: 60vw;
+  }
+}
+
+@media screen and (min-width: 1620px) {
+  .mainDiv {
+    width: 50vw;
+  }
+}
+
 
 
 
