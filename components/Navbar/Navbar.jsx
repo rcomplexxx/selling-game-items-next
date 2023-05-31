@@ -82,9 +82,9 @@ const NavBar = ({ totalItems }) => {
           </Link>
 }
 
-          <div className={classes.grow}>
+          
             {windowWidth < 980 ? (
-              <>
+              <div className={classes.growAlt}>
               <IconButton
                 className={classes.menuButton}
                 onClick={handleMobileMenuOpen}
@@ -99,9 +99,9 @@ const NavBar = ({ totalItems }) => {
                    GameSmoke Gear
                  </Typography>
                </Link>
-               </>
+               </div>
      
-            ): <>
+            ): <div className={classes.grow}>
             <Link
               href="/"
               className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}
@@ -126,9 +126,9 @@ const NavBar = ({ totalItems }) => {
               >
                 Contact us
                 </Link>
-          </>}
-          </div>
-
+                </div>
+      }
+         
           <div className={classes.button}>
             <Link href="/cart">
               <IconButton className={classes.cartStyle} aria-label="Show cart items" color="inherit">
