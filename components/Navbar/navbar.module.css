@@ -51,6 +51,13 @@
   .image {
     margin-right: 10px;
   }
+
+  .growAlt {
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
   
   .grow {
     width: 60%;
