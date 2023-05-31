@@ -74,15 +74,17 @@ const NavBar = ({ totalItems }) => {
     <>
       <nav className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
-          <Link href="/">
+        {windowWidth > 980 && <Link href="/">
             <Typography variant="h6" className={classes.title} color="inherit">
               <img src="/images/commerce.png" alt="Game Smoke Gear" height="25px" className={classes.image} />
               GameSmoke Gear
             </Typography>
           </Link>
+}
 
           <div className={classes.grow}>
             {windowWidth < 980 ? (
+              <>
               <IconButton
                 className={classes.menuButton}
                 onClick={handleMobileMenuOpen}
@@ -91,6 +93,14 @@ const NavBar = ({ totalItems }) => {
               >
                 <MenuIcon />
               </IconButton>
+                <Link href="/">
+                 <Typography variant="h6" className={classes.title} color="inherit">
+                   <img src="/images/commerce.png" alt="Game Smoke Gear" height="25px" className={classes.image} />
+                   GameSmoke Gear
+                 </Typography>
+               </Link>
+               </>
+     
             ): <>
             <Link
               href="/"
