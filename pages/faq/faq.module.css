@@ -76,6 +76,16 @@
   }
 
   .mainDiv{
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .questions_div{
+    width: 90vw;
+  }
+
+  .mainDiv{
     width: 90vw;
   }
 }
