@@ -83,13 +83,13 @@
 }
 
 @media screen and (min-width: 1420px) {
-  .mainDiv {
+  .questions_div {
     width: 60vw;
   }
 }
 
 @media screen and (min-width: 1620px) {
-  .mainDiv {
+  .questions_div {
     width: 50vw;
   }
 }
