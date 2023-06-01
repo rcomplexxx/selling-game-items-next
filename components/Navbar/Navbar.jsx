@@ -34,7 +34,7 @@ const NavBar = ({ totalItems }) => {
     };
   }, []);
 
-  const renderMobileMenu = ( sMenuOpen && <div className={classes.mobileMenu} onClick={handleMobileMenuClose}>
+  const renderMobileMenu = ( isMenuOpen && <div className={classes.mobileMenu} onClick={handleMobileMenuClose}>
    
     <div className={classes.mainMenuCard}>
       <MenuItem>
