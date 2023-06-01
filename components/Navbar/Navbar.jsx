@@ -38,10 +38,7 @@ const NavBar = ({ totalItems }) => {
   }, []);
 
   const renderMobileMenu = (
-
-<div id="overlay" class="overlay">
-  <div id="menu" class="menu">
-  <Menu
+    <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       id="primary-search-account-menu-mobile"
@@ -71,11 +68,6 @@ const NavBar = ({ totalItems }) => {
         </Link>
       </MenuItem>
     </Menu>
-    <button id="closeButton" class="closeButton">Close</button>
-  </div>
-</div>
-
-   
   );
 
   return (
