@@ -93,7 +93,7 @@ const NavBar = ({ totalItems }) => {
               >
                 <MenuIcon />
               </IconButton>
-                <Link href="/" style={{marginLeft:"40px"}}>
+                <Link href="/" style={{marginLeft:"10px"}}>
                  <Typography variant="h6" className={classes.title} color="inherit">
                    <img src="/images/commerce.png" alt="Game Smoke Gear" height="25px" className={classes.image} />
                    GameSmoke Gear
