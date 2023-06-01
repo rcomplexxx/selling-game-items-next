@@ -37,23 +37,23 @@ const NavBar = ({ totalItems }) => {
   const renderMobileMenu = ( isMenuOpen && <div className={classes.mobileMenu} onClick={handleMobileMenuClose}>
    
     <div className={classes.mainMenuCard} onClick={(e) => e.stopPropagation()}>
-      <MenuItem  className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}>
-        <Link href="/">
+      <MenuItem>
+        <Link href="/" className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}>
           <Typography variant="body1">Home</Typography>
         </Link>
       </MenuItem>
-      <MenuItem className={`${classes.linkStyle} ${pathname === '/products' ? classes.currentLink : ''}`}>
-        <Link href="/products" >
+      <MenuItem>
+        <Link href="/products" className={`${classes.linkStyle} ${pathname === '/products' ? classes.currentLink : ''}`}>
           <Typography variant="body1">Products</Typography>
         </Link>
       </MenuItem>
-      <MenuItem className={`${classes.linkStyle} ${pathname === '/aboutus' ? classes.currentLink : ''}`}>
-        <Link href="/aboutus" >
+      <MenuItem>
+        <Link href="/aboutus" className={`${classes.linkStyle} ${pathname === '/aboutus' ? classes.currentLink : ''}`}>
           <Typography variant="body1">About</Typography>
         </Link>
       </MenuItem>
-      <MenuItem className={`${classes.linkStyle} ${pathname === '/contactus' ? classes.currentLink : ''}`}>
-        <Link href="/contactus" >
+      <MenuItem>
+        <Link href="/contactus" className={`${classes.linkStyle} ${pathname === '/contactus' ? classes.currentLink : ''}`}>
           <Typography variant="body1">Contact us</Typography>
         </Link>
       </MenuItem>
