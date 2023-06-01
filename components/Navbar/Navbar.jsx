@@ -7,22 +7,19 @@ import { useRouter } from 'next/router';
 import classes from './navbar.module.css';
 
 const NavBar = ({ totalItems }) => {
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
 
   const router = useRouter();
   const pathname = router.pathname;
 
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+ 
 
   const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
     setIsMenuOpen(true);
   };
 
   const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
     setIsMenuOpen(false);
   };
 
@@ -37,7 +34,7 @@ const NavBar = ({ totalItems }) => {
     };
   }, []);
 
-  const renderMobileMenu = ( <div className={classes.mobileMenu}>
+  const renderMobileMenu = ( sMenuOpen && <div className={classes.mobileMenu} onClick={handleMobileMenuClose}>
    
     <div className={classes.mainMenuCard}>
       <MenuItem>
