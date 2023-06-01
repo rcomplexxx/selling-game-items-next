@@ -37,16 +37,9 @@ const NavBar = ({ totalItems }) => {
     };
   }, []);
 
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-      id="primary-search-account-menu-mobile"
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
+  const renderMobileMenu = ( <div className={classes.mobileMenu}>
+    <div className={classes.backgroundCard}></div>
+    <div className={classes.mainMenuCard}>
       <MenuItem>
         <Link href="/">
           <Typography variant="body1">Home</Typography>
@@ -67,8 +60,9 @@ const NavBar = ({ totalItems }) => {
           <Typography variant="body1">Contact us</Typography>
         </Link>
       </MenuItem>
-    </Menu>
-  );
+    </div>
+  </div>
+);
 
   return (
     <>
