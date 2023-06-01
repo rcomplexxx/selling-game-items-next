@@ -38,22 +38,22 @@ const NavBar = ({ totalItems }) => {
    
     <div className={classes.mainMenuCard}>
       <MenuItem>
-        <Link href="/">
+        <Link href="/" className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}>
           <Typography variant="body1">Home</Typography>
         </Link>
       </MenuItem>
       <MenuItem>
-        <Link href="/products">
+        <Link href="/products" className={`${classes.linkStyle} ${pathname === '/shop' ? classes.currentLink : ''}`}>
           <Typography variant="body1">Shop</Typography>
         </Link>
       </MenuItem>
       <MenuItem>
-        <Link href="/aboutus">
+        <Link href="/aboutus" className={`${classes.linkStyle} ${pathname === '/aboutus' ? classes.currentLink : ''}`}>
           <Typography variant="body1">About</Typography>
         </Link>
       </MenuItem>
       <MenuItem>
-        <Link href="/contactus">
+        <Link href="/contactus" className={`${classes.linkStyle} ${pathname === '/contactus' ? classes.currentLink : ''}`}>
           <Typography variant="body1">Contact us</Typography>
         </Link>
       </MenuItem>
