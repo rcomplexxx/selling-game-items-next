@@ -79,7 +79,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.2);
     z-index: 1000;
     padding: 8px;
     justify-content: center;
@@ -94,7 +94,7 @@
     left: 0;
     height: fill;
     width:200px;
-    background-color: rgb(173, 173, 173);
+    background-color: rgb(75, 75, 75);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     padding: 2px;
