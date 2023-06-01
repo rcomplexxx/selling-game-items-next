@@ -38,7 +38,7 @@ const NavBar = ({ totalItems }) => {
   }, []);
 
   const renderMobileMenu = ( <div className={classes.mobileMenu}>
-    <div className={classes.backgroundCard}></div>
+   
     <div className={classes.mainMenuCard}>
       <MenuItem>
         <Link href="/">
