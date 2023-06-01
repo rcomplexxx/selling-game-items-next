@@ -3,6 +3,7 @@ import { Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@mui/mat
 import { ShoppingCart, Menu as MenuIcon } from '@mui/icons-material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import classNames from 'classnames';
 
 import classes from './navbar.module.css';
 
@@ -92,9 +93,9 @@ const NavBar = ({ totalItems }) => {
                 color="inherit"
               >
                 <MenuIcon />
-              </IconButton className={classes.logo}>
+              </IconButton>
                 <Link href="/">
-                 <Typography variant="h6" className={classes.title} color="inherit">
+                 <Typography variant="h6" className={classNames(classes.title)} color="inherit">
                    <img src="/images/commerce.png" alt="Game Smoke Gear" height="25px" className={classes.image} />
                    GameSmoke Gear
                  </Typography>
