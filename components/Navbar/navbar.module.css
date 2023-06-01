@@ -20,7 +20,7 @@
     align-items: center;
     display: flex;
     text-decoration: none;
-    margin-right: 10px;
+    margin-left: 10px;
     transition: transform 0.08s ease-in;
   }
   .logo{
