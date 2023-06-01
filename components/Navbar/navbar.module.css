@@ -20,8 +20,11 @@
     align-items: center;
     display: flex;
     text-decoration: none;
-    margin-left: 10px;
+    margin-right: 10px;
     transition: transform 0.08s ease-in;
+  }
+  .logo{
+    margin-left: 10px;
   }
   
   .title:hover {
