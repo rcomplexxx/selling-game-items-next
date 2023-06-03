@@ -20,8 +20,6 @@
   margin-top: 20px;
   margin-bottom: 40px;
   box-shadow: 0 -0.3px 4px 1px rgba(211, 211, 211, 0.2);
-  transform: translateX(0);
-  transition: transform 0.5s;
 }
 
 .mainDiv {
@@ -40,14 +38,6 @@
   cursor: pointer;
 }
 
-.slide-left {
-  transform: translateX(-100%);
-}
-
-.slide-right {
-  transform: translateX(100%);
-}
-
 @media screen and (max-width: 1080px) {
   .mainDiv {
     flex-direction: row;
@@ -55,15 +45,7 @@
     align-items: center;
   }
 
-  .arrowsContainer {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-
-  .arrowsContainer .arrow {
+  .arrow {
     width: 30px;
     height: 30px;
     font-size: 20px;

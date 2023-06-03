@@ -10,40 +10,13 @@ const reviews = [
   { id: 3, title: "Thanks GameSmoke Gear3" }
 ];
 
-function Review({ title, style, slideDirection }) {
-  const [animationClass, setAnimationClass] = useState("");
-
-  useEffect(() => {
-    if (slideDirection !== "") {
-      setAnimationClass(slideDirection);
-      setTimeout(() => {
-        setAnimationClass("");
-      }, 500);
-    }
-  }, [slideDirection]);
-
-  const getTranslateXValue = () => {
-    if (slideDirection === "slide-left") {
-      return "-100%";
-    } else if (slideDirection === "slide-right") {
-      return "100%";
-    } else {
-      return "0";
-    }
-  };
-
+function Review({ title, style }) {
   return (
-    <div
-      className={`${styles.reviewDiv} ${styles[animationClass]}`}
-      style={{
-        ...style,
-        transform: `translateX(${getTranslateXValue()})`
-      }}
-    >
+    <div className={styles.reviewDiv} style={style}>
       <h1 className={styles.reviewTitle}>{title}</h1>
       <RatingStar maxScore={5} id="123" rating={5} />
       <p>
-        I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night and had a perfect gaming night! Love it!
+        I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!
       </p>
       <h4>- Monika W.</h4>
     </div>
@@ -53,7 +26,6 @@ function Review({ title, style, slideDirection }) {
 export default function HomeReviews() {
   const [windowWidth, setWindowWidth] = useState(0);
   const [currentReview, setCurrentReview] = useState(0);
-  const [slideDirection, setSlideDirection] = useState("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -69,12 +41,10 @@ export default function HomeReviews() {
 
   const prevReview = () => {
     setCurrentReview((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
-    setSlideDirection("slide-right");
   };
 
   const nextReview = () => {
     setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
-    setSlideDirection("slide-left");
   };
 
   return (
@@ -87,8 +57,10 @@ export default function HomeReviews() {
               key={review.id}
               title={review.title}
               style={{
-                display: "flex",
-                width: '30%'
+                display: "flex" ,
+                width: '30%',
+                transform: index === currentReview ? 'translateX(0)' : 'translateX(-100vw)',
+                transition: 'transform 0.5s'
               }}
             />
           ))
@@ -99,7 +71,12 @@ export default function HomeReviews() {
             </button>
             <Review
               title={reviews[currentReview].title}
-              slideDirection={slideDirection}
+              style={{
+                display: "flex",
+                width: '30%',
+                transform: 'translateX(0)',
+                transition: 'transform 0.5s'
+              }}
             />
             <button className={styles.arrow} onClick={nextReview}>
               <FontAwesomeIcon icon={faArrowRight} />
