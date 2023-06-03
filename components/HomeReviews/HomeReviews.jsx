@@ -63,18 +63,9 @@ export default function HomeReviews() {
             />
           ))
         ) : (
-          <>
-  <button className={styles.arrow} onClick={prevReview}>
-    <FontAwesomeIcon icon={faArrowLeft} />
-  </button>
-  <Review
+          <Review
     title={reviews[currentReview].title}
-  
   />
-  <button className={styles.arrow} onClick={nextReview}>
-    <FontAwesomeIcon icon={faArrowRight} />
-  </button>
-</>
         )}
       </div>
      
