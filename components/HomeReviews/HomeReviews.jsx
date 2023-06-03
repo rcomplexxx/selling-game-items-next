@@ -12,7 +12,7 @@ const reviews = [
 
 function Review({ title, style }) {
   return (
-    <div className={styles.reviewDiv} style={style}>
+   <div className={`${styles.reviewDiv} ${styles[slideDirection]}`} style={style}>
       <h1 className={styles.reviewTitle}>{title}</h1>
       <RatingStar maxScore={5} id="123" rating={5} />
       <p>
@@ -41,11 +41,15 @@ export default function HomeReviews() {
 
   const prevReview = () => {
     setCurrentReview((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
+    setSlideDirection("slide-right");
   };
-
+  
   const nextReview = () => {
     setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
+    setSlideDirection("slide-left");
   };
+
+  const [slideDirection, setSlideDirection] = useState("");
 
   return (
     <>
