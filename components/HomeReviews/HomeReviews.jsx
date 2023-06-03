@@ -28,6 +28,7 @@ function Review({ title, style, slideDirection='' }) {
 export default function HomeReviews() {
   const [windowWidth, setWindowWidth] = useState(0);
   const [currentReview, setCurrentReview] = useState(0);
+  const [slideDirection ,setSlideDirection]= useState('');
 
   useEffect(() => {
     const handleResize = () => {
