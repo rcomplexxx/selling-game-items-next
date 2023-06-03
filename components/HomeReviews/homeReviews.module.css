@@ -43,10 +43,12 @@
   
   .slide-left {
     transform: translateX(-100%);
+    transition: transform 0.5s;
   }
   
   .slide-right {
     transform: translateX(100%);
+    transition: transform 0.5s;
   }
   
  

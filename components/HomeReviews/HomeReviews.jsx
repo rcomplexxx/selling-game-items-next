@@ -12,6 +12,15 @@ const reviews = [
 
 function Review({ title, style, slideDirection='' }) {
 
+  useEffect(() => {
+    if (slideDirection) {
+      setSlideAnimation(slideDirection);
+      setTimeout(() => {
+        setSlideAnimation("");
+      }, 500);
+    }
+  }, [slideDirection]);
+
   
   return (
    <div className={`${styles.reviewDiv} ${styles[slideDirection]}`} style={style}>
