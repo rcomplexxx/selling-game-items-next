@@ -10,9 +10,9 @@ const reviews = [
   { id: 3, title: "Thanks GameSmoke Gear3" }
 ];
 
-function Review({ title, style }) {
+function Review({ title, style, slideDirection='' }) {
 
-  const [slideDirection, setSlideDirection] = useState("");
+  
   return (
    <div className={`${styles.reviewDiv} ${styles[slideDirection]}`} style={style}>
       <h1 className={styles.reviewTitle}>{title}</h1>
@@ -41,15 +41,15 @@ export default function HomeReviews() {
     };
   }, []);
 
-  // const prevReview = () => {
-  //   setCurrentReview((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
-  //   setSlideDirection("slide-right");
-  // };
+  const prevReview = () => {
+    setCurrentReview((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
+    setSlideDirection("slide-right");
+  };
   
-  // const nextReview = () => {
-  //   setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
-  //   setSlideDirection("slide-left");
-  // };
+  const nextReview = () => {
+    setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
+    setSlideDirection("slide-left");
+  };
 
   
 
@@ -69,9 +69,18 @@ export default function HomeReviews() {
             />
           ))
         ) : (
-          <Review
+          <>
+  <button className={styles.arrow} onClick={prevReview}>
+    <FontAwesomeIcon icon={faArrowLeft} />
+  </button>
+  <Review
     title={reviews[currentReview].title}
+          slideDirection={slideDirection}
   />
+  <button className={styles.arrow} onClick={nextReview}>
+    <FontAwesomeIcon icon={faArrowRight} />
+  </button>
+  </>
         )}
       </div>
      
