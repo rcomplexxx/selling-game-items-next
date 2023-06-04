@@ -176,4 +176,8 @@
 
 
     .productPageDiv{margin-top: 0;}
+
+    .thumbnail_images{
+      display: none;
+    }
   }
