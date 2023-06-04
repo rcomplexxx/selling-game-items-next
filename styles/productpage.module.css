@@ -49,7 +49,7 @@
   .product_style_options {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 8px;
     width:20vw;
   }
   
@@ -72,8 +72,8 @@
     display: inline-block;
     border: none;
     padding: 12px 24px;
-    margin-top: 8px;
-    margin-bottom: 16px;
+    margin-top: 16px;
+    margin-bottom: 8px;
     background-color: #000;
     color: #fff;
     font-size: 16px;
