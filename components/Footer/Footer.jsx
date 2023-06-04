@@ -5,7 +5,7 @@ import styles from './footer.module.css'
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.mainDiv}></div>
+      <div className={styles.mainDiv}>
 
     <h1>Stay connected</h1>
     <p>Join our newsletters to get the latest SmokeGamerItems updates and surprise discounts!</p>
@@ -20,6 +20,7 @@ export default function Footer() {
         <Link href="/contactus" className={styles.footerLink}>Contact Us</Link>   
         <Link href="/privacypolicy" className={styles.footerLink}>Privacy Policy</Link>
         <Link href="/shippingpolicy" className={styles.footerLink}>Shipping Policy</Link>
+      </div>
       </div>
     </footer>
   );
