@@ -64,7 +64,7 @@ export default function HomeReviews() {
           ))
         ) : (
           <>
-          <div className={styles.arrowContainer}>
+          <div className={styles.arrowsContainer}>
   <button className={styles.arrow} onClick={prevReview}>
     <FontAwesomeIcon icon={faArrowLeft} />
   </button>
