@@ -142,10 +142,10 @@ export default function ProductPage({productId,product}){
         return  <>
             
             <div className={styles.productPageDiv}> 
-            <div>
+         
                <ProductInfoBuy product={product}/>
                
-                </div>
+              
     
     
     
