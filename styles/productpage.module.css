@@ -166,11 +166,14 @@
   @media (max-width: 980px)  {
     .productPageDiv{flex-direction: column; align-items: center;}
 
-    .gallery {width: 100vw;}
+    .gallery {width: 98vw;}
     .main_image img{width: 100%;}
     .media{width: 100%;}
 
     .main_image{
       width:100%;
     }
+
+
+    .productPageDiv{margin-top: 0;}
   }
