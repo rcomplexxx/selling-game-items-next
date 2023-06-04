@@ -5,6 +5,7 @@ import styles from './footer.module.css'
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.mainDiv}></div>
 
     <h1>Stay connected</h1>
     <p>Join our newsletters to get the latest SmokeGamerItems updates and surprise discounts!</p>
