@@ -21,6 +21,12 @@ export default function Footer() {
         <Link href="/privacypolicy" className={styles.footerLink}>Privacy Policy</Link>
         <Link href="/shippingpolicy" className={styles.footerLink}>Shipping Policy</Link>
       </div>
+
+           <div className={styles.footerLinks}>
+     <img src='/images/american-express.png' alt='pay'/>
+     <img src='/images/mastercard.png' alt='pay'/>
+     <img src='/images/visa.png' alt='pay'/>
+      </div>
       </div>
     </footer>
   );
