@@ -76,19 +76,24 @@
     margin-right:10px;
   }
 
-  .media {
+   .media {
     position: relative;
     width: 400px;
     height: 0;
   padding-top: 56.25%;
-  margin-bottom: 20px;
     overflow: hidden;
     
   }
   
- 
+  .main_image {
+    position:relative;
+    margin-bottom: 20px;
+  }
   
- 
+  .main_image img {
+    width: 400px;
+    height: auto;
+  }
  
   
   .thumbnail_images {
@@ -161,7 +166,10 @@
   @media (max-width: 980px)  {
     .productPageDiv{flex-direction: column; align-items: center;}
 
-    .media{
+    .main_image img{width: 100%;}
+    .media{width: 100%;}
+
+    .main_image{
       width:100%;
     }
   }
