@@ -208,6 +208,25 @@ export default function ProductPage({productId,product}){
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
     export async function getStaticPaths(){
 
       return {
