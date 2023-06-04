@@ -177,7 +177,8 @@
    
     display: flex;
      justify-content: center ;
-       margin-top: 25vh ;
+     align-items: center;
+       margin-top: 16vh ;
       
   }
 
