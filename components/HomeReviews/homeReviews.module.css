@@ -9,6 +9,7 @@
   }
   
   .reviewDiv {
+    min-height: max-content;
     background-color: var(--gray-9);
     height: 350px;
     width:"30%";
@@ -70,7 +71,7 @@
     }
 
     .reviewDiv {
-      width:"300%"
+      width:"80%"
     }
   }
 

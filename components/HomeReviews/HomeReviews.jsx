@@ -11,13 +11,6 @@ const reviews = [
 ];
 
 function Review({ title, style }) {
-
-  useEffect(() => {
-   
-  }, [title]);
-
-
-
   return (
     <div className={styles.reviewDiv} style={style}>
       <h1 className={styles.reviewTitle}>{title}</h1>
@@ -63,7 +56,10 @@ export default function HomeReviews() {
             <Review
               key={review.id}
               title={review.title}
-              
+              style={{
+                display: "flex" ,
+                width: '30%'
+              }}
             />
           ))
         ) : (
@@ -76,12 +72,10 @@ export default function HomeReviews() {
     <FontAwesomeIcon icon={faArrowRight} />
   </button>
   </div>
-  reviews.map((review, index) => (
-            <Review
-              key={review.id}
-              title={review.title}
-              
-            />
+  <Review
+    title={reviews[currentReview].title}
+  
+  />
 
 </>
         )}
