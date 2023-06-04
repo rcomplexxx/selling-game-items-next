@@ -142,14 +142,14 @@ export default function ProductPage({productId,product}){
         return  <>
             
             <div className={styles.productPageDiv}> 
-         
+            <div>
                <ProductInfoBuy product={product}/>
                
-              
+                </div>
     
     
     
-                <div style={{marginLeft:"10px"}}>
+                <div style={{marginLeft:"10px", display:"flex", flexDirection:"column", alignItems:"center"}}>
           <h1 className={styles.product_title}>{product.name}</h1>
           <div className={styles.product_rating}>  <RatingStar
     
