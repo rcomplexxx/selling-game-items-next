@@ -50,7 +50,7 @@ export default function HomeReviews() {
   return (
     <>
       <h2 className={styles.title}>WHAT OUR CUSTOMERS HAVE TO SAY</h2>
-      <div className={windowWidth > 1080 ? styles.mainDiv : `${styles.mainDiv} ${styles.SSMainDiv}`}>
+      <div className={windowWidth > 1080?styles.mainDiv:styles.mainDiv +' '+styles.SSMainDiv}>
         {windowWidth > 1080 ? (
           reviews.map((review, index) => (
             <Review
@@ -58,32 +58,29 @@ export default function HomeReviews() {
               title={review.title}
               style={{
                 display: "flex" ,
-                width: '30%',
-                transform: index === currentReview ? 'translateX(0)' : 'translateX(-100vw)',
-                transition: 'transform 0.5s'
+                width: '30%'
               }}
             />
           ))
         ) : (
           <>
-            <button className={styles.arrow} onClick={prevReview}>
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-            <Review
-              title={reviews[currentReview].title}
-              style={{
-                display: "flex",
-                width: '30%',
-                transform: 'translateX(0)',
-                transition: 'transform 0.5s'
-              }}
-            />
-            <button className={styles.arrow} onClick={nextReview}>
-              <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-          </>
+          <div className={styles.arrowContainer}>
+  <button className={styles.arrow} onClick={prevReview}>
+    <FontAwesomeIcon icon={faArrowLeft} />
+  </button>
+  <button className={styles.arrow} onClick={nextReview}>
+    <FontAwesomeIcon icon={faArrowRight} />
+  </button>
+  </div>
+  <Review
+    title={reviews[currentReview].title}
+  
+  />
+
+</>
         )}
       </div>
+     
     </>
   );
 }

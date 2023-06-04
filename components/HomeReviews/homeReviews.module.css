@@ -1,75 +1,93 @@
 .title {
-  margin-top: 60px;
-  margin-bottom: 10px;
-}
-
-.reviewTitle {
-  color: var(--gray-1);
-  margin-top: 4px;
-}
-
-.reviewDiv {
-  background-color: var(--gray-9);
-  height: 350px;
-  width: 30%;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  box-shadow: 0 -0.3px 4px 1px rgba(211, 211, 211, 0.2);
-}
-
-.mainDiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90vw;
-}
-
-.arrow {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  background-color: rgba(128, 128, 128, 0.5);
-  border: none;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 1080px) {
-  .mainDiv {
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 10px;
   }
-
-  .arrow {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
+  
+  .reviewTitle {
+    color: var(--gray-1);
+    margin-top: 4px;
   }
-
+  
   .reviewDiv {
-    width: 70%;
+    background-color: var(--gray-9);
+    height: 350px;
+    width:"30%";
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 -0.3px 4px 1px rgba(211, 211, 211, 0.2);
   }
-}
-
-@media screen and (min-width: 1280px) {
+  
   .mainDiv {
-    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90vw;
   }
-}
 
-@media screen and (min-width: 1420px) {
-  .mainDiv {
-    width: 70vw;
+ 
+  
+  .arrow {
+    height: 40px;
+    width: 40px; 
+    border-radius: 50%; 
+    background-color: rgba(128, 128, 128, 0.5); 
+    border: none; 
+    cursor:pointer;
   }
-}
+  
 
-@media screen and (min-width: 1620px) {
-  .mainDiv {
-    width: 60vw;
+  
+ 
+  
+  @media screen and (max-width: 1080px) {
+    .mainDiv {
+      
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+  
+    .arrowsContainer {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      z-index: 4;
+    }
+  
+    .arrowsContainer .arrow {
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+    }
+
+    .reviewDiv {
+      width:"70%"
+    }
   }
-}
+
+  @media screen and (min-width: 1280px) {
+    .mainDiv {
+      width: 80vw;
+    }
+  }
+
+  @media screen and (min-width: 1420px) {
+    .mainDiv {
+      width: 70vw;
+    }
+  }
+
+  @media screen and (min-width: 1620px) {
+    .mainDiv {
+      width: 60vw;
+    }
+  }
+  
+ 
