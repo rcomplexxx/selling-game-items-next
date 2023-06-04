@@ -8,8 +8,8 @@ export default function Footer() {
 
     <h1>Stay connected</h1>
     <p>Join our newsletters to get the latest SmokeGamerItems updates and surprise discounts!</p>
-    <input placeholder="Enter your email address"></input>
-    <button>Subscribe</button>
+    <input className="subscribeInput" placeholder="Enter your email address"></input>
+    <button className="subscribeButton">Subscribe</button>
       <div className={styles.footerLinks}>
       <Link href="/" className={styles.footerLink}>Home</Link>
         <Link href="/products" className={styles.footerLink}>Shop</Link>

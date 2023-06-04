@@ -8,6 +8,19 @@
     align-content: flex-end;
     margin-top: auto;
   }
+
+  .subscribeInput{
+    color: #7a857a;
+    background-color: transparent;
+    border: solid #3e3e3e 1px;
+    border-radius: 4px;
+    
+  }
+
+  .subscribeButton{
+    border: solid 2px #3e3e3e ;
+    background-color: transparent;
+  }
   
   .footerLinks {
     display: flex;
