@@ -24,6 +24,7 @@
     background-color: transparent;
     border: solid #3e3e3e 1px;
     border-radius: 4px;
+    box-sizing: border-box;
     
   }
 
