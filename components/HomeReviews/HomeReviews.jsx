@@ -11,8 +11,19 @@ const reviews = [
 ];
 
 function Review({ title, style }) {
+  const [slideDirection, setSlideDirection] = useState(null);
+
+  useEffect(() => {
+    setSlideDirection("slide-left");
+    const timeout = setTimeout(() => {
+      setSlideDirection("slide-right");
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  }, [title]);
+
   return (
-    <div className={styles.reviewDiv} style={style}>
+    <div className={`${styles.reviewDiv} ${styles[slideDirection]}`} style={style}>
       <h1 className={styles.reviewTitle}>{title}</h1>
       <RatingStar maxScore={5} id="123" rating={5} />
       <p>
@@ -50,37 +61,34 @@ export default function HomeReviews() {
   return (
     <>
       <h2 className={styles.title}>WHAT OUR CUSTOMERS HAVE TO SAY</h2>
-      <div className={windowWidth > 1080?styles.mainDiv:styles.mainDiv +' '+styles.SSMainDiv}>
+      <div className={windowWidth > 1080 ? styles.mainDiv : `${styles.mainDiv} ${styles.SSMainDiv}`}>
         {windowWidth > 1080 ? (
           reviews.map((review, index) => (
             <Review
               key={review.id}
               title={review.title}
               style={{
-                display: "flex" ,
+                display: "flex",
                 width: '30%'
               }}
             />
           ))
         ) : (
           <>
-          <div className={styles.arrowsContainer}>
-  <button className={styles.arrow} onClick={prevReview}>
-    <FontAwesomeIcon icon={faArrowLeft} />
-  </button>
-  <button className={styles.arrow} onClick={nextReview}>
-    <FontAwesomeIcon icon={faArrowRight} />
-  </button>
-  </div>
-  <Review
-    title={reviews[currentReview].title}
-  
-  />
-
-</>
+            <div className={styles.arrowsContainer}>
+              <button className={styles.arrow} onClick={prevReview}>
+                <FontAwesomeIcon icon={faArrowLeft} />
+              </button>
+              <button className={styles.arrow} onClick={nextReview}>
+                <FontAwesomeIcon icon={faArrowRight} />
+              </button>
+            </div>
+            <Review
+              title={reviews[currentReview].title}
+            />
+          </>
         )}
       </div>
-     
     </>
   );
 }
