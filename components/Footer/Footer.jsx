@@ -5,6 +5,10 @@ import styles from './footer.module.css'
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+
+    <h1>Stay connected</h1>
+    <p>Join our newsletters to get the latest SmokeGamerItems updates and surprise discounts!</p>
+
       <div className={styles.footerLinks}>
       <Link href="/" className={styles.footerLink}>Home</Link>
         <Link href="/products" className={styles.footerLink}>Shop</Link>
