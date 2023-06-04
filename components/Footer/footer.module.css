@@ -20,7 +20,7 @@
 
   .subscribeInput{
     width: 96%;
-    height: 28px;
+    height: 32px;
     color: #7a857a;
     background-color: transparent;
     border: solid #3e3e3e 1px;
@@ -32,8 +32,8 @@
 
   .subscribeButton{
     width: 96%;
-    height: 28px;
-    margin-top: 15px;
+    height: 32px;
+    margin-top: 5px;
     border: solid 2px #3e3e3e ;
     background-color: transparent;
   }
