@@ -10,7 +10,7 @@
   }
 
   .mainDiv{
-    width:max-content;
+    width: min-content;
     display: flex;
   flex-direction: column;
   align-items: center;
