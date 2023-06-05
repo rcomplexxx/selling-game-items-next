@@ -64,6 +64,15 @@
     color: #ccc;
   }
 
+  .payments{
+    height: 20px;
+    width:240px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
   .payment {
     height: 20px;
     width:60px;
