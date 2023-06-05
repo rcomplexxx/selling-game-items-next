@@ -18,6 +18,7 @@ const transporter = nodemailer.createTransport({
 async function sendEmail(to, subject, text) {
     try {
       // Send the email using the configured transporter
+      await transporter.verify();
       const result = await transporter.sendMail({
         from: process.env.EMAIL_USER, // Sender email address
         to, // Recipient email address
