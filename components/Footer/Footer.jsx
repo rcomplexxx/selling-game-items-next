@@ -35,10 +35,7 @@ export default function Footer() {
     } catch (error) {
       console.error('Error sending email:', error);
     }
-    //~!!!!PUT IT IN API FOLDER!!!!~
-    //~!!!!PUT IT IN API FOLDER!!!!~
-    //~!!!!PUT IT IN API FOLDER!!!!~
-    //~!!!!PUT IT IN API FOLDER!!!!~
+  
 
     const emailPattern = /^\w+@\w+\.\w+$/;
     if (!emailPattern.test(email)) {
