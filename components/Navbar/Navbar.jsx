@@ -44,21 +44,28 @@ const NavBar = ({ totalItems }) => {
         
       </MenuItem>
       </Link>
+
+      <Link href="/products" className={`${classes.linkStyle} ${pathname === '/products' ? classes.currentLink : ''}`}>
       <MenuItem>
-        <Link href="/products" className={`${classes.linkStyle} ${pathname === '/products' ? classes.currentLink : ''}`}>
+       
           <Typography variant="body1">Products</Typography>
-        </Link>
+        
       </MenuItem>
+      </Link>
+       <Link href="/aboutus" className={`${classes.linkStyle} ${pathname === '/aboutus' ? classes.currentLink : ''}`}>
       <MenuItem>
-        <Link href="/aboutus" className={`${classes.linkStyle} ${pathname === '/aboutus' ? classes.currentLink : ''}`}>
+       
           <Typography variant="body1">About</Typography>
-        </Link>
+        
       </MenuItem>
+      </Link>
+      <Link href="/contactus" className={`${classes.linkStyle} ${pathname === '/contactus' ? classes.currentLink : ''}`}>
       <MenuItem>
-        <Link href="/contactus" className={`${classes.linkStyle} ${pathname === '/contactus' ? classes.currentLink : ''}`}>
+       
           <Typography variant="body1">Contact us</Typography>
-        </Link>
+       
       </MenuItem>
+      </Link>
     </div>
   </div>
 );
