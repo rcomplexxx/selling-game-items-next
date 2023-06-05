@@ -65,7 +65,7 @@
   }
 
   .payments{
-    height: 20px;
+    height: 12px;
     width:240px;
     display: flex;
     flex-direction: row;
