@@ -5,12 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const reviews = [
-  { id: 1, title: "Thanks GameSmoke Gear1", reviewText: "I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!" },
-  { id: 2, title: "Thanks GameSmoke Gear2", reviewText: "I love the headphones I got from here. The sound is three dimensional, litelarry!" },
-  { id: 3, title: "Thanks GameSmoke Gear3", reviewText: "I knew I found the best online store for gaming when I've seen amazing keyboard that I couldn't find anywhere! I ordered, it arrived, and I am more then satisfied with product." }, 
+  { id: 1, title: "Review one", reviewText: "I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
+  author: 'Monika W.'  },
+  { id: 2, title: "Review two", reviewText: "I love the headphones I got from here. The sound is three dimensional, litelarry!" ,
+  author: 'Marta N.' },
+  { id: 3, title: "Review three", 
+  reviewText: "I knew I found the best online store for gaming when I've seen amazing keyboard that I couldn't find anywhere! I ordered, it arrived, and I am more then satisfied with product." ,
+  author: 'Luke B.' 
+}, 
 ];
 
-function Review({ title, reviewText, style }) {
+function Review({ title, reviewText,author, style }) {
   return (
     <div className={styles.reviewDiv} style={style}>
       <h1 className={styles.reviewTitle}>{title}</h1>
@@ -19,7 +24,7 @@ function Review({ title, reviewText, style }) {
         {reviewText}
       
       </p>
-      <h4>- Monika W.</h4>
+      <h4>- {author}</h4>
     </div>
   );
 }
@@ -58,6 +63,7 @@ export default function HomeReviews() {
               key={review.id}
               title={review.title}
               reviewText={review.reviewText}
+              author={review.author}
               style={{
                 display: "flex" ,
                 width: '30%'
@@ -77,6 +83,7 @@ export default function HomeReviews() {
   <Review
     title={reviews[currentReview].title}
     reviewText={reviews[currentReview].reviewText}
+    author={reviews[currentReview].author}
   />
 
 </>
