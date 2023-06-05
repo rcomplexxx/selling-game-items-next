@@ -37,11 +37,13 @@ const NavBar = ({ totalItems }) => {
   const renderMobileMenu = ( isMenuOpen && <div className={classes.mobileMenu} onClick={handleMobileMenuClose}>
    
     <div className={classes.mainMenuCard} onClick={(e) => e.stopPropagation()}>
+    <Link href="/" className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}>
       <MenuItem>
-        <Link href="/" className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}>
+        
           <Typography variant="body1">Home</Typography>
-        </Link>
+        
       </MenuItem>
+      </Link>
       <MenuItem>
         <Link href="/products" className={`${classes.linkStyle} ${pathname === '/products' ? classes.currentLink : ''}`}>
           <Typography variant="body1">Products</Typography>
