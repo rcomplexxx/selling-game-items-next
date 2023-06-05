@@ -12,7 +12,21 @@ export default function Footer() {
 
   const  handleSubscribe = async () => {
 
-  
+
+
+    const emailPattern = /^\w+@\w+\.\w+$/;
+    if (!emailPattern.test(email)) {
+      setIsValidEmail(false);
+      return;
+    }
+    else{
+      setIsValidEmail(true);
+    }
+
+    // Continue with the subscription process
+    // ...
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.mainDiv}>
