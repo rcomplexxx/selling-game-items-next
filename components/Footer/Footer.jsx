@@ -14,7 +14,10 @@ export default function Footer() {
   const handleSubscribe = () => {
 
     sendEmail('rcomplexx@gmail.com','GameSmokeItems email', 'Email sucessfully sent from nextJs site.');
-
+    //~!!!!PUT IT IN API FOLDER!!!!~
+    //~!!!!PUT IT IN API FOLDER!!!!~
+    //~!!!!PUT IT IN API FOLDER!!!!~
+    //~!!!!PUT IT IN API FOLDER!!!!~
 
     const emailPattern = /^\w+@\w+\.\w+$/;
     if (!emailPattern.test(email)) {
