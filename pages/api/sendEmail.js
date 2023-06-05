@@ -8,7 +8,7 @@ export default async function handler(req, res) {
      sendEmail(to, subject, text);
       res.status(200).json({ message: 'Email sent successfully!' });
     } catch (error) {
-      res.status(500).json({ message: 'Failed to send email.' });
+      res.status(500).json({ message: 'Failed to send email.'+ error });
     }
   } else {
     res.status(405).json({ message: 'Method Not Allowed' });
