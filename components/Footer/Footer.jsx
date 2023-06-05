@@ -23,7 +23,7 @@ export default function Footer() {
       </div>
 
          
-     <img className={styles.payments} src='/images/american-express.png' alt='pay'/>
+     <img className={styles.payments} src='/images/payments.png' alt='pay'/>
     
      
       <p>© 2023, GameSmokeItems All Rights Reserved.</p>
