@@ -5,18 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const reviews = [
-  { id: 1, title: "Thanks GameSmoke Gear1" },
-  { id: 2, title: "Thanks GameSmoke Gear2" },
-  { id: 3, title: "Thanks GameSmoke Gear3" }
+  { id: 1, title: "Thanks GameSmoke Gear1", reviewText: "I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!" },
+  { id: 2, title: "Thanks GameSmoke Gear2", reviewText: "I love the headphones I got from here. The sound is three dimensional, litelarry!" },
+  { id: 3, title: "Thanks GameSmoke Gear3", reviewText: "I knew I found the best online store for gaming when I've seen amazing keyboard that I couldn't find anywhere! I ordered, it arrived, and I am more then satisfied with product." }, 
 ];
 
-function Review({ title, style }) {
+function Review({ title, reviewText, style }) {
   return (
     <div className={styles.reviewDiv} style={style}>
       <h1 className={styles.reviewTitle}>{title}</h1>
       <RatingStar maxScore={5} id="123" rating={5} />
       <p>
-        I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!
+        {reviewText}
+      
       </p>
       <h4>- Monika W.</h4>
     </div>
@@ -56,6 +57,7 @@ export default function HomeReviews() {
             <Review
               key={review.id}
               title={review.title}
+              reviewText={review.reviewText}
               style={{
                 display: "flex" ,
                 width: '30%'
@@ -74,7 +76,7 @@ export default function HomeReviews() {
   </div>
   <Review
     title={reviews[currentReview].title}
-  
+    reviewText={reviews[currentReview].reviewText}
   />
 
 </>
