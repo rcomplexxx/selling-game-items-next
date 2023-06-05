@@ -39,7 +39,7 @@ export default function Footer() {
           value={email}
           onChange={handleInputChange}
         />
-        {!isValidEmail && <p>Please enter a valid email address.</p>}
+        {!isValidEmail && <p style={{color:'red'}}>Please enter a valid email address.</p>}
         <button className={styles.subscribeButton} onClick={handleSubscribe}>Subscribe</button>
         <div className={styles.footerLinks}>
           <Link href="/" className={styles.footerLink}>Home</Link>
@@ -50,7 +50,7 @@ export default function Footer() {
           <Link href="/privacypolicy" className={styles.footerLink}>Privacy Policy</Link>
           <Link href="/shippingpolicy" className={styles.footerLink}>Shipping Policy</Link>
         </div>
-        <img className={styles.payments} src='/images/payments.png' alt='pay' />
+        <img className={styles.payments} src='/images/paymentsNoBg.png' alt='pay' />
         <p>© 2023, GameSmokeItems All Rights Reserved.</p>
       </div>
     </footer>
