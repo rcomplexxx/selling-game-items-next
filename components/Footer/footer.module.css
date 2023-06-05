@@ -67,6 +67,7 @@
   .payments{
     height: 30px;
     width:240px;
+    background-color: #101B2D;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
