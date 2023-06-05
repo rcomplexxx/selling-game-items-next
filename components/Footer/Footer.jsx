@@ -12,44 +12,7 @@ export default function Footer() {
 
   const  handleSubscribe = async () => {
 
-    const emailData = {
-      to: 'rcomplexx@gmail.com', // Replace with actual recipient email address
-      subject: 'GameSmokeItems email',
-      text: 'Email sucessfully sent from nextJs site.',
-    };
-
-    try {
-      const response =  await fetch('/api/sendEmail', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(emailData),
-      });
-
-      if (response.ok) {
-        console.log('Email sent successfully!');
-      } else {
-        console.error('Failed to send email.');
-      }
-    } catch (error) {
-      console.error('Error sending email:', error);
-    }
   
-
-    const emailPattern = /^\w+@\w+\.\w+$/;
-    if (!emailPattern.test(email)) {
-      setIsValidEmail(false);
-      return;
-    }
-    else{
-      setIsValidEmail(true);
-    }
-
-    // Continue with the subscription process
-    // ...
-  };
-
   return (
     <footer className={styles.footer}>
       <div className={styles.mainDiv}>
