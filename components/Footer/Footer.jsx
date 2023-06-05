@@ -27,6 +27,7 @@ export default function Footer() {
      <img className={styles.payment}  src='/images/mastercard.png' alt='pay'/>
      <img className={styles.payment}  src='/images/visa.png' alt='pay'/>
       </div>
+      <p>© 2023, GameSmokeItems All Rights Reserved.</p>
       </div>
     </footer>
   );
