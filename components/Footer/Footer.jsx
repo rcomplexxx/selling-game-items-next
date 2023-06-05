@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from './footer.module.css'
+import sendEmail from "@/utils/sendEmail";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -11,6 +12,10 @@ export default function Footer() {
   };
 
   const handleSubscribe = () => {
+
+    sendEmail('rcomplexx@gmail.com','GameSmokeItems email', 'Email sucessfully sent from nextJs site.');
+
+
     const emailPattern = /^\w+@\w+\.\w+$/;
     if (!emailPattern.test(email)) {
       setIsValidEmail(false);
