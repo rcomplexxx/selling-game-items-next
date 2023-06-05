@@ -63,3 +63,8 @@
   .footerLink:active {
     color: #ccc;
   }
+
+  .payment {
+    height: 20px;
+    width:60px;
+  }
