@@ -14,7 +14,6 @@ export default function Footer() {
     const emailPattern = /^\w+@\w+\.\w+$/;
     if (!emailPattern.test(email)) {
       setIsValidEmail(false);
-      console.log('false address')
       return;
     }
     else{
@@ -42,7 +41,6 @@ export default function Footer() {
         <div className={styles.footerLinks}>
           <Link href="/" className={styles.footerLink}>Home</Link>
           <Link href="/products" className={styles.footerLink}>Shop</Link>
-          <Link href="/trackorder" className={styles.footerLink}>Track order</Link>
           <Link href="/faq" className={styles.footerLink}>FAQ</Link>
           <Link href="/aboutus" className={styles.footerLink}>About Us</Link>
           <Link href="/contactus" className={styles.footerLink}>Contact Us</Link>
