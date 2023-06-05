@@ -22,11 +22,10 @@ export default function Footer() {
         <Link href="/shippingpolicy" className={styles.footerLink}>Shipping Policy</Link>
       </div>
 
-           <div className={styles.payments}>
-     <img className={styles.payment} src='/images/american-express.png' alt='pay'/>
-     <img className={styles.payment}  src='/images/mastercard.png' alt='pay'/>
-     <img className={styles.payment}  src='/images/visa.png' alt='pay'/>
-      </div>
+         
+     <img className={styles.payments} src='/images/american-express.png' alt='pay'/>
+    
+     
       <p>© 2023, GameSmokeItems All Rights Reserved.</p>
       </div>
     </footer>

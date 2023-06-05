@@ -66,16 +66,6 @@
 
   .payments{
     height: 30px;
-    width:240px;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    width:max-content;
     margin-top: 10px;
-  }
-  .payment {
-    height: 30px;
-    width:60px;
-    background-color: #101B2D;
   }
