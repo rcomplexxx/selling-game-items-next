@@ -10,7 +10,7 @@ export default function Footer() {
     setEmail(event.target.value);
   };
 
-  const handleSubscribe = () => {
+  const  handleSubscribe = async () => {
 
     const emailData = {
       to: 'rcomplexx@gmail.com', // Replace with actual recipient email address
@@ -19,7 +19,7 @@ export default function Footer() {
     };
 
     try {
-      const response =  fetch('/api/sendEmail', {
+      const response =  await fetch('/api/sendEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
