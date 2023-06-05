@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from './footer.module.css'
-import sendEmail from "@/utils/sendEmail";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
