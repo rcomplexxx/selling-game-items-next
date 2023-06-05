@@ -17,6 +17,10 @@ export default function Footer() {
       console.log('false address')
       return;
     }
+    else{
+      setIsValidEmail(true);
+    }
+
     // Continue with the subscription process
     // ...
   };
