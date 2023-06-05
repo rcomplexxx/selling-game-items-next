@@ -13,7 +13,29 @@ export default function Footer() {
 
   const handleSubscribe = () => {
 
-    sendEmail('rcomplexx@gmail.com','GameSmokeItems email', 'Email sucessfully sent from nextJs site.');
+    const emailData = {
+      to: 'rcomplexx@gmail.com', // Replace with actual recipient email address
+      subject: 'GameSmokeItems email',
+      text: 'Email sucessfully sent from nextJs site.',
+    };
+
+    try {
+      const response =  fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData),
+      });
+
+      if (response.ok) {
+        console.log('Email sent successfully!');
+      } else {
+        console.error('Failed to send email.');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
     //~!!!!PUT IT IN API FOLDER!!!!~
     //~!!!!PUT IT IN API FOLDER!!!!~
     //~!!!!PUT IT IN API FOLDER!!!!~
