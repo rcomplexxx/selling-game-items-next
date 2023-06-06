@@ -34,7 +34,7 @@ const NavBar = ({ totalItems }) => {
     };
   }, []);
 
-  const renderMobileMenu = ( isMenuOpen && <div className={classes.mobileMenu} onClick={handleMobileMenuClose}>
+  const renderMobileMenu = ( isMenuOpen && <><div className={classes.mobileMenu} onClick={handleMobileMenuClose}/>
    
     <div className={classes.mainMenuCard} onClick={(e) => e.stopPropagation()}>
 
@@ -77,8 +77,8 @@ const NavBar = ({ totalItems }) => {
        
       </MenuItem>
       </Link>
-    </div>
   </div>
+  </>
 );
 
   return (
