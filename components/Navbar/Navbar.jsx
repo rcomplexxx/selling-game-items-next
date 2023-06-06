@@ -42,7 +42,7 @@ const NavBar = ({ totalItems }) => {
       <MenuItem style={{display:'flex', justifyContent:"flex-end", marginTop:'10px'}}>
         <button style={{border:'none', color:"var(--red-2)", backgroundColor:"transparent", marginLeft:"10px", marginRight:"10px",
        }} onClick={handleMobileMenuClose}>
-          <Typography style={{ fontSize:"20px",fontWeight:"700"}} variant="body1">x</Typography>
+          <Typography style={{ fontSize:"20px",fontWeight:"700", cursor:"pointer"}} variant="body1">x</Typography>
         </button>
       </MenuItem>
       
