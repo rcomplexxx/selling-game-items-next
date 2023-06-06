@@ -78,7 +78,7 @@
     padding: 8px;
     justify-content: center;
     align-items: center; 
-  transition: visibility 0s linear 0.2s;
+  transition: opacity 0.5s linear;
    
   }
 
@@ -135,7 +135,7 @@
   }
 
   .menuCoverDissapear {
-    visibility: hidden;
+    opacity: 0%;
   }
   
 
