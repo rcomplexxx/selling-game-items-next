@@ -1,4 +1,5 @@
 .container {
+  width:max-content;
   max-width: 960px; /* Set the maximum width for the container */
   min-height: 100vh;
   margin-left: auto; /* Center the container horizontally */
