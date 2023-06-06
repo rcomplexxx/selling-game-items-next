@@ -23,9 +23,7 @@
     margin-left: 80px;
     transition: transform 0.08s ease-in;
   }
-  .logo{
-    margin-left: 10px;
-  }
+ 
   
   .title:hover {
     transform: scale(1.1);
@@ -57,11 +55,7 @@
     margin-right: 10px;
   }
 
-  .growAlt {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
+ 
   
   .grow {
     width: 60%;
@@ -179,8 +173,7 @@
   }
   
   .cartStyle {
-    color: #f4f8f5;
-    background-color: #f4f8f5;
+    color: #888b88;
     transition: transform 0.1s ease-in;
   }
   
@@ -203,34 +196,8 @@
 
   }
   
-  .searchIcon {
-    padding-top: 0;
-    padding-right: 8px;
-    padding-bottom: 0;
-    padding-left: 8px;
-    height: 100%;
-    position: absolute;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   
-  .inputRoot {
-    color: inherit;
-  }
-  
-  .inputInput {
-    padding: 8px 8px 8px 0; /* Adjust the padding values as needed */
-    /* vertical padding + font size from searchIcon */
-    padding-left: calc(1em + 32px); /* Adjust the value as needed */
-    transition: width 0.3s ease-in-out; /* Adjust the transition properties as needed */
-    width: 100%;
-  
-    @media (min-width: 960px) {
-      width: 20vh; /* Adjust the value as needed */
-    }
-  }
+ 
 
 
   .menuButton {
@@ -239,12 +206,6 @@
   }
   
 
-  .menuItemText {
-    display: flex;
-    align-items: center;
-    padding: 8px;
-  }
-  
   .menuItemText p {
     margin-left: 8px;
   }  
