@@ -37,6 +37,16 @@ const NavBar = ({ totalItems }) => {
   const renderMobileMenu = ( isMenuOpen && <div className={classes.mobileMenu} onClick={handleMobileMenuClose}>
    
     <div className={classes.mainMenuCard} onClick={(e) => e.stopPropagation()}>
+
+
+      <MenuItem>
+        <button style={{border:'none', backgroundClor:"transparent"}} onClick={handleMobileMenuClose}>
+          <Typography variant="body1">Home</Typography>
+        </button>
+      </MenuItem>
+      
+
+
     <Link href="/" className={`${classes.linkStyle} ${pathname === '/' ? classes.currentLink : ''}`}>
       <MenuItem>
         
