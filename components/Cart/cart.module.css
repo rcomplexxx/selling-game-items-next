@@ -1,3 +1,13 @@
+.container {
+  max-width: 960px; /* Set the maximum width for the container */
+  min-height: 100vh;
+  margin-left: auto; /* Center the container horizontally */
+  margin-right: auto;
+  padding-left: 16px; /* Add padding to the left and right */
+  padding-right: 16px;
+  /* Add any additional styles as needed */
+}
+
 .toolbar {
     min-height: 64px; /* Replace with the desired height value */
   }
