@@ -78,8 +78,7 @@
     padding: 8px;
     justify-content: center;
     align-items: center; 
-    visibility: visible;
-  transition: visibility 0s linear 0.5s;
+  transition: visibility 0s linear 0.2s;
    
   }
 
