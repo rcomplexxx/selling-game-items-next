@@ -110,12 +110,26 @@
      animation: slideIn 0.5s ease-in forwards;
   }
 
+ 
   @keyframes slideIn {
     0% {
       transform: translateX(-100%);
     }
     100% {
       transform: translateX(0);
+    }
+  }
+
+  .menuClose {
+    animation: slideOut 0.3s forwards;
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
     }
   }
 
