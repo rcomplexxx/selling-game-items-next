@@ -42,7 +42,7 @@ const NavBar = ({ totalItems }) => {
     };
   }, []);
 
-  const renderMobileMenu = ( isMenuOpen && <div className={classes.mobileMenu} onClick={handleMobileMenuClose}>
+  const renderMobileMenu = ( isMenuOpen && <div className={classes.mobileMenu + ' '+ (isMenuClosing ? classes.menuCoverDissapear: '')} onClick={handleMobileMenuClose}>
    
     <div className={classes.mainMenuCard + ' ' + (isMenuClosing ? classes.menuClose : '')} onClick={(e) => e.stopPropagation()}>
 
