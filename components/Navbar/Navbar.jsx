@@ -39,9 +39,8 @@ const NavBar = ({ totalItems }) => {
     <div className={classes.mainMenuCard} onClick={(e) => e.stopPropagation()}>
 
 
-      <MenuItem>
-        <button style={{border:'none', backgroundColor:"transparent",color:'orange', marginLeft:"10px", marginRight:"10px",
-      alignSelf:"flex-end"}} onClick={handleMobileMenuClose}>
+      <MenuItem style={{display:'flex', justifyContent:"flex-end"}}>
+        <button style={{border:'none', backgroundColor:"transparent",color:'orange', marginLeft:"10px", marginRight:"10px"}} onClick={handleMobileMenuClose}>
           <Typography variant="body1">x</Typography>
         </button>
       </MenuItem>
