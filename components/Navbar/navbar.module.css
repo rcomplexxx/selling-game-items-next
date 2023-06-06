@@ -77,8 +77,20 @@
     z-index: 999;
     padding: 8px;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
+    animation: slideIn 0.3s ease-in forwards;
   }
+
+ 
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
   
  
   
