@@ -97,7 +97,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: auto;
+    height: fill;
     width:200px;
     background-color: var(--gray-9-elegant);
     border-top-right-radius: 8px;

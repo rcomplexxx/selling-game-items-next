@@ -8,6 +8,7 @@ import classes from './navbar.module.css';
 
 const NavBar = ({ totalItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuClosing, setIsMenuClosing]= useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
 
   const router = useRouter();
@@ -20,7 +21,14 @@ const NavBar = ({ totalItems }) => {
   };
 
   const handleMobileMenuClose = () => {
-    setIsMenuOpen(false);
+    setIsMenuClosing(true);
+
+    setTimeout(() => {
+
+      setIsMenuOpen(false);
+      setIsMenuClosing(false);
+    }, 2000);
+    
   };
 
   useEffect(() => {
@@ -34,9 +42,9 @@ const NavBar = ({ totalItems }) => {
     };
   }, []);
 
-  const renderMobileMenu = ( isMenuOpen && <><div className={classes.mobileMenu} onClick={handleMobileMenuClose}/>
+  const renderMobileMenu = ( isMenuOpen && <div className={classes.mobileMenu} onClick={handleMobileMenuClose}>
    
-    <div className={classes.mainMenuCard} onClick={(e) => e.stopPropagation()}>
+    <div className={classes.mainMenuCard + ' ' + (isMenuClosing ? classes.menuClose : '')} onClick={(e) => e.stopPropagation()}>
 
 
       <MenuItem style={{display:'flex', justifyContent:"flex-end", marginTop:'10px'}}>
@@ -77,8 +85,8 @@ const NavBar = ({ totalItems }) => {
        
       </MenuItem>
       </Link>
+    </div>
   </div>
-  </>
 );
 
   return (
