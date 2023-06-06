@@ -27,7 +27,7 @@ const NavBar = ({ totalItems }) => {
 
       setIsMenuOpen(false);
       setIsMenuClosing(false);
-    }, 2000);
+    }, 500);
     
   };
 
