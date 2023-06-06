@@ -6,6 +6,7 @@
   padding-left: 16px; /* Add padding to the left and right */
   padding-right: 16px;
   /* Add any additional styles as needed */
+  background-color: gray;
 }
 
 .toolbar {
