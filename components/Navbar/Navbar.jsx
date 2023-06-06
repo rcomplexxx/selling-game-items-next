@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@mui/material';
-import { ShoppingCart, Menu as MenuIcon } from '@mui/icons-material';
+import { ShoppingBag, Menu as MenuIcon } from '@mui/icons-material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -144,7 +144,7 @@ const NavBar = ({ totalItems }) => {
             <Link href="/cart">
               <IconButton className={classes.cartStyle} aria-label="Show cart items" color="inherit">
                 <Badge badgeContent={totalItems} overlap="rectangular" color="secondary">
-                  <ShoppingCart />
+                  <ShoppingBag />
                 </Badge>
               </IconButton>
             </Link>
