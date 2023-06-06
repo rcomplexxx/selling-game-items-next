@@ -1,12 +1,6 @@
 .container {
-  width:max-content;
-  max-width: 960px; /* Set the maximum width for the container */
+  margin-top: 64px;
   min-height: 100vh;
-  margin-left: auto; /* Center the container horizontally */
-  margin-right: auto;
-  padding-left: 16px; /* Add padding to the left and right */
-  padding-right: 16px;
-  /* Add any additional styles as needed */
   background-color: gray;
 }
 

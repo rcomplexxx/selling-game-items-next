@@ -59,7 +59,7 @@ const Cart = ({    emptyCartText='true' }) => {
   );
 
   return (
-    <Container>
+    <Container className={classNames(styles.container)}>
      
       {(emptyCartText || cartProducts.length!==0) && <Typography className={classNames(styles.title)} variant="h3" gutterBottom>Your Shopping Cart</Typography>}
       { cartProducts.length==0 ? renderEmptyCart() : renderCart() }
