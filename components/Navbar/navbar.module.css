@@ -133,6 +133,16 @@
     }
   }
 
+  .menuCoverDissapear {
+    animation: hideMenu 0.5s forwards;
+  }
+  
+  @keyframes hideMenu {
+    to {
+      display: none;
+    }
+  }
+
   
   
   @media (max-width: 600px) {
