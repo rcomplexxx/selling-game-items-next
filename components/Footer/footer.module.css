@@ -12,7 +12,7 @@
   }
 
   .mainDiv{
-    max-width: 98vw;
+    max-width: 96vw;
     width: max-content;
     padding-left: 3vw;
     padding-right: 3vw;
@@ -68,6 +68,6 @@
 
   .payments{
     
-    width:98vw;
+    width:100%;
     margin-top: 10px;
   }
