@@ -39,7 +39,7 @@ const NavBar = ({ totalItems }) => {
     <div className={classes.mainMenuCard} onClick={(e) => e.stopPropagation()}>
 
 
-      <MenuItem style={{display:'flex', justifyContent:"flex-end"}}>
+      <MenuItem style={{display:'flex', justifyContent:"flex-end", marginTop:'5px'}}>
         <button style={{border:'none', color:"var(--red-2)", backgroundColor:"transparent", marginLeft:"10px", marginRight:"10px",
        }} onClick={handleMobileMenuClose}>
           <Typography style={{ fontSize:"20px",fontWeight:"500"}} variant="body1">x</Typography>
