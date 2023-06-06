@@ -59,11 +59,11 @@ const Cart = ({    emptyCartText='true' }) => {
   );
 
   return (
-    <div className="container">
+    <Container>
       <div className={styles.toolbar} />
       {(emptyCartText || cartProducts.length!==0) && <Typography className={classNames(styles.title)} variant="h3" gutterBottom>Your Shopping Cart</Typography>}
       { cartProducts.length==0 ? renderEmptyCart() : renderCart() }
-    </div>
+    </Container>
   );
 };
 
