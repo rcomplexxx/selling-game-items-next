@@ -78,6 +78,8 @@
     padding: 8px;
     justify-content: center;
     align-items: center; 
+    visibility: visible;
+  transition: visibility 0s linear 0.5s;
    
   }
 
@@ -134,14 +136,10 @@
   }
 
   .menuCoverDissapear {
-    animation: hideMenu 0.5s forwards;
+    visibility: hidden;
   }
   
-  @keyframes hideMenu {
-    to {
-      display: none;
-    }
-  }
+
 
   
   
