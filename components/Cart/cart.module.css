@@ -1,6 +1,7 @@
 .container {
   margin-top: 64px;
   min-height: calc(100vh-64px);
+  z-index: 2;
   
 }
 
