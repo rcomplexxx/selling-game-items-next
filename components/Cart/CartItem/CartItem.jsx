@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import Image from 'next/image';
 import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@mui/material';
 
 import styles from './cartitem.module.css'
