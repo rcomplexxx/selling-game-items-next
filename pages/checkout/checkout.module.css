@@ -89,3 +89,8 @@
   .review p {
     margin: 0;
   }
+  
+  /* Position the specified part on the right side */
+  .customer_review {
+    justify-content: flex-end;
+  }
