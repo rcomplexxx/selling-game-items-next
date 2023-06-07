@@ -197,7 +197,7 @@ export default function ProductPage({product}){
       />
             </button>
           </div>
-          <button className={styles.add_to_cart_button} onClick={onAddToCart}>Add to Cart</button>
+          <button className={styles.add_to_cart_button} onClick={()=>{onAddToCart}}>Add to Cart</button>
         </div>
     
     
