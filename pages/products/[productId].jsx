@@ -2,12 +2,12 @@
 import React from 'react'
 import products from '../../data/products.json'
 import Image from 'next/image';
-
+import AppContext from "@/contexts/AppContext";
 
     import { useRouter } from 'next/router';
     
 
-    import { useState } from 'react';
+    import { useState,useContext } from 'react';
     import { RatingStar } from 'rating-star';
     import styles from '../../styles/productpage.module.css'
    
