@@ -1,7 +1,8 @@
 .media {
   position: relative;
-  height:260px; /* 16:9 */
-  padding-right: 177%;
+  width: 20vw;
+  height: 0;
+  padding-top: 56.25%; /* 16:9 */
   transition: all 0.005s ease-in; 
   overflow: hidden;
   
