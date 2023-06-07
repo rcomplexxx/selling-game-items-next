@@ -88,7 +88,7 @@ const CheckoutPage = () => {
           <p>$9.99</p>
         </div>
 
-        <button className={styles.checkout_button}>Checkout lol</button>
+        <button className={styles.checkout_button}>Checkout</button>
       </div>
 
       </div>
