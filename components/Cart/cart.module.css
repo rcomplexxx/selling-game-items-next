@@ -1,13 +1,12 @@
 .container {
   margin-top: 64px;
   min-height: calc(100vh - 128px);
+  min-width: max-content;
   z-index: 2;
   
 }
 
-.containerStyle{
-  min-width: max-content;
-}
+
 
 .toolbar {
     min-height: 64px; /* Replace with the desired height value */
