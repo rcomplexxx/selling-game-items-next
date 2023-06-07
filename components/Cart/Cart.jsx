@@ -45,7 +45,7 @@ const Cart = ({    emptyCartText='true' }) => {
         {cartProducts.map((lineItem) => (
           <Grid item  xs={12}
               sm={6}
-              md={4}
+              md={6}
               lg={4}
               key={lineItem.id} >
             <CartItem item={lineItem}  />
