@@ -129,7 +129,7 @@ export default function ProductPage({product}){
               ...newCartProducts,
               {
                 id: product.id,
-                quantity,
+                quantity: quantity,
                 name: product.name,
                 image: product.image,
                 price: product.price,
