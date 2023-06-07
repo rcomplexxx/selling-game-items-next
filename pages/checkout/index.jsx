@@ -87,6 +87,8 @@ const CheckoutPage = () => {
           <label htmlFor="expressShipping">Express Shipping (2-3 days)</label>
           <p>$9.99</p>
         </div>
+
+        <button className={styles.checkout_button}>Checkout</button>
       </div>
 
       </div>
@@ -149,7 +151,7 @@ const CheckoutPage = () => {
         </div>
       </div>
 
-      <button className={styles.checkout_button}>Checkout</button>
+      
     </div>
   );
 };
