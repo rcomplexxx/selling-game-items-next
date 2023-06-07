@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import Image from 'next/image';
 import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@mui/material';
 
 import styles from './cartitem.module.css'
@@ -53,20 +52,8 @@ const CartItem = ({ item}) => {
 
   return (
     <Card style={{color:'white',
-    backgroundColor:"black", width:"max-content"}}>
-      
-
-      <div className={styles.media}>
-      <Image 
-        src={`/images/`+ item.image} // Path to your image from the `public` directory
-        alt={item.name}
-
-        style={{objectFit:'cover'}}
-        fill
-      />
-      </div>
-
-
+    backgroundColor:"black"z}}>
+      <CardMedia image={'/images/'+item.image} alt={item.name} className={classNames(styles.media)} />
       <CardContent className={classNames(styles.cardContent)}>
         <Typography variant="h4">{item.name}</Typography>
         <Typography variant="h5">${item.price}</Typography>
