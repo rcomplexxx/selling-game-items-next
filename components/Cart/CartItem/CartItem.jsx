@@ -51,7 +51,7 @@ const CartItem = ({ item}) => {
   
 
       return (
-        <div style={{ color: 'white', backgroundColor: 'yellow' }}>
+        <div style={{ color: 'white', backgroundColor: 'black', width: 'max-content' }}>
           <div className={styles.media}>
             <img src={`/images/${item.image}`} alt={item.name} className={classNames(styles.mediaImage)} />
           </div>
