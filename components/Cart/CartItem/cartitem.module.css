@@ -1,8 +1,11 @@
 .media {
-    height: 260px;
-    color: white;
-    background-color: black;
-  }
+  position: relative;
+  height:260px; /* 16:9 */
+  padding-right: 177%;
+  transition: all 0.005s ease-in; 
+  overflow: hidden;
+  
+}
   
   .cardContent {
     display: flex;
