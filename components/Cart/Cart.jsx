@@ -43,7 +43,7 @@ const Cart = ({    emptyCartText='true' }) => {
     <>
       <Grid container spacing={3} >
         {cartProducts.map((lineItem) => (
-          <Grid item xs={12} sm={4} key={lineItem.id} sx={{width:"max-content"}}>
+          <Grid item xs={12} sm={4} key={lineItem.id} sx={{width:"max-content", backgroundColor:"blue"}}>
             <CartItem item={lineItem}  />
           </Grid>
         ))}
