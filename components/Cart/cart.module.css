@@ -5,6 +5,10 @@
   
 }
 
+.containerStyle{
+  min-width: max-content;
+}
+
 .toolbar {
     min-height: 64px; /* Replace with the desired height value */
   }
