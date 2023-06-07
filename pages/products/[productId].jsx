@@ -97,7 +97,7 @@ import Image from 'next/image';
     
 
 
-export default function ProductPage({productId,product}){
+export default function ProductPage({product}){
 
         
   if(!product) return <p style={{marginTop:"100px"}}>Product not found.</p>
@@ -110,33 +110,39 @@ export default function ProductPage({productId,product}){
           setSelectedStyle(style);
         };
     
-    
-        const onAddToCart = async ( quantity = 1) => {
+
+
+
+        const { cartProducts, setCartProducts } = useContext(AppContext);
+
+        const onAddToCart = async (quantity = 1) => {
           let foundProduct = false;
           let newCartProducts = cartProducts.map((cp) => {
-            if (cp.id === productId) {
+            if (cp.id === product.id) {
               cp.quantity = cp.quantity + 1;
               foundProduct = true;
             }
             return cp;
           });
           if (!foundProduct) {
-          
-              newCartProducts = [
-                ...newCartProducts,
-                {
-                  id: productId,
-                  quantity,
-                  name: product.name,
-                  image: product.image,
-                  price: product.price,
-                },
-              ];
+            newCartProducts = [
+              ...newCartProducts,
+              {
+                id: product.id,
+                quantity,
+                name: product.name,
+                image: product.image,
+                price: product.price,
+              },
+            ];
           }
       
           console.log(newCartProducts);
           setCartProducts(newCartProducts);
         };
+
+    
+       
     
     
         return  <>
@@ -275,7 +281,6 @@ export default function ProductPage({productId,product}){
         // Return the data as props
         return {
           props: {
-            productId,
             product
           },
         };
