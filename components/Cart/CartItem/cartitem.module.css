@@ -1,7 +1,7 @@
 .media {
   position: relative;
   height:260px; /* 16:9 */
-  padding-right: 177%;
+  aspect-ratio: 16/9;
   transition: all 0.005s ease-in; 
   overflow: hidden;
   
