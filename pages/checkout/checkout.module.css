@@ -82,10 +82,8 @@
   }
   
   .customer_review {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-content: flex-end; /* Added line */
+    
+    
   }
   
   .review p {
