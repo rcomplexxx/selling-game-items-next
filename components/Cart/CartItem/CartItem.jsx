@@ -50,25 +50,24 @@ const CartItem = ({ item}) => {
 
   
 
-      return (
-        <div style={{ color: 'white', backgroundColor: 'black', width: 'max-content' }}>
-          <div className={styles.media}>
-            <img src={`/images/${item.image}`} alt={item.name} className={classNames(styles.mediaImage)} />
-          </div>
-          <div className={classNames(styles.cardContent)}>
-            <h4 style={{ margin: 0 }}>{item.name}</h4>
-            <h5 style={{ margin: 0 }}>${item.price}</h5>
-          </div>
-          <div className={classNames(styles.cardActions)}>
-            <div className={styles.buttons}>
-              <button type="button" style={{ color: 'white', backgroundColor: 'black' }} className={styles.button} onClick={() => handleUpdateCartQty(-1)}>-</button>
-              <p style={{ margin: '0 8px' }}>{item.quantity}</p>
-              <button type="button" style={{ color: 'white', backgroundColor: 'black' }} className={styles.button} onClick={() => handleUpdateCartQty(1)}>+</button>
-            </div>
-            <button type="button" style={{ color: 'white', backgroundColor: 'black' }} className={styles.removeButton} onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
-          </div>
+  return (
+    <Card style={{color:'white',
+    backgroundColor:"black"}}>
+      <CardMedia image={'/images/'+item.image} alt={item.name} className={classNames(styles.media)} />
+      <CardContent className={classNames(styles.cardContent)}>
+        <Typography variant="h4">{item.name}</Typography>
+        <Typography variant="h5">${item.price}</Typography>
+      </CardContent>
+      <CardActions className={classNames(styles.cardActions)}>
+        <div className={styles.buttons}>
+          <Button type="button" size="small" style={{color:'white'}} onClick={() => handleUpdateCartQty( -1)}>-</Button>
+          <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
+          <Button type="button" size="small" style={{color:'white'}} onClick={() => handleUpdateCartQty( 1)}>+</Button>
         </div>
-      );
-}
+        <Button variant="contained" type="button" color="secondary" onClick={() => handleRemoveFromCart(item.id)}>Remove</Button>
+      </CardActions>
+    </Card>
+  );
+};
 
 export default CartItem;
