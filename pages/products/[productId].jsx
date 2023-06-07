@@ -115,7 +115,7 @@ export default function ProductPage({product}){
 
         const { cartProducts, setCartProducts } = useContext(AppContext);
 
-        const onAddToCart = async (quantity = 1) => {
+        const onAddToCart = (quantity = 1) => {
           let foundProduct = false;
           let newCartProducts = cartProducts.map((cp) => {
             if (cp.id === product.id) {
@@ -197,7 +197,7 @@ export default function ProductPage({product}){
       />
             </button>
           </div>
-          <button className={styles.add_to_cart_button} onClick={()=>{onAddToCart}}>Add to Cart</button>
+          <button className={styles.add_to_cart_button} onClick={onAddToCart}>Add to Cart</button>
         </div>
     
     
