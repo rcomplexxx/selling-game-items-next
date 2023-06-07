@@ -85,12 +85,15 @@
     width:40vw;
     
   }
+
+  .customer_review {
+    width:100%;
+    justify-content: flex-end;
+  }
   
   .review p {
     margin: 0;
   }
   
   /* Position the specified part on the right side */
-  .customer_review {
-    justify-content: flex-end;
-  }
+ 
