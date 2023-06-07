@@ -1,6 +1,7 @@
 .media {
   position:relative;
-   
+  flex-grow: 1;
+  padding-top: 56.75;
     color: white;
     background-color: black;
   }
