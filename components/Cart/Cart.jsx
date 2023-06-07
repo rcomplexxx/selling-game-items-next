@@ -41,9 +41,9 @@ const Cart = ({    emptyCartText='true' }) => {
 
   const renderCart = () => (
     <>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} >
         {cartProducts.map((lineItem) => (
-          <Grid item xs={12} sm={4} key={lineItem.id}>
+          <Grid item xs={12} sm={4} key={lineItem.id} sx={{width:"max-content"}}>
             <CartItem item={lineItem}  />
           </Grid>
         ))}
