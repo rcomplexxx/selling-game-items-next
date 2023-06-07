@@ -53,7 +53,9 @@ const CartItem = ({ item}) => {
   return (
     <Card style={{color:'white',
     backgroundColor:"black"}}>
-      <CardMedia image={'/images/'+item.image} alt={item.name} className={classNames(styles.media)} />
+      <div className={classNames(styles.media)}>
+  <Image src={`/images/${item.image}`} alt={item.name} layout="fill" objectFit="cover" />
+</div>
       <CardContent className={classNames(styles.cardContent)}>
         <Typography variant="h4">{item.name}</Typography>
         <Typography variant="h5">${item.price}</Typography>
