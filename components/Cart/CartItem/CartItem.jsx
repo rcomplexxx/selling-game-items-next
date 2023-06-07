@@ -52,7 +52,7 @@ const CartItem = ({ item}) => {
 
   return (
     <Card style={{color:'white',
-    backgroundColor:"black"}}>
+    backgroundColor:"black", width:"max-content"}}>
       <CardMedia image={'/images/'+item.image} alt={item.name} className={classNames(styles.media)} />
       <CardContent className={classNames(styles.cardContent)}>
         <Typography variant="h4">{item.name}</Typography>
