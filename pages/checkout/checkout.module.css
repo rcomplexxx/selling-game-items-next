@@ -7,7 +7,7 @@
   
   .checkout_section {
     margin-bottom: 30px;
-    width: 100%;
+    width: max-content;
   }
   
   .checkout_section h2 {
