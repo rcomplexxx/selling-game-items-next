@@ -1,9 +1,10 @@
 .checkout_container {
   width:100vw;
+  height: max-content;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
   }
   
   .checkout_section {
