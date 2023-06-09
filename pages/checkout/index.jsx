@@ -88,34 +88,12 @@ const CheckoutPage = () => {
           <p>$9.99</p>
         </div>
 
-        <button className={styles.checkout_button}>Checkout</button>
+       
       </div>
 
       </div>
       <div className={styles.checkout_right}>
-      <div className={styles.checkout_section}>
-        <h2>What Happy Customers Are Saying</h2>
-        <div className={styles.customer_review}>
-          <div className={styles.review}>
-            <p>Selina J., Dallas, TX</p>
-            <p>Verified Buyer</p>
-            <p>★★★★★ 5/5</p>
-            <p>After trying the Fairy Light Spirit Tree, I ordered 3 more! It transformed my entire home.</p>
-          </div>
-          <div className={styles.review}>
-            <p>Sarah H., London, UK</p>
-            <p>Verified Buyer</p>
-            <p>★★★★★ 5/5</p>
-            <p>I don’t miss shopping in stores at all. This is as easy as it comes. Check out online and receive your Lights at your doorstep! Fast delivery and when I made a mistake, I just exchanged it. They’re that good.</p>
-          </div>
-          <div className={styles.review}>
-            <p>Amy P., Salt Lake City, UT</p>
-            <p>Verified Buyer</p>
-            <p>★★★★★ 5/5</p>
-            <p>This was my first time buying from a Facebook advertisement, and customer service came to the rescue. 10/10 service!</p>
-          </div>
-        </div>
-      </div>
+     
 
       <div className={styles.checkout_section}>
         <h2>Order Summary</h2>
@@ -148,7 +126,33 @@ const CheckoutPage = () => {
             <p>$120.00</p>
           </div>
         </div>
+        <button className={styles.checkout_button}>Checkout</button>
         </div>
+
+        <div className={styles.checkout_section}>
+        <h2>What Happy Customers Are Saying</h2>
+        <div className={styles.customer_review}>
+          <div className={styles.review}>
+            <p>Selina J., Dallas, TX</p>
+            <p>Verified Buyer</p>
+            <p>★★★★★ 5/5</p>
+            <p>After trying the Fairy Light Spirit Tree, I ordered 3 more! It transformed my entire home.</p>
+          </div>
+          <div className={styles.review}>
+            <p>Sarah H., London, UK</p>
+            <p>Verified Buyer</p>
+            <p>★★★★★ 5/5</p>
+            <p>I don’t miss shopping in stores at all. This is as easy as it comes. Check out online and receive your Lights at your doorstep! Fast delivery and when I made a mistake, I just exchanged it. They’re that good.</p>
+          </div>
+          <div className={styles.review}>
+            <p>Amy P., Salt Lake City, UT</p>
+            <p>Verified Buyer</p>
+            <p>★★★★★ 5/5</p>
+            <p>This was my first time buying from a Facebook advertisement, and customer service came to the rescue. 10/10 service!</p>
+          </div>
+        </div>
+      </div>
+
       </div>
 
       
