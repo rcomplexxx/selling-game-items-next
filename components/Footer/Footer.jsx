@@ -39,7 +39,7 @@ export default function Footer() {
           value={email}
           onChange={handleInputChange}
         />
-        {!isValidEmail && <p style={{color:'red'}}>Please enter a valid email address.</p>}
+        {!isValidEmail && <p style={{color:'orange'}}>Please enter a valid email address.</p>}
         <button className={styles.subscribeButton} onClick={handleSubscribe}>Subscribe</button>
         <div className={styles.footerLinks}>
           <Link href="/" className={styles.footerLink}>Home</Link>
