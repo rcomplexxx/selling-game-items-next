@@ -4,11 +4,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    background-color: #ccc;
   }
   
   .checkout_section {
-    background-color: #ccc;
+    
     margin-bottom: 30px;
     width: 40%;
   }
