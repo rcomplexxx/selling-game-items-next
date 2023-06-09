@@ -1,6 +1,7 @@
 import CheckoutInfo from '@/components/Checkout/CheckoutInfo';
 import OrderDetails from '@/components/Checkout/OrderDetails';
 import React from 'react';
+import styles from './checkout.module.css';
 
 const CheckoutPage = () => {
 
