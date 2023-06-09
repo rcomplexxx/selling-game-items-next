@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: #ccc;
   }
 
   .checkout_left{
