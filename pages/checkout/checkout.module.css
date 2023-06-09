@@ -6,11 +6,18 @@
     justify-content: space-around;
     background-color: #ccc;
   }
+
+  .checkout_left{
+    width: 40%;
+  }
+  .checkout_right{
+    width: 40%;
+  }
   
   .checkout_section {
     
     margin-bottom: 30px;
-    width: 40%;
+    
   }
   
   .checkout_section h2 {
