@@ -4,6 +4,7 @@ import styles from './checkout.module.css';
 const CheckoutPage = () => {
   return (
     <div className={styles.checkout_container}>
+        <div className={styles.checkout_left}>
       <div className={styles.checkout_section}>
         <h2>Contact Information</h2>
         <form>
@@ -88,9 +89,10 @@ const CheckoutPage = () => {
         </div>
 
         <button className={styles.checkout_button}>Checkout</button>
-      
+      </div>
 
       </div>
+      <div className={styles.checkout_right}>
       <div className={styles.checkout_section}>
         <h2>What Happy Customers Are Saying</h2>
         <div className={styles.customer_review}>
@@ -147,6 +149,7 @@ const CheckoutPage = () => {
           </div>
         </div>
         </div>
+      </div>
 
       
     </div>
