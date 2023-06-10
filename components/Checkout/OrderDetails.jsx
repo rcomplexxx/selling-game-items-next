@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './orderdetails.module.css'
+import {PayPalScriptProvider, PayPalButtons} from '@paypal/react-paypal-js'
 
 
 export default function OrderDetails(){
@@ -40,6 +41,11 @@ return <div className={styles.checkout_right}>
            <p>$120.00</p>
          </div>
        </div>
+
+
+       <PayPalScriptProvider>
+    <PayPalButtons/>
+        </PayPalScriptProvider>
        <button className={styles.checkout_button}>Checkout</button>
        </div>
  
