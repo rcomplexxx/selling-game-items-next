@@ -6,102 +6,11 @@
     justify-content: space-around;
   }
 
-  .checkout_left{
-    width: 40%;
-  }
-  .checkout_right{
-    width: 40%;
-  }
-  
-  .checkout_section {
-    
-    margin-bottom: 30px;
-    
-  }
-  
-  .checkout_section h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .form_group {
-    margin-bottom: 20px;
-  }
-  
-  .form_group label {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .form_group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .billing_options {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .billing_option label {
-    font-size: 1.2rem;
-  }
-  
-  .shipping_method {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .shipping_method label {
-    font-size: 1.2rem;
-    margin-right: 10px;
-  }
-  
-  .order_summary {
-   
-  }
-  
-  .order_summary p {
-    margin: 0;
-  }
-  
-  .coupon_code input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .checkout_button {
-    padding: 10px 20px;
-    background-color: #f50057;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .container_right {
-    width:40vw;
-    
-  }
 
-  .customer_review {
-    width:100%;
-    justify-content: flex-end;
+  @media (max-width: 980px)  {
+    .checkout_container{
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
   }
-  
-  .review p {
-    width: 100%;
-    margin: 0;
-  }
-  
-  /* Position the specified part on the right side */
- 

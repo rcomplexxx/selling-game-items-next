@@ -6,16 +6,14 @@ import styles from './checkout.module.css';
 const CheckoutPage = () => {
 
 
-  const orderDetails = <OrderDetails/>
+  
 
 
 
   return (
     <div className={styles.checkout_container}>
        <CheckoutInfo></CheckoutInfo>
-     
-
-      {orderDetails}
+       <OrderDetails/>
     </div>
   );
 };
