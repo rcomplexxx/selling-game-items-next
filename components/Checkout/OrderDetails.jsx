@@ -42,9 +42,25 @@ return <div className={styles.checkout_right}>
          </div>
        </div>
 
+ {/* sacuvaj client id vrednost i ostale bitne informacije u .env fajlu */}
+       <PayPalScriptProvider options={{"client-id":"AVPfz0EruY7588ZiztgquH99uO0TA8lepw5MWAE_5176eVbQnDzQvSQJ9sk3I4sPE6grs_ll6FfOPdIx"}}>
+    <PayPalButtons
+       createOrder={(data, actions) => {
+        return actions.order.create({
+          purchase_units: [
+            {
+              amount: {
+                value: '10.00',
+                currency_code: 'USD',
+              },
+            },
+          ],
+        });
+      }}
 
-       <PayPalScriptProvider>
-    <PayPalButtons/>
+
+    
+    />
         </PayPalScriptProvider>
        <button className={styles.checkout_button}>Checkout</button>
        </div>
