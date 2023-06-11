@@ -46,16 +46,17 @@ return <div className={styles.checkout_right}>
        <PayPalScriptProvider options={{"client-id":"AQB3vOguzerJ-HXgJavEAMlivjs3DTNyWi2W7yKI94arI23zXOAaSJx4Zf4JzTO9RjvJdr5AflrFHWp1"}}>
     <PayPalButtons
        createOrder={(data, actions) => {
-        return actions.order.create({
-          purchase_units: [
-            {
-              amount: {
-                value: '10.00',
-                currency_code: 'USD',
-              },
-            },
-          ],
-        });
+        return actions.order
+                        .create({
+                            purchase_units: [
+                                {
+                                    amount: {
+                                      currency_code: 'USD',
+                                      value: '10.00',
+                                    },
+                                },
+                            ],
+                        })
       }}
 
 
