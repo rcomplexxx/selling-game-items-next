@@ -18,6 +18,16 @@ export default function CheckoutInfo() {
 
   const errorPharagraph=(error)=> <p className={styles.error}>{errors.email}</p>;
 
+  const handleChange=(event)=>{
+    const {id,value}=event.target;
+    if (!value) {
+      setErrors((prevErrors) => ({ ...prevErrors, [id]: "This field is empty." }));
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, [id]: "" }));
+    }
+  };
+  
+
   return (
     <div className={styles.checkout_left}>
       <div className={styles.checkout_section}>
@@ -29,6 +39,7 @@ export default function CheckoutInfo() {
               type="email"
               id="email"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.email && errorPharagraph(errors.email)}
           </div>
@@ -38,6 +49,7 @@ export default function CheckoutInfo() {
               type="text"
               id="firstName"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.firstName && errorPharagraph(errors.firstName)}
           </div>
@@ -47,6 +59,7 @@ export default function CheckoutInfo() {
               type="text"
               id="lastName"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.lastName && errorPharagraph(errors.lastName)}
           </div>
@@ -56,6 +69,7 @@ export default function CheckoutInfo() {
               type="text"
               id="address"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.address && errorPharagraph(errors.address)}
           </div>
@@ -65,6 +79,7 @@ export default function CheckoutInfo() {
               type="text"
               id="apt"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.apt && errorPharagraph(errors.apt)}
           </div>
@@ -74,6 +89,7 @@ export default function CheckoutInfo() {
               type="text"
               id="country"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.country && errorPharagraph(errors.country)}
           </div>
@@ -83,6 +99,7 @@ export default function CheckoutInfo() {
               type="text"
               id="postcode"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.postcode && errorPharagraph(errors.postcode)}
           </div>
@@ -92,6 +109,7 @@ export default function CheckoutInfo() {
               type="text"
               id="state"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.state && errorPharagraph(errors.state)}
           </div>
@@ -101,6 +119,7 @@ export default function CheckoutInfo() {
               type="text"
               id="suburb"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.suburb && errorPharagraph(errors.suburb)}
           </div>
@@ -110,6 +129,7 @@ export default function CheckoutInfo() {
               type="text"
               id="phone"
               onBlur={handleBlur}
+              onChange={handleChange}
             />
             {errors.phone && errorPharagraph(errors.phone)}
           </div>
