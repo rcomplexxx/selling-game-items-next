@@ -12,7 +12,7 @@ export default function CheckoutInfo() {
     if (!value) {
       setErrors((prevErrors) => ({ ...prevErrors, [id]: "This field is empty." }));
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, [id]: "" }));
+      setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
     }
   };
 
@@ -21,10 +21,8 @@ export default function CheckoutInfo() {
   const handleChange=(event)=>{
     const {id,value}=event.target;
     if(!errors[id])return;
-    if (!value) {
-      setErrors((prevErrors) => ({ ...prevErrors, [id]: "This field is empty." }));
-    } else {
-      setErrors((prevErrors) => ({ ...prevErrors, [id]: "" }));
+    if (value) {
+      setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
     }
   };
   
