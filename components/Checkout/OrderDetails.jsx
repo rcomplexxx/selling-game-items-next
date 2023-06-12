@@ -11,7 +11,7 @@ export default function OrderDetails(){
 
   let s=0; 
   cartProducts.forEach((cp,i) => {s=s+cp.quantity*cp.price});
-  s=(Math.round(s * 100) / 100).toFixed();
+  s = (Math.round(s * 100) / 100).toFixed(2);
 
 
 
