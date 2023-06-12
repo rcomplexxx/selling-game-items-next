@@ -40,6 +40,12 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
+
+  .error{
+    color: orange;
+    margin-top: 5px;
+  }
+
   
   .billing_options {
     display: flex;

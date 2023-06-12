@@ -16,6 +16,8 @@ export default function CheckoutInfo() {
     }
   };
 
+  const errorPharagraph=(error)=> <p className={styles.error}>{errors.email}</p>;
+
   return (
     <div className={styles.checkout_left}>
       <div className={styles.checkout_section}>
@@ -28,7 +30,7 @@ export default function CheckoutInfo() {
               id="email"
               onBlur={handleBlur}
             />
-            {errors.email && <p className={styles.error}>{errors.email}</p>}
+            {errors.email && errorPharagraph(errors.email)}
           </div>
           <div className={styles.form_group}>
             <label htmlFor="firstName">First name *</label>
@@ -37,7 +39,7 @@ export default function CheckoutInfo() {
               id="firstName"
               onBlur={handleBlur}
             />
-            {errors.firstName && <p className={styles.error}>{errors.firstName}</p>}
+            {errors.firstName && errorPharagraph(errors.firstName)}
           </div>
           <div className={styles.form_group}>
             <label htmlFor="lastName">Last name *</label>
@@ -46,7 +48,7 @@ export default function CheckoutInfo() {
               id="lastName"
               onBlur={handleBlur}
             />
-            {errors.lastName && <p className={styles.error}>{errors.lastName}</p>}
+            {errors.lastName && errorPharagraph(errors.lastName)}
           </div>
           <div className={styles.form_group}>
             <label htmlFor="address">Address *</label>
@@ -55,7 +57,7 @@ export default function CheckoutInfo() {
               id="address"
               onBlur={handleBlur}
             />
-            {errors.address && <p className={styles.error}>{errors.address}</p>}
+            {errors.address && errorPharagraph(errors.address)}
           </div>
           <div className={styles.form_group}>
             <label htmlFor="apt">Apt, suite, etc. (optional)</label>
@@ -64,7 +66,7 @@ export default function CheckoutInfo() {
               id="apt"
               onBlur={handleBlur}
             />
-            {errors.apt && <p className={styles.error}>{errors.apt}</p>}
+            {errors.apt && errorPharagraph(errors.apt)}
           </div>
           <div className={styles.form_group}>
             <label htmlFor="country">Country *</label>
@@ -73,7 +75,7 @@ export default function CheckoutInfo() {
               id="country"
               onBlur={handleBlur}
             />
-            {errors.country && <p className={styles.error}>{errors.country}</p>}
+            {errors.country && errorPharagraph(errors.country)}
           </div>
           <div className={styles.form_group}>
             <label htmlFor="postcode">Postcode *</label>
@@ -82,7 +84,7 @@ export default function CheckoutInfo() {
               id="postcode"
               onBlur={handleBlur}
             />
-            {errors.postcode && <p className={styles.error}>{errors.postcode}</p>}
+            {errors.postcode && errorPharagraph(errors.postcode)}
           </div>
           <div className={styles.form_group}>
             <label htmlFor="state">State *</label>
@@ -91,7 +93,7 @@ export default function CheckoutInfo() {
               id="state"
               onBlur={handleBlur}
             />
-            {errors.state && <p className={styles.error}>{errors.state}</p>}
+            {errors.state && errorPharagraph(errors.state)}
           </div>
           <div className={styles.form_group}>
             <label htmlFor="suburb">Suburb *</label>
@@ -100,7 +102,7 @@ export default function CheckoutInfo() {
               id="suburb"
               onBlur={handleBlur}
             />
-            {errors.suburb && <p className={styles.error}>{errors.suburb}</p>}
+            {errors.suburb && errorPharagraph(errors.suburb)}
           </div>
           <div className={styles.form_group}>
             <label htmlFor="phone">Phone *</label>
@@ -109,7 +111,7 @@ export default function CheckoutInfo() {
               id="phone"
               onBlur={handleBlur}
             />
-            {errors.phone && <p className={styles.error}>{errors.phone}</p>}
+            {errors.phone && errorPharagraph(errors.phone)}
           </div>
         </form>
       </div>
