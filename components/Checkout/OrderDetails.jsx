@@ -9,10 +9,12 @@ export default function OrderDetails(){
   
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
-  if(cartProducts.length===0)return <p>No items in the bag.</p>;
+  // if(cartProducts.length===0)return <p>No items in the bag.</p>;
   let s=0; 
   cartProducts.forEach((cp,i) => {s=s+cp.quantity*cp.price});
+  if(s===0)s=0.1;
   s = (Math.round(s * 100) / 100).toFixed(2);
+
 
 
 
