@@ -12,7 +12,7 @@ export default function OrderDetails(){
   // if(cartProducts.length===0)return <p>No items in the bag.</p>;
   let s=0; 
   cartProducts.forEach((cp,i) => {s=s+cp.quantity*cp.price});
-  if(s===0)s=0.1;
+  if(s===0)s=0.01;
   s = (Math.round(s * 100) / 100).toFixed(2);
 
 
@@ -64,6 +64,12 @@ return <div className={styles.checkout_right}>
                                     amount: {
                                       currency_code: 'USD',
                                       value: s,
+                                    },
+
+                                    buyer: {
+                                      name: 'Plamen',
+                                      surname: 'Zapali',
+                                      email: 'plamenzapali@example.com',
                                     },
                                 },
                             ],
