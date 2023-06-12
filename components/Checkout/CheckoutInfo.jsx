@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from './checkoutinfo.module.css';
 
 export default function CheckoutInfo() {
+
+  
   const [errors, setErrors] = useState({});
 
   const handleBlur = (event) => {
