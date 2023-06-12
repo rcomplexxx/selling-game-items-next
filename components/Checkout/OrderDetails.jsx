@@ -1,9 +1,18 @@
 import React from "react";
 import styles from './orderdetails.module.css'
 import {PayPalScriptProvider, PayPalButtons} from '@paypal/react-paypal-js'
+import AppContext from '@/contexts/AppContext';
+  import classNames from 'classnames';
 
 
 export default function OrderDetails(){
+
+  
+  const { cartProducts, setCartProducts } = useContext(AppContext);
+
+  let s=0; 
+  cartProducts.forEach((cp,i) => {s=s+cp.quantity*cp.price});
+  s=(Math.round(s * 100) / 100).toFixed();
 
 
 
@@ -52,7 +61,7 @@ return <div className={styles.checkout_right}>
                                 {
                                     amount: {
                                       currency_code: 'USD',
-                                      value: '10.00',
+                                      value: s,
                                     },
                                 },
                             ],
