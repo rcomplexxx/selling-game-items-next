@@ -143,5 +143,5 @@ export default function CheckoutInfo() {
      
     </div>
 
-    </div>
+    </div>);
 }
