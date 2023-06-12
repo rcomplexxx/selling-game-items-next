@@ -66,11 +66,7 @@ return <div className={styles.checkout_right}>
                                       value: s,
                                     },
 
-                                    buyer: {
-                                      name: 'Plamen',
-                                      surname: 'Zapali',
-                                      email: 'plamenzapali@example.com',
-                                    },
+                                  
                                 },
                             ],
                         })
