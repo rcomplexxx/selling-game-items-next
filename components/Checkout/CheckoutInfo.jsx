@@ -16,7 +16,7 @@ export default function CheckoutInfo() {
     }
   };
 
-  const errorPharagraph=(error)=> <p className={styles.error}>{errors.email}</p>;
+  const errorPharagraph=(error)=> <p className={styles.error}>{error}</p>;
 
   const handleChange=(event)=>{
     const {id,value}=event.target;
