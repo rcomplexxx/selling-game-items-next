@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useContext} from "react";
 import styles from './orderdetails.module.css'
 import {PayPalScriptProvider, PayPalButtons} from '@paypal/react-paypal-js'
 import AppContext from '@/contexts/AppContext';
-  import classNames from 'classnames';
 
 
 export default function OrderDetails(){
