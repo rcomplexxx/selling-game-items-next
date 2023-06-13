@@ -50,6 +50,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     align-self: center;
+    box-sizing: border-box;
   }
 
   .input_error{
