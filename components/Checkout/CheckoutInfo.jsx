@@ -241,9 +241,8 @@ export default function CheckoutInfo() {
         {billingAddress === "differentAddress" && <form>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
-              <label htmlFor="billingAddress">Address *</label>
               <input
-              placeholder="Email *"
+              placeholder="Address *"
                 type="text"
                 id="billingAddress"
                 onBlur={handleBlur}
@@ -257,9 +256,8 @@ export default function CheckoutInfo() {
              
             </div>
             <div className={styles.form_group}>
-              <label htmlFor="billingApt">Apt, suite, etc. (optional)</label>
               <input
-              placeholder="Email *"
+              placeholder="Apt, suite, etc. (optional)"
                 type="text"
                 id="billingApt"
                 onBlur={handleBlur}
@@ -274,9 +272,8 @@ export default function CheckoutInfo() {
           </div>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
-              <label htmlFor="billingCountry">Country *</label>
               <input
-              placeholder="Email *"
+              placeholder="Country *"
                 type="text"
                 id="billingCountry"
                 onBlur={handleBlur}
@@ -289,9 +286,8 @@ export default function CheckoutInfo() {
               />
             </div>
             <div className={styles.form_group}>
-              <label htmlFor="billingPostcode">Postcode *</label>
               <input
-              placeholder="Email *"
+              placeholder="Postcode *"
                 type="text"
                 id="billingPostcode"
                 onBlur={handleBlur}
@@ -304,9 +300,8 @@ export default function CheckoutInfo() {
               />
             </div>
             <div className={styles.form_group}>
-              <label htmlFor="billingState">State *</label>
               <input
-              placeholder="Email *"
+              placeholder="State *"
                 type="text"
                 id="billingState"
                 onBlur={handleBlur}
@@ -321,9 +316,8 @@ export default function CheckoutInfo() {
           </div>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
-              <label htmlFor="billingSuburb">Suburb *</label>
               <input
-              placeholder="Email *"
+              placeholder="Suburb *"
                 type="text"
                 id="billingSuburb"
                 onBlur={handleBlur}
@@ -336,9 +330,8 @@ export default function CheckoutInfo() {
               />
             </div>
             <div className={styles.form_group}>
-              <label htmlFor="billingPhone">Phone *</label>
               <input
-              placeholder="Email *"
+              placeholder="Phone *"
                 type="text"
                 id="billingPhone"
                 onBlur={handleBlur}
