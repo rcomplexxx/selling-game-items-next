@@ -41,6 +41,10 @@
     border-radius: 5px;
   }
 
+  .Inputerror{
+    border: solid 1px red;
+  }
+
   .error{
     color: orange;
     margin-top: 5px;
