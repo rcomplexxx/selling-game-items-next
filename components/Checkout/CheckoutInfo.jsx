@@ -81,7 +81,7 @@ export default function CheckoutInfo() {
                   (errors.firstName ? styles.input_error : null)
                 }
               />
-              {errors.firstName && errorPharagraph(errors.firstName)}
+             
             </div>
             <div className={styles.form_group}>
               <input
@@ -96,7 +96,7 @@ export default function CheckoutInfo() {
                   (errors.lastName ? styles.input_error : null)
                 }
               />
-              {errors.lastName && errorPharagraph(errors.lastName)}
+             
             </div>
           </div>
           <div className={styles.input_row}>
@@ -113,7 +113,7 @@ export default function CheckoutInfo() {
                   (errors.address ? styles.input_error : null)
                 }
               />
-              {errors.address && errorPharagraph(errors.address)}
+            
             </div>
             <div className={styles.form_group}>
               <input
@@ -128,7 +128,7 @@ export default function CheckoutInfo() {
                   (errors.apt ? styles.input_error : null)
                 }
               />
-              {errors.apt && errorPharagraph(errors.apt)}
+              
             </div>
           </div>
           <div className={styles.input_row}>
@@ -145,7 +145,7 @@ export default function CheckoutInfo() {
                   (errors.country ? styles.input_error : null)
                 }
               />
-              {errors.country && errorPharagraph(errors.country)}
+             
             </div>
             <div className={styles.form_group}>
               <input
@@ -160,7 +160,7 @@ export default function CheckoutInfo() {
                   (errors.postcode ? styles.input_error : null)
                 }
               />
-              {errors.postcode && errorPharagraph(errors.postcode)}
+             
             </div>
             <div className={styles.form_group}>
               <input
@@ -175,7 +175,7 @@ export default function CheckoutInfo() {
                   (errors.state ? styles.input_error : null)
                 }
               />
-              {errors.state && errorPharagraph(errors.state)}
+             
             </div>
           </div>
           <div className={styles.input_row}>
@@ -192,7 +192,7 @@ export default function CheckoutInfo() {
                   (errors.suburb ? styles.input_error : null)
                 }
               />
-              {errors.suburb && errorPharagraph(errors.suburb)}
+              
             </div>
             <div className={styles.form_group}>
               <input
@@ -207,7 +207,7 @@ export default function CheckoutInfo() {
                   (errors.phone ? styles.input_error : null)
                 }
               />
-              {errors.phone && errorPharagraph(errors.phone)}
+              
             </div>
           </div>
         </form>
