@@ -58,9 +58,12 @@ export default function OrderDetails() {
           <PayPalButtons
             fundingSource="paypal"
             onClick={(event)=>{
-              event.preventDefault();
-              event.stopPropagation();
-              console.log('PayPal button clicked')}}
+              
+              // event.preventDefault();
+              // event.stopPropagation();
+              console.log('PayPal button clicked')
+              return;
+            }}
             createOrder={(data, actions) => {
               return actions.order.create({
                 purchase_units: [
