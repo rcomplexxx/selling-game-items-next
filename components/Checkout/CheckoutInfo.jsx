@@ -131,6 +131,7 @@ export default function CheckoutInfo() {
             {errors.state && errorPharagraph(errors.state)}
           </div>
           </div>
+          <div className={styles.input_row}>
           <div className={styles.form_group}>
             <label htmlFor="suburb">Suburb *</label>
             <input
@@ -152,6 +153,7 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.phone?styles.input_error:null)}
             />
             {errors.phone && errorPharagraph(errors.phone)}
+          </div>
           </div>
         </form>
       </div>
