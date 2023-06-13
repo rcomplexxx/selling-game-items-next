@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from './checkoutinfo.module.css';
-import classNames from "classnames";
+import UserInfoForm from './UserInfoForm.jsx'
 
 export default function CheckoutInfo() {
 
@@ -172,6 +172,7 @@ export default function CheckoutInfo() {
           <label htmlFor="differentAddress">Use a different billing address</label>
         </div>
       </div>
+      <UserInfoForm/>
     </div>
 
     <div className={styles.checkout_section}>
