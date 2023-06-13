@@ -49,8 +49,9 @@ export default function CheckoutInfo() {
         <h2>Contact Information</h2>
         <form>
           <div className={styles.form_group}>
-            <label htmlFor="email">Email *</label>
+           
             <input
+              placeholder="Email *"
               type="email"
               id="email"
               onBlur={handleBlur}
