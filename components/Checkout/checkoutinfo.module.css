@@ -27,6 +27,7 @@
     width: 100%;
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
   }
   
   .form_group label {
@@ -48,7 +49,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    justify-self: center;
+    align-self: center;
   }
 
   .input_error{
