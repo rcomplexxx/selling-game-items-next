@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import styles from "./checkoutinfo.module.css";
 
 export default function CheckoutInfo() {
+
+
   const [errors, setErrors] = useState({});
   const [billingAddress, setBillingAddress] = useState("sameAddress");
+  const inputNumber= billingAddress==="sameAddress"?9:15;
 
-
-
+  console.log(errors);
   
 
   const handleBlur = (event) => {
@@ -24,6 +26,8 @@ export default function CheckoutInfo() {
           [id]: "Please enter a valid email address.",
         }));
       else setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+      
+    
     }
   };
 
@@ -31,12 +35,32 @@ export default function CheckoutInfo() {
 
   const handleChange = (event) => {
     const { id, value } = event.target;
+    if(errors.length >= inputNumber-1){
+      if(!value)setErrors((prevErrors)=>({...prevErrors, [id]: id + 'is required field.'}))
+      else if(id === "email" )
+     { if (!/\S+@\S+\.\S+/.test(value))setErrors((prevErrors) => ({
+        ...prevErrors,
+        [id]: "Please enter a valid email address.",
+      }));else{setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}}
+      else setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+    
+    }
     if (!errors[id]) return;
     if (value) {
-      setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+      if (id === "email" ) {
+        if(errors[id]==='Email is required field.')
+        setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+        else if(/\S+@\S+\.\S+/.test(value)){ setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
+      
+      }
+      else {setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
     }
   };
-
+  const handleFocus =(event)=>{
+    const { id, value } = event.target;
+    if(!errors[id] && !errors.length==inputNumber-1){setErrors((prevErrors)=>({...prevErrors,[id]:null}));
+  }
+  }
 
   const handleBillingAddressChange = (event) => {
     const { id } = event.target;
@@ -56,6 +80,7 @@ export default function CheckoutInfo() {
               id="email"
               onBlur={handleBlur}
               onChange={handleChange}
+              onFocus={handleFocus}
               className={
                 styles.input_field +
                 " " +
@@ -75,6 +100,7 @@ export default function CheckoutInfo() {
                 id="firstName"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -90,6 +116,7 @@ export default function CheckoutInfo() {
                 id="lastName"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -107,6 +134,7 @@ export default function CheckoutInfo() {
                 id="address"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -122,6 +150,7 @@ export default function CheckoutInfo() {
                 id="apt"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -139,6 +168,7 @@ export default function CheckoutInfo() {
                 id="country"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -154,6 +184,7 @@ export default function CheckoutInfo() {
                 id="postcode"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -169,6 +200,7 @@ export default function CheckoutInfo() {
                 id="state"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -186,6 +218,7 @@ export default function CheckoutInfo() {
                 id="suburb"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -201,6 +234,7 @@ export default function CheckoutInfo() {
                 id="phone"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -224,6 +258,7 @@ export default function CheckoutInfo() {
             <input type="radio" id="sameAddress" name="billingAddress" 
              checked={billingAddress === "sameAddress"}
              onChange={handleBillingAddressChange}/>
+             onFocus={handleFocus}
             <label htmlFor="sameAddress">Same as shipping address</label>
           </div>
           <div className={styles.billing_option}>
@@ -231,6 +266,7 @@ export default function CheckoutInfo() {
             
              checked={billingAddress === "differentAddress"}
              onChange={handleBillingAddressChange}
+             onFocus={handleFocus}
              
              />
             <label htmlFor="differentAddress">
@@ -247,6 +283,7 @@ export default function CheckoutInfo() {
                 id="billingAddress"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -262,6 +299,7 @@ export default function CheckoutInfo() {
                 id="billingApt"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -278,6 +316,7 @@ export default function CheckoutInfo() {
                 id="billingCountry"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -292,6 +331,7 @@ export default function CheckoutInfo() {
                 id="billingPostcode"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -306,6 +346,7 @@ export default function CheckoutInfo() {
                 id="billingState"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -322,6 +363,7 @@ export default function CheckoutInfo() {
                 id="billingSuburb"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
@@ -336,6 +378,7 @@ export default function CheckoutInfo() {
                 id="billingPhone"
                 onBlur={handleBlur}
                 onChange={handleChange}
+                onFocus={handleFocus}
                 className={
                   styles.input_field +
                   " " +
