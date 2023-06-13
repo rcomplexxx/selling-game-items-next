@@ -33,7 +33,7 @@ export default function CheckoutInfo() {
       <div className={styles.checkout_section}>
         <h2>Contact Information</h2>
         <form>
-          <div className={styles.form_group}>
+          
             <label htmlFor="email">Email *</label>
             <input
               type="email"
@@ -43,12 +43,12 @@ export default function CheckoutInfo() {
               className={ styles.input_field +  ' ' + (errors.email?styles.input_error:null)}
             />
             {errors.email && errorPharagraph(errors.email)}
-          </div>
+         
           <h2>Shipping information</h2>
           <p>Fields marked with * are required</p>
 
           <div className={styles.input_row}>
-          <div className={styles.form_group}>
+         
             
             <label htmlFor="firstName">First name *</label>
             <input
@@ -59,8 +59,8 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.firstName?styles.input_error:null)}
             />
             {errors.firstName && errorPharagraph(errors.firstName)}
-          </div>
-          <div className={styles.form_group}>
+          
+        
             <label htmlFor="lastName">Last name *</label>
             <input
               type="text"
@@ -70,10 +70,10 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.lastName?styles.input_error:null)}
             />
             {errors.lastName && errorPharagraph(errors.lastName)}
-            </div>
+           
           </div>
           <div className={styles.input_row}>
-          <div className={styles.form_group}>
+         
             <label htmlFor="address">Address *</label>
             <input
               type="text"
@@ -83,8 +83,8 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.address?styles.input_error:null)}
             />
             {errors.address && errorPharagraph(errors.address)}
-          </div>
-          <div className={styles.form_group}>
+          
+        
             <label htmlFor="apt">Apt, suite, etc. (optional)</label>
             <input
               type="text"
@@ -94,10 +94,9 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.apt?styles.input_error:null)}
             />
             {errors.apt && errorPharagraph(errors.apt)}
-          </div>
+          
           </div>
           <div className={styles.input_row}>
-          <div className={styles.form_group}>
             <label htmlFor="country">Country *</label>
             <input
               type="text"
@@ -107,8 +106,7 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.country?styles.input_error:null)}
             />
             {errors.country && errorPharagraph(errors.country)}
-          </div>
-          <div className={styles.form_group}>
+        
             <label htmlFor="postcode">Postcode *</label>
             <input
               type="text"
@@ -118,8 +116,7 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.postcode?styles.input_error:null)}
             />
             {errors.postcode && errorPharagraph(errors.postcode)}
-          </div>
-          <div className={styles.form_group}>
+          
             <label htmlFor="state">State *</label>
             <input
               type="text"
@@ -130,9 +127,9 @@ export default function CheckoutInfo() {
             />
             {errors.state && errorPharagraph(errors.state)}
           </div>
-          </div>
+        
           <div className={styles.input_row}>
-          <div className={styles.form_group}>
+          
             <label htmlFor="suburb">Suburb *</label>
             <input
               type="text"
@@ -142,8 +139,7 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.suburb?styles.input_error:null)}
             />
             {errors.suburb && errorPharagraph(errors.suburb)}
-          </div>
-          <div className={styles.form_group}>
+          
             <label htmlFor="phone">Phone *</label>
             <input
               type="text"
@@ -153,7 +149,7 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.phone?styles.input_error:null)}
             />
             {errors.phone && errorPharagraph(errors.phone)}
-          </div>
+          
           </div>
         </form>
       </div>

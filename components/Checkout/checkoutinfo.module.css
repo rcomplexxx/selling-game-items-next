@@ -23,9 +23,7 @@
     margin-bottom: 10px;
   }
   
-  .form_group {
-    margin-bottom: 20px;
-  }
+ 
   
   .form_group label {
     display: block;
@@ -38,6 +36,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 20px;
   }
   
   .input_field {
