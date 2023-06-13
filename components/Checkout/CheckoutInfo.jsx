@@ -252,7 +252,7 @@ export default function CheckoutInfo() {
                   (errors.billingAddress ? styles.input_error : null)
                 }
               />
-              {errors.billingAddress && errorPharagraph(errors.billingAddress)}
+             
             </div>
             <div className={styles.form_group}>
               <label htmlFor="billingApt">Apt, suite, etc. (optional)</label>
