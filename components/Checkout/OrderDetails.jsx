@@ -57,6 +57,10 @@ export default function OrderDetails() {
         >
           <PayPalButtons
             fundingSource="paypal"
+            onApprove={()=>{
+              return;
+            }}
+
             onClick={(event)=>{
               
               // event.preventDefault();
