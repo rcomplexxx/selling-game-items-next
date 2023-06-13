@@ -160,7 +160,7 @@ export default function CheckoutInfo() {
       </div>
  
 
-    <div className={styles.checkout_section}>
+    <div className={styles.checkout_section+ ' '+ styles.billing_information_div}>
       <h2>Billing Address</h2>
       <div className={styles.billing_options}>
         <div className={styles.billing_option}>

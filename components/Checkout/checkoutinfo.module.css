@@ -48,7 +48,7 @@
     width: 98%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
     align-self: center;
     box-sizing: border-box;
   }
@@ -63,6 +63,14 @@
   }
 
   
+  .billing_information_div{
+    padding:10px;
+    border: solid 1px rgb(170, 168, 168);
+    
+    box-sizing: border-box;
+  }
+
+
   .billing_options {
     display: flex;
     gap: 20px;
