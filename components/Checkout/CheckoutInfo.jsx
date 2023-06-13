@@ -11,7 +11,7 @@ export default function CheckoutInfo() {
     const { id, value } = event.target;
 
     if (!value) {
-      setErrors((prevErrors) => ({ ...prevErrors, [id]: "This field is empty." }));
+      setErrors((prevErrors) => ({ ...prevErrors, [id]: id.replace(/^\w/, (c) => c.toUpperCase())+" is required field." }));
     } else {
       setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
     }
