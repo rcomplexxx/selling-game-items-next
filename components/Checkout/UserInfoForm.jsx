@@ -3,7 +3,7 @@ import styles from './checkoutinfo.module.css'
 
 
 
-export default function BillingAddressForm({}){
+export default function BillingAddressForm({handleBlur, handleChange}){
 
    
 
@@ -28,7 +28,7 @@ export default function BillingAddressForm({}){
         onChange={handleChange}
         className={styles.input_field +  ' ' + (errors.apt?styles.input_error:null)}
       />
-      {errors.apt && errorPharagraph(errors.apt)}
+      
     </div>
     </div>
     <div className={styles.input_row}>
@@ -41,7 +41,7 @@ export default function BillingAddressForm({}){
         onChange={handleChange}
         className={styles.input_field +  ' ' + (errors.country?styles.input_error:null)}
       />
-      {errors.country && errorPharagraph(errors.country)}
+     
     </div>
     <div className={styles.form_group}>
       <label htmlFor="postcode">Postcode *</label>
@@ -52,7 +52,7 @@ export default function BillingAddressForm({}){
         onChange={handleChange}
         className={styles.input_field +  ' ' + (errors.postcode?styles.input_error:null)}
       />
-      {errors.postcode && errorPharagraph(errors.postcode)}
+     
     </div>
     <div className={styles.form_group}>
       <label htmlFor="state">State *</label>
@@ -63,7 +63,7 @@ export default function BillingAddressForm({}){
         onChange={handleChange}
         className={styles.input_field +  ' ' + (errors.state?styles.input_error:null)}
       />
-      {errors.state && errorPharagraph(errors.state)}
+     
     </div>
     </div>
     <div className={styles.input_row}>
@@ -76,7 +76,7 @@ export default function BillingAddressForm({}){
         onChange={handleChange}
         className={styles.input_field +  ' ' + (errors.suburb?styles.input_error:null)}
       />
-      {errors.suburb && errorPharagraph(errors.suburb)}
+      
     </div>
     <div className={styles.form_group}>
       <label htmlFor="phone">Phone *</label>
@@ -87,7 +87,7 @@ export default function BillingAddressForm({}){
         onChange={handleChange}
         className={styles.input_field +  ' ' + (errors.phone?styles.input_error:null)}
       />
-      {errors.phone && errorPharagraph(errors.phone)}
+      
     </div>
     </div>
     </form>

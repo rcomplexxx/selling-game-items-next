@@ -172,7 +172,7 @@ export default function CheckoutInfo() {
           <label htmlFor="differentAddress">Use a different billing address</label>
         </div>
       </div>
-      <UserInfoForm/>
+      <UserInfoForm handleBlur={handleBlur} handleChange={handleChange}/>
     </div>
 
     <div className={styles.checkout_section}>
