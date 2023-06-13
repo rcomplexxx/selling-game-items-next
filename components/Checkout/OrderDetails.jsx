@@ -3,7 +3,7 @@ import styles from "./orderdetails.module.css";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import AppContext from "@/contexts/AppContext";
 
-export default function OrderDetails() {
+export default function OrderDetails({unlockPaypal}) {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
   // if(cartProducts.length===0)return <p>No items in the bag.</p>;
@@ -57,7 +57,7 @@ export default function OrderDetails() {
         >
           <PayPalButtons
             fundingSource="paypal"
-            disabled={true}
+            disabled={unlockPaypal}
             onClick={(event)=>{
              
               console.log('PayPal button clicked')}}
@@ -77,6 +77,7 @@ export default function OrderDetails() {
 
 <PayPalButtons
             fundingSource="card"
+            disabled={unlockPaypal}
             onClick={()=>{console.log('Card button clicked')}}
             createOrder={(data, actions) => {
               return actions.order.create({

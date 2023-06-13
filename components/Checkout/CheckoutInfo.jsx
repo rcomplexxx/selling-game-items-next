@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./checkoutinfo.module.css";
 
-export default function CheckoutInfo() {
+export default function CheckoutInfo({setUnlockPaypal}) {
 
 
   const [errors, setErrors] = useState({});
@@ -36,13 +36,23 @@ export default function CheckoutInfo() {
   const handleChange = (event) => {
     const { id, value } = event.target;
     if(errors.length >= inputNumber-1){
-      if(!value)setErrors((prevErrors)=>({...prevErrors, [id]: id + 'is required field.'}))
+      if(!value){setErrors((prevErrors)=>({...prevErrors, [id]: id + 'is required field.'})); setUnlockPaypal(false);}
       else if(id === "email" )
-     { if (!/\S+@\S+\.\S+/.test(value))setErrors((prevErrors) => ({
+     { if (!/\S+@\S+\.\S+/.test(value)){setErrors((prevErrors) => ({
         ...prevErrors,
         [id]: "Please enter a valid email address.",
-      }));else{setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}}
-      else setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+      })); setUnlockPaypal(false);} 
+      else{
+        if(errors.length==inputNumber ||(errors.length==inputNumber-1 && !errors.hasOwnProperty(id))){
+          setUnlockPaypal(values(obj).every(value => value === null));
+        }
+        setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
+    }
+      else {
+        if(errors.length==inputNumber ||(errors.length==inputNumber-1 && !errors.hasOwnProperty(id))){
+          setUnlockPaypal(values(obj).every(value => value === null));
+        }
+        setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
       return;
     }
     if (!errors[id]) return;
