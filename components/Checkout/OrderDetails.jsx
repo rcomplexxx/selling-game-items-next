@@ -56,6 +56,13 @@ return <div className={styles.checkout_right}>
  {/* sacuvaj client id vrednost i ostale bitne informacije u .env fajlu */}
        <PayPalScriptProvider options={{"client-id":"AQB3vOguzerJ-HXgJavEAMlivjs3DTNyWi2W7yKI94arI23zXOAaSJx4Zf4JzTO9RjvJdr5AflrFHWp1"}}>
     <PayPalButtons
+
+fundingSource={{
+  paypal: true,
+  card: false,
+}}
+
+
        createOrder={(data, actions) => {
         return actions.order
                         .create({
@@ -71,13 +78,9 @@ return <div className={styles.checkout_right}>
                             ],
                         })
 
-
                         
       }}
-      fundingSource={{
-        paypal: true,
-        card: false,
-      }}
+
 
     
     />
