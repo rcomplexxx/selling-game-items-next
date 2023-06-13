@@ -57,7 +57,7 @@ export default function OrderDetails({unlockPaypal}) {
         >
           <PayPalButtons
             fundingSource="paypal"
-            disabled={unlockPaypal}
+            disabled={!unlockPaypal}
             onClick={(event)=>{
              
               console.log('PayPal button clicked')}}
@@ -77,7 +77,7 @@ export default function OrderDetails({unlockPaypal}) {
 
 <PayPalButtons
             fundingSource="card"
-            disabled={unlockPaypal}
+            disabled={!unlockPaypal}
             onClick={()=>{console.log('Card button clicked')}}
             createOrder={(data, actions) => {
               return actions.order.create({

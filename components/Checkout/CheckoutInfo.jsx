@@ -6,7 +6,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
 
   const [errors, setErrors] = useState({});
   const [billingAddress, setBillingAddress] = useState("sameAddress");
-  const inputNumber= billingAddress==="sameAddress"?9:15;
+  const inputNumber= (billingAddress==="sameAddress"?9:15);
 
   
 
@@ -34,7 +34,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
 
   const handleChange = (event) => {
     const { id, value } = event.target;
-    errorLength=Object.keys(errors).length;
+    const errorLength=Object.keys(errors).length;
     if(errorLength >= inputNumber-1){
       if(!value){setErrors((prevErrors)=>({...prevErrors, [id]: id + 'is required field.'})); setUnlockPaypal(false);}
       else if(id === "email" )
@@ -44,13 +44,13 @@ export default function CheckoutInfo({setUnlockPaypal}) {
       })); setUnlockPaypal(false);} 
       else{
         if(errorLength==inputNumber ||(errorLength==inputNumber-1 && !errors.hasOwnProperty(id))){
-          setUnlockPaypal(values(obj).every(value => value === null));
+          setUnlockPaypal(Object.values(errors).every(value => value === null));
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
     }
       else {
         if(errorLength==inputNumber ||(errorLength==inputNumber-1 && !errors.hasOwnProperty(id))){
-          setUnlockPaypal(values(obj).every(value => value === null));
+          setUnlockPaypal(Object.values(errors).every(value => value === null));
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
       return;
@@ -74,6 +74,9 @@ export default function CheckoutInfo({setUnlockPaypal}) {
 
   const handleBillingAddressChange = (event) => {
     const { id } = event.target;
+    if(id !=='sameAddress')
+    setUnlockPaypal(false);
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~OVDE IMA JOS DA SE DORADI~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     setBillingAddress(id);
   };
 
@@ -158,9 +161,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
               placeholder="Apt, suite, etc. (optional)"
                 type="text"
                 id="apt"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
+                
                 className={
                   styles.input_field +
                   " " +
@@ -267,8 +268,8 @@ export default function CheckoutInfo({setUnlockPaypal}) {
           <div className={styles.billing_option}>
             <input type="radio" id="sameAddress" name="billingAddress" 
              checked={billingAddress === "sameAddress"}
-             onChange={handleBillingAddressChange}/>
-             onFocus={handleFocus}
+             onChange={handleBillingAddressChange}
+             />
             <label htmlFor="sameAddress">Same as shipping address</label>
           </div>
           <div className={styles.billing_option}>
@@ -276,7 +277,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
             
              checked={billingAddress === "differentAddress"}
              onChange={handleBillingAddressChange}
-             onFocus={handleFocus}
+            
              
              />
             <label htmlFor="differentAddress">
@@ -307,9 +308,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
               placeholder="Apt, suite, etc. (optional)"
                 type="text"
                 id="billingApt"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
+               
                 className={
                   styles.input_field +
                   " " +
