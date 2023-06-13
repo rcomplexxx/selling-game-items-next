@@ -41,6 +41,7 @@
   }
   
   .input_field {
+    width: 100%;
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #ccc;
