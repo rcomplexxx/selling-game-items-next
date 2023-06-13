@@ -13,7 +13,8 @@ export default function CheckoutInfo() {
     if (!value) {
       setErrors((prevErrors) => ({ ...prevErrors, [id]: id.replace(/^\w/, (c) => c.toUpperCase())+" is required field." }));
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+      if(id==="email"&& !/\S+@\S+\.\S+/.test(value)) setErrors((prevErrors) => ({ ...prevErrors, [id]: "Please enter a valid email address." }));
+      else setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
     }
   };
 
