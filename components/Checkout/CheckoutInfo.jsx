@@ -43,7 +43,7 @@ export default function CheckoutInfo() {
         [id]: "Please enter a valid email address.",
       }));else{setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}}
       else setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
-    
+      return;
     }
     if (!errors[id]) return;
     if (value) {
