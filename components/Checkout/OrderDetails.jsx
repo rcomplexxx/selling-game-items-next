@@ -70,8 +70,14 @@ return <div className={styles.checkout_right}>
                                 },
                             ],
                         })
-      }}
 
+
+                        
+      }}
+      fundingSource={{
+        paypal: true,
+        card: false,
+      }}
 
     
     />
