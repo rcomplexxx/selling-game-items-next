@@ -44,7 +44,12 @@ export default function CheckoutInfo() {
             />
             {errors.email && errorPharagraph(errors.email)}
           </div>
+          <h2>Shipping information</h2>
+          <p>Fields marked with * are required</p>
+
+          <div className={styles.input_row}>
           <div className={styles.form_group}>
+            
             <label htmlFor="firstName">First name *</label>
             <input
               type="text"
@@ -65,7 +70,9 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.lastName?styles.input_error:null)}
             />
             {errors.lastName && errorPharagraph(errors.lastName)}
+            </div>
           </div>
+          <div className={styles.input_row}>
           <div className={styles.form_group}>
             <label htmlFor="address">Address *</label>
             <input
@@ -88,6 +95,8 @@ export default function CheckoutInfo() {
             />
             {errors.apt && errorPharagraph(errors.apt)}
           </div>
+          </div>
+          <div className={styles.input_row}>
           <div className={styles.form_group}>
             <label htmlFor="country">Country *</label>
             <input
@@ -120,6 +129,7 @@ export default function CheckoutInfo() {
               className={styles.input_field +  ' ' + (errors.state?styles.input_error:null)}
             />
             {errors.state && errorPharagraph(errors.state)}
+          </div>
           </div>
           <div className={styles.form_group}>
             <label htmlFor="suburb">Suburb *</label>
