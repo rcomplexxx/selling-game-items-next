@@ -8,7 +8,6 @@ export default function CheckoutInfo({setUnlockPaypal}) {
   const [billingAddress, setBillingAddress] = useState("sameAddress");
   const inputNumber= billingAddress==="sameAddress"?9:15;
 
-  console.log(errors);
   
 
   const handleBlur = (event) => {
@@ -35,7 +34,8 @@ export default function CheckoutInfo({setUnlockPaypal}) {
 
   const handleChange = (event) => {
     const { id, value } = event.target;
-    if(errors.length >= inputNumber-1){
+    errorLength=Object.keys(errors).length;
+    if(errorLength >= inputNumber-1){
       if(!value){setErrors((prevErrors)=>({...prevErrors, [id]: id + 'is required field.'})); setUnlockPaypal(false);}
       else if(id === "email" )
      { if (!/\S+@\S+\.\S+/.test(value)){setErrors((prevErrors) => ({
@@ -43,13 +43,13 @@ export default function CheckoutInfo({setUnlockPaypal}) {
         [id]: "Please enter a valid email address.",
       })); setUnlockPaypal(false);} 
       else{
-        if(errors.length==inputNumber ||(errors.length==inputNumber-1 && !errors.hasOwnProperty(id))){
+        if(errorLength==inputNumber ||(errorLength==inputNumber-1 && !errors.hasOwnProperty(id))){
           setUnlockPaypal(values(obj).every(value => value === null));
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
     }
       else {
-        if(errors.length==inputNumber ||(errors.length==inputNumber-1 && !errors.hasOwnProperty(id))){
+        if(errorLength==inputNumber ||(errorLength==inputNumber-1 && !errors.hasOwnProperty(id))){
           setUnlockPaypal(values(obj).every(value => value === null));
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
@@ -68,7 +68,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
   };
   const handleFocus =(event)=>{
     const { id, value } = event.target;
-    if(!errors[id] && !errors.length==inputNumber-1){setErrors((prevErrors)=>({...prevErrors,[id]:null}));
+    if(!errors[id] && !Object.keys(errors).length==inputNumber-1){setErrors((prevErrors)=>({...prevErrors,[id]:null}));
   }
   }
 
