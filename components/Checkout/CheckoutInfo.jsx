@@ -237,7 +237,7 @@ export default function CheckoutInfo() {
             </label>
           </div>
         </div>
-        <form>
+        {billingAddress === "differentAddress" && <form>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
               <label htmlFor="billingAddress">Address *</label>
@@ -343,7 +343,7 @@ export default function CheckoutInfo() {
               />
             </div>
           </div>
-        </form>
+        </form>}
       </div>
 
       <div className={styles.checkout_section}>
