@@ -69,8 +69,8 @@ export default function CheckoutInfo() {
 
           <div className={styles.input_row}>
             <div className={styles.form_group}>
-              <label htmlFor="firstName">First name *</label>
               <input
+              placeholder="First name *"
                 type="text"
                 id="firstName"
                 onBlur={handleBlur}
@@ -84,8 +84,8 @@ export default function CheckoutInfo() {
               {errors.firstName && errorPharagraph(errors.firstName)}
             </div>
             <div className={styles.form_group}>
-              <label htmlFor="lastName">Last name *</label>
               <input
+              placeholder="Last name *"
                 type="text"
                 id="lastName"
                 onBlur={handleBlur}
@@ -101,8 +101,8 @@ export default function CheckoutInfo() {
           </div>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
-              <label htmlFor="address">Address *</label>
               <input
+              placeholder="Address *"
                 type="text"
                 id="address"
                 onBlur={handleBlur}
@@ -116,8 +116,8 @@ export default function CheckoutInfo() {
               {errors.address && errorPharagraph(errors.address)}
             </div>
             <div className={styles.form_group}>
-              <label htmlFor="apt">Apt, suite, etc. (optional)</label>
               <input
+              placeholder="Apt, suite, etc. (optional)"
                 type="text"
                 id="apt"
                 onBlur={handleBlur}
@@ -133,8 +133,8 @@ export default function CheckoutInfo() {
           </div>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
-              <label htmlFor="country">Country *</label>
               <input
+              placeholder="Country *"
                 type="text"
                 id="country"
                 onBlur={handleBlur}
@@ -148,8 +148,8 @@ export default function CheckoutInfo() {
               {errors.country && errorPharagraph(errors.country)}
             </div>
             <div className={styles.form_group}>
-              <label htmlFor="postcode">Postcode *</label>
               <input
+              placeholder="Postcode *"
                 type="text"
                 id="postcode"
                 onBlur={handleBlur}
@@ -163,8 +163,8 @@ export default function CheckoutInfo() {
               {errors.postcode && errorPharagraph(errors.postcode)}
             </div>
             <div className={styles.form_group}>
-              <label htmlFor="state">State *</label>
               <input
+              placeholder="State *"
                 type="text"
                 id="state"
                 onBlur={handleBlur}
@@ -180,8 +180,8 @@ export default function CheckoutInfo() {
           </div>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
-              <label htmlFor="suburb">Suburb *</label>
               <input
+              placeholder="Suburb *"
                 type="text"
                 id="suburb"
                 onBlur={handleBlur}
@@ -195,8 +195,8 @@ export default function CheckoutInfo() {
               {errors.suburb && errorPharagraph(errors.suburb)}
             </div>
             <div className={styles.form_group}>
-              <label htmlFor="phone">Phone *</label>
               <input
+              placeholder="Phone *"
                 type="text"
                 id="phone"
                 onBlur={handleBlur}
@@ -243,6 +243,7 @@ export default function CheckoutInfo() {
             <div className={styles.form_group}>
               <label htmlFor="billingAddress">Address *</label>
               <input
+              placeholder="Email *"
                 type="text"
                 id="billingAddress"
                 onBlur={handleBlur}
@@ -258,6 +259,7 @@ export default function CheckoutInfo() {
             <div className={styles.form_group}>
               <label htmlFor="billingApt">Apt, suite, etc. (optional)</label>
               <input
+              placeholder="Email *"
                 type="text"
                 id="billingApt"
                 onBlur={handleBlur}
@@ -274,6 +276,7 @@ export default function CheckoutInfo() {
             <div className={styles.form_group}>
               <label htmlFor="billingCountry">Country *</label>
               <input
+              placeholder="Email *"
                 type="text"
                 id="billingCountry"
                 onBlur={handleBlur}
@@ -288,6 +291,7 @@ export default function CheckoutInfo() {
             <div className={styles.form_group}>
               <label htmlFor="billingPostcode">Postcode *</label>
               <input
+              placeholder="Email *"
                 type="text"
                 id="billingPostcode"
                 onBlur={handleBlur}
@@ -302,6 +306,7 @@ export default function CheckoutInfo() {
             <div className={styles.form_group}>
               <label htmlFor="billingState">State *</label>
               <input
+              placeholder="Email *"
                 type="text"
                 id="billingState"
                 onBlur={handleBlur}
@@ -318,6 +323,7 @@ export default function CheckoutInfo() {
             <div className={styles.form_group}>
               <label htmlFor="billingSuburb">Suburb *</label>
               <input
+              placeholder="Email *"
                 type="text"
                 id="billingSuburb"
                 onBlur={handleBlur}
@@ -332,6 +338,7 @@ export default function CheckoutInfo() {
             <div className={styles.form_group}>
               <label htmlFor="billingPhone">Phone *</label>
               <input
+              placeholder="Email *"
                 type="text"
                 id="billingPhone"
                 onBlur={handleBlur}
