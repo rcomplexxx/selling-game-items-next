@@ -172,7 +172,90 @@ export default function CheckoutInfo() {
           <label htmlFor="differentAddress">Use a different billing address</label>
         </div>
       </div>
-      <UserInfoForm handleBlur={handleBlur} handleChange={handleChange}/>
+      <form><div className={styles.input_row}>
+    <div className={styles.form_group}>
+      <label htmlFor="billingAddress">Address *</label>
+      <input
+        type="text"
+        id="billingAddress"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        className={styles.input_field +  ' ' + (errors.billingAddress?styles.input_error:null)}
+      />
+      {errors.billingAddress && errorPharagraph(errors.billingAddress)}
+    </div>
+    <div className={styles.form_group}>
+      <label htmlFor="billingApt">Apt, suite, etc. (optional)</label>
+      <input
+        type="text"
+        id="billingApt"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        className={styles.input_field +  ' ' + (errors.billingApt?styles.input_error:null)}
+      />
+      
+    </div>
+    </div>
+    <div className={styles.input_row}>
+    <div className={styles.form_group}>
+      <label htmlFor="billingCountry">Country *</label>
+      <input
+        type="text"
+        id="billingCountry"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        className={styles.input_field +  ' ' + (errors.billingCountry?styles.input_error:null)}
+      />
+     
+    </div>
+    <div className={styles.form_group}>
+      <label htmlFor="billingPostcode">Postcode *</label>
+      <input
+        type="text"
+        id="billingPostcode"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        className={styles.input_field +  ' ' + (errors.billingPostcode?styles.input_error:null)}
+      />
+     
+    </div>
+    <div className={styles.form_group}>
+      <label htmlFor="billingState">State *</label>
+      <input
+        type="text"
+        id="billingState"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        className={styles.input_field +  ' ' + (errors.billingState?styles.input_error:null)}
+      />
+     
+    </div>
+    </div>
+    <div className={styles.input_row}>
+    <div className={styles.form_group}>
+      <label htmlFor="billingSuburb">Suburb *</label>
+      <input
+        type="text"
+        id="billingSuburb"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        className={styles.input_field +  ' ' + (errors.billingSuburb?styles.input_error:null)}
+      />
+      
+    </div>
+    <div className={styles.form_group}>
+      <label htmlFor="billingPhone">Phone *</label>
+      <input
+        type="text"
+        id="billingPhone"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        className={styles.input_field +  ' ' + (errors.billingPhone?styles.input_error:null)}
+      />
+      
+    </div>
+    </div>
+    </form>
     </div>
 
     <div className={styles.checkout_section}>
