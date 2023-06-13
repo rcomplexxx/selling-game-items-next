@@ -39,7 +39,7 @@ export default function CheckoutInfo() {
               id="email"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.email?styles.Inputerror:null}
+              className={errors.email?styles.Inputerror:null}
             />
             {errors.email && errorPharagraph(errors.email)}
           </div>
@@ -50,7 +50,7 @@ export default function CheckoutInfo() {
               id="firstName"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.firstName?styles.Inputerror:null}
+              className={errors.firstName?styles.Inputerror:null}
             />
             {errors.firstName && errorPharagraph(errors.firstName)}
           </div>
@@ -61,7 +61,7 @@ export default function CheckoutInfo() {
               id="lastName"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.lastName?styles.Inputerror:null}
+              className={errors.lastName?styles.Inputerror:null}
             />
             {errors.lastName && errorPharagraph(errors.lastName)}
           </div>
@@ -72,7 +72,7 @@ export default function CheckoutInfo() {
               id="address"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.address?styles.Inputerror:null}
+              className={errors.address?styles.Inputerror:null}
             />
             {errors.address && errorPharagraph(errors.address)}
           </div>
@@ -83,7 +83,7 @@ export default function CheckoutInfo() {
               id="apt"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.apt?styles.Inputerror:null}
+              className={errors.apt?styles.Inputerror:null}
             />
             {errors.apt && errorPharagraph(errors.apt)}
           </div>
@@ -94,7 +94,7 @@ export default function CheckoutInfo() {
               id="country"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.country?styles.Inputerror:null}
+              className={errors.country?styles.Inputerror:null}
             />
             {errors.country && errorPharagraph(errors.country)}
           </div>
@@ -105,7 +105,7 @@ export default function CheckoutInfo() {
               id="postcode"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.postcode?styles.Inputerror:null}
+              className={errors.postcode?styles.Inputerror:null}
             />
             {errors.postcode && errorPharagraph(errors.postcode)}
           </div>
@@ -116,7 +116,7 @@ export default function CheckoutInfo() {
               id="state"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.state?styles.Inputerror:null}
+              className={errors.state?styles.Inputerror:null}
             />
             {errors.state && errorPharagraph(errors.state)}
           </div>
@@ -127,7 +127,7 @@ export default function CheckoutInfo() {
               id="suburb"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.suburb?styles.Inputerror:null}
+              className={errors.suburb?styles.Inputerror:null}
             />
             {errors.suburb && errorPharagraph(errors.suburb)}
           </div>
@@ -138,7 +138,7 @@ export default function CheckoutInfo() {
               id="phone"
               onBlur={handleBlur}
               onChange={handleChange}
-              style={errors.phone?styles.Inputerror:null}
+              className={errors.phone?styles.Inputerror:null}
             />
             {errors.phone && errorPharagraph(errors.phone)}
           </div>
