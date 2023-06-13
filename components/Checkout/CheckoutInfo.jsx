@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from './checkoutinfo.module.css';
+import classNames from "classnames";
 
 export default function CheckoutInfo() {
 
@@ -39,7 +40,7 @@ export default function CheckoutInfo() {
               id="email"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.email?styles.Inputerror:null}
+              className={errors.email?classNames(styles.Inputerror):null}
             />
             {errors.email && errorPharagraph(errors.email)}
           </div>
@@ -50,7 +51,7 @@ export default function CheckoutInfo() {
               id="firstName"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.firstName?styles.Inputerror:null}
+              className={errors.firstName?classNames(styles.Inputerror):null}
             />
             {errors.firstName && errorPharagraph(errors.firstName)}
           </div>
@@ -61,7 +62,7 @@ export default function CheckoutInfo() {
               id="lastName"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.lastName?styles.Inputerror:null}
+              className={errors.lastName?classNames(styles.Inputerror):null}
             />
             {errors.lastName && errorPharagraph(errors.lastName)}
           </div>
@@ -72,7 +73,7 @@ export default function CheckoutInfo() {
               id="address"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.address?styles.Inputerror:null}
+              className={errors.address?classNames(styles.Inputerror):null}
             />
             {errors.address && errorPharagraph(errors.address)}
           </div>
@@ -83,7 +84,7 @@ export default function CheckoutInfo() {
               id="apt"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.apt?styles.Inputerror:null}
+              className={errors.apt?classNames(styles.Inputerror):null}
             />
             {errors.apt && errorPharagraph(errors.apt)}
           </div>
@@ -94,7 +95,7 @@ export default function CheckoutInfo() {
               id="country"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.country?styles.Inputerror:null}
+              className={errors.country?classNames(styles.Inputerror):null}
             />
             {errors.country && errorPharagraph(errors.country)}
           </div>
@@ -105,7 +106,7 @@ export default function CheckoutInfo() {
               id="postcode"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.postcode?styles.Inputerror:null}
+              className={errors.postcode?classNames(styles.Inputerror):null}
             />
             {errors.postcode && errorPharagraph(errors.postcode)}
           </div>
@@ -116,7 +117,7 @@ export default function CheckoutInfo() {
               id="state"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.state?styles.Inputerror:null}
+              className={errors.state?classNames(styles.Inputerror):null}
             />
             {errors.state && errorPharagraph(errors.state)}
           </div>
@@ -127,7 +128,7 @@ export default function CheckoutInfo() {
               id="suburb"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.suburb?styles.Inputerror:null}
+              className={errors.suburb?classNames(styles.Inputerror):null}
             />
             {errors.suburb && errorPharagraph(errors.suburb)}
           </div>
@@ -138,7 +139,7 @@ export default function CheckoutInfo() {
               id="phone"
               onBlur={handleBlur}
               onChange={handleChange}
-              className={errors.phone?styles.Inputerror:null}
+              className={errors.phone?classNames(styles.Inputerror):null}
             />
             {errors.phone && errorPharagraph(errors.phone)}
           </div>
