@@ -57,6 +57,7 @@ export default function OrderDetails() {
         >
           <PayPalButtons
             fundingSource="paypal"
+            onClick={()=>{console.log('PayPal button clicked')}}
             createOrder={(data, actions) => {
               return actions.order.create({
                 purchase_units: [
@@ -73,6 +74,7 @@ export default function OrderDetails() {
 
 <PayPalButtons
             fundingSource="card"
+            onClick={()=>{console.log('Card button clicked')}}
             createOrder={(data, actions) => {
               return actions.order.create({
                 purchase_units: [
