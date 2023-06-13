@@ -23,7 +23,10 @@
     margin-bottom: 10px;
   }
   
- 
+  .form_group {
+    width: 100%;
+    flex-grow: 1;
+  }
   
   .form_group label {
     display: block;
@@ -41,7 +44,6 @@
   
   .input_field {
     width: 100%;
-    flex-grow: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
