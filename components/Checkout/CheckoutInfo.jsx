@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from './checkoutinfo.module.css';
-import UserInfoForm from './UserInfoForm.jsx'
 
 export default function CheckoutInfo() {
 
