@@ -43,13 +43,13 @@ export default function CheckoutInfo({setUnlockPaypal}) {
         [id]: "Please enter a valid email address.",
       })); setUnlockPaypal(false);} 
       else{
-        if(errorLength==inputNumber ||(errorLength==inputNumber-1 && !errors.hasOwnProperty(id))){
+        if(errorLength==inputNumber ||(errorLength==inputNumber-1 && (!errors.hasOwnProperty(id)||errors.id!==null))){
           setUnlockPaypal(Object.values(errors).every(value => value === null));
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
     }
       else {
-        if(errorLength==inputNumber ||(errorLength==inputNumber-1 && !errors.hasOwnProperty(id))){
+        if(errorLength==inputNumber ||(errorLength==inputNumber-1 && (!errors.hasOwnProperty(id)||errors.id!==null))){
           setUnlockPaypal(Object.values(errors).every(value => value === null));
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
