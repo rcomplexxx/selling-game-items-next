@@ -23,6 +23,7 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     const storedCartProducts = localStorage.getItem('cartProducts');
+    console.log(storedCartProducts);
     if (storedCartProducts) {
       setCartProducts(JSON.parse(storedCartProducts));
     }
