@@ -5,8 +5,8 @@ export default function CheckoutInfo({setUnlockPaypal}) {
 
 
   const [errors, setErrors] = useState({});
-  const [billingAddress, setBillingAddress] = useState("sameAddress");
-  const inputNumber= (billingAddress==="sameAddress"?9:15);
+  const [billingAddressType, setBillingAddressType] = useState("sameAddress");
+  const inputNumber= (billingAddressType==="sameAddress"?9:15);
 
   
 
@@ -72,13 +72,16 @@ export default function CheckoutInfo({setUnlockPaypal}) {
   }
   }
 
-  const handleBillingAddressChange = (event) => {
+  const handleBillingAddressTypeChange = (event) => {
     const { id } = event.target;
-    if(id !=='sameAddress')
-    setUnlockPaypal(false);
-    //
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~OVDE IMA JOS DA SE DORADI~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    setBillingAddress(id);
+    if(id===billingAddressType) return;
+    if(id ==='sameAddress'){
+      const { billingAddress,billingCountry,billingState,billingSuburb,billingPostcode,billingPhone, ...newErrors } = errors;
+      setErrors(newErrors);
+      
+    }
+    else setUnlockPaypal(false);
+    setBillingAddressType(id);
   };
 
   return (
@@ -267,17 +270,17 @@ export default function CheckoutInfo({setUnlockPaypal}) {
         <h2>Billing Address</h2>
         <div className={styles.billing_options}>
           <div className={styles.billing_option}>
-            <input type="radio" id="sameAddress" name="billingAddress" 
-             checked={billingAddress === "sameAddress"}
-             onChange={handleBillingAddressChange}
+            <input type="radio" id="sameAddress" name="billingAddressType" 
+             checked={billingAddressType === "sameAddress"}
+             onChange={handleBillingAddressTypeChange}
              />
             <label htmlFor="sameAddress">Same as shipping address</label>
           </div>
           <div className={styles.billing_option}>
-            <input type="radio" id="differentAddress" name="billingAddress" 
+            <input type="radio" id="differentAddress" name="billingAddressType" 
             
-             checked={billingAddress === "differentAddress"}
-             onChange={handleBillingAddressChange}
+             checked={billingAddressType === "differentAddress"}
+             onChange={handleBillingAddressTypeChange}
             
              
              />
@@ -286,7 +289,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
             </label>
           </div>
         </div>
-        {billingAddress === "differentAddress" && <form>
+        {billingAddressType === "differentAddress" && <form>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
               <input
@@ -311,9 +314,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
                 id="billingApt"
                
                 className={
-                  styles.input_field +
-                  " " +
-                  (errors.billingApt ? styles.input_error : null)
+                  styles.input_field 
                 }
               />
             </div>
