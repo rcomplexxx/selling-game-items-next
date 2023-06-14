@@ -44,13 +44,13 @@ export default function CheckoutInfo({setUnlockPaypal}) {
       })); setUnlockPaypal(false);} 
       else{
         if(errorLength==inputNumber ||(errorLength==inputNumber-1 && (!errors.hasOwnProperty(id)||errors.id!==null))){
-          setUnlockPaypal(Object.values(errors).every(value => value === null));
+          setUnlockPaypal(Object.values(errors).every((value, key) => key === id || value === null));
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
     }
       else {
         if(errorLength==inputNumber ||(errorLength==inputNumber-1 && (!errors.hasOwnProperty(id)||errors.id!==null))){
-          setUnlockPaypal(Object.values(errors).every(value => value === null));
+          setUnlockPaypal(Object.values(errors).every((value, key) => key === id || value === null));
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
       return;
