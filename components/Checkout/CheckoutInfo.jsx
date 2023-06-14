@@ -76,6 +76,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
     const { id } = event.target;
     if(id !=='sameAddress')
     setUnlockPaypal(false);
+    //
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~OVDE IMA JOS DA SE DORADI~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     setBillingAddress(id);
   };
