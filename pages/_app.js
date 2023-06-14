@@ -17,6 +17,7 @@ export default function App({ Component, pageProps }) {
 
 
   useEffect(() => {
+    console.log(cartProducts)
     localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
   }, [cartProducts]);
 
