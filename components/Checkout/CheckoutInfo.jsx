@@ -49,9 +49,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
             (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id) )
           ) {
             setUnlockPaypal(
-              Object.values(errors).every(
-                (value, key) => key == id || value === null
-              )
+              Object.entries(errors).every(([key, value]) => key === 'email' || value === null)
             );
           }
           setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
@@ -62,9 +60,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
           (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id) )
         ) {
           setUnlockPaypal(
-            Object.values(errors).every(
-              (value, key) => key == id || value === null
-            )
+            Object.entries(errors).every(([key, value]) => key === 'email' || value === null)
           );
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
