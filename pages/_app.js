@@ -4,11 +4,10 @@ import Navbar from "../components/Navbar/Navbar.jsx";
 import AppContext from '@/contexts/AppContext';
 import Footer from '@/components/Footer/Footer';
 import { useRouter } from 'next/router';
-// import { commerce } from "./lib/commerce";
 
 export default function App({ Component, pageProps }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [cartProducts, setCartProducts] = useState( () => JSON.parse(localStorage.getItem('cartProducts') ?? '[]'));
+  const [cartProducts, setCartProducts] = useState( []);
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const [hasScrollbar, setHasScrollbar] = useState(true);
 
@@ -17,12 +16,17 @@ export default function App({ Component, pageProps }) {
 
 
   useEffect(() => {
-    console.log(cartProducts)
     localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
   }, [cartProducts]);
 
 
- 
+  useEffect(() => {
+    const storedCartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+    console.log(storedCartProducts);
+    if (storedCartProducts) {
+      setCartProducts(storedCartProducts);
+    }
+  }, []);
 
   useEffect(() => {
    
