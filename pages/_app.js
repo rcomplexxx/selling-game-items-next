@@ -16,18 +16,20 @@ export default function App({ Component, pageProps }) {
 
 
   useEffect(() => {
-    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
-    console.log(JSON.parse(localStorage.getItem('cartProducts')))
-  }, [cartProducts]);
-
-
-  useEffect(() => {
     const storedCartProducts = JSON.parse(localStorage.getItem('cartProducts'));
     console.log(storedCartProducts);
     if (storedCartProducts) {
       setCartProducts(storedCartProducts);
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+    console.log(JSON.parse(localStorage.getItem('cartProducts')))
+  }, [cartProducts]);
+
+
+ 
 
   useEffect(() => {
    
