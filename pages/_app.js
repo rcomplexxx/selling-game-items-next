@@ -15,6 +15,19 @@ export default function App({ Component, pageProps }) {
   const router=useRouter();
   console.log(hasScrollbar);
 
+
+  useEffect(() => {
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+  }, [cartProducts]);
+
+
+  useEffect(() => {
+    const storedCartProducts = localStorage.getItem('cartProducts');
+    if (storedCartProducts) {
+      setCartProducts(JSON.parse(storedCartProducts));
+    }
+  }, []);
+
   useEffect(() => {
    
    
