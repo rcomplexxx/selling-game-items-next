@@ -21,6 +21,7 @@ export default function Footer() {
     }
     else{
       setIsValidEmail(true);
+      setEmail("");
     }
 
     // Continue with the subscription process
