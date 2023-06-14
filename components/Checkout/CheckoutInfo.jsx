@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import styles from "./checkoutinfo.module.css";
 
-export default function CheckoutInfo({setUnlockPaypal}) {
-
-
+export default function CheckoutInfo({ setUnlockPaypal }) {
   const [errors, setErrors] = useState({});
   const [billingAddressType, setBillingAddressType] = useState("sameAddress");
-  const inputNumber= (billingAddressType==="sameAddress"?9:15);
-
-  
+  const inputNumber = billingAddressType === "sameAddress" ? 9 : 15;
 
   const handleBlur = (event) => {
     const { id, value } = event.target;
@@ -25,8 +21,6 @@ export default function CheckoutInfo({setUnlockPaypal}) {
           [id]: "Please enter a valid email address.",
         }));
       else setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
-      
-    
     }
   };
 
@@ -34,55 +28,89 @@ export default function CheckoutInfo({setUnlockPaypal}) {
 
   const handleChange = (event) => {
     const { id, value } = event.target;
-    const errorLength=Object.keys(errors).length;
-    if(errorLength >= inputNumber-1){
-      if(!value){setErrors((prevErrors)=>({...prevErrors, [id]: id + 'is required field.'})); setUnlockPaypal(false);}
-      else if(id === "email" )
-     { if (!/\S+@\S+\.\S+/.test(value)){setErrors((prevErrors) => ({
-        ...prevErrors,
-        [id]: "Please enter a valid email address.",
-      })); setUnlockPaypal(false);} 
-      else{
-        if(errorLength==inputNumber ||(errorLength==inputNumber-1 && (!errors.hasOwnProperty(id)||errors.id!==null))){
-          setUnlockPaypal(Object.values(errors).every((value, key) => key === id || value === null));
+    const errorLength = Object.keys(errors).length;
+    if (errorLength >= inputNumber - 1) {
+      if (!value) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [id]: id + "is required field.",
+        }));
+        setUnlockPaypal(false);
+      } else if (id === "email") {
+        if (!/\S+@\S+\.\S+/.test(value)) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            [id]: "Please enter a valid email address.",
+          }));
+          setUnlockPaypal(false);
+        } else {
+          if (
+            errorLength == inputNumber ||
+            (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id) )
+          ) {
+            setUnlockPaypal(
+              Object.values(errors).every(
+                (value, key) => key == id || value === null
+              )
+            );
+          }
+          setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
         }
-        setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
-    }
-      else {
-        if(errorLength==inputNumber ||(errorLength==inputNumber-1 && (!errors.hasOwnProperty(id)||errors.id!==null))){
-          setUnlockPaypal(Object.values(errors).every((value, key) => key === id || value === null));
+      } else {
+        if (
+          errorLength == inputNumber ||
+          (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id) )
+        ) {
+          setUnlockPaypal(
+            Object.values(errors).every(
+              (value, key) => key == id || value === null
+            )
+          );
         }
-        setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
+        setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+      }
       return;
     }
     if (!errors[id]) return;
     if (value) {
-      if (id === "email" ) {
-        if(errors[id]==='Email is required field.')
+      if (id === "email") {
+        if (errors[id] === "Email is required field.")
+          setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+        else if (/\S+@\S+\.\S+/.test(value)) {
+          setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+        }
+      } else {
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
-        else if(/\S+@\S+\.\S+/.test(value)){ setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
-      
       }
-      else {setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));}
     }
   };
-  const handleFocus =(event)=>{
+  const handleFocus = (event) => {
     const { id, value } = event.target;
-    if(!errors[id] && !Object.keys(errors).length==inputNumber-1){setErrors((prevErrors)=>({...prevErrors,[id]:null}));
-  }
-  }
+    if (!errors[id] && !Object.keys(errors).length == inputNumber - 1) {
+      setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+    }
+  };
 
   const handleBillingAddressTypeChange = (event) => {
     const { id } = event.target;
-    if(id===billingAddressType) return;
-    if(id ==='sameAddress'){
-      const { billingAddress,billingCountry,billingState,billingSuburb,billingPostcode,billingPhone, ...newErrors } = errors;
+    if (id === billingAddressType) return;
+    if (id === "sameAddress") {
+      const {
+        billingAddress,
+        billingCountry,
+        billingState,
+        billingSuburb,
+        billingPostcode,
+        billingPhone,
+        ...newErrors
+      } = errors;
       setErrors(newErrors);
-      if(Object.keys(newErrors).length==9){
-        setUnlockPaypal(Object.values(newErrors).every(value => value === null));
+      if (Object.keys(newErrors).length == 9) {
+        setUnlockPaypal(
+          Object.values(newErrors).every((value) => value === null)
+        );
       }
-    }
-    else setUnlockPaypal(false);
+    } else setUnlockPaypal(false);
     setBillingAddressType(id);
   };
 
@@ -92,7 +120,6 @@ export default function CheckoutInfo({setUnlockPaypal}) {
         <h2>Contact Information</h2>
         <form>
           <div className={styles.form_group}>
-           
             <input
               placeholder="Email *"
               type="email"
@@ -114,7 +141,7 @@ export default function CheckoutInfo({setUnlockPaypal}) {
           <div className={styles.input_row}>
             <div className={styles.form_group}>
               <input
-              placeholder="First name *"
+                placeholder="First name *"
                 type="text"
                 id="firstName"
                 onBlur={handleBlur}
@@ -126,11 +153,10 @@ export default function CheckoutInfo({setUnlockPaypal}) {
                   (errors.firstName ? styles.input_error : null)
                 }
               />
-             
             </div>
             <div className={styles.form_group}>
               <input
-              placeholder="Last name *"
+                placeholder="Last name *"
                 type="text"
                 id="lastName"
                 onBlur={handleBlur}
@@ -142,13 +168,12 @@ export default function CheckoutInfo({setUnlockPaypal}) {
                   (errors.lastName ? styles.input_error : null)
                 }
               />
-             
             </div>
           </div>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
               <input
-              placeholder="Address *"
+                placeholder="Address *"
                 type="text"
                 id="address"
                 onBlur={handleBlur}
@@ -160,27 +185,24 @@ export default function CheckoutInfo({setUnlockPaypal}) {
                   (errors.address ? styles.input_error : null)
                 }
               />
-            
             </div>
             <div className={styles.form_group}>
               <input
-              placeholder="Apt, suite, etc. (optional)"
+                placeholder="Apt, suite, etc. (optional)"
                 type="text"
                 id="apt"
-                
                 className={
                   styles.input_field +
                   " " +
                   (errors.apt ? styles.input_error : null)
                 }
               />
-              
             </div>
           </div>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
               <input
-              placeholder="Country *"
+                placeholder="Country *"
                 type="text"
                 id="country"
                 onBlur={handleBlur}
@@ -192,11 +214,10 @@ export default function CheckoutInfo({setUnlockPaypal}) {
                   (errors.country ? styles.input_error : null)
                 }
               />
-             
             </div>
             <div className={styles.form_group}>
               <input
-              placeholder="Postcode *"
+                placeholder="Postcode *"
                 type="text"
                 id="postcode"
                 onBlur={handleBlur}
@@ -208,11 +229,10 @@ export default function CheckoutInfo({setUnlockPaypal}) {
                   (errors.postcode ? styles.input_error : null)
                 }
               />
-             
             </div>
             <div className={styles.form_group}>
               <input
-              placeholder="State *"
+                placeholder="State *"
                 type="text"
                 id="state"
                 onBlur={handleBlur}
@@ -224,13 +244,12 @@ export default function CheckoutInfo({setUnlockPaypal}) {
                   (errors.state ? styles.input_error : null)
                 }
               />
-             
             </div>
           </div>
           <div className={styles.input_row}>
             <div className={styles.form_group}>
               <input
-              placeholder="Suburb *"
+                placeholder="Suburb *"
                 type="text"
                 id="suburb"
                 onBlur={handleBlur}
@@ -242,11 +261,10 @@ export default function CheckoutInfo({setUnlockPaypal}) {
                   (errors.suburb ? styles.input_error : null)
                 }
               />
-              
             </div>
             <div className={styles.form_group}>
               <input
-              placeholder="Phone *"
+                placeholder="Phone *"
                 type="text"
                 id="phone"
                 onBlur={handleBlur}
@@ -258,7 +276,6 @@ export default function CheckoutInfo({setUnlockPaypal}) {
                   (errors.phone ? styles.input_error : null)
                 }
               />
-              
             </div>
           </div>
         </form>
@@ -272,135 +289,136 @@ export default function CheckoutInfo({setUnlockPaypal}) {
         <h2>Billing Address</h2>
         <div className={styles.billing_options}>
           <div className={styles.billing_option}>
-            <input type="radio" id="sameAddress" name="billingAddressType" 
-             checked={billingAddressType === "sameAddress"}
-             onChange={handleBillingAddressTypeChange}
-             />
+            <input
+              type="radio"
+              id="sameAddress"
+              name="billingAddressType"
+              checked={billingAddressType === "sameAddress"}
+              onChange={handleBillingAddressTypeChange}
+            />
             <label htmlFor="sameAddress">Same as shipping address</label>
           </div>
           <div className={styles.billing_option}>
-            <input type="radio" id="differentAddress" name="billingAddressType" 
-            
-             checked={billingAddressType === "differentAddress"}
-             onChange={handleBillingAddressTypeChange}
-            
-             
-             />
+            <input
+              type="radio"
+              id="differentAddress"
+              name="billingAddressType"
+              checked={billingAddressType === "differentAddress"}
+              onChange={handleBillingAddressTypeChange}
+            />
             <label htmlFor="differentAddress">
               Use a different billing address
             </label>
           </div>
         </div>
-        {billingAddressType === "differentAddress" && <form>
-          <div className={styles.input_row}>
-            <div className={styles.form_group}>
-              <input
-              placeholder="Address *"
-                type="text"
-                id="billingAddress"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.billingAddress ? styles.input_error : null)
-                }
-              />
-             
+        {billingAddressType === "differentAddress" && (
+          <form>
+            <div className={styles.input_row}>
+              <div className={styles.form_group}>
+                <input
+                  placeholder="Address *"
+                  type="text"
+                  id="billingAddress"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  className={
+                    styles.input_field +
+                    " " +
+                    (errors.billingAddress ? styles.input_error : null)
+                  }
+                />
+              </div>
+              <div className={styles.form_group}>
+                <input
+                  placeholder="Apt, suite, etc. (optional)"
+                  type="text"
+                  id="billingApt"
+                  className={styles.input_field}
+                />
+              </div>
             </div>
-            <div className={styles.form_group}>
-              <input
-              placeholder="Apt, suite, etc. (optional)"
-                type="text"
-                id="billingApt"
-               
-                className={
-                  styles.input_field 
-                }
-              />
+            <div className={styles.input_row}>
+              <div className={styles.form_group}>
+                <input
+                  placeholder="Country *"
+                  type="text"
+                  id="billingCountry"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  className={
+                    styles.input_field +
+                    " " +
+                    (errors.billingCountry ? styles.input_error : null)
+                  }
+                />
+              </div>
+              <div className={styles.form_group}>
+                <input
+                  placeholder="Postcode *"
+                  type="text"
+                  id="billingPostcode"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  className={
+                    styles.input_field +
+                    " " +
+                    (errors.billingPostcode ? styles.input_error : null)
+                  }
+                />
+              </div>
+              <div className={styles.form_group}>
+                <input
+                  placeholder="State *"
+                  type="text"
+                  id="billingState"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  className={
+                    styles.input_field +
+                    " " +
+                    (errors.billingState ? styles.input_error : null)
+                  }
+                />
+              </div>
             </div>
-          </div>
-          <div className={styles.input_row}>
-            <div className={styles.form_group}>
-              <input
-              placeholder="Country *"
-                type="text"
-                id="billingCountry"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.billingCountry ? styles.input_error : null)
-                }
-              />
+            <div className={styles.input_row}>
+              <div className={styles.form_group}>
+                <input
+                  placeholder="Suburb *"
+                  type="text"
+                  id="billingSuburb"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  className={
+                    styles.input_field +
+                    " " +
+                    (errors.billingSuburb ? styles.input_error : null)
+                  }
+                />
+              </div>
+              <div className={styles.form_group}>
+                <input
+                  placeholder="Phone *"
+                  type="text"
+                  id="billingPhone"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  onFocus={handleFocus}
+                  className={
+                    styles.input_field +
+                    " " +
+                    (errors.billingPhone ? styles.input_error : null)
+                  }
+                />
+              </div>
             </div>
-            <div className={styles.form_group}>
-              <input
-              placeholder="Postcode *"
-                type="text"
-                id="billingPostcode"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.billingPostcode ? styles.input_error : null)
-                }
-              />
-            </div>
-            <div className={styles.form_group}>
-              <input
-              placeholder="State *"
-                type="text"
-                id="billingState"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.billingState ? styles.input_error : null)
-                }
-              />
-            </div>
-          </div>
-          <div className={styles.input_row}>
-            <div className={styles.form_group}>
-              <input
-              placeholder="Suburb *"
-                type="text"
-                id="billingSuburb"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.billingSuburb ? styles.input_error : null)
-                }
-              />
-            </div>
-            <div className={styles.form_group}>
-              <input
-              placeholder="Phone *"
-                type="text"
-                id="billingPhone"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.billingPhone ? styles.input_error : null)
-                }
-              />
-            </div>
-          </div>
-        </form>}
+          </form>
+        )}
       </div>
 
       <div className={styles.checkout_section}>
