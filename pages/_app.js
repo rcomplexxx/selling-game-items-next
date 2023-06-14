@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState( () => JSON.parse(localStorage.getItem('cartProducts') ?? '[]'));
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const [hasScrollbar, setHasScrollbar] = useState(true);
 
@@ -22,13 +22,7 @@ export default function App({ Component, pageProps }) {
   }, [cartProducts]);
 
 
-  useEffect(() => {
-    const storedCartProducts = localStorage.getItem('cartProducts');
-    console.log(storedCartProducts);
-    if (storedCartProducts) {
-      setCartProducts(JSON.parse(storedCartProducts));
-    }
-  }, []);
+ 
 
   useEffect(() => {
    
