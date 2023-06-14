@@ -78,8 +78,8 @@ export default function CheckoutInfo({setUnlockPaypal}) {
     if(id ==='sameAddress'){
       const { billingAddress,billingCountry,billingState,billingSuburb,billingPostcode,billingPhone, ...newErrors } = errors;
       setErrors(newErrors);
-      if(Object.keys(errors).length==inputNumber){
-        setUnlockPaypal(Object.values(errors).every(value => value === null));
+      if(Object.keys(newErrors).length==9){
+        setUnlockPaypal(Object.values(newErrors).every(value => value === null));
       }
     }
     else setUnlockPaypal(false);
