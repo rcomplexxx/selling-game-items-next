@@ -93,7 +93,7 @@ export default function OrderDetails({unlockPaypal}) {
             }}
           />
         </PayPalScriptProvider>
-        <button className={styles.checkout_button}>Checkout</button>
+        {/* <button className={styles.checkout_button}>Checkout</button> */}
       </div>
 
       <div className={styles.checkout_section}>

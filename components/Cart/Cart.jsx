@@ -56,7 +56,7 @@ const Cart = ({    emptyCartText='true' }) => {
         <Typography variant="h4" >Subtotal: ${s.toFixed(2)}</Typography>
         <div>
           <Button className={classNames(styles.emptyButton)} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty cart</Button>
-          <Link href='/checkout'><Button className={classNames(styles.checkoutButton)} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button></Link>
+          <Link className={styles.link} href='/checkout'><Button className={classNames(styles.checkoutButton)} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button></Link>
         </div>
       </div>
     </>

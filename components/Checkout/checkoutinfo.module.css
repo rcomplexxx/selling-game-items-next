@@ -132,4 +132,7 @@
     .checkout_left{
       width: 80%;
     }
+    .input_field {
+      width:98%;
+    }
   }
