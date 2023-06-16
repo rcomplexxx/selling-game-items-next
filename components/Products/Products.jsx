@@ -68,6 +68,8 @@ const Products = ({ products, showAll }) => {
       </Grid>
     ));
   };
+
+ 
   
 
   return (
@@ -81,7 +83,7 @@ const Products = ({ products, showAll }) => {
         >
           {showAll?renderAll():renderSome()}
         </Grid>
-        <button style={{ marginTop:"20px", backgroundColor:"transparent", border:"gray" }}>View All</button>
+        <Link href="/products" style={{ marginTop:"20px", backgroundColor:"transparent", border:"gray" }}>View All</Link>
       </div>
     </div>
   );
