@@ -77,7 +77,7 @@ const Products = ({ products, showAll }) => {
           container
           justifyContent="center"
         >
-          {showAll?renderAll:renderSome}
+          {showAll?renderAll():renderSome()}
         </Grid>
       </div>
     </div>
