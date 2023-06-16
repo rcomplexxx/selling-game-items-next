@@ -81,6 +81,7 @@ const Products = ({ products, showAll }) => {
         >
           {showAll?renderAll():renderSome()}
         </Grid>
+        <button style={{marginTop:"20px", backgroundColor:"transparent", border:"gray"}}></button>
       </div>
     </div>
   );
