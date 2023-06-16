@@ -80,7 +80,7 @@ const Products = ({ products, showAll }) => {
         <Grid
           className={styles.mainGridStyle}
           container
-          justifyContent="center"
+          justifyContent="flex-start"
         >
           {showAll?renderAll():renderSome()}
         </Grid>    
