@@ -15,20 +15,19 @@ export default function OrderDetails({unlockPaypal}) {
   s = (Math.round(s * 100) / 100).toFixed(2);
 
 
-  const getProductElements=()=>{
-    return <>
-    <h1>Products</h1>
-    {
-      cartProducts.forEach((cp, i) => {
-        <div className={styles.product}>
-        <p>{cp.quantity} {cp.name}</p>
-        <p>${(Math.round(cp.quantity * cp.price * 100) / 100).toFixed(2)} USD</p>
-      </div>
-      })
-
-    }
-    </>
-  }
+  const getProductElements = () => {
+    return (
+      <>
+        <h1>Products</h1>
+        {cartProducts.map((cp, i) => (
+          <div className={styles.product} key={i}>
+            <p>{cp.quantity} {cp.name}</p>
+            <p>${(Math.round(cp.quantity * cp.price * 100) / 100).toFixed(2)} USD</p>
+          </div>
+        ))}
+      </>
+    );
+  };
 
   return (
     <div className={styles.checkout_right}>
