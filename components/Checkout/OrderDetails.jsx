@@ -18,10 +18,9 @@ export default function OrderDetails({unlockPaypal}) {
   const getProductElements = () => {
     return (
       <>
-        <h1>Products</h1>
         {cartProducts.map((cp, i) => (
           <div className={styles.product} key={i}>
-            <p>{cp.quantity} {cp.name}</p>
+            <p>{cp.quantity} {cp.name}s</p>
             <p>${(Math.round(cp.quantity * cp.price * 100) / 100).toFixed(2)} USD</p>
           </div>
         ))}
