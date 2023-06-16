@@ -5,7 +5,7 @@ import Product from "./Product/Product";
 import styles from "./products.module.css";
 import AppContext from "@/contexts/AppContext";
 
-const Products = ({ products }) => {
+const Products = ({ products, showAll }) => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
   const onAddToCart = async (product, quantity = 1) => {
@@ -34,6 +34,40 @@ const Products = ({ products }) => {
     setCartProducts(newCartProducts);
   };
 
+
+  const renderAll = () => {
+    return products.map((product) => (
+      <Grid
+        className={styles.productGridStyle}
+        key={product.id}
+        item
+        xs={12}
+        sm={6}
+        md={4}
+        lg={3}
+      >
+        <Product key={product.id} product={product} onAddToCart={onAddToCart} />
+      </Grid>
+    ));
+  };
+
+  const renderSome= ()=>{
+    return products.map((product, i) => (
+      <Grid
+        className={styles.productGridStyle}
+        key={product.id}
+        item
+        xs={12}
+        sm={6}
+        md={4}
+        lg={3}
+      >
+        <Product key={product.id} product={product} onAddToCart={onAddToCart} />
+      </Grid>
+    ));
+  };
+  
+
   return (
     <div className={styles.toolbar}>
       <h1 className={styles.title}>Explore our collection</h1>
@@ -43,19 +77,7 @@ const Products = ({ products }) => {
           container
           justifyContent="center"
         >
-          {products.map((product) => (
-            <Grid
-              className={styles.productGridStyle}
-              key={product.id}
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={3}
-            >
-              <Product key={product.id} product={product} onAddToCart={onAddToCart} />
-            </Grid>
-          ))}
+          {showAll?renderAll:renderSome}
         </Grid>
       </div>
     </div>

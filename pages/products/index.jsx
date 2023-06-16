@@ -13,7 +13,7 @@ export default function ProductPage({products}){
     alignItems: "center",
   }}
 >
-  <Products products={products}>
+  <Products showAll={true} products={products}>
     
   </Products>
 

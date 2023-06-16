@@ -18,7 +18,7 @@ const HomePage = ({products}) => {
                 <main className={styles.content}>
                   <HomeText/>
                   
-                 <Products products={products}/>
+                 <Products showAll={false} products={products}/>
                  <HomeReviews/>
                 </main>
                 
