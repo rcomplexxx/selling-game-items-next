@@ -52,7 +52,9 @@ const Products = ({ products, showAll }) => {
   };
 
   const renderSome= ()=>{
-    return products.map((product, i) => (
+    return products
+    .slice(0, 9) // Slice the products array to get only the first 9 products
+    .map((product, i) => (
       <Grid
         className={styles.productGridStyle}
         key={product.id}
