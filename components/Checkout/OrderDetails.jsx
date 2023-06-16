@@ -14,15 +14,31 @@ export default function OrderDetails({unlockPaypal}) {
   if (s === 0) s = 0.01;
   s = (Math.round(s * 100) / 100).toFixed(2);
 
+
+  const getProductElements=()=>{
+    return <>
+    {
+      cartProducts.forEach((cp, i) => {
+        <div className={styles.product}>
+        <p>{cp.quantity} {cp.name}</p>
+        <p>${(Math.round(cp.quantity * cp.price * 100) / 100).toFixed(2)} USD</p>
+      </div>
+      })
+
+    }
+    </>
+  }
+
   return (
     <div className={styles.checkout_right}>
       <div className={styles.checkout_section}>
         <h2>Order Summary</h2>
         <div className={styles.order_summary}>
-          <div className={styles.product}>
+          {/* <div className={styles.product}>
             <p>3 Fairy Light Spirit Tree</p>
             <p>$119.97 USD</p>
-          </div>
+          </div> */}
+          {getProductElements()}
           <div className={styles.coupon_code}>
             <input type="text" placeholder="Coupon code" />
           </div>
