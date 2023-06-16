@@ -27,7 +27,7 @@
   
   .mainGridStyle {
     background-color: #030a08;
-    justify-content: left;
+    justify-content: flex-start;
  
     
   }
