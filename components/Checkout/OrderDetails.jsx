@@ -39,7 +39,7 @@ export default function OrderDetails({unlockPaypal}) {
             <p>3 Fairy Light Spirit Tree</p>
             <p>$119.97 USD</p>
           </div> */}
-          {getProductElements}
+          {getProductElements()}
           <div className={styles.coupon_code}>
             <input type="text" placeholder="Coupon code" />
           </div>
