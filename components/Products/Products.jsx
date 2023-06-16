@@ -82,9 +82,9 @@ const Products = ({ products, showAll }) => {
           justifyContent="center"
         >
           {showAll?renderAll():renderSome()}
-        </Grid>
-        <Link href="/products" style={{ marginTop:"20px", backgroundColor:"transparent", border:"gray" }}>View All</Link>
+        </Grid>    
       </div>
+      <Link href="/products" style={{ marginTop:"20px", backgroundColor:"transparent", border:"gray" }}>View All</Link>
     </div>
   );
 };
