@@ -17,6 +17,7 @@ export default function OrderDetails({unlockPaypal}) {
 
   const getProductElements=()=>{
     return <>
+    <h1>Products</h1>
     {
       cartProducts.forEach((cp, i) => {
         <div className={styles.product}>
@@ -44,7 +45,7 @@ export default function OrderDetails({unlockPaypal}) {
           </div>
           <div className={styles.subtotal}>
             <p>Subtotal</p>
-            <p>$119.97 USD</p>
+            <p>${s} USD</p>
           </div>
           <div className={styles.shipping}>
             <p>Shipping</p>
@@ -56,7 +57,7 @@ export default function OrderDetails({unlockPaypal}) {
           </div>
           <div className={styles.total}>
             <p>Total</p>
-            <p>$119.97 USD</p>
+            <p>${s} USD</p>
           </div>
           <div className={styles.savings}>
             <p>You're Saving</p>
