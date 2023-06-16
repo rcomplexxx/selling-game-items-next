@@ -16,9 +16,10 @@ const HomePage = ({products}) => {
                 </div>
     
                 <main className={styles.content}>
-                  <HomeText></HomeText>
-                  <HomeReviews></HomeReviews>
+                  <HomeText/>
+                  
                  <Products products={products}/>
+                 <HomeReviews/>
                 </main>
                 
                 
