@@ -85,7 +85,7 @@ const Products = ({ products, showAll }) => {
           {showAll?renderAll():renderSome()}
         </Grid>    
       </div>
-      {!showAll && <Link href="/products" style={{ marginTop:"20px", marginBottom:"20px", fontSize:"28px", padding:"16px", color:"gray", backgroundColor:"transparent", border:"solid gray 1px", textDecoration:"none" }}>View All</Link>}
+      {!showAll && <Link href="/products" style={{ marginTop:"20px", marginBottom:"20px", fontSize:"28px", padding:"8px 16px", color:"gray", backgroundColor:"transparent", border:"solid gray 1px", textDecoration:"none" }}>View All</Link>}
     </div>
   );
 };
