@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import Product from "./Product/Product";
 import styles from "./products.module.css";
 import AppContext from "@/contexts/AppContext";
+import Link from "next/link";
 
 const Products = ({ products, showAll }) => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
