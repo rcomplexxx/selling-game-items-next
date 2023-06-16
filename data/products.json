@@ -46,5 +46,25 @@
     "name":"Full set",
     "image":"10.png",
     "price":1250
+},{
+    "id":10,
+    "name":"Pro Joystick",
+    "image":"11.png",
+    "price":117
+},{
+    "id":11,
+    "name":"Gaming headphones",
+    "image":"12.png",
+    "price":55.17
+},{
+    "id":12,
+    "name":"Studio headphones",
+    "image":"13.png",
+    "price":138.99
+},{
+    "id":13,
+    "name":"Chill headphones",
+    "image":"14.png",
+    "price":15.99
 }
 ]
