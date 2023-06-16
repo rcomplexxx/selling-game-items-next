@@ -26,5 +26,30 @@
     "name":"Assassin's creed Joystick",
     "image":"5.png",
     "price":499.99
+},{
+    "id":5,
+    "name":"Cool Keyboard",
+    "image":"6.png",
+    "price":34.99
+},{
+    "id":6,
+    "name":"Casual Keyboard",
+    "image":"7.png",
+    "price":29.99
+},{
+    "id":7,
+    "name":"Anime Keyboard",
+    "image":"8.png",
+    "price":50
+},{
+    "id":8,
+    "name":"Gaming Chair",
+    "image":"9.png",
+    "price":85
+},{
+    "id":9,
+    "name":"Full set",
+    "image":"10.png",
+    "price":1250
 }
 ]
