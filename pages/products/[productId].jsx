@@ -229,49 +229,6 @@ export default function ProductPage({product}){
 
 
     
-
-    export async function getStaticPaths(){
-
-      return {
-        fallback:false,
-        paths:[
-          {
-          params:{
-            productId: '0'
-          }
-        },
-
-        {
-          params:{
-            productId: '1' 
-          }
-        },
-
-        {
-          params:{
-            productId: '2'
-          }
-        },
-
-        {
-          params:{
-            productId: '3'
-          }
-        },
-
-          {
-          params:{
-            productId: '4'
-          }
-        },
-
-      
-
-        ]
-      }
-
-    }
-
     export async function getStaticPaths() {
       const productPagesArray = [];
     
@@ -283,6 +240,21 @@ export default function ProductPage({product}){
     
       return { paths: productPagesArray, fallback: false };
     }
+    
+
+    export async function getStaticProps(context) {
+
+      const productId=context.params.productId;
+      const product= products.find(p=>{return p.id==productId})
+ 
+
+        // Return the data as props
+        return {
+          props: {
+            product
+          },
+        };
+      }
       
 
 
