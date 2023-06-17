@@ -272,19 +272,17 @@ export default function ProductPage({product}){
 
     }
 
-    export async function getStaticProps(context) {
-
-      const productId=context.params.productId;
-      const product= products.find(p=>{return p.id==productId})
- 
-
-        // Return the data as props
-        return {
-          props: {
-            product
-          },
-        };
-      }
+    export async function getStaticPaths() {
+      const productPagesArray = [];
+    
+      products.forEach((product) => {
+        const path = { params: { productId: product.id.toString() } };
+        const props = { product };
+        productPagesArray.push({ path, props });
+      });
+    
+      return { paths: productPagesArray, fallback: false };
+    }
       
 
 

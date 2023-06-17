@@ -27,10 +27,10 @@ export async function getStaticProps() {
 
  
 
-    // Return the data as props
+    
     return {
       props: {
-        products
+        products:products.slice(0, 12)
       },
     };
   }
