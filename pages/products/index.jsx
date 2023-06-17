@@ -3,7 +3,7 @@ import Products from '@/components/Products/Products.jsx'
 import products from '../../data/products.json'
 
 
-export default function ProductPage({slicedProducts}){
+export default function ProductPage({products}){
 
 
   return <div
@@ -13,7 +13,7 @@ export default function ProductPage({slicedProducts}){
     alignItems: "center",
   }}
 >
-  <Products showAll={true} products={slicedProducts}>
+  <Products showAll={true} products={products}>
     
   </Products>
 
@@ -25,12 +25,12 @@ export default function ProductPage({slicedProducts}){
 
 export async function getStaticProps() {
 
-  const slicedProducts= products.slice(0, 6);
+ 
 
     // Return the data as props
     return {
       props: {
-        slicedProducts
+        products
       },
     };
   }
