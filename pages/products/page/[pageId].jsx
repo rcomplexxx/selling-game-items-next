@@ -20,4 +20,35 @@ const ProductPage = ({ product }) => {
 
 
 
+export async function getStaticPaths() {
+    const productLength = products.length;
+    const pagesArray = [];
+  
+    for (let i = 0; i < Math.floor(productLength / 12) + 1; i++) {
+      pagesArray.push({ params: { pageId: i.toString() } });
+    }
+  
+    return { paths: pagesArray, fallback: false };
+  }
+  
+  export async function getStaticProps(context) {
+    const productId = parseInt(context.params.productId, 10);
+    const productLength = products.length;
+    let productArray =
+      productId * 12 > productLength
+        ? null
+        : products.slice((productId - 1) * 12, productId * 12);
+  
+    // Return the data as props
+    return {
+      props: {
+        products: productArray,
+      },
+    };
+  }
+  
+
+
+
+
 export default ProductPage;
