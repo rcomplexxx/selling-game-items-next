@@ -58,12 +58,12 @@ const Products = ({ products, showAll }) => {
   };
 
   const renderPage = (page) => {
-    const start = (page - 1) * 16;
-    const end = start + 16;
+    const start = (page - 1) * 12;
+    const end = start + 12;
     return renderProducts(start, end);
   };
 
-  const totalPages = Math.ceil(products.length / 16);
+  const totalPages = Math.ceil(products.length / 12);
 
   return (
     <div className={styles.toolbar}>
