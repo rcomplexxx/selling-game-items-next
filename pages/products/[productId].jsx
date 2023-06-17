@@ -3,8 +3,7 @@ import React from 'react'
 import products from '../../data/products.json'
 import Image from 'next/image';
 import AppContext from "@/contexts/AppContext";
-
-    import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
     
 
     import { useState,useContext } from 'react';
@@ -230,11 +229,10 @@ export default function ProductPage({product}){
 
     
    export async function getStaticPaths() {
-  const productPagesArray = [];
+  let productPagesArray = [];
 
   products.forEach((product) => {
-    const path = { params: { productId: product.id.toString() } };
-    productPagesArray.push(path);
+    productPagesArray.push({ params: { productId: product.id.toString() } });
   });
 
   return { paths: productPagesArray, fallback: false };
