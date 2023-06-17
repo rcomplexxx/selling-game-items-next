@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Grid from "@mui/material/Grid";
-
 import Product from "./Product/Product";
 import styles from "./products.module.css";
 import AppContext from "@/contexts/AppContext";
@@ -35,7 +34,23 @@ const Products = ({ products, showAll }) => {
     setCartProducts(newCartProducts);
   };
 
-
+  const renderProducts = (start, end) => {
+    return products
+      .slice(start, end)
+      .map((product) => (
+        <Grid
+          className={styles.productGridStyle}
+          key={product.id}
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          lg={3}
+        >
+          <Product key={product.id} product={product} onAddToCart={onAddToCart} />
+        </Grid>
+      ));
+  };
 
   const renderAll = () => {
     return renderProducts(0, products.length);
@@ -44,21 +59,7 @@ const Products = ({ products, showAll }) => {
   const renderPage = (page) => {
     const start = (page - 1) * 12;
     const end = start + 12;
-    const slicedProducts = products.slice(start, end);
-    
-    return slicedProducts.map((product) => (
-      <Grid
-        className={styles.productGridStyle}
-        key={product.id}
-        item
-        xs={12}
-        sm={6}
-        md={4}
-        lg={3}
-      >
-        <Product key={product.id} product={product} onAddToCart={onAddToCart} />
-      </Grid>
-    ));
+    return renderProducts(start, end);
   };
 
   const totalPages = Math.ceil(products.length / 12);
