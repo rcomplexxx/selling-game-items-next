@@ -13,7 +13,7 @@ const ProductPage = () => {
 
   const currentPage = parseInt(pageId);
 
-  return <p>You are in Page</p>>
+  return <Products products={products} currentPage={currentPage} />;
 };
 
 export default ProductPage;
