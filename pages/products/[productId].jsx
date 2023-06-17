@@ -234,8 +234,8 @@ export default function ProductPage({product}){
     
       products.forEach((product) => {
         const path = { params: { productId: product.id.toString() } };
-        const props = { product };
-        productPagesArray.push({ path, props });
+       
+        productPagesArray.push({ path });
       });
     
       return { paths: productPagesArray, fallback: false };
