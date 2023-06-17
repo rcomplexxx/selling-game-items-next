@@ -20,7 +20,7 @@ export async function getStaticPaths() {
     const pagesArray = [];
   
     for (let i = 0; i < Math.floor(productLength / 12) + 1; i++) {
-      pagesArray.push({ params: { pageId: i.toString() } });
+      pagesArray.push({ params: { pageId: (i+1).toString() } });
     }
   
     return { paths: pagesArray, fallback: false };
