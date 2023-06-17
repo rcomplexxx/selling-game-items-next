@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import Products from "../../components/Products";
+import Products from "../../components/Products/Products.jsx";
 
 const ProductPage = () => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const ProductPage = () => {
 
   const currentPage = parseInt(pageId);
 
-  return <Products products={products} currentPage={currentPage} />;
+  return <p>This is Product Page</p>;
 };
 
 export default ProductPage;
