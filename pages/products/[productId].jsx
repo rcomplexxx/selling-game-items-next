@@ -4,7 +4,7 @@ import products from '../../data/products.json'
 import Image from 'next/image';
 import AppContext from "@/contexts/AppContext";
 
-    import { useRouter } from 'next/router';
+   
     
 
     import { useState,useContext } from 'react';
