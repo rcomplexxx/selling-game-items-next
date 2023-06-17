@@ -8,7 +8,7 @@ const ProductPage = ({ products }) => {
 console.log(products);
 
   return (
-    <Products showAll={true} products={products}>
+    <Products showAll={true} products={products}/>
   );
 };
 
