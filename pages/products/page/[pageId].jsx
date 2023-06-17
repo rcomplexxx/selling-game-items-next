@@ -30,9 +30,9 @@ export async function getStaticPaths() {
     const pageId = parseInt(context.params.pageId, 10);
     const productLength = products.length;
     let productArray = 
-    pageId * 12 > productLength
+    (pageId-1) * 12 > productLength
         ? null
-        : products.slice((pageId - 1) * 12, pageId * 12);
+        : (pageId*12>productLength?products.slice((pageId - 1) * 12, productLength-1):products.slice((pageId - 1) * 12, pageId * 12));
   
     // Return the data as props
     return {
