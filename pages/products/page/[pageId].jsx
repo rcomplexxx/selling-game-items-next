@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import products from '../../../data/products.json';
 
-const ProductPage = ({ product }) => {
+const ProductPage = ({ products }) => {
   // Redirect to home page if no product
   const router = useRouter();
   useEffect(() => {
@@ -32,12 +32,12 @@ export async function getStaticPaths() {
   }
   
   export async function getStaticProps(context) {
-    const productId = parseInt(context.params.pageId, 10);
+    const pageId = parseInt(context.params.pageId, 10);
     const productLength = products.length;
     let productArray =
       productId * 12 > productLength
         ? null
-        : products.slice((productId - 1) * 12, productId * 12);
+        : products.slice((pageId - 1) * 12, pageId * 12);
   
     // Return the data as props
     return {
