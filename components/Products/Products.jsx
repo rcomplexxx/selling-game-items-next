@@ -51,7 +51,7 @@ const Products = ({ products, showAll }) => {
           container
           justifyContent="flex-start"
         >
-          {products.map((product, i) => (
+      {products.map((product, i) => (
       <Grid
         className={styles.productGridStyle}
         key={product.id}
@@ -62,7 +62,9 @@ const Products = ({ products, showAll }) => {
         lg={4}
       >
         <Product key={product.id} product={product} onAddToCart={onAddToCart} />
-      </Grid>}
+      </Grid>))
+      
+    }
         </Grid>    
       </div>
       {!showAll && <Link href="/products" style={{ marginTop:"10px", marginBottom:"20px", fontSize:"28px", padding:"8px 16px", color:"gray", backgroundColor:"transparent", border:"solid gray 1px", textDecoration:"none" }}>View All</Link>}
