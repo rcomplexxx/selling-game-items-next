@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import products from '../../../data/products.json'
+import products from '../../../data/products.json';
 
-export default function ProductPage({products}) {
+const ProductPage = ({ product }) => {
+  // Redirect to home page if no product
   const router = useRouter();
-
-  // Redirect to home page
-  
-    if(!products)router.push('/');
- 
+  useEffect(() => {
+    if (!product) {
+      router.push('/');
+    }
+  }, []);
 
   return (
     <div>
       <p>Product Page</p>
     </div>
   );
-}
+};
 
+
+
+export default ProductPage;

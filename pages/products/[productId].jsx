@@ -229,7 +229,7 @@ export default function ProductPage({product}){
 
     
    export async function getStaticPaths() {
-  let productPagesArray = [];
+  const productPagesArray = [];
 
   products.forEach((product) => {
     productPagesArray.push({ params: { productId: product.id.toString() } });
