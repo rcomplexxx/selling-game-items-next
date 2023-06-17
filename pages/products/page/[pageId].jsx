@@ -4,12 +4,7 @@ import products from '../../../data/products.json';
 
 const ProductPage = ({ products }) => {
   // Redirect to home page if no product
-  const router = useRouter();
-  useEffect(() => {
-    if (!product) {
-      router.push('/');
-    }
-  }, []);
+console.log(products);
 
   return (
     <div>
