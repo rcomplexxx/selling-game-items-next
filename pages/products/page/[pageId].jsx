@@ -34,8 +34,8 @@ export async function getStaticPaths() {
   export async function getStaticProps(context) {
     const pageId = parseInt(context.params.pageId, 10);
     const productLength = products.length;
-    let productArray =
-      productId * 12 > productLength
+    let productArray = 
+    pageId * 12 > productLength
         ? null
         : products.slice((pageId - 1) * 12, pageId * 12);
   
