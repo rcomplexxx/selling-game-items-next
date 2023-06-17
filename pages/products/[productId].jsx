@@ -229,17 +229,16 @@ export default function ProductPage({product}){
 
 
     
-    export async function getStaticPaths() {
-      const productPagesArray = [];
-    
-      products.forEach((product) => {
-        const path = { params: { productId: product.id.toString() } };
-       
-        productPagesArray.push({ path });
-      });
-    
-      return { paths: productPagesArray, fallback: false };
-    }
+   export async function getStaticPaths() {
+  const productPagesArray = [];
+
+  products.forEach((product) => {
+    const path = { params: { productId: product.id.toString() } };
+    productPagesArray.push(path);
+  });
+
+  return { paths: productPagesArray, fallback: false };
+}
     
 
     export async function getStaticProps(context) {
