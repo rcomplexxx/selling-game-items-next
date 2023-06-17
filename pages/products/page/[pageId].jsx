@@ -32,7 +32,7 @@ export async function getStaticPaths() {
   }
   
   export async function getStaticProps(context) {
-    const productId = parseInt(context.params.productId, 10);
+    const productId = parseInt(context.params.pageId, 10);
     const productLength = products.length;
     let productArray =
       productId * 12 > productLength
