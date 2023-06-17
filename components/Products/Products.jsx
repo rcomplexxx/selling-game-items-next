@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Grid from "@mui/material/Grid";
+
 import Product from "./Product/Product";
 import styles from "./products.module.css";
 import AppContext from "@/contexts/AppContext";
@@ -52,10 +53,6 @@ const Products = ({ products, showAll }) => {
       ));
   };
 
-  const renderAll = () => {
-    return renderProducts(0, products.length);
-  };
-
   const renderPage = (page) => {
     const start = (page - 1) * 12;
     const end = start + 12;
@@ -73,7 +70,7 @@ const Products = ({ products, showAll }) => {
           container
           justifyContent="flex-start"
         >
-          {showAll ? renderAll() : renderPage(1)}
+          {showAll ? renderProducts(0, products.length) : renderPage(1)}
         </Grid>
       </div>
       {!showAll && (
