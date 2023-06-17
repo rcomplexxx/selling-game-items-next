@@ -25,12 +25,12 @@ export default function ProductPage({products}){
 
 export async function getStaticProps() {
 
- 
+  const slicedProducts= products.slice(0, 6);
 
     // Return the data as props
     return {
       props: {
-        products
+        products:slicedProducts
       },
     };
   }
