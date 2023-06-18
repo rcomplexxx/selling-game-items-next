@@ -7,32 +7,24 @@ const ProductPage = ({ pageId, products }) => {
   // Redirect to home page if no product
   console.log(products);
 
-  const getPageMenu = () => {
-    // Define the page menu options
-    const pageMenuOptions = ["One", "Two", "Three", "Four", "Five"];
-
-    // Generate the menu items based on the pageId
-    const menuItems = pageMenuOptions.map((option, index) => (
-      <li key={index} className={pageId === index + 1 ? "active" : ""}>
-        {option}
-      </li>
-    ));
-
-    // Render the page menu
-    return (
-      <ul className="page-menu">
-        {menuItems}
-      </ul>
-    );
-  };
-
   return (
-    <>
-      {getPageMenu()}
+    <div>
+      <h1>Products</h1>
+      <div>
+        <h2>Menu</h2>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>---)</button>
+      </div>
       <Products showAll={true} products={products} />
-    </>
+      
+    </div>
   );
 };
+
 
 
 export async function getStaticPaths() {
