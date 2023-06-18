@@ -19,8 +19,8 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
   }
 
   return (
-    <div>
-      <h1>Products</h1>
+    <div style={{display:'flex', flexDirection:"column", alignItems:"center"}}>
+      
 
       <Products showAll={true} products={products} />
       <div className={styles.linkDiv}>{links}
