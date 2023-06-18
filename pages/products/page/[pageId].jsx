@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import products from '../../../data/products.json';
 import Products from '@/components/Products/Products.jsx';
+import Link from 'next/link';
 
 const ProductPage = ({ pageId, products }) => {
   // Redirect to home page if no product
@@ -10,17 +11,16 @@ const ProductPage = ({ pageId, products }) => {
   return (
     <div>
       <h1>Products</h1>
-      <div>
-        <h2>Menu</h2>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>---)</button>
-      </div>
+    
       <Products showAll={true} products={products} />
-      
+      <div>
+        <Link>1</Link>
+        <Link>2</Link>
+        <Link>3</Link>
+        <Link>4</Link>
+        <Link>5</Link>
+        <Link>{'->'}</Link>
+      </div>
     </div>
   );
 };
