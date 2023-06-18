@@ -4,7 +4,6 @@ import products from '../../../data/products.json';
 import Products from '@/components/Products/Products.jsx';
 import Link from 'next/link';
 import styles from './page.modeule.css'
-import classNames from 'classnames';
 
 const ProductPage = ({ totalPageNumber,pageId, products }) => {
   // Redirect to home page if no product
@@ -23,7 +22,7 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
       <h1>Products</h1>
 
       <Products showAll={true} products={products} />
-      <div>{links}</div>
+      <div className={styles.linkDiv}>{links}</div>
       <Link href={`/products/page/${pageId + 1}`}>
         {'->'}
       </Link>
