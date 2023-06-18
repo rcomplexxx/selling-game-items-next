@@ -6,7 +6,7 @@
 }
 
 .linkDiv a{
-    
+    text-decoration: none;
     color:rgb(239, 241, 217);
     margin-top: 15px;
     margin-right: 5px;
@@ -18,5 +18,7 @@
 } */
 
 .pageLink{
-    background-color: rgb(240, 250, 255);
+    height: min-content;
+    width: min-content;
+    background-color: rgb(44, 95, 93);
 }
