@@ -20,5 +20,7 @@
 .pageLink{
     height: min-content;
     width: min-content;
+    margin-top: 15px;
+    margin-right: 5px;
     background-color: rgb(44, 95, 93);
 }
