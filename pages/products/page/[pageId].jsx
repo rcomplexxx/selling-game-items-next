@@ -49,8 +49,7 @@ export async function getStaticPaths() {
     // Return the data as props
     return {
       props: {
-        products: productArray,
-        pageId: pageId
+        products: productArray
       },
     };
   }
