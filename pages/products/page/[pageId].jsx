@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import products from '../../../data/products.json';
 import Products from '@/components/Products/Products.jsx';
 import Link from 'next/link';
-import styles from './page.modeule.css'
 
 const ProductPage = ({ totalPageNumber,pageId, products }) => {
   // Redirect to home page if no product
@@ -22,7 +21,7 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
       <h1>Products</h1>
 
       <Products showAll={true} products={products} />
-      <div className={styles.linkDiv}>{links}</div>
+      <div >{links}</div>
       <Link href={`/products/page/${pageId + 1}`}>
         {'->'}
       </Link>
