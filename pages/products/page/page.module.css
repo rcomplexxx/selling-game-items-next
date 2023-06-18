@@ -1,10 +1,12 @@
 
 
-
 .linkDiv{
     background-color: gray;
 }
 
+.linkDiv a{
+    color:rgb(239, 241, 217);
+}
 
 /* 
 .linkDiv a{
