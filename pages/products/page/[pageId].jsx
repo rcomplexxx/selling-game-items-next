@@ -10,15 +10,13 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
 
   const links = [];
 
-  useEffect(()=>{
-    for (let i = 1; i <= totalPageNumber; i++) {
-      links.push(
-        <Link href={`/products/page/${i}`} key={i}>
-          {i}
-        </Link>
-      );
-    }
-  },[])
+  for (let i = 1; i <= totalPageNumber; i++) {
+    links.push(
+      <Link href={`/products/page/${i}`} key={i}>
+        {i}
+      </Link>
+    );
+  }
 
   return (
     <div>
