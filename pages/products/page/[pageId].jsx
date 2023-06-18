@@ -28,10 +28,14 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
       
 
       <Products showAll={true} products={products} />
-      <div className={styles.linkDiv}>{links}
-      <Link href={`/products/page/${pageId + 1}`}>
+      <div className={styles.linkDiv}>
+      {pageId!==1 &&<Link href={`/products/page/${pageId + 1}`}>
+        {'<-'}
+      </Link>}
+        {links}
+      {pageId!==totalPageNumber &&<Link href={`/products/page/${pageId + 1}`}>
         {'->'}
-      </Link>
+      </Link>}
       </div>
      
     </div>
