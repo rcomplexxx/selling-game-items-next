@@ -4,23 +4,27 @@ import products from '../../../data/products.json';
 import Products from '@/components/Products/Products.jsx';
 import Link from 'next/link';
 
-const ProductPage = ({ pageId, products }) => {
+const ProductPage = ({ totalPageNumber,pageId, products }) => {
   // Redirect to home page if no product
-  console.log(products);
+
+  const links = [];
+  for (let i = 1; i <= totalPageNumber; i++) {
+    links.push(
+      <Link href={`/products/page/${i}`} key={i}>
+        {i}
+      </Link>
+    );
+  }
 
   return (
     <div>
       <h1>Products</h1>
-    
+
       <Products showAll={true} products={products} />
-      <div>
-        <Link href="/products">1</Link>
-        <Link href="/products/page/2">2</Link>
-        <Link href="/products/page/3">3</Link>
-        <Link href="/products/page/4">4</Link>
-        <Link href="/products/page/5">5</Link>
-        <Link href="/products/page/6">{'->'}</Link>
-      </div>
+      <div>{links}</div>
+      <Link href={`/products/page/${pageId + 1}`}>
+        {'->'}
+      </Link>
     </div>
   );
 };
@@ -49,6 +53,7 @@ export async function getStaticPaths() {
     // Return the data as props
     return {
       props: {
+        totalPageNumber: Math.floor(productLength / 12) + 1,
         products: productArray,
         pageId: pageId
       },
