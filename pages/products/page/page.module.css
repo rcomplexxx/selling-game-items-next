@@ -6,8 +6,9 @@
 }
 
 .linkDiv a{
-    background-color: rgb(41, 40, 33);
+    
     color:rgb(239, 241, 217);
+    margin-top: 15px;
     margin-right: 5px;
 }
 
@@ -15,3 +16,7 @@
 .linkDiv a{
     background-color: gray;
 } */
+
+.pageLink{
+    background-color: rgb(240, 250, 255);
+}
