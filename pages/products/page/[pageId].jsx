@@ -4,7 +4,7 @@ import products from '../../../data/products.json';
 import Products from '@/components/Products/Products.jsx';
 import Link from 'next/link';
 
-const ProductPage = ({ products }) => {
+const ProductPage = ({ pageId, products }) => {
   // Redirect to home page if no product
   console.log(products);
 
@@ -19,7 +19,7 @@ const ProductPage = ({ products }) => {
         <Link>3</Link>
         <Link>4</Link>
         <Link>5</Link>
-        <Link>{'->'}</Link>
+       
       </div>
     </div>
   );
@@ -49,7 +49,8 @@ export async function getStaticPaths() {
     // Return the data as props
     return {
       props: {
-        products: productArray
+        products: productArray,
+        pageId: pageId
       },
     };
   }
