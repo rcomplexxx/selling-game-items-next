@@ -3,15 +3,36 @@ import { useRouter } from 'next/router';
 import products from '../../../data/products.json';
 import Products from '@/components/Products/Products.jsx';
 
-const ProductPage = ({ products }) => {
+const ProductPage = ({ pageId, products }) => {
   // Redirect to home page if no product
-console.log(products);
+  console.log(products);
+
+  const getPageMenu = () => {
+    // Define the page menu options
+    const pageMenuOptions = ["One", "Two", "Three", "Four", "Five"];
+
+    // Generate the menu items based on the pageId
+    const menuItems = pageMenuOptions.map((option, index) => (
+      <li key={index} className={pageId === index + 1 ? "active" : ""}>
+        {option}
+      </li>
+    ));
+
+    // Render the page menu
+    return (
+      <ul className="page-menu">
+        {menuItems}
+      </ul>
+    );
+  };
 
   return (
-    <Products showAll={true} products={products}/>
+    <>
+      {getPageMenu()}
+      <Products showAll={true} products={products} />
+    </>
   );
 };
-
 
 
 export async function getStaticPaths() {
@@ -37,6 +58,7 @@ export async function getStaticPaths() {
     return {
       props: {
         products: productArray,
+        pageId: pageId
       },
     };
   }
