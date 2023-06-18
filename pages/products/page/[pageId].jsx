@@ -14,12 +14,12 @@ const ProductPage = ({ pageId, products }) => {
     
       <Products showAll={true} products={products} />
       <div>
-        <Link>1</Link>
-        <Link>2</Link>
-        <Link>3</Link>
-        <Link>4</Link>
-        <Link>5</Link>
-       
+        <Link href="/products">1</Link>
+        <Link href="/products/page/2">2</Link>
+        <Link href="/products/page/3">3</Link>
+        <Link href="/products/page/4">4</Link>
+        <Link href="/products/page/5">5</Link>
+        <Link href="/products/page/6">{'->'}</Link>
       </div>
     </div>
   );
