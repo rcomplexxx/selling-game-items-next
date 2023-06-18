@@ -23,10 +23,12 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
       <h1>Products</h1>
 
       <Products showAll={true} products={products} />
-      <div className={styles.linkDiv}>{links}</div>
+      <div className={styles.linkDiv}>{links}
       <Link href={`/products/page/${pageId + 1}`}>
         {'->'}
       </Link>
+      </div>
+     
     </div>
   );
 };
