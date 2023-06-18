@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import products from '../../../data/products.json';
 import Products from '@/components/Products/Products.jsx';
 import Link from 'next/link';
-import styles from './page.modeule.css';
+import styles from './page.module.css';
 
 const ProductPage = ({ totalPageNumber,pageId, products }) => {
   // Redirect to home page if no product
