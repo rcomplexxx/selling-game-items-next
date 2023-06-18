@@ -29,7 +29,7 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
 
       <Products showAll={true} products={products} />
       <div className={styles.linkDiv}>
-      {pageId!==1 &&<Link href={`/products/page/${pageId + 1}`}>
+      {pageId!==1 &&<Link href={`/products/page/${pageId - 1}`}>
         {'<-'}
       </Link>}
         {links}
