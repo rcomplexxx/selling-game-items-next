@@ -4,7 +4,7 @@ import products from '../../../data/products.json';
 import Products from '@/components/Products/Products.jsx';
 import Link from 'next/link';
 
-const ProductPage = ({ pageId, products }) => {
+const ProductPage = ({ products }) => {
   // Redirect to home page if no product
   console.log(products);
 
