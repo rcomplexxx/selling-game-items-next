@@ -18,6 +18,9 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
       router.push('/products'); // Perform the redirect
     }
   }, [pageId]);
+
+  if(pageId===1) return <></>;
+
   const links = [];
 
   for (let i = 1; i <= totalPageNumber; i++) {
@@ -35,7 +38,7 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
 
 
 
-  if(pageId===1) return <div></div>;
+ 
   return (
     <div style={{display:'flex', flexDirection:"column", alignItems:"center"}}>
       
