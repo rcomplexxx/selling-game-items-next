@@ -17,7 +17,7 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
     if (pageId===1) {
       router.push('/products'); // Perform the redirect
     }
-  }, []);
+  }, [pageId]);
   const links = [];
 
   for (let i = 1; i <= totalPageNumber; i++) {
