@@ -66,5 +66,15 @@
     "name":"Chill headphones",
     "image":"14.png",
     "price":15.99
+},{
+    "id":14,
+    "name":"Gaming mobile VivoY20S",
+    "image":"15.png",
+    "price":399.99
+},{
+    "id":15,
+    "name":"Ios Xbox Expending",
+    "image":"16.png",
+    "price":219.99
 }
 ]
