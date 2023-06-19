@@ -58,7 +58,7 @@ export async function getStaticPaths() {
   export async function getStaticProps(context) {
     const pageId = parseInt(context.params.pageId, 10);
 
-    if (pageId === '1') {
+    if (pageId === 1) {
       return {
         redirect: {
           destination: '/products',
