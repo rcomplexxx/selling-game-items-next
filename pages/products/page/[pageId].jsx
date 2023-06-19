@@ -9,6 +9,11 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
   // Redirect to home page if no product
 
 
+  
+
+  
+
+  if(pageId===1) return <></>;
   const router = useRouter();
 
   useEffect(() => {
@@ -19,8 +24,6 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
       router.push('/products'); // Perform the redirect
     }
   }, []);
-
-  if(pageId===1) return <></>;
   const links = [];
 
   for (let i = 1; i <= totalPageNumber; i++) {
