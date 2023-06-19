@@ -61,8 +61,8 @@ export async function getStaticPaths() {
     if (pageId === 1) {
       return {
         redirect: {
-          destination: '/products',
-          // permanent: true,
+          destination: `/products`,
+           permanent: true,
         },
       };
     }
