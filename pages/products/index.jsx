@@ -12,8 +12,8 @@ export default function ProductPage({products}){
 
   const totalPageNumber=products.length/12+1;
   const links = [<div className={styles.pageLink}>
-    <Link href={`/products/page/${i}`}  key={i}>
-      {i}
+    <Link href={`/products/page/${1}`}  key={1}>
+      {1}
     </Link>
     </div>];
 
