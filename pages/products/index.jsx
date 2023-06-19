@@ -1,9 +1,31 @@
 import React from 'react'
 import Products from '@/components/Products/Products.jsx'
 import products from '../../data/products.json'
+import Link from 'next/link';
 
 
 export default function ProductPage({products}){
+
+
+
+
+  const totalPageNumber=products.length/12+1;
+  const links = [<div className={styles.pageLink}>
+    <Link href={`/products/page/${i}`}  key={i}>
+      {i}
+    </Link>
+    </div>];
+
+  for (let i = 2; i <= totalPageNumber; i++) {
+    links.push(
+      <Link href={`/products/page/${i}`}  key={i}>
+        {i}
+      </Link>
+
+    );
+  }
+
+  
 
 
   return <div
@@ -16,6 +38,16 @@ export default function ProductPage({products}){
   <Products showAll={true} products={products}>
     
   </Products>
+
+  <div className={styles.linkDiv}>
+      {pageId!==1 &&<Link href={`/products/page/${pageId - 1}`}>
+        {'<-'}
+      </Link>}
+        {links}
+      {pageId!==totalPageNumber &&<Link href={`/products/page/${pageId + 1}`}>
+        {'->'}
+      </Link>}
+      </div>
 
 
   </div>
