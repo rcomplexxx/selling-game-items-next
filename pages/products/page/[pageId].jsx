@@ -57,6 +57,17 @@ export async function getStaticPaths() {
   
   export async function getStaticProps(context) {
     const pageId = parseInt(context.params.pageId, 10);
+
+    if (pageId === '1') {
+      return {
+        redirect: {
+          destination: '/products',
+          // permanent: true,
+        },
+      };
+    }
+  
+
     const productLength = products.length;
     let productArray = 
     (pageId-1) * 12 > productLength
@@ -74,18 +85,10 @@ export async function getStaticPaths() {
   };
 
 
-  export async function getServerSideProps(context) {
-    const { pageId } = context.query;
+ 
   
-    if (pageId === '1') {
-      return {
-        redirect: {
-          destination: '/new-url',
-          permanent: true,
-        },
-      };
-    }
-  }
+
+  
   
 
 
