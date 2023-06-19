@@ -235,7 +235,7 @@ export default function ProductPage({product}){
     productPagesArray.push({ params: { productId: product.id.toString() } });
   });
 
-  return { paths: productPagesArray, fallback: false };
+  return { paths: productPagesArray, fallback: true };
 }
     
 
