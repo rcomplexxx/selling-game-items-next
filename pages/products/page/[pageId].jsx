@@ -52,22 +52,11 @@ export async function getStaticPaths() {
       pagesArray.push({ params: { pageId: (i+1).toString() } });
     }
   
-    return { paths: pagesArray, fallback: true };
+    return { paths: pagesArray, fallback: false };
   }
   
   export async function getStaticProps(context) {
     const pageId = parseInt(context.params.pageId, 10);
-
-    if (pageId === 1) {
-      return {
-        redirect: {
-          destination: `/products`,
-           permanent: true,
-        },
-      };
-    }
-
-
     const productLength = products.length;
     let productArray = 
     (pageId-1) * 12 > productLength
