@@ -52,7 +52,7 @@ export async function getStaticPaths() {
       pagesArray.push({ params: { pageId: (i+1).toString() } });
     }
   
-    return { paths: pagesArray, fallback: true };
+    return { paths: pagesArray, fallback: false };
   }
   
   export async function getStaticProps(context) {
@@ -66,7 +66,7 @@ export async function getStaticPaths() {
         },
       };
     }
-  
+
 
     const productLength = products.length;
     let productArray = 
@@ -82,13 +82,7 @@ export async function getStaticPaths() {
         pageId: pageId
       },
     };
-  };
-
-
- 
-  
-
-  
+  }
   
 
 
