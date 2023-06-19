@@ -43,7 +43,7 @@ export default function ProductPage({products}){
   <div className={styles.linkDiv}>
       
         {links}
-      {totalPageNumber>1 && <Link href={`/products/page/${pageId + 1}`}>{'->'}</Link>}
+      {totalPageNumber>1 && <Link href={`/products/page/2`}>{'->'}</Link>}
       </div>
 
 
