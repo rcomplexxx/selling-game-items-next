@@ -8,12 +8,6 @@ import styles from './page.module.css';
 const ProductPage = ({ totalPageNumber,pageId, products }) => {
   // Redirect to home page if no product
 
-
-  
-
-  
-
-  if(pageId===1) return <></>;
   const router = useRouter();
 
   useEffect(() => {
@@ -39,6 +33,9 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
     );
   }
 
+
+
+  if(pageId===1) return <div></div>;
   return (
     <div style={{display:'flex', flexDirection:"column", alignItems:"center"}}>
       
