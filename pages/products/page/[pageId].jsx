@@ -37,7 +37,7 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
   }
 
 
-
+//
  
   return (
     <div style={{display:'flex', flexDirection:"column", alignItems:"center"}}>
