@@ -8,6 +8,19 @@ import styles from './page.module.css';
 const ProductPage = ({ totalPageNumber,pageId, products }) => {
   // Redirect to home page if no product
 
+
+  const router = useRouter();
+
+  useEffect(() => {
+    // Your condition for redirection
+   
+
+    if (pageId===1) {
+      router.push('/products'); // Perform the redirect
+    }
+  }, []);
+
+  if(pageId===1) return <></>;
   const links = [];
 
   for (let i = 1; i <= totalPageNumber; i++) {
