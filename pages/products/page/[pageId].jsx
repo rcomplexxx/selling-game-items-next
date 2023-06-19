@@ -54,20 +54,9 @@ export async function getStaticPaths() {
   
     return { paths: pagesArray, fallback: false };
   }
-
-
   
   export async function getStaticProps(context) {
     const pageId = parseInt(context.params.pageId, 10);
-
-    if(pageId===1) return {
-        redirect: {
-          destination: '/products',
-          permanent: true, // Set permanent to true for a permanent (301) redirect
-        },
-      }
-    
-
     const productLength = products.length;
     let productArray = 
     (pageId-1) * 12 > productLength
@@ -82,7 +71,20 @@ export async function getStaticPaths() {
         pageId: pageId
       },
     };
-  }
+  };
+
+
+  export async function getServerSideProps(context) {
+    const { pageId } = context.query;
+  
+    if (pageId === '1') {
+      return {
+        redirect: {
+          destination: '/new-url',
+          permanent: true,
+        },
+      };
+    }
   
 
 
