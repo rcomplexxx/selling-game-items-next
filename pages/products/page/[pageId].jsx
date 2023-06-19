@@ -52,7 +52,7 @@ export async function getStaticPaths() {
       pagesArray.push({ params: { pageId: (i+1).toString() } });
     }
   
-    return { paths: pagesArray, fallback: false };
+    return { paths: pagesArray, fallback: true };
   }
   
   export async function getStaticProps(context) {
