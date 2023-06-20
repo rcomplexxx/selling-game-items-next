@@ -86,19 +86,14 @@ export default function HomeReviews() {
           ))
         ) : (
           <>
-            <div className={styles.arrowsContainer}>
-              <button className={styles.arrow} onClick={prevReview}>
-                <FontAwesomeIcon icon={faArrowLeft} />
-              </button>
-              <button className={styles.arrow} onClick={nextReview}>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </button>
-            </div>
+           
             <AutoPlaySwipeableViews
               index={currentReview}
               onChangeIndex={setCurrentReview}
               enableMouseEvents
               interval={5000} // Auto play interval in milliseconds
+              enableSlideInterpolation
+              infiniteLoop
             >
               {reviews.map((review) => (
                 <Review
