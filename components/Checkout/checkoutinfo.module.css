@@ -134,8 +134,12 @@
     }
 
     .input_row{
-      height: max-content;
     flex-direction: column;
+    margin-bottom: 0px;
+  }
+  
+  .input_field {
+    margin-bottom: 20px;
     }
    
   }
