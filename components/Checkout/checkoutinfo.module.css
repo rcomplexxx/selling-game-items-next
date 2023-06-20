@@ -132,5 +132,9 @@
     .checkout_left{
       width: 90%;
     }
+
+    .input_row{
+    flex-direction: column;
+    }
    
   }
