@@ -59,7 +59,7 @@
   @media screen and (max-width: 1080px) {
     .mainDiv {
       
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-around;
       align-items: center;
     }
