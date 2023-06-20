@@ -88,7 +88,6 @@ export default function HomeReviews() {
               enableMouseEvents
               interval={5000} // Auto play interval in milliseconds
             >
-               <div className={styles.swiperCenterer}>
               {reviews.map((review) => (
                 <Review
                   key={review.id}
@@ -97,7 +96,6 @@ export default function HomeReviews() {
                   author={review.author}
                 />
               ))}
-              </div>
             </AutoPlaySwipeableViews>
             <Pagination
               count={reviews.length}
