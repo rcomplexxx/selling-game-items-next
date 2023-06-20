@@ -87,6 +87,7 @@ export default function HomeReviews() {
               onChangeIndex={setCurrentReview}
               enableMouseEvents
               interval={5000} // Auto play interval in milliseconds
+              style={styles.swipeableViews}
             >
               {reviews.map((review) => (
                 <Review
