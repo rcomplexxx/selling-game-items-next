@@ -30,13 +30,6 @@
     width: 90vw;
   }
 
-  .swipeableViews {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 90vw;
-  }
-
  
   
   .arrow {
@@ -55,8 +48,7 @@
  
   
   @media screen and (max-width: 1080px) {
-    .mainDiv {
-      
+    .mainDiv { 
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
