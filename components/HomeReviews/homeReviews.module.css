@@ -30,6 +30,13 @@
     width: 90vw;
   }
 
+  .swipeableViews {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90vw;
+  }
+
  
   
   .arrow {
@@ -71,7 +78,6 @@
     }
 
     .reviewDiv {
-      align-items: center;
       width:"80%"
     }
   }
