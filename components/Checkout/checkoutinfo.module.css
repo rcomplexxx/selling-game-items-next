@@ -134,6 +134,7 @@
     }
 
     .input_row{
+      height: max-content;
     flex-direction: column;
     }
    
