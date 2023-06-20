@@ -73,6 +73,10 @@ export default function HomeReviews() {
     );
   };
 
+  const handleIndexChange = (index) => {
+    setCurrentReview(index);
+  };
+
 
   return (
     <>
