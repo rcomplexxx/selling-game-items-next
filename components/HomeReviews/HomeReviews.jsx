@@ -59,13 +59,6 @@ export default function HomeReviews() {
     };
   }, []);
 
-  const prevReview = () => {
-    setCurrentReview((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
-  };
-
-  const nextReview = () => {
-    setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
-  };
 
   return (
     <>
@@ -93,7 +86,7 @@ export default function HomeReviews() {
               enableMouseEvents
               interval={5000} // Auto play interval in milliseconds
               enableSlideInterpolation
-              infiniteLoop
+              infinite
             >
               {reviews.map((review) => (
                 <Review
