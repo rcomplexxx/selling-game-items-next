@@ -104,7 +104,7 @@ export default function HomeReviews() {
           enableMouseEvents
           interval={5000} // Auto play interval in milliseconds
           slideStyle={{ width: '100%' }}
-            renderSlide={renderSlide}
+          slideRenderer={renderSlide}
           slideCount={reviews.length}
           enableSlideInterpolation
           infinite
