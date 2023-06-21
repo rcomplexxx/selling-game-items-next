@@ -18,7 +18,7 @@ const reviews = [
   },
 ];
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
 
 function Review({ title, reviewText, author, style, smallScreen=false }) {
 
@@ -45,13 +45,7 @@ if(smallScreen)return  (
 
 export default function HomeReviews() {
   const [windowWidth, setWindowWidth] = useState(0);
-  const [currentReviewArr, setCurrentReviewArr] = useState([0,1,2]);
-
-  const handleChangeIndex=()=>{
-    if(currentReviewArrw[0]==0)setCurrentReviewArr([1,2,0])
-    else if(currentReviewArrw[0]==1)setCurrentReviewArr([2,1,0])
-    else if(currentReviewArrw[0]==2)setCurrentReviewArr([0,1,2])
-  }
+  const [currentReview, setCurrentReview] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -64,6 +58,24 @@ export default function HomeReviews() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+
+  const slideRenderer = ({ key, index }) => {
+    const dataIndex = Math.abs(
+    index - reviews.length * Math.floor(index / reviews.length)
+);
+return <Review
+              key={key}
+              title={review.title}
+              reviewText={review.reviewText}
+              author={review.author}
+              style={{
+                display: "flex",
+                width: '30%'
+              }}
+            />
+
+};
 
 
   return (
@@ -87,11 +99,12 @@ export default function HomeReviews() {
           <>
            
             <AutoPlaySwipeableViews
-              index={currentReviewArr[1]}
-              onChangeIndex={handleChangeIndex}
+              index={currentReview}
+              onChangeIndex={setCurrentReview}
               enableMouseEvents
               interval={5000} // Auto play interval in milliseconds
               enableSlideInterpolation
+              slideRenderer={slideRenderer}
               
             >
               {reviews.map((review) => (
@@ -106,8 +119,8 @@ export default function HomeReviews() {
             </AutoPlaySwipeableViews>
             <Pagination
               count={reviews.length}
-              index={currentReviewArr[1]}
-              onChangeIndex={handleChangeIndex}
+              index={currentReview}
+              onChangeIndex={setCurrentReview}
             />
           </>
         )}
