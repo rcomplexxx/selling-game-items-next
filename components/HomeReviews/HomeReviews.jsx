@@ -54,7 +54,7 @@ export default function HomeReviews() {
     slidesToShow: 1,
     slidesToScroll: 1
   };
-
+//
   return (
     <>
       <h2 className={styles.title}>WHAT OUR CUSTOMERS HAVE TO SAY</h2>
