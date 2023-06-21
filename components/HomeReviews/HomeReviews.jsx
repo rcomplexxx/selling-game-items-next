@@ -22,17 +22,6 @@ const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
 
 function Review({ title, reviewText, author, style, smallScreen=false }) {
 
-if(smallScreen)return  (
-  <div className={styles.swiperCenterer}>
-  <div className={styles.reviewDiv} style={style}>
-    <h1 className={styles.reviewTitle}>{title}</h1>
-    <RatingStar maxScore={5} id="123" rating={5} />
-    <p>{reviewText}</p>
-    <h4>- {author}</h4>
-  </div>
-  </div>
-);
-
   return (
     <div className={styles.reviewDiv} style={style}>
       <h1 className={styles.reviewTitle}>{title}</h1>
@@ -66,7 +55,7 @@ export default function HomeReviews() {
 );
 
 const review=reviews[reviewIndex];
-return <Review
+return <div className={styles.swiperCenterer}><Review
               key={key}
               title={review.title}
               reviewText={review.reviewText}
@@ -75,7 +64,7 @@ return <Review
                 display: "flex",
                 width: '30%'
               }}
-            />
+            /></div>
 
 };
 
