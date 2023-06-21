@@ -104,6 +104,7 @@ export default function HomeReviews() {
 >
   {reviews.map((review) => (
     <SwiperSlide key={review.id}>
+       <div className={styles.swiperCenterer}>
       <Review
         title={review.title}
         reviewText={review.reviewText}
@@ -113,6 +114,7 @@ export default function HomeReviews() {
           width: '30%'
         }}
       />
+      </div>
     </SwiperSlide>
   ))}
 </Swiper>
