@@ -18,7 +18,7 @@ const reviews = [
   },
 ];
 
-const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
+const VirtualizedSwiper = virtualize(SwipeableViews);
 
 function Review({ title, reviewText, author, style, smallScreen=false }) {
 
@@ -89,10 +89,9 @@ return <div className={styles.swiperCenterer}><Review
         ) : (
           <>
            
-            <AutoPlaySwipeableViews
+            <VirtualizedSwiper
               
               enableMouseEvents
-              interval={5000} // Auto play interval in milliseconds
               enableSlideInterpolation
               slideRenderer={slideRenderer}
               index={currentReview}
@@ -108,7 +107,7 @@ return <div className={styles.swiperCenterer}><Review
                   
                 />
               ))}
-            </AutoPlaySwipeableViews>
+            </VirtualizedSwiper>
             <Pagination
               count={reviews.length}
               index={currentReview}
