@@ -4,7 +4,7 @@ import styles from './homeReviews.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
+import { autoPlay, virtualize } from 'react-swipeable-views-utils';
 import Pagination from './Pagination';
 
 const reviews = [
@@ -99,8 +99,7 @@ return <Review
           <>
            
             <AutoPlaySwipeableViews
-              index={currentReview}
-              onChangeIndex={setCurrentReview}
+              
               enableMouseEvents
               interval={5000} // Auto play interval in milliseconds
               enableSlideInterpolation
