@@ -93,7 +93,7 @@ export default function HomeReviews() {
           ))
         ) : (
           <>
-           <Carousel show={1} slide={2} swiping={true}>
+           <Carousel show={1} slide={0.5} swiping={true}>
               {reviews.map((review) => (
                 <Review
                   smallScreen={true}
