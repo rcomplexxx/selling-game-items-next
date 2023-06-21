@@ -95,7 +95,8 @@ return <div className={styles.swiperCenterer}><Review
               interval={5000} // Auto play interval in milliseconds
               enableSlideInterpolation
               slideRenderer={slideRenderer}
-              
+              index={currentReview}
+              onChangeIndex={setCurrentReview}
             >
               {reviews.map((review) => (
                 <Review
@@ -104,6 +105,7 @@ return <div className={styles.swiperCenterer}><Review
                   title={review.title}
                   reviewText={review.reviewText}
                   author={review.author}
+                  
                 />
               ))}
             </AutoPlaySwipeableViews>
