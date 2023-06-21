@@ -49,7 +49,7 @@ const Products = ({ products, showAll }) => {
         <Grid
           className={styles.mainGridStyle}
           container
-          justifyContent="flex-start"
+          justifyContent="space-between"
         >
       {products.map((product, i) => (
       <Grid
@@ -60,6 +60,7 @@ const Products = ({ products, showAll }) => {
         sm={6}
         md={4}
         lg={4}
+       
       >
         <Product key={product.id} product={product} onAddToCart={onAddToCart} />
       </Grid>))
