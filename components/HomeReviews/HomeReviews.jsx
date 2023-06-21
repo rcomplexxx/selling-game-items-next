@@ -3,7 +3,10 @@ import { RatingStar } from 'rating-star';
 import styles from './homeReviews.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import Slider from 'react-slick';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay, virtualize } from 'react-swipeable-views-utils';
+import Pagination from './Pagination';
+import { Carousel } from '@trendyol-js/react-carousel';
 
 const reviews = [
   { id: 1, title: "Review one", reviewText: "I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
@@ -16,7 +19,7 @@ const reviews = [
   },
 ];
 
-
+const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
 
 function Review({ title, reviewText, author, style, smallScreen=false }) {
 
@@ -90,28 +93,22 @@ export default function HomeReviews() {
           ))
         ) : (
           <>
-            <Slider
-  initialSlide={currentReview}
-  afterChange={(index) => setCurrentReview(index)}
-  slidesToShow={1}
-  infinite={true}
-  autoplay={true}
-  autoplaySpeed={5000}
->
-  {reviews.map((review) => (
-    <div key={review.id}>
-      <Review
-        title={review.title}
-        reviewText={review.reviewText}
-        author={review.author}
-        style={{
-          display: "flex",
-          width: '30%'
-        }}
-      />
-    </div>
-  ))}
-</Slider>
+           <Carousel show={1} slide={1} swiping={true}>
+              {reviews.map((review) => (
+                <Review
+                  smallScreen={true}
+                  key={review.id}
+                  title={review.title}
+                  reviewText={review.reviewText}
+                  author={review.author}
+                />
+              ))}
+            </Carousel>
+            <Pagination
+              count={reviews.length}
+              index={currentReview}
+              onChangeIndex={setCurrentReview}
+            />
           </>
         )}
       </div>
