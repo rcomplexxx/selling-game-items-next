@@ -25,11 +25,11 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
 
   for (let i = 1; i <= totalPageNumber; i++) {
     links.push(
-      pageId==i?<div className={styles.pageLink}>
+      pageId==i?<div key={i} className={styles.pageLink}>
       <Link href={`/products/page/${i}`}  key={i}>
         {i}
       </Link>
-      </div>:<Link href={`/products/page/${i}`}  key={i}>
+      </div>:<Link key={i} href={`/products/page/${i}`}  key={i}>
         {i}
       </Link>
 
