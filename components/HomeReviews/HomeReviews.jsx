@@ -92,28 +92,28 @@ export default function HomeReviews() {
           ))
         ) : (
           <>
-            <AutoPlaySwipeableViews
-              index={currentReview}
-              onChangeIndex={handleIndexChange}
-              enableMouseEvents
-              interval={5000} // Auto play interval in milliseconds
-              slideRenderer={slideRenderer}
-            >
-              {reviews.map((review) => (
-                <Review
-                  smallScreen={true}
-                  key={review.id}
-                  title={review.title}
-                  reviewText={review.reviewText}
-                  author={review.author}
-                />
-              ))}
-            </AutoPlaySwipeableViews>
-            <Pagination
-              count={reviews.length}
-              index={currentReview}
-              onChangeIndex={setCurrentReview}
-            />
+            <Swiper
+  initialSlide={currentReview}
+  onSlideChange={(swiper) => setCurrentReview(swiper.realIndex)}
+  spaceBetween={10}
+  slidesPerView={windowWidth > 1080 ? 3 : 1}
+  loop={true}
+  autoplay={{ delay: 5000 }}
+>
+  {reviews.map((review) => (
+    <SwiperSlide key={review.id}>
+      <Review
+        title={review.title}
+        reviewText={review.reviewText}
+        author={review.author}
+        style={{
+          display: "flex",
+          width: '30%'
+        }}
+      />
+    </SwiperSlide>
+  ))}
+</Swiper>
           </>
         )}
       </div>
