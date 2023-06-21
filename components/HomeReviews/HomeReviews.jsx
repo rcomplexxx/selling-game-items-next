@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { RatingStar } from 'rating-star';
 import styles from './homeReviews.module.css';
+import { PhotoGallery } from 'react-photo-gallery';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import SwipeableViews from 'react-swipeable-views';
@@ -36,6 +37,18 @@ function Review({ title, reviewText, author, style, smallScreen=false }) {
 export default function HomeReviews() {
   const [windowWidth, setWindowWidth] = useState(0);
   const [currentReview, setCurrentReview] = useState(0);
+
+  const reviewItems=reviews.map((review) => ({
+    src: '', // Leave this empty
+    component: (
+      <Review
+        key={review.id}
+        title={review.title}
+        reviewText={review.reviewText}
+        author={review.author}
+      />
+    )
+  }));
 
   useEffect(() => {
     const handleResize = () => {
@@ -73,7 +86,8 @@ export default function HomeReviews() {
   const handleIndexChange = (index) => {
     setCurrentReview(index);
   };
-
+  
+ 
   return (
     <>
       <h2 className={styles.title}>WHAT OUR CUSTOMERS HAVE TO SAY</h2>
@@ -93,25 +107,7 @@ export default function HomeReviews() {
           ))
         ) : (
           <>
-           <Carousel show={1} slide={1} swiping={true} swipeOn={0.1} rightArrow={false} leftArrow={false}>
-              {reviews.map((review) => (
-                <div className={styles.swiperCenterer}>
-                <Review
-                  smallScreen={true}
-                  key={review.id}
-                  title={review.title}
-                  reviewText={review.reviewText}
-                  author={review.author}
-                 
-                />
-                 </div>
-              ))}
-            </Carousel>
-            <Pagination
-              count={reviews.length}
-              index={currentReview}
-              onChangeIndex={setCurrentReview}
-            />
+            <PhotoGallery photos={reviewItems} />
           </>
         )}
        
