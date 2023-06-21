@@ -93,7 +93,7 @@ export default function HomeReviews() {
           ))
         ) : (
           <>
-           <Carousel show={1} slide={2} swiping={true}>
+           <Carousel show={1} slide={2} swiping={true} swipeOn={10}>
               {reviews.map((review) => (
                 <div className={styles.swiperCenterer}>
                 <Review
