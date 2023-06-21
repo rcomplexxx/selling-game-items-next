@@ -29,7 +29,7 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
       <Link href={`/products/page/${i}`}  key={i}>
         {i}
       </Link>
-      </div>:<Link key={i} href={`/products/page/${i}`}  key={i}>
+      </div>:<Link key={i} href={`/products/page/${i}`}  >
         {i}
       </Link>
 
@@ -43,7 +43,7 @@ const ProductPage = ({ totalPageNumber,pageId, products }) => {
     <div style={{display:'flex', flexDirection:"column", alignItems:"center"}}>
       
 
-      <Products showAll={true} products={products} />
+      <Products showAll={true} products={products} lastPage={pageId==totalPageNumber} />
       <div className={styles.linkDiv}>
       {pageId!==1 &&<Link href={`/products/page/${pageId - 1}`}>
         {'<-'}
