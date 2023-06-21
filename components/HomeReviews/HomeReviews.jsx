@@ -49,9 +49,7 @@ export default function HomeReviews() {
   }, []);
 
   const slideRenderer = ({ key, index }) => {
-    const reviewIndex = Math.abs(
-      index - reviews.length * Math.floor(index / reviews.length)
-    );
+    let reviewIndex = (index + reviews.length) % reviews.length;
     const review = reviews[reviewIndex];
     return (
       <div className={styles.swiperCenterer}>
