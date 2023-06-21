@@ -93,9 +93,8 @@ export default function HomeReviews() {
           ))
         ) : (
           <>
-           <Carousel show={1} slide={2} swiping={true} swipeOn={10}>
+           <Carousel show={1} slide={2} swiping={true}>
               {reviews.map((review) => (
-                <div className={styles.swiperCenterer}>
                 <Review
                   smallScreen={true}
                   key={review.id}
@@ -103,7 +102,6 @@ export default function HomeReviews() {
                   reviewText={review.reviewText}
                   author={review.author}
                 />
-                </div>
               ))}
             </Carousel>
             <Pagination
