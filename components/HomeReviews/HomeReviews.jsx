@@ -102,8 +102,9 @@ export default function HomeReviews() {
                   title={review.title}
                   reviewText={review.reviewText}
                   author={review.author}
-                  </div>
+                 
                 />
+                 </div>
               ))}
             </Carousel>
             <Pagination
