@@ -6,6 +6,8 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay, virtualize } from 'react-swipeable-views-utils';
 import Pagination from './Pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.min.css';
 
 const reviews = [
   { id: 1, title: "Review one", reviewText: "I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
@@ -114,6 +116,11 @@ export default function HomeReviews() {
     </SwiperSlide>
   ))}
 </Swiper>
+<Pagination
+              count={reviews.length}
+              index={currentReview}
+              onChangeIndex={setCurrentReview}
+            />
           </>
         )}
       </div>
