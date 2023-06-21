@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { RatingStar } from 'rating-star';
 import styles from './homeReviews.module.css';
-import { PhotoGallery } from 'react-photo-gallery';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay, virtualize } from 'react-swipeable-views-utils';
-import Pagination from './Pagination';
-import { Carousel } from '@trendyol-js/react-carousel';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+
+import Slider from "react-slick";
 
 const reviews = [
   { id: 1, title: "Review one", reviewText: "I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
@@ -20,7 +17,6 @@ const reviews = [
   },
 ];
 
-const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
 
 function Review({ title, reviewText, author, style, smallScreen=false }) {
 
@@ -38,18 +34,6 @@ export default function HomeReviews() {
   const [windowWidth, setWindowWidth] = useState(0);
   const [currentReview, setCurrentReview] = useState(0);
 
-  const reviewItems=reviews.map((review) => ({
-    src: '', // Leave this empty
-    component: (
-      <Review
-        key={review.id}
-        title={review.title}
-        reviewText={review.reviewText}
-        author={review.author}
-      />
-    )
-  }));
-
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -62,32 +46,15 @@ export default function HomeReviews() {
     };
   }, []);
 
-  const slideRenderer = ({ key, index }) => {
-    const reviewIndex = Math.abs(
-      index - reviews.length * Math.floor(index / reviews.length)
-    );
-    const review = reviews[reviewIndex];
-    return (
-      <div className={styles.swiperCenterer}>
-        <Review
-          key={review.id}
-          title={review.title}
-          reviewText={review.reviewText}
-          author={review.author}
-          style={{
-            display: "flex",
-            width: "30%",
-          }}
-        />
-      </div>
-    );
+  
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
   };
 
-  const handleIndexChange = (index) => {
-    setCurrentReview(index);
-  };
-  
- 
   return (
     <>
       <h2 className={styles.title}>WHAT OUR CUSTOMERS HAVE TO SAY</h2>
@@ -107,10 +74,22 @@ export default function HomeReviews() {
           ))
         ) : (
           <>
-            <PhotoGallery photos={reviewItems} />
+             <Carousel infiniteLoop autoPlay interval={5000} emulateTouch showStatus={false} showArrows={false} swipeable={true}>
+              {reviews.map((review) => (
+                <div className={styles.swiperCenterer}>
+                <Review
+                  smallScreen={true}
+                  key={review.id}
+                  title={review.title}
+                  reviewText={review.reviewText}
+                  author={review.author}
+                 
+                />
+                 </div>
+              ))}
+            </ Carousel>
           </>
         )}
-       
       </div>
     </>
   );
