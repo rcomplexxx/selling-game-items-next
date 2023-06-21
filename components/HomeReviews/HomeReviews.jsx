@@ -49,7 +49,9 @@ export default function HomeReviews() {
   }, []);
 
   const slideRenderer = ({ key, index }) => {
-    let reviewIndex = (index + reviews.length) % reviews.length;
+    const reviewIndex = Math.abs(
+      index - reviews.length * Math.floor(index / reviews.length)
+    );
     const review = reviews[reviewIndex];
     return (
       <div className={styles.swiperCenterer}>
@@ -95,7 +97,7 @@ export default function HomeReviews() {
               onChangeIndex={handleIndexChange}
               enableMouseEvents
               interval={5000} // Auto play interval in milliseconds
-              enableSlideInterpolation
+             
               slideRenderer={slideRenderer}
             >
               {reviews.map((review) => (
