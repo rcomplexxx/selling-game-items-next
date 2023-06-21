@@ -18,7 +18,7 @@ const reviews = [
   },
 ];
 
-const VirtualizedSwiper = virtualize(SwipeableViews);
+const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
 
 function Review({ title, reviewText, author, style, smallScreen=false }) {
 
@@ -53,10 +53,10 @@ export default function HomeReviews() {
     const reviewIndex = Math.abs(
     index - reviews.length * Math.floor(index / reviews.length)
 );
-
+setCurrentReview(reviewIndex);
 const review=reviews[reviewIndex];
 return <div className={styles.swiperCenterer}><Review
-              key={key}
+              key={review.id}
               title={review.title}
               reviewText={review.reviewText}
               author={review.author}
@@ -89,13 +89,12 @@ return <div className={styles.swiperCenterer}><Review
         ) : (
           <>
            
-            <VirtualizedSwiper
+            <AutoPlaySwipeableViews
               
               enableMouseEvents
+              interval={5000} // Auto play interval in milliseconds
               enableSlideInterpolation
               slideRenderer={slideRenderer}
-              index={currentReview}
-              onChangeIndex={setCurrentReview}
             >
               {reviews.map((review) => (
                 <Review
@@ -107,7 +106,7 @@ return <div className={styles.swiperCenterer}><Review
                   
                 />
               ))}
-            </VirtualizedSwiper>
+            </AutoPlaySwipeableViews>
             <Pagination
               count={reviews.length}
               index={currentReview}
