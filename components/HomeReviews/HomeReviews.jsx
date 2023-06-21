@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { RatingStar } from 'rating-star';
 import styles from './homeReviews.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import SwipeableViews from 'react-swipeable-views';
-import { autoPlay, virtualize } from 'react-swipeable-views-utils';
+import { autoPlay } from 'react-swipeable-views-utils';
 import Pagination from './Pagination';
 
 const reviews = [
@@ -16,7 +18,7 @@ const reviews = [
   },
 ];
 
-const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 function Review({ title, reviewText, author, style, smallScreen=false }) {
 
@@ -43,9 +45,13 @@ if(smallScreen)return  (
 
 export default function HomeReviews() {
   const [windowWidth, setWindowWidth] = useState(0);
-  const [currentReview, setCurrentReview] = useState(0);
+  const [currentReviewArr, setCurrentReviewArr] = useState([0,1,2]);
 
-
+  const handleChangeIndex=()=>{
+    if(currentReviewArrw[0]==0)setCurrentReviewArr([1,2,0])
+    else if(currentReviewArrw[0]==1)setCurrentReviewArr([2,1,0])
+    else if(currentReviewArrw[0]==2)setCurrentReviewArr([0,1,2])
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,24 +64,6 @@ export default function HomeReviews() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const renderSlide = ({ index, key }) => {
-    // Calculate the adjusted index to allow looping from last to first
-    const adjustedIndex = index >= reviews.length ? index % reviews.length : index;
-  
-    return (
-      <Review
-        key={key}
-        title={reviews[adjustedIndex].title}
-        reviewText={reviews[adjustedIndex].reviewText}
-        author={reviews[adjustedIndex].author}
-      />
-    );
-  };
-
-  const handleIndexChange = (index) => {
-    setCurrentReview(index);
-  };
 
 
   return (
@@ -98,17 +86,14 @@ export default function HomeReviews() {
         ) : (
           <>
            
-           <AutoPlaySwipeableViews
-          index={currentReview}
-          onChangeIndex={handleIndexChange}
-          enableMouseEvents
-          interval={5000} // Auto play interval in milliseconds
-          slideStyle={{ width: '100%' }}
-          slideRenderer={renderSlide}
-          slideCount={reviews.length}
-          enableSlideInterpolation
-          infinite
->
+            <AutoPlaySwipeableViews
+              index={currentReviewArr[1]}
+              onChangeIndex={handleChangeIndex}
+              enableMouseEvents
+              interval={5000} // Auto play interval in milliseconds
+              enableSlideInterpolation
+              
+            >
               {reviews.map((review) => (
                 <Review
                  smallScreen={true}
@@ -121,8 +106,8 @@ export default function HomeReviews() {
             </AutoPlaySwipeableViews>
             <Pagination
               count={reviews.length}
-              index={currentReview}
-              onChangeIndex={setCurrentReview}
+              index={currentReviewArr[1]}
+              onChangeIndex={handleChangeIndex}
             />
           </>
         )}
