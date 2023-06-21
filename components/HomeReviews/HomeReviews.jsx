@@ -93,8 +93,6 @@ export default function HomeReviews() {
         ) : (
           <>
             <AutoPlaySwipeableViews
-              index={currentReview}
-              onChangeIndex={handleIndexChange}
               enableMouseEvents
               interval={5000} // Auto play interval in milliseconds
              
@@ -112,8 +110,6 @@ export default function HomeReviews() {
             </AutoPlaySwipeableViews>
             <Pagination
               count={reviews.length}
-              index={currentReview}
-              onChangeIndex={setCurrentReview}
             />
           </>
         )}
