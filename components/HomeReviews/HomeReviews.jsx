@@ -16,7 +16,7 @@ const reviews = [
   },
 ];
 
-const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
+
 
 function Review({ title, reviewText, author, style, smallScreen=false }) {
 
