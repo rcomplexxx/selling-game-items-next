@@ -61,9 +61,11 @@ export default function HomeReviews() {
 
 
   const slideRenderer = ({ key, index }) => {
-    const dataIndex = Math.abs(
+    const reviewIndex = Math.abs(
     index - reviews.length * Math.floor(index / reviews.length)
 );
+
+const review=reviews[reviewIndex];
 return <Review
               key={key}
               title={review.title}
