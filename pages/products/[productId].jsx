@@ -202,10 +202,11 @@ export default function ProductPage({product}){
     
     
     
-        <CustomerReviews></CustomerReviews>
+      
     
     
             </div>
+            <CustomerReviews></CustomerReviews>
             </>
        
     }
