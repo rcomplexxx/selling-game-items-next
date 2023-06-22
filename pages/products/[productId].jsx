@@ -4,6 +4,7 @@ import products from '../../data/products.json'
 import Image from 'next/image';
 import AppContext from "@/contexts/AppContext";
 import { useRouter } from 'next/router';
+import CustomerReviews from '@/components/CustomerReviews/CustomerReviews.jsx'
     
 
     import { useState,useContext } from 'react';
@@ -201,7 +202,7 @@ export default function ProductPage({product}){
     
     
     
-    
+        <CustomerReviews></CustomerReviews>
     
     
             </div>
