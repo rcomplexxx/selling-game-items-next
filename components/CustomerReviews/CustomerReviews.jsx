@@ -13,14 +13,13 @@ export default function CustomerReviews(){
         <h1>Customer Reviews</h1>
 
          <div style={{ width: '200px', maxHeight: 'max-content', backgroundColor:"gray" }}>
-    <div style={{ position: 'relative', width: '100%', height:"max-content"}}>
-      <Image
-        src="/images/1.png"
-        alt="Product Image"
-        layout="fill"
-        objectFit="contain"
-      />
-    </div>
+         <Image
+  src="/images/1.png"
+  width={0}
+  height={0}
+  sizes="100vw"
+  style={{ width: '100%', height: 'auto' }} // optional
+/>
   </div>
 
 
