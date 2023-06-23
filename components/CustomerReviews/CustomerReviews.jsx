@@ -5,9 +5,9 @@ import styles from './customerreviews.module.css'
 
 
 function Review(){
-    return <><h1>Customer Reviews</h1>
+    return <>
 
-    <div style={{ width: '200px', maxHeight: 'max-content', backgroundColor:"gray" }}>
+    <div style={{ width: '100%', maxHeight: 'max-content', backgroundColor:"gray" }}>
     <Image
 src="/images/1.png"
 width={0}
@@ -30,6 +30,7 @@ export default function CustomerReviews(){
 
 
     return <div className={styles.mainDiv}>
+        <h1>Customer Reviews</h1>
          <Grid container spacing={2}>
         {[...Array(12)].map((_, index) => (
           <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
