@@ -1,0 +1,10 @@
+
+
+.mainDiv{
+    width:80%;
+    flex-grow: 1;
+    background-color: var(--gray-9-elegant);
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+}

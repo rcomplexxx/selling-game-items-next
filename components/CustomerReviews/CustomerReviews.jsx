@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Grid } from "@mui/material";
+import styles from './customerreviews.module.css'
 
 
 function Review(){
@@ -28,7 +29,7 @@ export default function CustomerReviews(){
 
 
 
-    return <div className="centered">
+    return <div className={styles.mainDiv}>
          <Grid container spacing={2}>
         {[...Array(12)].map((_, index) => (
           <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
