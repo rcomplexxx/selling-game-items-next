@@ -96,7 +96,7 @@
 
    .media {
     
-    width: max-content
+    width: max-content;
     height: min-content;
     overflow: hidden;
     
