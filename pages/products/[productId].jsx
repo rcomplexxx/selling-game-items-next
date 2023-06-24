@@ -10,10 +10,60 @@ import CustomerReviews from '@/components/CustomerReviews/CustomerReviews.jsx'
     import { useState,useContext } from 'react';
     import { RatingStar } from 'rating-star';
     import styles from '../../styles/productpage.module.css'
-    import ImageGallery from 'react-image-gallery';
    
     
    
+
+
+  //   function ProductInfoBuy({product}){
+
+
+    
+    
+  //     // const images = [
+  //     //     '/images/'+product.image,
+  //     //     '/images/keyboard.png',
+  //     //     '/images/boxItem.png',
+  //     //     '/images/keyboard.png',
+  //     //     '/images/boxItem.png',
+  //     //     '/images/keyboard.png',
+  //     //   ];
+  
+
+  //     const images = [
+  //       {
+  //         original: '/images/'+product.image,
+  //         thumbnail: '/images/'+product.image,
+  //       },
+  //       {
+  //         original: '/images/keyboard.png',
+  //         thumbnail: '/images/keyboard.png',
+  //       },
+  //       {
+  //         original: '/images/boxItem.png',
+  //         thumbnail: '/images/boxItem.png',
+  //       },
+  //       {
+  //         original: '/images/keyboard.png',
+  //         thumbnail: '/images/keyboard.png',
+  //       },
+  //       {
+  //         original: '/images/boxItem.png',
+  //         thumbnail: '/images/boxItem.png',
+  //       },
+  //     ];
+  
+
+  
+  //     return    <div className={styles.gallery}>
+  //   <ImageGallery items={images} />;
+  //   </div>
+  // }
+
+
+
+
+
    
     
     
@@ -22,43 +72,73 @@ import CustomerReviews from '@/components/CustomerReviews/CustomerReviews.jsx'
 
     
     
-        // const images = [
-        //     '/images/'+product.image,
-        //     '/images/keyboard.png',
-        //     '/images/boxItem.png',
-        //     '/images/keyboard.png',
-        //     '/images/boxItem.png',
-        //     '/images/keyboard.png',
-        //   ];
-    
-
         const images = [
-          {
-            original: '/images/'+product.image,
-            thumbnail: '/images/'+product.image,
-          },
-          {
-            original: '/images/keyboard.png',
-            thumbnail: '/images/keyboard.png',
-          },
-          {
-            original: '/images/boxItem.png',
-            thumbnail: '/images/boxItem.png',
-          },
-          {
-            original: '/images/keyboard.png',
-            thumbnail: '/images/keyboard.png',
-          },
-          {
-            original: '/images/boxItem.png',
-            thumbnail: '/images/boxItem.png',
-          },
-        ];
+            '/images/'+product.image,
+            '/images/keyboard.png',
+            '/images/boxItem.png',
+            '/images/keyboard.png',
+            '/images/boxItem.png',
+            '/images/keyboard.png',
+          ];
     
-
+    
+          const prevImage = () => {
+            const currentIndex = images.indexOf(selectedImage);
+            if (currentIndex > 0) {
+              setSelectedImage(images[currentIndex - 1]);
+            }
+          };
+        
+          const nextImage = () => {
+            const currentIndex = images.indexOf(selectedImage);
+        if (currentIndex < images.length - 1) {
+          setSelectedImage(images[currentIndex + 1]);
+        }
+          };
+    
+        
+        const [selectedImage, setSelectedImage] = useState(images[0]);
+    
+     
+    
+      const selectImage = (image) => {
+        setSelectedImage(image);
+      };
+      console.log(selectedImage)
     
         return    <div className={styles.gallery}>
-      <ImageGallery items={images} />;
+        <div className={styles.main_image}>
+        <div className={styles.media}>
+      <Image 
+        src={selectedImage} // Path to your image from the `public` directory
+        alt="Example Image"
+      
+        style={{objectFit:'cover'}}
+        fill
+      />
+      </div>
+          <button className={styles.arrow + ' ' + styles.left} onClick={prevImage}>
+              &lt;
+            </button>
+            <button className={styles.arrow + ' ' +styles.right} onClick={nextImage}>
+              &gt;
+            </button>
+        </div>
+        <div className={styles.thumbnail_images}>
+          {images.map((image, index) => (
+           <button
+           key={index}
+           onClick={() => selectImage(image)}
+           className={`${styles.thumbnail_image_button} ${
+             selectedImage === image ? styles.selected : ''
+           }`}
+         >
+           <Image src={image} alt={`Thumbnail ${index}`} width={80} height={45} style={{margin:"auto"}} />
+         </button>
+
+            
+          ))}
+        </div>
       </div>
     }
 
