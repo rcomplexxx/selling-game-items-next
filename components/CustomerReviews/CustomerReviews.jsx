@@ -8,7 +8,7 @@ import { RatingStar } from 'rating-star';
 function Review(){
     return <>
 
-    <div style={{ width: '100%', maxHeight: 'max-content', backgroundColor:"gray" }}>
+    <div style={{ width: '100%', maxHeight: 'max-content' }}>
     <Image
 src="/images/1.png"
 width={0}
