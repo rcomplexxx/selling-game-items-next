@@ -85,7 +85,9 @@ import 'react-gallery-carousel/dist/index.css';
       ];
       return (
         <div className={styles.gallery}>
+          <div className={styles.media}>
         <Carousel images={images} hasMediaButton={false} hasIndexBoard ={'false'} hasSizeButton={'bottomRight'} style={{ height: 'auto', width: '100%' }} />
+        </div>
         </div>
       );
   }
