@@ -84,7 +84,7 @@ import 'react-gallery-carousel/dist/index.css';
         },
       ];
       return (
-        <Carousel images={images} hasMediaButton={false} hasIndexBoard ={false} style={{ height: 500, width: 800 }} />
+        <Carousel images={images} hasMediaButton={false} hasIndexBoard ={'bottomRight'} style={{ height: 500, width: 800 }} />
       );
   }
    
