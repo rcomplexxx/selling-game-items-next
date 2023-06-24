@@ -58,7 +58,7 @@ import CustomerReviews from '@/components/CustomerReviews/CustomerReviews.jsx'
 
     
         return    <div className={styles.gallery}>
-      return <ImageGallery items={images} />;
+      <ImageGallery items={images} />;
       </div>
     }
 
