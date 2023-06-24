@@ -97,7 +97,7 @@
    .media {
     position: relative;
     width: 400px;
-    height: 0;
+    height: auto;
   padding-top: 56.25%;
     overflow: hidden;
     
