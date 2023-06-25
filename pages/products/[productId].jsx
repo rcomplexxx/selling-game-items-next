@@ -23,19 +23,6 @@ import 'react-gallery-carousel/dist/index.css';
 
 export default function ProductPage({product}){
 
-  const images = [
-    {
-      src: '/images/'+product.image,
-    },
-    {
-      src: '/images/keyboard.png',
-     
-    },
-    {
-      src: '/images/boxItem.png',
-    },
-  
-  ];
 
         
   if(!product) return <p style={{marginTop:"100px"}}>Product not found.</p>
@@ -49,6 +36,19 @@ export default function ProductPage({product}){
         };
     
 
+        const images = [
+          {
+            src: '/images/'+product.image,
+          },
+          {
+            src: '/images/keyboard.png',
+           
+          },
+          {
+            src: '/images/boxItem.png',
+          },
+        
+        ];
 
 
         const { cartProducts, setCartProducts } = useContext(AppContext);
