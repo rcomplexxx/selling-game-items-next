@@ -11,87 +11,80 @@ import 'react-gallery-carousel/dist/index.css';
     import { useState,useContext } from 'react';
     import { RatingStar } from 'rating-star';
     import styles from '../../styles/productpage.module.css'
-    import ImageGallery from 'react-image-gallery';
+   
     
    
 
 
-    function ProductInfoBuy({product}){
+  //   function ProductInfoBuy({product}){
 
 
     
     
-      // const images = [
-      //     '/images/'+product.image,
-      //     '/images/keyboard.png',
-      //     '/images/boxItem.png',
-      //     '/images/keyboard.png',
-      //     '/images/boxItem.png',
-      //     '/images/keyboard.png',
-      //   ];
+  //     // const images = [
+  //     //     '/images/'+product.image,
+  //     //     '/images/keyboard.png',
+  //     //     '/images/boxItem.png',
+  //     //     '/images/keyboard.png',
+  //     //     '/images/boxItem.png',
+  //     //     '/images/keyboard.png',
+  //     //   ];
   
 
-      const images = [
-        {
-          original: '/images/'+product.image,
-          thumbnail: '/images/'+product.image,
-        },
-        {
-          original: '/images/keyboard.png',
-          thumbnail: '/images/keyboard.png',
-        },
-        {
-          original: '/images/boxItem.png',
-          thumbnail: '/images/boxItem.png',
-        },
-        {
-          original: '/images/keyboard.png',
-          thumbnail: '/images/keyboard.png',
-        },
-        {
-          original: '/images/boxItem.png',
-          thumbnail: '/images/boxItem.png',
-        },
-      ];
-  
-
-  
-      return    <div className={styles.gallery}>
-        <div className={styles.media}>
-    <ImageGallery items={images} />;
-    </div></div>
-  }
-
-
-  // function ProductInfoBuy({product}){
-
-  //   const images = [
+  //     const images = [
   //       {
-  //         src: '/images/'+product.image,
+  //         original: '/images/'+product.image,
+  //         thumbnail: '/images/'+product.image,
   //       },
   //       {
-  //         src: '/images/keyboard.png',
-         
+  //         original: '/images/keyboard.png',
+  //         thumbnail: '/images/keyboard.png',
   //       },
   //       {
-  //         src: '/images/boxItem.png',
+  //         original: '/images/boxItem.png',
+  //         thumbnail: '/images/boxItem.png',
   //       },
   //       {
-  //         src: '/images/keyboard.png',
-         
+  //         original: '/images/keyboard.png',
+  //         thumbnail: '/images/keyboard.png',
   //       },
   //       {
-  //         src: '/images/boxItem.png',
+  //         original: '/images/boxItem.png',
+  //         thumbnail: '/images/boxItem.png',
   //       },
   //     ];
-  //     return (
-       
-  //         <div className={styles.media}>
-  //       <Carousel images={images} objectFit= 'contain' hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} isMaximized={false}  />
-  //       </div>
-       
-  //     );
+  
+//
+  
+  //     return    <div className={styles.gallery}>
+  //   <ImageGallery items={images} />;
+  //   </div>
   // }
+
+
+  function ProductInfoBuy({product}){
+
+    const images = [
+        {
+          src: '/images/'+product.image,
+        },
+        {
+          src: '/images/keyboard.png',
+         
+        },
+        {
+          src: '/images/boxItem.png',
+        },
+      
+      ];
+      return (
+       
+          <div className={styles.media}>
+        <Carousel images={images} objectFit= 'contain' hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} isMaximized={false}  />
+        </div>
+       
+      );
+  }
    
     
     
