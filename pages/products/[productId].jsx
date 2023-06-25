@@ -34,7 +34,26 @@ import 'react-gallery-carousel/dist/index.css';
       return (
       
           <div className={styles.media}>
-        <Carousel images={images} hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} thumbnailWidth="20%" thumbnailHeight="20%" style={{width:'100%',  aspectRatio:"16/9"}} />
+        <Carousel 
+        thumbnails={
+          
+                images.map((image, index) => (
+                 <button
+                 key={index}
+                 onClick={() => selectImage(image)}
+                 className={`${styles.thumbnail_image_button} ${
+                   selectedImage === image ? styles.selected : ''
+                 }`}
+               >
+                 <Image src={image} alt={`Thumbnail ${index}`} width={80} height={45} style={{margin:"auto"}} />
+               </button>
+      
+                  
+                ))
+         
+        }
+        images={images} hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false}
+         thumbnailWidth="20%" thumbnailHeight="20%" style={{width:'100%',  aspectRatio:"16/9"}} />
         </div>
       
        
