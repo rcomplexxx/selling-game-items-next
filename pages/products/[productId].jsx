@@ -81,13 +81,17 @@ import 'react-gallery-carousel/dist/index.css';
       
           <div className={styles.media}>
         <Carousel 
-        children={ <Image 
+        
+        
+        hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} style={{width:'100%', height:'max-content'}} >
+
+<Image 
           src={'/images/' + product.image} alt="Black Kitten" className={styles.product_style_image}
            
+
            fill
-         />}
-        
-        hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} style={{width:'100%'}} />
+         />
+        </Carousel>
         </div>
       
        
