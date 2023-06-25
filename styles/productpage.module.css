@@ -168,7 +168,9 @@
     right: 10px;
   }
 
- 
+ .carouselModification img{
+  margin:0;
+ }
 
 
   .productPageDiv{

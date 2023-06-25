@@ -86,7 +86,7 @@ import 'react-gallery-carousel/dist/index.css';
       return (
        
           <div className={styles.media}>
-        <Carousel images={images} objectFit='cover' hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false}  />
+        <Carousel images={images} objectFit='cover' hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false className={styles.carouselModification}}  />
         </div>
        
       );
@@ -226,10 +226,10 @@ export default function ProductPage({product}){
         return  <>
             
             <div className={styles.productPageDiv}> 
-            <div>
+           
                <ProductInfoBuy product={product}/>
                
-                </div>
+                
     
     
     
