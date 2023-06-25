@@ -97,7 +97,7 @@
    .media {
     
     width: 400px;
-    height: auto;
+    height: max-content;
     overflow: hidden;
     margin-right:10px;
   }
