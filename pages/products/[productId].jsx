@@ -34,7 +34,7 @@ import 'react-gallery-carousel/dist/index.css';
       return (
       
           <div className={styles.media}>
-        <Carousel images={images} hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} thumbnailWidth="15%" thumbnailHeight="15%" style={{width:'100%',  aspectRatio:"16/9"}} />
+        <Carousel images={images} hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} thumbnailWidth="20%" thumbnailHeight="20%" style={{width:'100%',  aspectRatio:"16/9"}} />
         </div>
       
        
