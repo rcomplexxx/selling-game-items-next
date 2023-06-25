@@ -6,7 +6,7 @@ import { RatingStar } from 'rating-star';
 import reviews from '../../data/reviews.json'
 
 
-function Review({author,text, image=null}){
+function Review({author,text, image}){
     return <>
 
     <div style={{ width: '100%', maxHeight: 'max-content' }}>
@@ -36,7 +36,7 @@ export default function CustomerReviews(){
          <Grid container spacing={2}>
         { reviews.map((review) => {
           <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
-            <Review author={review.author} text={review.text} image={author.image}/>
+            <Review author={review.author} text={review.text} image={review.image}/>
           </Grid>
         })}
       </Grid>
