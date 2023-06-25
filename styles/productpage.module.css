@@ -96,12 +96,11 @@
 
    .media {
     
-    width: 600px;
-    height: min-content;
+    width: 400px;
+    height: auto;
+    overflow: hidden;
     
   }
-
- 
   
   .main_image {
     position:relative;
@@ -170,7 +169,7 @@
     right: 10px;
   }
 
-
+ 
 
 
   .productPageDiv{
