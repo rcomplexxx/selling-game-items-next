@@ -16,52 +16,6 @@ import 'react-gallery-carousel/dist/index.css';
    
 
 
-  //   function ProductInfoBuy({product}){
-
-
-    
-    
-  //     // const images = [
-  //     //     '/images/'+product.image,
-  //     //     '/images/keyboard.png',
-  //     //     '/images/boxItem.png',
-  //     //     '/images/keyboard.png',
-  //     //     '/images/boxItem.png',
-  //     //     '/images/keyboard.png',
-  //     //   ];
-  
-
-  //     const images = [
-  //       {
-  //         original: '/images/'+product.image,
-  //         thumbnail: '/images/'+product.image,
-  //       },
-  //       {
-  //         original: '/images/keyboard.png',
-  //         thumbnail: '/images/keyboard.png',
-  //       },
-  //       {
-  //         original: '/images/boxItem.png',
-  //         thumbnail: '/images/boxItem.png',
-  //       },
-  //       {
-  //         original: '/images/keyboard.png',
-  //         thumbnail: '/images/keyboard.png',
-  //       },
-  //       {
-  //         original: '/images/boxItem.png',
-  //         thumbnail: '/images/boxItem.png',
-  //       },
-  //     ];
-  
-//
-  
-  //     return    <div className={styles.gallery}>
-  //   <ImageGallery items={images} />;
-  //   </div>
-  // }
-
-
   function ProductInfoBuy({product}){
 
     const images = [
@@ -80,7 +34,7 @@ import 'react-gallery-carousel/dist/index.css';
       return (
       
           <div className={styles.media}>
-        <Carousel images={images} hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} thumbnailWidth="15%" style={{width:'100%',  aspectRatio:"16/9"}} />
+        <Carousel images={images} hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} thumbnailWidth="15%" thumbnailHeight="15%" style={{width:'100%',  aspectRatio:"16/9"}} />
         </div>
       
        
