@@ -5,7 +5,7 @@ import styles from './customerreviews.module.css'
 import { RatingStar } from 'rating-star';
 import reviews from '../../data/reviews.json'
 
-
+//
 function Review({author,text, image}){
     return <>
 
