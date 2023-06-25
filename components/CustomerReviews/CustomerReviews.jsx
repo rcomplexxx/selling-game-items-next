@@ -6,7 +6,7 @@ import { RatingStar } from 'rating-star';
 import reviews from '../../data/reviews.json'
 
 //
-function Review({author,text, image}){
+function Review({author,text, image=null}){
     return <>
 
     <div style={{ width: '100%', maxHeight: 'max-content' }}>
