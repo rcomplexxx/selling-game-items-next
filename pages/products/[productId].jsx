@@ -86,7 +86,7 @@ import 'react-gallery-carousel/dist/index.css';
        
       );
   }
-   //
+   
     
     
     //  function ProductInfoBuy({product}){
