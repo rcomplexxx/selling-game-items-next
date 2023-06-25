@@ -16,33 +16,26 @@ import 'react-gallery-carousel/dist/index.css';
    
 
 
-  function ProductInfoBuy({product}){
-
-    const images = [
-        {
-          src: '/images/'+product.image,
-        },
-        {
-          src: '/images/keyboard.png',
-         
-        },
-        {
-          src: '/images/boxItem.png',
-        },
-      
-      ];
-      return (
-      
-        
-      
-       
-      );
-  }
+  
    
     
 
 
 export default function ProductPage({product}){
+
+  const images = [
+    {
+      src: '/images/'+product.image,
+    },
+    {
+      src: '/images/keyboard.png',
+     
+    },
+    {
+      src: '/images/boxItem.png',
+    },
+  
+  ];
 
         
   if(!product) return <p style={{marginTop:"100px"}}>Product not found.</p>
