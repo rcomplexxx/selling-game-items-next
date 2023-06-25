@@ -57,8 +57,9 @@ import 'react-gallery-carousel/dist/index.css';
 
   
       return    <div className={styles.gallery}>
+        <div className={styles.media}>
     <ImageGallery items={images} />;
-    </div>
+    </div></div>
   }
 
 
