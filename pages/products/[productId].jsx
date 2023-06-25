@@ -87,7 +87,7 @@ import 'react-gallery-carousel/dist/index.css';
            fill
          />}
         
-        hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} style={{width:'100%', height:'max-content'}} />
+        hasMediaButton={false} hasIndexBoard ={false} hasSizeButton={false} style={{width:'100%'}} />
         </div>
       
        
