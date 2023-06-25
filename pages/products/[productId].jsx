@@ -153,7 +153,7 @@ export default function ProductPage({product}){
     
     
             </div>
-           
+            <CustomerReviews></CustomerReviews>
             </>
        
     }
