@@ -6,12 +6,12 @@ import { RatingStar } from 'rating-star';
 import reviews from '../../data/reviews.json'
 
 //
-function Review({author,text, image=null}){
+function Review(props){
     return <>
 
     <div style={{ width: '100%', maxHeight: 'max-content' }}>
-    {image && <Image
-src="/images/1.png"
+    {props.image && <Image
+src={props.image}
 width={0}
 height={0}
 sizes="100vw"
