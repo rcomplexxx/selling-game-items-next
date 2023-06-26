@@ -1,69 +1,38 @@
-import '../styles/globals.css';
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+
+import "../styles/globals.css";
 import Navbar from "../components/Navbar/Navbar.jsx";
-import AppContext from '@/contexts/AppContext';
-import Footer from '@/components/Footer/Footer';
-import { useRouter } from 'next/router';
+import AppContext from "@/contexts/AppContext";
+import Footer from "@/components/Footer/Footer";
 
 export default function App({ Component, pageProps }) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [cartProducts, setCartProducts] = useState( []);
-  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+  const [cartProducts, setCartProducts] = useState(() => {
+    const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+    return storedCartProducts || [];
+  });
   const [hasScrollbar, setHasScrollbar] = useState(true);
 
-  const router=useRouter();
-  console.log(hasScrollbar);
-
-
-  useEffect(() => {
-    const storedCartProducts = JSON.parse(localStorage.getItem('cartProducts'));
-    console.log(storedCartProducts);
-    if (storedCartProducts) {
-      setCartProducts(storedCartProducts);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
-    console.log(JSON.parse(localStorage.getItem('cartProducts')))
-  }, [cartProducts]);
-
+  const router = useRouter();
 
  
 
   useEffect(() => {
-   
-   
-      const hasVerticalScrollbar =  window.visualViewport.width < document.body.clientWidth;
-      setHasScrollbar(hasVerticalScrollbar);
-  
-    
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
-  
+  useEffect(() => {
+    setHasScrollbar(window.visualViewport.width < document.body.clientWidth);
   }, [router.pathname]);
 
   return (
-    <>
+    
       <div
         id="hronika"
-        style={{
-          width: hasScrollbar?'calc(100% - 10px)':'100%',
-          height: 'fit-content',
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: 'black',
-          color: 'white',
-          minHeight: '100vh',
-          minWidth: 'calc(100vw - 10px)',
-          maxWidth:"100vw",
-          alignItems: 'center',
-          overflowY: 'overlay',
-          overflowX: 'hidden'
-        }}
+       className="hronika"
       >
         <Navbar
           totalItems={cartProducts.length}
-          handleDrawerToggle={handleDrawerToggle}
         />
 
         <AppContext.Provider value={{ cartProducts, setCartProducts }}>
@@ -72,6 +41,5 @@ export default function App({ Component, pageProps }) {
 
         <Footer />
       </div>
-    </>
   );
 }
