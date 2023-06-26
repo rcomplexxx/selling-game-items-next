@@ -11,7 +11,7 @@ function Review({author,text, image}){
 
     <div style={{ width: '100%', maxHeight: 'max-content' }}>
     {image && <Image
-src={image}
+src={'/images/'+image}
 width={0}
 height={0}
 sizes="100vw"
