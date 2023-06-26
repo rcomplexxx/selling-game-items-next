@@ -26,6 +26,17 @@ style={{ width: '100%', height: 'auto', marginBottom:"5px" }} // optional
 export default function CustomerReviews(props){
  
   const [reviews, setReviews]=useState(props.reviews);
+  const handleReview = async () => {
+    try {
+      const response = await fetch('../../data/reviews.json'); // Replace with the correct path to your JSON file
+      const data = await response.json();
+      
+      const newReviews = data.slice(reviews.length, reviews.length + 6); // Load 6 more reviews
+      setReviews(prevReviews => [...prevReviews, ...newReviews]); // Append the new reviews to the existing ones
+    } catch (error) {
+      console.error('Error loading reviews:', error);
+    }
+  };
 
   const breakpointColumnsObj = {
     default: 4,
@@ -34,7 +45,7 @@ export default function CustomerReviews(props){
     0: 1
   };
   
-  //...
+  
   
 
 
@@ -55,7 +66,8 @@ export default function CustomerReviews(props){
         </Masonry>
         <button style={{ marginTop:"10px", 
         marginBottom:"20px", fontSize:"28px", padding:"8px 16px", color:"gray", 
-        backgroundColor:"transparent", border:"solid gray 1px", textDecoration:"none" }}>Show More</button>
+        backgroundColor:"transparent", border:"solid gray 1px", textDecoration:"none", cursor:"pointer" }}
+        onClick={handleReview}>Show More</button>
 
     </div>
 }
