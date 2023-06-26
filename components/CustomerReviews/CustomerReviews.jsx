@@ -41,7 +41,7 @@ export default function CustomerReviews(props){
   const breakpointColumnsObj = {
     default: 4,
     1200: 3,
-    768: 2,
+    700: 2,
     
   };
   
