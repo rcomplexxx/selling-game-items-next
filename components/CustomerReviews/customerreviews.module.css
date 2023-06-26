@@ -11,11 +11,12 @@
 
 
 .my_masonry_grid {
-    display: -webkit-box; /* Not needed if autoprefixing */
-    display: -ms-flexbox; /* Not needed if autoprefixing */
+ 
     display: flex;
+    flex-direction: row;
     margin-left: -30px; /* gutter size offset */
     width: auto;
+    column-fill: balance;
   }
   .my_masonry_grid_column {
     padding-left: 30px; /* gutter size */
