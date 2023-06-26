@@ -42,7 +42,7 @@ export default function CustomerReviews(props){
     default: 4,
     1280: 3,
     768: 2,
-    480: 1
+    
   };
   
   
