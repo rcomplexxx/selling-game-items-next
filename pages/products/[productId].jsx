@@ -3,14 +3,15 @@ import React from 'react'
 import products from '../../data/products.json'
 import Image from 'next/image';
 import AppContext from "@/contexts/AppContext";
-import { useRouter } from 'next/router';
 import CustomerReviews from '@/components/CustomerReviews/CustomerReviews.jsx'
 import Carousel from 'react-gallery-carousel';
 import 'react-gallery-carousel/dist/index.css';
 
+
     import { useState,useContext } from 'react';
     import { RatingStar } from 'rating-star';
     import styles from '../../styles/productpage.module.css'
+    import reviews from '../../data/reviews.json'
    
     
    
@@ -21,9 +22,8 @@ import 'react-gallery-carousel/dist/index.css';
     
 
 
-export default function ProductPage({product}){
-
-
+export default function ProductPage({product,reviews}){
+ 
         
   if(!product) return <p style={{marginTop:"100px"}}>Product not found.</p>
     
@@ -146,7 +146,7 @@ export default function ProductPage({product}){
     
     
             </div>
-            <CustomerReviews></CustomerReviews>
+            <CustomerReviews reviews={reviews}></CustomerReviews>
             </>
        
     }
@@ -190,7 +190,8 @@ export default function ProductPage({product}){
         // Return the data as props
         return {
           props: {
-            product
+            product,
+            reviews:reviews.slice(0, 12)
           },
         };
       }

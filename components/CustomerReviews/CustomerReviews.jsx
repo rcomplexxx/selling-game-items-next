@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { Grid } from "@mui/material";
 import styles from './customerreviews.module.css'
 import { RatingStar } from 'rating-star';
-import reviews from '../../data/reviews.json'
 import Masonry from 'react-masonry-css'
 import classNames from "classnames";
 
@@ -25,8 +23,9 @@ style={{ width: '100%', height: 'auto', marginBottom:"5px" }} // optional
 
 }
 
-export default function CustomerReviews(){
-
+export default function CustomerReviews({reviews}){
+ 
+  const [reviews, setReviews]=useState(reviews);
 
   const breakpointColumnsObj = {
     default: 4,
@@ -54,6 +53,9 @@ export default function CustomerReviews(){
          
         })}
         </Masonry>
+        <button style={{ marginTop:"10px", 
+        marginBottom:"20px", fontSize:"28px", padding:"8px 16px", color:"gray", 
+        backgroundColor:"transparent", border:"solid gray 1px", textDecoration:"none" }}>Show All</button>
 
     </div>
 }
