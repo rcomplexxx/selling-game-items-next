@@ -5,6 +5,7 @@ import styles from './customerreviews.module.css'
 import { RatingStar } from 'rating-star';
 import reviews from '../../data/reviews.json'
 import Masonry from 'react-masonry-css'
+import classNames from "classnames";
 
 
 function Review({author,text, image}){
@@ -31,7 +32,7 @@ export default function CustomerReviews(){
     default: 4,
     1100: 3,
     700: 2,
-    500: 1
+    0: 1
   };
   
   //...
@@ -54,8 +55,8 @@ export default function CustomerReviews(){
         <h1>Customer Reviews</h1>
         <Masonry
   breakpointCols={breakpointColumnsObj}
-  className="my-masonry-grid"
-  columnClassName="my-masonry-grid_column"
+  className={classNames(styles.my-masonry-grid)}
+  columnClassName={classNames(styles.my-masonry-grid_column)}
 >
         { reviews.map((review, index) => {
          return <Review author={review.author} text={review.text} image={review.image}/>
