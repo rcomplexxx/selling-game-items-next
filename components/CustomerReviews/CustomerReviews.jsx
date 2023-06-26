@@ -46,8 +46,8 @@ export default function CustomerReviews(){
         <h1>Customer Reviews</h1>
         <Masonry
   breakpointCols={breakpointColumnsObj}
-  className={classNames(styles.my-masonry-grid)}
-  columnClassName={classNames(styles.my-masonry-grid_column)}
+  className={classNames(styles.my_masonry_grid)}
+  columnClassName={classNames(styles.my_masonry_grid_column)}
 >
         { reviews.map((review, index) => {
          return <Review author={review.author} text={review.text} image={review.image}/>
