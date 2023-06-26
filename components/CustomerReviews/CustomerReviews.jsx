@@ -23,9 +23,9 @@ style={{ width: '100%', height: 'auto', marginBottom:"5px" }} // optional
 
 }
 
-export default function CustomerReviews({reviews}){
+export default function CustomerReviews(props){
  
-  const [reviews, setReviews]=useState(reviews);
+  const [reviews, setReviews]=useState(props.reviews);
 
   const breakpointColumnsObj = {
     default: 4,
