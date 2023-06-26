@@ -28,7 +28,7 @@ export default function CustomerReviews(props){
   const [reviews, setReviews]=useState(props.reviews);
   const handleReview = async () => {
     try {
-      const response = await fetch('../../data/reviews.json'); // Replace with the correct path to your JSON file
+      const response = await fetch('@/reviews.json'); // Replace with the correct path to your JSON file
       const data = await response.json();
       
       const newReviews = data.slice(reviews.length, reviews.length + 6); // Load 6 more reviews

@@ -11,7 +11,7 @@ import 'react-gallery-carousel/dist/index.css';
     import { useState,useContext } from 'react';
     import { RatingStar } from 'rating-star';
     import styles from '../../styles/productpage.module.css'
-    import reviews from '../../data/reviews.json'
+    import reviews from '@/reviews.json'
    
     
    
