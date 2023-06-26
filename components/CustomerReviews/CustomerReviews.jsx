@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 import styles from './customerreviews.module.css'
 import { RatingStar } from 'rating-star';
 import reviews from '../../data/reviews.json'
+import Masonry from 'react-masonry-css'
 
 
 function Review({author,text, image}){
@@ -26,20 +27,41 @@ style={{ width: '100%', height: 'auto', marginBottom:"5px" }} // optional
 export default function CustomerReviews(){
 
 
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1
+  };
+  
+  //...
+  
+  <Masonry
+    breakpointCols={breakpointColumnsObj}
+    className="my-masonry-grid"
+    columnClassName="my-masonry-grid_column"
+  >
+    <div>My Element</div>
+    <div>My Element</div>
+    <div>My Element</div>
+    <div>My Element</div>
+  </Masonry>
 
 
 
 
-
-    return <div className={styles.mainDiv} style={{ display: 'grid', gridAutoFlow: 'row dense' }}>
+    return <div className={styles.mainDiv} >
         <h1>Customer Reviews</h1>
-         <Grid container spacing={2}>
+        <Masonry
+  breakpointCols={breakpointColumnsObj}
+  className="my-masonry-grid"
+  columnClassName="my-masonry-grid_column"
+>
         { reviews.map((review, index) => {
-         return <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
-            <Review author={review.author} text={review.text} image={review.image}/>
-          </Grid>
+         return <Review author={review.author} text={review.text} image={review.image}/>
+         
         })}
-      </Grid>
+        </Masonry>
 
     </div>
 }
