@@ -31,7 +31,7 @@ export default function CustomerReviews(){
 
 
 
-    return <div className={styles.mainDiv} style={{ gridAutoRows: 'max-content' }}>
+    return <div className={styles.mainDiv} style={{ display: 'grid', gridAutoFlow: 'row dense' }}>
         <h1>Customer Reviews</h1>
          <Grid container spacing={2}>
         { reviews.map((review, index) => {
