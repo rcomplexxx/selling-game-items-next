@@ -55,7 +55,7 @@ export default function CustomerReviews(props){
         </Masonry>
         <button style={{ marginTop:"10px", 
         marginBottom:"20px", fontSize:"28px", padding:"8px 16px", color:"gray", 
-        backgroundColor:"transparent", border:"solid gray 1px", textDecoration:"none" }}>Show All</button>
+        backgroundColor:"transparent", border:"solid gray 1px", textDecoration:"none" }}>Show More</button>
 
     </div>
 }
