@@ -35,7 +35,7 @@ export default function CustomerReviews(){
         <h1>Customer Reviews</h1>
          <Grid container spacing={2}>
         { reviews.map((review, index) => {
-          <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
+         return <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
             <Review author={review.author} text={review.text} image={review.image?review.image:null}/>
           </Grid>
         })}
