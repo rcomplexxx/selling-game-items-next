@@ -37,16 +37,7 @@ export default function CustomerReviews(){
   
   //...
   
-  <Masonry
-    breakpointCols={breakpointColumnsObj}
-    className="my-masonry-grid"
-    columnClassName="my-masonry-grid_column"
-  >
-    <div>My Element</div>
-    <div>My Element</div>
-    <div>My Element</div>
-    <div>My Element</div>
-  </Masonry>
+
 
 
 
