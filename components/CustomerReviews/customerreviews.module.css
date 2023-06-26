@@ -14,12 +14,13 @@
  
     display: flex;
     flex-direction: row;
-    margin-left: -30px; /* gutter size offset */
+    margin-left: -10px; /* gutter size offset */
     width: auto;
     column-fill: balance;
+    padding: 0 5px;
   }
   .my_masonry_grid_column {
-    padding-left: 30px; /* gutter size */
+    
     background-clip: padding-box;
   }
   
