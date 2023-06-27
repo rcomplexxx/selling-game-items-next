@@ -5,43 +5,22 @@ import Products from "@/components/Products/Products.jsx";
 import Link from "next/link";
 import styles from "./page.module.css";
 
-const ProductPage = ({ totalPageNumber, pageId, products }) => {
+const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
   // Redirect to home page if no product
 
   const router = useRouter();
 
-  if (pageId === 1) {
-    router.push("/products");
-    return null; // Return null to avoid rendering the component
-  }
+  useEffect(() => {
+    if (pageId === 1) {
+      router.push("/products"); // Perform the redirect
+    }
+  }, [pageId]);
 
-  // useEffect(() => {
-  //   // Your condition for redirection
+  if (pageId === 1) return null;
 
-  //   if (pageId === 1) {
-  //     router.push("/products"); // Perform the redirect
-  //   }
-  // }, [pageId]);
 
-  if (pageId === 1) return <></>;
 
-  const links = [];
-
-  for (let i = 1; i <= totalPageNumber; i++) {
-    links.push(
-      pageId == i ? (
-        <div key={i} className={styles.pageLink}>
-          <Link href={`/products/page/${i}`} key={i}>
-            {i}
-          </Link>
-        </div>
-      ) : (
-        <Link key={i} href={`/products/page/${i}`}>
-          {i}
-        </Link>
-      )
-    );
-  }
+ 
 
   //
 
@@ -58,7 +37,20 @@ const ProductPage = ({ totalPageNumber, pageId, products }) => {
         {pageId !== 1 && (
           <Link href={`/products/page/${pageId - 1}`}>{"<-"}</Link>
         )}
-        {links}
+        { links.map((link)=>{
+    return pageId == i ? (
+      <div key={link} className={styles.pageLink}>
+        <Link href={`/products/page/${i}`} key={link}>
+          {link}
+        </Link>
+      </div>
+    ) : (
+      <Link key={link} href={`/products/page/${link}`}>
+        {link}
+      </Link>
+    
+  );
+  })}
         {pageId !== totalPageNumber && (
           <Link href={`/products/page/${pageId + 1}`}>{"->"}</Link>
         )}
@@ -88,12 +80,27 @@ export async function getStaticProps(context) {
       ? products.slice((pageId - 1) * 12, productLength)
       : products.slice((pageId - 1) * 12, pageId * 12);
 
+      const links = [];
+      totalPageNumber= Math.ceil(productLength / 12);
+
+
+
+      for (let i = 1; i <= totalPageNumber; i++) {
+        links.push(i);
+      }
+
+
+
+
+
+
   // Return the data as props
   return {
     props: {
-      totalPageNumber: Math.floor(productLength / 12) + 1,
+      totalPageNumber,
       products: productArray,
       pageId: pageId,
+      links
     },
   };
 }
