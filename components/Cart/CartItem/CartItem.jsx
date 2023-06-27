@@ -1,72 +1,84 @@
-import React, {useContext} from 'react';
-import { Typography, Button, Card, CardActions, CardContent, CardMedia } from '@mui/material';
-import Image from 'next/image';
-import styles from './cartitem.module.css'
+import React, { useContext } from "react";
+import {
+  Typography,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+} from "@mui/material";
+import Image from "next/image";
+import styles from "./cartitem.module.css";
 
-import classNames from 'classnames';
+import classNames from "classnames";
 
-import AppContext from '@/contexts/AppContext';
+import AppContext from "@/contexts/AppContext";
 
-const CartItem = ({ item}) => {
-
-
-
+const CartItem = ({ item }) => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
+  const handleUpdateCartQty = async (quantity) => {
+    return setCartProducts(
+      cartProducts.filter((cp) => {
+        if (cp.id === item.id) {
+          cp.quantity = cp.quantity + quantity;
+          return cp.quantity !== 0;
+        }
 
+        return true;
+      })
+    );
+  };
 
-          const handleUpdateCartQty = async (quantity) => {
-       
-        
-            return setCartProducts(
-              cartProducts.filter((cp) =>{
-               if(cp.id === item.id){
-                cp.quantity=cp.quantity+quantity;
-                return cp.quantity !== 0
-               }
-              
-              return true;
-              }
-              )
-            );
-
-       
-      };
-    
-      const handleRemoveFromCart = async (lineItemId) => {
-        const newCartProducts = cartProducts.filter((cp) => cp.id != lineItemId);
-        console.log(lineItemId);
-        console.log(newCartProducts);
-        setCartProducts(newCartProducts);
-      };
-
-   
-
-
-
-
-
-
-
-  
+  const handleRemoveFromCart = async (lineItemId) => {
+    const newCartProducts = cartProducts.filter((cp) => cp.id != lineItemId);
+    console.log(lineItemId);
+    console.log(newCartProducts);
+    setCartProducts(newCartProducts);
+  };
 
   return (
-    <Card style={{color:'white',
-    backgroundColor:"black"}}>
+    <Card style={{ color: "white", backgroundColor: "black" }}>
       <div className={classNames(styles.media)}>
-  <Image src={`/images/${item.image}`} alt={item.name} layout="fill" objectFit="cover" />
-</div>
+        <Image
+          src={`/images/${item.image}`}
+          alt={item.name}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
       <CardContent className={classNames(styles.cardContent)}>
         <Typography variant="h4">{item.name}</Typography>
         <Typography variant="h5">${item.price}</Typography>
       </CardContent>
       <CardActions className={classNames(styles.cardActions)}>
         <div className={styles.buttons}>
-          <Button type="button" size="small" style={{color:'white'}} onClick={() => handleUpdateCartQty( -1)}>-</Button>
+          <Button
+            type="button"
+            size="small"
+            style={{ color: "white" }}
+            onClick={() => handleUpdateCartQty(-1)}
+          >
+            -
+          </Button>
           <Typography>&nbsp;{item.quantity}&nbsp;</Typography>
-          <Button type="button" size="small" style={{color:'white'}} onClick={() => handleUpdateCartQty( 1)}>+</Button>
+          <Button
+            type="button"
+            size="small"
+            style={{ color: "white" }}
+            onClick={() => handleUpdateCartQty(1)}
+          >
+            +
+          </Button>
         </div>
-        <Button variant="contained" type="button" color="secondary" onClick={() => handleRemoveFromCart(item.id)}>Remove</Button>
+        <Button
+          variant="contained"
+          type="button"
+          color="secondary"
+          onClick={() => handleRemoveFromCart(item.id)}
+        >
+          Remove
+        </Button>
       </CardActions>
     </Card>
   );

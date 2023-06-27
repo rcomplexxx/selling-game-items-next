@@ -3,7 +3,7 @@ import styles from "./orderdetails.module.css";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import AppContext from "@/contexts/AppContext";
 
-export default function OrderDetails({unlockPaypal}) {
+export default function OrderDetails({ unlockPaypal }) {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
   // if(cartProducts.length===0)return <p>No items in the bag.</p>;
@@ -14,14 +14,17 @@ export default function OrderDetails({unlockPaypal}) {
   if (s === 0) s = 0.01;
   s = (Math.round(s * 100) / 100).toFixed(2);
 
-
   const getProductElements = () => {
     return (
       <>
         {cartProducts.map((cp, i) => (
           <div className={styles.product} key={i}>
-            <p>{cp.quantity} {cp.name}s</p>
-            <p>${(Math.round(cp.quantity * cp.price * 100) / 100).toFixed(2)} USD</p>
+            <p>
+              {cp.quantity} {cp.name}s
+            </p>
+            <p>
+              ${(Math.round(cp.quantity * cp.price * 100) / 100).toFixed(2)} USD
+            </p>
           </div>
         ))}
       </>
@@ -73,9 +76,9 @@ export default function OrderDetails({unlockPaypal}) {
           <PayPalButtons
             fundingSource="paypal"
             disabled={!unlockPaypal}
-            onClick={(event)=>{
-             
-              console.log('PayPal button clicked')}}
+            onClick={(event) => {
+              console.log("PayPal button clicked");
+            }}
             createOrder={(data, actions) => {
               return actions.order.create({
                 purchase_units: [
@@ -90,10 +93,12 @@ export default function OrderDetails({unlockPaypal}) {
             }}
           />
 
-<PayPalButtons
+          <PayPalButtons
             fundingSource="card"
             disabled={!unlockPaypal}
-            onClick={()=>{console.log('Card button clicked')}}
+            onClick={() => {
+              console.log("Card button clicked");
+            }}
             createOrder={(data, actions) => {
               return actions.order.create({
                 purchase_units: [

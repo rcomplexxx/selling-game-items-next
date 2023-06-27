@@ -35,13 +35,6 @@ const Products = ({ products, showAll }) => {
     setCartProducts(newCartProducts);
   };
 
-
-
-  
-
- 
-  
-
   return (
     <div className={styles.toolbar}>
       <h1 className={styles.title}>Explore our collection</h1>
@@ -51,23 +44,42 @@ const Products = ({ products, showAll }) => {
           container
           justifyContent="flex-start"
         >
-      {products.map((product, i) => (
-      <Grid
-        className={styles.productGridStyle}
-        key={product.id}
-        item
-        xs={12}
-        sm={6}
-        md={4}
-        lg={4}
-      >
-        <Product key={product.id} product={product} onAddToCart={onAddToCart} />
-      </Grid>))
-      
-    }
-        </Grid>    
+          {products.map((product, i) => (
+            <Grid
+              className={styles.productGridStyle}
+              key={product.id}
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={4}
+            >
+              <Product
+                key={product.id}
+                product={product}
+                onAddToCart={onAddToCart}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </div>
-      {!showAll && <Link href="/products" style={{ marginTop:"10px", marginBottom:"20px", fontSize:"28px", padding:"8px 16px", color:"gray", backgroundColor:"transparent", border:"solid gray 1px", textDecoration:"none" }}>View All</Link>}
+      {!showAll && (
+        <Link
+          href="/products"
+          style={{
+            marginTop: "10px",
+            marginBottom: "20px",
+            fontSize: "28px",
+            padding: "8px 16px",
+            color: "gray",
+            backgroundColor: "transparent",
+            border: "solid gray 1px",
+            textDecoration: "none",
+          }}
+        >
+          View All
+        </Link>
+      )}
     </div>
   );
 };

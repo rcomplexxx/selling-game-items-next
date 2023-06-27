@@ -1,16 +1,14 @@
-
-.linkDiv{
-    display: flex;
-    flex-direction: row;
-
+.linkDiv {
+  display: flex;
+  flex-direction: row;
 }
 
-.linkDiv a{
-    text-decoration: none;
-    color:rgb(239, 241, 217);
-    margin-top: 15px;
-    margin-bottom: 5px;
-    margin-right: 5px;
+.linkDiv a {
+  text-decoration: none;
+  color: rgb(239, 241, 217);
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 /* 
@@ -18,10 +16,10 @@
     background-color: gray;
 } */
 
-.pageLink{
-    height: min-content;
-    width: min-content;
-    margin-top: 15px;
-    margin-right: 5px;
-    background-color: rgb(44, 95, 93);
+.pageLink {
+  height: min-content;
+  width: min-content;
+  margin-top: 15px;
+  margin-right: 5px;
+  background-color: rgb(44, 95, 93);
 }

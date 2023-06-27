@@ -46,10 +46,12 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
         } else {
           if (
             errorLength == inputNumber ||
-            (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id) )
+            (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id))
           ) {
             setUnlockPaypal(
-              Object.entries(errors).every(([key, value]) => key === id || value === null)
+              Object.entries(errors).every(
+                ([key, value]) => key === id || value === null
+              )
             );
           }
           setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
@@ -57,10 +59,12 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
       } else {
         if (
           errorLength == inputNumber ||
-          (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id) )
+          (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id))
         ) {
           setUnlockPaypal(
-            Object.entries(errors).every(([key, value]) => key === id || value === null)
+            Object.entries(errors).every(
+              ([key, value]) => key === id || value === null
+            )
           );
         }
         setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
