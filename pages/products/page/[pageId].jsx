@@ -97,10 +97,10 @@ export async function getStaticProps(context) {
   // Return the data as props
   return {
     props: {
-      totalPageNumber,
+      totalPageNumber:totalPageNumber,
       products: productArray,
       pageId: pageId,
-      links
+      links:links
     },
   };
 }
