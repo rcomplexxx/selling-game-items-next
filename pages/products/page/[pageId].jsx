@@ -18,10 +18,6 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
 
   if (pageId === 1) return null;
 
-
-
- 
-
   //
 
   return (
@@ -37,20 +33,19 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
         {pageId !== 1 && (
           <Link href={`/products/page/${pageId - 1}`}>{"<-"}</Link>
         )}
-        { links.map((link)=>{
-    return pageId == link ? (
-      <div key={link} className={styles.pageLink}>
-        <Link href={`/products/page/${link}`} key={link}>
-          {link}
-        </Link>
-      </div>
-    ) : (
-      <Link key={link} href={`/products/page/${link}`}>
-        {link}
-      </Link>
-    
-  );
-  })}
+        {links.map((link) => {
+          return pageId == link ? (
+            <div key={link} className={styles.pageLink}>
+              <Link href={`/products/page/${link}`} key={link}>
+                {link}
+              </Link>
+            </div>
+          ) : (
+            <Link key={link} href={`/products/page/${link}`}>
+              {link}
+            </Link>
+          );
+        })}
         {pageId !== totalPageNumber && (
           <Link href={`/products/page/${pageId + 1}`}>{"->"}</Link>
         )}
@@ -80,19 +75,12 @@ export async function getStaticProps(context) {
       ? products.slice((pageId - 1) * 12, productLength)
       : products.slice((pageId - 1) * 12, pageId * 12);
 
-      const links = [];
-      const totalPageNumber= Math.ceil(productLength / 12);
+  const links = [];
+  const totalPageNumber = Math.ceil(productLength / 12);
 
-
-
-      for (let i = 1; i <= totalPageNumber; i++) {
-        links.push(i);
-      }
-
-
-
-
-
+  for (let i = 1; i <= totalPageNumber; i++) {
+    links.push(i);
+  }
 
   // Return the data as props
   return {
@@ -100,7 +88,7 @@ export async function getStaticProps(context) {
       totalPageNumber,
       products: productArray,
       pageId: pageId,
-      links
+      links,
     },
   };
 }
