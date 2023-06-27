@@ -4,9 +4,7 @@ import products from "../../data/products.json";
 import Link from "next/link";
 import styles from "./page/page.module.css";
 
-export default function ProductPage({ products, totalPageNumber, links }) {
-  
-
+export default function ProductPage({ products,  links }) {
   return (
     <div
       style={{
@@ -18,38 +16,40 @@ export default function ProductPage({ products, totalPageNumber, links }) {
       <Products showAll={true} products={products}></Products>
 
       <div className={styles.linkDiv}>
-        {links}
-        {totalPageNumber > 1 && <Link href={`/products/page/2`}>{"->"}</Link>}
+        {links &&
+          links.map((link) => {
+            return link === 1 ? (
+              <div className={styles.pageLink}>
+                {" "}
+                <Link href={`/products/page/${1}`} key={1}>
+                  {1}
+                </Link>
+              </div>
+            ) : (
+              <Link href={`/products/page/${link}`} key={link}>
+                {link}
+              </Link>
+            );
+          })}
+        {links && <Link href={`/products/page/2`}>{"->"}</Link>}
       </div>
     </div>
   );
 }
 
 export async function getStaticProps() {
-
-
   const totalPageNumber = Math.ceil(products.length / 12);
-  const links = [
-    <div className={styles.pageLink}>
-      <Link href={`/products/page/${1}`} key={1}>
-        {1}
-      </Link>
-    </div>,
-  ];
-
-  for (let i = 2; i <= totalPageNumber; i++) {
-    links.push(
-      <Link href={`/products/page/${i}`} key={i}>
-        {i}
-      </Link>
-    );
+  const links = [];
+  if (totalPageNumber !== 1) {
+    for (let i = 1; i <= totalPageNumber; i++) {
+      links.push(i);
+    }
   }
 
   return {
     props: {
       products: products.slice(0, 12),
-      totalPageNumber,
-      links
+      links: links.length===0?null:links,
     },
   };
 }
