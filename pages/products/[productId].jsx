@@ -13,19 +13,9 @@ import styles from "../../styles/productpage.module.css";
 
 
 
-const images = [
-  {
-    src: "/images/" + product.image,
-  },
-  {
-    src: "/images/keyboard.png",
-  },
-  {
-    src: "/images/boxItem.png",
-  },
-];
 
-export default function ProductPage({ product }) {
+
+export default function ProductPage({ product,images }) {
   if (!product) return <p style={{ marginTop: "100px" }}>Product not found.</p>;
 
   const [selectedStyle, setSelectedStyle] = useState("Black Kitten");
@@ -161,10 +151,23 @@ export async function getStaticProps(context) {
     return p.id == productId;
   });
 
+  const images = [
+    {
+      src: "/images/" + product.image,
+    },
+    {
+      src: "/images/keyboard.png",
+    },
+    {
+      src: "/images/boxItem.png",
+    },
+  ];
+
   // Return the data as props
   return {
     props: {
-      product
+      product,
+      images
       
     },
   };
