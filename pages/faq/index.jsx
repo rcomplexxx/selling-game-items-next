@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import styles from "./faq.module.css";
 
-function Question({questionData}) {
+function Question(props) {
   const [showAnswer, setShowAnswer] = useState(false);
 
   function summonAnswer() {
@@ -29,7 +29,7 @@ function Question({questionData}) {
   );
 }
 
-export default function Faq() {
+export default function Faq({questionData}) {
  
   return (
     <div className={styles.coverDiv}>
