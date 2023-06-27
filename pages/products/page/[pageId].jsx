@@ -10,13 +10,18 @@ const ProductPage = ({ totalPageNumber, pageId, products }) => {
 
   const router = useRouter();
 
-  useEffect(() => {
-    // Your condition for redirection
+  if (pageId === 1) {
+    router.push("/products");
+    return null; // Return null to avoid rendering the component
+  }
 
-    if (pageId === 1) {
-      router.push("/products"); // Perform the redirect
-    }
-  }, [pageId]);
+  // useEffect(() => {
+  //   // Your condition for redirection
+
+  //   if (pageId === 1) {
+  //     router.push("/products"); // Perform the redirect
+  //   }
+  // }, [pageId]);
 
   if (pageId === 1) return <></>;
 
