@@ -4,6 +4,8 @@ import styles from "./customerreviews.module.css";
 import { RatingStar } from "rating-star";
 import Masonry from "react-masonry-css";
 import classNames from "classnames";
+import reviewsData from "../../public/reviews.json";
+  
 
 function Review({ author, text, image }) {
   return (
@@ -25,8 +27,8 @@ function Review({ author, text, image }) {
   );
 }
 
-export default function CustomerReviews(props) {
-  const [reviews, setReviews] = useState(props.reviews);
+export default function CustomerReviews() {
+  const [reviews, setReviews] = useState(reviewsData.slice(0, 12),);
   const handleReview = async () => {
     try {
       const response = await fetch("/reviews.json"); // Replace with the correct path to your JSON file

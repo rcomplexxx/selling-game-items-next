@@ -20,7 +20,7 @@ const Product = ({ product, onAddToCart }) => {
           <Image
             src={`/images/` + product.image} // Path to your image from the `public` directory
             alt="Example Image"
-            style={{ objectFit: "cover" }}
+            className="object_fit_cover"
             fill
           />
         </div>

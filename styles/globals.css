@@ -96,3 +96,7 @@ a{
   overflow-y: overlay;
   overflow-x: hidden;
 }
+
+.object_fit_cover{
+  object-fit: cover;
+}

@@ -9,9 +9,23 @@ import "react-gallery-carousel/dist/index.css";
 import { useState, useContext } from "react";
 import { RatingStar } from "rating-star";
 import styles from "../../styles/productpage.module.css";
-import reviews from "../../public/reviews.json";
 
-export default function ProductPage({ product, reviews }) {
+
+
+
+const images = [
+  {
+    src: "/images/" + product.image,
+  },
+  {
+    src: "/images/keyboard.png",
+  },
+  {
+    src: "/images/boxItem.png",
+  },
+];
+
+export default function ProductPage({ product }) {
   if (!product) return <p style={{ marginTop: "100px" }}>Product not found.</p>;
 
   const [selectedStyle, setSelectedStyle] = useState("Black Kitten");
@@ -20,17 +34,7 @@ export default function ProductPage({ product, reviews }) {
     setSelectedStyle(style);
   };
 
-  const images = [
-    {
-      src: "/images/" + product.image,
-    },
-    {
-      src: "/images/keyboard.png",
-    },
-    {
-      src: "/images/boxItem.png",
-    },
-  ];
+
 
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
@@ -56,7 +60,7 @@ export default function ProductPage({ product, reviews }) {
       ];
     }
 
-    console.log(newCartProducts);
+
     setCartProducts(newCartProducts);
   };
 
@@ -100,7 +104,6 @@ export default function ProductPage({ product, reviews }) {
                 src={"/images/" + product.image}
                 alt="Black Kitten"
                 className={styles.product_style_image}
-                style={{ objectFit: "cover" }}
                 fill
               />
             </button>
@@ -112,7 +115,7 @@ export default function ProductPage({ product, reviews }) {
                 src={"/images/" + product.image}
                 alt="Gray Kitten"
                 className={styles.product_style_image}
-                style={{ objectFit: "cover" }}
+                
                 fill
               />
             </button>
@@ -124,7 +127,7 @@ export default function ProductPage({ product, reviews }) {
                 src={"/images/" + product.image}
                 alt="White Kitten"
                 className={styles.product_style_image}
-                style={{ objectFit: "cover" }}
+              
                 fill
               />
             </button>
@@ -137,7 +140,7 @@ export default function ProductPage({ product, reviews }) {
           </button>
         </div>
       </div>
-      <CustomerReviews reviews={reviews}></CustomerReviews>
+      <CustomerReviews></CustomerReviews>
     </>
   );
 }
@@ -161,8 +164,8 @@ export async function getStaticProps(context) {
   // Return the data as props
   return {
     props: {
-      product,
-      reviews: reviews.slice(0, 12),
+      product
+      
     },
   };
 }

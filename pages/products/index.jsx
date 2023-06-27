@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "./page/page.module.css";
 
 export default function ProductPage({ products }) {
-  const totalPageNumber = products.length / 12 + 1;
+  const totalPageNumber = Math.ceil(products.length / 12);
   const links = [
     <div className={styles.pageLink}>
       <Link href={`/products/page/${1}`} key={1}>
