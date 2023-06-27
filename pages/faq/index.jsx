@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import styles from "./faq.module.css";
 
-function Question(props) {
+function Question({questionData}) {
   const [showAnswer, setShowAnswer] = useState(false);
 
   function summonAnswer() {
