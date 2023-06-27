@@ -4,23 +4,8 @@ import products from "../../data/products.json";
 import Link from "next/link";
 import styles from "./page/page.module.css";
 
-export default function ProductPage({ products }) {
-  const totalPageNumber = Math.ceil(products.length / 12);
-  const links = [
-    <div className={styles.pageLink}>
-      <Link href={`/products/page/${1}`} key={1}>
-        {1}
-      </Link>
-    </div>,
-  ];
-
-  for (let i = 2; i <= totalPageNumber; i++) {
-    links.push(
-      <Link href={`/products/page/${i}`} key={i}>
-        {i}
-      </Link>
-    );
-  }
+export default function ProductPage({ products, totalPageNumber, links }) {
+  
 
   return (
     <div
@@ -41,9 +26,30 @@ export default function ProductPage({ products }) {
 }
 
 export async function getStaticProps() {
+
+
+  const totalPageNumber = Math.ceil(products.length / 12);
+  const links = [
+    <div className={styles.pageLink}>
+      <Link href={`/products/page/${1}`} key={1}>
+        {1}
+      </Link>
+    </div>,
+  ];
+
+  for (let i = 2; i <= totalPageNumber; i++) {
+    links.push(
+      <Link href={`/products/page/${i}`} key={i}>
+        {i}
+      </Link>
+    );
+  }
+
   return {
     props: {
       products: products.slice(0, 12),
+      totalPageNumber,
+      links
     },
   };
 }
