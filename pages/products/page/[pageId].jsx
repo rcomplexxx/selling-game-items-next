@@ -38,9 +38,9 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
           <Link href={`/products/page/${pageId - 1}`}>{"<-"}</Link>
         )}
         { links.map((link)=>{
-    return pageId == i ? (
+    return pageId == link ? (
       <div key={link} className={styles.pageLink}>
-        <Link href={`/products/page/${i}`} key={link}>
+        <Link href={`/products/page/${link}`} key={link}>
           {link}
         </Link>
       </div>
