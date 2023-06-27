@@ -81,7 +81,7 @@ export async function getStaticProps(context) {
       : products.slice((pageId - 1) * 12, pageId * 12);
 
       const links = [];
-      totalPageNumber= Math.ceil(productLength / 12);
+      const totalPageNumber= Math.ceil(productLength / 12);
 
 
 
@@ -97,10 +97,10 @@ export async function getStaticProps(context) {
   // Return the data as props
   return {
     props: {
-      totalPageNumber:totalPageNumber,
+      totalPageNumber,
       products: productArray,
       pageId: pageId,
-      links:links
+      links
     },
   };
 }
