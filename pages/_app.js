@@ -7,15 +7,15 @@ import AppContext from "@/contexts/AppContext";
 import Footer from "@/components/Footer/Footer";
 
 export default function App({ Component, pageProps }) {
-  const [cartProducts, setCartProducts] = useState(() => {
-    const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
-    return storedCartProducts || [];
-  });
+  const [cartProducts, setCartProducts] = useState([]);
   const [hasScrollbar, setHasScrollbar] = useState(true);
 
   const router = useRouter();
 
- 
+  useEffect(() => {
+    const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+    setCartProducts(storedCartProducts || []);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
