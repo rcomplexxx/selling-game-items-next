@@ -29,7 +29,7 @@ const reviews = [
   },
 ];
 
-function Review({ title, reviewText, author,  smallScreen = false }) {
+function Review({ title, reviewText, author}) {
   return (
     <div className={styles.reviewDiv}>
       <h1 className={styles.reviewTitle}>{title}</h1>
