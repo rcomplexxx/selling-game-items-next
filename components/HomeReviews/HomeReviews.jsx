@@ -29,9 +29,9 @@ const reviews = [
   },
 ];
 
-function Review({ title, reviewText, author, style, smallScreen = false }) {
+function Review({ title, reviewText, author,  smallScreen = false }) {
   return (
-    <div className={styles.reviewDiv} style={style}>
+    <div className={styles.reviewDiv}>
       <h1 className={styles.reviewTitle}>{title}</h1>
       <RatingStar maxScore={5} id="123" rating={5} />
       <p>{reviewText}</p>
@@ -74,10 +74,7 @@ export default function HomeReviews() {
               title={review.title}
               reviewText={review.reviewText}
               author={review.author}
-              style={{
-                display: "flex",
-                width: "30%",
-              }}
+             
             />
           ))
         ) : (

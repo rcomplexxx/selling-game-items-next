@@ -69,10 +69,9 @@ const NavBar = ({ totalItems }) => {
             justifyContent: "flex-end",
             marginTop: "10px",
           }}
-          className={classes.menuItem_x}
         >
           <button
-           className={classes.menuItem_x}
+           className={classes.menuItem_x_button}
             onClick={handleMobileMenuClose}
           >
             <Typography
