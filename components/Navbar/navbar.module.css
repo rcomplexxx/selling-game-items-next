@@ -138,11 +138,7 @@
     visibility: hidden;
   }
   
-  .menuItem_x {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-  }
+
   
   .menuItem_x_button {
     border: none;
@@ -152,11 +148,7 @@
     margin-right: 10px;
   }
   
-  .menuItem_x_text {
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-  }
+
   
   
   

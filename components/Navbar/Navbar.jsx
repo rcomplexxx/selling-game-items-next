@@ -8,10 +8,12 @@ import {
 } from "@mui/material";
 import { ShoppingCart, Menu as MenuIcon } from "@mui/icons-material";
 
+
+
+
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import classNames from "classnames";
 import classes from "./navbar.module.css";
 
 const NavBar = ({ totalItems }) => {
@@ -62,15 +64,19 @@ const NavBar = ({ totalItems }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <MenuItem
-         
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginTop: "10px",
+          }}
           className={classes.menuItem_x}
         >
           <button
-               className={classes.menuItem_x_button}
+           className={classes.menuItem_x}
             onClick={handleMobileMenuClose}
           >
             <Typography
-                 className={classes.menuItem_x_text}
+              style={{ fontSize: "20px", fontWeight: "700", cursor: "pointer" }}
               variant="body1"
             >
               x
