@@ -7,13 +7,11 @@ import {
   Typography,
 } from "@mui/material";
 import { ShoppingCart, Menu as MenuIcon } from "@mui/icons-material";
-import classNames from "classnames";
-
-
 
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import classNames from "classnames";
 import classes from "./navbar.module.css";
 
 const NavBar = ({ totalItems }) => {
