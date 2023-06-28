@@ -4,7 +4,6 @@ import styles from "./homeReviews.module.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import Slider from "react-slick";
 
 const reviews = [
   {
@@ -43,7 +42,6 @@ function Review({ title, reviewText, author, style, smallScreen = false }) {
 
 export default function HomeReviews() {
   const [windowWidth, setWindowWidth] = useState(0);
-  const [currentReview, setCurrentReview] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
@@ -68,13 +66,7 @@ export default function HomeReviews() {
   return (
     <>
       <h2 className={styles.title}>WHAT OUR CUSTOMERS HAVE TO SAY</h2>
-      <div
-        className={
-          windowWidth > 1080
-            ? styles.mainDiv
-            : styles.mainDiv + " " + styles.SSMainDiv
-        }
-      >
+      <div className={styles.mainDiv}>
         {windowWidth > 1080 ? (
           reviews.map((review, index) => (
             <Review
@@ -100,10 +92,9 @@ export default function HomeReviews() {
               swipeable={true}
             >
               {reviews.map((review) => (
-                <div className={styles.swiperCenterer}>
+                <div className={styles.swiperCenterer} key={review.id}>
                   <Review
                     smallScreen={true}
-                    key={review.id}
                     title={review.title}
                     reviewText={review.reviewText}
                     author={review.author}
