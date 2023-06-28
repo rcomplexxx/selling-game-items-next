@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 
 import classes from "./navbar.module.css";
 
-const NavBar = ({ totalItems }) => {
+const NavBar = React.memo(({ totalItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuClosing, setIsMenuClosing] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
@@ -207,7 +207,7 @@ const NavBar = ({ totalItems }) => {
               <Link
                 href="/aboutus"
                 className={`${classes.linkStyle} ${
-                  pathname === "/about-us" ? classes.currentLink : ""
+                  pathname === "/aboutus" ? classes.currentLink : ""
                 }`}
               >
                 About
@@ -215,7 +215,7 @@ const NavBar = ({ totalItems }) => {
               <Link
                 href="/contactus"
                 className={`${classes.linkStyle} ${
-                  pathname === "/contact-us" ? classes.currentLink : ""
+                  pathname === "/contactus" ? classes.currentLink : ""
                 }`}
               >
                 Contact us
@@ -245,6 +245,6 @@ const NavBar = ({ totalItems }) => {
       {renderMobileMenu}
     </>
   );
-};
+});
 
 export default NavBar;
