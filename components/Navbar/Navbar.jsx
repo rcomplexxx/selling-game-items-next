@@ -4,16 +4,19 @@ import {
   IconButton,
   Badge,
   MenuItem,
-  Menu,
   Typography,
 } from "@mui/material";
 import { ShoppingCart, Menu as MenuIcon } from "@mui/icons-material";
+
+
+
+
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 import classes from "./navbar.module.css";
 
-const NavBar = ({ totalItems }) => {
+const NavBar =  React.memo(({ totalItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuClosing, setIsMenuClosing] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
@@ -242,6 +245,6 @@ const NavBar = ({ totalItems }) => {
       {renderMobileMenu}
     </>
   );
-};
+});
 
 export default NavBar;

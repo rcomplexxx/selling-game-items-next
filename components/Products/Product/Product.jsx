@@ -9,7 +9,7 @@ import Link from "next/link";
 import styles from "./product.module.css";
 
 const Product = ({ product, onAddToCart }) => {
-  const handleAddToCart = () => onAddToCart(product, 1);
+ 
 
   const router = useRouter();
 
@@ -38,7 +38,7 @@ const Product = ({ product, onAddToCart }) => {
         <IconButton
           className={classNames(styles.cartStyle)}
           aria-label="Add to Cart"
-          onClick={handleAddToCart}
+          onClick={() => onAddToCart(product, 1)}
         >
           <AddShoppingCart style={{ color: "white" }} />
         </IconButton>
