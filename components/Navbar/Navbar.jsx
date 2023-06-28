@@ -64,24 +64,15 @@ const NavBar = ({ totalItems }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <MenuItem
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            marginTop: "10px",
-          }}
+         
+          className={classes.menuItem_x}
         >
           <button
-            style={{
-              border: "none",
-              color: "var(--red-2)",
-              backgroundColor: "transparent",
-              marginLeft: "10px",
-              marginRight: "10px",
-            }}
+               className={classes.menuItem_x_button}
             onClick={handleMobileMenuClose}
           >
             <Typography
-              style={{ fontSize: "20px", fontWeight: "700", cursor: "pointer" }}
+                 className={classes.menuItem_x_text}
               variant="body1"
             >
               x
