@@ -63,14 +63,14 @@ const NavBar = ({ totalItems }) => {
       >
         <MenuItem
          
-          className={classNames(classes.menuItem_x)}
+          className={classes.menuItem_x}
         >
           <button
                className={classes.menuItem_x_button}
             onClick={handleMobileMenuClose}
           >
             <Typography
-                 className={classNames(classes.menuItem_x_text)}
+                 className={classes.menuItem_x_text}
               variant="body1"
             >
               x
