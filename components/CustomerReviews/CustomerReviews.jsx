@@ -8,22 +8,22 @@ import reviewsData from "../../public/reviews.json";
   
 
 function Review({ author, text, image }) {
-  return (
-    <>
-      <div style={{ width: "100%", maxHeight: "max-content" }}>
+  return (<div className={styles.reviewDiv}>
         {image && (
           <Image
             src={"/images/" + image}
             width={0}
             height={0}
             sizes="100vw"
-            style={{ width: "100%", height: "auto", marginBottom: "5px" }} // optional
+            style={{ width: "100%", height: "auto", marginBottom: "5px" }} 
+            //Mozda opraviti
+          // optional
           />
         )}
         <RatingStar maxScore={5} id="123" rating={5} />
-        <p style={{ marginTop: "5px" }}>{text}</p>
+        <p className={styles.reviewText}>{text}</p>
       </div>
-    </>
+ 
   );
 }
 
@@ -58,6 +58,7 @@ export default function CustomerReviews() {
         {reviews.map((review, index) => {
           return (
             <Review
+            key={index}
               author={review.author}
               text={review.text}
               image={review.image}
@@ -66,17 +67,7 @@ export default function CustomerReviews() {
         })}
       </Masonry>
       <button
-        style={{
-          marginTop: "10px",
-          marginBottom: "20px",
-          fontSize: "28px",
-          padding: "8px 16px",
-          color: "gray",
-          backgroundColor: "transparent",
-          border: "solid gray 1px",
-          textDecoration: "none",
-          cursor: "pointer",
-        }}
+        className={styles.showMoreButton}
         onClick={handleReview}
       >
         Show More

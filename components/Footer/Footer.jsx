@@ -24,8 +24,7 @@ export default function Footer() {
     // Continue with the subscription process
     // ...
   };
-
-  //
+  
 
   return (
     <footer className={styles.footer}>

@@ -28,3 +28,29 @@
     
     margin-bottom: 30px;
   }
+
+.reviewDiv{
+  width: 100%;
+   max-height: max-content;
+}
+
+  /* .reviewDivImage{
+    width: 100%; 
+    height: auto;
+    margin-bottom: 5px;
+  } */
+  .reviewText{
+    margin-top: 5px;
+  }
+
+  .showMoreButton{
+    margin-top: 10px,
+    margin-bottom: 20px,
+    font-size: 28px,
+    padding: 8px 16px,
+    color: "gray",
+    background-color: transparent,
+    border: solid gray 1px,
+    text-decoration: none,
+    cursor: pointer,
+  }
