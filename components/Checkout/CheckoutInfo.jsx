@@ -8,20 +8,18 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
 
   const handleBlur = (event) => {
     const { id, value } = event.target;
-
+    let errorMessage = null;
+  
     if (!value) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [id]: id.replace(/^\w/, (c) => c.toUpperCase()) + " is required field.",
-      }));
-    } else {
-      if (id === "email" && !/\S+@\S+\.\S+/.test(value))
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          [id]: "Please enter a valid email address.",
-        }));
-      else setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+      errorMessage = `${id.replace(/^\w/, (c) => c.toUpperCase())} is a required field.`;
+    } else if (id === "email" && !/\S+@\S+\.\S+/.test(value)) {
+      errorMessage = "Please enter a valid email address.";
     }
+  
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [id]: errorMessage,
+    }));
   };
 
   const errorPharagraph = (error) => <p className={styles.error}>{error}</p>;
@@ -81,7 +79,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
       }
     }
   };
-  
+
   const handleFocus = (event) => {
     const { id, value } = event.target;
     if (!errors[id] && !Object.keys(errors).length == inputNumber - 1) {
