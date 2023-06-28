@@ -81,9 +81,12 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
   };
 
   const handleFocus = (event) => {
-    const { id, value } = event.target;
-    if (!errors[id] && !Object.keys(errors).length == inputNumber - 1) {
-      setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+    const { id } = event.target;
+    if (!errors[id] && Object.keys(errors).length !== inputNumber - 1) {
+      setErrors((prevErrors) => {
+        const { [id]: _, ...rest } = prevErrors;
+        return rest;
+      });
     }
   };
 

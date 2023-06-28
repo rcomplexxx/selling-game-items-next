@@ -6,7 +6,7 @@ import AppContext from "@/contexts/AppContext";
 export default function OrderDetails({ unlockPaypal }) {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
-  // if(cartProducts.length===0)return <p>No items in the bag.</p>;
+  if(cartProducts.length===0)return <p>No items in the bag.</p>;
   let s = 0;
   cartProducts.forEach((cp, i) => {
     s = s + cp.quantity * cp.price;
@@ -36,10 +36,7 @@ export default function OrderDetails({ unlockPaypal }) {
       <div className={styles.checkout_section}>
         <h2>Order Summary</h2>
         <div className={styles.order_summary}>
-          {/* <div className={styles.product}>
-            <p>3 Fairy Light Spirit Tree</p>
-            <p>$119.97 USD</p>
-          </div> */}
+          
           {getProductElements()}
           <div className={styles.coupon_code}>
             <input type="text" placeholder="Coupon code" />
