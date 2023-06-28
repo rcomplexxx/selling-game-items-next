@@ -1,39 +1,34 @@
 import React, { useContext } from "react";
+import Link from "next/link";
 import Grid from "@mui/material/Grid";
 
 import Product from "./Product/Product";
 import styles from "./products.module.css";
 import AppContext from "@/contexts/AppContext";
-import Link from "next/link";
 
 const Products = ({ products, showAll }) => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
-  const onAddToCart = async (product, quantity = 1) => {
-    let foundProduct = false;
-    let newCartProducts = cartProducts.map((cp) => {
-      if (cp.id === product.id) {
-        cp.quantity = cp.quantity + 1;
-        foundProduct = true;
-      }
-      return cp;
-    });
-    if (!foundProduct) {
-      newCartProducts = [
-        ...newCartProducts,
-        {
-          id: product.id,
-          quantity,
-          name: product.name,
-          image: product.image,
-          price: product.price,
-        },
-      ];
-    }
+  const onAddToCart = (product, quantity = 1) => {
+  const existingProduct = cartProducts.find((cp) => cp.id === product.id);
 
-    console.log(newCartProducts);
+  if (existingProduct) {
+    existingProduct.quantity += 1;
+    setCartProducts([...cartProducts]);
+  } else {
+    const newCartProducts = [
+      ...cartProducts,
+      {
+        id: product.id,
+        quantity,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+      },
+    ];
     setCartProducts(newCartProducts);
-  };
+  }
+};
 
   return (
     <div className={styles.toolbar}>
@@ -55,7 +50,6 @@ const Products = ({ products, showAll }) => {
               lg={4}
             >
               <Product
-                key={product.id}
                 product={product}
                 onAddToCart={onAddToCart}
               />
@@ -66,16 +60,7 @@ const Products = ({ products, showAll }) => {
       {!showAll && (
         <Link
           href="/products"
-          style={{
-            marginTop: "10px",
-            marginBottom: "20px",
-            fontSize: "28px",
-            padding: "8px 16px",
-            color: "gray",
-            backgroundColor: "transparent",
-            border: "solid gray 1px",
-            textDecoration: "none",
-          }}
+          className={styles.viewAllLink}
         >
           View All
         </Link>

@@ -26,21 +26,13 @@ const Product = ({ product, onAddToCart }) => {
         </div>
       </Link>
       <div className={styles.cardContent}>
-        <div className={styles.cardContent}>
           <Typography gutterBottom variant="h5" component="h2">
             {product.name}
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
             ${product.price}
           </Typography>
-        </div>
-        <Typography
-          style={{ color: "white" }}
-          dangerouslySetInnerHTML={{ __html: product.description }}
-          variant="body2"
-          color="textSecondary"
-          component="p"
-        />
+       
       </div>
       <CardActions disableSpacing className={styles.cardActions}>
         <IconButton
