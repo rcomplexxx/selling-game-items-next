@@ -136,7 +136,7 @@ const NavBar = ({ totalItems }) => {
       <nav className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           {windowWidth > 980 && (
-            <Link href="/">
+            <Link href="/" style={{textDecoration:"none"}}>
               <Typography
                 variant="h6"
                 className={classes.title}
