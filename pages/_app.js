@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }) {
       <div
         id="hronika"
        className="hronika"
+       style={{width: hasScrollbar ? "calc(100% - 10px)" : "100%"}}
       >
         <Navbar
           totalItems={cartProducts.length}

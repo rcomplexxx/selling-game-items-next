@@ -83,7 +83,7 @@ a{
 
 
 .hronika{
-  width: calc(100% - 10px);
+  
   height: fit-content;
   display: flex;
   flex-direction: column;
