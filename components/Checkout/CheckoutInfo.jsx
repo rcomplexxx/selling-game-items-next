@@ -29,54 +29,51 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
   const handleChange = (event) => {
     const { id, value } = event.target;
     const errorLength = Object.keys(errors).length;
+
+    const setErrorMessage = (message) => {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [id]: message,
+      }));
+      setUnlockPaypal(false);
+    };
+
     if (errorLength >= inputNumber - 1) {
       if (!value) {
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          [id]: id + "is required field.",
-        }));
         setUnlockPaypal(false);
-      } else if (id === "email") {
-        if (!/\S+@\S+\.\S+/.test(value)) {
-          setErrors((prevErrors) => ({
-            ...prevErrors,
-            [id]: "Please enter a valid email address.",
-          }));
-          setUnlockPaypal(false);
-        } else {
-          if (
-            errorLength == inputNumber ||
-            (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id))
-          ) {
-            setUnlockPaypal(
-              Object.entries(errors).every(
-                ([key, value]) => key === id || value === null
-              )
-            );
-          }
-          setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
-        }
-      } else {
-        if (
-          errorLength == inputNumber ||
-          (errorLength == inputNumber - 1 && !errors.hasOwnProperty(id))
-        ) {
-          setUnlockPaypal(
-            Object.entries(errors).every(
-              ([key, value]) => key === id || value === null
-            )
-          );
-        }
-        setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+        setErrorMessage(`${id} is a required field.`);
+        return;
       }
+
+      if (id === "email") {
+        if (!/\S+@\S+\.\S+/.test(value)) {
+          setErrorMessage("Please enter a valid email address.");
+          return;
+        }
+      }
+
+      if (
+        errorLength === inputNumber ||
+        (errorLength === inputNumber - 1 && !errors.hasOwnProperty(id))
+      ) {
+        setUnlockPaypal(
+          Object.entries(errors).every(
+            ([key, value]) => key === id || value === null
+          )
+        );
+      }
+      setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
       return;
     }
+
     if (!errors[id]) return;
+
     if (value) {
       if (id === "email") {
-        if (errors[id] === "Email is required field.")
-          setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
-        else if (/\S+@\S+\.\S+/.test(value)) {
+        if (
+          errors[id] === "Email is required field." ||
+          !/\S+@\S+\.\S+/.test(value)
+        ) {
           setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
         }
       } else {
@@ -84,6 +81,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
       }
     }
   };
+  
   const handleFocus = (event) => {
     const { id, value } = event.target;
     if (!errors[id] && !Object.keys(errors).length == inputNumber - 1) {
