@@ -136,7 +136,7 @@ const NavBar = ({ totalItems }) => {
       <nav className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           {windowWidth > 980 && (
-            <Link href="/" style={{textDecoration:"none"}}>
+            <Link href="/" className="text_decoration_none">
               <Typography
                 variant="h6"
                 className={classes.title}
@@ -165,7 +165,8 @@ const NavBar = ({ totalItems }) => {
               </IconButton>
               <Link
                 href="/"
-                style={{ marginLeft: "10px", textDecoration: "none" }}
+                style={{ marginLeft: "10px",  }}
+                className='text_decoration_none'
               >
                 <Typography
                   variant="h6"

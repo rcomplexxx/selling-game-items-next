@@ -100,3 +100,7 @@ a{
 .object_fit_cover{
   object-fit: cover;
 }
+
+.text_decoration_none{
+  text-decoration:"none";
+}
