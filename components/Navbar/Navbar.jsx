@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ShoppingCart, Menu as MenuIcon } from "@mui/icons-material";
-
+import classNames from "classnames";
 
 
 
@@ -65,14 +65,14 @@ const NavBar = ({ totalItems }) => {
       >
         <MenuItem
          
-          className={classes.menuItem_x}
+          className={classNames(classes.menuItem_x)}
         >
           <button
                className={classes.menuItem_x_button}
             onClick={handleMobileMenuClose}
           >
             <Typography
-                 className={classes.menuItem_x_text}
+                 className={classNames(classes.menuItem_x_text)}
               variant="body1"
             >
               x
