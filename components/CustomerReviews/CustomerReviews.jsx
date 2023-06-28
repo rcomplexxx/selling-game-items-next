@@ -28,17 +28,12 @@ function Review({ author, text, image }) {
 }
 
 export default function CustomerReviews() {
-  const [reviews, setReviews] = useState(reviewsData.slice(0, 12),);
+  const [reviewNumber, setReviewNumber] = useState(12);
   const handleReview = async () => {
-    try {
-      const response = await fetch("/reviews.json"); // Replace with the correct path to your JSON file
-      const data = await response.json();
-
-      const newReviews = data.slice(reviews.length, reviews.length + 6); // Load 6 more reviews
-      setReviews((prevReviews) => [...prevReviews, ...newReviews]); // Append the new reviews to the existing ones
-    } catch (error) {
-      console.error("Error loading reviews:", error);
-    }
+    const newReviewNumber= reviewNumber+6;
+    if(newReviewNumber>reviewsData.length)
+   setReviewNumber(reviewsData.length)
+   else setReviewNumber(newReviewNumber)
   };
 
   const breakpointColumnsObj = {
@@ -55,7 +50,8 @@ export default function CustomerReviews() {
         className={classNames(styles.my_masonry_grid)}
         columnClassName={classNames(styles.my_masonry_grid_column)}
       >
-        {reviews.map((review, index) => {
+        {
+        reviewsData.slice(0, reviewNumber).map((review, index) => {
           return (
             <Review
             key={index}
@@ -64,7 +60,9 @@ export default function CustomerReviews() {
               image={review.image}
             />
           );
-        })}
+        })
+      }
+       
       </Masonry>
       <button
         className={styles.showMoreButton}
