@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </AppContext.Provider>
 
-        <Footer />
+        {router.pathname!=='checkout' && <Footer />}
       </div>
   );
 }
