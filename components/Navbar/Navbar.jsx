@@ -16,7 +16,7 @@ import { useRouter } from "next/router";
 
 import classes from "./navbar.module.css";
 
-const NavBar =  React.memo(({ totalItems }) => {
+const NavBar = ({ totalItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuClosing, setIsMenuClosing] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
@@ -245,6 +245,6 @@ const NavBar =  React.memo(({ totalItems }) => {
       {renderMobileMenu}
     </>
   );
-});
+};
 
 export default NavBar;
