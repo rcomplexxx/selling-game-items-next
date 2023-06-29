@@ -3,7 +3,7 @@ import Products from "@/components/Products/Products.jsx";
 import products from "../data/products.json";
 import Cart from "@/components/Cart/Cart.jsx";
 
-export default function ProductPage({ products }) {
+export default function ProductPage() {
   return (
     <div
       style={{
@@ -17,11 +17,3 @@ export default function ProductPage({ products }) {
   );
 }
 
-export async function getStaticProps() {
-  // Return the data as props
-  return {
-    props: {
-      products,
-    },
-  };
-}

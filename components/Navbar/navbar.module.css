@@ -138,7 +138,11 @@
     visibility: hidden;
   }
   
-
+  .menuItem_x {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
   
   .menuItem_x_button {
     border: none;

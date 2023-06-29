@@ -7,7 +7,7 @@ import styles from "./cart.module.css";
 import AppContext from "@/contexts/AppContext";
 import classNames from "classnames";
 
-const Cart = ({ emptyCartText = "true" }) => {
+const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
   const handleEmptyCart = async () => {
@@ -15,7 +15,7 @@ const Cart = ({ emptyCartText = "true" }) => {
   };
 
   const renderEmptyCart = () =>
-    emptyCartText && (
+    (
       <Typography
         variant="subtitle1"
         className={classNames(styles.emptyCartText)}
@@ -28,11 +28,12 @@ const Cart = ({ emptyCartText = "true" }) => {
       </Typography>
     );
 
-  let s = 0;
-  cartProducts.forEach((cp, i) => {
-    s = s + cp.quantity * cp.price;
-  });
-  s = Math.round(s * 100) / 100;
+ 
+
+  const subtotal = cartProducts.reduce(
+    (sum, cp) => sum + cp.quantity * cp.price,
+    0
+  ).toFixed(2) ;
 
   const renderCart = () => (
     <>
@@ -48,7 +49,7 @@ const Cart = ({ emptyCartText = "true" }) => {
         ))}
       </Grid>
       <div className={styles.cardDetails}>
-        <Typography variant="h4">Subtotal: ${s.toFixed(2)}</Typography>
+        <Typography variant="h4">Subtotal: ${subtotal}</Typography>
         <div>
           <Button
             className={classNames(styles.emptyButton)}
@@ -80,7 +81,7 @@ const Cart = ({ emptyCartText = "true" }) => {
   return (
     <div className={classNames(styles.container)}>
       <Container className={styles.containerStyle}>
-        {(emptyCartText || cartProducts.length !== 0) && (
+        {(cartProducts.length !== 0) && (
           <Typography
             className={classNames(styles.title)}
             variant="h3"
@@ -89,7 +90,7 @@ const Cart = ({ emptyCartText = "true" }) => {
             Your Shopping Cart
           </Typography>
         )}
-        {cartProducts.length == 0 ? renderEmptyCart() : renderCart()}
+        {cartProducts.length === 0 ? renderEmptyCart() : renderCart()}
       </Container>
     </div>
   );
