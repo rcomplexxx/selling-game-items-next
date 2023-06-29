@@ -13,11 +13,7 @@ export default function InputField({id, placeHolder, type, handleBlur, handleCha
       onBlur={handleBlur}
       onChange={handleChange}
       onFocus={handleFocus}
-      className={
-        styles.input_field +
-        " " +
-        (error ? styles.input_error : null)
-      }
+      className={`${styles.input_field} ${error ? styles.input_error : ''}`}
     />
     </div>
 
