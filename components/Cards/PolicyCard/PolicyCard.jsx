@@ -4,11 +4,7 @@ import styles from "./policyCard.module.css";
 export function PolicyMiniCard(props) {
   return (
     <div
-      className={
-        props.homeCard
-          ? styles["policy-main-div"] + " " + styles["homeCard"]
-          : styles["policy-main-div"]
-      }
+    className={`${styles["policy-main-div"]} ${props.homeCard ? styles.homeCard : ""}`}
     >
       {props.children}
     </div>
@@ -25,7 +21,7 @@ export default function PolicyCard(props) {
       }
     >
       {" "}
-      <PolicyMiniCard hoomeCard={props.homeCard}>
+      <PolicyMiniCard homeCard={props.homeCard}>
         {props.children}
       </PolicyMiniCard>
     </div>
