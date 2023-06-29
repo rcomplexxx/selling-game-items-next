@@ -33,7 +33,14 @@ export default function CustomerReviews({ startReviews }) {
       const response = await fetch("/reviews.json"); // Replace with the correct path to your JSON file
       const data = await response.json();
 
-      const newReviews = data.slice(12+reviews.length, reviews.length + 18); // Load 6 more reviews
+      const newReviews = data.slice(12, reviews.length + 18); // Load 6 more reviews
+      /* PAZNJA!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ovo je prava verzija koda, a ova gore je za testerske svrhe! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!PAZNJA*/
+      /* !!!!!!!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~ const newReviews = data.slice(12+reviews.length, reviews.length + 18); ~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!!!!!!!*/
+      /* PAZNJA!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ovo je prava verzija koda, a ova gore je za testerske svrhe! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!PAZNJA*/
+      /* !!!!!!!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~ const newReviews = data.slice(12+reviews.length, reviews.length + 18); ~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!!!!!!!*/
+      /* PAZNJA!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ovo je prava verzija koda, a ova gore je za testerske svrhe! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!PAZNJA*/
+      /* !!!!!!!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~ const newReviews = data.slice(12+reviews.length, reviews.length + 18); ~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!!!!!!!*/
+      
       setReviews((prevReviews) => [...prevReviews, ...newReviews]); // Append the new reviews to the existing ones
     } catch (error) {
       console.error("Error loading reviews:", error);
