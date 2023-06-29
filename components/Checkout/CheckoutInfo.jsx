@@ -257,21 +257,15 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
         {billingAddressType === "differentAddress" && (
           <form>
             <div className={styles.input_row}>
-              <div className={styles.form_group}>
-                <input
-                  placeholder="Address *"
-                  type="text"
-                  id="billingAddress"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  onFocus={handleFocus}
-                  className={
-                    styles.input_field +
-                    " " +
-                    (errors.billingAddress ? styles.input_error : null)
-                  }
-                />
-              </div>
+            <InputField
+          id='billingAddress'
+          placeHolder="Address *"
+          type="text"
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+          handleFocus={handleFocus}
+          error={errors.billingAddress}
+        />
               <div className={styles.form_group}>
                 <input
                   placeholder="Apt, suite, etc. (optional)"
@@ -282,83 +276,53 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
               </div>
             </div>
             <div className={styles.input_row}>
-              <div className={styles.form_group}>
-                <input
-                  placeholder="Country *"
-                  type="text"
-                  id="billingCountry"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  onFocus={handleFocus}
-                  className={
-                    styles.input_field +
-                    " " +
-                    (errors.billingCountry ? styles.input_error : null)
-                  }
-                />
-              </div>
-              <div className={styles.form_group}>
-                <input
-                  placeholder="Postcode *"
-                  type="text"
-                  id="billingPostcode"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  onFocus={handleFocus}
-                  className={
-                    styles.input_field +
-                    " " +
-                    (errors.billingPostcode ? styles.input_error : null)
-                  }
-                />
-              </div>
-              <div className={styles.form_group}>
-                <input
-                  placeholder="State *"
-                  type="text"
-                  id="billingState"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  onFocus={handleFocus}
-                  className={
-                    styles.input_field +
-                    " " +
-                    (errors.billingState ? styles.input_error : null)
-                  }
-                />
-              </div>
+            <InputField
+          id='billingCountry'
+          placeHolder="Country *"
+          type="text"
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+          handleFocus={handleFocus}
+          error={errors.billingCountry}
+        />
+               <InputField
+          id='billingPostcode'
+          placeHolder="Postcode *"
+          type="text"
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+          handleFocus={handleFocus}
+          error={errors.billingPostcode}
+        />
+              <InputField
+          id='billingState'
+          placeHolder="State *"
+          type="text"
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+          handleFocus={handleFocus}
+          error={errors.billingState}
+        />
             </div>
             <div className={styles.input_row}>
-              <div className={styles.form_group}>
-                <input
-                  placeholder="Suburb *"
-                  type="text"
-                  id="billingSuburb"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  onFocus={handleFocus}
-                  className={
-                    styles.input_field +
-                    " " +
-                    (errors.billingSuburb ? styles.input_error : null)
-                  }
-                />
-              </div>
-              <div className={styles.form_group}>
-                <input
-                  placeholder="Phone *"
-                  type="text"
-                  id="billingPhone"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
-                  onFocus={handleFocus}
-                  className={
-                    styles.input_field +
-                    " " +
-                    (errors.billingPhone ? styles.input_error : null)
-                  }
-                />
-              </div>
+            <InputField
+          id='billingSuburb'
+          placeHolder="Suburb *"
+          type="text"
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+          handleFocus={handleFocus}
+          error={errors.billingSuburb}
+        />
+              <InputField
+          id='billingPhone'
+          placeHolder="Phone *"
+          type="text"
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+          handleFocus={handleFocus}
+          error={errors.billingPhone}
+        />
             </div>
           </form>
         )}
