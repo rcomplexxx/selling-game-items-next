@@ -37,7 +37,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
       setUnlockPaypal(false);
     };
 
-    if (errorLength >= inputNumber - 1) {
+    if( (errorLength === inputNumber-1 && !errors.hasOwnProperty(id)) || errorLength===inputNumber ) {
       if (!value) {
         
         setErrorMessage(`${id} is a required field.`);
@@ -50,6 +50,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
       }
 
       else {
+        
         setErrors((prevErrors) => ({
           ...prevErrors,
           [id]: null,
