@@ -39,24 +39,31 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
 
     if (errorLength >= inputNumber - 1) {
       if (!value) {
-        setUnlockPaypal(false);
+        
         setErrorMessage(`${id} is a required field.`);
-        return;
+        
       }
 
-      if (id === "email" && !/\S+@\S+\.\S+/.test(value)) {
+      else if (id === "email" && !/\S+@\S+\.\S+/.test(value)) {
         setErrorMessage("Please enter a valid email address.");
         return;
       }
 
-      if (!errors.hasOwnProperty(id)) {
+      else {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [id]: null,
+        }));
         setUnlockPaypal(
-          Object.entries(errors).every(
-            ([key, value]) => key === id || value === null
+          errorLength===inputNumber && Object.entries(errors).every(
+            
+            ([key, value]) => value === null
           )
         );
+       
       }
-      setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
+      
+     
       return;
     }
 
