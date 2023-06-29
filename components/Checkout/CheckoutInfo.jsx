@@ -68,15 +68,9 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
   };
 
   const handleFocus = (event) => {
-    if (
-      !errors[event.target] &&
-      Object.keys(errors).length !==
-        (billingAddressType === "sameAddress" ? 8 : 14)
-    ) {
-      setErrors((prevErrors) => {
-        const { [id]: _, ...rest } = prevErrors;
-        return rest;
-      });
+    const { id } = event.target;
+    if (!errors[id] && !Object.keys(errors).length == inputNumber - 1) {
+      setErrors((prevErrors) => ({ ...prevErrors, [id]: null }));
     }
   };
 
