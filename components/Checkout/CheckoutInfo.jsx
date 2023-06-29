@@ -174,7 +174,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
             <InputField id='address'  placeHolder="Address *"  type="text" handleBlur={handleBlur}
                 handleChange={handleChange}
                 handleFocus={handleFocus}
-                error={errors['address']}/>
+                error={errors.address}/>
            
             <div className={styles.form_group}>
               <input

@@ -3,6 +3,7 @@ import styles from './inputfield.module.css'
 
 
 export default function InputField({id, placeHolder, type, handleBlur, handleChange,handleFocus, error}){
+    console.log('error');
 
 
     return <div className={styles.form_group}>
