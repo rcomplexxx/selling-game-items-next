@@ -29,15 +29,18 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
     const errorLength = Object.keys(errors).length;
     const inputNumber = billingAddressType === "sameAddress" ? 9 : 15;
 
-    const setErrorMessage = (message) => {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [id]: message,
-      }));
-      setUnlockPaypal(false);
-    };
+    
 
     if( (errorLength === inputNumber-1 && !errors.hasOwnProperty(id)) || errorLength===inputNumber ) {
+
+      const setErrorMessage = (message) => {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [id]: message,
+        }));
+        setUnlockPaypal(false);
+      };
+
       if (!value) {
         
         setErrorMessage(`${id} is a required field.`);
@@ -56,10 +59,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
           [id]: null,
         }));
         setUnlockPaypal(
-          Object.entries(errors).every(
-            
-            ([key, value]) =>   value === null || key === id 
-          )
+          Object.values(errors).every(value => value === null)
         );
        
       }
