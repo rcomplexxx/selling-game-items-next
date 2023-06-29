@@ -23,7 +23,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
     }));
   };
 
-  const errorPharagraph = (error) => <p className={styles.error}>{error}</p>;
+  
 
   const handleChange = (event) => {
     const { id, value } = event.target;
@@ -127,7 +127,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
       handleChange={handleChange}
       handleFocus={handleFocus}
       error={errors.email}
-    >{errors.email && errorPharagraph(errors.email)}</InputField>
+    >{errors.email && <p className={styles.error}>{errors.email}</p>}</InputField>
            
           <h2>Shipping information</h2>
           <p>Fields marked with * are required</p>

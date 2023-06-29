@@ -25,3 +25,13 @@
   .input_error{
     border: solid 1px red;
   }
+
+  
+  @media (max-width: 980px)  {
+
+  
+  .input_field {
+    margin-bottom: 20px;
+    }
+   
+  }
