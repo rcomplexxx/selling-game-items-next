@@ -3,7 +3,7 @@ import styles from './inputfield.module.css'
 
 
 export default function InputField({id, placeHolder, type, handleBlur, handleChange,handleFocus, error}){
-    console.log('error');
+   
 
 
     return <div className={styles.form_group}>
@@ -16,6 +16,7 @@ export default function InputField({id, placeHolder, type, handleBlur, handleCha
       onFocus={handleFocus}
       className={`${styles.input_field} ${error ? styles.input_error : ''}`}
     />
+      {children}
     </div>
 
 }

@@ -119,22 +119,16 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
       <div className={styles.checkout_section}>
         <h2>Contact Information</h2>
         <form>
-          <div className={styles.form_group}>
-            <input
-              placeholder="Email *"
-              type="email"
-              id="email"
-              onBlur={handleBlur}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              className={
-                styles.input_field +
-                " " +
-                (errors.email ? styles.input_error : null)
-              }
-            />
-            {errors.email && errorPharagraph(errors.email)}
-          </div>
+          <InputField
+      id='email'
+      placeHolder="Email *"
+      type="email"
+      handleBlur={handleBlur}
+      handleChange={handleChange}
+      handleFocus={handleFocus}
+      error={errors.email}
+    >{errors.email && errorPharagraph(errors.email)}</InputField>
+           
           <h2>Shipping information</h2>
           <p>Fields marked with * are required</p>
 
