@@ -9,13 +9,13 @@ import "react-gallery-carousel/dist/index.css";
 import { useState, useContext } from "react";
 import { RatingStar } from "rating-star";
 import styles from "../../styles/productpage.module.css";
+import reviewsData from "../../public/reviews.json";
 
 
 
 
 
-
-export default function ProductPage({ product,images }) {
+export default function ProductPage({ product,images, startReviews }) {
   if (!product) return <p style={{ marginTop: "100px" }}>Product not found.</p>;
 
   const [selectedStyle, setSelectedStyle] = useState("Black Kitten");
@@ -130,7 +130,7 @@ export default function ProductPage({ product,images }) {
           </button>
         </div>
       </div>
-      <CustomerReviews></CustomerReviews>
+      <CustomerReviews startReviews={startReviews}/>
     </>
   );
 }
@@ -167,7 +167,8 @@ export async function getStaticProps(context) {
   return {
     props: {
       product,
-      images
+      images,
+      startReviews:reviewsData.slice(0, 12)
       
     },
   };
