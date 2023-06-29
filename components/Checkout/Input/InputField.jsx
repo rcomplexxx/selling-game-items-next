@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './inputfield.module.css'
 
 
-export default function InputField({id, placeHolder, type, handleBlur, handleChange,handleFocus, error}){
+export default function InputField({id, placeHolder, type, handleBlur, handleChange,handleFocus, error, children}){
    
 
 
@@ -16,7 +16,7 @@ export default function InputField({id, placeHolder, type, handleBlur, handleCha
       onFocus={handleFocus}
       className={`${styles.input_field} ${error ? styles.input_error : ''}`}
     />
-      {children}
+      {children && children}
     </div>
 
 }

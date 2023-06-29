@@ -133,36 +133,25 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
           <p>Fields marked with * are required</p>
 
           <div className={styles.input_row}>
-            <div className={styles.form_group}>
-              <input
-                placeholder="First name *"
-                type="text"
-                id="firstName"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.firstName ? styles.input_error : null)
-                }
-              />
-            </div>
-            <div className={styles.form_group}>
-              <input
-                placeholder="Last name *"
-                type="text"
-                id="lastName"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.lastName ? styles.input_error : null)
-                }
-              />
-            </div>
+          <InputField
+        id='firstName'
+        placeHolder="First name *"
+        type="text"
+        handleBlur={handleBlur}
+        handleChange={handleChange}
+        handleFocus={handleFocus}
+        error={errors.firstName}
+      />
+            <InputField
+        id='lastName'
+        placeHolder="Last name *"
+        type="text"
+        handleBlur={handleBlur}
+        handleChange={handleChange}
+        handleFocus={handleFocus}
+        error={errors.lastName}
+      />
+            
           </div>
           <div className={styles.input_row}>
             <InputField id='address'  placeHolder="Address *"  type="text" handleBlur={handleBlur}
@@ -184,83 +173,53 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
             </div>
           </div>
           <div className={styles.input_row}>
-            <div className={styles.form_group}>
-              <input
-                placeholder="Country *"
-                type="text"
-                id="country"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.country ? styles.input_error : null)
-                }
-              />
-            </div>
-            <div className={styles.form_group}>
-              <input
-                placeholder="Postcode *"
-                type="text"
-                id="postcode"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.postcode ? styles.input_error : null)
-                }
-              />
-            </div>
-            <div className={styles.form_group}>
-              <input
-                placeholder="State *"
-                type="text"
-                id="state"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.state ? styles.input_error : null)
-                }
-              />
-            </div>
+          <InputField
+        id='country'
+        placeHolder="Country *"
+        type="text"
+        handleBlur={handleBlur}
+        handleChange={handleChange}
+        handleFocus={handleFocus}
+        error={errors.country}
+      />
+             <InputField
+        id='postcode'
+        placeHolder="Postcode *"
+        type="text"
+        handleBlur={handleBlur}
+        handleChange={handleChange}
+        handleFocus={handleFocus}
+        error={errors.postcode}
+      />
+            <InputField
+        id='state'
+        placeHolder="State *"
+        type="text"
+        handleBlur={handleBlur}
+        handleChange={handleChange}
+        handleFocus={handleFocus}
+        error={errors.state}
+      />
           </div>
           <div className={styles.input_row}>
-            <div className={styles.form_group}>
-              <input
-                placeholder="Suburb *"
-                type="text"
-                id="suburb"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.suburb ? styles.input_error : null)
-                }
-              />
-            </div>
-            <div className={styles.form_group}>
-              <input
-                placeholder="Phone *"
-                type="text"
-                id="phone"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.phone ? styles.input_error : null)
-                }
-              />
-            </div>
+          <InputField
+        id='suburb'
+        placeHolder="Suburb *"
+        type="text"
+        handleBlur={handleBlur}
+        handleChange={handleChange}
+        handleFocus={handleFocus}
+        error={errors.suburb}
+      />
+             <InputField
+        id='phone'
+        placeHolder="Phone *"
+        type="text"
+        handleBlur={handleBlur}
+        handleChange={handleChange}
+        handleFocus={handleFocus}
+        error={errors.phone}
+      />
           </div>
         </form>
       </div>
