@@ -18,15 +18,14 @@ const CartItem = ({ item }) => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
   const handleUpdateCartQty = async (quantity) => {
-    return setCartProducts(
-      cartProducts.filter((cp) => {
+    setCartProducts(
+      cartProducts.map((cp) => {
         if (cp.id === item.id) {
-          cp.quantity = cp.quantity + quantity;
-          return cp.quantity !== 0;
+          cp.quantity += quantity;
+          return cp.quantity !== 0 ? cp : null;
         }
-
-        return true;
-      })
+        return cp;
+      }).filter(Boolean)
     );
   };
 
