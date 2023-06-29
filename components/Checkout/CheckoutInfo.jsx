@@ -57,7 +57,7 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
         setUnlockPaypal(
           errorLength===inputNumber && Object.entries(errors).every(
             
-            ([key, value]) => value === null
+            ([key, value]) => key === id ||  value === null
           )
         );
        
