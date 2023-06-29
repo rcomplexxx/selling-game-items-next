@@ -159,18 +159,13 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
                 handleFocus={handleFocus}
                 error={errors.address}/>
            
-            <div className={styles.form_group}>
-              <input
-                placeholder="Apt, suite, etc. (optional)"
-                type="text"
-                id="apt"
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.apt ? styles.input_error : null)
-                }
-              />
-            </div>
+           
+            <InputField
+        id='apt'
+        placeHolder="Apt, suite, etc. (optional)"
+        type="text"
+      />
+
           </div>
           <div className={styles.input_row}>
           <InputField
