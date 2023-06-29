@@ -68,7 +68,7 @@ export default function CustomerReviews() {
               image={review.image}
             />
           );
-        })
+        })}
         {reviews.map((review, index) => {
           return (
             <Review
@@ -79,7 +79,7 @@ export default function CustomerReviews() {
             />
           );
         })}
-      }
+      
        
       </Masonry>
       <button
