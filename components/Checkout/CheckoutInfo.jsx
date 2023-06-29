@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./checkoutinfo.module.css";
+import InputField from "./Input/InputField";
 
 export default function CheckoutInfo({ setUnlockPaypal }) {
   const [errors, setErrors] = useState({});
@@ -170,21 +171,11 @@ export default function CheckoutInfo({ setUnlockPaypal }) {
             </div>
           </div>
           <div className={styles.input_row}>
-            <div className={styles.form_group}>
-              <input
-                placeholder="Address *"
-                type="text"
-                id="address"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                className={
-                  styles.input_field +
-                  " " +
-                  (errors.address ? styles.input_error : null)
-                }
-              />
-            </div>
+            <InputField id='address'  placeholder="Address *"  type="text" handleBlur={handleBlur}
+                handleChange={handleChange}
+                handleFocus={handleFocus}
+                error={errors.address}/>
+           
             <div className={styles.form_group}>
               <input
                 placeholder="Apt, suite, etc. (optional)"
