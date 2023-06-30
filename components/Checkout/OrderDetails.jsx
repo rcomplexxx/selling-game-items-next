@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import styles from "./orderdetails.module.css";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import AppContext from "@/contexts/AppContext";
 
-export default function OrderDetails({ unlockPaypal }) {
-  const { cartProducts, setCartProducts } = useContext(AppContext);
+export default function OrderDetails({ unlockPaypal,products }) {
+  
 
-  if(cartProducts.length===0)return <p>No items in the bag.</p>;
+ 
   let s = 0;
-  cartProducts.forEach((cp, i) => {
+  products .forEach((cp, i) => {
     s = s + cp.quantity * cp.price;
   });
   if (s === 0) s = 0.01;
@@ -17,7 +16,7 @@ export default function OrderDetails({ unlockPaypal }) {
   const getProductElements = () => {
     return (
       <>
-        {cartProducts.map((cp, i) => (
+        {products .map((cp, i) => (
           <div className={styles.product} key={i}>
             <p>
               {cp.quantity} {cp.name}s
