@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Head from 'next/head';
 
 import styles from "./faq.module.css";
 
@@ -32,6 +33,10 @@ function Question(props) {
 export default function Faq({questionData}) {
  
   return (
+<>
+<Head>
+   <title>FAQ - Gamesmoke shop</title>
+ </Head>
     <div className={styles.coverDiv}>
       {" "}
       <div className={styles.mainDiv}>
@@ -55,6 +60,7 @@ export default function Faq({questionData}) {
         })}
       </div>
     </div>
+    </>
   );
 }
 

@@ -1,8 +1,14 @@
 import React from "react";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
+import Head from 'next/head';
+
 
 function ShippingPolicy() {
   return (
+    <>
+     <Head>
+        <title>Shipping policy - Gamesmoke shop</title>
+      </Head>
     <PolicyCard>
       <h1>Shipping policy</h1>
       <h2>Do you ship globally?</h2>
@@ -57,6 +63,7 @@ function ShippingPolicy() {
         charges, however, there are always rare exceptions.
       </p>
     </PolicyCard>
+    </>
   );
 }
 

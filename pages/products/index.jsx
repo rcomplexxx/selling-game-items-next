@@ -3,9 +3,16 @@ import Products from "@/components/Products/Products.jsx";
 import products from "../../data/products.json";
 import Link from "next/link";
 import styles from "./page/page.module.css";
+import Head from 'next/head';
+
 
 export default function ProductPage({ products,  links }) {
   return (
+ 
+<>
+<Head>
+   <title>Products - Gamesmoke shop</title>
+ </Head>
     <div
       style={{
         display: "flex",
@@ -34,6 +41,7 @@ export default function ProductPage({ products,  links }) {
         {links && <Link href={`/products/page/2`}>{"->"}</Link>}
       </div>
     </div>
+    </>
   );
 }
 

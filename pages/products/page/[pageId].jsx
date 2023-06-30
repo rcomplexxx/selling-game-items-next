@@ -4,6 +4,8 @@ import products from "../../../data/products.json";
 import Products from "@/components/Products/Products.jsx";
 import Link from "next/link";
 import styles from "./page.module.css";
+import Head from 'next/head';
+
 
 const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
   // Redirect to home page if no product
@@ -21,6 +23,10 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
   //
 
   return (
+<>
+<Head>
+   <title>Products - Page {pageId} - Gamesmoke shop</title>
+ </Head>
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
@@ -51,6 +57,7 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

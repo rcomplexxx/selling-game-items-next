@@ -10,6 +10,7 @@ import { useState, useContext } from "react";
 import { RatingStar } from "rating-star";
 import styles from "../../styles/productpage.module.css";
 import reviewsData from "../../public/reviews.json";
+import Head from 'next/head';
 
 
 
@@ -55,7 +56,10 @@ export default function ProductPage({ product,images, startReviews }) {
   };
 
   return (
-    <>
+<>
+<Head>
+   <title>{product.name} - Gamesmoke shop</title>
+ </Head>
       <div className={styles.productPageDiv}>
         <div className={styles.media}>
           <Carousel

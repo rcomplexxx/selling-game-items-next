@@ -1,8 +1,14 @@
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
 import React from "react";
+import Head from 'next/head';
+
 
 export default function ContactUs() {
   return (
+<>
+<Head>
+   <title>Contact us - Gamesmoke shop</title>
+ </Head>
     <PolicyCard smallContent={true}>
       <h1>Contact Us</h1>
       <p>Drop Us A Line</p>
@@ -14,5 +20,6 @@ export default function ContactUs() {
         at the checkout in your message. Thank you!
       </p>
     </PolicyCard>
+    </>
   );
 }

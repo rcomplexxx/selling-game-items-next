@@ -1,8 +1,14 @@
 import React from "react";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
+import Head from 'next/head';
+
 
 export default function PrivacyPolicy() {
   return (
+    <>
+<Head>
+   <title>Privacy policy - Gamesmoke shop</title>
+ </Head>
     <PolicyCard>
       <h1>Privacy Policy</h1>
 
@@ -108,5 +114,6 @@ export default function PrivacyPolicy() {
         .
       </p>
     </PolicyCard>
+    </>
   );
 }

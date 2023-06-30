@@ -4,10 +4,16 @@ import HomeReviews from "../components/HomeReviews/HomeReviews.jsx";
 import Products from "@/components/Products/Products.jsx";
 import products from "../data/products.json";
 import styles from "../styles/appStyle.module.css";
+import Head from 'next/head';
+
 const HomePage = ({ products }) => {
   return (
     <>
-      <div className={styles.heroImageDiv}></div>
+  
+<Head>
+   <title>Gamesmoke shop</title>
+ </Head>
+      <div className={styles.heroImageDiv}/>
       <div className={styles.heroWindow}>
         <button className={styles.linkButton + " " + styles.linkButtonFirst}>
           Shop Now
