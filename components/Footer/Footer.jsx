@@ -4,7 +4,7 @@ import styles from "./footer.module.css";
 
 export default function Footer() {
   const email = useRef();
-  const isValidEmailRef = useRef(true);
+  const [isValidEmail, setIsValidEmail] = useState(true);
 
   const handleInputChange = (event) => {
     
@@ -12,12 +12,12 @@ export default function Footer() {
 
   const handleSubscribe = async () => {
     const emailPattern = /^\w+@\w+\.\w+$/;
-    if (!emailPattern.test(email.current.value)) {
-      isValidEmailRef.current = false;
+    if (!emailPattern.test(email)) {
+      setIsValidEmail(false);
       return;
     } else {
-      isValidEmailRef.current = true;
-      email.current.value="";
+      setIsValidEmail(true);
+      email.current="";
     }
 
     // Continue with the subscription process
@@ -40,7 +40,7 @@ export default function Footer() {
           ref={email}
           onChange={handleInputChange}
         />
-       {!isValidEmailRef.current && (
+       {!isValidEmail && (
       <p style={{ color: "orange" }}>Please enter a valid email address.</p>
     )}
         <button className={styles.subscribeButton} onClick={handleSubscribe}>
