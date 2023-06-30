@@ -3,12 +3,11 @@ import Link from "next/link";
 import styles from "./footer.module.css";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [isValidEmail, setIsValidEmail] = useState(true);
+  const email = useRef("");
   const isValidEmailRef = useRef(true);
 
   const handleInputChange = (event) => {
-    setEmail(event.target.value);
+    
   };
 
   const handleSubscribe = async () => {
@@ -18,7 +17,7 @@ export default function Footer() {
       return;
     } else {
       isValidEmailRef.current = true;
-      setEmail("");
+      email.current="";
     }
 
     // Continue with the subscription process
@@ -38,7 +37,7 @@ export default function Footer() {
           id="subscribe"
           className={styles.subscribeInput}
           placeholder="Enter your email address"
-          value={email}
+          ref={email}
           onChange={handleInputChange}
         />
        {!isValidEmailRef.current && (
