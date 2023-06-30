@@ -17,7 +17,7 @@ export default function Footer() {
       return;
     } else {
       isValidEmailRef.current = true;
-      email.current.balue="";
+      email.current.value="";
     }
 
     // Continue with the subscription process
