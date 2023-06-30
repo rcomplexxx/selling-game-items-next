@@ -23,13 +23,13 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
   //
 
   return (
-<>
-<Head>
-   <title>Products - Page {pageId} - Gamesmoke shop</title>
- </Head>
+
     <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      className={styles.mainDiv}
     >
+        <Head>
+   <title>Products - Gamesmoke shop</title>
+ </Head>
       <Products
         showAll={true}
         products={products}
@@ -57,7 +57,6 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
         )}
       </div>
     </div>
-    </>
   );
 };
 

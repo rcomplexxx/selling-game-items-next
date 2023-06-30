@@ -5,11 +5,12 @@ import Head from 'next/head';
 
 function ShippingPolicy() {
   return (
-    <>
-     <Head>
+  
+    
+    <PolicyCard>
+       <Head>
         <title>Shipping policy - Gamesmoke shop</title>
       </Head>
-    <PolicyCard>
       <h1>Shipping policy</h1>
       <h2>Do you ship globally?</h2>
       <p>Shipping is WORLDWIDE on ALL PRODUCTS!</p>
@@ -63,7 +64,7 @@ function ShippingPolicy() {
         charges, however, there are always rare exceptions.
       </p>
     </PolicyCard>
-    </>
+   
   );
 }
 

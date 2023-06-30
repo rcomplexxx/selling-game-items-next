@@ -33,12 +33,11 @@ function Question(props) {
 export default function Faq({questionData}) {
  
   return (
-<>
-<Head>
-   <title>FAQ - Gamesmoke shop</title>
- </Head>
+
     <div className={styles.coverDiv}>
-      {" "}
+      <Head>
+   <title>Products - Gamesmoke shop</title>
+ </Head>
       <div className={styles.mainDiv}>
         <h1>FAQ</h1>
         <p>
@@ -60,7 +59,6 @@ export default function Faq({questionData}) {
         })}
       </div>
     </div>
-    </>
   );
 }
 

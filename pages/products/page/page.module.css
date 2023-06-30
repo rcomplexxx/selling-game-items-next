@@ -23,3 +23,9 @@
   margin-right: 5px;
   background-color: rgb(44, 95, 93);
 }
+
+.mainDiv{
+  display: flex;
+   flex-direction: column;
+    align-items: center;
+}

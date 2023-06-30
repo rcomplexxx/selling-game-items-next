@@ -141,11 +141,11 @@ const NavBar = ({ totalItems }) => {
               >
                 <img
                   src="/images/commerce.png"
-                  alt="Game Smoke Gear"
+                  alt="Gamesmoke Shop"
                   height="25px"
                   className={classes.image}
                 />
-                GameSmoke Gear
+                Gamesmoke Shop
               </Typography>
             </Link>
           )}
@@ -172,11 +172,11 @@ const NavBar = ({ totalItems }) => {
                 >
                   <img
                     src="/images/commerce.png"
-                    alt="Game Smoke Gear"
+                    alt="Gamesmoke Shop"
                     height="25px"
                     className={classes.image}
                   />
-                  GameSmoke Gear
+                  Gamesmoke Shop
                 </Typography>
               </Link>
             </div>

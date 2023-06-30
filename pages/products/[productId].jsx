@@ -56,11 +56,11 @@ export default function ProductPage({ product,images, startReviews }) {
   };
 
   return (
-<>
-<Head>
-   <title>{product.name} - Gamesmoke shop</title>
- </Head>
+
       <div className={styles.productPageDiv}>
+        <Head>
+   <title>Products - Gamesmoke shop</title>
+ </Head>
         <div className={styles.media}>
           <Carousel
             images={images}
@@ -133,9 +133,8 @@ export default function ProductPage({ product,images, startReviews }) {
             Add to Cart
           </button>
         </div>
+        <CustomerReviews startReviews={startReviews}/>
       </div>
-      <CustomerReviews startReviews={startReviews}/>
-    </>
   );
 }
 

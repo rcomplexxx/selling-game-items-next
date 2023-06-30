@@ -4,11 +4,11 @@ import Head from 'next/head';
 
 export default function AboutUs() {
   return (
-<>
-<Head>
-   <title>About us - Gamesmoke shop</title>
- </Head>
+
     <div className="centered">
+       <Head>
+        <title>Shipping policy - Gamesmoke shop</title>
+      </Head>
       <PolicyCard homeCard={true} smallContent={true}>
         <h1>About us</h1>
 
@@ -36,6 +36,5 @@ export default function AboutUs() {
         <p>Happy shopping! 🌠</p>
       </PolicyCard>
     </div>
-    </>
   );
 }

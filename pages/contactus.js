@@ -5,11 +5,11 @@ import Head from 'next/head';
 
 export default function ContactUs() {
   return (
-<>
-<Head>
-   <title>Contact us - Gamesmoke shop</title>
- </Head>
+
     <PolicyCard smallContent={true}>
+       <Head>
+        <title>Shipping policy - Gamesmoke shop</title>
+      </Head>
       <h1>Contact Us</h1>
       <p>Drop Us A Line</p>
       <p>
@@ -20,6 +20,5 @@ export default function ContactUs() {
         at the checkout in your message. Thank you!
       </p>
     </PolicyCard>
-    </>
   );
 }

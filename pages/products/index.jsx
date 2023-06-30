@@ -9,10 +9,7 @@ import Head from 'next/head';
 export default function ProductPage({ products,  links }) {
   return (
  
-<>
-<Head>
-   <title>Products - Gamesmoke shop</title>
- </Head>
+
     <div
       style={{
         display: "flex",
@@ -20,6 +17,9 @@ export default function ProductPage({ products,  links }) {
         alignItems: "center",
       }}
     >
+      <Head>
+   <title>Products - Gamesmoke shop</title>
+ </Head>
       <Products showAll={true} products={products}></Products>
 
       <div className={styles.linkDiv}>
@@ -41,7 +41,6 @@ export default function ProductPage({ products,  links }) {
         {links && <Link href={`/products/page/2`}>{"->"}</Link>}
       </div>
     </div>
-    </>
   );
 }
 

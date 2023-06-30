@@ -5,11 +5,11 @@ import Head from 'next/head';
 
 export default function PrivacyPolicy() {
   return (
-    <>
-<Head>
-   <title>Privacy policy - Gamesmoke shop</title>
- </Head>
+  
     <PolicyCard>
+       <Head>
+        <title>Shipping policy - Gamesmoke shop</title>
+      </Head>
       <h1>Privacy Policy</h1>
 
       <p>
@@ -114,6 +114,5 @@ export default function PrivacyPolicy() {
         .
       </p>
     </PolicyCard>
-    </>
   );
 }

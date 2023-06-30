@@ -7,10 +7,7 @@ import Head from 'next/head';
 
 export default function ProductPage() {
   return (
-<>
-<Head>
-   <title>Cart- Gamesmoke shop</title>
- </Head>
+
     <div
       style={{
         display: "flex",
@@ -18,9 +15,11 @@ export default function ProductPage() {
         alignItems: "center",
       }}
     >
+       <Head>
+        <title>Shipping policy - Gamesmoke shop</title>
+      </Head>
       <Cart />
     </div>
-    </>
   );
 }
 

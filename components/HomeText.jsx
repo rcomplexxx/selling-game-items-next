@@ -6,7 +6,7 @@ export default function HomeText() {
     <PolicyMiniCard homeCard={true}>
       <h1>Enjoy your games more, as you play like a pro!</h1>
 
-      <p>Welcome to the League of Items.</p>
+      <p>Welcome to the Gamesmoke Shop.</p>
       <p>
         Our story began when we saw a gap in the market of new and innovative
         products not being pushed into the market quick enough nor without any
