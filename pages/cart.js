@@ -16,7 +16,7 @@ export default function ProductPage() {
       }}
     >
        <Head>
-        <title>Shipping policy - Gamesmoke shop</title>
+        <title>Cart - Gamesmoke shop</title>
       </Head>
       <Cart />
     </div>

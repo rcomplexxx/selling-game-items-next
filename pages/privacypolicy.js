@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
   
     <PolicyCard>
        <Head>
-        <title>Shipping policy - Gamesmoke shop</title>
+        <title>Privacy policy - Gamesmoke shop</title>
       </Head>
       <h1>Privacy Policy</h1>
 

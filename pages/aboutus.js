@@ -7,7 +7,7 @@ export default function AboutUs() {
 
     <div className="centered">
        <Head>
-        <title>Shipping policy - Gamesmoke shop</title>
+        <title>About us - Gamesmoke shop</title>
       </Head>
       <PolicyCard homeCard={true} smallContent={true}>
         <h1>About us</h1>

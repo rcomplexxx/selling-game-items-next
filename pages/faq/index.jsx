@@ -36,7 +36,7 @@ export default function Faq({questionData}) {
 
     <div className={styles.coverDiv}>
       <Head>
-   <title>Products - Gamesmoke shop</title>
+   <title>FAQ - Gamesmoke shop</title>
  </Head>
       <div className={styles.mainDiv}>
         <h1>FAQ</h1>

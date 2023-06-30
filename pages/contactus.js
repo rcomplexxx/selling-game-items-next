@@ -8,7 +8,7 @@ export default function ContactUs() {
 
     <PolicyCard smallContent={true}>
        <Head>
-        <title>Shipping policy - Gamesmoke shop</title>
+        <title>Contact - Gamesmoke shop</title>
       </Head>
       <h1>Contact Us</h1>
       <p>Drop Us A Line</p>

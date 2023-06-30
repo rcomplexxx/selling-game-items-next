@@ -28,7 +28,7 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
       className={styles.mainDiv}
     >
         <Head>
-   <title>Products - Gamesmoke shop</title>
+   <title>Products - Page {pageId} - Gamesmoke shop</title>
  </Head>
       <Products
         showAll={true}

@@ -59,7 +59,7 @@ export default function ProductPage({ product,images, startReviews }) {
 
       <div className={styles.productPageDiv}>
         <Head>
-   <title>Products - Gamesmoke shop</title>
+   <title>{product.name} - Gamesmoke shop</title>
  </Head>
         <div className={styles.media}>
           <Carousel

@@ -16,7 +16,7 @@ const CheckoutPage = () => {
 
     <div className={styles.checkout_container}>
       <Head>
-   <title>Products - Gamesmoke shop</title>
+   <title>Checkout - Gamesmoke shop</title>
  </Head>
       <CheckoutInfo setUnlockPaypal={setUnlockPaypal}></CheckoutInfo>
       <OrderDetails unlockPaypal={unlockPaypal} products={cartProducts} />
