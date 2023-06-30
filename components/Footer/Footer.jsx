@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./footer.module.css";
 
 export default function Footer() {
-  const email = useRef("");
+  const email = useRef();
   const isValidEmailRef = useRef(true);
 
   const handleInputChange = (event) => {
@@ -12,12 +12,12 @@ export default function Footer() {
 
   const handleSubscribe = async () => {
     const emailPattern = /^\w+@\w+\.\w+$/;
-    if (!emailPattern.test(email)) {
+    if (!emailPattern.test(email.current.value)) {
       isValidEmailRef.current = false;
       return;
     } else {
       isValidEmailRef.current = true;
-      email.current="";
+      email.current.balue="";
     }
 
     // Continue with the subscription process
