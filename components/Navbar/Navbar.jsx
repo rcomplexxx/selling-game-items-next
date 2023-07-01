@@ -24,10 +24,6 @@ const NavBar = ({ totalItems }) => {
   const router = useRouter();
   const pathname = router.pathname;
 
-  useEffect(()=>{
-    setIsMenuOpen(false);
-  },[pathname])
-
 
   const handleMobileMenuOpen = (event) => {
     setIsMenuOpen(true);
@@ -94,6 +90,7 @@ const NavBar = ({ totalItems }) => {
           className={`${classes.linkStyle} ${
             pathname === "/" ? classes.currentLink : ""
           }`}
+          onClick={()=>{setIsMenuOpen(true)}}
         >
           <MenuItem>
             <Typography variant="body1">Home</Typography>
