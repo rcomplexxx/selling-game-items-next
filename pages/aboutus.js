@@ -1,7 +1,7 @@
 import React from "react";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
-import Head from 'next/head';
 
+AboutUs.title='About us'
 export default function AboutUs() {
   return (
 
