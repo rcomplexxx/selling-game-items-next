@@ -5,6 +5,7 @@ import styles from "./footer.module.css";
 export default function Footer() {
   const email = useRef();
   const [isValidEmail, setIsValidEmail] = useState(true);
+  const [locked, setLocked]=useState(false);
 
 
   const handleSubscribe = async () => {
@@ -14,7 +15,8 @@ export default function Footer() {
       return;
     } else {
       setIsValidEmail(true);
-      email.current.value="";
+      email.current.value='';
+      setLocked(true);
     }
 
     // Continue with the subscription process
@@ -34,7 +36,7 @@ export default function Footer() {
           id="subscribe"
           className={styles.subscribeInput}
           placeholder="Enter your email address"
-          readOnly={email.current.value==='' && isValidEmail}
+          readOnly={locked}
           ref={email}
           onChange={()=>{ if(!isValidEmail) setIsValidEmail(true);}}
         />
