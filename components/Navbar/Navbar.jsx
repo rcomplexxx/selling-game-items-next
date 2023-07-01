@@ -48,7 +48,7 @@ const NavBar = ({ totalItems }) => {
     };
   }, []);
   useEffect(()=>{
-    isMenuOpen&&handleMobileMenuOpen();
+    handleMobileMenuOpen();
   },[pathname])
 
   const renderMobileMenu = isMenuOpen && (
