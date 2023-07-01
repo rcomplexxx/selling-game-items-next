@@ -6,9 +6,6 @@ export default function Footer() {
   const email = useRef();
   const [isValidEmail, setIsValidEmail] = useState(true);
 
-  const handleInputChange = (event) => {
-    
-  };
 
   const handleSubscribe = async () => {
     const emailPattern = /^\w+@\w+\.\w+$/;
@@ -38,7 +35,7 @@ export default function Footer() {
           className={styles.subscribeInput}
           placeholder="Enter your email address"
           ref={email}
-          onChange={handleInputChange}
+          onChange={()=>{ if(!isValidEmail) setIsValidEmail(true);}}
         />
        {!isValidEmail && (
       <p style={{ color: "orange" }}>Please enter a valid email address.</p>
