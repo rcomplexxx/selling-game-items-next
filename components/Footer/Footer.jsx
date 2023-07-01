@@ -9,7 +9,7 @@ export default function Footer() {
 
   const handleSubscribe = async () => {
     const emailPattern = /^\w+@\w+\.\w+$/;
-    if (!emailPattern.test(email)) {
+    if (!emailPattern.test(email.current.value)) {
       setIsValidEmail(false);
       return;
     } else {
