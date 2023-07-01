@@ -14,7 +14,7 @@ export default function Footer() {
       return;
     } else {
       setIsValidEmail(true);
-      email.current="";
+      email.current.value="";
     }
 
     // Continue with the subscription process
