@@ -1,11 +1,8 @@
 import React from "react";
-import Products from "@/components/Products/Products.jsx";
-import products from "../data/products.json";
 import Cart from "@/components/Cart/Cart.jsx";
-import Head from 'next/head';
 
-
-export default function ProductPage() {
+Cart.title='Cart'
+export default function Cart() {
   return (
 
     <div
@@ -15,9 +12,7 @@ export default function ProductPage() {
         alignItems: "center",
       }}
     >
-       <Head>
-        <title>Cart - Gamesmoke shop</title>
-      </Head>
+       
       <Cart />
     </div>
   );

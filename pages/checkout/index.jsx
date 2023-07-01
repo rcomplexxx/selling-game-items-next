@@ -3,8 +3,6 @@ import OrderDetails from "@/components/Checkout/OrderDetails";
 import React,{ useState,useContext } from "react";
 import styles from "./checkout.module.css";
 import AppContext from "@/contexts/AppContext";
-import Head from 'next/head';
-
 
 
 const CheckoutPage = () => {
@@ -15,13 +13,11 @@ const CheckoutPage = () => {
   return (
 
     <div className={styles.checkout_container}>
-      <Head>
-   <title>Checkout - Gamesmoke shop</title>
- </Head>
       <CheckoutInfo setUnlockPaypal={setUnlockPaypal}></CheckoutInfo>
       <OrderDetails unlockPaypal={unlockPaypal} products={cartProducts} />
     </div>
   );
 };
+CheckoutPage.title='Checkout';
 
 export default CheckoutPage;
