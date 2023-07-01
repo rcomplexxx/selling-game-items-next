@@ -1,12 +1,14 @@
 import React from "react";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
+import Head from 'next/head';
 
-AboutUs.title='About us'
 export default function AboutUs() {
   return (
 
     <div className="centered">
-    
+       <Head>
+        <title>About us - Gamesmoke shop</title>
+      </Head>
       <PolicyCard homeCard={true} smallContent={true}>
         <h1>About us</h1>
 
