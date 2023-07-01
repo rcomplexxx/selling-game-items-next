@@ -3,7 +3,7 @@ import Cart from "@/components/Cart/Cart.jsx";
 import Head from 'next/head';
 
 
-export default function Cart() {
+export default function CartPage() {
   return (
 
     <div
