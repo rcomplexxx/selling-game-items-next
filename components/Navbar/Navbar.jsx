@@ -24,6 +24,11 @@ const NavBar = ({ totalItems }) => {
   const router = useRouter();
   const pathname = router.pathname;
 
+  useEffect(()=>{
+    setIsMenuOpen(false);
+  },[pathname])
+
+
   const handleMobileMenuOpen = (event) => {
     setIsMenuOpen(true);
   };
@@ -36,6 +41,7 @@ const NavBar = ({ totalItems }) => {
       setIsMenuClosing(false);
     }, 500);
   };
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,10 +53,7 @@ const NavBar = ({ totalItems }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  useEffect(()=>{
-    if(isMenuOpen)setIsMenuOpen(false);
-  },[pathname])
-
+ 
   const renderMobileMenu = isMenuOpen && (
     <div
       className={
