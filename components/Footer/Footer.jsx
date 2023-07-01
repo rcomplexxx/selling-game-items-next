@@ -36,7 +36,8 @@ export default function Footer() {
           id="subscribe"
           className={styles.subscribeInput}
           placeholder="Enter your email address"
-          readOnly={locked}
+         
+          disabled={locked}
           ref={email}
           onChange={()=>{ if(!isValidEmail) setIsValidEmail(true);}}
         />
