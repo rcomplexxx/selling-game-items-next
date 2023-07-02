@@ -90,7 +90,7 @@ const NavBar = ({ totalItems }) => {
           className={`${classes.linkStyle} ${
             pathname === "/" ? classes.currentLink : ""
           }`}
-          onClick={()=>{setIsMenuOpen(true)}}
+          onClick={()=>{setIsMenuOpen(false)}}
         >
           <MenuItem>
             <Typography variant="body1">Home</Typography>
