@@ -67,6 +67,7 @@ export default function ProductPage({ product,images, startReviews }) {
             hasMediaButton={false}
             hasIndexBoard={false}
             hasSizeButton={false}
+            swipeThreshold={0.25}
             thumbnailWidth="16%"
             thumbnailHeight="16%"
             style={{ width: "100%", aspectRatio: "16/9" }}
