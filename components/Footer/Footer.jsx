@@ -5,7 +5,7 @@ import styles from "./footer.module.css";
 export default function Footer() {
   const email = useRef();
   const [isValidEmail, setIsValidEmail] = useState(true);
-  const [locked, setLocked]=useState(false);
+  const [successful, setSuccessful]=useState(false);
 
 
   const handleSubscribe = async () => {
@@ -16,7 +16,7 @@ export default function Footer() {
     } else {
       setIsValidEmail(true);
       email.current.value='';
-      setLocked(true);
+      setSuccessful(true);
     }
 
     // Continue with the subscription process
@@ -37,12 +37,15 @@ export default function Footer() {
           className={styles.subscribeInput}
           placeholder="Enter your email address"
          
-          disabled={locked}
+         
           ref={email}
           onChange={()=>{ if(!isValidEmail) setIsValidEmail(true);}}
         />
        {!isValidEmail && (
       <p style={{ color: "orange" }}>Please enter a valid email address.</p>
+    )}
+    {!successful && (
+      <p style={{ color: "green" }}>Successfuly subscribed.</p>
     )}
         <button className={styles.subscribeButton} onClick={handleSubscribe}>
           Subscribe
