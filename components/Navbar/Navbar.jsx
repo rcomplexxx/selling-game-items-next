@@ -90,7 +90,7 @@ const NavBar = ({ totalItems }) => {
           className={`${classes.linkStyle} ${
             pathname === "/" ? classes.currentLink : ""
           }`}
-          onClick={()=>{setIsMenuOpen(false)}}
+          onClick={ ()=>{pathname !== "/"  && setIsMenuOpen(false)}}
         >
           <MenuItem>
             <Typography variant="body1">Home</Typography>
@@ -102,6 +102,7 @@ const NavBar = ({ totalItems }) => {
           className={`${classes.linkStyle} ${
             pathname === "/products" ? classes.currentLink : ""
           }`}
+          onClick={ ()=>{pathname !== "/products"  && setIsMenuOpen(false)}}
         >
           <MenuItem>
             <Typography variant="body1">Products</Typography>
@@ -112,6 +113,7 @@ const NavBar = ({ totalItems }) => {
           className={`${classes.linkStyle} ${
             pathname === "/aboutus" ? classes.currentLink : ""
           }`}
+          onClick={ ()=>{pathname !== "/aboutus"  && setIsMenuOpen(false)}}
         >
           <MenuItem>
             <Typography variant="body1">About</Typography>
@@ -122,6 +124,7 @@ const NavBar = ({ totalItems }) => {
           className={`${classes.linkStyle} ${
             pathname === "/contactus" ? classes.currentLink : ""
           }`}
+          onClick={ ()=>{pathname !== "/contactus"  && setIsMenuOpen(false)}}
         >
           <MenuItem>
             <Typography variant="body1">Contact us</Typography>
