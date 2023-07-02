@@ -83,7 +83,7 @@ export default function HomeReviews() {
               infiniteLoop
               autoPlay
               interval={5000}
-              swipeScrollTolerance={30}
+              swipeScrollTolerance={50}
               emulateTouch
               showStatus={false}
               showArrows={false}
