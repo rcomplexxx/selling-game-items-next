@@ -41,7 +41,7 @@ export default function Footer() {
           ref={email}
           onChange={()=>{ if(!isValidEmail) setIsValidEmail(true);}}
         />
-       {!isValidEmail && (
+       {!successful && !isValidEmail && (
       <p style={{ color: "orange" }}>Please enter a valid email address.</p>
     )}
     {successful && (
