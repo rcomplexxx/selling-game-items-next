@@ -44,7 +44,7 @@ export default function Footer() {
        {!isValidEmail && (
       <p style={{ color: "orange" }}>Please enter a valid email address.</p>
     )}
-    {!successful && (
+    {successful && (
       <p style={{ color: "green" }}>Successfuly subscribed.</p>
     )}
         <button className={styles.subscribeButton} onClick={handleSubscribe}>
