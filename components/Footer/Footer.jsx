@@ -9,12 +9,13 @@ export default function Footer() {
 
 
   const handleSubscribe = async () => {
+    if(successful) return;
     const emailPattern = /^\w+@\w+\.\w+$/;
     if (!emailPattern.test(email.current.value)) {
       setIsValidEmail(false);
       return;
     } else {
-      setIsValidEmail(true);
+      setIsValidEmail(false);
       email.current.value='';
       setSuccessful(true);
     }
@@ -44,7 +45,7 @@ export default function Footer() {
        {!successful && !isValidEmail && (
       <p style={{ color: "orange" }}>Please enter a valid email address.</p>
     )}
-    {successful && (
+    {successful &&  !isValidEmail && (
       <p style={{ color: "green" }}>Successfuly subscribed.</p>
     )}
         <button className={styles.subscribeButton} onClick={handleSubscribe}>
