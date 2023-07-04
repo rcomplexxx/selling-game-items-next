@@ -230,7 +230,6 @@
   .cartStyle {
     color: #888b88;
     transition: transform 0.1s ease-in;
-    height: var(--size-9);
   }
   
   .cartStyle:hover {

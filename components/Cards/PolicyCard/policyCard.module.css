@@ -34,7 +34,7 @@ box-sizing: border-box;
 }
 
 .homeCard{
-  margin-top: 64px;
+  margin-top: var(--size-7);
 }
 
 .bigBackDiv{
