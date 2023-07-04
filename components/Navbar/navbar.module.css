@@ -192,8 +192,8 @@
   }
   
   .linkStyle {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: var(--size-3);
+    margin-right: var(--size-3);
     color: var(--red-2);
     text-decoration: none;
     transition: transform 0.08s ease-in;
