@@ -22,8 +22,8 @@
     display: flex;
     text-decoration: none;
     transition: transform 0.08s ease-in;
-    font-size: var(--font-size-5);
-    margin: var(--size-3);
+    font-size: var(--font-size-6);
+    margin: var(--size-2);
   }
  
   
