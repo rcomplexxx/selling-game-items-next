@@ -192,8 +192,6 @@
   }
   
   .linkStyle {
-    margin-left: var(--size-4);
-    margin-right: var(--size-4);
     color: var(--red-2);
     text-decoration: none;
     transition: transform 0.08s ease-in;
@@ -207,19 +205,7 @@
     transform: scale(1);
   }
   
-  @media (max-width: 600px) {
-    .linkStyle {
-      margin-left: var(--size-1);
-    margin-right: var(--size-1);
-    }
-  }
   
-  @media (max-width: 960px) {
-    .linkStyle {
-      margin-left: var(--size-2);
-      margin-right: var(--size-2);
-    }
-  }
   
   @media (max-width: 1280px) {
     .linkStyle {

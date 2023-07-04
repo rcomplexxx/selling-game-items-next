@@ -50,7 +50,123 @@ const NavBar = ({ totalItems }) => {
     };
   }, []);
  
-  const renderMobileMenu = isMenuOpen && (
+ 
+
+  return (
+    <>
+      <nav className={classes.appBar}>
+        <Toolbar className={classes.toolbar}>
+         
+
+          {windowWidth < 980 ? (
+            <div className={classes.growAlt}>
+              <IconButton
+                className={classes.menuButton}
+                onClick={handleMobileMenuOpen}
+                aria-label="Menu"
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Link
+                href="/"
+                style={{ marginLeft: "10px",  }}
+                className='text_decoration_none'
+              >
+                <Typography
+                  variant="h6"
+                  className={classes.title}
+                  color="inherit"
+                >
+                  <img
+                    src="/images/commerce.png"
+                    alt="Gamesmoke Shop"
+                    height="25px"
+                    className={classes.image}
+                  />
+                  Gamesmoke Shop
+                </Typography>
+              </Link>
+            </div>
+          ) : (
+            <>
+            <Link href="/" className="text_decoration_none">
+            <h1 className={classes.title}>
+               <img
+                 src="/images/commerce.png"
+                 alt="Gamesmoke Shop"
+                 className={classes.image}
+               />
+               Gamesmoke Shop</h1>
+               
+             
+           </Link>
+            <div className={classes.grow}>
+              <Link
+                href="/"
+                className={`${classes.linkStyle} ${
+                  pathname === "/" ? classes.currentLink : ""
+                }`}
+              >
+                Home
+              </Link>
+              <Link
+                href="/products"
+                className={`${classes.linkStyle} ${
+                  pathname === "/products" ? classes.currentLink : ""
+                }`}
+              >
+                Products
+              </Link>
+              <Link
+                href="/aboutus"
+                className={`${classes.linkStyle} ${
+                  pathname === "/aboutus" ? classes.currentLink : ""
+                }`}
+              >
+                About
+              </Link>
+              <Link
+                href="/contactus"
+                className={`${classes.linkStyle} ${
+                  pathname === "/contactus" ? classes.currentLink : ""
+                }`}
+              >
+                Contact us
+              </Link>
+            </div>
+            </>
+          )}
+
+          
+            <Link href="/cart">
+              <IconButton
+                className={classes.cartStyle}
+                aria-label="Show cart items"
+                color="inherit"
+              >
+                <Badge
+                  badgeContent={totalItems}
+                  overlap="rectangular"
+                  color="secondary"
+                >
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+            </Link>
+        </Toolbar>
+      </nav>
+
+
+
+
+
+
+
+
+
+
+      {isMenuOpen && (
     <div
       className={
         classes.mobileMenu +
@@ -132,113 +248,7 @@ const NavBar = ({ totalItems }) => {
         </Link>
       </div>
     </div>
-  );
-
-  return (
-    <>
-      <nav className={classes.appBar}>
-        <Toolbar className={classes.toolbar}>
-          {windowWidth > 980 && (
-            <Link href="/" className="text_decoration_none">
-             <h1 className={classes.title}>
-                <img
-                  src="/images/commerce.png"
-                  alt="Gamesmoke Shop"
-                  className={classes.image}
-                />
-                Gamesmoke Shop</h1>
-                
-              
-            </Link>
-          )}
-
-          {windowWidth < 980 ? (
-            <div className={classes.growAlt}>
-              <IconButton
-                className={classes.menuButton}
-                onClick={handleMobileMenuOpen}
-                aria-label="Menu"
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Link
-                href="/"
-                style={{ marginLeft: "10px",  }}
-                className='text_decoration_none'
-              >
-                <Typography
-                  variant="h6"
-                  className={classes.title}
-                  color="inherit"
-                >
-                  <img
-                    src="/images/commerce.png"
-                    alt="Gamesmoke Shop"
-                    height="25px"
-                    className={classes.image}
-                  />
-                  Gamesmoke Shop
-                </Typography>
-              </Link>
-            </div>
-          ) : (
-            <div className={classes.grow}>
-              <Link
-                href="/"
-                className={`${classes.linkStyle} ${
-                  pathname === "/" ? classes.currentLink : ""
-                }`}
-              >
-                Home
-              </Link>
-              <Link
-                href="/products"
-                className={`${classes.linkStyle} ${
-                  pathname === "/products" ? classes.currentLink : ""
-                }`}
-              >
-                Products
-              </Link>
-              <Link
-                href="/aboutus"
-                className={`${classes.linkStyle} ${
-                  pathname === "/aboutus" ? classes.currentLink : ""
-                }`}
-              >
-                About
-              </Link>
-              <Link
-                href="/contactus"
-                className={`${classes.linkStyle} ${
-                  pathname === "/contactus" ? classes.currentLink : ""
-                }`}
-              >
-                Contact us
-              </Link>
-            </div>
-          )}
-
-          <div className={classes.button}>
-            <Link href="/cart">
-              <IconButton
-                className={classes.cartStyle}
-                aria-label="Show cart items"
-                color="inherit"
-              >
-                <Badge
-                  badgeContent={totalItems}
-                  overlap="rectangular"
-                  color="secondary"
-                >
-                  <ShoppingCart />
-                </Badge>
-              </IconButton>
-            </Link>
-          </div>
-        </Toolbar>
-      </nav>
-      {renderMobileMenu}
+  )}
     </>
   );
 };
