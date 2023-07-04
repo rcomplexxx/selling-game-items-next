@@ -195,6 +195,7 @@
     color: var(--red-2);
     text-decoration: none;
     transition: transform 0.08s ease-in;
+    font-size: var(--font-size-3);
   }
   
   .linkStyle:hover {
@@ -209,7 +210,7 @@
   
   @media (max-width: 1280px) {
     .linkStyle {
-      font-size: var(--font-size-3);
+    
       margin-left: var(--size-4);
       margin-right: var(--size-4);
     }
@@ -217,7 +218,6 @@
   
   @media (min-width: 1280px) {
     .linkStyle {
-      font-size: var(--font-size-4);
       margin-left: var(--size-5);
       margin-right: var(--size-5);
     }
@@ -230,6 +230,7 @@
   .cartStyle {
     color: #888b88;
     transition: transform 0.1s ease-in;
+    height: var(--size-6);
   }
   
   .cartStyle:hover {
