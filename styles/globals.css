@@ -41,6 +41,40 @@ a{
 
 
 :root {
+
+  --size-1: 2px;
+  --size-2: 4px;
+  --size-3: 8px;
+  --size-4: 12px;
+  --size-5: 16px;
+  --size-6: 24px;
+  --size-7: 32px;
+  --size-8: 48px;
+  --size-9: 64px;
+  --size-10: 96px;
+  --size-11: 128px;
+  --size-12: 192px;
+  --size-13: 256px;
+  --size-14: 384px;
+  --size-15: 512px;
+  --size-16: 640px;
+  --size-17: 768px;
+
+
+  --font-size-1: 12px;
+  --font-size-2: 14px;
+  --font-size-3: 16px;
+  --font-size-4: 18px;
+  --font-size-5: 20px;
+  --font-size-6: 24px;
+  --font-size-7: 30px;
+  --font-size-8: 36px;
+  --font-size-9: 48px;
+  --font-size-10: 60px;
+  --font-size-11: 72px;
+
+
+
   --blue-1: #c0b5db;
   --blue-2: rgb(105, 154, 182);
   --blue-3: #4285B0;
