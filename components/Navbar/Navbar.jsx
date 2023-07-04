@@ -140,14 +140,14 @@ const NavBar = ({ totalItems }) => {
         <Toolbar className={classes.toolbar}>
           {windowWidth > 980 && (
             <Link href="/" className="text_decoration_none">
-             
+             <h1 className={classes.title}>
                 <img
                   src="/images/commerce.png"
                   alt="Gamesmoke Shop"
                   height="25px"
                   className={classes.image}
                 />
-                <h1 className={classes.title}>Gamesmoke Shop</h1>
+                Gamesmoke Shop</h1>
                 
               
             </Link>
