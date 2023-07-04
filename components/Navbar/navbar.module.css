@@ -209,6 +209,7 @@
   
   @media (max-width: 1280px) {
     .linkStyle {
+      font-size: var(--font-size-4);
       margin-left: var(--size-4);
       margin-right: var(--size-4);
     }
@@ -216,6 +217,7 @@
   
   @media (min-width: 1280px) {
     .linkStyle {
+      font-size: var(--font-size-5);
       margin-left: var(--size-5);
       margin-right: var(--size-5);
     }
