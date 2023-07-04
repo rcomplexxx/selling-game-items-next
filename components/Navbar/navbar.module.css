@@ -192,7 +192,7 @@
   }
   
   .linkStyle {
-    margin-left: var(--size-3);
+    margin-left: var(--size-4);
     margin-right: var(--size-4);
     color: var(--red-2);
     text-decoration: none;
@@ -209,29 +209,29 @@
   
   @media (max-width: 600px) {
     .linkStyle {
-      margin-left: 1px;
-      margin-right: 1px;
+      margin-left: var(--size-1);
+    margin-right: var(--size-1);
     }
   }
   
   @media (max-width: 960px) {
     .linkStyle {
-      margin-left: 5px;
-      margin-right: 5px;
+      margin-left: var(--size-2);
+      margin-right: var(--size-2);
     }
   }
   
   @media (max-width: 1280px) {
     .linkStyle {
-      margin-left: 10px;
-      margin-right: 10px;
+      margin-left: var(--size-4);
+      margin-right: var(--size-4);
     }
   }
   
   @media (min-width: 1280px) {
     .linkStyle {
-      margin-left: 15px;
-      margin-right: 15px;
+      margin-left: var(--size-5);
+      margin-right: var(--size-5);
     }
   }
   
