@@ -141,11 +141,12 @@ const NavBar = ({ totalItems }) => {
           
             <Link href="/cart">
               <IconButton
-                className={classes.cartStyle}
+                
                 aria-label="Show cart items"
                 color="inherit"
               >
                 <Badge
+                className={classes.cartStyle}
                   badgeContent={totalItems}
                   overlap="rectangular"
                   color="secondary"
