@@ -21,8 +21,8 @@
     align-items: center;
     display: flex;
     text-decoration: none;
-    margin-left: 80px;
     transition: transform 0.08s ease-in;
+    font-size: var(--font-size-7);
   }
  
   
