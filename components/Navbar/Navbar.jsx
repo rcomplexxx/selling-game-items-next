@@ -140,19 +140,16 @@ const NavBar = ({ totalItems }) => {
         <Toolbar className={classes.toolbar}>
           {windowWidth > 980 && (
             <Link href="/" className="text_decoration_none">
-              <Typography
-                variant="h6"
-                className={classes.title}
-                color="inherit"
-              >
+             
                 <img
                   src="/images/commerce.png"
                   alt="Gamesmoke Shop"
                   height="25px"
                   className={classes.image}
                 />
-                Gamesmoke Shop
-              </Typography>
+                <h1 className={classes.title}>Gamesmoke Shop</h1>
+                
+              
             </Link>
           )}
 
