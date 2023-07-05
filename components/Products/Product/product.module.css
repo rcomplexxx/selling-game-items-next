@@ -21,8 +21,7 @@
     padding-top: 56.25%; /* 16:9 */
     transition: all 0.005s ease-in;
     overflow: hidden;
-    border-top-right-radius: var(--size-3);
-    border-top-left-radius: var(--size-3);
+    border-radius:  var(--size-3);
   }
  
   
