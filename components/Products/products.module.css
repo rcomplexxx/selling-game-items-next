@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+    margin-top: var(--size-8);
   }
   
   .content {
@@ -18,7 +18,7 @@
   }
   
   .title {
-    margin-bottom: 40px;
+    margin-bottom: var(--size-6);
   }
   
   .root {
