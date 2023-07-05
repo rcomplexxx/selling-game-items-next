@@ -33,7 +33,6 @@ const Products = ({ products, showAll }) => {
   return (
     <div className={styles.toolbar}>
       <h1 className={styles.title}>Explore our collection</h1>
-      <div>
         <Grid
           className={styles.mainGridStyle}
           container
@@ -56,7 +55,6 @@ const Products = ({ products, showAll }) => {
             </Grid>
           ))}
         </Grid>
-      </div>
       {!showAll && (
         <Link
           href="/products"
