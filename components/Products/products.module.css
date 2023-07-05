@@ -52,5 +52,6 @@
     color: gray;
     background-color: transparent;
     border: solid gray 1px;
+    border-radius: var(--size-2);
     text-decoration: none;
   }
