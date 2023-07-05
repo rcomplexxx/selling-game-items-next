@@ -19,6 +19,7 @@
   
   .title {
     margin-bottom: var(--size-6);
+    margin-top: var(--size-7);
   }
   
   .root {
