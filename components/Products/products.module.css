@@ -31,13 +31,15 @@
     width:100%;
     display: flex;
     justify-content: center;
+    border-radius: var(--size-3);
  
     
   }
   
   .productGridStyle {
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: var(--size-4);
+    margin-left: var(--size-4);
+    border-radius: var(--size-3);
    
     
   }
