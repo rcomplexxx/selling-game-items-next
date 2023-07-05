@@ -9,7 +9,7 @@ export default function Footer() {
 
 
   const handleSubscribe = async () => {
-    if(successful) return;
+    
     const emailPattern = /^\w+@\w+\.\w+$/;
     if (!emailPattern.test(email.current.value)) {
       setIsValidEmail(false);
@@ -19,6 +19,7 @@ export default function Footer() {
       email.current.value='';
       setSuccessful(true);
     }
+    
 
     // Continue with the subscription process
     // ...
