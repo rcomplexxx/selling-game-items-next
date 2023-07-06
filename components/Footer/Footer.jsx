@@ -80,7 +80,7 @@ export default function Footer() {
           src="/images/paymentsNoBg.png"
           alt="pay"
         />
-        <p>© 2023, GameSmoke Shop All Rights Reserved.</p>
+        <p className={styles.reservedRightsPharagraph}>© 2023, GameSmoke Shop All Rights Reserved.</p>
       </div>
     </footer>
   );
