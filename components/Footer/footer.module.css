@@ -23,13 +23,15 @@
 
   .subscribeTitle{
     margin:0;
+    padding:0;
     margin-bottom: var(--size-4);
     
   }
 
   .subscribePharagraph{
     margin:0;
-    margin-bottom: var(--size-4);
+    padding:0;
+    margin-bottom: var(--size-5);
   }
 
   .subscribeInput{
