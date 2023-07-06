@@ -57,7 +57,7 @@
     color: #fff;
     margin: 0 10px;
     text-decoration: none;
-    font-size: var(--size-4);
+    font-size: var(--font-size-4);
   }
   
   .footerLink:hover {
