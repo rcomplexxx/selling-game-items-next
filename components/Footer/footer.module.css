@@ -42,7 +42,7 @@
     border: solid #3e3e3e 1px;
     border-radius: var(--size-2);
     box-sizing: border-box;
-    padding: var(--size-2);
+    padding: var(--size-2)
     
   }
 
@@ -85,9 +85,4 @@
     
     width:100%;
     margin-top: var(--size-4);
-  }
-
-  .reservedRightsPharagraph{
-    margin-bottom: 0;
-    padding-bottom: 0;
   }
