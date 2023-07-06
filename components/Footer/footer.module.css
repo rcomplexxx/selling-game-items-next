@@ -27,7 +27,7 @@
     color: #7a857a;
     background-color: transparent;
     border: solid #3e3e3e 1px;
-    border-radius: 2px;
+    border-radius: var(--size-2);
     box-sizing: border-box;
     padding: 5px;
     
@@ -39,6 +39,8 @@
     height: var(--size-7);
     margin-top: var(--size-3);
     border: solid 2px var(--gray-1);
+    border-radius: var(--size-2);
+    box-sizing: border-box;
     background-color: transparent;
     cursor: pointer;
   }
