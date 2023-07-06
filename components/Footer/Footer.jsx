@@ -29,8 +29,8 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.mainDiv}>
-        <h1>Stay connected</h1>
-        <p>
+        <h1 className={styles.subscribeTitle}>Stay connected</h1>
+        <p className={styles.subscribePharagraph}>
           Join our newsletters to get the latest SmokeGamerItems updates and
           surprise discounts!
         </p>
