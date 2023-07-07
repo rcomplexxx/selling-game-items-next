@@ -7,6 +7,7 @@ background-color:var(--gray-9-elegant);
 display:flex;
 justify-content:center;
 box-sizing: border-box;
+
 }
 
 .policy-main-div{
@@ -16,18 +17,26 @@ box-sizing: border-box;
     color:var(--yellow-white);
     background-color:var(--gray-9-elegant);
      overflow: auto;
-     margin-bottom:20px;
-    border-radius:8px;
-     padding-left:10px;
-     padding-right:15px;
+     margin-bottom:var(--size-9);
+    border-radius:var(--size-3);
+     padding-left:var(--size-4);
+     padding-right:var(--size-5);
     
      max-width:720px;
      min-height: 370px;
      width: 90%;
-     margin-top: 20px;
      box-shadow: 0 -0.3px 4px 1px rgba(211, 211, 211, 0.2);
    
 }
+
+.policy-main-div p{
+  font-size: var(--font-size-3);
+}
+
+.policy-main-div h1{
+  font-size: var(--font-size-7);
+}
+
 
 .marginRight{
   margin-right: 10px;

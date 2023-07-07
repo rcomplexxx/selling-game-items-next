@@ -53,7 +53,7 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
           );
         })}
         {pageId !== totalPageNumber && (
-          <Link href={`/products/page/${pageId + 1}`}>{"→"}</Link>
+          <Link href={`/products/page/${pageId + 1}`}>{"➢"}</Link>
         )}
       </div>
     </div>
