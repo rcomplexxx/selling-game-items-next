@@ -37,7 +37,7 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
       />
       <div className={styles.linkDiv}>
         {pageId !== 1 && (
-          <Link href={`/products/page/${pageId - 1}`}>{"<-"}</Link>
+          <Link href={`/products/page/${pageId - 1}`}>{"←"}</Link>
         )}
         {links.map((link) => {
           return pageId == link ? (
@@ -53,11 +53,11 @@ const ProductPage = ({ totalPageNumber, pageId, products, links }) => {
           );
         })}
         {pageId !== totalPageNumber && (
-          <Link href={`/products/page/${pageId + 1}`}>{"->"}</Link>
+          <Link href={`/products/page/${pageId + 1}`}>{"→"}</Link>
         )}
       </div>
     </div>
-  );
+  );f
 };
 
 export async function getStaticPaths() {

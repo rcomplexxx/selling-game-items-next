@@ -31,7 +31,7 @@ export default function Footer() {
       <div className={styles.mainDiv}>
         <h1 className={styles.subscribeTitle}>Stay connected</h1>
         <p className={styles.subscribePharagraph}>
-          Join our newsletters to get the latest SmokeGamerItems updates and
+          Join our newsletters to get the latest Gamesmoke shop updates and
           surprise discounts!
         </p>
         <input
