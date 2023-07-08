@@ -35,7 +35,7 @@ function Review({ title, reviewText, author}) {
       <h1 className={styles.reviewTitle}>{title}</h1>
       <RatingStar maxScore={5} id="123" rating={5} />
       <p>{reviewText}</p>
-      <h4>- {author}</h4>
+      <h4 className={styles.author}>- {author}</h4>
     </div>
   );
 }
