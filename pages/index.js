@@ -5,6 +5,7 @@ import Products from "@/components/Products/Products.jsx";
 import products from "../data/products.json";
 import styles from "../styles/appStyle.module.css";
 import Head from 'next/head';
+import Link from 'next/link'
 
 const HomePage = ({ products }) => {
   return (
@@ -15,11 +16,10 @@ const HomePage = ({ products }) => {
  </Head>
       <div className={styles.heroImageDiv}/>
       <div className={styles.heroWindow}>
-        <button className={styles.linkButton + " " + styles.linkButtonFirst}>
+        <Link href='/products' className={styles.linkButton}>
           Shop Now
-        </button>
-        <button className={styles.linkButton}>New Items</button>
-        <button className={styles.linkButton}>On Sale</button>
+        </Link>
+       
       </div>
 
       <main className={styles.content}>

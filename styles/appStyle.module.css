@@ -1,14 +1,16 @@
 .linkButton{
     font-weight:700; 
-    margin-left:20px; 
-    margin-top:calc(5vh + 56px); 
-    font-size:16px;
-    background-color:#A45C30;
-    border:none; 
-    color:black;
-     width:124px;
-     height: 40px;
-    border-radius: 8px;
+    margin-bottom: var(--size-10);
+    margin-right: var(--size-12);
+    font-size:var(--font-size-6);
+    background-color:#1d383bee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color:rgb(211, 207, 228);
+     width:var(--size-12);
+     height: var(--size-8);
     transition: transform 0.1s ease-in;
     box-shadow: 0 2px 8px hsla(0, 0%, 0%, .5);
 
@@ -31,8 +33,10 @@
   .heroWindow{
     z-index:2;
     display:flex;  
+    justify-content: flex-end;
+    align-items: flex-end;
     background-color:transparent;
-    height:calc(100vh - 128px);
+    height:calc(100vh - var(--size-11));
     width:100% ; 
     border-bottom:1px #2e2e31 solid;
         border-top:1px black solid;
