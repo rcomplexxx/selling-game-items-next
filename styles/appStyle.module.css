@@ -1,14 +1,12 @@
 .linkButton{
     font-weight:700; 
-    margin-bottom: var(--size-10);
-    margin-right: var(--size-12);
     font-size:var(--font-size-6);
-    background-color:#1d383bee;
+    background-color:#051d1def;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color:rgb(211, 207, 228);
+    color:rgb(218, 205, 181);
      width:var(--size-12);
      height: var(--size-8);
     transition: transform 0.1s ease-in;
@@ -33,8 +31,8 @@
   .heroWindow{
     z-index:2;
     display:flex;  
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     background-color:transparent;
     height:calc(100vh - var(--size-11));
     width:100% ; 
@@ -69,8 +67,5 @@
   }
 
   @media (max-width: 980px)  {
-    .linkButton{
-    width:93px;
-      margin-left: 10px;
-  }
+   
   }
