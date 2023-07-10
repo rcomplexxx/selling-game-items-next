@@ -76,7 +76,7 @@ export default function ProductPage({ product,images, startReviews }) {
 
         <div
           style={{
-            marginLeft: "10px",
+            marginLeft: "var(--size-4)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
