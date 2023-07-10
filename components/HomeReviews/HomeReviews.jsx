@@ -10,7 +10,7 @@ const reviews = [
     id: 1,
     title: "Review one",
     reviewText:
-      "I sometimes don't like ordering online, but I decided to go with the flow. These products were out of this world! Can't believe it! Gosh! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
+      "I don't like ordering online, but I decided to go with the flow. These products were out of this world! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
     author: "Monika W.",
   },
   {
@@ -34,7 +34,7 @@ function Review({ title, reviewText, author}) {
     <div className={styles.reviewDiv}>
       <h1 className={styles.reviewTitle}>{title}</h1>
       <RatingStar maxScore={5} id="123" rating={5} />
-      <p>{reviewText}</p>
+      <p className={styles.reviewText}>{reviewText}</p>
       <h4 className={styles.author}>- {author}</h4>
     </div>
   );
