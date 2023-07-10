@@ -145,8 +145,7 @@
       margin-top: 0;
     }
 
-    .gallery {width: 100vw;}
-    .main_image img{width: 100%;}
+    
     .media{width: 100%; margin-right:0;}
 
     .main_image{
@@ -156,7 +155,5 @@
 
     
 
-    .thumbnail_images{
-      display: none;
-    }
+    
   }
