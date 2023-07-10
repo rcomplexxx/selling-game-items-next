@@ -64,6 +64,7 @@ export default function ProductPage({ product,images, startReviews }) {
         <div className={styles.media}>
           <Carousel
             images={images}
+            transitionSpeed={0.2}
             hasMediaButton={false}
             hasIndexBoard={false}
             hasSizeButton={false}
@@ -159,12 +160,15 @@ export async function getStaticProps(context) {
   const images = [
     {
       src: "/images/" + product.image,
+      alt: 'product image'
     },
     {
       src: "/images/keyboard.png",
+      alt: 'second product image'
     },
     {
       src: "/images/boxItem.png",
+      alt: 'third product image'
     },
   ];
 
