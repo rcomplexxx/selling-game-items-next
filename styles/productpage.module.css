@@ -141,16 +141,16 @@
   }
 
   @media (max-width: 980px)  {
-    .productPageDiv{flex-direction: column; align-items: center;
+    .productPageDiv{
+      flex-direction: column; 
+      align-items: center;
       margin-top: 0;
     }
 
     
     .media{width: 100%; margin-right:0;}
 
-    .main_image{
-      width:100%;
-    }
+  
 
 
     
