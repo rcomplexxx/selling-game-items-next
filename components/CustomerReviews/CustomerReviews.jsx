@@ -44,20 +44,21 @@ export default function CustomerReviews({ startReviews }) {
       setReviews((prevReviews) => [...prevReviews, ...newReviews]); // Append the new reviews to the existing ones
     } catch (error) {
       console.error("Error loading reviews:", error);
+      //
     }
   };
 
-  const breakpointColumnsObj = {
-    default: 4,
-    1200: 3,
-    700: 2,
-  };
+ 
 
   return (
     <div className={styles.mainDiv}>
       <h1>Customer Reviews</h1>
       <Masonry
-        breakpointCols={breakpointColumnsObj}
+        breakpointCols={{
+          default: 4,
+          1200: 3,
+          700: 2,
+        }}
         className={classNames(styles.my_masonry_grid)}
         columnClassName={classNames(styles.my_masonry_grid_column)}
       >

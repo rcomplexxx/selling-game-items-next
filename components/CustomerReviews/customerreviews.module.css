@@ -21,13 +21,10 @@
   .my_masonry_grid_column {
     padding: 0 10px;
     background-clip: padding-box;
-  }
-  
-  /* Style your items */
-  .my_masonry_grid_column > div { /* change div to reference your elements you put in <Masonry> */
-    
     margin-bottom: 30px;
   }
+  
+ 
 
 .reviewDiv{
   width: 100%;
