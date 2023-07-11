@@ -85,38 +85,31 @@ export default function ProductPage({ product,images, startReviews }) {
           <p className={styles.product_price}>1,160.14 RSD</p>
           <p className={styles.product_style_label}>Style - {selectedStyle}</p>
           <div className={styles.product_style_options}>
-          <span  onClick={() => setSelectedStyle("Black Kitten")}>
+          <span className={styles.product_style_span}  onClick={() => setSelectedStyle("Black Kitten")}>
               <Image
                 src={"/images/" + product.image}
                 alt="Black Kitten"
-               
-                className={styles.product_style_image}
-                width={0}
-               height={0}
-               sizes="100vw"
+                className="object_fit_cover"
+                fill
               />
             </span>
-            <span  onClick={() => setSelectedStyle("Gray Kitten")}>
+            <span className={styles.product_style_span}  onClick={() => setSelectedStyle("Gray Kitten")}>
               <Image
                 src={"/images/" + product.image}
                 alt="Gray Kitten"
-                className={styles.product_style_image}
-                width={0}
-               height={0}
-               sizes="100vw"
+                className="object_fit_cover"
+                fill
               />
               </span>
               
 
-          <span  onClick={() => setSelectedStyle("White Kitten")}>
+          <span  className={styles.product_style_span} onClick={() => setSelectedStyle("White Kitten")}>
             
               <Image
                 src={"/images/" + product.image}
                 alt="White Kitten"
-                className={styles.product_style_image}
-                width={0}
-               height={0}
-               sizes="100vw"
+                className="object_fit_cover"
+                fill
               />
            </span>
           </div>

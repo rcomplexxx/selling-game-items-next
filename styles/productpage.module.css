@@ -52,17 +52,16 @@
     margin-top: 0px;
   }
   
- 
-  
-  .product_style_image {
-  
+  .product_style_span{
+    position:relative;
     width: var(--size-10);
-    height: auto ;
-  object-fit: cover;
-  margin-right: var(--size-4);
-  border: 1px solid black;
+    aspect-ratio: 16/9;
+    
+    margin-right: var(--size-4);
     cursor: pointer;
   }
+  
+ 
 
   .add_to_cart_button {
     display: inline-block;

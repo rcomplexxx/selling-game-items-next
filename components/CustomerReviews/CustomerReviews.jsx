@@ -16,8 +16,6 @@ function Review({ author, text, image }) {
           alt="review image"
           sizes="100vw"
           style={{  marginBottom: "5px", width: "100%",height: "auto" }}
-          //Mozda opraviti
-          // optional
         />
       )}
       <RatingStar maxScore={5} id="123" rating={5} />
