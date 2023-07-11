@@ -21,9 +21,6 @@ export default function ProductPage({ product,images, startReviews }) {
 
   const [selectedStyle, setSelectedStyle] = useState("Black Kitten");
 
-  const handleStyleChange = (style) => {
-    setSelectedStyle(style);
-  };
 
 
 
@@ -76,12 +73,8 @@ export default function ProductPage({ product,images, startReviews }) {
         </div>
 
         <div
-          style={{
-            marginLeft: "var(--size-4)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
+        className={styles.productInfo}
+          
         >
           <h1 className={styles.product_title}>{product.name}</h1>
           <div className={styles.product_rating}>
@@ -92,24 +85,18 @@ export default function ProductPage({ product,images, startReviews }) {
           <p className={styles.product_price}>1,160.14 RSD</p>
           <p className={styles.product_style_label}>Style - {selectedStyle}</p>
           <div className={styles.product_style_options}>
-            <button
-              className={styles.product_style_button}
-              onClick={() => handleStyleChange("Black Kitten")}
-            >
+          <span  onClick={() => setSelectedStyle("Black Kitten")}>
               <Image
                 src={"/images/" + product.image}
                 alt="Black Kitten"
+               
                 className={styles.product_style_image}
                 width={0}
                height={0}
                sizes="100vw"
-                fill
               />
-            </button>
-            <button
-              className={styles.product_style_button}
-              onClick={() => handleStyleChange("Gray Kitten")}
-            >
+            </span>
+            <span  onClick={() => setSelectedStyle("Gray Kitten")}>
               <Image
                 src={"/images/" + product.image}
                 alt="Gray Kitten"
@@ -117,13 +104,12 @@ export default function ProductPage({ product,images, startReviews }) {
                 width={0}
                height={0}
                sizes="100vw"
-                fill
               />
-            </button>
-            <button
-              className={styles.product_style_button}
-              onClick={() => handleStyleChange("White Kitten")}
-            >
+              </span>
+              
+
+          <span  onClick={() => setSelectedStyle("White Kitten")}>
+            
               <Image
                 src={"/images/" + product.image}
                 alt="White Kitten"
@@ -131,9 +117,8 @@ export default function ProductPage({ product,images, startReviews }) {
                 width={0}
                height={0}
                sizes="100vw"
-                fill
               />
-            </button>
+           </span>
           </div>
           <button
             className={styles.add_to_cart_button}
