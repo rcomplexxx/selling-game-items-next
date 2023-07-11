@@ -100,6 +100,9 @@ export default function ProductPage({ product,images, startReviews }) {
                 src={"/images/" + product.image}
                 alt="Black Kitten"
                 className={styles.product_style_image}
+                width={0}
+               height={0}
+               sizes="100vw"
                 fill
               />
             </button>
@@ -111,7 +114,9 @@ export default function ProductPage({ product,images, startReviews }) {
                 src={"/images/" + product.image}
                 alt="Gray Kitten"
                 className={styles.product_style_image}
-                
+                width={0}
+               height={0}
+               sizes="100vw"
                 fill
               />
             </button>
@@ -123,7 +128,9 @@ export default function ProductPage({ product,images, startReviews }) {
                 src={"/images/" + product.image}
                 alt="White Kitten"
                 className={styles.product_style_image}
-              
+                width={0}
+               height={0}
+               sizes="100vw"
                 fill
               />
             </button>

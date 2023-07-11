@@ -13,8 +13,9 @@ function Review({ author, text, image }) {
           src={"/images/" + image}
           width={0}
           height={0}
+          alt="review image"
           sizes="100vw"
-          style={{ width: "100%", height: "auto", marginBottom: "5px" }}
+          style={{  marginBottom: "5px", width: "100%",height: "auto" }}
           //Mozda opraviti
           // optional
         />
@@ -28,25 +29,7 @@ function Review({ author, text, image }) {
 export default function CustomerReviews({ startReviews }) {
   const [reviews, setReviews] = useState([]);
 
-  const handleReview = async () => {
-    try {
-      const response = await fetch("/reviews.json"); // Replace with the correct path to your JSON file
-      const data = await response.json();
-
-      const newReviews = data.slice(12, reviews.length + 18); // Load 6 more reviews
-      /* PAZNJA!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ovo je prava verzija koda, a ova gore je za testerske svrhe! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!PAZNJA*/
-      /* !!!!!!!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~ const newReviews = data.slice(12+reviews.length, reviews.length + 18); ~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!!!!!!!*/
-      /* PAZNJA!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ovo je prava verzija koda, a ova gore je za testerske svrhe! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!PAZNJA*/
-      /* !!!!!!!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~ const newReviews = data.slice(12+reviews.length, reviews.length + 18); ~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!!!!!!!*/
-      /* PAZNJA!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ovo je prava verzija koda, a ova gore je za testerske svrhe! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!PAZNJA*/
-      /* !!!!!!!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~ const newReviews = data.slice(12+reviews.length, reviews.length + 18); ~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!!!!!!!*/
-      
-      setReviews((prevReviews) => [...prevReviews, ...newReviews]); // Append the new reviews to the existing ones
-    } catch (error) {
-      console.error("Error loading reviews:", error);
-      //
-    }
-  };
+  
 
  
 
@@ -84,7 +67,25 @@ export default function CustomerReviews({ startReviews }) {
           );
         })}
       </Masonry>
-      <button className={styles.showMoreButton} onClick={handleReview}>
+      <button className={styles.showMoreButton} onClick={async () => {
+    try {
+      const response = await fetch("/reviews.json"); // Replace with the correct path to your JSON file
+      const data = await response.json();
+
+      const newReviews = data.slice(12, reviews.length + 18); // Load 6 more reviews
+      /* PAZNJA!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ovo je prava verzija koda, a ova gore je za testerske svrhe! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!PAZNJA*/
+      /* !!!!!!!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~ const newReviews = data.slice(12+reviews.length, reviews.length + 18); ~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!!!!!!!*/
+      /* PAZNJA!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ovo je prava verzija koda, a ova gore je za testerske svrhe! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!PAZNJA*/
+      /* !!!!!!!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~ const newReviews = data.slice(12+reviews.length, reviews.length + 18); ~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!!!!!!!*/
+      /* PAZNJA!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Ovo je prava verzija koda, a ova gore je za testerske svrhe! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!PAZNJA*/
+      /* !!!!!!!!!!!!!!! ~~~~~~~~~~~~~~~~~~~~~~~~~~~ const newReviews = data.slice(12+reviews.length, reviews.length + 18); ~~~~~~~~~~~~~~~~~~~~~~~~~~~ !!!!!!!!!!!!!!*/
+      
+      setReviews((prevReviews) => [...prevReviews, ...newReviews]); // Append the new reviews to the existing ones
+    } catch (error) {
+      console.error("Error loading reviews:", error);
+      //
+    }
+  }}>
         Show More
       </button>
     </div>

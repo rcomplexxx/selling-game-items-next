@@ -1,7 +1,7 @@
 
 
 .mainDiv{
-    width:80%;
+    width:100%;
     flex-grow: 1;
     background-color: var(--gray-9-elegant);
     display: flex ;
@@ -19,12 +19,15 @@
   
   }
   .my_masonry_grid_column {
-    padding: 0 10px;
+    padding: 0 var(--size-4);
     background-clip: padding-box;
-    margin-bottom: 30px;
   }
   
- 
+  /* Style your items */
+  .my_masonry_grid_column > div { /* change div to reference your elements you put in <Masonry> */
+    
+    margin-bottom: var(--size-7);
+  }
 
 .reviewDiv{
   width: 100%;
@@ -37,17 +40,21 @@
     margin-bottom: 5px;
   } */
   .reviewText{
-    margin-top: 5px;
+    margin-top: var(--size-2);
   }
 
   .showMoreButton{
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top:  var(--size-4);
+    margin-bottom:  var(--size-6);
     font-size: 28px;
-    padding: 8px 16px;
-    color: "gray";
+    padding: var(--size-3) var(--size-5);
+    color: rgb(255, 255, 255);
     background-color: transparent;
     border: solid gray 1px;
+    border-radius: var(--size-2);
     text-decoration: none;
     cursor: pointer;
   }
+
+
+ 
