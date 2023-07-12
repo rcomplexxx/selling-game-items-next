@@ -11,9 +11,10 @@
 
 .reviewImage{
   position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
   margin-bottom: 5px;
-   width: 100%;
-   aspect-ratio: 16/9;
+   
 }
 
 
@@ -43,6 +44,7 @@
 .reviewDiv{
   width: 100%;
    max-height: max-content;
+   
 }
 
   /* .reviewDivImage{

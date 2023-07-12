@@ -5,19 +5,19 @@ import { RatingStar } from "rating-star";
 import Masonry from "react-masonry-css";
 import classNames from "classnames";
 
-function Review({ author, text, image }) {
+function Review({ author, text, image, }) {
   return (
     <div className={styles.reviewDiv}>
+      
       {image && (
-        <span className={styles.reviewImage}>
+        <div className={styles.reviewImage}>
         <Image
           src={"/images/" + image}
           alt="review image"
           className="object_fit_cover"
-          sizes="100vw"
           fill
         />
-        </span>
+        </div>
       )}
       <RatingStar maxScore={5} id="123" rating={5} />
       <p className={styles.reviewText}>{text}</p>
