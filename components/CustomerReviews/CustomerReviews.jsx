@@ -10,14 +10,14 @@ function Review({ author, text, image, }) {
     <div className={styles.reviewDiv}>
       
       {image && (
-        <div className={styles.reviewImage}>
         <Image
+        height={0}
+        width={0}
           src={"/images/" + image}
           alt="review image"
-          className="object_fit_cover"
-          fill
+          sizes="100vw"
+          className={styles.reviewImage}
         />
-        </div>
       )}
       <RatingStar maxScore={5} id="123" rating={5} />
       <p className={styles.reviewText}>{text}</p>

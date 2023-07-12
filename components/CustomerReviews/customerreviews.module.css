@@ -12,7 +12,7 @@
 .reviewImage{
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
+  height:max-content;
   margin-bottom: 5px;
    
 }
