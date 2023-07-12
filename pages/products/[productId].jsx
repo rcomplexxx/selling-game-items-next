@@ -132,7 +132,7 @@ export async function getStaticPaths() {
   
   
 
-  return { paths: products.map((product) => {{ params: { productId: product.id.toString() } } }), 
+  return { paths: products.map((product) => {return { params: { productId: product.id.toString() } }; }), 
     
     fallback: true };
 }
