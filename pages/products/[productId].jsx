@@ -27,29 +27,22 @@ export default function ProductPage({ product,images, startReviews }) {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
   const onAddToCart = (quantity = 1) => {
-    let foundProduct = false;
-    let newCartProducts = cartProducts.map((cp) => {
-      if (cp.id === product.id) {
-        cp.quantity = cp.quantity + 1;
-        foundProduct = true;
-      }
-      return cp;
-    });
-    if (!foundProduct) {
-      newCartProducts = [
-        ...newCartProducts,
-        {
-          id: product.id,
-          quantity: quantity,
-          name: product.name,
-          image: product.image,
-          price: product.price,
-        },
-      ];
+    const productIndex = cartProducts.findIndex((cp) => cp.id === product.id);
+  
+    if (productIndex !== -1) {
+      const updatedCartProducts = [...cartProducts];
+      updatedCartProducts[productIndex].quantity += 1;
+      setCartProducts(updatedCartProducts);
+    } else {
+      const newProduct = {
+        id: product.id,
+        quantity: quantity,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+      };
+      setCartProducts([...cartProducts, newProduct]);
     }
-
-
-    setCartProducts(newCartProducts);
   };
 
   return (
