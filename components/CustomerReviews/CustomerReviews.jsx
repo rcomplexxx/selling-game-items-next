@@ -21,6 +21,7 @@ function Review({ author, text, image, }) {
       )}
       <RatingStar maxScore={5} id="123" rating={5} />
       <p className={styles.reviewText}>{text}</p>
+      <p className={styles.reviewAuthor}>{author}</p>
     </div>
   );
 }

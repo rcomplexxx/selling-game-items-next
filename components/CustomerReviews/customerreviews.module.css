@@ -56,6 +56,11 @@
     margin-top: var(--size-2);
   }
 
+  .reviewAuthor{
+    margin-top: var(--size-2);
+    font-weight: 700;
+  }
+
   .showMoreButton{
     margin-top:  var(--size-4);
     margin-bottom:  var(--size-6);

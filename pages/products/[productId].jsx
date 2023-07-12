@@ -127,13 +127,14 @@ export default function ProductPage({ product,images, startReviews }) {
 }
 
 export async function getStaticPaths() {
-  const productPagesArray = [];
+ 
 
-  products.forEach((product) => {
-    productPagesArray.push({ params: { productId: product.id.toString() } });
-  });
+  
+  
 
-  return { paths: productPagesArray, fallback: true };
+  return { paths: products.map((product) => {{ params: { productId: product.id.toString() } } }), 
+    
+    fallback: true };
 }
 
 export async function getStaticProps(context) {
