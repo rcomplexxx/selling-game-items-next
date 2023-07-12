@@ -9,6 +9,13 @@
     align-items: center;
 }
 
+.reviewImage{
+  position: relative;
+  margin-bottom: 5px;
+   width: 100%;
+   aspect-ratio: 16/9;
+}
+
 
 .my_masonry_grid {
  
@@ -16,11 +23,15 @@
     flex-direction: row;
     width: auto;
     column-fill: balance;
+     margin-left: var(--size-3);
+    margin-right: var(--size-3);
+   
   
   }
   .my_masonry_grid_column {
     padding: 0 var(--size-4);
     background-clip: padding-box;
+   
   }
   
   /* Style your items */
@@ -54,6 +65,13 @@
     border-radius: var(--size-2);
     text-decoration: none;
     cursor: pointer;
+  }
+
+  
+  @media (min-width: 1320px)  {
+    .mainDiv{
+      width: var(--size-19);
+    }
   }
 
 

@@ -9,14 +9,15 @@ function Review({ author, text, image }) {
   return (
     <div className={styles.reviewDiv}>
       {image && (
+        <span className={styles.reviewImage}>
         <Image
           src={"/images/" + image}
-          width={0}
-          height={0}
           alt="review image"
+          className="object_fit_cover"
           sizes="100vw"
-          style={{  marginBottom: "5px", width: "100%",height: "auto" }}
+          fill
         />
+        </span>
       )}
       <RatingStar maxScore={5} id="123" rating={5} />
       <p className={styles.reviewText}>{text}</p>
