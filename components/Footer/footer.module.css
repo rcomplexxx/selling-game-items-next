@@ -97,7 +97,7 @@
   }
 
   .payments{
-    
+    height:auto;
     width:100%;
     margin: var(--size-3);
     margin-top: var(--size-5);
