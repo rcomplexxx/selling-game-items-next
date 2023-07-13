@@ -44,10 +44,10 @@ export default function Footer() {
           onChange={()=>{ if(!isValidEmail) setIsValidEmail(true);}}
         />
        {!successful && !isValidEmail && (
-      <p style={{ color: "orange" }}>Please enter a valid email address.</p>
+      <p className={styles.subscribeValidationMessage}>Please enter a valid email address.</p>
     )}
     {successful &&  !isValidEmail && (
-      <p style={{ color: "green" }}>Successfuly subscribed.</p>
+      <p className={`${styles.subscribeValidationMessage} ${styles.subscribeSuccess}`}>Successfuly subscribed.</p>
     )}
         <button className={styles.subscribeButton} onClick={handleSubscribe}>
           Subscribe

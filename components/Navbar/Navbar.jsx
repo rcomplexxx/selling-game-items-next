@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ShoppingCart, Menu as MenuIcon } from "@mui/icons-material";
+import classNames from "classnames";
 
 
 
@@ -57,11 +58,11 @@ const NavBar = ({ totalItems }) => {
       <nav className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
          
-
+{/* Doradi className={classNames(classes.menuButton)} */}
           {windowWidth < 980 ? (
             <div className={classes.growAlt}>
               <IconButton
-                className={classes.menuButton}
+                
                 onClick={handleMobileMenuOpen}
                 aria-label="Menu"
                 color="inherit"

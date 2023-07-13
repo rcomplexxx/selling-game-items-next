@@ -49,6 +49,18 @@
     
   }
 
+  .subscribeValidationMessage{
+    color:orange;
+
+    margin-top: var(--size-3);
+    margin-bottom: var(--size-4);
+
+  }
+
+  .subscribeSuccess{
+    color:green;
+  }
+
   .subscribeButton{
     color:var(--gray-1);
     width: 100%;
