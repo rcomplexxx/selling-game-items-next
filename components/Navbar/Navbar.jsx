@@ -82,7 +82,6 @@ const NavBar = ({ totalItems }) => {
                   <img
                     src="/images/commerce.png"
                     alt="Gamesmoke Shop"
-                    height="25px"
                     className={classes.image}
                   />
                   Gamesmoke Shop
