@@ -63,9 +63,11 @@
   
 
     .reviewDiv {
-      height: var(--size-13);
+      
       max-width: var(--size-14);
       width: 96vw;
+      height: 0;
+      aspect-ratio: 3/2;
     }
 
   }
