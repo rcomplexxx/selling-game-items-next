@@ -56,6 +56,14 @@
   text-align: left;
  }
   
+
+ @media screen and (max-width: 400px) {
+  .reviewDiv {
+    height: var(--size-13);
+    width: var(--size-13-5);
+  }
+ }
+
   @media screen and (max-width: 1080px) {
    
   
@@ -64,9 +72,7 @@
 
     .reviewDiv {
       height: var(--size-13);
-      max-width: var(--size-14);
-      margin-left: var(--size-6);
-      margin-right: var(--size-6);
+      width: var(--size-14);
     }
 
   }
