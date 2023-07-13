@@ -104,7 +104,7 @@
     top: 0;
     left: 0;
     height: fill;
-    width:var(--size-13);
+    width:var(--size-12);
     background-color: var(--gray-9-elegant);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
