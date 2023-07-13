@@ -39,6 +39,7 @@
 
   .author{
     margin-top: auto;
+    margin-bottom: var(--size-6);
   }
   
 
