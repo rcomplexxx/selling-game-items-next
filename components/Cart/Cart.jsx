@@ -79,19 +79,11 @@ const Cart = () => {
   );
 
   return (
-    <div className={classNames(styles.container)}>
-      <Container className={styles.containerStyle}>
+    <div className={styles.container}>
         {(cartProducts.length !== 0) && (
-          <Typography
-            className={classNames(styles.title)}
-            variant="h3"
-            gutterBottom
-          >
-            Your Shopping Cart
-          </Typography>
+        <h1 className={classNames(styles.title)} >Your Shopping Cart</h1>
         )}
         {cartProducts.length === 0 ? renderEmptyCart() : renderCart()}
-      </Container>
     </div>
   );
 };

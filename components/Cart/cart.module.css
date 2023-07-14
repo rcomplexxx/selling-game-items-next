@@ -1,30 +1,32 @@
 .container {
-  margin-top: 64px;
-  min-height: calc(100vh - 128px);
+  margin-top: var(--size-6);
+  min-height: calc(100vh - var(--size-9));
   min-width: 100vw;
   z-index: 2;
   
 }
 
+.containerStyle{
+  height: 100%;
+}
 
 
-.toolbar {
-    min-height: 64px; /* Replace with the desired height value */
-  }
   
   .title {
-    margin-top: 5%;
     color: white;
+      margin-bottom: var(--size-7);
+      margin-top: var(--size-7);
+
   }
   
   .emptyButton {
     background-color: transparent;
     color: white;
-    min-width: 150px;
+    min-width: var(--size-11);
   }
   
   .checkoutButton {
-    min-width: 150px;
+    min-width: var(--size-11);
   }
   
   .link {
@@ -33,14 +35,16 @@
   
   .cardDetails {
     display: flex;
-    margin-top: 15vh;
-    width: 100%;
     justify-content: space-between;
+    align-self: flex-end;
+    margin-top: var(--size-11);
+    width: 100%;
+  
     margin-bottom: 5vh;
   }
   
   .emptyCartText {
     color: white;
-    margin-bottom: 5vh;
-    margin-right:10px;
+    margin-right: var(--size-3);
+    margin-top: var(--size-7);
   }
