@@ -40,7 +40,7 @@ const Cart = () => {
       <Grid
         container
         spacing={3}
-        xs={{ width: "100vw", minWidth: "max-content" }}
+        sx={{marginBottom: "var(--size-10)"}}
       >
         {cartProducts.map((lineItem) => (
           <Grid item xs={12} sm={6} md={4} lg={4} key={lineItem.id}>
@@ -80,10 +80,12 @@ const Cart = () => {
 
   return (
     <div className={styles.container}>
+      <Container className={styles.containerStyle}>
         {(cartProducts.length !== 0) && (
         <h1 className={classNames(styles.title)} >Your Shopping Cart</h1>
         )}
         {cartProducts.length === 0 ? renderEmptyCart() : renderCart()}
+      </Container>
     </div>
   );
 };

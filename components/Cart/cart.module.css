@@ -1,12 +1,16 @@
 .container {
-  margin-top: var(--size-6);
-  min-height: calc(100vh - var(--size-9));
+  margin-top: var(--size-7);
+  margin-bottom: var(--size-7);
+  min-height: calc(100vh - var(--size-10));
   min-width: 100vw;
   z-index: 2;
   
 }
 
 .containerStyle{
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--size-10));
   height: 100%;
 }
 
@@ -36,15 +40,15 @@
   .cardDetails {
     display: flex;
     justify-content: space-between;
-    align-self: flex-end;
-    margin-top: var(--size-11);
+   
     width: 100%;
-  
-    margin-bottom: 5vh;
+    margin-top: auto;
+    margin-bottom: var(--size-9);
   }
   
   .emptyCartText {
     color: white;
+    margin-left: var(--size-3);
     margin-right: var(--size-3);
     margin-top: var(--size-7);
   }
