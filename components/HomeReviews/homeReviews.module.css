@@ -1,0 +1,137 @@
+.title {
+  margin-bottom: var(--size-7);
+  }
+
+  .mainReviewDiv{
+    height: max-content;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--size-2);
+    overflow: hidden;
+  }
+
+ 
+  
+  .reviewDiv { 
+    min-height: max-content;
+    height: var(--size-13-5);
+   
+    max-width: var(--size-13);
+    background-color: var(--gray-9);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: var(--size-2);
+    padding: var(--size-4);
+    margin-left: var(--size-6);
+    margin-right: var(--size-6);
+    margin-bottom: var(--size-8);
+    box-sizing: border-box;
+ 
+  }
+  
+  .mainDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: max-content;
+    width: max-content;
+    user-select: none;
+  }
+
+  .reviewTitle {
+    color: var(--gray-1);
+    margin-top: var(--size-2);
+    margin-bottom: var(--size-2);
+  }
+  
+
+  .author{
+    margin-top: auto;
+    margin-bottom: var(--size-6);
+  }
+  
+
+  .swiperCenterer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+ 
+ 
+  
+ .reviewText{
+  text-align: left;
+ }
+
+
+ @media (max-width: 1080px)  {
+
+  .mainReviewDiv{
+    width: calc(100% - var(--size-11));
+    margin-bottom: var(--size-9);
+      /* background-color: rgb(75, 78, 75); */
+      /* background-color: rgb(67, 71, 67); */
+      background-color: #081522;
+    }
+
+    .mainDiv {
+      margin-bottom: var(--size-4);
+    }
+
+  .reviewDiv{
+    background-color: var(--gray-9-elegant);
+    max-width: var(--size-13);
+    max-height: var(--size-13-5);
+    width: calc(100vw - var(--size-11));
+    height: calc((100vw - var(--size-11)) * 5 / 4);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+ 
+  
+}
+  
+  @media screen and (max-width: 600px) {
+   
+    .mainReviewDiv{
+      width: calc(100% - var(--size-8));
+     
+      }
+   
+  
+
+    .reviewDiv {
+      
+      width: calc(100vw - var(--size-8));
+      height: calc((100vw - var(--size-8)) * 5 / 4);
+    }
+
+  }
+
+
+ 
+
+ 
+
+  @media screen and (min-width: 1420px) {
+    .reviewDiv {
+      margin-left: var(--size-7);
+      margin-right: var(--size-7);
+    }
+  }
+
+  @media screen and (min-width: 1620px) {
+    .reviewDiv {
+      margin-left: var(--size-8);
+      margin-right: var(--size-8);
+    }
+  }
+  
+ 

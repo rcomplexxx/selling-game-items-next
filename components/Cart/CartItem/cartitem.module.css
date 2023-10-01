@@ -1,0 +1,226 @@
+.mainItemDiv{
+ color: white; 
+ padding: 0 var(--size-2);
+ display: flex;
+ flex-direction: row;
+ justify-content: flex-start;
+ align-items: flex-start;
+ margin-bottom: var(--size-7);
+}
+
+
+
+.mainItemInfo{
+  
+  flex-grow: 1;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+ margin-left: var(--size-6);
+ margin-top: -2px;
+}
+
+.productName{
+  font-weight: 500;
+  margin: 0 4px;
+  
+}
+
+
+
+.cardActions{
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .itemPrice{
+        margin: 16px 4px;
+        margin-bottom: 0;
+        font-size: var(--size-6);
+        font-weight: 500;
+      }
+
+.media {
+  position:relative;
+  width:var(--size-13);
+  height: calc(var(--size-13) / 16 * 9);
+  align-self: flex-start;
+  
+
+  }
+
+
+
+  .removeButton{
+    background-color: rgb(41, 26, 51);
+    color:white;
+    width: var(--size-9);
+    height: var(--size-7);
+    margin-top:var(--size-5);
+    border: none;
+    border-radius: 4px;
+  }
+
+  .quantityButton{
+   
+    border:none;
+    background-color:transparent;
+    color: white;
+    
+     width: min-content;
+  }
+  
+  .cardContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: black;
+    width: var(--size-13);
+  }
+
+  .cardContent h1{
+    font-size: var(--font-size-6);
+  }
+  
+  .cartActions {
+    
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+  }
+  
+  .buttons {
+    display: flex;
+    align-items: center;
+    margin-top:var(--size-5);
+  }
+
+  .buttons h2{
+    margin: 0 var(--size-4);
+  }
+
+  .total{
+    align-self: flex-start;
+    margin: 4px 0;
+  }
+
+
+  .link {
+    color: white;
+    text-decoration: none;
+  }
+
+
+  @media (max-width: 980px)  {
+
+    .mainItemDiv{
+      margin-bottom: var(--size-7);
+    }
+
+    .media {
+      width:var(--size-12);
+      height: calc( var(--size-12) / 16 * 9);
+      }
+
+      .cardContent {
+        width: min-content;
+        max-width: var(--size-12);
+      }
+
+      .cardContent h1{
+        font-size: var(--font-size-5);
+      }
+
+      .mainItemInfo{
+        margin-top: -2px;
+      }
+
+
+  }
+  
+  @media (max-width: 600px)  {
+    .media {
+      width:var(--size-12);
+      height: calc( var(--size-12) / 16 * 9);
+      }
+      .cardContent {
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: var(--size-12);
+      }
+
+      .cardContent h1{
+        font-size: var(--font-size-4);
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      
+
+
+      .cardActions{
+       
+      }
+
+  }
+
+  @media (max-width: 580px)  {
+   
+  
+     
+   
+   
+
+
+    .media {
+      width:var(--size-12);
+      height: calc(var(--size-12) / 16 * 9);
+      }
+
+      .cardContent {
+       
+        max-width: var(--size-12);
+      }
+
+      .cardContent h1{
+        font-size: var(--font-size-3);
+      }
+      .mainItemInfo{
+        margin-top: -4px;
+        margin-left: var(--size-5);
+      }
+      
+  }
+
+  @media (max-width: 480px)  {
+
+    .mainItemDiv{
+      margin-bottom: var(--size-6);
+    }
+    .media {
+      width:var(--size-11);
+      height: calc( var(--size-11) / 16 * 9);
+      }
+
+      .cardContent {
+       
+        max-width: var(--size-11);
+      }
+
+      .cardContent h1{
+        font-size: var(--font-size-2);
+      }
+      .cardActions{
+      }
+
+      .buttons h2{  
+          font-size: var(--font-size-2);
+      }
+     
+      
+  }

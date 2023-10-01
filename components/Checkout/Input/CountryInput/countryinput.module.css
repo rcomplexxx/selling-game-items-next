@@ -1,0 +1,92 @@
+.countrySelectStyle{
+    width: 100%;
+    height: 32px;
+    background-color: #202020;
+    padding: 0 4px;
+    color: #979797;
+    /* box-shadow: 0 0 4px #749ac2; */
+    border-radius: 2px;
+    border: solid 1px rgba(53, 60, 110, 0.459);
+    box-sizing: border-box;
+    appearance: none; /* Remove default arrow in some browsers */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    
+    font-size: var(--font-size-2);
+  }
+
+  .countrySelectStyle:focus{
+   
+      outline: none !important;
+     border:none;
+    box-shadow: 0 0 6px #7daee2;
+  
+  }
+
+  .arrowDown{
+    position:absolute;
+    align-self: flex-end;
+    transform: rotate(90deg);
+    margin-right: 6px;
+  }
+
+ 
+
+  .countryColoredPlaceholder{ color: white;}
+
+
+  .countrySelectStyle option{
+    color: white;
+  }
+
+
+  .form_group {
+    position: relative;
+    width: 100%;
+    border-radius: 2px;
+    background-color: #202020;
+    border: none;
+    margin-left: var(--size-3);
+    margin-right: var(--size-3);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    
+  
+    .form_group:focus-within {
+      /* Define the styles for the parent when any child is focused */
+      
+    }
+
+    
+
+
+    .input_error{
+      box-shadow: 0 0 4px rgb(158, 49, 6);
+    }
+    
+  
+
+    @media (max-width: 980px)  {
+
+        .form_group{
+          margin-bottom: var(--size-4);
+          margin-left: 0;
+          margin-right: 0;
+        }
+      
+      
+       
+      }
+
+      @media (max-width: 580px)  {
+
+        .countrySelectStyle{
+          border: solid 1px rgba(44, 49, 94, 0.363);
+        }
+    
+      }

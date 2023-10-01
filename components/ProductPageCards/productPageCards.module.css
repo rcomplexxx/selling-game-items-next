@@ -1,0 +1,81 @@
+.descriptionDiv{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--size-5);
+    padding-left:  var(--size-2);
+    padding-right:  var(--size-2);
+    box-sizing: border-box;
+}
+
+.descriptionTitle{
+    align-self: center;
+}
+
+
+.contactInfoDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--size-5);
+    margin-top: var(--size-3);
+    padding-left:  var(--size-2);
+    
+}
+
+.contactInput{
+    width: calc(100% - var(--size-3));
+    box-sizing: border-box;
+    
+}
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    
+    box-sizing: border-box;
+}
+
+
+.messageField{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-bottom: var(--size-5);
+    padding-left:  var(--size-2);
+    padding-right:  var(--size-2);
+    box-sizing: border-box;
+}
+
+.sendButton{
+    width: var(--size-9);
+    height: var(--size-6);
+    border: none;
+    border-radius: 12px;
+    color:white;
+    background-color: #202020;
+    margin-left: var(--size-2);
+    margin-right: var(--size-2);
+    margin-bottom: var(--size-5);
+}
+
+.sendButton:hover{
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 1080px){
+    .descriptionDiv{
+       
+        margin-bottom: var(--size-7);
+    }
+
+  
+
+    .sendButton{
+        margin-bottom: var(--size-7);
+    }
+}
+

@@ -1,0 +1,80 @@
+[
+    {
+        "id":0,
+        "name":"Joystick blanket",
+        "image": "1.png",
+        "price":12
+    },
+    {
+    "id":1,
+    "name":"Gamer blanket",
+    "image":"2.png",
+    "price":42
+},
+{
+    "id":2,
+    "name":"Anime Joystick",
+    "image":"3.png",
+    "price":74
+},{
+    "id":3,
+    "name":"Colored Joystick",
+    "image":"4.png",
+    "price":120
+},{
+    "id":4,
+    "name":"Assassin's creed Joystick",
+    "image":"5.png",
+    "price":499.99
+},{
+    "id":5,
+    "name":"Cool Keyboard",
+    "image":"6.png",
+    "price":34.99
+},{
+    "id":7,
+    "name":"Anime Keyboard",
+    "image":"8.png",
+    "price":50
+},{
+    "id":8,
+    "name":"Gaming Chair",
+    "image":"9.png",
+    "price":85
+},{
+    "id":9,
+    "name":"Full set",
+    "image":"10.png",
+    "price":1250
+},{
+    "id":10,
+    "name":"Pro Joystick",
+    "image":"11.png",
+    "price":117
+},{
+    "id":11,
+    "name":"Gaming headphones",
+    "image":"12.png",
+    "price":55.17
+},{
+    "id":12,
+    "name":"Studio headphones",
+    "image":"13.png",
+    "price":138.99
+},{
+    "id":13,
+    "name":"Chill headphones",
+    "image":"14.png",
+    "price":15.99
+},{
+    "id":14,
+    "name":"Gaming mobile VivoY20S",
+    "image":"15.png",
+    "price":399.99
+},{
+    "id":15,
+    "name":"Ios Xbox Expending",
+    "image":"16.png",
+    "price":219.99
+}
+]
