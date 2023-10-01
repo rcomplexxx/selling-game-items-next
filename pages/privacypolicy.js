@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
       </Head>
       <h1>Privacy Policy</h1>
 
-      <p>
+      <p>sadsa
         [["We" or "I", or Website or App name]] takes your privacy seriously. To
         better protect your privacy [["we" or "I"]] provide this privacy policy
         notice explaining the way your personal information is collected and
