@@ -9,6 +9,7 @@ export default function AdminPage () {
   return <AdminDynamic/>;
 };
 
+//Admin Page
 
 
 
