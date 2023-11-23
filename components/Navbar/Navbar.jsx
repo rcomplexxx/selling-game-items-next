@@ -104,14 +104,80 @@ console.log(pathname)
                 >
                   Sale
                 </Link>
+                <div className={styles.subMenuPortal}>
+
                 <div
        
        className={`${styles.linkStyle}`}
        onClick={() => {
-         setSubMenu(1);
+         setSubMenu(subMenu==1?0:1);
        }}
      >
        FAQ
+       </div>
+       {subMenu==1 && <div className={styles.subMenu}>
+
+
+      <Link
+        href="/faq"
+        className={`${styles.menuItemDiv} ${
+          pathname === "/faq" ? styles.currentLinkMobile : ""
+        }`}
+        onClick={() => {
+          pathname !== "/faq" && setIsMenuOpen(false);
+        }}
+      >
+        <p>General questions</p>
+      </Link>
+
+      <Link
+        href="/terms-of-service"
+        className={`${styles.menuItemDiv} ${
+          pathname === "/terms-of-service" ? styles.currentLinkMobile : ""
+        }`}
+        onClick={() => {
+          pathname !== "/terms-of-service" && setIsMenuOpen(false);
+        }}
+      >
+        <p>Terms of service</p>
+      </Link>
+      <Link
+        href="/privacy-policy"
+        className={`${styles.menuItemDiv} ${
+          pathname === "/privacy-policy" ? styles.currentLinkMobile : ""
+        }`}
+        onClick={() => {
+          pathname !== "/privacy-policy" && setIsMenuOpen(false);
+        }}
+      >
+        <p>Privacy policy</p>
+      </Link>
+      <Link
+        href="/shipping-policy"
+        className={`${styles.menuItemDiv} ${
+          pathname === "/shipping-policy" ? styles.currentLinkMobile : ""
+        }`}
+        onClick={() => {
+          pathname !== "/shipping-policy" && setIsMenuOpen(false);
+        }}
+      >
+        <p>Shipping policy</p>
+      </Link>
+      <Link
+        href="/refund-policy"
+        className={`${styles.menuItemDiv} ${
+          pathname === "/refund-policy" ? styles.currentLinkMobile : ""
+        }`}
+        onClick={() => {
+          pathname !== "/refund-policy" && setIsMenuOpen(false);
+        }}
+      >
+        <p>Refund policy</p>
+      </Link>
+
+       
+     </div>
+}
      </div>
 
                 <Link
