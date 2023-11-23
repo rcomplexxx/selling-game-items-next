@@ -17,11 +17,14 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
 
     
     const handleMobileMenuClose = () => {
+        
         setIsMenuClosing(true);
     
         setTimeout(() => {
           setIsMenuOpen(false);
           setIsMenuClosing(false);
+          if(pathname!=='/faq' && pathname!=='/terms-of-service' && pathname!=='/privacy-policy'
+        && pathname!=='/shipping-policy' && pathname!=='/refund-policy') setSubMenu(0);
         }, 500);
       };
 
