@@ -7,11 +7,14 @@ import Image from "next/image";
 import PopupCart from "./PopupCart/PopupCart";
 
 import Search from "./Search/Search";
+import MobileMenu from "./MobileMenu/MobileMenu";
 
 const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMenuClosing, setIsMenuClosing] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [subMenu, setSubMenu]=useState(0);
+
+
 
   const router = useRouter();
   const pathname = router.asPath;
@@ -19,16 +22,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   const handleMobileMenuOpen = (event) => {
     setIsMenuOpen(true);
   };
-
-  const handleMobileMenuClose = () => {
-    setIsMenuClosing(true);
-
-    setTimeout(() => {
-      setIsMenuOpen(false);
-      setIsMenuClosing(false);
-    }, 500);
-  };
-
+ 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -150,90 +144,7 @@ console.log(pathname)
       </nav>
 
       {isMenuOpen && (
-        <div
-          className={
-            styles.mobileMenu +
-            " " +
-            (isMenuClosing ? styles.menuCoverDissapear : "")
-          }
-          onClick={handleMobileMenuClose}
-        >
-          <div
-            className={
-              styles.mainMenuCard +
-              " " +
-              (isMenuClosing ? styles.menuClose : "")
-            }
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className={styles.menuItemsDiv}>
-              <button
-                className={styles.menuItem_x_button}
-                onClick={handleMobileMenuClose}
-              >
-                x
-              </button>
-            </div>
-
-            <Link
-              href="/"
-              className={`${styles.linkStyle} ${styles.menuItemDiv} ${
-                pathname === "/" ? styles.currentLinkMobile : ""
-              }`}
-              onClick={() => {
-                pathname !== "/" && setIsMenuOpen(false);
-              }}
-            >
-              <p>Home</p>
-            </Link>
-
-            <Link
-              href="/products"
-              className={`${styles.linkStyle} ${styles.menuItemDiv} ${
-                pathname === "/products" ?  styles.currentLinkMobile : ""
-              }`}
-              onClick={() => {
-                pathname !== "/products" && setIsMenuOpen(false);
-              }}
-            >
-              <p>Products</p>
-            </Link>
-
-            <Link
-              href="/collection/sale/page/1"
-              className={`${styles.linkStyle} ${styles.menuItemDiv} ${
-                pathname === "/collection/sale/page/1" ?  styles.currentLinkMobile : ""
-              }`}
-              onClick={() => {
-                pathname !== "/collection/sale/page/1" && setIsMenuOpen(false);
-              }}
-            >
-              <p>Sale</p>
-            </Link>
-            <Link
-              href="/aboutus"
-              className={`${styles.linkStyle} ${styles.menuItemDiv} ${
-                pathname === "/aboutus" ?  styles.currentLinkMobile : ""
-              }`}
-              onClick={() => {
-                pathname !== "/aboutus" && setIsMenuOpen(false);
-              }}
-            >
-              <p>About us</p>
-            </Link>
-            <Link
-              href="/contact"
-              className={`${styles.linkStyle} ${styles.menuItemDiv} ${
-                pathname === "/contact" ?  styles.currentLinkMobile : ""
-              }`}
-              onClick={() => {
-                pathname !== "/contact" && setIsMenuOpen(false);
-              }}
-            >
-              <p>Contact us</p>
-            </Link>
-          </div>
-        </div>
+        <MobileMenu subMenu={subMenu} setSubMenu={setSubMenu} setIsMenuOpen={setIsMenuOpen}/>
       )}
     </>
   );
