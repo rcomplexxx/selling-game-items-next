@@ -1,0 +1,17 @@
+
+
+.logoDiv{
+    background: linear-gradient(3deg, rgba(13,24,45,1) 0%, rgba(34,80,139,1) 53%, rgba(2,7,9,1) 100%);
+    height: var(--size-11);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.logo{
+    height: var(--size-10);
+    width: var(--size-10);
+}

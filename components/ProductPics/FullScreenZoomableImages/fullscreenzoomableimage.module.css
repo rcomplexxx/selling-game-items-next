@@ -1,0 +1,79 @@
+.full_screen_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    background: rgb(0, 0, 0);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y:scroll;
+  }
+
+  .spaceController{
+    margin: var(--size-12) 0;
+    position:relative;
+    height: auto;
+    max-height: calc(100% - var(--size-11-5));
+   
+    
+    
+  }
+  
+ 
+  .close_button {
+   
+    height: 32px;
+    width:32px;
+    color:rgb(133, 153, 143);
+    background-color: transparent;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    border-radius: 100%;
+    border: 1px solid rgb(85, 81, 81);
+    font-size: var(--font-size-4);
+    font-family: sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+
+  .aliceSuiter{
+   
+    position: relative;
+    
+    width: 100vw;
+    height:auto;
+   
+ 
+  }
+
+  
+
+
+
+
+  .productImageDiv{
+    width: 100vw;
+    aspect-ratio: 16/9;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    
+  }
+
+  .productImage{
+    width:100vw;
+  height: auto;
+  object-fit: cover;
+  }
+
+
+
+
+  

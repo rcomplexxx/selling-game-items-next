@@ -1,0 +1,146 @@
+
+
+.containerStyle{
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: calc(100vh - 80px);
+  min-height: calc(100svh - 80px);
+  padding: 0 var(--size-10);
+  padding-bottom: var(--size-8) ;
+  box-sizing: border-box;
+}
+
+.itemsDiv{
+  margin-bottom: var(--size-10);
+}
+
+  
+  .title {
+    color: white;
+      margin-bottom: var(--size-7);
+      margin-top: var(--size-5);
+    font-weight: 500;
+  }
+  
+
+
+ 
+
+  .subtotalNew{
+    color:white;
+    font-size: var(--font-size-7); /* Adjust the font size as needed */
+    font-weight: 500; /* You can adjust the font weight */
+    padding:0;
+    margin:0;
+   
+  }
+  
+  .checkoutButton {
+    min-width: var(--size-12);
+    display:none;
+   
+  }
+
+  .checkoutButtonNew{
+    height: 40px;
+    min-width: var(--size-12);
+    color: white;
+    background-color: #1976d2;
+     /* #1565C0;  */
+     box-sizing: border-box;
+    border-radius: 4px;
+    border: none;
+     font-family: Arial, sans-serif;
+    font-size: var(--font-size-3);   
+    transition: background-color 0.3s ease;
+  }
+
+  .checkoutButtonNew:hover{
+    cursor: pointer;
+    background-color: #1565C0;;
+  }
+  
+  .link {
+    
+    text-decoration: none;
+  }
+  
+  .cardDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom:0;
+  }
+  
+  .emptyCartText {
+    color: white;
+    font-size: var(--font-size-5);
+    margin-left: var(--size-3);
+    margin-right: var(--size-3);
+    margin-top: var(--size-7);
+  }
+
+
+  @media(max-width: 980px){
+
+  
+    .itemsDiv{
+      margin-bottom: var(--size-9);
+    }
+
+    
+.containerStyle{
+  padding: 0 var(--size-8);
+  padding-bottom: var(--size-6) ;
+}
+
+
+    .cardDetails {
+    
+      margin-left: var(--size-3);
+      width: calc(100% - var(--size-5));
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    }
+
+    .link {
+      margin-top: var(--size-4);
+     align-self: center;
+     width:100%;
+    }
+
+    .checkoutButton {
+      min-width: none;
+      width: 100%;
+    }
+
+    .checkoutButtonNew {
+      min-width: none;
+      width: 100%;
+    }
+
+  }
+
+  @media(max-width: 600px){
+    .containerStyle{
+    padding: 0 var(--size-5);
+    padding-bottom: var(--size-6) ;
+    }
+  }
+
+  @media(max-width: 480px){
+
+    .itemsDiv{
+      margin-bottom: var(--size-8);
+    }
+
+    .containerStyle{
+      padding: 0 var(--size-4);
+      padding-bottom: var(--size-6) ;
+    }
+  }
+

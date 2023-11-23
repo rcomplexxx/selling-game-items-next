@@ -1,0 +1,121 @@
+.cartPopup{
+    max-height: 0;
+    user-select: none;
+    position:absolute;
+    top: 100%;
+    right: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    height: var(--size-13-5);
+    width:var(--size-13-5);
+    background-color: var(--gray-9-elegant);
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+
+  
+  }
+
+  .materialize{
+    padding: var(--size-6) var(--size-7);
+    max-height: var(--size-13-5);
+    border: 1px solid rgb(72, 69, 85);
+
+  }
+
+  .cartPopupTitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: var(--size-3);
+
+    
+  }
+  
+  .smallCorrect{
+    height: 12px;
+    width: 12px;
+    margin-right: 8px;
+  }
+
+  .productImage{
+    width: var(--size-10);
+    aspect-ratio: 16/9;
+    margin-right: var(--size-3);
+  }
+
+  .productTitle{
+
+    align-self: flex-start;
+    font-size: var(--font-size-6);
+    margin:0;
+  }
+
+  .popupButtons{
+   
+  }
+
+  .add_to_cart_button {
+    max-width: var(--size-15);
+    width:100%;
+    display: inline-block;
+    border: none;
+    padding: 12px 24px;
+    margin-top: 32px;
+    margin-bottom: 8px;
+    background-color: var(--blue-5);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+
+  .but_now_button{
+    max-width: var(--size-15);
+    width:100%;
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    border: 1px solid rgb(159, 160, 92);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .continue_shopping{
+    color:white;
+    margin: var(--size-2) auto;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+
+
+  @media (max-width: 600px){
+    .cartPopup{
+        height: auto;
+        
+        right: 0;
+        width: 100%;
+       box-sizing: border-box;
+
+       transition: max-height 0.6s ease;
+    }
+
+    .materialize{
+      max-height: var(--size-14);
+     
+        border-left: none;
+        border-right: none;
+      }
+
+  
+
+  }

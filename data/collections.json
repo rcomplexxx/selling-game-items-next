@@ -1,0 +1,35 @@
+[
+    
+    {  
+        "id": 0,
+         "name": "Blankets",
+        "products": [0, 1],
+        "image":"13.png",
+        "urlName":""
+    },
+    
+    { "id": 1,
+        "name": "Joysticks",
+        "products": [2, 3, 4, 10],
+        "image":"1.png"
+    
+    
+},
+
+
+{ "id": 2,
+    "name": "Gaming equipment",
+        "products": [5, 7, 8, 9, 11, 12, 13, 14, 15],
+        "image":"3.png"
+    
+},
+
+{ "id": 3,
+    "name": "Sale",
+        "products": [0,2,4,5,8,10],
+        "image":"3.png"
+    
+}
+
+
+]

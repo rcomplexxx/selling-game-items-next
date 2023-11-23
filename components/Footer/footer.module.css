@@ -1,0 +1,131 @@
+.footer {
+  width:100%;
+  max-width: 100vw;
+    background: linear-gradient(to right, #101B2D, #233D5E);
+    padding: var(--size-6);
+    padding-top: 0;
+    
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: auto;
+  }
+
+  .mainDiv{
+    max-width: 96vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  .subscribeTitle{
+    margin:0;
+    padding:0;
+    margin-top:var(--size-7);
+    margin-bottom: var(--size-4);
+    
+  }
+
+  .subscribePharagraph{
+    margin:0 var(--size-2);
+    padding:0;
+    margin-bottom: var(--size-5);
+    font-size: var(--font-size-2)
+  }
+
+  .subscribeInput{
+    width: 100%;
+    height: var(--size-7);
+    color: #7a857a;
+    background-color: transparent;
+    border: solid #3e3e3e 1px;
+    border-radius: var(--size-2);
+    box-sizing: border-box;
+    padding: var(--size-2);
+    
+  }
+
+  .subscribeValidationMessage{
+    color:orange;
+    align-self: flex-start;
+    margin-top: var(--size-2);
+    margin-bottom: var(--size-3);
+
+  }
+
+  .subscribeSuccess{
+    color:green;
+  }
+
+  .subscribeButton{
+    color:var(--gray-1);
+    width: 100%;
+    height: var(--size-7);
+    margin-top: var(--size-3);
+    border: solid 2px var(--gray-1);
+    border-radius: var(--size-2);
+    box-sizing: border-box;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .footerLinks {
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: space-between;
+    margin-top: var(--size-5);
+  }
+  
+  
+  .footerLink {
+    color: #fff;
+    margin: 0 var(--size-3);
+    text-decoration: none;
+    font-size: var(--font-size-2);
+   
+  }
+  
+  .footerLink:hover {
+    text-decoration: underline;
+  }
+  
+  .footerLink:active {
+    color: #ccc;
+  }
+
+  .payments{
+    width: 100%;
+    aspect-ratio: 16;
+   
+    margin-top: var(--size-5);
+    margin-bottom: var(--size-4);
+    
+    
+  }
+
+  .reservedRightsPharagraph{
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-2)
+  }
+
+  @media(max-width:532px){
+
+
+  
+
+    .footerLink {
+      
+    margin-bottom: var(--size-1);
+    }
+
+    .payments{
+      margin-top: 14px;
+    }
+
+
+  }
+

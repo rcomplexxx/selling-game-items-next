@@ -1,0 +1,11 @@
+.secondStyle{
+    position:absolute;
+    margin-top: 64px;
+    left: var(--size-5);
+}
+
+.secondStyleSecButton{
+    position:absolute;
+    left: var(--size-5);
+    margin-top: 96px;
+}

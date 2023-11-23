@@ -1,0 +1,13 @@
+.reviewGetterDiv{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.reviewGetterDiv input{
+    margin-top: 4px;
+}
+
+.reviewGetterDiv button{
+    margin-top: 24px;
+}

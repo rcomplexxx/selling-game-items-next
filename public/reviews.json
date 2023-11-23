@@ -1,0 +1,141 @@
+
+[
+  {
+    "id": 0,
+    "name": "Markus B.",
+    "text": "Amazing products! They exceeded my expectations in terms of quality and performance. I highly recommend them to all gamers.",
+    "stars": "5"
+  },
+  {
+    "id": 1,
+    "name": "Sophia A.",
+    "imageNames": "[\"11.png\"]",
+    "text": "I recently purchased the gaming keyboard and mouse set, and I am extremely satisfied with their responsiveness and durability. The RGB lighting adds a stylish touch to my gaming setup.",
+    "stars": "5"
+  },
+  {
+    "id": 2,
+    "name": "Jackson S.",
+    "imageNames": "[\"11.png\"]",
+    "text": "The gaming headphones provide immersive sound quality and excellent noise cancellation. I can hear every detail in my games, whether it's footsteps or explosions.",
+    "stars": "5"
+  },
+  {
+    "id": 3,
+    "name": "Olivia J.",
+    "text": "The full computer set I bought from this store is fantastic. It comes with all the essential components and performs flawlessly. I can play the latest games without any lag or issues.",
+    "stars": "5"
+  },
+  {
+    "id": 4,
+    "name": "Lucas T.",
+    "imageNames": "[\"11.png\"]",
+    "text": "I'm loving the joystick I purchased. It offers precise control and enhances my gaming experience. The build quality is excellent, and it feels comfortable in my hands.",
+    "stars": "5"
+  },
+  {
+    "id": 5,
+    "name": "Emily D.",
+    "text": "I recently bought a game-themed blanket from this store, and it's so cozy and soft. The design is vibrant and adds a fun touch to my gaming room. I highly recommend it!",
+    "stars": "5"
+  },
+  {
+    "id": 6,
+    "name": "Noah W.",
+    "imageNames": "[\"11.png\"]",
+    "text": "The gaming mouse I purchased is top-notch. It offers smooth tracking and customizable buttons. The ergonomic design ensures a comfortable grip even during long gaming sessions.",
+    "stars": "5"
+  },
+  {
+    "id": 7,
+    "name": "Ava G.",
+    "imageNames": "[\"11.png\"]",
+    "text": "The gaming keyboard is a great addition to my setup. The keys are responsive and provide satisfying feedback. The LED backlighting looks amazing and adds a cool vibe to my gaming station.",
+    "stars": "5"
+  },
+  {
+    "id": 8,
+    "name": "Liam M.",
+    "text": "I'm impressed with the performance of the gaming headphones I purchased. The sound quality is excellent, and the microphone picks up my voice clearly. They are also comfortable to wear for long gaming sessions.",
+    "stars": "5"
+  },
+  {
+    "id": 9,
+    "name": "Charlotte T.",
+    "text": "The full computer set I bought exceeded my expectations. It's powerful and handles demanding games with ease. The graphics are stunning, and the overall build quality is impressive.",
+    "stars": "5"
+  },
+  {
+    "id": 10,
+    "name": "Mason L.",
+    "imageNames": "[\"11.png\"]",
+    "text": "I recently purchased a joystick, and it's a game-changer. The precision and responsiveness it offers enhance my gaming performance. It's a must-have accessory for any serious gamer.",
+    "stars": "5"
+  },
+  {
+    "id": 11,
+    "name": "Harper T.",
+    "text": "The game-themed blanket I bought is so soft and comfortable. It keeps me warm during long gaming sessions. The design is unique and represents my favorite game perfectly.",
+    "stars": "5"
+  },
+  {
+    "id": 12,
+    "name": "Leo W.",
+    "text": "I recently upgraded my gaming setup with the latest gaming mouse, and I'm loving it. The customizable buttons and adjustable DPI settings provide excellent control. It's a game-changer for competitive gaming.",
+    "stars": "5"
+  },
+  {
+    "id": 13,
+    "name": "Stella R.",
+    "imageNames": "[\"11.png\"]",
+    "text": "The gaming keyboard I purchased is amazing. The keys are responsive and provide a satisfying typing experience. The RGB lighting adds a cool visual effect to my gaming station.",
+    "stars": "5"
+  },
+  {
+    "id": 14,
+    "name": "Elijah H.",
+    "text": "I recently bought a gaming headset, and it's fantastic. The audio quality is immersive, and the microphone captures my voice accurately. The adjustable headband ensures a comfortable fit.",
+    "stars": "5"
+  },
+  {
+    "id": 15,
+    "name": "Scarlett P.",
+    "imageNames": "[\"11.png\"]",
+    "text": "The full computer set I purchased is exceptional. It's fast, reliable, and handles multitasking with ease. The graphics card delivers stunning visuals, making gaming a truly immersive experience.",
+    "stars": "5"
+  },
+  {
+    "id": 16,
+    "name": "Henry Y.",
+    "text": "I recently bought a game-themed blanket, and it's perfect for cozying up during gaming sessions. The material is soft, and the design is eye-catching. It adds a touch of gaming style to my room.",
+    "stars": "5"
+  },
+  {
+    "id": 17,
+    "name": "Alice M.",
+    "text": "I'm in love with the gaming mouse I got from this store. Its ergonomic design fits perfectly in my hand, providing precise control during gaming. The customizable buttons are a game-changer, and the DPI settings allow me to switch between different sensitivities seamlessly. Definitely a must-have for any gamer!",
+    "stars": "5"
+  },
+  
+  {
+    "id": 18,
+    "name": "David S.",
+    "text": "I recently purchased a gaming chair, and I couldn't be happier. The lumbar support and adjustable armrests make long gaming sessions incredibly comfortable. The high-quality leather feels luxurious, and the sturdy build gives me confidence in its durability. Assembly was a breeze, and it instantly upgraded my gaming setup.",
+    "stars": "5"
+  },
+  
+  {
+    "id": 19,
+    "name": "Olivia W.",
+    "text": "I bought a gaming monitor here, and it's a game-changer for my setup. The refresh rate is unbelievably smooth, and the colors are vibrant and accurate. Whether I'm gaming or working, the 4K resolution delivers stunning visuals. The slim bezels provide an immersive experience, and I appreciate the thoughtful cable management design.",
+    "stars": "5"
+  },
+  
+  {
+    "id": 20,
+    "name": "Sebastian B.",
+    "text": "I recently got a gaming mouse pad, and it's exceeded my expectations. The large surface area gives me plenty of room for mouse movement, and the anti-slip base ensures it stays in place during intense gaming sessions. The smooth surface offers precise tracking for both my mouse and keyboard. Plus, the cool gaming-inspired artwork adds a touch of personality to my desk.",
+    "stars": "5"
+  }
+  
+]

@@ -1,0 +1,43 @@
+.arrowSpan{
+    position:relative;  height:24px; width:8px;
+  }
+  
+  .arrowLink{
+    background-color: rgb(44, 95, 93);
+  }
+
+
+  .leftArrowImg {
+    transform: scaleX(-1);
+  }
+
+  .linkDiv {
+    display: flex;
+    flex-direction: row;
+    margin-top: var(--size-7);
+    margin-bottom: var(--size-8);
+  }
+  
+  .linkDivPageNumber {
+    text-decoration: none;
+    color: rgb(239, 241, 217);
+    margin-left: 12px;
+    margin-right: 12px;
+    font-size: var(--font-size-6);
+    height: 32px;
+    width:32px;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   
+  }
+
+
+  .pageLink {
+
+    
+    opacity: 0.4;
+    pointer-events: none; /* Disable pointer events to prevent clicks */
+    cursor: not-allowed;
+  }

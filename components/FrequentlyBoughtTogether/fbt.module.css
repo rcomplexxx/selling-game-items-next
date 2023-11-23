@@ -1,0 +1,88 @@
+
+
+
+
+  .h2Title{
+    margin-top: 40px;
+    font-size: var(--font-size-5);
+  }
+
+  .freqMain{
+    max-width: var(--size-15);
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   
+  }
+  .freqBought{
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 40px;
+    
+    
+  }
+
+  .freqBought > :first-child {
+    margin-right: var(--size-5);
+  }
+
+
+
+  .product_style_div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+     
+    
+    width: var(--size-11);
+  }
+
+
+  .product_style_span{
+    position:relative;
+    width: var(--size-11);
+    aspect-ratio: 16/9;
+    
+    
+    cursor: pointer;
+  }
+
+  .product_title{
+    height: var(--size-8);
+  }
+
+  .product_price{
+    align-self: center;
+    margin-top: var(--size-5);
+    margin-left: var(--size-1);
+}
+
+.infoSpaceDiv{
+  height: var(--size-10);
+}
+
+.add_to_cart_button {
+    width:100%;
+    display: inline-block;
+    border: none;
+    padding: 12px 0;
+    margin-top: 2px;
+    background-color: var(--blue-5);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: var(--font-size-2);
+  }
+
+  .add_to_cart_button:hover {
+    background-color: var(--blue-4);
+  }
+
+  @media(max-width: 600px){
+    .product_style_span{
+      width: var(--size-11);
+    }
+  }

@@ -1,0 +1,23 @@
+
+.cardMainDiv{
+   
+    width:100%;
+    max-width: var(--size-18);
+    height: var(--size-13);
+    margin-top: var(--size-9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgb(143, 151, 156);
+}
+
+
+.identifier{
+    font-size: 128px;
+    color: rgb(184, 189, 182);
+    margin: var(--size-4) var(--size-5);
+}
+
+.msgStatusButton{
+    margin: var(--size-4) var(--size-5);
+}

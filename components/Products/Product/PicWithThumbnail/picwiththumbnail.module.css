@@ -1,0 +1,53 @@
+.productImage{
+  position:absolute;
+  top:0;
+  left: 0;
+  height:100%;
+  width:100%;
+    transform: scale(1);
+    transition: none;
+    object-fit: cover;
+  
+  }
+
+  .productImage1{
+    z-index: 6;
+  }
+
+
+  .sale{
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    background-color: rgb(18, 14, 56);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size-1);
+    font-weight: 500;
+   
+    z-index: 7;
+  }
+
+
+@media(min-width: 980px){
+
+  .invisibleImage{
+    opacity: 0;
+  }
+  
+  .zoomIn {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+
+  .fadeIn {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+
