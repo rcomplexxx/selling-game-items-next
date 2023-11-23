@@ -104,6 +104,16 @@ console.log(pathname)
                 >
                   Sale
                 </Link>
+                <div
+       
+       className={`${styles.linkStyle}`}
+       onClick={() => {
+         setSubMenu(1);
+       }}
+     >
+       FAQ
+     </div>
+
                 <Link
                   href="/aboutus"
                   className={`${styles.linkStyle} ${

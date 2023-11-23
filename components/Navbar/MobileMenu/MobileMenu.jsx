@@ -89,9 +89,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
       </Link>
       <div
        
-        className={`${styles.subMenuPortal} ${styles.linkStyle} ${styles.menuItemDiv} ${
-          pathname === "/aboutus" ?  styles.currentLinkMobile : ""
-        }`}
+        className={`${styles.subMenuPortal} ${styles.linkStyle} ${styles.menuItemDiv}`}
         onClick={() => {
           setSubMenu(1);
         }}
@@ -129,7 +127,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
  <div
        
        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
-         pathname === "/aboutus" ?  styles.currentLinkMobile : ""
+         styles.currentLinkMobile
        }`}
        onClick={() => {
          setSubMenu(0);

@@ -75,7 +75,10 @@
 .grow{
   position:absolute;
   top: 24px;
-  left: calc(50vw - 176px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
 }
 
 
@@ -127,8 +130,8 @@
     text-decoration: none;
     transition: transform 0.08s ease-in;
     font-size: var(--font-size-3);
-    padding-left: var(--size-6);
-    padding-right: var(--size-6);
+    padding-left: var(--size-4);
+    padding-right: var(--size-4);
   }
   
   .linkStyle:hover {
