@@ -109,12 +109,12 @@ console.log(pathname)
                 <div
        tabindex="0"
        onBlur={()=>{setSubMenu(0)}}
-       className={`${styles.linkStyle}`}
+       className={`${styles.subMenuTitle} ${styles.linkStyle}`}
        onClick={() => {
          setSubMenu(subMenu==1?0:1);
        }}
      >
-       FAQ
+       <span>FAQ</span><img src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==1 && styles.subMenuArrowOpen}`}/>
        </div>
        {subMenu==1 && <div className={styles.subMenu}>
 
