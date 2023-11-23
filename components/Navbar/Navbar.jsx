@@ -107,7 +107,8 @@ console.log(pathname)
                 <div className={styles.subMenuPortal}>
 
                 <div
-       
+       tabindex="0"
+       onBlur={()=>{setSubMenu(0)}}
        className={`${styles.linkStyle}`}
        onClick={() => {
          setSubMenu(subMenu==1?0:1);
@@ -123,8 +124,9 @@ console.log(pathname)
         className={`${styles.menuItemDiv} ${
           pathname === "/faq" ? styles.currentLinkMobile : ""
         }`}
+        onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
-          pathname !== "/faq" && setIsMenuOpen(false);
+          setSubMenu(0);
         }}
       >
         <p>General questions</p>
@@ -135,8 +137,9 @@ console.log(pathname)
         className={`${styles.menuItemDiv} ${
           pathname === "/terms-of-service" ? styles.currentLinkMobile : ""
         }`}
+        onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
-          pathname !== "/terms-of-service" && setIsMenuOpen(false);
+          setSubMenu(0);
         }}
       >
         <p>Terms of service</p>
@@ -146,8 +149,9 @@ console.log(pathname)
         className={`${styles.menuItemDiv} ${
           pathname === "/privacy-policy" ? styles.currentLinkMobile : ""
         }`}
+        onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
-          pathname !== "/privacy-policy" && setIsMenuOpen(false);
+          setSubMenu(0);
         }}
       >
         <p>Privacy policy</p>
@@ -157,8 +161,9 @@ console.log(pathname)
         className={`${styles.menuItemDiv} ${
           pathname === "/shipping-policy" ? styles.currentLinkMobile : ""
         }`}
+        onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
-          pathname !== "/shipping-policy" && setIsMenuOpen(false);
+          setSubMenu(0);
         }}
       >
         <p>Shipping policy</p>
@@ -168,8 +173,9 @@ console.log(pathname)
         className={`${styles.menuItemDiv} ${
           pathname === "/refund-policy" ? styles.currentLinkMobile : ""
         }`}
+        onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
-          pathname !== "/refund-policy" && setIsMenuOpen(false);
+          setSubMenu(0);
         }}
       >
         <p>Refund policy</p>

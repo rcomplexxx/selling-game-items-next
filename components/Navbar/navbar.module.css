@@ -115,8 +115,7 @@
   
   
   
-  
-  
+ 
 
   
   
@@ -134,7 +133,6 @@
     padding-right: var(--size-4);
   }
   
-  
   .linkStyle:hover {
     transform: scale(1.1);
   }
@@ -150,16 +148,18 @@
   }
 
   .subMenuPortal{
-    position: relative;
+    
     
     user-select: none;
     cursor: pointer;
   }
   
+  
+  
   .subMenu{
     position: absolute;
     top: calc(100% + 8px);
-    left: 0;
+    left: 196px;
     background-color: var(--gray-9-elegant);
     border: 1px solid gray;
     width: var(--size-11-5);
@@ -167,6 +167,7 @@
     
   }
 
+  
 
 
 
