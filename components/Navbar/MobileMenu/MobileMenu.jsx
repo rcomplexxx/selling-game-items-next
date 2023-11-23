@@ -95,7 +95,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
         <p>FAQ</p>
-        <p>→</p>
+        <img src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
       <Link
         href="/aboutus"
@@ -126,14 +126,12 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
       <>
  <div
        
-       className={`${styles.linkStyle} ${styles.menuItemDiv} ${
-         styles.currentLinkMobile
-       }`}
+       className={`${styles.linkStyle} ${styles.menuItemDiv}  ${styles.subMenuBack}`}
        onClick={() => {
          setSubMenu(0);
        }}
      >
-       <p>← FAQ</p>
+       <img src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>FAQ</p>
      </div>
 
 
@@ -146,7 +144,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
           pathname !== "/faq" && setIsMenuOpen(false);
         }}
       >
-        <p>FAQ</p>
+        <p>General questions</p>
       </Link>
       <Link
         href="/terms-of-service"
