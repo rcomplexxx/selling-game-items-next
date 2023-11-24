@@ -159,12 +159,16 @@
   .subMenu{
     position: absolute;
     top: calc(100% + 8px);
-    left: 196px;
+    left: 204px;
     background-color: var(--gray-9-elegant);
     border: 1px solid gray;
     width: var(--size-11-5);
-    padding: var(--size-2) 0;
+    padding: var(--size-3) 0;
     
+  }
+
+  .subMenuFaq{
+    left: 312px;
   }
 
   .subMenuTitle{

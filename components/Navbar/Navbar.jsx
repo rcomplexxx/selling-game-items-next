@@ -121,7 +121,7 @@ setSubMenu(subMenu==2?0:2);
 >
 <span>Collections</span><img src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==2 && styles.subMenuArrowOpen}`}/>
 </div>
-{subMenu==2 && <div className={styles.subMenu}>
+{subMenu==2 && <div className={`${styles.subMenu}`}>
 
    {collections.map(c => {return <Link
   href={`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`}
@@ -161,7 +161,7 @@ setSubMenu(subMenu==2?0:2);
      >
        <span>FAQ</span><img src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==1 && styles.subMenuArrowOpen}`}/>
        </div>
-       {subMenu==1 && <div className={styles.subMenu}>
+       {subMenu==1 && <div className={`${styles.subMenu} ${styles.subMenuFaq}`}>
 
 
       <Link

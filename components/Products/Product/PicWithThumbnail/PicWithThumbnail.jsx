@@ -52,10 +52,12 @@ export default function PicWithThumbnail({ product }) {
         alt="Example Image"
         className={`${styles.productImage} ${styles.productImage1} ${
           images.length > 1
-            ? isHovered
+            ? (isHovered
               ? styles.invisibleImage
-              : styles.fadeIn
-            : ""
+              : styles.fadeIn)
+            : isHovered
+            ? styles.zoomIn
+            : styles.zoomOut
         }`}
         sizes="(max-width: 480px) 90vw,(max-width: 600px) 80vw, (max-width: 900px) 45vw, 25vw"
         loading="eager"
