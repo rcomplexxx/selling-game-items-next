@@ -4,7 +4,7 @@ import styles from './writereview.module.css'
 import StarRatings from "react-star-ratings";
 
 
-export default function WriteReview(){
+export default function WriteReview({stars, reviewNumber}){
     const [infoDivOpen, setInfoDivOpen]=useState(false);
     const [rating, setRating] = useState(5);
     const [submitted, setSubmitted] = useState(false);
@@ -18,6 +18,20 @@ export default function WriteReview(){
 
     return <>
     <div className={styles.writeReviewDiv}>
+
+<div className={styles.raitingDiv}>
+    <StarRatings
+rating={stars}
+starRatedColor="#97892F"
+numberOfStars={5}
+starEmptyColor={"#103939"}
+starHoverColor="orange"
+starDimension="24px"
+starSpacing="2px"
+
+/> <span className={styles.reviewsNumberSpan}>{reviewNumber} reviews</span>
+
+</div>
         <button onClick={()=>{setInfoDivOpen(!infoDivOpen)}} className={styles.writeReviewButton}>Write review</button>
 
       </div>

@@ -7,8 +7,8 @@
 }
 
 .cardIcon{
-  height: var(--size-6);
-  width: var(-size--6);
+  height: var(--size-5);
+  width: var(-size--5);
   margin-right: var(--size-3);
 }
 
@@ -26,10 +26,7 @@
     font-weight: bold;
   }
 
-  .titleStyleDiv{
-    display: flex;
-    align-items: center;
-  }
+ 
   
   .title_div:hover{
     cursor: pointer;

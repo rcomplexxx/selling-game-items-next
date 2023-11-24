@@ -26,9 +26,17 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
 
   
 
-  return (
+  return (<>
+
     <div className={styles.full_screen_container}>
-      <button
+
+
+      
+    
+      <div className={styles.spaceController}>
+
+      <div className={styles.closeSuiter}>
+    <button
         onClick={() => {
           fullScreenChange(aliceSuiter.current.state.activeIndex);
         }}
@@ -36,7 +44,10 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
       >
         X
       </button>
-      <div className={styles.spaceController}>
+      </div>
+
+
+
         <div className={styles.aliceSuiter}>
           <AliceCarousel
             ref={aliceSuiter}
@@ -59,10 +70,11 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
               );
             })}
           ></AliceCarousel>
-          <div></div>
+          
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -42,7 +42,7 @@ function Review({ name, text, stars, imageNames }) {
   );
 }
 
-export default function CustomerReviews({ product_id, startReviews }) {
+export default function CustomerReviews({ product_id, stars, reviewNumber, startReviews }) {
   const [reviews, setReviews] = useState(startReviews ? startReviews : []);
   const newReviews = useRef([]);
   const [loadButtonExists, setLoadButtonExists] = useState(true);
@@ -53,7 +53,7 @@ export default function CustomerReviews({ product_id, startReviews }) {
       <h1>Customer Reviews</h1>
 
       
-    <WriteReview/>
+    <WriteReview stars={stars} reviewNumber={reviewNumber}/>
 
 
 

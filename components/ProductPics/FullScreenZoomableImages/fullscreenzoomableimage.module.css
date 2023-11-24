@@ -11,18 +11,28 @@
     justify-content: center;
     align-items: center;
     overflow-y:scroll;
+    z-index: 7;
   }
 
   .spaceController{
-    margin: var(--size-12) 0;
-    position:relative;
-    height: auto;
-    max-height: calc(100% - var(--size-11-5));
    
-    
+    position:relative;
+    height: 100vh;
+    width:100vw;
+   
+    padding-top: var(--size-12);
+    padding-bottom: var(--size-12);
     
   }
   
+  .closeSuiter{
+   
+    width: 100%;
+    height: var(--size-11);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
  
   .close_button {
    
@@ -30,22 +40,21 @@
     width:32px;
     color:rgb(133, 153, 143);
     background-color: transparent;
-    position: absolute;
-    top: 24px;
-    right: 24px;
+    margin-right: 32px;
     border-radius: 100%;
-    border: 1px solid rgb(85, 81, 81);
+    border: 1px solid rgb(142, 66, 66);
     font-size: var(--font-size-4);
     font-family: sans-serif;
     font-weight: 500;
     cursor: pointer;
+    z-index: 99999;
   }
 
 
   .aliceSuiter{
    
     position: relative;
-    
+    margin-bottom: var(--size-12);
     width: 100vw;
     height:auto;
    

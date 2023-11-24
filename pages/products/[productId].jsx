@@ -147,7 +147,7 @@ export default function ProductPage({ product, images, startReviews }) {
         </div>
       </div>
 
-      <CustomerReviews product_id={product.id} startReviews={startReviews} />
+      <CustomerReviews product_id={product.id} startReviews={startReviews} reviewNumber={product.reviewNumber} stars={product.raiting?product.raiting:4.7} />
     </>
   );
 }
