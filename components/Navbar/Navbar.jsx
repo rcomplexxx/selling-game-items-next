@@ -5,7 +5,7 @@ import Autosuggest from 'react-autosuggest';
 import styles from "./navbar.module.css";
 import Image from "next/image";
 import PopupCart from "./PopupCart/PopupCart";
-
+import collections from '@/data/collections.json'
 import Search from "./Search/Search";
 import MobileMenu from "./MobileMenu/MobileMenu";
 
@@ -96,6 +96,8 @@ console.log(pathname)
                 >
                   Products
                 </Link>
+
+
                 <Link
                   href="/collection/sale/page/1"
                   className={`${styles.linkStyle} ${
@@ -104,6 +106,49 @@ console.log(pathname)
                 >
                   Sale
                 </Link>
+
+
+
+                <div className={styles.subMenuPortal}>
+
+<div
+tabindex="0"
+onBlur={()=>{setSubMenu(0)}}
+className={`${styles.subMenuTitle} ${styles.linkStyle}`}
+onClick={() => {
+setSubMenu(subMenu==2?0:2);
+}}
+>
+<span>Collections</span><img src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==2 && styles.subMenuArrowOpen}`}/>
+</div>
+{subMenu==2 && <div className={styles.subMenu}>
+
+   {collections.map(c => {return <Link
+  href={`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`}
+  className={`${styles.menuItemDiv} ${
+  pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
+  }`}
+  onMouseDown={(event)=>{event.preventDefault()}}
+  onClick={() => {
+  setSubMenu(0);
+  }}
+  >
+  <p>{c.name}</p>
+  </Link>
+})
+}
+
+</div>
+
+}
+</div>
+
+
+
+
+
+
+               
                 <div className={styles.subMenuPortal}>
 
                 <div
@@ -185,6 +230,10 @@ console.log(pathname)
      </div>
 }
      </div>
+
+
+
+
 
                 <Link
                   href="/aboutus"

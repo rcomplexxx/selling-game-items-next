@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./mobilemenu.module.css";
 import { useState } from "react";
+import collections from '@/data/collections.json'
 
 export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
 
@@ -90,6 +91,20 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
       >
         <p>Sale</p>
       </Link>
+
+
+      <div
+       
+        className={`${styles.subMenuPortal} ${styles.linkStyle} ${styles.menuItemDiv}`}
+        onClick={() => {
+          setSubMenu(2);
+        }}
+      >
+        <p>Collections</p>
+        <img src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
+      </div>
+
+    
       <div
        
         className={`${styles.subMenuPortal} ${styles.linkStyle} ${styles.menuItemDiv}`}
@@ -195,6 +210,45 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
       </Link>
       </>
       }
+
+       {subMenu===2 && <>
+
+        <div
+       
+       className={`${styles.linkStyle} ${styles.menuItemDiv}  ${styles.subMenuBack}`}
+       onClick={() => {
+         setSubMenu(0);
+       }}
+     >
+       <img src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Collections</p>
+     </div>
+
+{collections.map(c => {return <Link
+  href={`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`}
+  className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+    pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
+  }`}
+  onMouseDown={(event)=>{event.preventDefault()}}
+  onClick={() => {
+  setSubMenu(0);
+  }}
+  >
+  <p>{c.name}</p>
+  </Link>
+})}
+</>
+
+       }
+
+
+
+
+
+
+
+
+
+      
       </div>
     </div>
   </div>
