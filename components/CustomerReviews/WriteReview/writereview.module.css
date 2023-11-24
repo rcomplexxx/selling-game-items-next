@@ -3,13 +3,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
+    margin: var(--size-7) 0;
+    margin-bottom: var(--size-5);
   
   }
+  
 
-  .raitingDiv{
-    
-  }
 
   .reviewsNumberSpan{
     margin-left: 8px;
@@ -24,7 +23,7 @@
     background-color: transparent;
     border: 1px solid gray;
     cursor: pointer;
-    margin: var(--size-7) 0;
+    
    
     border-radius: 4px;
   }
@@ -183,11 +182,11 @@
       width: calc(100% - var(--size-11));
     }
   
-    .writeReviewButton {
+    .writeReviewDiv{
  
      
-      margin: var(--size-7) var(--size-3);
-      margin-bottom: var(--size-5);
+      margin: 40px var(--size-3);
+      margin-bottom: var(--size-4);
      
     
     }
@@ -207,10 +206,41 @@
       width: calc(100% - var(--size-8));
     }
 
+    .reviewsNumberSpan{
+      font-size: var(--font-size-2);
+    }
+
     .reviewInfoDiv{
       width: calc(100% - var(--size-8));
     }
 
+  }
+
+
+    @media (max-width: 480px)  {
+
+      .writeReviewDiv{
+       flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       
+      
+      }
+
+      .writeReviewButton{
+        margin-top: var(--size-3);
+        width: calc(100% - var(--size-4));
+      }
+
+      .raitingDiv{
+        margin-left:6px;
+        align-self: flex-start;
+      }
+      
+  .reviewsNumberSpan{
+    margin-left: var(--size-2);
+  }
+  
   }
 
 
