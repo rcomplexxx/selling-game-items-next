@@ -120,13 +120,14 @@ starSpacing="12px"
 </>:raitingPage==3?<>
 <h1>About you</h1>
 <div className={styles.personInfo}>
-  <div  className={styles.personInfoDiv}><label>First Name</label><input className={styles.personInfoInput}/></div>
+  <div  className={styles.personInfoDiv}><label>First Name <span className={styles.required}>*</span></label><input className={styles.personInfoInput}/></div>
   <div  className={styles.personInfoDiv}><label>Last Name</label><input className={styles.personInfoInput}/></div>
   </div>
   <div className={styles.personEmailDiv}>
-    <label>Email</label>
+    <label>Email<span className={styles.required}> *</span></label>
 <input className={styles.personEmail}/>
 </div>
+<p className={styles.writeReviewTerms}>By submitting, I acknowledge the <Link href='/terms-of-service'>Terms of Service</Link> and <Link href='/privacy-policy'>Privacy Policy</Link> and that my review will be publicly posted and shared online</p>
 </>:<>
 
 <h1>Thank you!</h1>
