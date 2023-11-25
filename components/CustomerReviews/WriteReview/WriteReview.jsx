@@ -84,30 +84,11 @@ starSpacing="2px"
 {infoDivOpen && <div className={styles.writeReviewPopupDiv}>
 <div className={styles.reviewBackgroundDiv}/>
   <div className={styles.mainReviewDiv}>
-    {raitingPage==0||raitingPage==4?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
-      X
-    </button>:<div className={styles.writeReviewFooter}>
-  <button onClick={()=>{setRaitingPage(prev=>prev-1)}} className={styles.remindMeLater}>Back</button>
-  <div className={styles.progressDiv}>
-    <div className={styles.progressBar}/>
-<div className={styles.progressBar} />
-<div className={`${styles.progressBar} ${raitingPage < 2 && styles.emptyProgressBar}`} />
-<div className={`${styles.progressBar} ${raitingPage < 3 && styles.emptyProgressBar}`} />
    
-   
-    </div>
-   { raitingPage==1?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Skip</button>:
-   raitingPage==2?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Next</button>:
-   raitingPage==3?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Done</button>:
-   <></>
-   }
- 
 
-</div>}
+<div className={styles.reviewPageDiv}>
 
-{raitingPage==4 && <div className={`${styles.writeReviewFooter} ${styles.continueFooter}`}>
-    <Link href='/products'><button className={styles.remindMeLater}>Continue</button></Link></div>}
-  
+
       { raitingPage==0?(<>
         
       <span className={styles.rateQuestion}>How would you rate this product?</span>
@@ -155,6 +136,34 @@ starSpacing="12px"
 
 
       }
+
+</div>
+
+
+{raitingPage==0||raitingPage==4?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
+      X
+    </button>:<div className={styles.writeReviewFooter}>
+  <button onClick={()=>{setRaitingPage(prev=>prev-1)}} className={styles.remindMeLater}>Back</button>
+  <div className={styles.progressDiv}>
+    <div className={styles.progressBar}/>
+<div className={styles.progressBar} />
+<div className={`${styles.progressBar} ${raitingPage < 2 && styles.emptyProgressBar}`} />
+<div className={`${styles.progressBar} ${raitingPage < 3 && styles.emptyProgressBar}`} />
+   
+   
+    </div>
+   { raitingPage==1?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Skip</button>:
+   raitingPage==2?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Next</button>:
+   raitingPage==3?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Done</button>:
+   <></>
+   }
+ 
+
+</div>}
+
+{raitingPage==4 && <div className={`${styles.writeReviewFooter} ${styles.continueFooter}`}>
+    <Link href='/products'><button className={styles.remindMeLater}>Continue</button></Link></div>}
+  
 
 
   </div>
