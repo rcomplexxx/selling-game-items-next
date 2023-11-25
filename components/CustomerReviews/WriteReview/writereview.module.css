@@ -117,9 +117,16 @@
     align-items: center;
   }
 
+  .writeReviewFooterMobile{
+    display: none;
+  }
+
   .continueFooter{
     justify-content: flex-end;
   }
+
+
+
 
 
   .rateQuestion{
@@ -191,6 +198,12 @@
   .remindMeLater:hover{
     cursor: pointer;
     background-color: #10101b;
+  }
+
+  .continueButton{
+    color: black;
+    background-color: rgb(112, 128, 118);
+    
   }
 
  
@@ -461,6 +474,31 @@
 
     .reviewInfoDiv{
       width: calc(100% - var(--size-8));
+    }
+
+    .writeReviewFooterMobile{
+      display: flex;
+    }
+    
+
+    .progressDiv{
+     margin: 0 auto;
+    }
+
+    .remindMeLaterMobileControl{
+      display: none;
+    }
+
+    .continueFooter{
+      justify-content: center;
+    }
+
+    .continueLink{
+      width: calc(100% - var(--size-5));
+    }
+
+    .continueButton{
+      width: 100%;
     }
 
   }
