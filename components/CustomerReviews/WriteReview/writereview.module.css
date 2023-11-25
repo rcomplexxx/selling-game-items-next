@@ -4,7 +4,6 @@
     justify-content: space-between;
     align-items: center;
     margin: var(--size-7) 0;
-    margin-bottom: var(--size-5);
   
   }
   
@@ -444,8 +443,8 @@
     .writeReviewDiv{
  
      
-      margin: 40px var(--size-3);
-      margin-bottom: var(--size-4);
+      margin: 32px var(--size-3);
+      margin-bottom: var(--size-7);
      
     
     }
