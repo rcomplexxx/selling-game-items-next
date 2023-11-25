@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     padding: 0;
     background: rgb(0, 0, 0);
@@ -18,7 +18,7 @@
    
     position:relative;
     height: 100vh;
-    width:100vw;
+    width:100%;
    
     padding-top: var(--size-12);
     padding-bottom: var(--size-12);
@@ -55,7 +55,7 @@
    
     position: relative;
     margin-bottom: var(--size-12);
-    width: 100vw;
+    width: 100%;
     height:auto;
    
  
@@ -67,7 +67,7 @@
 
 
   .productImageDiv{
-    width: 100vw;
+    width: 100%;
     aspect-ratio: 16/9;
     user-select: none;
     -moz-user-select: none;
@@ -77,7 +77,7 @@
   }
 
   .productImage{
-    width:100vw;
+    width:100%;
   height: auto;
   object-fit: cover;
   }

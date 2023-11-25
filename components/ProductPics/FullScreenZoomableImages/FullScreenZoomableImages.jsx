@@ -9,21 +9,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
   const router = useRouter();
   const aliceSuiter = useRef();
 
-  useEffect(() => {
-    history.pushState(null, "", router.asPath);
-    // history.pushState(null, '', router.asPath);
-    const handlePopstate = (event) => {
-      fullScreenChange(aliceSuiter.current.state.activeIndex);
-    };
-
-    window.addEventListener("popstate", handlePopstate);
-
-    return () => {
-      // Remove event listener for popstate
-      window.removeEventListener("popstate", handlePopstate);
-    };
-  }, []);
-
+ 
   
 
   return (<>

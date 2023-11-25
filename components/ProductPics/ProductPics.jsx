@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import FullScreenZoomableImage from "@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function ProductPics({ images }) {
   const [imageIndex, setImageIndex] = useState(0);
@@ -12,6 +13,34 @@ export default function ProductPics({ images }) {
 
   const [mobileInterface, setMobileInterface] = useState(false);
   const [fixedMedia, setFixedMedia] = useState(0);
+
+  const router= useRouter();
+
+
+  useEffect(() => {
+    if(zoomed){
+      router.push(router.asPath+'#zoom')
+   
+    
+    }
+
+    if (router.asPath.includes('#'))router.back();
+  
+   
+    
+   
+  }, [zoomed]);
+
+
+  useEffect(() => {
+ 
+   if(!router.asPath.includes('#'))setZoomed(false)
+  }, [router.asPath]);
+
+
+
+
+
 
   useEffect(() => {
     //129

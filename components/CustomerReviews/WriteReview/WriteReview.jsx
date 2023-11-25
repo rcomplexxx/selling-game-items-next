@@ -1,16 +1,59 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './writereview.module.css'
 import StarRatings from "react-star-ratings";
+import { useRouter } from 'next/router';
 
 
 export default function WriteReview({stars, reviewNumber}){
     const [infoDivOpen, setInfoDivOpen]=useState(false);
     const [rating, setRating] = useState(5);
+    const [raitingPage, setRaitingPage] = useState(0);
     const [submitted, setSubmitted] = useState(false);
+    const [mounted, setMounted]= useState(false);
+
+ 
+    const router = useRouter();
+
+
+
+  
+     
+    
+
+  
+
+
+  
+    useEffect(() => {
+      if(infoDivOpen){
+        router.push(router.asPath+'#write-review')
+     
+      
+      }
+
+      if (router.asPath.includes('#'))router.back();
+    
+     
+      
+     
+    }, [infoDivOpen]);
+
+
+    useEffect(() => {
+   
+     if(!router.asPath.includes('#'))setInfoDivOpen(false)
+    }, [router.asPath]);
+  
+
+
+
+
+
 
     const handleRatingClick = (newRating) => {
       setRating(newRating);
+      setRaitingPage(1);
       // You can perform additional actions here when a rating is clicked.
     };
 
@@ -37,9 +80,61 @@ starSpacing="2px"
       </div>
 
 
+{infoDivOpen && <div className={styles.writeReviewPopupDiv}>
+<div className={styles.reviewBackgroundDiv}/>
+  <div className={styles.mainReviewDiv}>
+    {raitingPage==0||raitingPage==5?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
+      X
+    </button>:<div className={styles.writeReviewFooter}>
+  <button onClick={()=>{setRaitingPage(prev=>prev-1)}}>Back</button>
+  <div className={styles.progressDiv}>
+    <div className={styles.progressBar}/><div className={styles.progressBar}/><div className={styles.progressBar}/><div className={styles.progressBar}/>
+    </div>
+  <button onClick={()=>{setRaitingPage(prev=>prev+1)}}>Continue</button>
+
+</div>}
+  
+      { raitingPage==0?(<>
+        
+      <span className={styles.rateQuestion}>How would you rate this item?</span>
+  <StarRatings
+
+rating={rating}
+starRatedColor="#97892F"
+numberOfStars={5}
+changeRating={handleRatingClick}
+starEmptyColor={"#103939"}
+starHoverColor="orange"
+starDimension="48px"
+starSpacing="12px"
+
+/>
+</>):raitingPage==1?(<>
+
+</>):<></>
 
 
-    
+      }
+
+
+  </div>
+  
+  </div>}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/*     
 
       <div className={`${styles.reviewInfoDiv} ${infoDivOpen && styles.materialize}`}>
         
@@ -94,7 +189,7 @@ starSpacing="2px"
             Submit review
           </button>
         </div>
-
+ */}
 
     
 
