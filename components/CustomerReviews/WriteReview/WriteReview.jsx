@@ -34,7 +34,7 @@ export default function WriteReview({stars, reviewNumber}){
 
       if (router.asPath.includes('#'))router.back();
     
-     
+     setRaitingPage(0);
       
      
     }, [infoDivOpen]);
@@ -83,12 +83,17 @@ starSpacing="2px"
 {infoDivOpen && <div className={styles.writeReviewPopupDiv}>
 <div className={styles.reviewBackgroundDiv}/>
   <div className={styles.mainReviewDiv}>
-    {raitingPage==0||raitingPage==5?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
+    {raitingPage==0||raitingPage==4?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
       X
     </button>:<div className={styles.writeReviewFooter}>
   <button onClick={()=>{setRaitingPage(prev=>prev-1)}}>Back</button>
   <div className={styles.progressDiv}>
-    <div className={styles.progressBar}/><div className={styles.progressBar}/><div className={styles.progressBar}/><div className={styles.progressBar}/>
+    <div className={styles.progressBar}/>
+<div className={styles.progressBar} />
+<div className={`${styles.progressBar} ${raitingPage < 2 && styles.emptyProgressBar}`} />
+<div className={`${styles.progressBar} ${raitingPage < 3 && styles.emptyProgressBar}`} />
+   
+   
     </div>
   <button onClick={()=>{setRaitingPage(prev=>prev+1)}}>Continue</button>
 
@@ -96,7 +101,7 @@ starSpacing="2px"
   
       { raitingPage==0?(<>
         
-      <span className={styles.rateQuestion}>How would you rate this item?</span>
+      <span className={styles.rateQuestion}>How would you rate this product?</span>
   <StarRatings
 
 rating={rating}
@@ -110,7 +115,15 @@ starSpacing="12px"
 
 />
 </>):raitingPage==1?(<>
-
+<div className={styles.mediaTitle}>
+  <h1>Show it off!</h1>
+  <span>We'd love to see it in action!</span>
+  </div>
+  <div className={styles.centerButtons}>
+    <button className={styles.mediaButton}>Add photos</button>
+    <button className={styles.mediaButton}>Add video</button>
+  </div>
+  <button className={styles.remindMeLater} onClick={()=>{setRaitingPage(prev=>prev+1)}}>Remind me later</button>
 </>):<></>
 
 
