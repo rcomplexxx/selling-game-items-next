@@ -93,10 +93,7 @@ starSpacing="2px"
   {raitingPage!==0 && raitingPage!==4 && <div className={`${styles.writeReviewFooter} ${styles.writeReviewFooterMobile}`}>
   <button onClick={()=>{setRaitingPage(prev=>prev-1)}} className={styles.remindMeLater}>Back</button>
  
-   { raitingPage==1?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Skip</button>:
-   raitingPage==2?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Next</button>:
-   raitingPage==3?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Done</button>:
-   <></>
+   { raitingPage==1 && <button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Skip</button>
    }
  
 
@@ -186,7 +183,7 @@ starSpacing="12px"
   <button onClick={()=>{setRaitingPage(prev=>prev-1)}} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Back</button>
   
   
-  <div className={styles.progressDiv}>
+  <div className={`${styles.progressDiv} ${raitingPage>1 && styles.progressDivMobileControl}`}>
     <div className={styles.progressBar}/>
 <div className={styles.progressBar} />
 <div className={`${styles.progressBar} ${raitingPage < 2 && styles.emptyProgressBar}`} />
@@ -195,8 +192,8 @@ starSpacing="12px"
 
 
    { raitingPage==1?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Skip</button>:
-   raitingPage==2?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Next</button>:
-   raitingPage==3?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Done</button>:
+   raitingPage==2?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={`${styles.nextButton}`}>Next</button>:
+   raitingPage==3?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={`${styles.nextButton}`}>Done</button>:
    <></>
    }
  
@@ -204,7 +201,7 @@ starSpacing="12px"
 </div>}
 
 {raitingPage==4 && <div className={`${styles.writeReviewFooter} ${styles.continueFooter}`}>
-    <Link href='/products' className={styles.continueLink}><button className={`${styles.remindMeLater} ${styles.continueButton}`}>Continue</button></Link></div>}
+    <Link href='/products' className={styles.continueLink}><button className={`${styles.nextButton}`}>Continue</button></Link></div>}
   
 
 
