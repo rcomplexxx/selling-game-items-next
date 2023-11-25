@@ -508,12 +508,17 @@
     }
 
     .continueLink{
-      width: calc(100% - var(--size-5));
+      width: 100%;
     }
+
 
     .nextButton{
       width: 100%;
     }
+
+    .nextButton:hover{
+      background-color: rgb(112, 128, 118);
+     }
 
   }
 
