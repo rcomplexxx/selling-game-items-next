@@ -110,6 +110,10 @@
     align-items: center;
   }
 
+  .continueFooter{
+    justify-content: flex-end;
+  }
+
 
   .rateQuestion{
     margin-bottom: var(--size-7);
@@ -160,6 +164,11 @@
     font-weight: 700;
   }
 
+  .mediaButton:hover{
+    cursor: pointer;
+    background-color: rgb(112, 128, 118)
+  }
+
   .remindMeLater{
     color: white;
     background-color:transparent;
@@ -174,6 +183,51 @@
   .remindMeLater:hover{
     cursor: pointer;
     background-color: #10101b;
+  }
+
+ 
+
+  .writeReviewText{
+    width: var(--size-14);
+    margin-top:var(--size-7);
+    background-color: transparent;
+    border: 1px solid gray;
+ 
+    box-sizing: border-box;
+  }
+
+  .personInfo{
+    width: var(--size-14);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--size-7);
+  }
+
+  .personInfoDiv{
+    width: calc(50% - var(--size-3))
+  }
+
+  .personInfoInput{
+   width: 100%;
+    height: 32px;
+    background-color: transparent;
+    border: 1px solid gray;
+    
+    box-sizing: border-box;
+  }
+
+  .personEmailDiv{
+   display: flex;
+   flex-direction: column;
+  }
+
+  .personEmail{
+    width: var(--size-14);
+    height: 32px;
+    background-color: transparent;
+    border: 1px solid gray;
+    box-sizing: border-box;
   }
   
 /*   

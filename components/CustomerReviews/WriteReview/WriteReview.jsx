@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import styles from './writereview.module.css'
 import StarRatings from "react-star-ratings";
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 
 export default function WriteReview({stars, reviewNumber}){
@@ -86,7 +87,7 @@ starSpacing="2px"
     {raitingPage==0||raitingPage==4?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
       X
     </button>:<div className={styles.writeReviewFooter}>
-  <button onClick={()=>{setRaitingPage(prev=>prev-1)}}>Back</button>
+  <button onClick={()=>{setRaitingPage(prev=>prev-1)}} className={styles.remindMeLater}>Back</button>
   <div className={styles.progressDiv}>
     <div className={styles.progressBar}/>
 <div className={styles.progressBar} />
@@ -95,9 +96,17 @@ starSpacing="2px"
    
    
     </div>
-  <button onClick={()=>{setRaitingPage(prev=>prev+1)}}>Continue</button>
+   { raitingPage==1?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Skip</button>:
+   raitingPage==2?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Next</button>:
+   raitingPage==3?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Done</button>:
+   <></>
+   }
+ 
 
 </div>}
+
+{raitingPage==4 && <div className={`${styles.writeReviewFooter} ${styles.continueFooter}`}>
+    <Link href='/products'><button className={styles.remindMeLater}>Continue</button></Link></div>}
   
       { raitingPage==0?(<>
         
@@ -124,7 +133,25 @@ starSpacing="12px"
     <button className={styles.mediaButton}>Add video</button>
   </div>
   <button className={styles.remindMeLater} onClick={()=>{setRaitingPage(prev=>prev+1)}}>Remind me later</button>
-</>):<></>
+</>):raitingPage==2?<>
+<h1>Tell us more!</h1>
+<textarea className={styles.writeReviewText} rows={8}/>
+</>:raitingPage==3?<>
+<h1>About you</h1>
+<div className={styles.personInfo}>
+  <div  className={styles.personInfoDiv}><label>First Name</label><input className={styles.personInfoInput}/></div>
+  <div  className={styles.personInfoDiv}><label>Last Name</label><input className={styles.personInfoInput}/></div>
+  </div>
+  <div className={styles.personEmailDiv}>
+    <label>Email</label>
+<input className={styles.personEmail}/>
+</div>
+</>:<>
+
+<h1>Thank you!</h1>
+  <span>Your review was submitted</span>
+
+</>
 
 
       }
