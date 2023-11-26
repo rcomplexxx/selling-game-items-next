@@ -10,33 +10,56 @@ export default function WriteReview({stars, reviewNumber}){
     const [infoDivOpen, setInfoDivOpen]=useState(false);
     const [rating, setRating] = useState(5);
     const [raitingPage, setRaitingPage] = useState(0);
-  const [backAnimation, setBackAnimation]=useState(false);
-  const [nextAnimation, setNextAnimation]= useState(false);
+  const [animation, setAnimation]=useState(false);
 
-  const backAnimationTime= 600;
-  const nextAnimationTime= 200;
+  const outAnimationTime= 400;
+  const inAnimationTime= 300;
 
   const handleNext=()=>{
 
-    if(backAnimation || nextAnimation)return;
+    if(animation)return;
 
-    setBackAnimation(true);
+    setAnimation('swipeOutLeft');
 
     
     setTimeout(() => {
       setRaitingPage((prev) => prev + 1);
-      setBackAnimation(false);
-      setNextAnimation(true);
+    
+      setAnimation('swipeInRight');
       setTimeout(() => {
         
-        setNextAnimation(false);
+        setAnimation(undefined);
   
-      }, nextAnimationTime);
+      }, inAnimationTime);
 
 
-    }, backAnimationTime);
+    }, outAnimationTime);
   
   }
+
+
+  const handleBack=()=>{
+
+    if(animation)return;
+
+    setAnimation('swipeOutRight');
+
+    
+    setTimeout(() => {
+      setRaitingPage((prev) => prev - 1);
+    
+      setAnimation('swipeInLeft');
+      setTimeout(() => {
+        
+        setAnimation(undefined);
+  
+      }, inAnimationTime);
+
+
+    }, outAnimationTime);
+  
+  }
+
 
  
     const router = useRouter();
@@ -79,7 +102,7 @@ export default function WriteReview({stars, reviewNumber}){
 
     const handleRatingClick = (newRating) => {
       setRating(newRating);
-      setRaitingPage(1);
+      handleNext();
       // You can perform additional actions here when a rating is clicked.
     };
 
@@ -116,7 +139,7 @@ starSpacing="2px"
 
 
   {raitingPage!==0 && raitingPage!==4 && <div className={`${styles.writeReviewFooter} ${styles.writeReviewFooterMobile}`}>
-  <button onClick={()=>{setRaitingPage(prev=>prev-1)}} className={styles.remindMeLater}>Back</button>
+  <button onClick={handleBack} className={styles.remindMeLater}>Back</button>
  
    { raitingPage==1 && <button onClick={handleNext} className={styles.remindMeLater}>Skip</button>
    }
@@ -134,7 +157,13 @@ starSpacing="2px"
 
    
 
-<div className={`${styles.reviewPageDiv} ${backAnimation && styles.backAnimation} ${nextAnimation && styles.nextAnimation}`}>
+<div className={`${styles.reviewPageDiv} ${animation=='swipeOutLeft'?styles.swipeOutLeftAnimation: 
+animation=='swipeInRight' ? styles.swipeInRightAnimation:
+animation=='swipeInLeft' ? styles.swipeInLeftAnimation:
+animation=='swipeOutRight' ? styles.swipeOutRightAnimation:''
+}`
+
+}>
 
 
       { raitingPage==0?(<>
@@ -196,7 +225,7 @@ starSpacing="12px"
 {raitingPage==0||raitingPage==4?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
       X
     </button>:<div className={styles.writeReviewFooter}>
-  <button onClick={()=>{setRaitingPage(prev=>prev-1)}} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Back</button>
+  <button onClick={handleBack} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Back</button>
   
   
   <div className={`${styles.progressDiv} ${raitingPage>1 && styles.progressDivMobileControl}`}>

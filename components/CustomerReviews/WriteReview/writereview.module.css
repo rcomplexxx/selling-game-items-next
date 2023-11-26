@@ -93,12 +93,22 @@
     
   }
 
-  .backAnimation{
-    animation: swipeBackPage 0.5s ease forwards;
+  .swipeInLeftAnimation{
+    animation: swipeInLeftPage 0.3s ease forwards;
   }
 
-  .nextAnimation{
-    animation: swipeNextPage 0.3s ease forwards;
+  .swipeOutLeftAnimation{
+    animation: swipeOutLeftPage 0.4s ease forwards;
+  }
+
+  .swipeInRightAnimation{
+    animation: swipeInRightPage 0.3s ease forwards;
+  }
+
+ 
+
+  .swipeOutRightAnimation{
+    animation: swipeOutRightPage 0.4s ease forwards;
   }
 
 
@@ -438,24 +448,39 @@
     }
   }
 
-  @keyframes swipeBackPage {
+
+  @keyframes swipeInLeftPage {
+    0% {
+      transform: translateX(-80%);
+    }
+  
+
+   
+    100% {
+      
+      transform: translateX(0);
+    }
+  }
+
+
+  @keyframes swipeOutLeftPage {
     0% {
       transform: scale(1);
     }
-    20% {
+    40% {
       opacity: 0.7;
-      transform: translateX(-5%) scale(0.7);
+      transform: translateX(-5%) scale(0.8);
     }
 
    
     100% {
       opacity: 0;
-      transform: translateX(-100%) scale(0.6);
+      transform: translateX(-100%) scale(0.8);
     }
   }
 
 
-  @keyframes swipeNextPage {
+  @keyframes swipeInRightPage {
     0% {
       transform: translateX(80%);
     }
@@ -467,3 +492,23 @@
       transform: translateX(0);
     }
   }
+
+  
+  @keyframes swipeOutRightPage {
+    0% {
+      transform: scale(1);
+    }
+    40% {
+      opacity: 0.7;
+      transform: translateX(5%) scale(0.8);
+    }
+
+   
+    100% {
+      opacity: 0;
+      transform: translateX(100%) scale(0.8);
+    }
+  }
+
+
+  
