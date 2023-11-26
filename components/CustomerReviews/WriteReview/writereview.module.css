@@ -112,7 +112,7 @@
   }
 
   .swipeOutRightFooterAnimation{
-    animation: swipeOutRightFooter 0.5s ease forwards;
+    animation: swipeOutRightFooter 0.5s ease-in-out forwards;
   }
 
 
@@ -133,15 +133,20 @@
   }
 
   .writeReviewFooter{
-    
-    margin: 16px 0;
-    width: 100%;
+ 
     height: 32px;
+    width: 100%;
+    margin: 16px 0;
     box-sizing: border-box;
     padding: 0 var(--size-6);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+  }
+
+  .writeReviewFooterSpawn{
+    animation: spawnFooter 0.15s ease;
   }
 
   .writeReviewFooterMobile{
@@ -169,13 +174,25 @@
   .progressBar{
    height: var(--size-3);
    width: var(--size-9);
-   background-color: gray;
+   background-color: rgb(55, 55, 62);
    border-radius: 4px; 
    margin: 0 var(--size-2);
+   overflow: hidden;
+  }
+  
+  .progressBarFilled{
+    height: 100%;
+    background-color: gray;
   }
 
-  .emptyProgressBar{
-    background-color: rgb(55, 55, 62);
+  .fillProgressBar{
+    height: 100%;
+    background-color: gray;
+    animation: fillBar 0.25s ease-out forwards;
+  }
+
+  .fillOutProgressBar{
+    animation: fillOutBar 0.25s ease-out forwards;
   }
 
   .mediaTitle h1{
@@ -438,7 +455,27 @@
 
 
   
-  
+  @keyframes fillBar {
+    0% {
+      
+      width: 0%;
+    }
+    100% {
+      
+      width: 100%;
+    }
+  }
+
+  @keyframes fillOutBar {
+    0% {
+      
+      width: 100%;
+    }
+    100% {
+      
+      width: 0%;
+    }
+  }
   
   
   @keyframes scaleAnim {
@@ -518,6 +555,16 @@
     100% {
       opacity: 0;
       transform: translateX(100%) scale(0.8);
+    }
+  }
+
+  @keyframes spawnFooter {
+    0% {
+      height: 0;
+    }
+    100% {
+      
+      height: 32px;
     }
   }
 

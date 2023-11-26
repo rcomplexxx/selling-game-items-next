@@ -11,7 +11,6 @@ export default function WriteReview({stars, reviewNumber}){
     const [rating, setRating] = useState(5);
     const [raitingPage, setRaitingPage] = useState(0);
   const [animation, setAnimation]=useState(false);
-  const [continueActive, setContinueActive]= useState(false);
 
   const outAnimationTime= 500;
   const inAnimationTime= 200;
@@ -221,15 +220,37 @@ starSpacing="12px"
 
 {raitingPage==0||raitingPage==4?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
       X
-    </button>:<div className={`${styles.writeReviewFooter} ${raitingPage==1 && animation=='swipeOutRight'? styles.swipeOutRightFooterAnimation:''}`}>
+    </button>:<div className={`${styles.writeReviewFooter} ${raitingPage==1 && animation=='swipeInRight' && styles.writeReviewFooterSpawn} ${raitingPage==1 && animation=='swipeOutRight'? styles.swipeOutRightFooterAnimation:''}`}>
   <button onClick={handleBack} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Back</button>
   
   
   <div className={`${styles.progressDiv} ${raitingPage>1 && styles.progressDivMobileControl}`}>
-    <div className={styles.progressBar}/>
-<div className={styles.progressBar} />
-<div className={`${styles.progressBar} ${raitingPage < 2 && styles.emptyProgressBar}`} />
-<div className={`${styles.progressBar} ${raitingPage < 3 && styles.emptyProgressBar}`} />  
+
+
+    <div className={styles.progressBar}><div className={`${styles.progressBarFilled}`}/></div>
+
+<div className={styles.progressBar} >
+   <div className={`${(raitingPage>0 || raitingPage==0 && animation=='swipeOutLeft') && styles.fillProgressBar} ${
+    raitingPage==1 && animation=='swipeOutRight' && styles.fillOutProgressBar}
+   }`}
+   
+   /> </div>
+
+
+
+<div className={styles.progressBar} >
+   <div className={`${(raitingPage>1 || raitingPage==1 && animation=='swipeOutLeft') && styles.fillProgressBar} ${
+    raitingPage==2 && animation=='swipeOutRight' && styles.fillOutProgressBar}
+   }`}
+   
+   /> </div>
+   <div className={styles.progressBar} >
+   <div className={`${(raitingPage>2 || raitingPage==2 && animation=='swipeOutLeft') && styles.fillProgressBar} ${
+    raitingPage==3 && animation=='swipeOutRight' && styles.fillOutProgressBar}
+   }`}
+   
+   /> </div>
+   
     </div>
 
 
