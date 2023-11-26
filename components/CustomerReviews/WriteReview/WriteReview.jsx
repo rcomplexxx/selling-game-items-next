@@ -10,8 +10,33 @@ export default function WriteReview({stars, reviewNumber}){
     const [infoDivOpen, setInfoDivOpen]=useState(false);
     const [rating, setRating] = useState(5);
     const [raitingPage, setRaitingPage] = useState(0);
-    const [submitted, setSubmitted] = useState(false);
-    const [mounted, setMounted]= useState(false);
+  const [backAnimation, setBackAnimation]=useState(false);
+  const [nextAnimation, setNextAnimation]= useState(false);
+
+  const backAnimationTime= 600;
+  const nextAnimationTime= 200;
+
+  const handleNext=()=>{
+
+    if(backAnimation || nextAnimation)return;
+
+    setBackAnimation(true);
+
+    
+    setTimeout(() => {
+      setRaitingPage((prev) => prev + 1);
+      setBackAnimation(false);
+      setNextAnimation(true);
+      setTimeout(() => {
+        
+        setNextAnimation(false);
+  
+      }, nextAnimationTime);
+
+
+    }, backAnimationTime);
+  
+  }
 
  
     const router = useRouter();
@@ -58,7 +83,7 @@ export default function WriteReview({stars, reviewNumber}){
       // You can perform additional actions here when a rating is clicked.
     };
 
-    if(submitted) return <p className={styles.submittedReview}>Review submitted. Please refresh the page to see it.</p>
+  
 
     return <>
     <div className={styles.writeReviewDiv}>
@@ -93,7 +118,7 @@ starSpacing="2px"
   {raitingPage!==0 && raitingPage!==4 && <div className={`${styles.writeReviewFooter} ${styles.writeReviewFooterMobile}`}>
   <button onClick={()=>{setRaitingPage(prev=>prev-1)}} className={styles.remindMeLater}>Back</button>
  
-   { raitingPage==1 && <button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={styles.remindMeLater}>Skip</button>
+   { raitingPage==1 && <button onClick={handleNext} className={styles.remindMeLater}>Skip</button>
    }
  
 
@@ -107,22 +132,9 @@ starSpacing="2px"
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
    
 
-<div className={styles.reviewPageDiv}>
+<div className={`${styles.reviewPageDiv} ${backAnimation && styles.backAnimation} ${nextAnimation && styles.nextAnimation}`}>
 
 
       { raitingPage==0?(<>
@@ -149,7 +161,11 @@ starSpacing="12px"
     <button className={styles.mediaButton}>Add photos</button>
     <button className={styles.mediaButton}>Add video</button>
   </div>
-  <button className={styles.remindMeLater} onClick={()=>{setRaitingPage(prev=>prev+1)}}>Remind me later</button>
+  <button className={styles.remindMeLater} onClick={
+    
+    ()=>{setRaitingPage(prev=>prev+1)
+  
+  }}>Remind me later</button>
 </>):raitingPage==2?<>
 <h1>Tell us more!</h1>
 <textarea className={styles.writeReviewText} rows={8}/>
@@ -191,9 +207,9 @@ starSpacing="12px"
     </div>
 
 
-   { raitingPage==1?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Skip</button>:
-   raitingPage==2?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={`${styles.nextButton}`}>Next</button>:
-   raitingPage==3?<button onClick={()=>{setRaitingPage(prev=>prev+1)}} className={`${styles.nextButton}`}>Done</button>:
+   { raitingPage==1?<button onClick={handleNext} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Skip</button>:
+   raitingPage==2?<button onClick={handleNext} className={`${styles.nextButton}`}>Next</button>:
+   raitingPage==3?<button onClick={handleNext} className={`${styles.nextButton}`}>Done</button>:
    <></>
    }
  
@@ -210,74 +226,6 @@ starSpacing="12px"
   </div>}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-{/*     
-
-      <div className={`${styles.reviewInfoDiv} ${infoDivOpen && styles.materialize}`}>
-        
-          <div className={styles.contactInfoDiv}>
-            <div className={styles.infoDiv}>
-              <div className={styles.inputGroup}>
-                <label>Name</label>
-                <input
-                  id="name"
-                    placeholder='Enter your name(public)'
-                  className={styles.contactInput}
-                />
-              </div>
-
-
-
-
-              <div className={styles.inputGroup}>
-                <label>Email</label>
-                <input
-                  id="email"
-                  placeholder='Enter your email(private)'
-                  className={styles.contactInput}
-                />
-              </div>
-
-              <div className={styles.inputGroup}>
-                <label>Raiting</label>
-              <StarRatings
-rating={rating}
-starRatedColor="#97892F"
-numberOfStars={5}
-changeRating={handleRatingClick}
-starEmptyColor={"#103939"}
-starHoverColor="orange"
-starDimension="24px"
-starSpacing="2px"
-
-/>
-</div>
-            </div>
-          </div>
-          <div className={styles.messageField}>
-            <label>Review</label>
-            <textarea
-                placeholder='Write your review here'
-              className={styles.messageTextArea}
-              rows={6}
-            />
-          </div>
-          <button onClick={()=>{setSubmitted(true)}} className={styles.sendButton}>
-            Submit review
-          </button>
-        </div>
- */}
 
     
 
