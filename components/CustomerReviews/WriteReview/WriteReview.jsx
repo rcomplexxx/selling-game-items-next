@@ -11,9 +11,10 @@ export default function WriteReview({stars, reviewNumber}){
     const [rating, setRating] = useState(5);
     const [raitingPage, setRaitingPage] = useState(0);
   const [animation, setAnimation]=useState(false);
+  const [continueActive, setContinueActive]= useState(false);
 
-  const outAnimationTime= 400;
-  const inAnimationTime= 300;
+  const outAnimationTime= 500;
+  const inAnimationTime= 200;
 
   const handleNext=()=>{
 
@@ -190,11 +191,7 @@ starSpacing="12px"
     <button className={styles.mediaButton}>Add photos</button>
     <button className={styles.mediaButton}>Add video</button>
   </div>
-  <button className={styles.remindMeLater} onClick={
-    
-    ()=>{setRaitingPage(prev=>prev+1)
-  
-  }}>Remind me later</button>
+  <button className={styles.remindMeLater} onClick={handleNext}>Remind me later</button>
 </>):raitingPage==2?<>
 <h1>Tell us more!</h1>
 <textarea className={styles.writeReviewText} rows={8}/>
@@ -224,7 +221,7 @@ starSpacing="12px"
 
 {raitingPage==0||raitingPage==4?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
       X
-    </button>:<div className={styles.writeReviewFooter}>
+    </button>:<div className={`${styles.writeReviewFooter} ${raitingPage==1 && animation=='swipeOutRight'? styles.swipeOutRightFooterAnimation:''}`}>
   <button onClick={handleBack} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Back</button>
   
   
