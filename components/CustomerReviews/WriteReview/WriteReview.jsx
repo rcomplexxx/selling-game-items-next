@@ -210,6 +210,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                             multiple
                           ></input>
                       <span>+</span></div>}
+                      <button className={`${styles.userImgsContinue}`}>Continue</button>
                     </div>
                   ) : (
                     <>

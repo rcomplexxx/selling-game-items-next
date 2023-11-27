@@ -265,6 +265,7 @@
   }
 
   .userImagesDiv{
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -338,7 +339,20 @@
   }
 
 
-
+  .userImgsContinue{
+    position:absolute;
+    bottom: -64px;
+    left: 0;
+    width: 100%;
+    height: max-content;
+    color: black;
+    background-color: rgb(112, 128, 118);
+    border: none;
+   
+    padding: var(--size-4);
+    border-radius: 4px;
+    font-size: var(--font-size-3);
+  }
 
 
   .nextButton{
