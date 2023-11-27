@@ -268,6 +268,7 @@
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    flex-wrap:wrap;
     margin: var(--size-9);
     padding: 6px;
     
@@ -285,7 +286,7 @@
     width: calc(100% / 5 - 12px);
     aspect-ratio: 1;
     margin: 6px 6px;
-   
+   box-sizing: border-box;
   }
 
   .addImageDiv:hover{
@@ -300,6 +301,7 @@
     aspect-ratio: 1;
     margin: 6px 6px;
     position: relative;
+    box-sizing: border-box;
   }
 
  
@@ -491,6 +493,19 @@
       max-height: none;
       height: 100%;
       width: 100%;
+    }
+
+    .addImageDiv{
+      
+      width: calc(100% / 3 - 12px);
+     
+    }
+  
+
+    .userImageDiv{
+    
+      width: calc(100% / 3 - 12px);
+     
     }
   }
   
