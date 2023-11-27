@@ -220,17 +220,21 @@ starSpacing="12px"
 
 {raitingPage==0||raitingPage==4?<button onClick={()=>{setInfoDivOpen(false)}} className={styles.closeButton}>
       X
-    </button>:<div className={`${styles.writeReviewFooter} ${raitingPage==1 && animation=='swipeInRight' && styles.writeReviewFooterSpawn} ${raitingPage==1 && animation=='swipeOutRight'? styles.swipeOutRightFooterAnimation:''}`}>
+    </button>:<div className={`${styles.writeReviewFooter} ${
+      raitingPage==1?(animation=='swipeInRight'?styles.writeReviewFooterSpawn:
+      (animation=='swipeOutRight' ?styles.swipeOutRightFooterAnimation:(animation == 'swipeOutLeft' && styles.nextButtonMobileAnim)))
+     : (raitingPage==3 && animation == 'swipeOutLeft' && styles.swipeOutLeftFooterAnimation)
+      }`}>
   <button onClick={handleBack} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Back</button>
   
   
-  <div className={`${styles.progressDiv} ${raitingPage>1 && styles.progressDivMobileControl}`}>
+  <div className={`${styles.progressDiv} ${(raitingPage>1 || (raitingPage==1 && animation == 'swipeOutLeft')) && styles.progressDivMobileControl}`}>
 
 
     <div className={styles.progressBar}><div className={`${styles.progressBarFilled}`}/></div>
 
 <div className={styles.progressBar} >
-   <div className={`${(raitingPage>0 || raitingPage==0 && animation=='swipeOutLeft') && styles.fillProgressBar} ${
+   <div className={`${(raitingPage==0 && animation=='swipeOutLeft') && styles.fillProgressBar} ${raitingPage>0 && styles.progressBarFilled} ${
     raitingPage==1 && animation=='swipeOutRight' && styles.fillOutProgressBar}
    }`}
    
@@ -254,8 +258,8 @@ starSpacing="12px"
     </div>
 
 
-   { raitingPage==1?<button onClick={handleNext} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Skip</button>:
-   raitingPage==2?<button onClick={handleNext} className={`${styles.nextButton}`}>Next</button>:
+   { raitingPage==1?(animation == 'swipeOutLeft'?<button onClick={handleNext} className={`${styles.nextButton}`}>Next</button>:<button onClick={handleNext} className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}>Skip</button>):
+   raitingPage==2 ?<button onClick={handleNext} className={`${styles.nextButton}`}>Next</button>:
    raitingPage==3?<button onClick={handleNext} className={`${styles.nextButton}`}>Done</button>:
    <></>
    }

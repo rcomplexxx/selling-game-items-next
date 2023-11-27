@@ -115,6 +115,10 @@
     animation: swipeOutRightFooter 0.5s ease-in-out forwards;
   }
 
+  .swipeOutLeftFooterAnimation{
+    animation: swipeOutLeftFooter 0.5s ease-in-out forwards;
+  }
+
 
   .closeButton{
     color: red;
@@ -403,6 +407,16 @@
      margin: 0 auto;
     }
 
+    .writeReviewFooter{
+      height: max-content;
+    }
+
+    .nextButtonMobileAnim{
+      
+      
+      animation: spawnNextFooter 0.5s ease forwards;
+    }
+
     .remindMeLaterMobileControl{
       display: none;
     }
@@ -568,6 +582,19 @@
     }
   }
 
+  @keyframes spawnNextFooter {
+    0% {
+      opacity: 0.3;
+      transform: translatey(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translatey(0);
+    }
+  }
+
+  
+
 
   @keyframes swipeOutRightFooter {
     0% {
@@ -583,6 +610,23 @@
     100% {
      
       transform: translateX(100%);
+    }
+  }
+
+  @keyframes swipeOutLeftFooter {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      
+      transform: translateX(-10%);
+    }
+  
+
+   
+    100% {
+     
+      transform: translateX(-100%);
     }
   }
 
