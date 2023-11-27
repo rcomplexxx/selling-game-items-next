@@ -9,6 +9,7 @@ export default function WriteReview({ stars, reviewNumber }) {
   const [rating, setRating] = useState(5);
   const [raitingPage, setRaitingPage] = useState(0);
   const [animation, setAnimation] = useState(false);
+  const [images, setImages] = useState([]);
   const [reviewInfo, setReviewInfo] = useState({
     text: "",
     firstName: "",
@@ -16,9 +17,39 @@ export default function WriteReview({ stars, reviewNumber }) {
     email: "",
   });
   const [errors, setErrors] = useState({ firstName: false, email: false });
-
+  
   const outAnimationTime = 500;
   const inAnimationTime = 200;
+
+  const handleImageUpload = (e) => {
+    const files = e.target.files;
+
+    const newImages = [...images];
+    let arrayMax = 5 - images.length;
+    for (
+      let i = 0;
+      i < (files.length < arrayMax ? files.length : arrayMax);
+      i++
+    ) {
+      if (files[i]) {
+        const uploadedImagePath = URL.createObjectURL(files[i]);
+        newImages.push(uploadedImagePath);
+      }
+    }
+    setImages(newImages);
+
+    // if (file) {
+    //   const reader = new FileReader();
+
+    //   // Callback function to handle the result of the file reading
+    //   reader.onloadend = () => {
+    //     setImage(reader.result); // Store the image data in the state
+    //   };
+
+    //   // Read the contents of the uploaded file as a data URL
+    //   reader.readAsDataURL(file);
+    // }
+  };
 
   const handleNext = () => {
     if (animation) return;
@@ -152,15 +183,67 @@ export default function WriteReview({ stars, reviewNumber }) {
                 <>
                   <div className={styles.mediaTitle}>
                     <h1>Show it off!</h1>
+
                     <span>We'd love to see it in action!</span>
                   </div>
-                  <div className={styles.centerButtons}>
-                    <button className={styles.mediaButton}>Add photos <input type="file" accept="image/*" onChange={handleNext} className={styles.mediaButtonImgInput}></input></button>
-                    <button className={styles.mediaButton}>Add video <input type="file" accept="video/*" onChange={handleNext} className={styles.mediaButtonImgInput}></input></button>
-                  </div>
-                  <button className={styles.remindMeLater} onClick={handleNext}>
-                    Remind me later
-                  </button>
+
+                  {images.length !== 0 ? (
+                    <div className={styles.userImagesDiv}>
+                      {images.map((image, i) => {
+                       return <div key={i} className={styles.userImageDiv}>
+                          <button className={styles.cancelImage} onClick={()=>{
+                            let newImages= images.filter(img=>{return img!=image});
+                            setImages(newImages);
+                          }}>X</button>
+                          <img src={image} className={styles.userImage} />
+                        </div>;
+                      })}
+
+                    { images.length!==5 && <div className={styles.addImageDiv} onClick={handleImageUpload}>
+                    <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(event) => {
+                              handleImageUpload(event);
+                            }}
+                            className={styles.mediaButtonImgInput}
+                            multiple
+                          ></input>
+                      <span>+</span></div>}
+                    </div>
+                  ) : (
+                    <>
+                      <div className={styles.centerButtons}>
+                        <button className={styles.mediaButton}>
+                          Add photos{" "}
+                          <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(event) => {
+                              handleImageUpload(event);
+                            }}
+                            className={styles.mediaButtonImgInput}
+                            multiple
+                          ></input>
+                        </button>
+                        <button className={styles.mediaButton}>
+                          Add video{" "}
+                          <input
+                            type="file"
+                            accept="video/*"
+                            onChange={handleNext}
+                            className={styles.mediaButtonImgInput}
+                          ></input>
+                        </button>
+                      </div>
+                      <button
+                        className={styles.remindMeLater}
+                        onClick={handleNext}
+                      >
+                        Remind me later
+                      </button>
+                    </>
+                  )}
                 </>
               ) : raitingPage == 2 ? (
                 <>
@@ -187,8 +270,10 @@ export default function WriteReview({ stars, reviewNumber }) {
                       <input
                         value={reviewInfo.firstName}
                         onChange={(event) => {
-                          
-                          if(errors.firstName)setErrors(prev => {return {...errors, firstName:false}})
+                          if (errors.firstName)
+                            setErrors((prev) => {
+                              return { ...errors, firstName: false };
+                            });
                           setReviewInfo((prev) => {
                             return { ...prev, firstName: event.target.value };
                           });
@@ -205,7 +290,6 @@ export default function WriteReview({ stars, reviewNumber }) {
                         className={styles.personInfoInput}
                         value={reviewInfo.lastName}
                         onChange={(event) => {
-                          
                           setReviewInfo((prev) => {
                             return { ...prev, lastName: event.target.value };
                           });
@@ -222,14 +306,21 @@ export default function WriteReview({ stars, reviewNumber }) {
                       className={styles.personEmail}
                       value={reviewInfo.email}
                       onChange={(event) => {
-                        if(errors.email)setErrors(prev => {return {...errors, email:false}})
+                        if (errors.email)
+                          setErrors((prev) => {
+                            return { ...errors, email: false };
+                          });
                         setReviewInfo((prev) => {
                           return { ...prev, email: event.target.value };
                         });
                       }}
                     />
                     {errors.email && (
-                      <p className={styles.requiredError}>{reviewInfo.email==''?'Required field!':'Please fill a valid email address'}</p>
+                      <p className={styles.requiredError}>
+                        {reviewInfo.email == ""
+                          ? "Required field!"
+                          : "Please fill a valid email address"}
+                      </p>
                     )}
                   </div>
                   <p className={styles.writeReviewTerms}>
@@ -356,24 +447,26 @@ export default function WriteReview({ stars, reviewNumber }) {
                 ) : raitingPage == 2 ? (
                   animation == "swipeOutLeft" ? (
                     <button
-                    onClick={() => {
-                      if (reviewInfo.firstName == "") {
-                        if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email))
-                          setErrors({ email: true, firstName: true });
-                        else setErrors({ email: false, firstName: true });
-                        return;
-                      } else if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email)) {
-                        setErrors({ firstName: false, email: true });
-                        return;
-                      } else {
-                        setErrors({ firstName: false, email: false });
-                        handleNext();
-                      }
-                    }}
-                    className={`${styles.nextButton}`}
-                  >
-                    Done
-                  </button>
+                      onClick={() => {
+                        if (reviewInfo.firstName == "") {
+                          if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email))
+                            setErrors({ email: true, firstName: true });
+                          else setErrors({ email: false, firstName: true });
+                          return;
+                        } else if (
+                          !/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email)
+                        ) {
+                          setErrors({ firstName: false, email: true });
+                          return;
+                        } else {
+                          setErrors({ firstName: false, email: false });
+                          handleNext();
+                        }
+                      }}
+                      className={`${styles.nextButton}`}
+                    >
+                      Done
+                    </button>
                   ) : (
                     <button
                       disabled={reviewInfo.text == ""}
@@ -387,24 +480,26 @@ export default function WriteReview({ stars, reviewNumber }) {
                   )
                 ) : raitingPage == 3 ? (
                   <button
-                  onClick={() => {
-                    if (reviewInfo.firstName == "") {
-                      if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email))
-                        setErrors({ email: true, firstName: true });
-                      else setErrors({ email: false, firstName: true });
-                      return;
-                    } else if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email)) {
-                      setErrors({ firstName: false, email: true });
-                      return;
-                    } else {
-                      setErrors({ firstName: false, email: false });
-                      handleNext();
-                    }
-                  }}
-                  className={`${styles.nextButton}`}
-                >
-                  Done
-                </button>
+                    onClick={() => {
+                      if (reviewInfo.firstName == "") {
+                        if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email))
+                          setErrors({ email: true, firstName: true });
+                        else setErrors({ email: false, firstName: true });
+                        return;
+                      } else if (
+                        !/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email)
+                      ) {
+                        setErrors({ firstName: false, email: true });
+                        return;
+                      } else {
+                        setErrors({ firstName: false, email: false });
+                        handleNext();
+                      }
+                    }}
+                    className={`${styles.nextButton}`}
+                  >
+                    Done
+                  </button>
                 ) : (
                   <></>
                 )}
