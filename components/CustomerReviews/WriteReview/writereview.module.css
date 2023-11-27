@@ -259,14 +259,27 @@
     font-size: var(--font-size-3);
   }
 
+
  .nextButton:hover{
   cursor: pointer;
   background-color: #364658;
  }
 
+ .nextButtonDisabled{
+  color: rgb(15, 16, 26);
+ opacity: 0.75;
+
+}
+.nextButtonDisabled:hover{
+  
+  background-color: rgb(112, 128, 118);
+
+}
+
  
 
   .writeReviewText{
+    color:white;
     width: 100%;
     margin-top:var(--size-7);
     background-color: transparent;
@@ -279,16 +292,18 @@
     width: 100%;
     display:flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin: var(--size-7);
   }
 
   .personInfoDiv{
     width: calc(50% - var(--size-3))
+    
   }
 
 
   .personInfoInput{
+    color:white;
    width: 100%;
     height: 40px;
     background-color: transparent;
@@ -313,6 +328,7 @@
   }
 
   .personEmail{
+    color:white;
     width: 100%;
     height: 40px;
     background-color: transparent;
@@ -334,6 +350,12 @@
     font-size: var(--font-size-1);
     align-self: flex-start;
     opacity: 0.7;
+  }
+
+  .requiredError{
+    
+    font-size: var(--font-size-2);
+    color: red;
   }
 
   .writeReviewTerms{
@@ -584,8 +606,8 @@
 
   @keyframes spawnNextFooter {
     0% {
-      opacity: 0.3;
-      transform: translatey(100%);
+      opacity: 0;
+      transform: translatey(150%);
     }
     100% {
       opacity: 1;
