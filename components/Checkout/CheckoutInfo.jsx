@@ -37,7 +37,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
         newErrors = { ...newErrors, email: "Email is a required field." };
       }
       if (
-        !/^\S{3,}@\S{4,}\.\S{2,}$/.test(document.getElementById("email").value)
+        !/^\S{3,}@\S{3,}\.\S{2,}$/.test(document.getElementById("email").value)
       ) {
         newErrors = {
           ...newErrors,

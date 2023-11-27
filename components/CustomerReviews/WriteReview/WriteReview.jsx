@@ -155,8 +155,8 @@ export default function WriteReview({ stars, reviewNumber }) {
                     <span>We'd love to see it in action!</span>
                   </div>
                   <div className={styles.centerButtons}>
-                    <button className={styles.mediaButton}>Add photos</button>
-                    <button className={styles.mediaButton}>Add video</button>
+                    <button className={styles.mediaButton}>Add photos <input type="file" accept="image/*" onChange={handleNext} className={styles.mediaButtonImgInput}></input></button>
+                    <button className={styles.mediaButton}>Add video <input type="file" accept="video/*" onChange={handleNext} className={styles.mediaButtonImgInput}></input></button>
                   </div>
                   <button className={styles.remindMeLater} onClick={handleNext}>
                     Remind me later
@@ -229,7 +229,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                       }}
                     />
                     {errors.email && (
-                      <p className={styles.requiredError}>Required field!</p>
+                      <p className={styles.requiredError}>{reviewInfo.email==''?'Required field!':'Please fill a valid email address'}</p>
                     )}
                   </div>
                   <p className={styles.writeReviewTerms}>
@@ -358,11 +358,11 @@ export default function WriteReview({ stars, reviewNumber }) {
                     <button
                     onClick={() => {
                       if (reviewInfo.firstName == "") {
-                        if (reviewInfo.email == "")
+                        if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email))
                           setErrors({ email: true, firstName: true });
                         else setErrors({ email: false, firstName: true });
                         return;
-                      } else if (reviewInfo.email == "") {
+                      } else if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email)) {
                         setErrors({ firstName: false, email: true });
                         return;
                       } else {
@@ -389,11 +389,11 @@ export default function WriteReview({ stars, reviewNumber }) {
                   <button
                   onClick={() => {
                     if (reviewInfo.firstName == "") {
-                      if (reviewInfo.email == "")
+                      if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email))
                         setErrors({ email: true, firstName: true });
                       else setErrors({ email: false, firstName: true });
                       return;
-                    } else if (reviewInfo.email == "") {
+                    } else if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email)) {
                       setErrors({ firstName: false, email: true });
                       return;
                     } else {
