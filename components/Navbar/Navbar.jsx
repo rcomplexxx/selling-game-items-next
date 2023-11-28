@@ -164,6 +164,19 @@ setSubMenu(subMenu==2?0:2);
        {subMenu==1 && <div className={`${styles.subMenu} ${styles.subMenuFaq}`}>
 
 
+       <Link
+                  href="/aboutus"
+                  className={`${styles.menuItemDiv} ${
+                    pathname === "/aboutus" ? styles.currentLinkMobile : ""
+                  }`}
+                  onMouseDown={(event)=>{event.preventDefault()}}
+        onClick={() => {
+          setSubMenu(0);
+        }}
+                >
+                 <p>About us</p> 
+                </Link>
+
       <Link
         href="/faq"
         className={`${styles.menuItemDiv} ${
@@ -235,14 +248,7 @@ setSubMenu(subMenu==2?0:2);
 
 
 
-                <Link
-                  href="/aboutus"
-                  className={`${styles.linkStyle} ${
-                    pathname === "/aboutus" ? styles.currentLink : ""
-                  }`}
-                >
-                  About us
-                </Link>
+                
                 <Link
                   href="/contact"
                   className={`${styles.linkStyle} ${

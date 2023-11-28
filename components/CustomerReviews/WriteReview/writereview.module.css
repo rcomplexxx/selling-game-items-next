@@ -385,6 +385,11 @@
     box-sizing: border-box;
   }
 
+  .writeReviewText:focus{
+    border-color: #7daee2;
+    outline: none;
+  }
+
   .personInfo{
     width: 100%;
     display:flex;
@@ -410,6 +415,11 @@
     box-sizing: border-box;
   }
 
+  .personInfoInput:focus{
+    border-color: #7daee2;;
+    outline: none;
+  }
+
   .personInfoDiv label{
     
     display: flex;
@@ -433,6 +443,11 @@
     border-radius: 8px;
     margin-top: var(--size-2);
     box-sizing: border-box;
+  }
+
+  .personEmail:focus{
+    border-color: #7daee2;
+    outline: none;
   }
 
   .personEmailDiv label{

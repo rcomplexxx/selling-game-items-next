@@ -51,6 +51,7 @@ export default function Search(){
 
 
     return <div className={`${styles.custom_search_bar} ${searchOpen && styles.custom_search_bar_open}`}>
+      <div className={styles.searchBarWrapper}>
           <input
           id='search'
             type="text"
@@ -74,8 +75,9 @@ export default function Search(){
               </Link>
             ))}
           </div>
+         
+          </div>
           {searchOpen && <span onClick={()=>{setSearchOpen(false)}} className={styles.searchCancel}>X</span>}
-        
         </div>
     
     

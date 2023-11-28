@@ -115,17 +115,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
         <p>FAQ</p>
         <img src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
-      <Link
-        href="/aboutus"
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
-          pathname === "/aboutus" ?  styles.currentLinkMobile : ""
-        }`}
-        onClick={() => {
-          pathname !== "/aboutus" && setIsMenuOpen(false);
-        }}
-      >
-        <p>About us</p>
-      </Link>
+     
       <Link
         href="/contact"
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
@@ -151,6 +141,18 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
      >
        <img src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>FAQ</p>
      </div>
+
+     <Link
+        href="/aboutus"
+        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+          pathname === "/aboutus" ?  styles.currentLinkMobile : ""
+        }`}
+        onClick={() => {
+          pathname !== "/aboutus" && setIsMenuOpen(false);
+        }}
+      >
+        <p>About us</p>
+      </Link>
 
 
       <Link

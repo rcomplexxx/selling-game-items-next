@@ -12,9 +12,9 @@ export default function DropCard(props) {
     <div className={styles.dropDiv}>
       <button className={styles.title_div} onClick={summonAnswer}>
         <div className={styles.titleStyleDiv}>
-        <img src={`/images/${props.title=='Description'?'description_icon':
-      props.title=='Key features'?'keyIcon2':props.title=='Shipping & Returns'?'shippingReturnIcon'
-      :props.title=='Ask a question'?'chatIconWhite':'description'
+        <img src={`/images/${props.title=='Description'?'description_icon6':
+      props.title=='Key features'?'keyIcon7':props.title=='Shipping & Returns'?'shippingReturnIcon2'
+      :props.title=='Ask a question'?'chatIcon2':'description'
       }.png`} className={styles.cardIcon}/>
         {props.title}
         </div>
