@@ -54,7 +54,7 @@ export default function BestSellers() {
       <Swiper {...settings} ref={sliderRef} className={styles.slider}>
         {products.map((product, index) => (
           <SwiperSlide key={index} className={styles.productImageDiv}>
-            <Link href={`/products/${product.id}`}>
+            <Link href={`/products/${product.id}`} className={styles.productImageLink}>
               <div className={styles.productImageDiv2}>
                 <PicWithThumbnail product={product} />
              
