@@ -48,8 +48,9 @@
 
 .productImageDiv2{
     position: relative;
-    width: 100%; 
     aspect-ratio: 16/9;
+    width: 100%; 
+   
     transition: all 0.005s ease-in;
     overflow: hidden;
     
