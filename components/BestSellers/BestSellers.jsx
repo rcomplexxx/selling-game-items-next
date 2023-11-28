@@ -1,77 +1,72 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-import PicWithThumbnail from "../Products/Product/PicWithThumbnail/PicWithThumbnail";
-
-import products from '../../data/bestsellers.json'
-import styles from './bestsellers.module.css'
-import Link from "next/link";
-import { useRef } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 
-export default function BestSellers(){
+import PicWithThumbnail from '../Products/Product/PicWithThumbnail/PicWithThumbnail';
 
-  const sliderRef =useRef();
+import products from '../../data/bestsellers.json';
+import styles from './bestsellers.module.css';
+import Link from 'next/link';
+import { useRef } from 'react';
+
+// Import Swiper styles
+import 'swiper/swiper.min.css';
+
+export default function BestSellers() {
+  const sliderRef = useRef();
 
   const settings = {
     speed: 400,
-    slidesToShow: 7.4,
-  slidesToScroll: 3,
-    arrows: true,
-    infinite: false,
-  
-    responsive: [
-      {
-        breakpoint: 768, // define the breakpoint for smaller screens
-        settings: {
-          slidesToShow: 2.2,
-          slidesToScroll: 2,
-        },
+    slidesPerView: 7.4,
+    spaceBetween: 8,
+   
+    breakpoints: {
+      1480: {
+        slidesPerView: 7.4,
+        spaceBetween: 8,
+      
       },
-      {
-        breakpoint: 1180, // define the breakpoint for even smaller screens
-        settings: {
-          slidesToShow: 3.2,
-          slidesToScroll: 2,
-        }},{
-          breakpoint: 1280, // define the breakpoint for even smaller screens
-          settings: {
-            slidesToShow: 4.2,
-            slidesToScroll: 2,
-          }},
-          ,{
-            breakpoint: 1480, // define the breakpoint for even smaller screens
-            settings: {
-              slidesToShow: 6.2,
-              slidesToScroll: 2,
-            }
+      1280: {
+        slidesPerView:  6.2,
+        spaceBetween: 12,
       },
-      // Add more responsive settings as needed
-    ],
+      1180: {
+        slidesPerView: 4.2,
+      
+      },
+      768: {
+        slidesPerView: 3.2,
+       
+      },
+     0: {
+        slidesPerView: 2.2,
+        spaceBetween: 16,
+      
+      },
+    },
     variableWidth: false,
-    centerMode: false,
-    centerPadding: "0", // Set padding between centered items to 0
+    centeredSlides: false,
+    loop: false,
   };
 
-   
-    return <div className={styles.mainDiv}>
+  return (
+    <div className={styles.mainDiv}>
       <h1>Bestsellers</h1>
-      <Slider ref={sliderRef} {...settings} className={styles.slider}>
-           
-           
-           {products.map((product, index) => {
-              return (
+      <Swiper {...settings} ref={sliderRef} className={styles.slider}>
+        {products.map((product, index) => (
+          <SwiperSlide key={index} className={styles.productImageDiv}>
+            <Link href={`/products/${product.id}`}>
+              <div className={styles.productImageDiv2}>
+                <PicWithThumbnail product={product} />
              
-                  <Link href={`/products/${product.id}`} key={index} className={styles.productImageDiv}>
-                    <div className={styles.productImageDiv2}>
-                  <PicWithThumbnail product={product} />
-                  </div>
-                 <h2>{product.name}</h2>
-                </Link>
-              );
-            })}
-          </Slider>
-
-    </div>;
+              </div>
+            </Link>
+            <h2>{product.name}</h2>
+            
+          </SwiperSlide>
+        ))}
+        <div className="swiper-button-next"></div>
+        <div className="swiper-button-prev"></div>
+      </Swiper>
+    </div>
+  );
 }

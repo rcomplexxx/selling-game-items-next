@@ -1,11 +1,13 @@
 .mainDiv{
-    
+
    
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: var(--size-8);
+    margin-top: auto;
+    margin-bottom: var(--size-2);
+   
 }
 
 .mainDiv a{
@@ -22,18 +24,21 @@
 }
 
 .slider{ 
-    
+    padding-left: 32px !important;
     width: 100%;
-    
+   
 
 }
 
 .productImageDiv{
+    
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
  
     
-    margin-left: 32px;
+
 }
 
 .productImageDiv h2{
@@ -43,30 +48,32 @@
 
 .productImageDiv2{
     position: relative;
-  
+    width: 100%; 
     aspect-ratio: 16/9;
-    width: calc(100% - 32px); 
+    transition: all 0.005s ease-in;
+    overflow: hidden;
+    
 }
 
 
 @media(max-width: 980px){
 
     .mainDiv h1{
-       
-        margin-left: 24px;
-        
-    }
-
-
-    .productImageDiv{
-       
         margin-left: 24px;
     }
 
-    .productImageDiv2{
+    .slider{ 
+        padding-left: 24px !important;
+       
+       
     
-        width: calc(100% - 24px);
     }
+  
+
+
+ 
+
+ 
     
 }
 
@@ -74,22 +81,18 @@
 @media(max-width: 600px){
 
     .mainDiv h1{
-       
-        margin-left: 16px;
-        
-    }
-
-    .productImageDiv{
-       
         margin-left: 16px;
     }
 
-    .productImageDiv2{
 
+    .slider{ 
+        padding-left: 16px !important;
+       
        
     
-        width: calc(100% - 16px);
     }
+
+
 }
 
 @media(max-width: 480px){

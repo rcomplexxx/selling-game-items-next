@@ -4,19 +4,22 @@ import Link from "next/link";
 import CartItem from "./CartItem/CartItem";
 import styles from "./cart.module.css";
 import AppContext from "@/contexts/AppContext";
-import classNames from "classnames";
+import BestSellers from "@/components/BestSellers/BestSellers";
+
+
 
 const Cart = () => {
-  const { cartProducts, setCartProducts } = useContext(AppContext);
+  const { cartProducts } = useContext(AppContext);
 
   const renderEmptyCart = () => (
-    <p className={classNames(styles.emptyCartText)}>
-      {"You have no items in your shopping cart, "}
-      <Link className={styles.link} href="/products">
-        start adding some
-      </Link>
-      !
+    <div className={styles.emptyCartDiv}>
+    <p className={styles.emptyCartText}>
+    Add your favorite items to your cart.
     </p>
+    <Link className={styles.shopNowLink} href="/products">
+          <button className={styles.shopNow}>Shop Now</button>
+        </Link>
+    </div>
   );
 
   const subtotal = cartProducts
@@ -40,11 +43,15 @@ const Cart = () => {
   );
 
   return (
-    <div className={styles.containerStyle}>
-      {cartProducts.length !== 0 && (
-        <h1 className={classNames(styles.title)}>Your shopping cart</h1>
+    <div className={styles.mainWrapper}>
+    <div className={`${styles.containerStyle} ${cartProducts.length === 0 && styles.emptyCartMainDiv}`}>
+      {cartProducts.length === 0 ?<h1 className={`${styles.title}  ${styles.emptyTitle}`}>Your cart is empty!</h1>: (
+        <h1 className={styles.title}>Your shopping cart</h1>
       )}
       {cartProducts.length === 0 ? renderEmptyCart() : renderCart()}
+      
+    </div>
+    <BestSellers/>
     </div>
   );
 };
