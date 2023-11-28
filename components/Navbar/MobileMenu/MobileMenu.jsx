@@ -232,7 +232,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
   }`}
   onMouseDown={(event)=>{event.preventDefault()}}
   onClick={() => {
-  setSubMenu(0);
+    pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` && setIsMenuOpen(false);
   }}
   >
   <p>{c.name}</p>
