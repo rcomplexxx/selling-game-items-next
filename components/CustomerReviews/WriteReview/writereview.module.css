@@ -272,7 +272,7 @@
     flex-wrap:wrap;
     margin: var(--size-9);
     padding: 6px;
-    
+    box-sizing: border-box;
     border: 1px solid gray;
   }
 
@@ -340,18 +340,8 @@
 
 
   .userImgsContinue{
-    position:absolute;
-    bottom: -64px;
-    left: 0;
-    width: 100%;
-    height: max-content;
-    color: black;
-    background-color: rgb(112, 128, 118);
-    border: none;
+    display: none;
    
-    padding: var(--size-4);
-    border-radius: 4px;
-    font-size: var(--font-size-3);
   }
 
 
@@ -521,6 +511,9 @@
       width: calc(100% / 3 - 12px);
      
     }
+
+  
+
   }
   
   @media (max-width: 600px)  {
@@ -579,6 +572,26 @@
     .nextButton:hover{
       background-color: rgb(112, 128, 118);
      }
+
+     .userImgsContinue{
+      display: block;
+      position:absolute;
+      bottom: -64px;
+      left: 0;
+      width: 100%;
+      height: max-content;
+      color: black;
+      background-color: rgb(112, 128, 118);
+      border: none;
+     
+      padding: var(--size-4);
+      border-radius: 4px;
+      font-size: var(--font-size-3);
+    }
+
+    .userImgsContinue:hover{
+      cursor: pointer;
+    }
 
   }
 

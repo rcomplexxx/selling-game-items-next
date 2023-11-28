@@ -142,7 +142,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                   Back
                 </button>
 
-                {raitingPage == 1 && (
+                {raitingPage == 1 && !images && (
                   <button onClick={handleNext} className={styles.remindMeLater}>
                     Skip
                   </button>
@@ -210,7 +210,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                             multiple
                           ></input>
                       <span>+</span></div>}
-                      <button className={`${styles.userImgsContinue}`}>Continue</button>
+                      <button className={styles.userImgsContinue} onClick={handleNext}>Continue</button>
                     </div>
                   ) : (
                     <>
@@ -442,7 +442,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                       onClick={handleNext}
                       className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}
                     >
-                      Skip
+                      {images?'Continue':'Skip'}
                     </button>
                   )
                 ) : raitingPage == 2 ? (
