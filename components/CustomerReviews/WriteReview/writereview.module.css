@@ -80,7 +80,7 @@
     z-index: 2;
     overflow: hidden;
   }
-
+ 
   .reviewPageDiv{
     width: calc(100% - var(--size-5));
     max-width: var(--size-14-5);
@@ -497,6 +497,9 @@
       max-height: none;
       height: 100%;
       width: 100%;
+      
+        animation: spawnWriteReviewMob 0.5s ease forwards;
+     
     }
 
     .addImageDiv{
@@ -624,6 +627,35 @@
 
 
   
+  
+  
+  
+  @keyframes scaleAnim {
+    0% {
+      
+      transform: scale(0.2);
+    }
+    100% {
+      
+      transform: scale(1);
+    }
+  }
+
+  @keyframes spawnWriteReviewMob{
+    0% {
+      opacity: 0.7;
+      transform: translatey(100%);
+    }
+    30%{
+      opacity:1;
+    }
+    100% {
+      opacity: 1;
+      transform: translatey(0);
+    }
+  }
+
+
   @keyframes fillBar {
     0% {
       
@@ -643,18 +675,6 @@
     100% {
       
       width: 0%;
-    }
-  }
-  
-  
-  @keyframes scaleAnim {
-    0% {
-      
-      transform: scale(0.2);
-    }
-    100% {
-      
-      transform: scale(1);
     }
   }
 

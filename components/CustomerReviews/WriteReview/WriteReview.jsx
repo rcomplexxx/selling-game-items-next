@@ -94,7 +94,16 @@ export default function WriteReview({ stars, reviewNumber }) {
   }, [infoDivOpen]);
 
   useEffect(() => {
-    if (!router.asPath.includes("#")) setInfoDivOpen(false);
+    if (!router.asPath.includes("#")) {setInfoDivOpen(false);
+      setImages([]);
+      setReviewInfo({
+        text: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+      });
+     setErrors({ firstName: false, email: false });
+    }
   }, [router.asPath]);
 
   const handleRatingClick = (newRating) => {
@@ -142,7 +151,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                   Back
                 </button>
 
-                {raitingPage == 1 && !images && (
+                {raitingPage == 1 && images.length===1 && (
                   <button onClick={handleNext} className={styles.remindMeLater}>
                     Skip
                   </button>
@@ -343,6 +352,14 @@ export default function WriteReview({ stars, reviewNumber }) {
               <button
                 onClick={() => {
                   setInfoDivOpen(false);
+                  setImages([]);
+                  setReviewInfo({
+                    text: "",
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                  });
+                 setErrors({ firstName: false, email: false });
                 }}
                 className={styles.closeButton}
               >
@@ -442,7 +459,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                       onClick={handleNext}
                       className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}
                     >
-                      {images?'Continue':'Skip'}
+                      {images.length!=0?'Continue':'Skip'}
                     </button>
                   )
                 ) : raitingPage == 2 ? (
