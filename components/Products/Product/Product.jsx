@@ -5,10 +5,10 @@ import StarRatings from "react-star-ratings";
 import styles from "./product.module.css";
 import PicWithThumbnail from "./PicWithThumbnail/PicWithThumbnail";
 
-const Product = ({ product, onAddToCart }) => {
+const Product = ({ product}) => {
   return (
     <div className={styles.root}>
-      <Link href={"products/" + product.id}>
+      <Link href={"/products/" + product.id}>
         <div className={styles.media}>
           <PicWithThumbnail product={product} />
         </div>
