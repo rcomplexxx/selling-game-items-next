@@ -86,6 +86,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  z-index: 10;
 }
   
  
@@ -293,4 +294,15 @@
     .substituteDiv{
       display: block;
     }
+  
+
   }
+
+
+  @media(max-width: 480px){
+    .growAlt{
+      z-index: 1;
+      }
+    }
+
+ 

@@ -14,7 +14,7 @@
   
   .custom_search_bar input {
 
-     width: var(--size-13);
+     width: var(--size-12);
     height: 32px;
     /* background-color: rgb(191, 209, 208); */
     background-color: #0f1316;
@@ -81,7 +81,7 @@
 }
 
 
-@media(max-width: 780px){
+@media(max-width: 1280px){
 
 
     .custom_search_bar_open{
@@ -128,6 +128,19 @@
         display: block;
     }
 }
+@media(max-width: 520px){
+  .custom_search_bar input {
+
+    width: var(--size-11-5);
+  }
+}
+
+@media(max-width: 480px){
+  .custom_search_bar input {
+
+    width: var(--size-12);
+  }
+}
 
 
 @media(max-width: 380px){
@@ -148,7 +161,7 @@
 
     .custom_search_bar input {
 
-        width: var(--size-12);
+        width: var(--size-11);
     }
 
     .custom_results{
