@@ -484,7 +484,11 @@
     }
 
 
- 
+    .personInfoDiv{
+      width: calc(50% - var(--size-2))
+      
+    }
+  
 
 
 
