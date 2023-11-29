@@ -15,6 +15,7 @@
   padding: var(--size-7);
   background-color: rgb(18, 25, 39);
   box-sizing: border-box;
+  border-radius: 4px;
 }
 
 .collectionName{
