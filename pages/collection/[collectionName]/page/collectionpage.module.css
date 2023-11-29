@@ -8,3 +8,76 @@
   padding-top: var(--size-7);
 }
 
+.collectionInfo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--size-7);
+  background-color: rgb(42, 48, 165);
+}
+
+.collectionName{
+  margin-top: 0;
+}
+
+.collectionDescription{
+  margin-bottom: 0;
+}
+
+.collectionText{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  max-width: var(--size-15);
+  width: calc(50% - var(--size-5));
+  box-sizing: border-box;
+  padding: var(--size-9);
+  padding-left: 0;
+  
+}
+
+.collectionImageDiv{
+
+  display: flex;
+  align-items: center;
+
+
+  max-width: var(--size-15);
+  width: calc(50% - var(--size-5));
+}
+
+.collectionImage{
+
+  aspect-ratio: 16/9;
+  height: max-content;
+ width: 100%;
+ object-fit: cover;
+
+}
+
+@media (max-width: 980px){
+  .collectionInfo{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .collectionImageDiv{
+
+    display: flex;
+    align-items: center;
+  
+    padding: var(--size-5) 0;
+    max-width: none;
+    width: calc(100% - var(--size-8));
+  }
+
+  .collectionText{
+    width: 100%;
+    padding: var(--size-5) 0;
+    max-width: none;
+    width: calc(100% - var(--size-8));
+  }
+
+
+}

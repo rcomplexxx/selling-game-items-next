@@ -7,8 +7,9 @@ import Head from "next/head";
 import PageNumber from "@/components/PageNumbers/PageNumbers";
 import { useRouter } from "next/router";
 import styles from './collectionpage.module.css'
+import Image from "next/image";
 
-export default function Collection({ collectionName,  pageId, products, links }) {
+export default function Collection({ collectionName, collectionFullName,collectionImage, collectionDescription,  pageId, products, links }) {
 
   
 
@@ -17,11 +18,23 @@ export default function Collection({ collectionName,  pageId, products, links })
   return (
     <div className={styles.mainDiv}>
       <Head>
-        <title>Collection - Gamesmoke shop</title>
+        <title>Collection - {collectionFullName}</title>
       </Head>
       {/* <Products showAll={true} products={products}></Products> */}
 
+      <div className={styles.collectionInfo}>
+       <div className={styles.collectionText}>
+      <h1 className={styles.collectionName}>{collectionFullName}</h1>
+      <p className={styles.collectionDescription}>{collectionDescription}</p>
+       </div>
+       <div className={styles.collectionImageDiv}>
+      <Image src={`/images/${collectionImage}`} sizes="50vw" alt='Cool image' className={styles.collectionImage} 
+      width={0}
+      height={0}/>
 
+       </div>
+
+      </div>
 
 
     <div className={styles.mainDiv}>
@@ -118,7 +131,10 @@ export async function getStaticProps({params}) {
       pageId:pageId,
       products:collectionProducts,
       links,
-      collectionName: params.collectionName
+      collectionName: params.collectionName,
+      collectionFullName: collection.name,
+      collectionImage: collection.image,
+      collectionDescription: collection.description
     },
   };
 }

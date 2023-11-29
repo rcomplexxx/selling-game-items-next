@@ -5,13 +5,15 @@
          "name": "Blankets",
         "products": [0, 1],
         "image":"13.png",
-        "urlName":""
+        "description": "Looking for cute and adorable cat accessories? CatCurio brings you one of the finest and most luxurious collections of kitty related items! From belts, hair clips, badges, magnets to phone covers, backpacks, purses, lipsticks and car mounts, we have everything that a true feline lover desires! Dive deep and explore!"
     },
     
     { "id": 1,
         "name": "Joysticks",
         "products": [2, 3, 4, 10],
-        "image":"1.png"
+        "image":"1.png",
+        "description": "Looking for cute and adorable cat accessories? CatCurio brings you one of the finest and most luxurious collections of kitty related items! From belts, hair clips, badges, magnets to phone covers, backpacks, purses, lipsticks and car mounts, we have everything that a true feline lover desires! Dive deep and explore!"
+   
     
     
 },
@@ -20,14 +22,18 @@
 { "id": 2,
     "name": "Gaming equipment",
         "products": [5, 7, 8, 9, 11, 12, 13, 14, 15],
-        "image":"3.png"
+        "image":"3.png",
+        "description": "Looking for cute and adorable cat accessories? CatCurio brings you one of the finest and most luxurious collections of kitty related items! From belts, hair clips, badges, magnets to phone covers, backpacks, purses, lipsticks and car mounts, we have everything that a true feline lover desires! Dive deep and explore!"
+   
     
 },
 
 { "id": 3,
     "name": "Sale",
         "products": [0,2,4,5,8,10],
-        "image":"3.png"
+        "image":"3.png",
+        "description": "Looking for cute and adorable cat accessories? CatCurio brings you one of the finest and most luxurious collections of kitty related items! From belts, hair clips, badges, magnets to phone covers, backpacks, purses, lipsticks and car mounts, we have everything that a true feline lover desires! Dive deep and explore!"
+   
     
 }
 
