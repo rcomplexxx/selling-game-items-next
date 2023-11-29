@@ -264,13 +264,20 @@
     background-color: #364658;
   }
 
+  .userImagesDivWrapper{
+    position: relative;
+    width: 100%;
+    margin: var(--size-9);
+   
+  }
+
   .userImagesDiv{
     position: relative;
     width: 100%;
     display: flex;
     justify-content: flex-start;
     flex-wrap:wrap;
-    margin: var(--size-9);
+   
     padding: 6px;
     box-sizing: border-box;
     border: 1px solid gray;
@@ -295,6 +302,8 @@
     border: 1px solid rgb(104, 111, 207);
     cursor: pointer;
   }
+
+
 
   .userImageDiv{
   

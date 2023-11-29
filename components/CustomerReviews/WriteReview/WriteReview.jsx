@@ -16,16 +16,19 @@ export default function WriteReview({ stars, reviewNumber }) {
     lastName: "",
     email: "",
   });
-  const [errors, setErrors] = useState({ firstName: false, email: false });
+  const [errors, setErrors] = useState({ firstName: false, email: false, images5: false });
   
   const outAnimationTime = 500;
   const inAnimationTime = 200;
 
   const handleImageUpload = (e) => {
-    const files = e.target.files;
 
+    const files = e.target.files;
+    
     const newImages = [...images];
     let arrayMax = 5 - images.length;
+    if(files.length>arrayMax) setErrors({...errors, images5:true}); else setErrors({...errors,images5:false});
+
     for (
       let i = 0;
       i < (files.length < arrayMax ? files.length : arrayMax);
@@ -197,7 +200,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                   </div>
 
                   {images.length !== 0 ? (
-                    <div className={styles.userImagesDiv}>
+                    <div className={styles.userImagesDivWrapper}><div className={styles.userImagesDiv}>
                       {images.map((image, i) => {
                        return <div key={i} className={styles.userImageDiv}>
                           <button className={styles.cancelImage} onClick={()=>{
@@ -219,8 +222,14 @@ export default function WriteReview({ stars, reviewNumber }) {
                             multiple
                           ></input>
                       <span>+</span></div>}
-                      <button className={styles.userImgsContinue} onClick={handleNext}>Continue</button>
+                      
+                      
+                  
+                     
                     </div>
+                    <button className={styles.userImgsContinue} onClick={handleNext}>Continue</button>
+                      {errors.images5 && <p className={styles.requiredError}>You can select up to 5 photos</p>}
+                      </div>
                   ) : (
                     <>
                       <div className={styles.centerButtons}>
@@ -291,7 +300,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                         className={styles.personInfoInput}
                       />
                       {errors.firstName && (
-                        <p className={styles.requiredError}>Required field!</p>
+                        <p className={styles.requiredError}>Required field</p>
                       )}
                     </div>
                     <div className={styles.personInfoDiv}>
@@ -328,7 +337,7 @@ export default function WriteReview({ stars, reviewNumber }) {
                     {errors.email && (
                       <p className={styles.requiredError}>
                         {reviewInfo.email == ""
-                          ? "Required field!"
+                          ? "Required field"
                           : "Please fill a valid email address"}
                       </p>
                     )}

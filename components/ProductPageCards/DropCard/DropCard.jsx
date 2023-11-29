@@ -14,7 +14,7 @@ export default function DropCard(props) {
         <div className={styles.titleStyleDiv}>
         <img src={`/images/${props.title=='Description'?'description_icon6':
       props.title=='Key features'?'keyIcon7':props.title=='Shipping & Returns'?'shippingReturnIcon2'
-      :props.title=='Ask a question'?'chatIcon4':'description'
+      :props.title=='Ask a question'?'chatIcon6':'description'
       }.png`} className={styles.cardIcon}/>
         {props.title}
         </div>
