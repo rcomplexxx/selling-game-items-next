@@ -125,7 +125,7 @@
     padding-right: var(--size-6);
     transform: translateY(50%);
     opacity: 0;
-    animation: spawnLink 0.25s linear forwards;
+ 
   }
 
 
