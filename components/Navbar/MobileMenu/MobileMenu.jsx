@@ -54,7 +54,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
           x
         </button>
       </div>
-        <div>
+     
             {subMenu===0 &&
       <><Link
         href="/"
@@ -253,6 +253,6 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
 
       
       </div>
-    </div>
+    
   </div>
 }
