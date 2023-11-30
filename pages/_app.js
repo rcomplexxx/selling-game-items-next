@@ -76,7 +76,7 @@ const totalItems= useMemo(()=>{
   return (
     <div
       id="hronika"
-      className={`hronika ${hasScrollbar && "contentWidthScrollbarOn"}`}
+      className={`hronika`}
     >
       <Head>
         <link rel="icon" href="/images/favicon.ico" />
