@@ -19,6 +19,7 @@
 
 
   .productPicsWrapper{
+   
     position:relative;
     width: var(--size-15-5);
     height: 100%;
@@ -27,6 +28,7 @@
   
 
   .productPicsFixed{
+    
     width: var(--size-15-5);
     position: fixed;
     top: 32px;
@@ -35,7 +37,7 @@
   .productPicsBot{
    width:100%;
     position: absolute;
-   bottom: 24px;
+   bottom: 0px;
   }
   
   .productImageDiv{
@@ -60,7 +62,7 @@
   }
 
   .slider{
-    height:360px;
+    height:auto;
     overflow: hidden;
   }
 
@@ -83,7 +85,7 @@ width: calc(100% - var(--size-11));
 
   .grid_container {
     width: 100%;
-    margin-top: var(--size-6);
+    margin-top: var(--size-5);
   
     grid-template-columns: repeat(4, 1fr); /* Two columns */
     grid-gap: 12px; /* Gap between grid items */
@@ -117,7 +119,7 @@ width: calc(100% - var(--size-11));
   @media(max-width: 1280px){
 
     .productPicsWrapper{
-
+     
       width: var(--size-15-5);
     }
     .productPicsFixed{
@@ -131,9 +133,7 @@ width: calc(100% - var(--size-11));
       width: var(--size-15-5);
     }
 
-    .slider{
-      height:324px;
-    }
+
   }
 
 

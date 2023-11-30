@@ -51,7 +51,10 @@ export default function ProductPics({ images }) {
 
   useEffect(() => {
     //129
+    
 
+    // Check if the element exists
+   
     const productPicsElement = document.getElementById("productPics");
     const handleScroll = () => {
       //Vrednost 129 se dobija  console.log(document.getElementById('productPics').getBoundingClientRect().top),
@@ -60,7 +63,7 @@ export default function ProductPics({ images }) {
       const height = productPicsElement.clientHeight;
 
       setFixedMedia(
-        window.scrollY >= 96 ? (window.scrollY <= height - 474 ? 1 : 2) : 0,
+        window.scrollY >= 96 ? (window.scrollY <= height - document.getElementById('productImages').clientHeight + 96 ? 1 : 2) : 0,
       );
     };
 
@@ -156,7 +159,7 @@ export default function ProductPics({ images }) {
         />
       )}
       <div id="productPics" className={styles.productPicsWrapper}>
-        <div
+        <div id='productImages'
           className={`${fixedMedia == 1 ? styles.productPicsFixed : ""} ${
             fixedMedia == 2 ? styles.productPicsBot : ""
           }`}
