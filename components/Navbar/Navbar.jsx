@@ -14,7 +14,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   const [windowWidth, setWindowWidth] = useState(0);
   const [subMenu, setSubMenu]=useState(0);
 
-
+  
 
   const router = useRouter();
   const pathname = router.asPath;
@@ -34,7 +34,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
     };
   }, []);
 
-console.log(pathname)
+  console.log(newProduct)
 
 
 

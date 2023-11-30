@@ -282,10 +282,14 @@
 
  
 
-  @media(max-width: 600px){
+
     .appBarFixed{
       position:fixed;
       top:0;
+      min-height: 0;
+      max-height: 0;
+      
+      animation: expandHeight 0.1s ease forwards;
     }
 
     .toolbarDiv {
@@ -294,11 +298,12 @@
     }
 
     .substituteDiv{
+      
       display: block;
     }
   
 
-  }
+  
 
 
   @media(max-width: 500px){
@@ -308,3 +313,14 @@
     }
 
  
+
+    @keyframes expandHeight {
+      from {
+        overflow: hidden;
+        max-height: 0;
+      }
+      to {
+        overflow:visible;
+        max-height:  var(--size-9); /* Set your desired max height */
+      }
+    }
