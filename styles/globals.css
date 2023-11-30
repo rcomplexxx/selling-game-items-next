@@ -10,7 +10,7 @@ body{
  flex-direction: column; 
   background-color: var(--gray-9-elegant);
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: initial;
   scrollbar-gutter: auto;
   color:var(--yellow-white);
   margin: 0;
@@ -178,5 +178,9 @@ p {
 
 .text_decoration_none{
   text-decoration: none;
+}
+
+.hideScroll{
+  overflow-y: hidden;
 }
 

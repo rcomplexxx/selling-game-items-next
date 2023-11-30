@@ -18,6 +18,17 @@ export default function WriteReview({ stars, reviewNumber }) {
   });
   const [errors, setErrors] = useState({ firstName: false, email: false, images5: false });
   
+useEffect(()=>{
+
+   if(infoDivOpen) document.body.classList.add('hideScroll');
+  
+
+ 
+   else document.body.classList.remove('hideScroll');
+  
+},[infoDivOpen]);
+
+
   const outAnimationTime = 500;
   const inAnimationTime = 200;
 

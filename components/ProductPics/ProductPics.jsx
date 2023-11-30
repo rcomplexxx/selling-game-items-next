@@ -21,8 +21,12 @@ export default function ProductPics({ images }) {
     if(zoomed){
       router.push(router.asPath+'#zoom')
    
-    
-    }
+      document.body.classList.add('hideScroll');
+   
+ 
+  
+     
+    } else document.body.classList.remove('hideScroll');
 
     if (router.asPath.includes('#'))router.back();
   
@@ -30,6 +34,9 @@ export default function ProductPics({ images }) {
     
    
   }, [zoomed]);
+
+
+
 
 
   useEffect(() => {
