@@ -157,7 +157,7 @@ p {
   min-width: 100vw;
   max-width: 100vw;
   align-items: center;
-  overflow-y: auto;
+  overflow-y: overlay;
   overflow-x: hidden;
   overflow-anchor: none;
 }
