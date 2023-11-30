@@ -149,15 +149,15 @@ p {
 
 .hronika{
   
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   color: white;
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: calc(100vw - 10px);
   max-width: 100vw;
   align-items: center;
-  overflow-y: overlay;
+  overflow-y: auto;
   overflow-x: hidden;
   overflow-anchor: none;
 }
