@@ -3,10 +3,9 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import styles from "./fullscreenzoomableimage.module.css";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { useRouter } from "next/router";
 
 const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
-  const router = useRouter();
+ 
   const aliceSuiter = useRef();
 
  

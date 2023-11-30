@@ -60,14 +60,14 @@ export default function ProductPics({ images }) {
       const height = productPicsElement.clientHeight;
 
       setFixedMedia(
-        window.scrollY >= 97 ? (window.scrollY <= height - 500 ? 1 : 2) : 0,
+        window.scrollY >= 96 ? (window.scrollY <= height - 474 ? 1 : 2) : 0,
       );
     };
 
     const observer = new ResizeObserver((entries) => {
       const height = productPicsElement.clientHeight;
       setFixedMedia(
-        window.scrollY >= 97 ? (window.scrollY <= height - 500 ? 1 : 2) : 0,
+        window.scrollY >= 96 ? (window.scrollY <= height - 474 ? 1 : 2) : 0,
       );
     });
 
