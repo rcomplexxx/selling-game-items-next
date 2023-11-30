@@ -159,7 +159,7 @@ p {
   flex-direction: column;
   color: white;
   min-height: 100vh;
-  width: 100%;
+  width: calc(100% - 10px);
   align-items: center;
   overflow-y: overlay;
   overflow-x: hidden;
@@ -178,4 +178,10 @@ p {
 
 .text_decoration_none{
   text-decoration: none;
+}
+
+@media(max-width: 780px){
+  .hronika{
+    width: 100%;
+  }
 }

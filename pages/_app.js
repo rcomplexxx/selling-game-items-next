@@ -11,7 +11,7 @@ import Head from "next/head";
 export default function App({ Component, pageProps }) {
   const [cartProducts, setCartProducts] = useState([]);
   const [newProduct, setNewProduct]=useState();
-  const [hasScrollbar, setHasScrollbar] = useState(true);
+  const [hasScrollbar, setHasScrollbar] = useState(false);
   const [showNav, setShowNav] = useState(true);
 
   const router = useRouter();
@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
       : setShowNav(true);
   }, [router.asPath]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setHasScrollbar(window.visualViewport.width < document.body.clientWidth);
   }, [showNav]);
 
