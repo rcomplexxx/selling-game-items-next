@@ -159,7 +159,7 @@ p {
   flex-direction: column;
   color: white;
   min-height: 100vh;
-  width: calc(100% - 10px);
+  width: 100% ;
   align-items: center;
   overflow-y: overlay;
   overflow-x: hidden;

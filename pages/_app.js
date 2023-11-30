@@ -16,7 +16,8 @@ export default function App({ Component, pageProps }) {
 
   const router = useRouter();
   useEffect;
-  useEffect(() => {
+  useLayoutEffect(() => {
+    setHasScrollbar(window.visualViewport.width < document.body.clientWidth);
     const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
     setCartProducts(storedCartProducts || []);
   }, []);
