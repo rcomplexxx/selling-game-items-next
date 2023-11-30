@@ -11,13 +11,12 @@ import Head from "next/head";
 export default function App({ Component, pageProps }) {
   const [cartProducts, setCartProducts] = useState([]);
   const [newProduct, setNewProduct]=useState();
-  const [hasScrollbar, setHasScrollbar] = useState(false);
   const [showNav, setShowNav] = useState(true);
 
   const router = useRouter();
   useEffect;
   useLayoutEffect(() => {
-    setHasScrollbar(window.visualViewport.width < document.body.clientWidth);
+    
     const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
     setCartProducts(storedCartProducts || []);
   }, []);
@@ -36,9 +35,7 @@ export default function App({ Component, pageProps }) {
       : setShowNav(true);
   }, [router.asPath]);
 
-  useLayoutEffect(() => {
-    setHasScrollbar(window.visualViewport.width < document.body.clientWidth);
-  }, [showNav]);
+
 
   // // ! Koristiti ovaj segment koda za pravljenje jedne tabele u
   // // !sqllite koja se treba inicijalizovati samo jednom. Nakon
