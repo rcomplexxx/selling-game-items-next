@@ -36,15 +36,15 @@
   .plusStyle {
     padding:0;
     margin: 0;
-    transform: rotateY(0deg) rotate(0deg);
+    transform: rotateY(0deg) rotate(-90deg);
     transform-origin: center;
-    transition: transform 0.2s;
-    align-self: start;
+ 
+    align-self: end;
     font-weight: 400;
   }
   
   .plusStyleRotate {
-    transform: rotateY(0deg) rotate(-180deg);
+    transform: rotateY(0deg) rotate(-270deg);
     transform-origin: center;
   }
   

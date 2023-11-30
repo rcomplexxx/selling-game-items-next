@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./dropCard.module.css";
 import { useState } from "react";
 
@@ -18,13 +19,15 @@ export default function DropCard(props) {
       }.png`} className={styles.cardIcon}/>
         {props.title}
         </div>
-        <span
+        <Image
+        src={'/images/greaterLess3.png'}
+        height={16}
+        width={16}
           className={`${styles.plusStyle} ${
             showAnswer ? styles.plusStyleRotate : ""
           }`}
-        >
-          ▼
-        </span>
+        />
+         
       </button>
       <div
         className={`${styles.emerge} ${showAnswer ? styles.show : ""} ${
