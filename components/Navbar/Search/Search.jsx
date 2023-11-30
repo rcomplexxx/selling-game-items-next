@@ -4,6 +4,7 @@ import styles from './search.module.css'
 import products from '@/data/products.json'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 
 
@@ -61,7 +62,7 @@ export default function Search(){
             onChange={(e) => handleSearch(e.target.value)}
             onBlur={()=>{setSearchOpen(false)}}
           />
-          <img src={`/images/searchIcon.png`} className={styles.searchIcon} onClick={()=>{setSearchOpen(!searchOpen);
+          <Image src={`/images/searchIcon.png`} className={styles.searchIcon} height={0} width={0} sizes='20px' onClick={()=>{setSearchOpen(!searchOpen);
         }}/>
           {/* Custom results section */}
           <div className={`${styles.custom_results} ${searchOpen && styles.itemsVisible}` }>

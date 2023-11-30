@@ -74,6 +74,7 @@
 
  
 .grow{
+  width: max-content;
   position:absolute;
   top: 24px;
   left: 50%;

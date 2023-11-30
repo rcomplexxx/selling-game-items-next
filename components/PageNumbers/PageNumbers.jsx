@@ -25,7 +25,7 @@ export default function PageNumber({ mainLink, links, pageId}){
         </span>
       </Link>
     )}
-    {links.map((link, index) => {
+    {links.length>1 && links.map((link, index) => {
       return pageId == link ? (
         <span className={styles.pageLink} key={index}>
           <Link href={`${mainLink}${link}`}>{link}</Link>
