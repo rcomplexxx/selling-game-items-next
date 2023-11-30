@@ -161,6 +161,7 @@ p {
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-gutter: auto;
   overflow-anchor: none;
 }
 
