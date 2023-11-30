@@ -289,7 +289,7 @@
       min-height: 0;
       max-height: 0;
       
-      animation: expandHeight 0.1s ease forwards;
+      animation: expandHeight 0.15s ease forwards;
     }
 
     .toolbarDiv {

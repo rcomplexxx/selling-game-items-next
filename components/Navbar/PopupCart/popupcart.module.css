@@ -22,7 +22,7 @@
     height: auto;
  
     
-    animation: expandHeight 0.25s ease forwards;
+    animation: expandHeight 0.22s 0.025s ease forwards;
   }
 
  
