@@ -28,7 +28,7 @@ export default function Collection({ collectionName, collectionFullName,collecti
       <p className={styles.collectionDescription}>{collectionDescription}</p>
        </div>
        <div className={styles.collectionImageDiv}>
-      <Image src={`/images/${collectionImage}`} sizes="50vw" alt='Cool image' className={styles.collectionImage} 
+      <Image src={`/images/${collectionImage}`} priority={true} loading="eager" placeholder="Loading image..." sizes="50vw" alt='Cool image' className={styles.collectionImage} 
       width={0}
       height={0}/>
 
