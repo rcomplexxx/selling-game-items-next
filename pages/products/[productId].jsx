@@ -116,6 +116,7 @@ export default function ProductPage({ product, images, startReviews }) {
                 alt={v.name}
                 sizes="(max-width: 980px) 48px, 64px"
                 className="object_fit_cover"
+                
                 fill
               />
             </span>

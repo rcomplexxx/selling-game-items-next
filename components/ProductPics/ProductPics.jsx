@@ -159,6 +159,7 @@ export default function ProductPics({ images }) {
                 <div key={index} className="carousel-item">
                   <div
                     className={styles.productImageDiv}
+                    priority={index===0}
                     onClick={() => {
                       setZoomed(true);
                     }}
