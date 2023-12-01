@@ -234,7 +234,9 @@ width: calc(100% - var(--size-11));
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: var(--gray-9-elegant);
+      background-color: transparent;
+      border-top: 1px solid var(--blue-5);
+      box-sizing: border-box;
     animation: spawnFixedAddToCart 0.3s ease forwards;
     overflow: hidden;
       z-index: 3;
@@ -250,10 +252,10 @@ width: calc(100% - var(--size-11));
       justify-content: center;
       align-items: center;
       color: white;
-      background-color: var(--blue-5);
+      background-color: var(--gray-9-elegant);
+    
       border: none;
-      border-radius: 16px;
-      margin: 4px 32px;
+      border-radius: 0;
      
     }
   
