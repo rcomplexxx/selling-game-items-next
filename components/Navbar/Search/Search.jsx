@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
-import styles from './search.module.css'
+import styles from './search.module.css';
+import collections from '@/data/collections.json'
 import products from '@/data/products.json'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -34,21 +35,10 @@ export default function Search(){
     const filteredProducts = products.filter((product) =>
       searchTerm!=='' && product.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
+      const filteredcollections = collections.filter((collection) =>
+      searchTerm!=='' && collection.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
-
-      const handleBlur = (event) => {
-        const clickedElement = event.relatedTarget;
-        if (clickedElement && clickedElement.classList.contains(styles.searchCancel)) {
-          // Clicked on the "X" button, don't close the results
-          return;
-        }
-    
-        // Clicked outside the input, the results, and the "X" button, close the results
-        if (!searchResultsRef.current || !searchResultsRef.current.contains(clickedElement)) {
-          setSearchOpen(false);
-        }
-      };
-
+      
 
 
     return <div className={`${styles.custom_search_bar} ${searchOpen && styles.custom_search_bar_open}`}>
@@ -66,6 +56,24 @@ export default function Search(){
         }}/>
           {/* Custom results section */}
           <div className={`${styles.custom_results} ${searchOpen && styles.itemsVisible}` }>
+
+
+          {filteredcollections.length>0 && <div className={styles.resultProductsLabel}>Collections</div>}
+            {filteredcollections.map((collection, index) => (
+              <Link href={`/collections/${collection.name.toLowerCase().replace(/ /g, '-')}/page/1`} key={index} className={styles.result_item} onClick={()=>{setSearchTerm('')}}
+              onMouseDown={(event)=>{event.preventDefault()}}
+              >
+                <img src={`/images/${collection.image}`} className={styles.searchItemImg}/>
+                <strong>{collection.name}</strong>
+                
+              </Link>
+            ))}
+
+
+
+
+
+            {filteredProducts.length>0 && <div className={styles.resultProductsLabel}>Products</div>}
             {filteredProducts.map((product, index) => (
               <Link href={`/products/${product.id}`} key={index} className={styles.result_item} onClick={()=>{setSearchTerm('')}}
               onMouseDown={(event)=>{event.preventDefault()}}
