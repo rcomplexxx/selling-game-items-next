@@ -99,6 +99,7 @@ width: calc(100% - var(--size-11));
 
 
   .productImage2Div{
+    position: relative;
     width: calc(25% - 9px);
     aspect-ratio: 16/9;
     overflow: hidden;

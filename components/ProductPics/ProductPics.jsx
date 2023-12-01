@@ -49,15 +49,18 @@ export default function ProductPics({ images }) {
             : 2
           : 0
       );
-      setSpawnAddToCart(
-         AddToCartEl.getBoundingClientRect().bottom<0
-      );
+      setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0);
     };
 
     const observer = new ResizeObserver((entries) => {
       const height = productPicsElement.clientHeight;
       setFixedMedia(
-        window.scrollY >= 96 ? (window.scrollY >= height - 474 ? 1 : 2) : 0
+        window.scrollY >= 96
+          ? window.scrollY <=
+            height - document.getElementById("productImages").clientHeight + 96
+            ? 1
+            : 2
+          : 0
       );
       setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0);
     });
@@ -159,7 +162,7 @@ export default function ProductPics({ images }) {
                 <div key={index} className="carousel-item">
                   <div
                     className={styles.productImageDiv}
-                    priority={index===0}
+                    priority={true}
                     onClick={() => {
                       setZoomed(true);
                     }}
