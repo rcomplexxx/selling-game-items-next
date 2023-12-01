@@ -235,7 +235,7 @@ width: calc(100% - var(--size-11));
       justify-content: center;
       align-items: center;
       background-color: transparent;
-      border-top: 1px solid var(--blue-5);
+      border-top: 1px solid var(--blue-6);
       box-sizing: border-box;
     animation: spawnFixedAddToCart 0.3s ease forwards;
     overflow: hidden;
@@ -244,7 +244,7 @@ width: calc(100% - var(--size-11));
     }
   
     .fixedAddToCart{
-      height: 32px;
+      height: 40px;
       width: 100%;
       max-width: var(--size-15);
   
