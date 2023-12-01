@@ -130,13 +130,14 @@ width: calc(100% - var(--size-11));
     background-color: var(--gray-9-elegant);
   animation: spawnFixedAddToCart 0.3s ease forwards;
   overflow: hidden;
-    z-index: 10;
+    z-index: 3;
+   
   }
 
   .fixedAddToCart{
-    height: 32px;
+    height: 40px;
     width: 100%;
-    max-width: var(--size-17);
+    max-width: var(--size-16);
 
     display: flex;
     justify-content: center;
