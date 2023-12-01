@@ -128,6 +128,7 @@ export default function ProductPage({ product, images, startReviews }) {
           <QuantityButton quantity={quantity} setQuantity={setQuantity} />
 
           <button
+          id='addToCart'
             className={styles.add_to_cart_button}
             onClick={() => onAddToCart(product, quantity)}
           >

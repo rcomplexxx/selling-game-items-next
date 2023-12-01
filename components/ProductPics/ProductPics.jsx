@@ -13,76 +13,58 @@ export default function ProductPics({ images }) {
 
   const [mobileInterface, setMobileInterface] = useState(false);
   const [fixedMedia, setFixedMedia] = useState(0);
+  const [spawnAddToCart, setSpawnAddToCart] = useState(false);
 
-  const router= useRouter();
-
+  const router = useRouter();
 
   useEffect(() => {
-    if(zoomed){
-      router.push(router.asPath+'#zoom')
-   
-      document.body.classList.add('hideScroll');
-   
- 
-  
-     
-    } else document.body.classList.remove('hideScroll');
+    if (zoomed) {
+      router.push(router.asPath + "#zoom");
 
-    if (router.asPath.includes('#'))router.back();
-  
-   
-    
-   
+      document.body.classList.add("hideScroll");
+    } else document.body.classList.remove("hideScroll");
+
+    if (router.asPath.includes("#")) router.back();
   }, [zoomed]);
 
-
-
-
-
   useEffect(() => {
- 
-   if(!router.asPath.includes('#'))setZoomed(false)
+    if (!router.asPath.includes("#")) setZoomed(false);
   }, [router.asPath]);
-
-
-
-
-
 
   useEffect(() => {
     //129
-    
 
     // Check if the element exists
-   
+
     const productPicsElement = document.getElementById("productPics");
+    const AddToCartEl = document.getElementById("addToCart");
     const handleScroll = () => {
-      //Vrednost 129 se dobija  console.log(document.getElementById('productPics').getBoundingClientRect().top),
-      //a od pocetka do dna elementa dodamo samo njegovu visinu, tj. + document.getElementById('productPics').clientHeight
-      //console.log(document.getElementById('productPics').getBoundingClientRect().top+ document.getElementById('productPics').clientHeight)
       const height = productPicsElement.clientHeight;
 
       setFixedMedia(
-        window.scrollY >= 96 ? (window.scrollY <= height - document.getElementById('productImages').clientHeight + 96 ? 1 : 2) : 0,
+        window.scrollY >= 96
+          ? window.scrollY <=
+            height - document.getElementById("productImages").clientHeight + 96
+            ? 1
+            : 2
+          : 0
+      );
+      setSpawnAddToCart(
+         AddToCartEl.getBoundingClientRect().bottom<0
       );
     };
 
     const observer = new ResizeObserver((entries) => {
       const height = productPicsElement.clientHeight;
       setFixedMedia(
-        window.scrollY >= 96 ? (window.scrollY <= height - 474 ? 1 : 2) : 0,
+        window.scrollY >= 96 ? (window.scrollY >= height - 474 ? 1 : 2) : 0
       );
+      setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0);
     });
 
-    // Start observing the target element (productPicsElement)
     observer.observe(productPicsElement);
 
-    // Clean up the observer when the component is unmounted
-
-    // Add event listener for window resize
-
     window.addEventListener("scroll", handleScroll);
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
@@ -150,6 +132,12 @@ export default function ProductPics({ images }) {
 
   return (
     <>
+      {spawnAddToCart && (
+        <div className={styles.fixedAddToCartDiv}>
+          <button className={styles.fixedAddToCart}>Add to cart</button>
+        </div>
+      )}
+
       {zoomed && (
         <FullScreenZoomableImage
           imageUrl="/images/boxItem.png"
@@ -159,7 +147,8 @@ export default function ProductPics({ images }) {
         />
       )}
       <div id="productPics" className={styles.productPicsWrapper}>
-        <div id='productImages'
+        <div
+          id="productImages"
           className={`${fixedMedia == 1 ? styles.productPicsFixed : ""} ${
             fixedMedia == 2 ? styles.productPicsBot : ""
           }`}

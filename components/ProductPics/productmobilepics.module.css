@@ -116,6 +116,43 @@ width: calc(100% - var(--size-11));
     
   }
 
+
+  .fixedAddToCartDiv{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+   
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray-9-elegant);
+  animation: spawnFixedAddToCart 0.3s ease forwards;
+  overflow: hidden;
+    z-index: 10;
+  }
+
+  .fixedAddToCart{
+    height: 32px;
+    width: 100%;
+    max-width: var(--size-17);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: var(--blue-5);
+    border: none;
+    border-radius: 16px;
+    margin: 4px;
+   
+  }
+
+  .fixedAddToCart:hover{
+    cursor: pointer;
+  }
+
   @media(max-width: 1280px){
 
     .productPicsWrapper{
@@ -213,4 +250,15 @@ width: calc(100% - var(--size-11));
     }
   
 
+  }
+
+  @keyframes spawnFixedAddToCart {
+    0% {
+      opacity: 0;
+      transform: translatey(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translatey(0);
+    }
   }
