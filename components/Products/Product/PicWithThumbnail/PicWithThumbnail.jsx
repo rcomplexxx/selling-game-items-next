@@ -60,7 +60,7 @@ export default function PicWithThumbnail({ product }) {
             : styles.zoomOut
         }`}
         sizes="(max-width: 480px) 90vw,(max-width: 600px) 80vw, (max-width: 900px) 45vw, 25vw"
-        loading="eager"
+        priority={true}
         onMouseOver={() => {
           if (window.innerWidth > 980) {
             setIsHovered(true);
