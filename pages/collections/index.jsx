@@ -42,7 +42,7 @@ export default function Collections({ collections}) {
         alt="Example Image"
         className={`${styles.productImage}`}
         sizes="(max-width: 480px) 90vw,(max-width: 600px) 80vw, (max-width: 900px) 45vw, 25vw"
-        loading="eager"
+        priority={true}
       
       />
 
