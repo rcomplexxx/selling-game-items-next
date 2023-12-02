@@ -9,7 +9,7 @@ import CustomerReviews from "@/components/CustomerReviews/CustomerReviews.jsx";
 import { useState, useContext, useRef } from "react";
 import StarRatings from "react-star-ratings";
 import styles from "../../styles/productpage.module.css";
-import reviewsData from "../../public/reviews.json";
+
 import Head from "next/head";
 import QuantityButton from "@/components/QuantityButton/QuantityButton";
 import FrequentlyBoughtTogether from "@/components/FrequentlyBoughtTogether/FrequentlyBoughtTogether";
@@ -18,6 +18,7 @@ import ProductPageCards from "@/components/ProductPageCards/ProductPageCards";
 
 import ProductPics from "@/components/ProductPics/ProductPics";
 import { useRouter } from "next/router";
+import { getReviewsData } from "@/utils/getStartReviews";
 
 //slickGoTo
 //afterChange(index)=>{}
@@ -195,6 +196,11 @@ export async function getStaticProps(context) {
         alt: "third product image",
       },
     ]);
+
+
+    const reviewsData= getReviewsData(productId);
+    
+
 
   // Return the data as props
   return {

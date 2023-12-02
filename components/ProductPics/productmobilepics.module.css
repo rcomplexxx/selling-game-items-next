@@ -175,7 +175,7 @@ width: calc(100% - var(--size-11));
       .productImageDiv{
         margin-left: 4px;
         margin-right: 4px;
-        width: calc(100vw - 40px);
+        width: 100%;
         aspect-ratio: 16/9;
         
       }

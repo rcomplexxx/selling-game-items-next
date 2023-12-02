@@ -9,7 +9,7 @@ export default function PopupCart({totalItems,newProduct, setNewProduct}){
 
 
     return <div className={`${styles.cartPopup} ${newProduct && styles.materialize}`}>
-    {newProduct && <><div>
+    {newProduct && <><div className={styles.contentWrapper}>
   <div className={styles.cartPopupTitle}> <img src='/images/smallCorrect.png' className={styles.smallCorrect}></img> <h3>Item added to your cart</h3> </div>
  <div className={styles.cartPopupTitle}> <img src={`/images/${newProduct.image}`} className={styles.productImage}/> <h2 className={styles.productTitle}>{newProduct.name}</h2></div>
  </div>

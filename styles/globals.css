@@ -169,9 +169,6 @@ p {
 
 
 
-.contentWidthScrollbarOn{
-  width: calc(100% - 10px)
-}
 
 .object_fit_cover{
   object-fit: cover;

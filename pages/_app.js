@@ -14,8 +14,8 @@ export default function App({ Component, pageProps }) {
   const [showNav, setShowNav] = useState(true);
 
   const router = useRouter();
-  useEffect;
-  useLayoutEffect(() => {
+
+  useEffect(() => {
     
     const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
     setCartProducts(storedCartProducts || []);

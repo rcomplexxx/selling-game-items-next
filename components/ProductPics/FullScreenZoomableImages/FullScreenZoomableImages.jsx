@@ -3,6 +3,7 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import styles from "./fullscreenzoomableimage.module.css";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import Image from "next/image";
 
 const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
  
@@ -44,7 +45,10 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
               return (
                 <div key={index} className="carousel-item">
                   <div className={styles.productImageDiv}>
-                    <img
+                    <Image
+                    height={0}
+                    width={0}
+                    sizes="100vw"
                       src={img.src}
                       alt="Zoomable"
                       className={styles.productImage}
