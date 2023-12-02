@@ -60,7 +60,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
             width={0}
             sizes="20px"
             priority={index == 0}
-            loading={index == 0 ? "eager" : "lazy"}
+            loading={index == 0 && "lazy"}
               className={styles.zoomImg}
               src={"/images/zoomIconAw.png"}
             />
