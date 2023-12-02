@@ -168,7 +168,7 @@ export default function ProductPics({ images }) {
                         className={styles.productImage}
                         src={img.src}
                         alt={img.alt}
-                        loading={index < 3 ? "eager" : "lazy"}
+                        loading="lazy"
                         sizes="33vw"
                         height={0}
                         width={0}
