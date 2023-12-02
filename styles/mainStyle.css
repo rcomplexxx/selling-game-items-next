@@ -1,15 +1,2 @@
-@import "./colors.css";
-
-body{
-    min-width: 100vw;
-    min-height: 100vh;
-   display: flex; 
-   flex-direction: column; 
-    background-color: transparent;
-    overflow-x: hidden;
-    color:var(--yellow-white);
-    
-}
-
 
 

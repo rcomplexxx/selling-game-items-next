@@ -27,19 +27,7 @@
     
   }
 
-  /* .heroImageDiv{
-    z-index:1;
-    display:flex; 
-    background-image: url('../public/images/gamerwp.png');
-  
-         position:fixed;
-         min-height:100vh;
-         height:100vh;
-          width:100%;
-         background-size: cover;
-  max-width: 100vw;
-  
-  } */
+ 
 
   .heroWindow{
     position:relative;
