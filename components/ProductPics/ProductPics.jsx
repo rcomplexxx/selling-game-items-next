@@ -1,15 +1,12 @@
 import styles from "./productmobilepics.module.css";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.min.css';
 import FullScreenZoomableImage from "@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages";
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import MainSlider from "./MainSlider";
 
 export default function ProductPics({ images }) {
   const [imageIndex, setImageIndex] = useState(0);
@@ -95,35 +92,10 @@ export default function ProductPics({ images }) {
     };
   }, []);
 
-  const swiperRef = useRef(null);
-  const thumbsSwiperRef = useRef(null);
+  const sliderRef = useRef();
   const sliderRefMini = useRef();
 
   //useMemo
-
-
-  const settings = {
-    speed: 400,
-    slidesPerView: 1.11,
-    spaceBetween: 8,
-   
-    
-    variableWidth: false,
-    centeredSlides: true,
-    loop: false,
-
-    on: {
-      slideChange: (swiper) => {
-        const index = swiper.activeIndex;
-        if (index === imageIndex) return;
-        setImageIndex(index);
-        if (index < imageIndex) thumbsSwiperRef.current.slideTo(index);
-        else thumbsSwiperRef.current.slideTo(index - 1);
-      },
-    }
-  };
-
-
 
 
   const settings2 = {
@@ -167,27 +139,11 @@ export default function ProductPics({ images }) {
             fixedMedia == 2 ? styles.productPicsBot : ""
           }`}
         >
-         <Swiper {...settings} ref={swiperRef}>
-            {images.map((img, index) => (
-              <SwiperSlide key={index}>
-                <div
-                  className={styles.productImageDiv}
-                  onClick={() => setZoomed(true)}
-                >
-                  <Image
-                    className={styles.productImage}
-                    src={img.src}
-                    alt={img.alt}
-                    sizes="100vw"
-                    height={0}
-                    width={0}
-                    loading={index == 0 ? "eager" : "lazy"}
-                  />
-                  <img className={styles.zoomImg} src={"/images/zoomIconAw.png"} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className={styles.sliderController}>
+          <MainSlider setZoomed={setZoomed} mobileInterface={mobileInterface} images={images}
+          imageIndex={ imageIndex} setImageIndex={setImageIndex} sliderRef={sliderRef} 
+          sliderRefMini={sliderRefMini} />
+        </div>
 
           <div className={styles.slider2Controller}>
             {" "}
@@ -201,7 +157,7 @@ export default function ProductPics({ images }) {
                   <div key={index} className="carousel-item">
                     <div
                       onClick={() => {
-                    
+                        sliderRef.current.slickGoTo(index);
                         setImageIndex(index);
                       }}
                       className={`${styles.productImage2Div} ${
