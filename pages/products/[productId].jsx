@@ -116,9 +116,10 @@ export default function ProductPage({ product, images, startReviews }) {
                 src={"/images/" + v.image}
                 alt={v.name}
                 sizes="(max-width: 980px) 48px, 64px"
-                className="object_fit_cover"
-                
-                fill
+                className={styles.productVariantImage}
+               
+                height={0}
+                width={0}
               />
             </span>
             })

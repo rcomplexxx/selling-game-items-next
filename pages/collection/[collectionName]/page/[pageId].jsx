@@ -37,7 +37,7 @@ export default function Collection({
             src={`/images/${collectionImage}`}
             priority={true}
           
-            sizes="50vw"
+            sizes="40vw"
             alt="Cool image"
             className={styles.collectionImage}
             width={0}

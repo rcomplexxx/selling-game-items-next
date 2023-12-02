@@ -249,6 +249,8 @@
   
 
   .remindMeLater{
+    display: flex;
+    justify-content: space-around;
     color: white;
     background-color:transparent;
     border: none;

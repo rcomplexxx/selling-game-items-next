@@ -62,7 +62,11 @@
     cursor: pointer;
   }
   
- 
+  .productVariantImage{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 
   .add_to_cart_button {
     max-width: var(--size-15);

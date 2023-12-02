@@ -162,7 +162,7 @@ useEffect(()=>{
                 className={`${styles.writeReviewFooter} ${styles.writeReviewFooterMobile}`}
               >
                 <button onClick={handleBack} className={styles.remindMeLater}>
-                  Back
+                 <img src='/images/rightArrow.png'></img> <span>Back</span>
                 </button>
 
                 {raitingPage == 1 && images.length===1 && (
@@ -404,7 +404,7 @@ useEffect(()=>{
                   onClick={handleBack}
                   className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}
                 >
-                  Back
+                <img src='/images/rightArrow.png'></img> <span>Back</span> 
                 </button>
 
                 <div
