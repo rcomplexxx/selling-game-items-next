@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import styles from "./footer.module.css";
+import Image from "next/image";
 
 export default function Footer() {
   const email = useRef();
@@ -92,11 +93,16 @@ export default function Footer() {
             Shipping Policy
           </Link>
         </div>
-        <img
+        <div  className={styles.paymentsDiv}>
+        <Image
+        height={0}
+        width={0}
+        sizes='100vw'
           src="/images/paymentsNoBg.png"
           className={styles.payments}
           alt="pay"
         />
+        </div>
         <p className={styles.reservedRightsPharagraph}>
           © 2023, Gamebuff All Rights Reserved.
         </p>

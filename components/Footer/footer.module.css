@@ -96,13 +96,21 @@
     color: #ccc;
   }
 
-  .payments{
+  .paymentsDiv{
+    display: flex;
+    position: relative;
     width: 100%;
     aspect-ratio: 16;
-   
     margin-top: var(--size-5);
-    margin-bottom: var(--size-4);
+   margin-bottom: var(--size-4);
+  
     
+  }
+
+  .payments{
+    width: 100%;
+    height: fit-content;
+  
     
   }
 
