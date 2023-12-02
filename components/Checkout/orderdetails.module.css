@@ -190,7 +190,7 @@
 
   .orderWrapperFixed{
     position: fixed;
-    width: calc((50vw - 5px) - var(--size-11));
+    width: calc(50% - var(--size-11));
     max-width: var(--size-14-5);
   
     top: var(--size-8);

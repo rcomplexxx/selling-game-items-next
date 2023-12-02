@@ -1,5 +1,5 @@
 .toolbar {
-    width: 80vw;
+    width: 80%;
     background-color: #061013;
     z-index: 2;
     display: flex;
@@ -10,7 +10,7 @@
   }
   
   /* #030a08 */
-  
+  /* Mozda ovde staviti max width ili nesto */
   .title {
     margin-bottom: var(--size-7);
     margin-top: var(--size-7);

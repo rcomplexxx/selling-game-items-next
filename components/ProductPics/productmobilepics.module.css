@@ -61,6 +61,12 @@
     display: inline-block !important;
   }
 
+  .sliderController{
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
   .slider{
     height:auto;
     overflow: hidden;
@@ -165,16 +171,12 @@ width: calc(100% - var(--size-11));
     .productPicsWrapper{
       width: auto;
     }
-    .sliderController{
-      width: 100%;
-      height: calc((100vw - 40px) * 9 / 16);
-      overflow: hidden;
-    }
+
       .productImageDiv{
         position: relative;
         margin-left: 4px;
         margin-right: 4px;
-        width: calc(100vw - 40px);
+        width: calc(100vw - 48px);
         aspect-ratio: 16/9;
         
       }
@@ -195,8 +197,10 @@ width: calc(100% - var(--size-11));
       }
   
       .slider2{
+     
         margin: var(--size-6) auto;
-    width: calc(100% - var(--size-10));
+        margin-top: var(--size-4);
+    width: calc(100% - var(--size-9-5));
     
     
       }
@@ -205,8 +209,8 @@ width: calc(100% - var(--size-11));
   
       
     .productImage2Div{
-      margin-left: 4px;
-      width: calc((100vw - var(--size-10)) / 3 - 8px);
+      margin: 0 4px;
+      width: calc((100vw - var(--size-9-5)) / 3 - 16px);
       aspect-ratio: 16/9;
    
     }

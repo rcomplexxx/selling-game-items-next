@@ -1,6 +1,6 @@
 .appBar {
   width:100%;
-  max-width: 100vw;
+  
   height: var(--size-9);
     box-shadow: none;
     background-color: var(--gray-9-elegant);

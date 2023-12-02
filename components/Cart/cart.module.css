@@ -1,7 +1,7 @@
 .mainWrapper{
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   min-height: calc(100vh - 64px);
   min-height: calc(100svh - 64px);
   
@@ -12,8 +12,8 @@
   min-height: calc(100svh - 64px);
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  min-width: 100vw;
+  width: 100%;
+  min-width: 100%;
  
   padding: 0 var(--size-10);
   padding-bottom: var(--size-8) ;
