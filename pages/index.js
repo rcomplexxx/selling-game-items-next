@@ -19,7 +19,7 @@ const HomePage = ({ products }) => {
         <Image
           height={0}
           width={0}
-          loading="eager"
+         
           src={`/images/gamerwpmobile.png`} // Path to your image from the `public` directory
           alt="Hero Discount Image"
           priority={true}

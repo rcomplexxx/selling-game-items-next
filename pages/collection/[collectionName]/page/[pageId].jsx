@@ -36,7 +36,7 @@ export default function Collection({
           <Image
             src={`/images/${collectionImage}`}
             priority={true}
-            loading="eager"
+          
             sizes="50vw"
             alt="Cool image"
             className={styles.collectionImage}
