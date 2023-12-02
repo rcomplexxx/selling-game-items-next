@@ -44,7 +44,7 @@ export default function Faq({ questionData }) {
           you have any questions please send us an email at:
           support@petboutique.co.
         </p>
-      </div>
+      
       <div className={styles.questions_div}>
         {questionData.map((q, i) => {
           return (
@@ -56,6 +56,7 @@ export default function Faq({ questionData }) {
           );
         })}
       </div>
+    </div>
     </div>
   );
 }
