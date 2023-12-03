@@ -22,14 +22,15 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
       <div className={styles.spaceController}>
 
       <div className={styles.closeSuiter}>
-    <button
+    <Image height={0} width={0}
+    src='/images/cancelWhite.png'
         onClick={() => {
           fullScreenChange(aliceSuiter.current.state.activeIndex);
         }}
         className={styles.close_button}
       >
-        X
-      </button>
+        
+      </Image>
       </div>
 
 

@@ -216,10 +216,13 @@ useEffect(()=>{
                     <div className={styles.userImagesDivWrapper}><div className={styles.userImagesDiv}>
                       {images.map((image, i) => {
                        return <div key={i} className={styles.userImageDiv}>
-                          <button className={styles.cancelImage} onClick={()=>{
+                          <img height={0} width={0} src='/images/cancelWhite.png' className={styles.cancelImage} onClick={()=>{
                             let newImages= images.filter(img=>{return img!=image});
                             setImages(newImages);
-                          }}>X</button>
+                          }}>
+                            
+
+                          </img>
                           <img src={image} className={styles.userImage} />
                         </div>;
                       })}
@@ -371,7 +374,7 @@ useEffect(()=>{
             </div>
 
             {raitingPage == 0 || raitingPage == 4 ? (
-              <button
+               <img height={0} width={0} src='/images/cancelWhite.png'
                 onClick={() => {
                   setInfoDivOpen(false);
                   setImages([]);
@@ -385,8 +388,11 @@ useEffect(()=>{
                 }}
                 className={styles.closeButton}
               >
-                X
-              </button>
+             
+               
+                            
+
+                          </img>
             ) : (
               <div
                 className={`${styles.writeReviewFooter} ${
