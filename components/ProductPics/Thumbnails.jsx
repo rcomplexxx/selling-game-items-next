@@ -23,16 +23,19 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
     <div className={styles.slider2Suiter}>
    
 
-   <div className={styles.leftArrowDiv} onClick={()=>{ swiper.slideTo(imageIndex-1);}}>
+   <div className={`${styles.leftArrowDiv} ${imageIndex===0 && styles.disabledArray}`}
+   
+   onClick={()=>{ swiper.slideTo(imageIndex-1);}}>
                 <Image 
                 height={0}
                 width={0}
                 src='/images/greaterLess2.png'
+                sizes='12px'
                 className={styles.arrow}
                 />
             </div>
 
-            <div className={`${styles.leftArrowDiv} ${styles.rightArrowDiv}`} onClick={()=>{ swiper.slideTo(imageIndex+1);}}>
+            <div className={`${styles.leftArrowDiv} ${styles.rightArrowDiv} ${imageIndex===images.length-1 && styles.disabledArray}`} onClick={()=>{ swiper.slideTo(imageIndex+1);}}>
                 <Image 
                 height={0}
                 width={0}

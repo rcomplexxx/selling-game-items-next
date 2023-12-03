@@ -134,6 +134,18 @@ width: calc(100% - var(--size-11));
     transform: rotate(180deg) translateY(50%);
   }
 
+ .disabledArray:hover{
+  cursor:auto;
+ }
+
+  .disabledArray{
+    background-color: rgb(69, 72, 74);
+  }
+
+  .disabledArray:active{
+    background-color: rgb(69, 72, 74);
+  }
+
   .arrow{
     height: var(--size-4);
     width:var(--size-4);
