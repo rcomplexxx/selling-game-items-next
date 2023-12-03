@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import MainSlider from "./MainSlider";
 import Thumbnails from "./Thumbnails";
 
-export default function ProductPics({ images }) {
+export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
   const [zoomed, setZoomed] = useState(false);
 
@@ -111,7 +111,7 @@ export default function ProductPics({ images }) {
     <>
       {spawnAddToCart && (
         <div className={styles.fixedAddToCartDiv}>
-          <button className={styles.fixedAddToCart}>Add to cart</button>
+          <button className={styles.fixedAddToCart} onClick={()=>{onAddToCart()}}>Add to cart</button>
         </div>
       )}
 

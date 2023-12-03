@@ -38,7 +38,7 @@ export default function ProductPage({ product, images, startReviews }) {
 
   const { cartProducts, setCartProducts, setNewProduct } = useContext(AppContext);
 
-  const onAddToCart = (product, quantity = 1) => {
+  const onAddToCart = ( quantity = 1) => {
     const productIndex = cartProducts.findIndex((cp) => cp.id === product.id);
 
     if (productIndex !== -1) {
@@ -74,7 +74,7 @@ export default function ProductPage({ product, images, startReviews }) {
       </Head>
       <div className={styles.productPageDiv}>
         <div className={styles.media}>
-          <ProductPics images={images} />
+          <ProductPics  onAddToCart ={ onAddToCart }images={images} />
         </div>
 
         <div className={styles.productInfo}>
@@ -133,7 +133,7 @@ export default function ProductPage({ product, images, startReviews }) {
           <button
           id='addToCart'
             className={styles.add_to_cart_button}
-            onClick={() => onAddToCart(product, quantity)}
+            onClick={() => onAddToCart( quantity)}
           >
             Add to Cart
           </button>

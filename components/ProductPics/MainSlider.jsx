@@ -29,7 +29,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
   };
 
   return (
-    <div className={styles.sliderController}>
+    
     <Swiper  onSwiper={setSwiper} {...settings}>
       {images.map((img, index) => (
         <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${!mobileInterface && 'swiper-no-swiping'}`}>
@@ -63,6 +63,6 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
         </SwiperSlide>
       ))}
     </Swiper>
-    </div>
+  
   );
 }
