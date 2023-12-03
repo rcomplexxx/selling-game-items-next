@@ -390,11 +390,12 @@
 
  .nextButton:hover{
   cursor: pointer;
-  background-color: #364658;
+  background-color: rgb(112, 128, 118);
  }
 
  .nextButton:active{
-  background-color: rgb(112, 128, 118);
+     
+     background-color: #364658;
  }
 
  .nextButtonDisabled{
