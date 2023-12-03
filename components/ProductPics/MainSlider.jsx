@@ -49,6 +49,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
               height={0}
               width={0}
               priority={index === 0}
+              loading={index>0?'lazy':undefined}
              
             />
             <Image
@@ -58,6 +59,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
               priority={index === 0}
               className={styles.zoomImg}
               src={"/images/zoomIconAw.png"}
+              loading={index>0?'lazy':undefined}
             />
           </div>
         </SwiperSlide>

@@ -201,6 +201,12 @@ width: calc(100% - var(--size-11));
   
    
   }
+  .slide2{
+    
+    position: relative;
+    width: calc(100%  / 3 - 12px) !important;
+  }
+
 
       .productImageDiv{
         position: relative;
@@ -216,6 +222,7 @@ width: calc(100% - var(--size-11));
       }
   
       .productImage{
+        
         width:100%;
       height: 100%;
       object-fit: cover;
@@ -226,7 +233,7 @@ width: calc(100% - var(--size-11));
       }
   
       .slider2{
-     
+        
         margin: var(--size-6) auto;
         margin-top: var(--size-4);
     width: calc(100% - var(--size-9-5));
@@ -238,8 +245,8 @@ width: calc(100% - var(--size-11));
   
       
     .productImage2Div{
-      margin: 0 4px;
-      width: calc((100vw - var(--size-9-5)) / 3 - 16px);
+ 
+      width: 100%;
       aspect-ratio: 16/9;
    
     }
