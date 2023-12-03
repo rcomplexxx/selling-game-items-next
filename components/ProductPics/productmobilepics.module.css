@@ -39,6 +39,14 @@
     position: absolute;
    bottom: 0px;
   }
+
+  .slide{
+    position: relative;
+    
+    width:100% !important;
+  
+   
+  }
   
   .productImageDiv{
     position: relative;
@@ -66,6 +74,19 @@
     aspect-ratio: 16/9;
     overflow: hidden;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   .slider{
     width: 100%;
@@ -173,11 +194,18 @@ width: calc(100% - var(--size-11));
       width: auto;
     }
 
+    
+  .slide{
+    position: relative;
+    width: calc(100% - 40px) !important;
+  
+   
+  }
+
       .productImageDiv{
         position: relative;
-        margin-left: 4px;
-        margin-right: 4px;
-        width: calc(100vw - 48px);
+      
+        width: 100%;
         aspect-ratio: 16/9;
         
       }

@@ -139,11 +139,11 @@ export default function ProductPics({ images }) {
             fixedMedia == 2 ? styles.productPicsBot : ""
           }`}
         >
-          <div className={styles.sliderController}>
+        
           <MainSlider setZoomed={setZoomed} mobileInterface={mobileInterface} images={images}
           imageIndex={ imageIndex} setImageIndex={setImageIndex} sliderRef={sliderRef} 
           sliderRefMini={sliderRefMini} />
-        </div>
+       
 
           <div className={styles.slider2Controller}>
             {" "}
@@ -168,8 +168,6 @@ export default function ProductPics({ images }) {
                         className={styles.productImage}
                         src={img.src}
                         alt={img.alt}
-                        loading={index > 2 ? "lazy": undefined}
-                        priority={index<3}
                         sizes="33vw"
                         height={0}
                         width={0}

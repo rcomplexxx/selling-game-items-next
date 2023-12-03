@@ -1,46 +1,41 @@
 
 import styles from "./productmobilepics.module.css";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { useRef } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/swiper.min.css";
+
 import Image from "next/image";
 
+
 export default function MainSlider({setZoomed, mobileInterface, images, imageIndex,
-     setImageIndex,sliderRef , sliderRefMini}){
+  setImageIndex,sliderRef , sliderRefMini}){
 
 
+  const settings = {
+    speed: 400,
 
+    slidesPerView: "auto",
+    spaceBetween: 8,
+    centeredSlides: true,
+    slideToClickedSlide: true,
+    on: {
+      slideChange: () => {
+        const index = sliderRef.current.swiper.realIndex;
+        if (index === imageIndex) return;
+        setImageIndex(index);
+        if (index < imageIndex) sliderRefMini.current.swiper.slideTo(index);
+        else sliderRefMini.current.swiper.slideTo(index - 1);
+      },
+    },
+    className: styles.mySlider
+  };
 
-    const settings = {
-        //Stavi direkt u funkciju
-        speed: 400,
-        arrows: false,
-        infinite: false,
-        slidesToShow: 1,
-        Scroll: 1,
-        variableWidth: true,
-        centerMode: true,
-       
-        centerPadding: 0, // Set padding between centered items to 0
-        swipe: mobileInterface,
-        afterChange: (index) => {
-          if (index == imageIndex) return;
-          setImageIndex(index);
-          if (index < imageIndex) sliderRefMini.current.slickGoTo(index);
-          else sliderRefMini.current.slickGoTo(index - 1);
-        },
-      };
-
-  
-
-   return <Slider ref={sliderRef} {...settings}>
-    {images.map((img, index) => {
-      return (
-        <div key={index} className="carousel-item">
+  return (
+    <div className={styles.sliderController}>
+    <Swiper  ref={sliderRef} {...settings}>
+      {images.map((img, index) => (
+        <SwiperSlide key={index} className={`carousel-item ${styles.slide}`}>
           <div
             className={styles.productImageDiv}
-            
             onClick={() => {
               setZoomed(true);
             }}
@@ -52,21 +47,22 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
               sizes="100vw"
               height={0}
               width={0}
-              priority={index == 0}
+              priority={index === 0}
               loading={index !== 0 ? "lazy" : undefined}
             />
             <Image
-            height={0}
-            width={0}
-            sizes="20px"
-            priority={index == 0}
-            loading={index !== 0 ? "lazy" : undefined}
+              height={0}
+              width={0}
+              sizes="20px"
+              priority={index === 0}
+              loading={index !== 0 ? "lazy" : undefined}
               className={styles.zoomImg}
               src={"/images/zoomIconAw.png"}
             />
           </div>
-        </div>
-      );
-    })}
-  </Slider>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+    </div>
+  );
 }
