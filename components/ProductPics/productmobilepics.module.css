@@ -109,19 +109,6 @@ width: calc(100% - var(--size-11));
  
   }
 
-  
-
- .disabledArray:hover{
-  cursor:auto;
- }
-
-  .disabledArray{
-    background-color: rgb(69, 72, 74);
-  }
-
-  .disabledArray:active{
-    background-color: rgb(69, 72, 74);
-  }
 
   
  
@@ -260,6 +247,21 @@ width: calc(100% - var(--size-11));
     right: var(--size-3);
     transform: rotate(180deg) translateY(50%);
   }
+
+  .disabledArrow{
+    background-color: rgb(69, 72, 74);
+  }
+
+
+ .disabledArrow:hover{
+  cursor:auto;
+ }
+
+
+  .disabledArrow:active{
+    background-color: rgb(69, 72, 74);
+  }
+
 
   .arrow{
     height: var(--size-4);
