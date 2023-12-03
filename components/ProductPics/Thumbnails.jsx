@@ -7,7 +7,7 @@ import styles from './productmobilepics.module.css';
 import Image from 'next/image';
 
 
-export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, sliderRefMini }) {
+export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, setSwiperMini }) {
   const settings2 = {
     spaceBetween: 16, // Set the space between slides
     slidesPerView: "auto",
@@ -22,7 +22,7 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
   return (
     <>
       <div className={styles.slider2Controller}>
-        <Swiper {...settings2} ref={sliderRefMini}>
+        <Swiper {...settings2} onSwiper={setSwiperMini}>
           {images.map((img, index) => (
             <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}>
               <div
@@ -36,7 +36,8 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
                   className={styles.productImage}
                   src={img.src}
                   alt={img.alt}
-                  sizes="33vw"
+                  sizes="25vw"
+                  loading='lazy'
                   height={0}
                   width={0}
                 />

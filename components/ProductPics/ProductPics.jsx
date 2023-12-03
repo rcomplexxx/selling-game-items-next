@@ -15,6 +15,7 @@ export default function ProductPics({ images }) {
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
   const [swiper, setSwiper] = useState(null);
+  const [swiperMini, setSwiperMini] = useState(null);
 
   const router = useRouter();
 
@@ -93,8 +94,7 @@ export default function ProductPics({ images }) {
   }, []);
 
 
-  const sliderRefMini = useRef();
-
+ 
   //useMemo
 
 
@@ -103,7 +103,7 @@ export default function ProductPics({ images }) {
   const fullScreenChange = (index) => {
     setImageIndex(index);
     swiper.slideTo(index);
-    if (sliderRefMini.current) sliderRefMini.current.slickGoTo(index - 1, true);
+     swiperMini.slideTo(index - 1);
     setZoomed(false);
   };
 
@@ -132,11 +132,11 @@ export default function ProductPics({ images }) {
         >
         
           <MainSlider setZoomed={setZoomed} mobileInterface={mobileInterface} images={images}
-          imageIndex={ imageIndex} setImageIndex={setImageIndex} setSwiper={setSwiper} 
-          sliderRefMini={sliderRefMini} />
+          imageIndex={ imageIndex} setImageIndex={setImageIndex} swiper={swiper} setSwiper={setSwiper} 
+          swiperMini={swiperMini} />
         <Thumbnails  images={images}
           imageIndex={ imageIndex} setImageIndex={setImageIndex} swiper={swiper} 
-          sliderRefMini={sliderRefMini}/>
+          setSwiperMini={setSwiperMini}/>
  <div className={styles.grid_container}>
             {images.map((img, index) => {
               return (

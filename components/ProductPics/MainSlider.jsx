@@ -7,7 +7,7 @@ import Image from "next/image";
 
 
 export default function MainSlider({setZoomed, mobileInterface, images, imageIndex,setSwiper,
-  setImageIndex,sliderRef , sliderRefMini}){
+  setImageIndex, swiperMini}){
 
 
   const settings = {
@@ -18,14 +18,12 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
     centeredSlides: true,
     slideToClickedSlide: true,
    
-    on: {
-      slideChange: () => {
-        const index = sliderRef.current.swiper.realIndex;
-        if (index === imageIndex) return;
+    onSlideChange: (swiper) => {
+        const index = swiper.activeIndex;
         setImageIndex(index);
-        if (index < imageIndex) sliderRefMini.current.slickGoTo(index);
-        else sliderRefMini.current.slickGoTo(index - 1);
-      },
+        if (index < imageIndex)   swiperMini.slideTo(index);
+        else  swiperMini.slideTo(index - 1);
+      
     },
     className: styles.mySlider
   };
