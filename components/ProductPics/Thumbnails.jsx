@@ -20,9 +20,31 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
   };
 
   return (
-    <>
-      <div className={styles.slider2Controller}>
+    <div className={styles.slider2Suiter}>
+   
+
+   <div className={styles.leftArrowDiv} onClick={()=>{ swiper.slideTo(imageIndex-1);}}>
+                <Image 
+                height={0}
+                width={0}
+                src='/images/greaterLess2.png'
+                className={styles.arrow}
+                />
+            </div>
+
+            <div className={`${styles.leftArrowDiv} ${styles.rightArrowDiv}`} onClick={()=>{ swiper.slideTo(imageIndex+1);}}>
+                <Image 
+                height={0}
+                width={0}
+                src='/images/greaterLess2.png'
+                className={styles.arrow}
+                />
+            </div>
+
+
+            
         <Swiper {...settings2} onSwiper={setSwiperMini}>
+           
           {images.map((img, index) => (
             <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}>
               <div
@@ -45,7 +67,7 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-    </>
+      
+    </div>
   );
 }

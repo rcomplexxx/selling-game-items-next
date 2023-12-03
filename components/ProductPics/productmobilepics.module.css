@@ -90,14 +90,54 @@
     overflow: hidden;
   }
 
+  .slider2Suiter{
+    position: relative;
+    width: 100%;
+  }
+
 
   .slider2{
+ 
     display:none;
     margin: var(--size-6) auto;
 width: calc(100% - var(--size-11));
 
   }
 
+  .leftArrowDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: var(--size-4);
+    height: var(--size-4);
+    width:var(--size-4);
+    border-radius: 100%;
+    padding: var(--size-2);
+    
+    transform: translateY(-50%);
+    background-color: gray;
+  }
+
+  .leftArrowDiv:hover{
+    cursor: pointer;
+  }
+
+  .leftArrowDiv:active{
+    background-color: #364658;
+  }
+
+  .rightArrowDiv{
+    left: auto;
+    right: var(--size-4);
+    transform: rotate(180deg) translateY(50%);
+  }
+
+  .arrow{
+    height: var(--size-4);
+    width:var(--size-4);
+  }
  
 
   
@@ -202,7 +242,7 @@ width: calc(100% - var(--size-11));
   .slide2{
     
     position: relative;
-    width: calc(100%  / 3 - 12px) !important;
+    width: calc(100%  / 3 - 11px) !important;
   }
 
 
