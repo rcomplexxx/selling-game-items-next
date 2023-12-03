@@ -17,6 +17,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
     spaceBetween: 8,
     centeredSlides: true,
     slideToClickedSlide: true,
+   
     on: {
       slideChange: () => {
         const index = sliderRef.current.swiper.realIndex;
@@ -32,7 +33,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
   return (
     <div className={styles.sliderController}>
     <Swiper  ref={sliderRef} {...settings}>
-      {images.map((img, index) => (
+      {mobileInterface?images.map((img, index) => (
         <SwiperSlide key={index} className={`carousel-item ${styles.slide}`}>
           <div
             className={styles.productImageDiv}
@@ -48,20 +49,43 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
               height={0}
               width={0}
               priority={index === 0}
-              loading={index !== 0 ? "lazy" : undefined}
+             
             />
             <Image
               height={0}
               width={0}
               sizes="20px"
               priority={index === 0}
-              loading={index !== 0 ? "lazy" : undefined}
               className={styles.zoomImg}
               src={"/images/zoomIconAw.png"}
             />
           </div>
         </SwiperSlide>
-      ))}
+      )):<div
+      className={styles.productImageDiv}
+      onClick={() => {
+        setZoomed(true);
+      }}
+    >
+      <Image
+        className={styles.productImage}
+        src={images[imageIndex].src}
+        alt={images[imageIndex].src}
+        sizes="100vw"
+        height={0}
+        width={0}
+        priority={true}
+       
+      />
+      <Image
+        height={0}
+        width={0}
+        sizes="20px"
+        priority={true}
+        className={styles.zoomImg}
+        src={"/images/zoomIconAw.png"}
+      />
+    </div>}
     </Swiper>
     </div>
   );
