@@ -42,6 +42,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   return (
     <>
     {newProduct && <div className={styles.substituteDiv}/>}
+  
       <nav className={`${styles.appBar} ${newProduct && styles.appBarFixed}`}>
         <div className={styles.toolbarDiv}>
           {windowWidth < 980 ? (

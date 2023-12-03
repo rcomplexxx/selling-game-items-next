@@ -234,11 +234,16 @@
     font-size: var(--font-size-3);
     font-weight: 700;
   }
+  
+  @media (hover: hover) {
+    .mediaButton:hover{
+      cursor: pointer;
+      transition: background-color 0.1s ease;
+      background-color: rgb(112, 128, 118)
+    }
+   }
 
-  .mediaButton:hover{
-    cursor: pointer;
-    background-color: rgb(112, 128, 118)
-  }
+ 
 
   .mediaButtonImgInput{
     opacity: 0;
@@ -283,10 +288,14 @@
     font-size: var(--font-size-3);
   }
 
-  .remindMeLater:hover{
-    cursor: pointer;
-    background-color: #364658;
-  }
+  @media (hover: hover) {
+    .remindMeLater:hover{
+      cursor: pointer;
+      background-color: #364658;
+    }
+   }
+
+  
 
   .userImagesDivWrapper{
     position: relative;
@@ -321,11 +330,19 @@
    box-sizing: border-box;
   }
 
-  .addImageDiv:hover{
+
+  @media (hover: hover) {
+    .addImageDiv:hover{
+      background-color: #1b191a;
+      border: 1px solid rgb(104, 111, 207);
+      cursor: pointer;
+    }
+   }
+
+   .addImageDiv:hover:active{
     background-color: #1b191a;
     border: 1px solid rgb(104, 111, 207);
-    cursor: pointer;
-  }
+   }
 
 
 
@@ -392,14 +409,17 @@
     padding: var(--size-4);
     border-radius: 6px;
     font-size: var(--font-size-3);
+    transition: background-color 0.1s ease;
     
   }
 
+  @media (hover: hover) {
+    .nextButton:hover{
+      cursor: pointer;
+      background-color: #364658;
+     }
+}
 
- .nextButton:hover{
-  cursor: pointer;
-  background-color: rgb(112, 128, 118);
- }
 
  .nextButton:active{
      
