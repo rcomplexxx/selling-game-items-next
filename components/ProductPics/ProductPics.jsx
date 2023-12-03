@@ -15,6 +15,7 @@ export default function ProductPics({ images }) {
   const [mobileInterface, setMobileInterface] = useState(false);
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
+  const [swiper, setSwiper] = useState(null);
 
   const router = useRouter();
 
@@ -92,7 +93,7 @@ export default function ProductPics({ images }) {
     };
   }, []);
 
-  const sliderRef = useRef();
+
   const sliderRefMini = useRef();
 
   //useMemo
@@ -111,7 +112,7 @@ export default function ProductPics({ images }) {
 
   const fullScreenChange = (index) => {
     setImageIndex(index);
-    sliderRef.current.slickGoTo(index, true);
+    swiper.slideTo(index);
     if (sliderRefMini.current) sliderRefMini.current.slickGoTo(index - 1, true);
     setZoomed(false);
   };
@@ -141,7 +142,7 @@ export default function ProductPics({ images }) {
         >
         
           <MainSlider setZoomed={setZoomed} mobileInterface={mobileInterface} images={images}
-          imageIndex={ imageIndex} setImageIndex={setImageIndex} sliderRef={sliderRef} 
+          imageIndex={ imageIndex} setImageIndex={setImageIndex} setSwiper={setSwiper} 
           sliderRefMini={sliderRefMini} />
        
 
@@ -157,7 +158,7 @@ export default function ProductPics({ images }) {
                   <div key={index} className="carousel-item">
                     <div
                       onClick={() => {
-                        sliderRef.current.slickGoTo(index);
+                        swiper.slideTo(index);
                         setImageIndex(index);
                       }}
                       className={`${styles.productImage2Div} ${
@@ -184,7 +185,7 @@ export default function ProductPics({ images }) {
                 <div
                   key={index}
                   onClick={() => {
-                    sliderRef.current.slickGoTo(index, true);
+                    swiper.slideTo(index);
                     setImageIndex(index);
                   }}
                   className={`${styles.productImage2Div}`}

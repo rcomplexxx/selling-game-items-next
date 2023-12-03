@@ -198,7 +198,7 @@ width: calc(100% - var(--size-11));
   .slide{
     position: relative;
     width: calc(100% - 40px) !important;
-    pointer-events: none !important;
+  
    
   }
 
@@ -207,7 +207,7 @@ width: calc(100% - var(--size-11));
       
         width: 100%;
         aspect-ratio: 16/9;
-        user-select: none;
+        
       }
 
       .zoomImg{

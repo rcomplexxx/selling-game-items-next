@@ -6,7 +6,7 @@ import "swiper/swiper.min.css";
 import Image from "next/image";
 
 
-export default function MainSlider({setZoomed, mobileInterface, images, imageIndex,
+export default function MainSlider({setZoomed, mobileInterface, images, imageIndex,setSwiper,
   setImageIndex,sliderRef , sliderRefMini}){
 
 
@@ -32,7 +32,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
 
   return (
     <div className={styles.sliderController}>
-    <Swiper  ref={sliderRef} {...settings}>
+    <Swiper  onSwiper={setSwiper} {...settings}>
       {mobileInterface?images.map((img, index) => (
         <SwiperSlide key={index} className={`carousel-item ${styles.slide}`}>
           <div
