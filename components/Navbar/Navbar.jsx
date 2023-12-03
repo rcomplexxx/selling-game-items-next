@@ -20,6 +20,13 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   const pathname = router.asPath;
 
   const handleMobileMenuOpen = (event) => {
+    if(pathname.includes('products') || pathname=='/')setSubMenu(0);
+    else if( pathname.includes('collection/'))
+    setSubMenu(2);
+    else if( pathname=='/about-us' || pathname=='/faq'|| pathname=='/terms-of-service'
+    || pathname=='/privacy-policy'|| pathname=='/shipping-policy'|| pathname=='/refund-policy')
+    setSubMenu(1);
+   
     setIsMenuOpen(true);
   };
  
