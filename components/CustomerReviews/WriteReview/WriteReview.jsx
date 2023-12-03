@@ -559,7 +559,7 @@ useEffect(()=>{
                 className={`${styles.writeReviewFooter} ${styles.continueFooter}`}
               >
                 <Link href="/products" className={styles.continueLink}>
-                  <button className={`${styles.nextButton}`}>Continue</button>
+                  <button className={styles.nextButton}>Continue</button>
                 </Link>
               </div>
             )}
