@@ -32,6 +32,10 @@ export default function ProductPics({ images, onAddToCart }) {
   useEffect(() => {
     if (!router.asPath.includes("#")) setZoomed(false);
   }, [router.asPath]);
+  
+  useEffect(()=>{
+    swiper.slideTo(0, 400);
+  },[images])
 
   useEffect(() => {
     //129
@@ -143,7 +147,7 @@ export default function ProductPics({ images, onAddToCart }) {
                 <div
                   key={index}
                   onClick={() => {
-                    swiper.slideTo(index);
+                    swiper.slideTo(index, 0);
                     setImageIndex(index);
                   }}
                   className={`${styles.productImage2Div}`}

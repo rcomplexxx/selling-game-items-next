@@ -236,7 +236,7 @@
     height: var(--size-4);
     width:var(--size-4);
     border-radius: 100%;
-    padding: var(--size-2);
+    padding: var(--size-3);
     
     transform: translateY(-50%);
     background-color: gray;

@@ -830,11 +830,11 @@
 
   @keyframes spawnFooter {
     0% {
-      height: 0;
+      max-height: 0;
     }
     100% {
       
-      height: 32px;
+      max-height: 32px;
     }
   }
 
