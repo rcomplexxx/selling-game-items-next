@@ -42,7 +42,7 @@
   .product_style_span{
     position:relative;
     width: var(--size-11);
-    aspect-ratio: 16/9;
+    height: 72px;
     
     
     cursor: pointer;
@@ -87,8 +87,3 @@
     background-color: var(--blue-4);
   }
 
-  @media(max-width: 600px){
-    .product_style_span{
-      width: var(--size-11);
-    }
-  }
