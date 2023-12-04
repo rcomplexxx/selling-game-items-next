@@ -11,7 +11,6 @@ import MobileMenu from "./MobileMenu/MobileMenu";
 
 const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(0);
   const [subMenu, setSubMenu]=useState(0);
 
   
@@ -24,18 +23,8 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
     setIsMenuOpen(true);
   };
  
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    setWindowWidth(window.innerWidth);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
-  console.log(newProduct)
+
 
 
 
