@@ -15,6 +15,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
 
     slidesPerView: "auto",
     
+    centeredSlides: false,
    
    
    

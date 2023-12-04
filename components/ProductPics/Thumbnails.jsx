@@ -9,6 +9,7 @@ import Image from 'next/image';
 
 export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, setSwiperMini }) {
   const settings2 = {
+    centeredSlides: false,
     slidesPerView: "auto",
     loop: false,
     className: styles.slider2
