@@ -9,12 +9,9 @@ import Image from 'next/image';
 
 export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, setSwiperMini }) {
   const settings2 = {
-    spaceBetween: 16, // Set the space between slides
+    spaceBetween: 0, // Set the space between slides
     slidesPerView: "auto",
-    navigation: true,
-    pagination: {
-      clickable: true,
-    },
+    centeredSlides: false,
     loop: false,
     className: styles.slider2
   };
@@ -52,7 +49,7 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
             <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}>
               <div
                 onClick={() => {
-                  swiper.slideTo(imageIndex>index+1?index-1:index);
+                  swiper.slideTo(index);
                   setImageIndex(index);
                 }}
                 className={`${styles.productImage2Div} ${imageIndex === index && styles.selectedImage}`}
