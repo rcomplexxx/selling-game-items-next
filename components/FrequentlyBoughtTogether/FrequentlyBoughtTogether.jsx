@@ -18,7 +18,7 @@ const FreqProduct = ({ productId, onAddToCart }) => {
         height={0} width={0}
           src={`/images/${product.images[0]}`}
           alt="Black"
-          className="object_fit_cover"
+          className={styles.productImage}
           sizes="128px"
          
         />

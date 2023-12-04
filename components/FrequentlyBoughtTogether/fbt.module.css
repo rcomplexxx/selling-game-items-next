@@ -48,6 +48,12 @@
     cursor: pointer;
   }
 
+  .productImage{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
   .product_title{
     height: var(--size-8);
   }
