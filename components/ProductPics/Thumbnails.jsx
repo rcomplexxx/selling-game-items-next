@@ -56,7 +56,6 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
                   src={img.src}
                   alt={img.alt}
                   sizes="25vw"
-                  loading='lazy'
                   height={0}
                   width={0}
                 />
