@@ -96,13 +96,6 @@
   }
 
 
-  .slider2{
- 
-    display:none;
- 
-width: calc(100% - var(--size-11)) !important;
-
-  }
 
   .leftArrowDiv{
     display: none;
@@ -198,7 +191,7 @@ width: calc(100% - var(--size-11)) !important;
     }
 
     .slider2{
-      display:block;
+      width: calc(100% - var(--size-10)) !important;
       margin-bottom: var(--size-6);
       margin-top: var(--size-4);
   
@@ -239,9 +232,9 @@ width: calc(100% - var(--size-11)) !important;
     align-items: center;
     position: absolute;
     top: 50%;
-    left: var(--size-6);
-    height: var(--size-5);
-    width:var(--size-5);
+    left: var(--size-5);
+    height: var(--size-4);
+    width:var(--size-4);
     border-radius: 100%;
     padding: var(--size-2);
     
@@ -259,7 +252,7 @@ width: calc(100% - var(--size-11)) !important;
 
   .rightArrowDiv{
     left: auto;
-    right: var(--size-6);
+    right: var(--size-5);
     transform: rotate(180deg) translateY(50%);
   }
 
