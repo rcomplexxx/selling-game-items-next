@@ -47,7 +47,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
               height={0}
               width={0}
               priority={index === 0}
-              loading={index>0?'lazy':undefined}
+              loading={index>1?'lazy':undefined}
              
             />
             <Image
