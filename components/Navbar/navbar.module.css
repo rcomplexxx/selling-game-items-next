@@ -33,11 +33,6 @@
     align-items: center;
   }
 
-  .titleDiv{
-    margin-left: 8px;
-    text-decoration: none;
-    
-  }
   
   .title {
     color: var(--blue-2);
@@ -49,6 +44,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     margin: var(--size-2) 0;
+    
   }
  
   
@@ -84,7 +80,7 @@
 
 
 .growAlt {
-  display: none;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   z-index: 10;
@@ -302,15 +298,24 @@
     .pcDiv{
       display: block;
     }
+
+    @media(min-width: 980px){
+      .menuIconDiv{
+        display: none;
+      }
+
+      .title{
+        margin-left: 8px;
+      }
+
+    }
   
 
    @media(max-width: 980px){
-    .pcDiv{
+    .grow{
       display: none;
     }
-    .growAlt{
-      display: flex;
-    }
+   
    }
 
 

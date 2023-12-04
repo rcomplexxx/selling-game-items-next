@@ -48,21 +48,6 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                   alt="Mobile menu"
                 />
               </div>
-              <Link href="/" className={styles.titleDiv}>
-                <h6 className={styles.title}>
-                  <Image
-                    height={24}
-                    width={24}
-                    src="/images/commerce.png"
-                    alt="Gamebuff icon"
-                    className={styles.image}
-                  />
-                  Gamebuff
-                </h6>
-              </Link>
-            </div>
-        
-            <div className={styles.pcDiv}>
               <Link href="/" className="text_decoration_none">
                 <h1 className={styles.title}>
                 <Image
@@ -75,6 +60,10 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                   Gamebuff
                 </h1>
               </Link>
+            </div>
+        
+            
+            
               <div className={styles.grow}>
                 <Link
                   href="/"
@@ -254,7 +243,7 @@ setSubMenu(subMenu==2?0:2);
                   Contact us
                 </Link>
               </div>
-            </div>
+            
         
           <div className={styles.rightOptions}>
 
