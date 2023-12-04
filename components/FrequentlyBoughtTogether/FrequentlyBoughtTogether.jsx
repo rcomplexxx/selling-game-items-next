@@ -15,11 +15,12 @@ const FreqProduct = ({ productId, onAddToCart }) => {
         className={styles.product_style_span}
       >
         <Image
+        height={0} width={0}
           src={`/images/${product.images[0]}`}
           alt="Black"
           className="object_fit_cover"
           sizes="128px"
-          fill
+         
         />
       </Link>
       <div className={styles.infoSpaceDiv}>
