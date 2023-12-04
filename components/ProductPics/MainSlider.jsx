@@ -14,9 +14,9 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
     speed: 400,
 
     slidesPerView: "auto",
-    centeredSlides: false,
+    
    
-    slideToClickedSlide: true,
+   
    
     onSlideChange: (swiper) => {
         const index = swiper.activeIndex;
