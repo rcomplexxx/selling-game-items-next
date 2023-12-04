@@ -197,7 +197,15 @@ width: calc(100% - var(--size-11)) !important;
       
     }
 
-    .slider2{display:block;}
+    .slider2{
+      display:block;
+      margin-bottom: var(--size-6);
+      margin-top: var(--size-4);
+  
+  
+    }
+
+ 
   
     .productPicsBot{
      width:100%;
@@ -270,10 +278,7 @@ width: calc(100% - var(--size-11)) !important;
   }
 
 
-  .arrow{
-    height: var(--size-4);
-    width:var(--size-4);
-  }
+ 
 
 
       .productImageDiv{
@@ -300,13 +305,7 @@ width: calc(100% - var(--size-11)) !important;
         display:none;
       }
   
-      .slider2{
-        
-        margin-bottom: var(--size-6);
-        margin-top: var(--size-4);
     
-    
-      }
 
      
   

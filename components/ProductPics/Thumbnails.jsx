@@ -11,7 +11,6 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
   const settings2 = {
     spaceBetween: 0, // Set the space between slides
     slidesPerView: "auto",
-    centeredSlides: false,
     loop: false,
     className: styles.slider2
   };
@@ -24,20 +23,18 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
    
    onClick={()=>{ swiper.slideTo(imageIndex-1);}}>
                 <Image 
-                height={0}
-                width={0}
+                height={12}
+                width={12}
                 src='/images/greaterLess2.png'
-                sizes='12px'
-                className={styles.arrow}
+                
                 />
             </div>
 
             <div className={`${styles.leftArrowDiv} ${styles.rightArrowDiv} ${imageIndex===images.length-1 && styles.disabledArrow}`} onClick={()=>{ swiper.slideTo(imageIndex+1);}}>
                 <Image 
-                height={0}
-                width={0}
+               height={12}
+               width={12}
                 src='/images/greaterLess2.png'
-                className={styles.arrow}
                 />
             </div>
 
