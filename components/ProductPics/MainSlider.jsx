@@ -14,8 +14,8 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
     speed: 400,
 
     slidesPerView: "auto",
-    spaceBetween: 8,
-    centeredSlides: true,
+    spaceBetween: 0,
+    centeredSlides: false,
     slideToClickedSlide: true,
    
     onSlideChange: (swiper) => {

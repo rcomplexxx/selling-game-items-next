@@ -50,7 +50,7 @@ export default function Search(){
             value={searchTerm}
             onFocus={()=>{setSearchOpen(true)}}
             onChange={(e) => handleSearch(e.target.value)}
-            onBlur={()=>{setSearchOpen(false)}}
+            onBlur={()=>{searchOpen}}
           />
           <Image src={`/images/searchIcon.png`} className={styles.searchIcon} height={0} width={0} sizes='20px' onClick={()=>{setSearchOpen(!searchOpen);
         }}/>
@@ -75,7 +75,7 @@ export default function Search(){
 
             {filteredProducts.length>0 && <div className={styles.resultProductsLabel}>Products</div>}
             {filteredProducts.map((product, index) => (
-              <Link href={`/products/${product.id}`} key={index} className={styles.result_item} onClick={()=>{setSearchTerm('')}}
+              <Link href={`/products/${product.id}`} key={index} className={styles.result_item} onClick={()=>{setSearchOpen(false); setSearchTerm('');}}
               onMouseDown={(event)=>{event.preventDefault()}}
               >
                 <Image height={36} width={64} src={`/images/${product.images[0]}`} className={styles.searchItemImg}/>

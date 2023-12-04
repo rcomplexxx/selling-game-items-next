@@ -182,7 +182,11 @@ width: calc(100% - var(--size-11));
   }
 
   
-
+@media(min-width: 980px){
+  .slider2Suiter{
+    display: none;
+  }
+}
 
 
   @media(max-width: 980px){
@@ -205,12 +209,16 @@ width: calc(100% - var(--size-11));
       width: auto;
     }
 
+    .firstSlide{
+      margin-left: 20px;
+    }
+
     
   .slide{
     position: relative;
     width: calc(100% - 40px) !important;
-  
-   
+    margin: 0 4px;
+    transform: translateX(16px) !important;
   }
   .slide2{
     
