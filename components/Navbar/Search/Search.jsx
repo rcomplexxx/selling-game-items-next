@@ -60,7 +60,7 @@ export default function Search(){
 
           {filteredcollections.length>0 && <div className={styles.resultProductsLabel}>Collections</div>}
             {filteredcollections.map((collection, index) => (
-              <Link href={`/collections/${collection.name.toLowerCase().replace(/ /g, '-')}/page/1`} key={index} className={styles.result_item} onClick={()=>{setSearchTerm('')}}
+              <Link href={`/collection/${collection.name.toLowerCase().replace(/ /g, '-')}/page/1`} key={index} className={styles.result_item} onClick={()=>{setSearchTerm('')}}
               onMouseDown={(event)=>{event.preventDefault()}}
               >
                 <img src={`/images/${collection.image}`} className={styles.searchItemImg}/>

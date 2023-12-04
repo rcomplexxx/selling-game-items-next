@@ -52,7 +52,7 @@ export default function Thumbnails({ images, imageIndex, swiper, setImageIndex, 
             <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}>
               <div
                 onClick={() => {
-                  swiper.slideTo(index);
+                  swiper.slideTo(imageIndex>index+1?index-1:index);
                   setImageIndex(index);
                 }}
                 className={`${styles.productImage2Div} ${imageIndex === index && styles.selectedImage}`}
