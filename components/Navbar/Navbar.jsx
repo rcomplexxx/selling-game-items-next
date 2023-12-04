@@ -27,15 +27,13 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
 
 
 
-
-
   return (
     <>
     {newProduct && <div className={styles.substituteDiv}/>}
   
       <nav className={`${styles.appBar} ${newProduct && styles.appBarFixed}`}>
         <div className={styles.toolbarDiv}>
-      
+          
             <div className={styles.growAlt}>
               <div
                 className={styles.menuIconDiv}
@@ -63,7 +61,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                 </h6>
               </Link>
             </div>
-          
+        
             <div className={styles.pcDiv}>
               <Link href="/" className="text_decoration_none">
                 <h1 className={styles.title}>
@@ -257,7 +255,7 @@ setSubMenu(subMenu==2?0:2);
                 </Link>
               </div>
             </div>
-          
+        
           <div className={styles.rightOptions}>
 
                   <Search/>
