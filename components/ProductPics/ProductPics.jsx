@@ -154,7 +154,7 @@ export default function ProductPics({ images, onAddToCart }) {
                     }`}
                     src={img.src}
                     alt={img.alt}
-                    sizes="33vw"
+                    sizes="20vw"
                     height={0}
                     width={0}
                   />
