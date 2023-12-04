@@ -14,8 +14,8 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
     speed: 400,
 
     slidesPerView: "auto",
-    spaceBetween: 0,
-    centeredSlides: false,
+    
+   
     slideToClickedSlide: true,
    
     onSlideChange: (swiper) => {
@@ -25,7 +25,6 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
         else  swiperMini.slideTo(index - 1);
       
     },
-    className: styles.mySlider
   };
 
   return (
