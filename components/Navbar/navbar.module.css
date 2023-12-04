@@ -73,6 +73,7 @@
 
  
 .grow{
+  display:none;
   width: max-content;
   position:absolute;
   top: 24px;
@@ -298,7 +299,19 @@
       
       display: block;
     }
+
   
+  
+    @media (max-width: 980px){
+
+      .grow{
+        display: block;
+      }
+      
+      .pcDiv{
+        display:none;
+      }
+    }
 
    
 

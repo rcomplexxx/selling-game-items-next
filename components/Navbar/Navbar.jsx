@@ -46,7 +46,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   
       <nav className={`${styles.appBar} ${newProduct && styles.appBarFixed}`}>
         <div className={styles.toolbarDiv}>
-          {windowWidth < 980 ? (
+      
             <div className={styles.growAlt}>
               <div
                 className={styles.menuIconDiv}
@@ -74,8 +74,8 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                 </h6>
               </Link>
             </div>
-          ) : (
-            <>
+          
+            <div className={styles.pcDiv}>
               <Link href="/" className="text_decoration_none">
                 <h1 className={styles.title}>
                 <Image
@@ -267,8 +267,8 @@ setSubMenu(subMenu==2?0:2);
                   Contact us
                 </Link>
               </div>
-            </>
-          )}
+            </div>
+          
           <div className={styles.rightOptions}>
 
                   <Search/>
