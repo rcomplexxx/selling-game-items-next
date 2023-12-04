@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import styles from "./mobilemenu.module.css";
 import { useState } from "react";
 import collections from '@/data/collections.json'
+import Image from "next/image";
 
 export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
 
@@ -101,7 +102,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
         <p>Collections</p>
-        <img src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
+        <Image height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
 
     
@@ -113,7 +114,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
         <p>FAQ</p>
-        <img src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
+        <Image height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
      
       <Link
@@ -139,7 +140,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
          setSubMenu(0);
        }}
      >
-       <img src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>FAQ</p>
+       <Image height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>FAQ</p>
      </div>
 
      <Link
@@ -222,7 +223,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
          setSubMenu(0);
        }}
      >
-       <img src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Collections</p>
+       <Image height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Collections</p>
      </div>
 
 {collections.map(c => {return <Link

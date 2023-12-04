@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import styles from "./reviewimage.module.css";
+import Image from "next/image";
 
 export default function ReviewsCard({
   imageIndex,
@@ -10,8 +11,11 @@ export default function ReviewsCard({
   console.log(deleted);
 
   return (
-    <img
+    <div className={styles.imgController}>
+    <Image
       src={`/images/review_images/${imageName}`}
+      height={0} width={0}
+      sizes="100vw"
       className={`${styles.reviewImage} ${
         deleted ? styles.deletedImage : styles.unDeletedImage
       }`}
@@ -29,5 +33,6 @@ export default function ReviewsCard({
         });
       }}
     />
+    </div>
   );
 }

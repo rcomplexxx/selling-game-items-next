@@ -38,14 +38,12 @@
   }
   
   .smallCorrect{
-    height: 12px;
-    width: 12px;
+   
     margin-right: 8px;
   }
 
   .productImage{
-    width: var(--size-10);
-    aspect-ratio: 16/9;
+   
     margin-right: var(--size-3);
   }
 

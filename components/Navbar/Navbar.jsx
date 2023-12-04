@@ -52,7 +52,10 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                 className={styles.menuIconDiv}
                 onClick={handleMobileMenuOpen}
               >
-                <img
+                <Image
+                height={0}
+                width={0}
+                sizes="24px"
                   src="/images/menuIcon2.png"
                   className={styles.smallMenuImage}
                   alt="Mobile menu"
@@ -60,7 +63,9 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
               </div>
               <Link href="/" className={styles.titleDiv}>
                 <h6 className={styles.title}>
-                  <img
+                  <Image
+                    height={24}
+                    width={24}
                     src="/images/commerce.png"
                     alt="Gamebuff icon"
                     className={styles.image}
@@ -73,7 +78,9 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
             <>
               <Link href="/" className="text_decoration_none">
                 <h1 className={styles.title}>
-                  <img
+                <Image
+                    height={24}
+                    width={24}
                     src="/images/commerce.png"
                     alt="Gamebuff icon"
                     className={styles.image}
@@ -121,7 +128,7 @@ onClick={() => {
 setSubMenu(subMenu==2?0:2);
 }}
 >
-<span>Collections</span><img src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==2 && styles.subMenuArrowOpen}`}/>
+<span>Collections</span><Image height={8} width={8} src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==2 && styles.subMenuArrowOpen}`}/>
 </div>
 {subMenu==2 && <div className={`${styles.subMenu}`}>
 
@@ -161,7 +168,7 @@ setSubMenu(subMenu==2?0:2);
          setSubMenu(subMenu==1?0:1);
        }}
      >
-       <span>FAQ</span><img src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==1 && styles.subMenuArrowOpen}`}/>
+       <span>FAQ</span><Image height={8} width={8} src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==1 && styles.subMenuArrowOpen}`}/>
        </div>
        {subMenu==1 && <div className={`${styles.subMenu} ${styles.subMenuFaq}`}>
 
@@ -267,7 +274,7 @@ setSubMenu(subMenu==2?0:2);
                   <Search/>
                   <Link href="/cart">
                 <div className={styles.cartStyle}>
-                  <img
+                  <Image height={32} width={32}
                     src="/images/bagBlue.png"
                     className={styles.bagImg}
                     alt="cart"

@@ -1,8 +1,14 @@
 
 
-.reviewImage{
+.imgController{
+    position: relative;
     height: 160px;
     width: auto;
+}
+
+.reviewImage{
+   height:100%;
+   width: auto;
 }
 
 

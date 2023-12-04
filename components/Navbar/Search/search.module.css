@@ -95,8 +95,7 @@
 }
 
 .searchItemImg{
-  width: var(--size-9);
-  aspect-ratio: 16/9;
+
   object-fit: cover;
   margin-right: 8px;
 }

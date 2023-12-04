@@ -63,7 +63,7 @@ export default function Search(){
               <Link href={`/collection/${collection.name.toLowerCase().replace(/ /g, '-')}/page/1`} key={index} className={styles.result_item} onClick={()=>{setSearchTerm('')}}
               onMouseDown={(event)=>{event.preventDefault()}}
               >
-                <img src={`/images/${collection.image}`} className={styles.searchItemImg}/>
+                <Image height={36} width={64} src={`/images/${collection.image}`} className={styles.searchItemImg}/>
                 <strong>{collection.name}</strong>
                 
               </Link>
@@ -78,7 +78,7 @@ export default function Search(){
               <Link href={`/products/${product.id}`} key={index} className={styles.result_item} onClick={()=>{setSearchTerm('')}}
               onMouseDown={(event)=>{event.preventDefault()}}
               >
-                <img src={`/images/${product.images[0]}`} className={styles.searchItemImg}/>
+                <Image height={36} width={64} src={`/images/${product.images[0]}`} className={styles.searchItemImg}/>
                 <strong>{product.name}</strong>
                 
               </Link>

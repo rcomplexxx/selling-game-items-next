@@ -2,6 +2,7 @@ import styles from "./reviewscard.module.css";
 import { useRef, useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import ReviewImage from "./ReviewImage/ReviewImage";
+import Image from "next/image";
 
 export default function ReviewsCard({
   id,
@@ -26,7 +27,7 @@ export default function ReviewsCard({
   const divEditorRef = useRef();
   const divEditorRefName = useRef();
 
-  console.log("My Img Nm", imageNames);
+ 
 
   const changeReview = () => {
     let imageNames = null;
@@ -150,11 +151,13 @@ export default function ReviewsCard({
               />
             );
           })}
-        <img
+        <Image
           src="/images/add_image.png"
           className={styles.addImage}
+          height={40}
+          width={40}
           onClick={addImage}
-        ></img>
+        ></Image>
       </div>
 
       <button className={styles.msgStatusButton} onClick={changeReview}>
@@ -171,7 +174,7 @@ export default function ReviewsCard({
       </button>
 
       {changed && (
-        <img src="/images/correct.png" className={styles.savedImage} />
+       < Image src="/images/correct.png" height={64} width={64} className={styles.savedImage} />
       )}
     </div>
   );

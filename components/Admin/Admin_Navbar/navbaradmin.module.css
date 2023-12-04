@@ -54,8 +54,7 @@
   }
   
   .image {
-    height: var(--size-6);
-    width: var(--size-6);
+   
     margin-right: var(--size-3);
     height: var(--size-6);
   }

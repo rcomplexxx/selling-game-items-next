@@ -10,6 +10,7 @@ import { ShoppingCart, Menu as MenuIcon } from "@mui/icons-material";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./navbaradmin.module.css";
+import Image from "next/image";
 
 const AdminNavbar = ({ setIsAdmin }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,11 +68,14 @@ const AdminNavbar = ({ setIsAdmin }) => {
                   className={styles.title}
                   color="inherit"
                 >
-                  <img
+                  <Image
                     src="/images/hackerLight2.png"
                     alt="Gamebuff"
+                    height={24}
+                    width={24}
                     className={styles.image}
                   />
+                  
                   Welcome Admin!
                 </Typography>
               </Link>
@@ -80,9 +84,11 @@ const AdminNavbar = ({ setIsAdmin }) => {
             <>
               <Link href="/admin" className="text_decoration_none">
                 <h1 className={styles.title}>
-                  <img
+                <Image
                     src="/images/hackerLight2.png"
                     alt="Gamebuff"
+                    height={24}
+                    width={24}
                     className={styles.image}
                   />
                   Welcome Admin!

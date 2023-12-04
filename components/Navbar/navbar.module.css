@@ -63,10 +63,9 @@
  
   
   .image {
-    height: var(--size-6);
-    width: var(--size-6);
+  
     margin-right: var(--size-3);
-    height: var(--size-6);
+
   }
 
  
@@ -180,8 +179,7 @@
     align-items: center;
   }
   .subMenuArrow{
-    height: var(--size-3);
-    width:  var(--size-3);
+ 
     margin-left: 8px;
     transform: rotate(-90deg);
   }
@@ -262,8 +260,7 @@
   
   .bagImg{
     position: absolute;
-    height: 100%;
-    width: 100%;
+   
   }
   
 
