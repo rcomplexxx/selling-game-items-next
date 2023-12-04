@@ -34,7 +34,7 @@ export default function ProductPics({ images, onAddToCart }) {
   }, [router.asPath]);
   
   useEffect(()=>{
-    swiper.slideTo(0, 400);
+    swiper && swiper.slideTo(0, 400);
   },[images])
 
   useEffect(() => {
