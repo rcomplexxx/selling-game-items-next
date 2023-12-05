@@ -198,6 +198,8 @@
   
     }
 
+  
+
  
   
     .productPicsBot{
@@ -211,14 +213,24 @@
     }
 
  
-
+   
     
   .slide{
-    position: relative;
     width: calc(100% - 40px) !important;
-    margin: 0 4px;
+    position: relative;
+   
+    margin: 0 4px !important;
     transform: translateX(16px) !important;
   }
+
+
+
+
+  .lastSlide{
+    padding-right: 32px !important;
+  }
+
+
   .slide2{
     
     position: relative;

@@ -16,7 +16,8 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
     slidesPerView: "auto",
     
     centeredSlides: false,
-   
+
+    className: styles.myslider,
    
    
     onSlideChange: (swiper) => {
@@ -32,7 +33,7 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
     
     <Swiper  onSwiper={setSwiper} {...settings}>
       {images.map((img, index) => (
-        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${!mobileInterface && 'swiper-no-swiping'}`}>
+        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide} ${!mobileInterface && 'swiper-no-swiping'}`}>
           <div
             className={styles.productImageDiv}
             onClick={() => {
