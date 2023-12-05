@@ -17,7 +17,6 @@ export default function MainSlider({setZoomed, mobileInterface, images, imageInd
     
     centeredSlides: false,
 
-    className: styles.myslider,
    
    
     onSlideChange: (swiper) => {
