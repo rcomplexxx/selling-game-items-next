@@ -131,7 +131,7 @@ export default function ProductPics({ images, onAddToCart }) {
         <Swiper  onSwiper={setSwiper} speed={400} slidesPerView='auto' onSlideChange={handleSlideChange}
         >
       {images.map((img, index) => (
-        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide} ${styles.productImageDiv}`}
+        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}
         onClick={() => {
           setZoomed(true);
         }}>
@@ -189,7 +189,7 @@ export default function ProductPics({ images, onAddToCart }) {
     className={styles.slider2} onSwiper={setSwiperMini}>
            
           {images.map((img, index) => (
-            <SwiperSlide key={index}  className={`carousel-item ${styles.slide2} ${styles.productImage2Div} ${imageIndex === index && styles.selectedImage}`}
+            <SwiperSlide key={index}  className={`carousel-item ${styles.slide2} ${imageIndex === index && styles.selectedImage}`}
             
             onClick={() => {
               swiper.slideTo(index);

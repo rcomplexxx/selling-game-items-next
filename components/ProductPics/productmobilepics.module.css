@@ -42,17 +42,13 @@
 
   .slide{
     position: relative;
-    
-    width:100% !important;
+    aspect-ratio: 16/9;
+    width: var(--size-15-5);
   
    
   }
   
-  .productImageDiv{
-    position: relative;
-    width: var(--size-15-5);
-    aspect-ratio: 16/9;
-  }
+
 
   .productImage{
     width:100%;
@@ -163,9 +159,7 @@
       width: var(--size-15-5);
     }
 
-    .productImageDiv{
-      width: var(--size-15-5);
-    }
+  
 
 
   }
@@ -212,6 +206,9 @@
    
     
   .slide{
+ 
+
+
     width: calc(100% - 40px) !important;
     position: relative;
    
@@ -227,10 +224,15 @@
   }
 
 
+  
+
+
   .slide2{
     
     position: relative;
     width: calc(100%  / 3 - 16px) !important;
+    aspect-ratio: 16/9;
+    overflow: hidden;
     margin: 8px !important;
   }
 
@@ -282,13 +284,7 @@
  
 
 
-      .productImageDiv{
-        position: relative;
-      
-        width: 100%;
-        aspect-ratio: 16/9;
-        
-      }
+     
 
       .zoomImg{
         /* Styles applied to .target when .trigger is hovered */
@@ -313,12 +309,7 @@
      
   
       
-    .productImage2Div{
- 
-      width: 100%;
-      aspect-ratio: 16/9;
-   
-    }
+  
   
   
     .productImage2{
