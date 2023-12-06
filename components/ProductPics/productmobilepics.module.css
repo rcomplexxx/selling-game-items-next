@@ -84,11 +84,7 @@
 
 
 
-  .slider{
-    width: 100%;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-  }
+
 
   .slider2Suiter{
     position: relative;
@@ -235,7 +231,7 @@
     
     position: relative;
     width: calc(100%  / 3 - 16px) !important;
-    margin: 8px;
+    margin: 8px !important;
   }
 
   .leftArrowDiv{
@@ -269,7 +265,7 @@
   }
 
   .disabledArrow{
-    background-color: rgb(69, 72, 74);
+    background-color: rgba(55, 59, 61, 0.685);
   }
 
 
@@ -279,7 +275,7 @@
 
 
   .disabledArrow:active{
-    background-color: rgb(69, 72, 74);
+    background-color: rgba(55, 59, 61, 0.685);
   }
 
 

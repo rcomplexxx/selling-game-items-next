@@ -4,8 +4,9 @@ import FullScreenZoomableImage from "@/components/ProductPics/FullScreenZoomable
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import MainSlider from "./MainSlider";
-import Thumbnails from "./Thumbnails";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/swiper.min.css";
+
 
 export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
@@ -101,6 +102,33 @@ export default function ProductPics({ images, onAddToCart }) {
  
   //useMemo
 
+  const settings = {
+    speed: 400,
+
+    slidesPerView: "auto",
+    
+    centeredSlides: false,
+
+    className: styles.myslider,
+   
+   
+    onSlideChange: (swiper) => {
+        const index = swiper.activeIndex;
+        setImageIndex(index);
+        if (index < imageIndex)   swiperMini.slideTo(index);
+        else  swiperMini.slideTo(index - 1);
+      
+    },
+  };
+
+
+  const settings2 = {
+    centeredSlides: false,
+    slidesPerView: "auto",
+    loop: false,
+    className: styles.slider2
+  };
+
 
  
 
@@ -135,12 +163,90 @@ export default function ProductPics({ images, onAddToCart }) {
           }`}
         >
         
-          <MainSlider setZoomed={setZoomed} mobileInterface={mobileInterface} images={images}
-          imageIndex={ imageIndex} setImageIndex={setImageIndex} swiper={swiper} setSwiper={setSwiper} 
-          swiperMini={swiperMini} />
-        <Thumbnails  images={images}
-          imageIndex={ imageIndex} setImageIndex={setImageIndex} swiper={swiper} 
-          setSwiperMini={setSwiperMini}/>
+        <Swiper  onSwiper={setSwiper} {...settings}>
+      {images.map((img, index) => (
+        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide} ${!mobileInterface && 'swiper-no-swiping'}`}>
+          <div
+            className={styles.productImageDiv}
+            onClick={() => {
+              setZoomed(true);
+            }}
+          >
+            <Image
+              className={styles.productImage}
+              src={img.src}
+              alt={img.alt}
+              sizes="100vw"
+              height={0}
+              width={0}
+              priority={index === 0}
+              loading={index>1?'lazy':undefined}
+              draggable="false"
+            />
+            <Image
+              height={0}
+              width={0}
+              sizes="20px"
+              priority={index === 0}
+              className={styles.zoomImg}
+              src={"/images/zoomIconAw.png"}
+              loading={index>0?'lazy':undefined}
+            />
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+        <div className={styles.slider2Suiter}>
+   
+
+   <div className={`${styles.leftArrowDiv} ${imageIndex===0 && styles.disabledArrow}`}
+   
+   onClick={()=>{ swiper.slideTo(imageIndex-1);}}>
+                <Image 
+                height={12}
+                width={12}
+                src='/images/greaterLess2.png'
+                
+                />
+            </div>
+
+            <div className={`${styles.leftArrowDiv} ${styles.rightArrowDiv} ${imageIndex===images.length-1 && styles.disabledArrow}`} onClick={()=>{ swiper.slideTo(imageIndex+1);}}>
+                <Image 
+               height={12}
+               width={12}
+                src='/images/greaterLess2.png'
+                />
+            </div>
+
+
+            
+        <Swiper {...settings2} onSwiper={setSwiperMini}>
+           
+          {images.map((img, index) => (
+            <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}>
+              <div
+                onClick={() => {
+                  swiper.slideTo(index);
+                  setImageIndex(index);
+                }}
+                className={`${styles.productImage2Div} ${imageIndex === index && styles.selectedImage}`}
+              >
+                <Image
+                  className={styles.productImage}
+                  src={img.src}
+                  alt={img.alt}
+                  sizes="25vw"
+                  loading={index>2?'lazy':undefined}
+                  height={0}
+                  width={0}
+                  draggable="false"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      
+    </div>
  <div className={styles.grid_container}>
             {images.map((img, index) => {
               return (
