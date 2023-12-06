@@ -271,7 +271,7 @@ setSubMenu(subMenu==2?0:2);
               </Link>
                   </div>
         </div>
-        <PopupCart totalItems={totalItems} newProduct={newProduct} setNewProduct={setNewProduct}/>
+        {!isMenuOpen && <PopupCart totalItems={totalItems} newProduct={newProduct} setNewProduct={setNewProduct}/>}
       </nav>
 
       {isMenuOpen && (
