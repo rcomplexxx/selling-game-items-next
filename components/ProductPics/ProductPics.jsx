@@ -39,7 +39,7 @@ export default function ProductPics({ images, onAddToCart }) {
 
   useEffect(() => {
     //129
-
+//
     // Check if the element exists
 
     const productPicsElement = document.getElementById("productPics");
