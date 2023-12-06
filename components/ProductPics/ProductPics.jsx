@@ -39,7 +39,7 @@ export default function ProductPics({ images, onAddToCart }) {
 
   useEffect(() => {
     //129
-//
+
     // Check if the element exists
 
     const productPicsElement = document.getElementById("productPics");
@@ -90,7 +90,10 @@ export default function ProductPics({ images, onAddToCart }) {
     speed: 400,
 
     slidesPerView: "auto",
+    
+    centeredSlides: false,
 
+   
    
     onSlideChange: (swiper) => {
         const index = swiper.activeIndex;
@@ -103,6 +106,7 @@ export default function ProductPics({ images, onAddToCart }) {
 
 
   const settings2 = {
+    centeredSlides: false,
     slidesPerView: "auto",
     loop: false,
     className: styles.slider2
@@ -144,7 +148,7 @@ export default function ProductPics({ images, onAddToCart }) {
         
         <Swiper  onSwiper={setSwiper} {...settings}>
       {images.map((img, index) => (
-        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}>
+        <SwiperSlide key={index} className={`${styles.slide} ${index==images.length-1 && styles.lastSlide}`}>
           <div
             className={styles.productImageDiv}
             onClick={() => {
@@ -202,7 +206,7 @@ export default function ProductPics({ images, onAddToCart }) {
         <Swiper {...settings2} onSwiper={setSwiperMini}>
            
           {images.map((img, index) => (
-            <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}>
+            <SwiperSlide key={index}  className={`${styles.slide2}`}>
               <div
                 onClick={() => {
                   swiper.slideTo(index);
