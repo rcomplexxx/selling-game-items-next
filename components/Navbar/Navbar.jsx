@@ -24,14 +24,23 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   };
  
 
-
+  useEffect(()=>{if(newProduct) {
+    const popupCart = document.getElementById('popupCart');
+    if (popupCart) {
+      popupCart.focus();
+    }
+  }},[newProduct])
 
 
   return (
     <>
     {newProduct && <div className={styles.substituteDiv}/>}
   
-      <nav className={`${styles.appBar} ${newProduct && styles.appBarFixed}`}>
+      <nav className={`${styles.appBar} ${newProduct && styles.appBarFixed}`}
+      id='popupCart' tabindex="0" onBlur={()=>{
+        setNewProduct();
+      }}
+      >
         <div className={styles.toolbarDiv}>
           
             <div className={styles.growAlt}>

@@ -3,14 +3,17 @@
 import Link from 'next/link'
 import styles from './popupcart.module.css'
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 
 
 export default function PopupCart({totalItems,newProduct, setNewProduct}){
 
 
-    return <div className={`${styles.cartPopup} ${newProduct && styles.materialize}`}>
-    {newProduct && <><div className={styles.contentWrapper}>
+
+
+    return <div className={`${styles.cartPopup} ${newProduct && styles.materialize}`} >
+    {newProduct && <><div  className={styles.contentWrapper}>
   <div className={styles.cartPopupTitle}> <Image height={12} width={12} src='/images/smallCorrect.png' className={styles.smallCorrect}></Image> <h3>Item added to your cart</h3> </div>
  <div className={styles.cartPopupTitle}> <Image height={54} width={96} src={`/images/${newProduct.image}`} className={styles.productImage}/> <h2 className={styles.productTitle}>{newProduct.name}</h2></div>
  </div>
