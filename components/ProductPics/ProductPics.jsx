@@ -1,7 +1,7 @@
 import styles from "./productmobilepics.module.css";
 
 import FullScreenZoomableImage from "@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect,   useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,7 +12,6 @@ export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
   const [zoomed, setZoomed] = useState(false);
 
-  const [mobileInterface, setMobileInterface] = useState(false);
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
   const [swiper, setSwiper] = useState(null);
@@ -81,22 +80,7 @@ export default function ProductPics({ images, onAddToCart }) {
     };
   }, []);
 
-  useLayoutEffect(() => {
-    const handleResize = () => {
-      setMobileInterface(window.innerWidth <= 980);
-    };
-
-    // Initial check and event listener setup
-    handleResize();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  
 
 
  
@@ -165,7 +149,7 @@ export default function ProductPics({ images, onAddToCart }) {
         
         <Swiper  onSwiper={setSwiper} {...settings}>
       {images.map((img, index) => (
-        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide} ${!mobileInterface && 'swiper-no-swiping'}`}>
+        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}>
           <div
             className={styles.productImageDiv}
             onClick={() => {
