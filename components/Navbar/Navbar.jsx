@@ -12,7 +12,7 @@ import MobileMenu from "./MobileMenu/MobileMenu";
 const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [subMenu, setSubMenu]=useState(0);
-
+  const [searchOpen, setSearchOpen]= useState(false);
   
 
   const router = useRouter();
@@ -34,12 +34,12 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
 
   return (
     <>
-    {newProduct && <div className={styles.substituteDiv}/>}
+    {(newProduct || searchOpen) && <div className={styles.substituteDiv}/>}
   
-      <nav className={`${styles.appBar} ${newProduct && styles.appBarFixed}`}
+      <nav className={`${styles.appBar} ${(newProduct || searchOpen) && styles.appBarFixed} ${newProduct && styles.appBarMaterialize}`}
       id='popupCart' tabindex="0" onBlur={()=>{
-        setNewProduct();
-      }}
+      setNewProduct();
+    }}
       >
         <div className={styles.toolbarDiv}>
           
@@ -256,7 +256,7 @@ setSubMenu(subMenu==2?0:2);
         
           <div className={styles.rightOptions}>
 
-                  <Search/>
+                  <Search searchOpen={searchOpen} setSearchOpen={setSearchOpen}/>
                   <Link href="/cart">
                 <div className={styles.cartStyle}>
                   <Image height={32} width={32}

@@ -282,6 +282,10 @@
       min-height: 0;
       max-height: 0;
       
+     
+    }
+
+    .appBarMaterialize{
       animation: expandHeight 0.18s ease forwards;
     }
 

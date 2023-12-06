@@ -9,11 +9,10 @@ import Image from 'next/image';
 
 
 
-export default function Search(){
+export default function Search({searchOpen, setSearchOpen}){
 
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [searchOpen, setSearchOpen]= useState(false);
     const router = useRouter();
     
 
@@ -50,7 +49,7 @@ export default function Search(){
             value={searchTerm}
             onFocus={()=>{setSearchOpen(true)}}
             onChange={(e) => handleSearch(e.target.value)}
-            onBlur={()=>{searchOpen}}
+            onBlur={()=>{setSearchOpen(false)}}
           />
           <Image src={`/images/searchIcon.png`} className={styles.searchIcon} height={0} width={0} sizes='20px' onClick={()=>{setSearchOpen(!searchOpen);
         }}/>
@@ -60,7 +59,7 @@ export default function Search(){
 
           {filteredcollections.length>0 && <div className={styles.resultProductsLabel}>Collections</div>}
             {filteredcollections.map((collection, index) => (
-              <Link href={`/collection/${collection.name.toLowerCase().replace(/ /g, '-')}/page/1`} key={index} className={styles.result_item} onClick={()=>{setSearchTerm('')}}
+              <Link href={`/collection/${collection.name.toLowerCase().replace(/ /g, '-')}/page/1`} key={index} className={styles.result_item} onClick={()=>{setSearchOpen(false);setSearchTerm('')}}
               onMouseDown={(event)=>{event.preventDefault()}}
               >
                 <Image height={36} width={64} src={`/images/${collection.image}`} className={styles.searchItemImg}/>
