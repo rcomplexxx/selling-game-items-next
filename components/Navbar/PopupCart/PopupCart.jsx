@@ -22,6 +22,7 @@ export default function PopupCart({totalItems,newProduct, setNewProduct}){
   <Link href='/cart'>
  <button
       className={styles.add_to_cart_button}
+      onMouseDown={(event)=>{event.preventDefault()}}
      onClick={()=>{setNewProduct();}}
     >
       View my cart ({totalItems})
@@ -29,11 +30,11 @@ export default function PopupCart({totalItems,newProduct, setNewProduct}){
     </Link>
 
     <Link href='/checkout'>
-    <button className={styles.but_now_button} onClick={()=>{setNewProduct();}}>
+    <button className={styles.but_now_button}  onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{setNewProduct();}}>
      Check out
     </button>
     </Link>
-    <div className={styles.cartPopupTitle} onClick={()=>{setNewProduct();}}> <span className={styles.continue_shopping}>Continue shopping</span></div>
+    <div className={styles.cartPopupTitle}  onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{setNewProduct();}}> <span className={styles.continue_shopping}>Continue shopping</span></div>
 
   </div></>}
   </div>
