@@ -5,7 +5,7 @@ import { useEffect,   useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import "swiper/swiper.min.css";
+import "swiper/swiper-bundle.min.css";
 
 
 export default function ProductPics({ images, onAddToCart }) {
@@ -91,10 +91,6 @@ export default function ProductPics({ images, onAddToCart }) {
 
     slidesPerView: "auto",
     
-    centeredSlides: false,
-
-    className: styles.myslider,
-   
    
     onSlideChange: (swiper) => {
         const index = swiper.activeIndex;
@@ -107,7 +103,6 @@ export default function ProductPics({ images, onAddToCart }) {
 
 
   const settings2 = {
-    centeredSlides: false,
     slidesPerView: "auto",
     loop: false,
     className: styles.slider2
