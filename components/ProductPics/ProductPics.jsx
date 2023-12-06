@@ -1,7 +1,7 @@
 import styles from "./productmobilepics.module.css";
 
 import FullScreenZoomableImage from "@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages";
-import { useEffect,   useState } from "react";
+import { useCallback, useEffect,   useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -84,33 +84,15 @@ export default function ProductPics({ images, onAddToCart }) {
 
 
  
-  //useMemo
+ 
 
-  const settings = {
-    speed: 400,
+  const handleSlideChange = useCallback((swiper) => {
+    const index = swiper.activeIndex;
+    setImageIndex(index);
+    if (index < imageIndex) swiperMini.slideTo(index);
+    else swiperMini.slideTo(index - 1);
+  }, [imageIndex, swiperMini]);
 
-    slidesPerView: "auto",
-    
-    centeredSlides: false,
-
-   
-   
-    onSlideChange: (swiper) => {
-        const index = swiper.activeIndex;
-        setImageIndex(index);
-        if (index < imageIndex)   swiperMini.slideTo(index);
-        else  swiperMini.slideTo(index - 1);
-      
-    },
-  };
-
-
-  const settings2 = {
-    centeredSlides: false,
-    slidesPerView: "auto",
-    loop: false,
-    className: styles.slider2
-  };
 
 
  
@@ -146,9 +128,10 @@ export default function ProductPics({ images, onAddToCart }) {
           }`}
         >
         
-        <Swiper  onSwiper={setSwiper} {...settings}>
+        <Swiper  onSwiper={setSwiper} speed={400} slidesPerView='auto' onSlideChange={handleSlideChange}
+        >
       {images.map((img, index) => (
-        <SwiperSlide key={index} className={`${styles.slide} ${index==images.length-1 && styles.lastSlide}`}>
+        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}>
           <div
             className={styles.productImageDiv}
             onClick={() => {
@@ -203,10 +186,12 @@ export default function ProductPics({ images, onAddToCart }) {
 
 
             
-        <Swiper {...settings2} onSwiper={setSwiperMini}>
+        <Swiper  slidesPerView="auto"
+  
+    className={styles.slider2} onSwiper={setSwiperMini}>
            
           {images.map((img, index) => (
-            <SwiperSlide key={index}  className={`${styles.slide2}`}>
+            <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}>
               <div
                 onClick={() => {
                   swiper.slideTo(index);
