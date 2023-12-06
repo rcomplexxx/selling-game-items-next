@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }) {
     setNewProduct(undefined);
     router.pathname.startsWith("/checkout") ||
     router.pathname === "/thank-you" ||
-    router.pathname === "/404" ||
+    
     router.pathname.startsWith("/admin")
       ? setShowNav(false)
       : setShowNav(true);
