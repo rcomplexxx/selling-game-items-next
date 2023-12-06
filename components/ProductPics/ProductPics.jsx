@@ -202,7 +202,7 @@ export default function ProductPics({ images, onAddToCart }) {
                   src={img.src}
                   alt={img.alt}
                   sizes="25vw"
-                  loading={index>2?'lazy':undefined}
+                
                   height={0}
                   width={0}
                   draggable="false"
