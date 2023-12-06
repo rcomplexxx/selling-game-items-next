@@ -280,12 +280,14 @@
       position:fixed;
       top:0;
       min-height: 0;
-      max-height: 0;
+      
+      max-height:  var(--size-9);
       
      
     }
 
     .appBarMaterialize{
+      max-height: 0;
       animation: expandHeight 0.18s ease forwards;
     }
 

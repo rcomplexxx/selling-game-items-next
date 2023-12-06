@@ -32,6 +32,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
 
 
     return <div
+    
     className={
       styles.mobileMenu +
       " " +
@@ -40,6 +41,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
     onClick={handleMobileMenuClose}
   >
     <div
+    id='mobileMenu'
       className={
         styles.mainMenuCard +
         " " +
