@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
- "analyze": "cross-env ANALYZE=true next build",
-
+    "analyze": "cross-env ANALYZE=true next build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -35,6 +34,7 @@
     "delivery-tracker": "^2.8.0",
     "email-validator": "^2.0.4",
     "embla-carousel": "^8.0.0-rc15",
+    "eslint": "^7.0.0",
     "express-rate-limit": "^7.0.2",
     "jsonwebtoken": "^9.0.2",
     "limiter": "^2.1.0",

@@ -5,7 +5,7 @@ import { useEffect,   useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import "swiper/swiper-bundle.min.css";
+import "swiper/css";
 
 
 export default function ProductPics({ images, onAddToCart }) {
@@ -90,7 +90,7 @@ export default function ProductPics({ images, onAddToCart }) {
     speed: 400,
 
     slidesPerView: "auto",
-    
+
    
     onSlideChange: (swiper) => {
         const index = swiper.activeIndex;
