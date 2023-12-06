@@ -185,10 +185,9 @@ export default function ProductPics({ images, onAddToCart }) {
             </div>
 
 
-            
+            <div className={styles.slider2}>
         <Swiper  slidesPerView="auto"
-  
-    className={styles.slider2} onSwiper={setSwiperMini}>
+   onSwiper={setSwiperMini}>
            
           {images.map((img, index) => (
             <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}>
@@ -213,7 +212,7 @@ export default function ProductPics({ images, onAddToCart }) {
             </SwiperSlide>
           ))}
         </Swiper>
-      
+        </div>
     </div>
  <div className={styles.grid_container}>
             {images.map((img, index) => {
