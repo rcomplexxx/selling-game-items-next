@@ -210,7 +210,7 @@
 
 
     width: calc(100% - 40px) !important;
-    position: relative;
+   
    
     margin: 0 4px !important;
     transform: translateX(16px) !important;
