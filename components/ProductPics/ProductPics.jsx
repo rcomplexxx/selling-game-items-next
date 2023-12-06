@@ -154,7 +154,7 @@ export default function ProductPics({ images, onAddToCart }) {
               priority={index === 0}
               className={styles.zoomImg}
               src={"/images/zoomIconAw.png"}
-              
+              loading={index>0?'lazy':undefined}
             />
          
         </SwiperSlide>
@@ -202,7 +202,7 @@ export default function ProductPics({ images, onAddToCart }) {
                   src={img.src}
                   alt={img.alt}
                   sizes="25vw"
-                
+                  loading={index>2?'lazy':undefined}
                   height={0}
                   width={0}
                   draggable="false"
