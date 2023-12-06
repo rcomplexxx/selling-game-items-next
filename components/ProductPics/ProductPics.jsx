@@ -131,13 +131,11 @@ export default function ProductPics({ images, onAddToCart }) {
         <Swiper  onSwiper={setSwiper} speed={400} slidesPerView='auto' onSlideChange={handleSlideChange}
         >
       {images.map((img, index) => (
-        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}>
-          <div
-            className={styles.productImageDiv}
-            onClick={() => {
-              setZoomed(true);
-            }}
-          >
+        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide} ${styles.productImageDiv}`}
+        onClick={() => {
+          setZoomed(true);
+        }}>
+         
             <Image
               className={styles.productImage}
               src={img.src}
@@ -158,7 +156,7 @@ export default function ProductPics({ images, onAddToCart }) {
               src={"/images/zoomIconAw.png"}
               loading={index>0?'lazy':undefined}
             />
-          </div>
+         
         </SwiperSlide>
       ))}
     </Swiper>
@@ -185,19 +183,20 @@ export default function ProductPics({ images, onAddToCart }) {
             </div>
 
 
-            <div className={styles.slider2}>
+            
         <Swiper  slidesPerView="auto"
-   onSwiper={setSwiperMini}>
+  
+    className={styles.slider2} onSwiper={setSwiperMini}>
            
           {images.map((img, index) => (
-            <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}>
-              <div
-                onClick={() => {
-                  swiper.slideTo(index);
-                  setImageIndex(index);
-                }}
-                className={`${styles.productImage2Div} ${imageIndex === index && styles.selectedImage}`}
-              >
+            <SwiperSlide key={index}  className={`carousel-item ${styles.slide2} ${styles.productImage2Div} ${imageIndex === index && styles.selectedImage}`}
+            
+            onClick={() => {
+              swiper.slideTo(index);
+              setImageIndex(index);
+            }}
+            >
+              
                 <Image
                   className={styles.productImage}
                   src={img.src}
@@ -208,11 +207,11 @@ export default function ProductPics({ images, onAddToCart }) {
                   width={0}
                   draggable="false"
                 />
-              </div>
+             
             </SwiperSlide>
           ))}
         </Swiper>
-        </div>
+      
     </div>
  <div className={styles.grid_container}>
             {images.map((img, index) => {

@@ -89,10 +89,6 @@
   .slider2Suiter{
     position: relative;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--size-6);
-    margin-top: var(--size-4);
   }
 
 
@@ -192,7 +188,8 @@
 
     .slider2{
       width: calc(100% - var(--size-10)) !important;
-     
+      margin-bottom: var(--size-6);
+      margin-top: var(--size-4);
   
   
     }
