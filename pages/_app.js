@@ -78,13 +78,13 @@ const totalItems= useMemo(()=>{
       <Head>
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      <Navbar show={showNav} totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>
+      {showNav && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
 
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>
         <Component {...pageProps} />
       </AppContext.Provider>
 
-      <Footer show={showNav}/>
+      {showNav && <Footer />}
     </div>
   );
 }

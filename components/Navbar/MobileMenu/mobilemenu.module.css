@@ -26,7 +26,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    width:var(--size-12);
+    width:var(--size-13);
     background-color: var(--gray-9-elegant);
     border-top-right-radius: var(--size-3);
     border-bottom-right-radius: var(--size-3);
