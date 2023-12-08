@@ -11,6 +11,10 @@
     align-content: center;
     margin-top: auto;
   }
+  
+  .hideFooter{
+    display: none;
+  }
 
   .mainDiv{
     max-width: 96%;

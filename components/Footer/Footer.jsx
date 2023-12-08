@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./footer.module.css";
 import Image from "next/image";
 
-export default function Footer() {
+export default function Footer({show}) {
   const email = useRef();
   const [error, setError] = useState(null);
   const [successful, setSuccessful] = useState(false);
@@ -42,7 +42,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${!show && styles.hideFooter}`}>
       <div className={styles.mainDiv}>
         <h1 className={styles.subscribeTitle}>Stay connected</h1>
         <p className={styles.subscribePharagraph}>

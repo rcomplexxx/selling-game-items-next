@@ -13,6 +13,10 @@
    
   }
 
+  .hideNav{
+    display: none;
+  }
+
   .substituteDiv{
     display: none;
     width:100%;
