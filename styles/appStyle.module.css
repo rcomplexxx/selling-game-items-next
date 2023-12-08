@@ -28,7 +28,7 @@
     height: max-content;
     width:100% ; 
     border-bottom:1px solid rgb(72, 69, 85);
-    /* #2e2e31 */
+    /* #2e2e31 */  /* #2e2e31 */
         border-top:1px black solid;
         min-height: var(--size-13);
         height: calc(100vh - var(--size-11));
