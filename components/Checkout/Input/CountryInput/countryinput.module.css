@@ -1,7 +1,7 @@
 .countrySelectStyle{
     width: 100%;
     height: 38px;
-    background-color: #1b1f24;
+    background-color: #151921;
     padding: 0 4px;
     color: #979797;
     opacity: 0;
@@ -45,7 +45,7 @@
     position: relative;
     width: 100%;
     border-radius: 2px;
-    background-color: #0f1316;
+    background-color: #151921;
     border: solid 1px rgba(134, 110, 114, 0.425);
     margin-left: var(--size-3);
     margin-right: var(--size-3);
