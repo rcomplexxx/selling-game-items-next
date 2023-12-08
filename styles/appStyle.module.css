@@ -31,7 +31,7 @@
     /* #2e2e31 */
         border-top:1px black solid;
         min-height: var(--size-13);
-        max-height: calc(100vh - var(--size-11));
+        height: calc(100vh - var(--size-11));
   }
 
   .heroImage{
@@ -40,7 +40,7 @@
     height:  max-content;
   
     min-height: var(--size-13);
-    max-height: calc(100vh - var(--size-11));
+    height: calc(100vh - var(--size-11));
   
 }
 
