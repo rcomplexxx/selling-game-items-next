@@ -2,6 +2,7 @@
 .mainDiv{
     width: 100%;
     min-height: calc(100vh - var(--size-9));
+    min-height: calc(100svh - var(--size-9));
     display: flex;
     flex-direction: column;
     align-items: center;
