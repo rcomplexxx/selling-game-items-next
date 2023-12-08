@@ -17,16 +17,7 @@
     position: absolute;
   }
 
-  .heroImage{
-      position: relative;
-      width: 100%;
-      height:  max-content;
-      min-height: var(--size-13);
-      max-height: calc(100vh - var(--size-11));
-       
-    
-  }
-
+ 
  
 
   .heroWindow{
@@ -39,8 +30,20 @@
     border-bottom:1px solid rgb(72, 69, 85);
     /* #2e2e31 */
         border-top:1px black solid;
-        
+        min-height: var(--size-13);
+        max-height: calc(100vh - var(--size-11));
   }
+
+  .heroImage{
+    position: relative;
+    width: 100%;
+    height:  max-content;
+  
+    min-height: var(--size-13);
+    max-height: calc(100vh - var(--size-11));
+  
+}
+
 
 
   .linkButton:hover{
