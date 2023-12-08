@@ -24,6 +24,13 @@ export default function ProductPics({ images, onAddToCart }) {
       router.push(router.asPath + "#zoom");
 
       document.body.classList.add("hideScroll");
+
+
+      router.beforePopState((state) => {
+        state.options.scroll = false;
+        return true;
+      });
+
     } else document.body.classList.remove("hideScroll");
 
     if (router.asPath.includes("#")) router.back();
@@ -44,13 +51,15 @@ export default function ProductPics({ images, onAddToCart }) {
 
     const productPicsElement = document.getElementById("productPics");
     const AddToCartEl = document.getElementById("addToCart");
+    const productImagesEl=document.getElementById("productImages");
     const handleScroll = () => {
+      if(!productPicsElement || !productImagesEl) return;
       const height = productPicsElement.clientHeight;
 
       setFixedMedia(
         window.scrollY >= 96
           ? window.scrollY <=
-            height - document.getElementById("productImages").clientHeight + 96
+            height - productImagesEl.clientHeight + 96
             ? 1
             : 2
           : 0
@@ -59,11 +68,13 @@ export default function ProductPics({ images, onAddToCart }) {
     };
 
     const observer = new ResizeObserver((entries) => {
+   
+      if(!productImagesEl) return;
       const height = productPicsElement.clientHeight;
       setFixedMedia(
         window.scrollY >= 96
           ? window.scrollY <=
-            height - document.getElementById("productImages").clientHeight + 96
+            height - productImagesEl.clientHeight + 96
             ? 1
             : 2
           : 0

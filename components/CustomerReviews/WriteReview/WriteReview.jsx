@@ -20,7 +20,12 @@ export default function WriteReview({ stars, reviewNumber }) {
   
 useEffect(()=>{
 
-   if(infoDivOpen) document.body.classList.add('hideScroll');
+   if(infoDivOpen) { 
+    router.beforePopState((state) => {
+      state.options.scroll = false;
+      return true;
+    });
+    document.body.classList.add('hideScroll'); }
   
 
  
@@ -101,6 +106,8 @@ useEffect(()=>{
     if (infoDivOpen) {
       router.push(router.asPath + "#write-review");
     }
+
+    if (router.asPath.includes("#")) router.back();
 
     setRaitingPage(0);
   }, [infoDivOpen]);
@@ -383,7 +390,6 @@ useEffect(()=>{
                     email: "",
                   });
                  setErrors({ firstName: false, email: false });
-                 router.back()
                 }}
                 className={styles.closeButton}
               >
