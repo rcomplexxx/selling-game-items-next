@@ -50,12 +50,13 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
       onClick={(e) => e.stopPropagation()}
     >
       <div className={styles.menuItemsDiv}>
-        <button
-          className={styles.menuItem_x_button}
-          onClick={handleMobileMenuClose}
-        >
-          x
-        </button>
+
+
+   
+      <Image height={16} width={16} src='/images/cancelWhite.png' className={styles.menuItem_x_button}   onClick={handleMobileMenuClose}/>                 
+                    
+
+     
       </div>
      
             {subMenu===0 &&
