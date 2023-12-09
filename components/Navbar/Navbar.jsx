@@ -60,8 +60,8 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
               <Link href="/" className="text_decoration_none">
                 <h1 className={styles.title}>
                 <Image
-                    height={24}
-                    width={24}
+                    height={32}
+                    width={32}
                     src="/images/commerce.png"
                     alt="Gamebuff icon"
                     className={styles.image}
