@@ -33,6 +33,7 @@
         min-height: var(--size-13);
         max-height: calc(100vh - var(--size-11));
         height: fit-content;
+        margin-bottom:var(--size-9);
   }
 
   .heroImage{

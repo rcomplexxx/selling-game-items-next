@@ -35,7 +35,7 @@ const HomePage = ({ products }) => {
       </div>
 
       <div className={styles.content}>
-        <HomeText />
+     
 
         <Products showAll={false} products={products} />
         <HomeReviews />
