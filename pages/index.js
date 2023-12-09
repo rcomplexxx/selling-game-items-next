@@ -25,10 +25,7 @@ const HomePage = ({ products }) => {
           priority={true}
           sizes="100vw"
           objectFit="contain"
-          onLoad={(e) => {
-            const { width, height } = e.target;
-            setPaddingTop(`calc(100% / (${width} / ${height}))`);
-          }}
+         
 
           className={styles.heroImage}
         />
