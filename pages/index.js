@@ -20,7 +20,7 @@ const HomePage = ({ products }) => {
           height={0}
           width={0}
          
-          src={`/images/gamerwpmobile.png`} // Path to your image from the `public` directory
+          src={`/images/gameGirl2.png`} // Path to your image from the `public` directory
           alt="Hero Discount Image"
           priority={true}
           sizes="100vw"
