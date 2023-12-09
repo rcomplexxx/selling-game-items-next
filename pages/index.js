@@ -15,24 +15,31 @@ const HomePage = ({ products }) => {
         <title>Gamesmoke shop</title>
       </Head>
 
-      <div className={styles.heroWindow}>
-        <Image
+   
+
+      <picture className={styles.heroWindow}>
+    <source srcset="/images/gameGirl2Zoomed.png"
+            media="(min-width: 720px)"/>
+   
+        <img
           height={0}
           width={0}
-         
-          src={`/images/gameGirl2.png`} // Path to your image from the `public` directory
+         src={`/images/gameGirl2.png`} // Path to your image from the `public` directory
           alt="Hero Discount Image"
           priority={true}
           sizes="100vw"
-          objectFit="contain"
-         
+        
 
           className={styles.heroImage}
         />
+ 
+
+
+
         <Link href="/products" className={styles.linkButton}>
           Shop Now
         </Link>
-      </div>
+        </picture>
 
       <div className={styles.content}>
      
