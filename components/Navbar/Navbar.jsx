@@ -57,8 +57,8 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                   alt="Mobile menu"
                 />
               </div>
-              <Link href="/" className="text_decoration_none">
-                <h1 className={styles.title}>
+              <Link href="/" className={styles.logoLink}>
+                
                 <Image
                     height={24}
                     width={24}
@@ -66,6 +66,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                     alt="Gamebuff icon"
                     className={styles.image}
                   />
+                  <h1 className={styles.title}>
                   Gamebuff
                 </h1>
               </Link>
