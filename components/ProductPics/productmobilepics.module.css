@@ -251,10 +251,13 @@
     transform: translateY(-50%);
   }
 
+  @media (hover: hover) {
   .leftArrowDiv:hover{
     background-color: rgb(19, 23, 57);
     cursor: pointer;
   }
+
+   }
 
   .leftArrowDiv:active{
     background-color: rgb(19, 23, 57);
