@@ -130,7 +130,9 @@
       max-height: 0;
     }
     to {
-      border: 1px solid rgb(72, 69, 85);
+      border-bottom: 1px solid rgb(72, 69, 85);
+      border-top: 1px solid rgb(72, 69, 85);
+      
       padding: var(--size-5) var(--size-7);
       max-height:  var(--size-14); /* Set your desired max height */
     }
