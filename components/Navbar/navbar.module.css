@@ -59,7 +59,7 @@
  
   
   .image {
-  
+    border-radius: 100%;
     margin-right: var(--size-3);
 
   }
