@@ -1,12 +1,16 @@
 .toolbar {
     width: 80%;
-    background-color: #061013;
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: var(--size-2);
     margin-bottom: var(--size-9);
+  
+  }
+
+  .toolbarBorder{
+    border: 1px solid gray;
   }
   
   /* #030a08 */
