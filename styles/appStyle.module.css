@@ -40,7 +40,8 @@
     height:  max-content;
   
     min-height: var(--size-13);
-    height: calc(100vh - var(--size-11));
+    max-height: calc(100vh - var(--size-11));
+    
     object-fit: cover;
   
 }
@@ -67,6 +68,8 @@
     align-items: center;
   }
 
-  @media (max-width: 980px)  {
-   
+  @media (max-width: 600px)  {
+    .heroImage{
+      object-fit: fill;
+    }
   }
