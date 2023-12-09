@@ -32,16 +32,17 @@
         border-top:1px black solid;
         min-height: var(--size-13);
         max-height: calc(100vh - var(--size-11));
+        height: fit-content;
   }
 
   .heroImage{
     position: relative;
     width: 100%;
-    height:  max-content;
+    height: fit-content;
   
     min-height: var(--size-13);
     max-height: calc(100vh - var(--size-11));
-    
+    object-fit: cover;
    
   
 }
