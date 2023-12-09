@@ -154,7 +154,7 @@ setSubMenu(subMenu==2?0:2);
          setSubMenu(subMenu==1?0:1);
        }}
      >
-       <span>FAQ</span><Image height={8} width={8} src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==1 && styles.subMenuArrowOpen}`}/>
+       <span>Info</span><Image height={8} width={8} src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==1 && styles.subMenuArrowOpen}`}/>
        </div>
        {subMenu==1 && <div className={`${styles.subMenu} ${styles.subMenuFaq}`}>
 
@@ -182,7 +182,7 @@ setSubMenu(subMenu==2?0:2);
           setSubMenu(0);
         }}
       >
-        <p>General questions</p>
+        <p>FAQ</p>
       </Link>
 
       <Link

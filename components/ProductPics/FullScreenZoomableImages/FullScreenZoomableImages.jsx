@@ -42,9 +42,10 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
             mouseTracking
             disableButtonsControls={true}
             activeIndex={imageIndex}
+            disableDotsControls={true}
             items={images.map((img, index) => {
               return (
-                <div key={index} className="carousel-item">
+                <div key={index} className={`carousel-item`}>
                   <div className={styles.productImageDiv}>
                     <Image
                     height={0}
