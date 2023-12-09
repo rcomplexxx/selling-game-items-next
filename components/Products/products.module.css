@@ -17,7 +17,7 @@
   /* Mozda ovde staviti max width ili nesto */
   .title {
     margin-bottom: var(--size-7);
-    margin-top: var(--size-7);
+    margin-top: 0;
   }
   
 
@@ -36,7 +36,7 @@
  
   .viewAllLink {
     margin-top:  var(--size-4);
-    margin-bottom:  var(--size-6);
+   
     font-size: 28px;
     padding: var(--size-3) var(--size-5);
     color: gray;

@@ -158,7 +158,7 @@ export default function ProductPics({ images, onAddToCart }) {
               
               draggable="false"
             />
-            <Image
+           {imageIndex==index && <Image
               height={0}
               width={0}
               sizes="20px"
@@ -166,7 +166,7 @@ export default function ProductPics({ images, onAddToCart }) {
               className={styles.zoomImg}
               src={"/images/zoomIconAw.png"}
               loading={index>0?'lazy':undefined}
-            />
+            />}
          
         </SwiperSlide>
       ))}
@@ -180,7 +180,7 @@ export default function ProductPics({ images, onAddToCart }) {
                 <Image 
                 height={12}
                 width={12}
-                src='/images/greaterLess2.png'
+                src='/images/greaterLess3.png'
                 
                 />
             </div>
@@ -189,7 +189,7 @@ export default function ProductPics({ images, onAddToCart }) {
                 <Image 
                height={12}
                width={12}
-                src='/images/greaterLess2.png'
+                src='/images/greaterLess3.png'
                 />
             </div>
 

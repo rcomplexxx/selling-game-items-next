@@ -249,15 +249,15 @@
     padding: var(--size-3);
     
     transform: translateY(-50%);
-    background-color: gray;
   }
 
   .leftArrowDiv:hover{
+    background-color: rgb(19, 23, 57);
     cursor: pointer;
   }
 
   .leftArrowDiv:active{
-    background-color: #364658;
+    background-color: rgb(19, 23, 57);
   }
 
   .rightArrowDiv{
@@ -267,7 +267,7 @@
   }
 
   .disabledArrow{
-    background-color: rgba(55, 59, 61, 0.685);
+    display: none;
   }
 
 
