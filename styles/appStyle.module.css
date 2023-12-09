@@ -12,7 +12,7 @@
      width:var(--size-11-5);
      height: var(--size-8);
     transition: transform 0.1s ease-in;
-    box-shadow: 0 2px 8px hsla(0, 0%, 0%, .5);
+    box-shadow: 0 2px 8px hsla(0, 0%, 0%, 1);
     z-index: 2;
     position: absolute;
   }
