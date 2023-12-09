@@ -24,6 +24,12 @@ const HomePage = ({ products }) => {
           alt="Hero Discount Image"
           priority={true}
           sizes="100vw"
+          objectFit="contain"
+          onLoad={(e) => {
+            const { width, height } = e.target;
+            setPaddingTop(`calc(100% / (${width} / ${height}))`);
+          }}
+
           className={styles.heroImage}
         />
         <Link href="/products" className={styles.linkButton}>
