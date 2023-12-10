@@ -1,15 +1,67 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import styles from "./fullscreenzoomableimage.module.css";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import Image from "next/image";
 
-const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
- 
-  const aliceSuiter = useRef();
+const FullScreenZoomableImage = ({ imageIndex, fullScreenChange,  images }) => {
+ const [zoom, setZoom]= useState(false);
+ const [transformOrigin, setTransformOrigin] = useState({ x: 0, y: 0 });
+ const [isDragging, setDragging] = useState(false);
+ const [noZoom, setNoZoom]= useState(false);
+ const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
+
+ const handleMouseDown = (event) => {
+  setDragging(true);
+  console.log('ClientX:', event.clientX);
+  console.log('ClientY:', event.clientY);
+
+  const container =  document.getElementById("zoomDiv");
+  const rect = event.target.getBoundingClientRect();
+   
 
  
+   const x = (event.clientX - rect.left -48); //x position within the element.
+   const y = (event.clientY - rect.top + 24)  //y position within the element.
+ 
+
+ 
+   
+
+
+
+  setStartPosition({ x: x , y: y });
+};
+
+const handleMouseMove = (event) => {
+  if (isDragging) {
+ 
+    const container =  document.getElementById("zoomDiv");
+    const deltaX = event.clientX - startPosition.x;
+    const deltaY = event.clientY - startPosition.y;
+    const originX = transformOrigin.x ;
+    const originY = transformOrigin.y;
+   
+
+    // Calculate the new transform origin based on the drag
+    let newPercentX = (originX-deltaX ) / container.clientWidth * 100;
+    let newPercentY =  (originY-deltaY ) / container.clientHeight * 100;
+    if(newPercentX<0)newPercentX=0;
+    if(newPercentY<0) newPercentY=0;
+    console.log('newPerX', newPercentX);
+    if(newPercentX>100)newPercentX=100;
+    if(newPercentY>100)newPercentY=100;
+    setTransformOrigin({x:newPercentX, y:newPercentY});
+  }
+};
+
+const handleMouseUp = () => {
+  setDragging(false);
+};
+
+
+
   
 
   return (<>
@@ -24,9 +76,9 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
       <div className={styles.closeSuiter}>
     <Image height={0} width={0}
     src='/images/cancelWhite.png'
-        onClick={() => {
-          fullScreenChange(aliceSuiter.current.state.activeIndex);
-        }}
+    onClick={() => {
+      fullScreenChange(imageIndex);
+    }}
         className={styles.close_button}
       >
         
@@ -34,36 +86,58 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
       </div>
 
 
+     
+       
+                    
+                  <div id='zoomDiv' className={styles.productImageDiv}
+                  
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onClick={(event)=>{
+                    if(isDragging) { setDragging(false);return;}
+                  
+                    const container =  document.getElementById("zoomDiv");
+                    const rect = event.target.getBoundingClientRect();
+                     
 
-        <div className={styles.aliceSuiter}>
-          <AliceCarousel
-            ref={aliceSuiter}
-            className={styles.alice}
-            mouseTracking
-            disableButtonsControls={true}
-            activeIndex={imageIndex}
-            disableDotsControls={true}
-            items={images.map((img, index) => {
-              return (
-                <div key={index} className={`carousel-item`}>
-                  <div className={styles.productImageDiv}>
+                   
+                     const x = (event.clientX - rect.left); //x position within the element.
+                     const y = (event.clientY - rect.top)  //y position within the element.
+                      console.log(x, y)
+
+                      const percentX = (x / container.clientWidth) * 100;
+                       const percentY = (y / container.clientHeight) * 100;
+                      
+                       if(!zoom) setTransformOrigin({x: percentX, y:percentY});
+                      setZoom(!zoom);
+                  
+                  }
+                    
+                    
+                    }>
+                
                     <Image
                     height={0}
                     width={0}
                     sizes="100vw"
-                      src={img.src}
+                      src={images[imageIndex].src}
                       alt="Zoomable"
-                      className={styles.productImage}
+                      className={`${styles.productImage} ${zoom && styles.productImageScale}`}
+                      style={{transformOrigin:`${transformOrigin.x}% ${transformOrigin.y}%`}}
                       draggable={false}
                     />
+                  
                   </div>
-                </div>
-              );
-            })}
-          ></AliceCarousel>
+                
+               
+           
           
-        </div>
+         
+       
+        
       </div>
+      
     </div>
     </>
   );
