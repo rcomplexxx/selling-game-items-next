@@ -41,9 +41,9 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
           >
             {images.map((image, index) => (
               <SwiperSlide key={index}>
-                
+                  <div className="swiper-zoom-container">
                 <div id="zoomDiv" className={`swiper-zoom-target ${styles.productImageDiv}`}>
-                <div className="swiper-zoom-container">
+              
                   <Image
                    height={0}
                    width={0}
