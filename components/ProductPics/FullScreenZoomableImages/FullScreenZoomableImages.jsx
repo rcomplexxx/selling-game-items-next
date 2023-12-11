@@ -15,7 +15,8 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
   return (
     <>
       <div className={styles.full_screen_container}>
-      <div className={styles.closeSuiter}>
+        <div className={styles.spaceController}>
+          <div className={styles.closeSuiter}>
             <Image
             height={0}
             width={0}
@@ -27,7 +28,6 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
               className={styles.close_button}
             />
           </div>
-        
 
           <Swiper
           speed={400}
@@ -40,7 +40,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
             className={styles.productImageSwiper}
           >
             {images.map((image, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className={`carousel-item`}>
                   <div className="swiper-zoom-container">
                 <div id="zoomDiv" className={`swiper-zoom-target ${styles.productImageDiv}`}>
               
@@ -59,7 +59,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
             ))}
           </Swiper>
         </div>
-     
+      </div>
     </>
   );
 };
