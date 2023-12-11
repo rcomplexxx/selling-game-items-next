@@ -73,7 +73,7 @@ align-items: center;
     align-items: center;
     width: 100%;
    height: calc(100vh - var(--size-9));
-   touch-action: pan-x pan-y;
+      touch-action: pan-y;
   
     overflow-x: auto;
     overflow-y: auto;
