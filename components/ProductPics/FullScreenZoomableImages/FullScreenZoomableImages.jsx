@@ -44,10 +44,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
                  
                 <div id="zoomDiv" className={`${styles.productImageDiv}`}>
               
-                  <Image
-                   height={0}
-                   width={0}
-                   sizes="100vw"
+                  <img
                     src={image.src}
                     alt="Zoomable"
                     className={`${styles.productImage}`}
