@@ -31,7 +31,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
 
           <Swiper
           speed={400}
-         
+         slidesPerView={1}
            
             zoom={true}
             initialSlide={imageIndex}
@@ -51,7 +51,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
                     src={image.src}
                     alt="Zoomable"
                     className={`${styles.productImage}`}
-               
+                   
                   />
                 </div>  </div>
                
