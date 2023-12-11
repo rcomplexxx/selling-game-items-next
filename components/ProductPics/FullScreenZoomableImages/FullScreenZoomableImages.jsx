@@ -16,18 +16,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
     <>
       <div className={styles.full_screen_container}>
         <div className={styles.spaceController}>
-          <div className={styles.closeSuiter}>
-            <Image
-            height={0}
-            width={0}
-            sizes="24px"
-              src="/images/cancelWhite.png"
-              onClick={() => {
-                fullScreenChange(imageIndex);
-              }}
-              className={styles.close_button}
-            />
-          </div>
+        
 
           <Swiper
           speed={400}
