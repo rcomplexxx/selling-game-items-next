@@ -195,7 +195,7 @@ export default function ProductPics({ images, onAddToCart }) {
 
 
             
-        <Swiper  slidesPerView="auto"
+        <Swiper  slidesPerView="auto" speed={400} 
   
     className={styles.slider2} onSwiper={setSwiperMini}>
            

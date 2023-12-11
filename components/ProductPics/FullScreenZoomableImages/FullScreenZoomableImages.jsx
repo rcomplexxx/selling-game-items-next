@@ -30,6 +30,8 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
           </div>
 
           <Swiper
+          speed={400}
+         slidesPerView={1}
             navigation
             zoom={true}
             initialSlide={imageIndex}
