@@ -42,7 +42,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
             {images.map((image, index) => (
               <SwiperSlide key={index} className='carousel-item'>
                   <div className="swiper-zoom-container">
-                <div id="zoomDiv" className={`${styles.productImageDiv} swiper-zoom-target`}>
+         
               
                   <Image
                    height={0}
@@ -53,7 +53,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
                     className={`${styles.productImage}`}
                     draggable={false}
                   />
-                </div>  </div>
+                 </div>
                
               </SwiperSlide>
             ))}
