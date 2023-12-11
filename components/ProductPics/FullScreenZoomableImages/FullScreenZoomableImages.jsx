@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./fullscreenzoomableimage.module.css";
-import { Zoom, Navigation, Pagination } from 'swiper/core';
+import { Zoom,  } from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import 'swiper/css/zoom'
@@ -38,7 +38,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
             onSwiper={setSwiper}
             modules={[Zoom]}
             className={styles.productImageSwiper}
-            observer={true}
+            
           >
             {images.map((image, index) => (
               <SwiperSlide key={index} className='carousel-item'>
