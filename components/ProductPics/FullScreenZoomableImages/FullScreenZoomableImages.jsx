@@ -31,12 +31,12 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
 
           <Swiper
           speed={400}
-         slidesPerView={1}
+         slidesPerView="auto"
             navigation
             zoom={true}
             initialSlide={imageIndex}
             onSwiper={setSwiper}
-            modules={[Zoom, Navigation]}
+            modules={[Zoom]}
             className={styles.productImageSwiper}
           >
             {images.map((image, index) => (
