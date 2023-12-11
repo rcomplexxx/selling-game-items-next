@@ -2,10 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import styles from "./fullscreenzoomableimage.module.css";
 import { Zoom, Navigation, Pagination } from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/swiper-bundle.css';
-
-// Import Swiper styles
-import 'swiper/swiper.min.css';
+import "swiper/css";
 import 'swiper/css/zoom'
 import Image from "next/image";
 

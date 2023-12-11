@@ -73,11 +73,7 @@ align-items: center;
     width: 100%;
    height: calc(100vh - var(--size-9));
     
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-   
+  
     overflow-x: auto;
     overflow-y: auto;
     
