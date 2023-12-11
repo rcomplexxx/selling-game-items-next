@@ -68,8 +68,8 @@ align-items: center;
   .productImageDiv{
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: stretch;
+    align-items: stretch;
     width: 100%;
    height: calc(100vh - var(--size-9));
     
@@ -84,9 +84,7 @@ align-items: center;
   }
 
   .productImage{
-    position:absolute;
-    top:0;
-    left: 0;
+ 
  
     width: 100%;
     height: 100%;
@@ -98,7 +96,7 @@ align-items: center;
   }
 
   .productImageScale{
-    transform: scale(2);
+    transform: scale(1.6);
     cursor: grab;
  
     transition: transform 0.3s ease-in-out;
@@ -108,6 +106,7 @@ align-items: center;
     cursor: grabbing;
   }
 
+  
 
 
   
