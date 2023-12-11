@@ -67,9 +67,16 @@ align-items: center;
 
 
   .productImageDiv{
-   
- 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+   height: calc(100vh - var(--size-9));
+    
   
+    overflow-x: auto;
+    overflow-y: auto;
     
   }
 
@@ -77,8 +84,7 @@ align-items: center;
  
  
     width: 100%;
-   height: calc(100vh - var(--size-9));
-    
+    height: 100%;
   
     object-fit: contain;
  
