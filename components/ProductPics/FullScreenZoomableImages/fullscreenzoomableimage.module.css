@@ -1,10 +1,12 @@
 .full_screen_container {
   
     position: fixed;
-    top: var(--size-9);
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - var(--size-9));
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     padding: 0;
     background-color: var(--gray-9-elegant);
     z-index: 3;
@@ -32,15 +34,14 @@ align-items: center;
   
   .closeSuiter{
     background-color: rgb(15, 45, 75);
-    position: fixed;
-    top:0;
-    left: 0;
+    
+   
     width: 100%;
     height: var(--size-9);
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    z-index: 11;
+  
   }
  
   .close_button {
@@ -61,7 +62,9 @@ align-items: center;
 
 
 
-  
+  .productImageSwiper{
+    height: calc(100% - var(--size-9));
+  }
 
 
 
@@ -106,9 +109,6 @@ align-items: center;
     cursor: grabbing;
   }
 
-  .productImageSwiper{
-    background-color: red;
-  }
 
 
   

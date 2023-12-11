@@ -15,8 +15,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
   return (
     <>
       <div className={styles.full_screen_container}>
-        <div className={styles.spaceController}>
-          <div className={styles.closeSuiter}>
+      <div className={styles.closeSuiter}>
             <Image
             height={0}
             width={0}
@@ -28,6 +27,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
               className={styles.close_button}
             />
           </div>
+        
 
           <Swiper
           speed={400}
@@ -59,7 +59,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
             ))}
           </Swiper>
         </div>
-      </div>
+     
     </>
   );
 };
