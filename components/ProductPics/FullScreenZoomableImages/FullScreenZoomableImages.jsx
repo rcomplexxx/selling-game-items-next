@@ -7,13 +7,22 @@ import Image from "next/image";
 
 const FullScreenZoomableImage = ({ imageIndex, fullScreenChange,  images }) => {
  const [zoom, setZoom]= useState(false);
+ const [zoomOut,setZoomOut]=useState(false);
  const [transformOrigin, setTransformOrigin] = useState({ x: 0, y: 0 });
  const [isDragging, setDragging] = useState(false);
- const [noZoom, setNoZoom]= useState(false);
  const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
+ const [startMousePosition, setStartMousePosition] = useState({ x: 0, y: 0 });
+
+
+ function isTouchDevice() {
+  return (('ontouchstart' in window) ||
+     (navigator.maxTouchPoints > 0) ||
+     (navigator.msMaxTouchPoints > 0));
+}
 
  const handleMouseDown = (event) => {
   setDragging(true);
+  setZoomOut(true);
   console.log('ClientX:', event.clientX);
   console.log('ClientY:', event.clientY);
 
@@ -25,7 +34,7 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange,  images }) => {
    const x = (event.clientX - rect.left -48); //x position within the element.
    const y = (event.clientY - rect.top + 24)  //y position within the element.
  
-
+   setStartMousePosition({x:event.clientX,y:event.clientY})
  
    
 
@@ -38,8 +47,13 @@ const handleMouseMove = (event) => {
   if (isDragging) {
  
     const container =  document.getElementById("zoomDiv");
+  
+
+    
     const deltaX = event.clientX - startPosition.x;
     const deltaY = event.clientY - startPosition.y;
+    console.log('Delte', startMousePosition.x - event.clientX ,  startMousePosition.y- event.clientY );
+    if(Math.abs(event.clientX -  startMousePosition.x)>20 || Math.abs(event.clientY -  startMousePosition.y)>20){setZoomOut(false);}
     const originX = transformOrigin.x ;
     const originY = transformOrigin.y;
    
@@ -49,7 +63,6 @@ const handleMouseMove = (event) => {
     let newPercentY =  (originY-deltaY ) / container.clientHeight * 100;
     if(newPercentX<0)newPercentX=0;
     if(newPercentY<0) newPercentY=0;
-    console.log('newPerX', newPercentX);
     if(newPercentX>100)newPercentX=100;
     if(newPercentY>100)newPercentY=100;
     setTransformOrigin({x:newPercentX, y:newPercentY});
@@ -109,8 +122,9 @@ const handleMouseUp = () => {
                       const percentX = (x / container.clientWidth) * 100;
                        const percentY = (y / container.clientHeight) * 100;
                       
-                       if(!zoom) setTransformOrigin({x: percentX, y:percentY});
-                      setZoom(!zoom);
+                       if(!zoom) {setTransformOrigin({x: percentX, y:percentY});
+                      setZoom(!zoom);}
+                      else{if(zoomOut) setZoom(!zoom)}
                   
                   }
                     
@@ -123,8 +137,8 @@ const handleMouseUp = () => {
                     sizes="100vw"
                       src={images[imageIndex].src}
                       alt="Zoomable"
-                      className={`${styles.productImage} ${zoom && styles.productImageScale}`}
-                      style={{transformOrigin:`${transformOrigin.x}% ${transformOrigin.y}%`}}
+                      className={`${styles.productImage} ${!isTouchDevice() && zoom && styles.productImageScale} ${!isTouchDevice() && isDragging && styles.grabbing}`}
+                      style={!isTouchDevice() && {transformOrigin:`${transformOrigin.x}% ${transformOrigin.y}%`}}
                       draggable={false}
                     />
                   

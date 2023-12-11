@@ -94,16 +94,19 @@ align-items: center;
     object-fit: contain;
  
     transition: transform 0.3s ease-in-out;
+    cursor: zoom-in;
   }
 
   .productImageScale{
     transform: scale(2);
-   
+    cursor: grab;
  
     transition: transform 0.3s ease-in-out;
   }
 
-
+  .grabbing{
+    cursor: grabbing;
+  }
 
 
 
