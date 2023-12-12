@@ -75,8 +75,7 @@ align-items: center;
    height: calc(100vh - var(--size-9));
       touch-action: pan-y;
   
-    overflow-x: auto;
-    overflow-y: auto;
+    
     
   }
 
