@@ -34,7 +34,6 @@ export default function ProductPage({ product, images, startReviews }) {
   const [variant, setVariant]=useState(product.variants && product.variants[0].name);
   const router = useRouter();
 
-  const carouselRef = useRef();
 
   const { cartProducts, setCartProducts, setNewProduct } = useContext(AppContext);
 
