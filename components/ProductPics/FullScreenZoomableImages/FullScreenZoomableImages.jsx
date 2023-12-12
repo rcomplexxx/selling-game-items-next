@@ -37,13 +37,19 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
               
             />
           </div>
-              
+
+          <Image height={12} width={12} src='/images/greaterLess3.png' className={styles.leftArrow}></Image>
+          <Image height={12} width={12} src='/images/greaterLess3.png' className={styles.rightArrow}></Image>  
           <Swiper
           speed={400}
          slidesPerView={1}
          touchStartPreventDefault={false}
-         navigation
-        
+         
+         navigation={{
+          prevEl: `.${styles.leftArrow}`, 
+          nextEl: `.${styles.rightArrow}`, 
+          
+        }}
          zoom= {{
           enabled: true,
           maxRatio:2,
