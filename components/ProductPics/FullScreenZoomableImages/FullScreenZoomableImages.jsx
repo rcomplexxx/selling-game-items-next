@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import styles from "./fullscreenzoomableimage.module.css";
-import { Zoom,  } from 'swiper/core';
+import { Zoom,  Navigation  } from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import 'swiper/css/zoom'
+import 'swiper/css/navigation';
 import Image from "next/image";
 
 
-const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
+const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, images }) => {
+  const [zoomed,setZoomed]=useState(false);
+  const [grabbing, setGrabbing] = useState(false);
   const [swiper,setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({x:0, y:0});
 
@@ -18,6 +21,9 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
       <div className={styles.full_screen_container}>
         <div className={styles.spaceController}>
           <div className={styles.closeSuiter}>
+
+      <div className={styles.pagination}>{imageIndex+1} / {swiper && swiper.slides.length}</div>
+
             <Image
             height={0}
             width={0}
@@ -36,24 +42,34 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
           speed={400}
          slidesPerView={1}
          touchStartPreventDefault={false}
+         navigation
+        
          zoom= {{
           enabled: true,
-          maxRatio:2.5,
+          maxRatio:2,
           toggle: !matchMedia('(pointer:fine)').matches
          }}
+         
+         onZoomChange= {() => {
+       
+          setZoomed(zoomed=>!zoomed);
+        }}
+        onSlideChange={(swiper)=>{if(zoomed)swiper.zoom.out(); setZoomed(false); setImageIndex(swiper.activeIndex);}}
             initialSlide={imageIndex}
             onSwiper={setSwiper}
-            modules={[Zoom]}
+            modules={[Zoom, Navigation]}
             className={styles.productImageSwiper}
             grabCursor= {true}
+           
           >
             {images.map((image, index) => (
               <SwiperSlide key={index} className='carousel-item'>
                   <div className="swiper-zoom-container">
-                <div id="zoomDiv" className={`${styles.productImageDiv} swiper-zoom-target`}
+                <div id="zoomDiv" className={`${styles.productImageDiv} ${zoomed && (grabbing?styles.grabbing:styles.grabCursor)} swiper-zoom-target`}
                
                 onMouseDown={(event)=>{
-                  if(!matchMedia('(pointer:fine)').matches) return
+                  setGrabbing(true);
+                  if( event.button !== 0 || !matchMedia('(pointer:fine)').matches) return
                   const { clientX, clientY } = event;
                  
                   setMouseStartingPoint({ x: clientX , y: clientY });
@@ -61,15 +77,15 @@ const FullScreenZoomableImage = ({ imageIndex, fullScreenChange, images }) => {
                  }}
 
                 onMouseUp={(event)=>{
-                  
-                    if(!matchMedia('(pointer:fine)').matches) return
+                  setGrabbing(false);
+                    if(event.button !== 0 || !matchMedia('(pointer:fine)').matches) return
                   const { clientX, clientY } = event;
                  
                   const differenceX = Math.abs(clientX - mouseStartingPoint.x);
                   const differenceY = Math.abs(clientY - mouseStartingPoint.y);
                   console.log(differenceX,differenceY);
                  
-                  if (differenceX < 16 && differenceY < 16) {
+                  if (differenceX < 12 && differenceY < 12) {
                      swiper.zoom.toggle(event);
                   }
                 }}

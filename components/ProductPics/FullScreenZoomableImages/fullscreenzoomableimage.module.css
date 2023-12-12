@@ -38,13 +38,24 @@ align-items: center;
     width: 100%;
     height: var(--size-9);
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding-right: 16px;
     box-sizing: border-box;
     z-index: 11;
   }
  
+  .pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 16px;
+    font-size: var(--font-size-4);
+    font-weight: 500;
+  }
+
+
   .close_button {
    
     height: 24px;
@@ -75,7 +86,7 @@ align-items: center;
     width: 100%;
    height: calc(100vh - var(--size-9));
       touch-action: pan-y;
-  
+      cursor: zoom-in;
     
     
   }
@@ -89,14 +100,13 @@ align-items: center;
     object-fit: contain;
  
     transition: transform 0.3s ease-in-out;
-    cursor: zoom-in;
+   
   }
 
-  .productImageScale{
-    transform: scale(1.6);
+  .grabCursor{
+   
     cursor: grab;
- 
-    transition: transform 0.3s ease-in-out;
+
   }
 
   .grabbing{

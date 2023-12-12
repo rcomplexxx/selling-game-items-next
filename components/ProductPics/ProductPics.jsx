@@ -127,6 +127,7 @@ export default function ProductPics({ images, onAddToCart }) {
         <FullScreenZoomableImage
           imageUrl="/images/boxItem.png"
           imageIndex={imageIndex}
+          setImageIndex={ setImageIndex}
           fullScreenChange={fullScreenChange}
           images={images}
         />
