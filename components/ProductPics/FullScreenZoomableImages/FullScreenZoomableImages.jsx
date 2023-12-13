@@ -33,7 +33,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 
     return () =>{ 
       window.removeEventListener("mousemove", handleCardMove);
-      window.removeEventListener("touchstart",()=>{setNavActive(navActive)});
+      window.removeEventListener("touchstart",()=>{setNavActive(!navActive)});
 
 }
   }, []);
