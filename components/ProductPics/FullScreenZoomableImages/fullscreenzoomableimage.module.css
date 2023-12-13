@@ -39,18 +39,23 @@ align-items: center;
     width: 100%;
     height: var(--size-9);
     display: flex;
+    opacity: 0;
     justify-content: space-between;
     align-items: center;
     padding-right: 16px;
     box-sizing: border-box;
-    opacity: 0;
-    transition: opacity 0.25s 0.1s ease;
+   
     z-index: 11;
+    
   }
 
   .navActive{
+    animation: spawnNav 0.3s ease forwards;
+  }
+
+  .navInactive{
     
-    opacity: 1;
+    animation: killNav 0.3s ease forwards;
   }
  
   .pagination{
@@ -217,3 +222,39 @@ align-items: center;
   }
 }
   
+
+@keyframes spawnNav {
+  0% {
+    display: none;
+    opacity: 0;
+  
+  }
+
+  30% {
+    display: none;
+    opacity: 0;
+  
+  }
+  
+  100% {
+    opacity: 1;
+    display: flex;
+  }
+}
+
+@keyframes killNav{
+  0% {
+    display: flex;
+    opacity: 1;
+  }
+
+  30% {
+    display: flex;
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

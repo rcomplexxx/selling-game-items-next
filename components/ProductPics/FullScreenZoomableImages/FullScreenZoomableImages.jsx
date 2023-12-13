@@ -63,7 +63,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   document.addEventListener("click", handleUserInteraction);
   document.addEventListener("touchstart", handleUserInteraction); */}
         <div className={styles.spaceController}>
-          <div className={`${styles.closeSuiter} ${navActive && styles.navActive}`}>
+          <div className={`${styles.closeSuiter} ${navActive!==undefined && navActive?styles.navActive:styles.navInactive}`}>
 
       <div className={styles.pagination}>{imageIndex+1} / {swiper && swiper.slides.length}</div>
     <div>
