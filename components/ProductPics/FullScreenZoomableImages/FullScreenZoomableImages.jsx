@@ -31,11 +31,14 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   }
 
   const handleTouchStart=(event)=>{
-    touchCoordinates={x:event.clientX, y:event.clientY};
+ 
+    touchCoordinates={x:event.touches[0].clientX, y:event.touches[0].clientY};
   }
 
   const handleTouchInteraction=(event)=>{
-    if(Math.abs(event.clientX-touchCoordinates.x)<16 && Math.abs(event.clientY-touchCoordinates.y)<16)
+    
+    const lastTouch =event.changedTouches[event.changedTouches.length-1];
+    if(Math.abs(lastTouch.clientX-touchCoordinates.x)<16 && Math.abs(lastTouch.clientY-touchCoordinates.y)<16)
   setNavActive(navActive=>!navActive);
   }
 
@@ -46,7 +49,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 
     return () =>{ 
      if(matchMedia('(pointer:fine)').matches) window.removeEventListener("mousemove", handleUserInteraction);
-     window.removeEventListener("touchstart", handleTouchStart);
+     window.removeEventListener("touchstart", handleTouchStart, true);
       window.removeEventListener("touchend", handleTouchInteraction);
 
 }
