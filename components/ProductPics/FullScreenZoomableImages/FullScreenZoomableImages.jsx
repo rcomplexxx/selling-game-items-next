@@ -23,7 +23,19 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
           <div className={styles.closeSuiter}>
 
       <div className={styles.pagination}>{imageIndex+1} / {swiper && swiper.slides.length}</div>
-
+    <div>
+    <Image
+            height={0}
+            width={0}
+            sizes="24px"
+             src={zoomed?'/images/zoomOutIconAw.png':'/images/zoomIconAw.png'}
+              alt="zoom"
+              onClick={() => {
+                swiper.zoom.toggle();
+              }}
+              className={styles.zoomButton}
+              
+            />
             <Image
             height={0}
             width={0}
@@ -36,6 +48,8 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
               className={styles.close_button}
               
             />
+
+</div>
           </div>
 
           <Image height={12} width={12} src='/images/greaterLess3.png' className={styles.leftArrow}></Image>
