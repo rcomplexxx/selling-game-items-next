@@ -18,6 +18,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   useEffect(()=>{
 
     let timeoutId;
+    let touchCoordinates= {x:0, y:0};
     
     const handleUserInteraction=()=>{
       
@@ -30,11 +31,11 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   }
 
   const handleTouchStart=(event)=>{
-    setMouseStartingPoint({x:event.clientX, y:event.clientY})
+    touchCoordinates={x:event.clientX, y:event.clientY};
   }
 
   const handleTouchInteraction=(event)=>{
-    if(Math.abs(event.clientX-mouseStartingPoint.x)<16 && Math.abs(event.clientY-mouseStartingPoint.y)<16)
+    if(Math.abs(event.clientX-touchCoordinates.x)<16 && Math.abs(event.clientY-touchCoordinates.y)<16)
   setNavActive(navActive=>!navActive);
   }
 
