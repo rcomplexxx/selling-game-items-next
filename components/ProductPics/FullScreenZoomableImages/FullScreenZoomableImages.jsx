@@ -27,13 +27,17 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     }, 3000);
   }
 
+  const handleTouchInteraction=()=>{
+  setNavActive(!navActive)
+  }
+
     window.addEventListener("mousemove", handleUserInteraction);
-    window.addEventListener("touchstart", handleUserInteraction);
+    window.addEventListener("touchstart", handleTouchInteraction);
 
 
     return () =>{ 
-      window.removeEventListener("mousemove", handleCardMove);
-      window.removeEventListener("touchstart",()=>{setNavActive(!navActive)});
+      window.removeEventListener("mousemove", handleUserInteraction);
+      window.removeEventListener("touchstart", handleTouchInteraction);
 
 }
   }, []);
