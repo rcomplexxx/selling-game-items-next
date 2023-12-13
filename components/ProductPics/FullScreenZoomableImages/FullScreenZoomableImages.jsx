@@ -63,7 +63,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   document.addEventListener("click", handleUserInteraction);
   document.addEventListener("touchstart", handleUserInteraction); */}
         <div className={styles.spaceController}>
-          <div className={`${styles.closeSuiter} ${navActive!==undefined && navActive?styles.navActive:styles.navInactive}`}>
+          <div className={`${styles.closeSuiter} ${navActive?styles.navActive:styles.navInactive}`}>
 
       <div className={styles.pagination}>{imageIndex+1} / {swiper && swiper.slides.length}</div>
     <div>
@@ -95,8 +95,8 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 </div>
           </div>
 
-          <Image height={12} width={12} src='/images/greaterLess3.png' className={styles.leftArrow}></Image>
-          <Image height={12} width={12} src='/images/greaterLess3.png' className={styles.rightArrow}></Image>  
+          <Image height={12} width={12} src='/images/greaterLess3.png' className={`${styles.leftArrow} ${navActive?styles.navActive:styles.navInactive}`}></Image>
+          <Image height={12} width={12} src='/images/greaterLess3.png' className={`${styles.rightArrow} ${navActive?styles.navActive:styles.navInactive}`}></Image>  
           <Swiper
           speed={400}
          slidesPerView={1}
