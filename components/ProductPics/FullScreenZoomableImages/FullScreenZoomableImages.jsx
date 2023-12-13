@@ -18,6 +18,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   useEffect(()=>{
 
     let timeoutId;
+    let touchStartPosition = {x:0, y:0};
     
     const handleUserInteraction=()=>{
       
@@ -29,11 +30,17 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     }, 3000);
   }
 
-  const handleTouchInteraction=()=>{
+  const handleTouchStart=(event)=>{
+    touchStartPosition= {x:event.clientX, y:event.clientY}
+  }
+
+  const handleTouchInteraction=(event)=>{
+    if(Math.abs(event.clientX)-touchStartPosition.x<16 && Math.abs(event.clientY)-touchStartPosition.y<16)
   setNavActive(navActive=>!navActive);
   }
 
     window.addEventListener("mousemove", handleUserInteraction);
+    window.addEventListener("touchstart", handleTouchStart);
     window.addEventListener("touchend", handleTouchInteraction);
 
 
