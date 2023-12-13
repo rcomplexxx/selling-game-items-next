@@ -35,7 +35,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   }
 
   const handleTouchInteraction=(event)=>{
-    if(Math.abs(event.clientX)-touchStartPosition.x<16 && Math.abs(event.clientY)-touchStartPosition.y<16)
+    if(Math.abs(event.clientX-touchStartPosition.x)<16 && Math.abs(event.clientY-touchStartPosition.y)<16)
   setNavActive(navActive=>!navActive);
   }
 
