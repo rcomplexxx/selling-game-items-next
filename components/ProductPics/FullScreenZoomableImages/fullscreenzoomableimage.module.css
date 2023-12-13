@@ -1,7 +1,7 @@
 .full_screen_container {
   
     position: fixed;
-    top: var(--size-9);
+    top: 0;
     left: 0;
     width: 100%;
     height: calc(100% - var(--size-9));
@@ -11,7 +11,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    padding-top: var(--size-9);
+    
     z-index: 7;
   }
 
@@ -42,7 +43,12 @@ align-items: center;
     align-items: center;
     padding-right: 16px;
     box-sizing: border-box;
+    opacity: 0;
     z-index: 11;
+  }
+
+  .navActive{
+    opacity: 1;
   }
  
   .pagination{

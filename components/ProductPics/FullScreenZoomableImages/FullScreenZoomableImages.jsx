@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./fullscreenzoomableimage.module.css";
 import { Zoom,  Navigation  } from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,18 +9,44 @@ import Image from "next/image";
 
 
 const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, images }) => {
+  const [navActive, setNavActive]= useState(true);
   const [zoomed,setZoomed]=useState(false);
   const [grabbing, setGrabbing] = useState(false);
   const [swiper,setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({x:0, y:0});
 
+  useEffect(()=>{
 
+    let timeoutId;
+    
+    const handleUserInteraction=()=>{
+      setNavActive(true);
+    clearTimeout(timeoutId);
+   timeoutId= setTimeout(function () {
+      setNavActive(false);
+    }, 3000);
+  }
+
+    window.addEventListener("mousemove", handleUserInteraction);
+    window.addEventListener("touchstart", handleUserInteraction);
+
+
+    return () =>{ 
+      window.removeEventListener("mousemove", handleCardMove);
+      window.removeEventListener("touchstart", handleCardMove);
+
+}
+  }, []);
 
   return (
     <>
-      <div className={styles.full_screen_container}>
+      <div className={styles.full_screen_container}  >
+
+{/* document.addEventListener("mousemove", handleUserInteraction);
+  document.addEventListener("click", handleUserInteraction);
+  document.addEventListener("touchstart", handleUserInteraction); */}
         <div className={styles.spaceController}>
-          <div className={styles.closeSuiter}>
+          <div className={`${styles.closeSuiter} ${navActive && styles.navActive}`}>
 
       <div className={styles.pagination}>{imageIndex+1} / {swiper && swiper.slides.length}</div>
     <div>
