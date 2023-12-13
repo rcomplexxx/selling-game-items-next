@@ -18,7 +18,6 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   useEffect(()=>{
 
     let timeoutId;
-    let touchStartPosition = {x:0, y:0};
     
     const handleUserInteraction=()=>{
       
@@ -46,6 +45,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 
     return () =>{ 
      if(matchMedia('(pointer:fine)').matches) window.removeEventListener("mousemove", handleUserInteraction);
+     window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchend", handleTouchInteraction);
 
 }
