@@ -40,7 +40,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   }
 
   if(matchMedia('(pointer:fine)').matches) window.addEventListener("mousemove", handleUserInteraction);
-    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchstart", handleTouchStart,true);
     window.addEventListener("touchend", handleTouchInteraction);
 
 
