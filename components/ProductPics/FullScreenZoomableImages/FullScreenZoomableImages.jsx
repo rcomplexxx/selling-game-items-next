@@ -32,12 +32,12 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   }
 
     window.addEventListener("mousemove", handleUserInteraction);
-    window.addEventListener("touchstart", handleTouchInteraction);
+    window.addEventListener("touchend", handleTouchInteraction);
 
 
     return () =>{ 
       window.removeEventListener("mousemove", handleUserInteraction);
-      window.removeEventListener("touchstart", handleTouchInteraction);
+      window.removeEventListener("touchend", handleTouchInteraction);
 
 }
   }, []);
