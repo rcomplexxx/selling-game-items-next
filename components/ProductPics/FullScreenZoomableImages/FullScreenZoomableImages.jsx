@@ -20,6 +20,8 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     let timeoutId;
     
     const handleUserInteraction=()=>{
+      
+      
       setNavActive(true);
     clearTimeout(timeoutId);
    timeoutId= setTimeout(function () {
@@ -31,13 +33,13 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   setNavActive(navActive=>!navActive);
   }
 
-  
-    window.addEventListener("touchstart", handleTouchInteraction);
+    window.addEventListener("mousemove", handleUserInteraction);
+    window.addEventListener("touchend", handleTouchInteraction);
 
 
     return () =>{ 
-   
-      window.removeEventListener("touchstart", handleTouchInteraction);
+     if(matchMedia('(pointer:fine)').matches) window.removeEventListener("mousemove", handleUserInteraction);
+      window.removeEventListener("touchend", handleTouchInteraction);
 
 }
   }, []);
