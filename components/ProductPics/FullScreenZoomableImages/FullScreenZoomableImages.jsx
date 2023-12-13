@@ -31,13 +31,13 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   setNavActive(navActive=>!navActive);
   }
 
-    window.addEventListener("mousemove", handleUserInteraction);
-    window.addEventListener("touchend", handleTouchInteraction);
+  
+    window.addEventListener("touchstart", handleTouchInteraction);
 
 
     return () =>{ 
-      window.removeEventListener("mousemove", handleUserInteraction);
-      window.removeEventListener("touchend", handleTouchInteraction);
+   
+      window.removeEventListener("touchstart", handleTouchInteraction);
 
 }
   }, []);
