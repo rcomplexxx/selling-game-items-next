@@ -39,7 +39,7 @@ export default function ProductPics({ images, onAddToCart }) {
 
     } else document.body.classList.remove("hideScroll");
 
-    if (router.asPath.includes("#")) router.back();
+   
   }
   }, [zoomed]);
 
