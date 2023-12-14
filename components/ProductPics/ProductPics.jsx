@@ -9,8 +9,8 @@ import "swiper/css";
 
 export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
-  const [zoomed, setZoomed] = useState(undefined);
-
+  const [zoomed, setZoomed] = useState(false);
+  const [mounted, setMounted]=useState(false);
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
   const [swiper, setSwiper] = useState(null);
@@ -19,7 +19,7 @@ export default function ProductPics({ images, onAddToCart }) {
   const router = useRouter();
 
   useEffect(() => {
-    if(zoomed==undefined ){
+    if(!mounted){
       if(router.asPath.includes("#"))
       router.push(router.asPath.split('#')[0]);
     
@@ -42,7 +42,8 @@ export default function ProductPics({ images, onAddToCart }) {
   }, [zoomed]);
 
   useEffect(() => {
-    if (!router.asPath.includes("#") && zoomed!=undefined) setZoomed(false);
+    if (!router.asPath.includes("#") && mounted) setZoomed(false);
+    setMounted(true)
   }, [router.asPath]);
   
   useEffect(()=>{
