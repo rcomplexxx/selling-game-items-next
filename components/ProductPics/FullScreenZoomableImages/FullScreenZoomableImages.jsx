@@ -38,11 +38,10 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 
   const handleTouchYMove=(event)=>{
     if(yMoveSwipe==undefined)return;
-    const touch = event.changedTouches[event.changedTouches.length - 1];
+    
  
-  const clientY = touch.clientY;
-  console.log(clientY-touchCoordinates.y);
-  setYMoveSwipe(clientY-touchCoordinates.y);
+
+  setYMoveSwipe(Math.round(event.changedTouches[event.changedTouches.length - 1].clientY)-touchCoordinates.y);
   }
 
   const handleTouchInteraction=(event)=>{
