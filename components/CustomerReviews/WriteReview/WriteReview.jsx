@@ -107,7 +107,7 @@ useEffect(()=>{
     if(infoDivOpen===undefined){
       if(router.asPath.includes("#write-review"))
       router.push(router.asPath.split('#write-review')[0]);
-      setInfoDivOpen(false);
+    
       return;
     }
     
@@ -115,13 +115,16 @@ useEffect(()=>{
       router.push(router.asPath + "#write-review");
     }
 
-    if (!infoDivOpen && router.asPath.includes("#write-review")) router.back();
+    else{
+
+    if (router.asPath.includes("#write-review")) router.back();
+    }
 
     setRaitingPage(0);
   }, [infoDivOpen]);
 
   useEffect(() => {
-    if (!router.asPath.includes("#")) {setInfoDivOpen(false);
+    if (!router.asPath.includes("#write-review")) {setInfoDivOpen(false);
       setImages([]);
       setReviewInfo({
         text: "",

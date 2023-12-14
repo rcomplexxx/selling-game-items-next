@@ -10,7 +10,7 @@ import "swiper/css";
 
 export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
-  const [zoomed, setZoomed] = useState(false);
+  const [zoomed, setZoomed] = useState(undefined);
 
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
@@ -21,9 +21,9 @@ export default function ProductPics({ images, onAddToCart }) {
 
   useEffect(() => {
     if(zoomed===undefined){
-      if(router.asPath.includes("#"))
+      if(router.asPath.includes("#zoom"))
       router.push(router.asPath.split('#zoom')[0]);
-      setZoomed(false);
+     
       return;
     }
     if (zoomed) {
@@ -37,9 +37,11 @@ export default function ProductPics({ images, onAddToCart }) {
         return true;
       });
 
-    } else document.body.classList.remove("hideScroll");
+    } else { document.body.classList.remove("hideScroll");
+    if (router.asPath.includes("#zoom")) router.back();
+  }
 
-    if (router.asPath.includes("#")) router.back();
+   
   }, [zoomed]);
 
   useEffect(() => {
