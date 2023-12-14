@@ -22,7 +22,7 @@ export default function ProductPics({ images, onAddToCart }) {
   useEffect(() => {
     if(zoomed===undefined && router.asPath.includes("#")){
       router.push(router.asPath.split('#')[0]);
-    
+      return;
     }
     if (zoomed) {
       router.push(router.asPath + "#zoom");
