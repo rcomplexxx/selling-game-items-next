@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
-const [mounted, setMounted]=useState(false);
 
 export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
@@ -30,8 +29,7 @@ export default function ProductPics({ images, onAddToCart }) {
       router.push(router.asPath + "#zoom");
 
       document.body.classList.add("hideScroll");
-      setMounted(true);
-      console.log(mounted);
+     
       router.beforePopState((state) => {
         state.options.scroll = false;
         return true;
