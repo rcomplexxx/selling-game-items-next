@@ -44,7 +44,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
         setNavActive(navActive=>!navActive);
         clearTimeout(timeoutId);
         timeoutId= null;
-      }, 300);
+      }, 200);
     
 
     }
