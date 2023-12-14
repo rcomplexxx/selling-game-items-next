@@ -44,7 +44,7 @@ export default function ProductPics({ images, onAddToCart }) {
   }, [zoomed]);
 
   useEffect(() => {
-    if (!router.asPath.includes("#")) setZoomed(false);
+    if (!router.asPath.includes("#") && zoomed!==undefined) setZoomed(false);
   }, [router.asPath]);
   
   useEffect(()=>{
