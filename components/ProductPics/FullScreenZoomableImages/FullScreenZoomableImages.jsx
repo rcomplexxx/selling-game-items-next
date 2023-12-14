@@ -42,6 +42,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     if(!timeoutId){
       timeoutId= setTimeout(function () {
         setNavActive(navActive=>!navActive);
+        clearTimeout(timeoutId);
       }, 300);
     
 
