@@ -221,39 +221,7 @@ align-items: center;
     margin-right: 8px;
   }
 
-  .closeSuiter{
-   
-    height: 40px;
-  }
-
-  .productImageDiv{
-   
-   height: calc(100vh - 40px);
-   
-      margin-top: 40px;
-    
-  }
-
-
-
-  .pagination{
-
-    font-size: var(--font-size-3);
-  }
-
-  .zoomButton{
-    height: 20px;
-    width:20px;
-  
-  }
-
-  .close_button {
-   
-    height: 20px;
-    width:20px;
-
-   
-  }
+ 
 
 
 

@@ -40,7 +40,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     const lastTouch =event.changedTouches[event.changedTouches.length-1];
    
     if(!timeoutId){
-      if(Math.abs(lastTouch.clientX-touchCoordinates.x)<16 && Math.abs(lastTouch.clientY-touchCoordinates.y)<16)
+      if(Math.abs(lastTouch.clientX-touchCoordinates.x)<16 && Math.abs(lastTouch.clientY-touchCoordinates.y)<16 && touchCoordinates.y>48)
       timeoutId= setTimeout(function () {
         setNavActive(navActive=>!navActive);
         clearTimeout(timeoutId);
