@@ -7,10 +7,11 @@ import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 
+
 export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
-  const [zoomed, setZoomed] = useState(false);
-  const [mounted, setMounted]=useState(false);
+  const [zoomed, setZoomed] = useState(undefined);
+  const [mount, setMount]=useState(false);
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
   const [swiper, setSwiper] = useState(null);
@@ -19,7 +20,7 @@ export default function ProductPics({ images, onAddToCart }) {
   const router = useRouter();
 
   useEffect(() => {
-    if(!mounted){
+    if(!mount ){
       if(router.asPath.includes("#"))
       router.push(router.asPath.split('#')[0]);
     
@@ -29,7 +30,8 @@ export default function ProductPics({ images, onAddToCart }) {
       router.push(router.asPath + "#zoom");
 
       document.body.classList.add("hideScroll");
-     
+
+
       router.beforePopState((state) => {
         state.options.scroll = false;
         return true;
@@ -42,8 +44,8 @@ export default function ProductPics({ images, onAddToCart }) {
   }, [zoomed]);
 
   useEffect(() => {
-    if (!router.asPath.includes("#") && mounted) setZoomed(false);
-    setMounted(true)
+    if (!router.asPath.includes("#") && mount) setZoomed(false);
+    setMount(true);
   }, [router.asPath]);
   
   useEffect(()=>{
