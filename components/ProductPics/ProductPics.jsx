@@ -20,10 +20,12 @@ export default function ProductPics({ images, onAddToCart }) {
   const router = useRouter();
 
   useEffect(() => {
-    if(zoomed===undefined && router.asPath.includes("#")){
+    if(zoomed===undefined ){
+      if(router.asPath.includes("#"))
       router.push(router.asPath.split('#')[0]);
-      return;
+    
     }
+    else{
     if (zoomed) {
       router.push(router.asPath + "#zoom");
 
@@ -38,6 +40,7 @@ export default function ProductPics({ images, onAddToCart }) {
     } else document.body.classList.remove("hideScroll");
 
     if (router.asPath.includes("#")) router.back();
+  }
   }, [zoomed]);
 
   useEffect(() => {
