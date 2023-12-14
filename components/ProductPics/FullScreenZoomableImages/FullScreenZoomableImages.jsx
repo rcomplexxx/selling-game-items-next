@@ -40,7 +40,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     const lastTouch =event.changedTouches[event.changedTouches.length-1];
    
     if(!timeoutId){
-      if(Math.abs(lastTouch.clientX-touchCoordinates.x)<16 && Math.abs(lastTouch.clientY-touchCoordinates.y)<16 && touchCoordinates.y>48)
+      if(Math.abs(lastTouch.clientX-touchCoordinates.x)<16 && Math.abs(lastTouch.clientY-touchCoordinates.y)<16)
       timeoutId= setTimeout(function () {
         setNavActive(navActive=>!navActive);
         clearTimeout(timeoutId);
@@ -83,7 +83,8 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
             sizes="24px"
              src={zoomed?'/images/zoomOutIconAw.png':'/images/zoomIconAw.png'}
               alt="zoom"
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
                 swiper.zoom.toggle();
               }}
               className={styles.zoomButton}
@@ -95,7 +96,8 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
             sizes="24px"
               src="/images/cancelWhite.png"
               alt="cancel"
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
                 fullScreenChange(imageIndex);
               }}
               className={styles.close_button}
