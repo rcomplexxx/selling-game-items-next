@@ -10,7 +10,7 @@ import "swiper/css";
 
 export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
-  const [zoomed, setZoomed] = useState(undefined);
+  const [zoomed, setZoomed] = useState();
 
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
