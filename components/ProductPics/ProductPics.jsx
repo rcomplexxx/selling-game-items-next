@@ -10,7 +10,7 @@ import "swiper/css";
 
 export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
-  const [zoomed, setZoomed] = useState(false);
+  const [zoomed, setZoomed] = useState(undefined);
 
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
@@ -20,6 +20,10 @@ export default function ProductPics({ images, onAddToCart }) {
   const router = useRouter();
 
   useEffect(() => {
+    if(zoomed===undefined && router.asPath.includes("#")){
+      router.push(router.asPath.split('#')[0]);
+    
+    }
     if (zoomed) {
       router.push(router.asPath + "#zoom");
 
