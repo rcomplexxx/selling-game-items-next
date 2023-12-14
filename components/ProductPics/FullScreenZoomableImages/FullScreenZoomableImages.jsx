@@ -20,6 +20,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     let timeoutId;
     let touchCoordinates= {x:0, y:0};
     const imgDiv = document.getElementById('zoomDiv'+imageIndex);
+    let currY=0;
     
     const handleUserInteraction=()=>{
       
@@ -38,9 +39,9 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 
   const handleTouchYMove=(event)=>{
   
-      const y = event.changedTouches[event.changedTouches.length - 1].clientY-touchCoordinates.y;
- 
-    imgDiv.style.transform = `translateY(${Math.abs(y)>16?y:0}px)`;
+    currY = event.changedTouches[event.changedTouches.length - 1].clientY-touchCoordinates.y;
+    console.log(currY);
+    imgDiv.style.transform = `translateY(${(currY<-16 || currY>16)?currY:0}px)`;
 
   }
 
@@ -48,7 +49,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     imgDiv.style.transform = ``;
 
     const lastTouch =event.changedTouches[event.changedTouches.length-1];
-   
+    if(currY<-64 || currY>64)fullScreenChange(imageIndex);
     if(!timeoutId){
       if(Math.abs(lastTouch.clientX-touchCoordinates.x)<16 && Math.abs(lastTouch.clientY-touchCoordinates.y)<16)
       timeoutId= setTimeout(function () {
