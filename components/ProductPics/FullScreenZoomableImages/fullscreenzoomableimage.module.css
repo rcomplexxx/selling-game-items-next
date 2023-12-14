@@ -4,14 +4,14 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - var(--size-9));
+    height: 100%;
     padding: 0;
     background-color: var(--gray-9-elegant);
     z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: var(--size-9);
+   
     
     z-index: 7;
   }
@@ -32,7 +32,7 @@ align-items: center;
   }
   
   .closeSuiter{
-    background-color: rgb(15, 45, 75);
+    background-color: rgba(45, 95, 145, 0.604);
     position: fixed;
     top:0;
     left: 0;
@@ -161,7 +161,7 @@ align-items: center;
    height: calc(100vh - var(--size-9));
       touch-action: pan-y;
       cursor: zoom-in;
-    
+      margin-top: var(--size-9);
     
   }
 

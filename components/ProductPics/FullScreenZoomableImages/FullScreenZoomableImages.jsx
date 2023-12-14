@@ -42,7 +42,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   setNavActive(navActive=>!navActive);
   }
 
-  if(matchMedia('(pointer:fine)').matches) window.addEventListener("mousemove", handleUserInteraction);
+  if(matchMedia('(pointer:fine)').matches){handleUserInteraction(); window.addEventListener("mousemove", handleUserInteraction);}
     window.addEventListener("touchstart", handleTouchStart,true);
     window.addEventListener("touchend", handleTouchInteraction);
 
@@ -95,8 +95,8 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 </div>
           </div>
 
-          <Image height={12} width={12} src='/images/greaterLess3.png' className={`${styles.leftArrow} ${navActive?styles.navActive:styles.navInactive}`}></Image>
-          <Image height={12} width={12} src='/images/greaterLess3.png' className={`${styles.rightArrow} ${navActive?styles.navActive:styles.navInactive}`}></Image>  
+          <Image height={12} width={12} src='/images/greaterLess3.png' className={`${styles.leftArrow} ${matchMedia('(pointer:fine)').matches && navActive?styles.navActive:styles.navInactive}`}></Image>
+          <Image height={12} width={12} src='/images/greaterLess3.png' className={`${styles.rightArrow} ${matchMedia('(pointer:fine)').matches && navActive?styles.navActive:styles.navInactive}`}></Image>  
           <Swiper
           speed={400}
          slidesPerView={1}
