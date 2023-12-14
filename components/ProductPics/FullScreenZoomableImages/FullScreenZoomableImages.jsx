@@ -14,6 +14,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   const [grabbing, setGrabbing] = useState(false);
   const [swiper,setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({x:0, y:0});
+  const [yMoveSwipe, setYMoveSwipe] = useState(0);
 
   useEffect(()=>{
 
@@ -35,6 +36,14 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     touchCoordinates={x:event.touches[0].clientX, y:event.touches[0].clientY};
   }
 
+  const handleTouchYMove=(event)=>{
+    if(yMoveSwipe==undefined)return;
+    const touch = event.changedTouches[event.changedTouches.length - 1];
+ 
+  const clientY = touch.clientY;
+  setYMoveSwipe(clientY-mouseStartingPoint.y);
+  }
+
   const handleTouchInteraction=(event)=>{
     
     const lastTouch =event.changedTouches[event.changedTouches.length-1];
@@ -54,12 +63,15 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 
   if(matchMedia('(pointer:fine)').matches){handleUserInteraction(); window.addEventListener("mousemove", handleUserInteraction);}
     window.addEventListener("touchstart", handleTouchStart,true);
+    window.addEventListener(" touchmove", handleTouchYMove,true);
+   
     window.addEventListener("touchend", handleTouchInteraction);
 
 
     return () =>{ 
      if(matchMedia('(pointer:fine)').matches) window.removeEventListener("mousemove", handleUserInteraction);
      window.removeEventListener("touchstart", handleTouchStart, true);
+     window.addEventListener("touchmove", handleTouchYMove,true);
       window.removeEventListener("touchend", handleTouchInteraction);
 
 }
@@ -67,7 +79,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 
   return (
     <>
-      <div className={styles.full_screen_container}  >
+      <div className={styles.full_screen_container} style={{transform: `{translateY(${yMoveSwipe})}`}} >
 
 {/* document.addEventListener("mousemove", handleUserInteraction);
   document.addEventListener("click", handleUserInteraction);
