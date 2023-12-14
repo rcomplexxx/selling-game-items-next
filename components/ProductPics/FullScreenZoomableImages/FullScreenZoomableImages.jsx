@@ -38,7 +38,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 
   const handleTouchYMove=(event)=>{
   
-      const y = Math.round(event.changedTouches[event.changedTouches.length - 1].clientY)-touchCoordinates.y;
+      const y = event.changedTouches[event.changedTouches.length - 1].clientY-touchCoordinates.y;
  
     imgDiv.style.transform = `translateY(${Math.abs(y)>16?y:0}px)`;
 
@@ -63,8 +63,8 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   }
 
   if(matchMedia('(pointer:fine)').matches){handleUserInteraction(); window.addEventListener("mousemove", handleUserInteraction);}
-    window.addEventListener("touchstart", handleTouchStart, false);
-    window.addEventListener("touchmove", handleTouchYMove, false);
+    window.addEventListener("touchstart", handleTouchStart, true);
+    window.addEventListener("touchmove", handleTouchYMove, true);
    
     window.addEventListener("touchend", handleTouchInteraction);
 

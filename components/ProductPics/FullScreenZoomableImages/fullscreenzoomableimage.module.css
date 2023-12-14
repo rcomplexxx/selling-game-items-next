@@ -7,13 +7,13 @@
     height: 100%;
     padding: 0;
     background-color: var(--gray-9-elegant);
-    z-index: 3;
+ 
     display: flex;
     justify-content: center;
     align-items: center;
    
     
-    z-index: 7;
+    z-index: 12;
   }
 
   .spaceController{
