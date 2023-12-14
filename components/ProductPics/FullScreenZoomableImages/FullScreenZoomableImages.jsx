@@ -41,11 +41,12 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     const touch = event.changedTouches[event.changedTouches.length - 1];
  
   const clientY = touch.clientY;
-  setYMoveSwipe(clientY-mouseStartingPoint.y);
+  console.log(clientY-touchCoordinates.y);
+  setYMoveSwipe(clientY-touchCoordinates.y);
   }
 
   const handleTouchInteraction=(event)=>{
-    
+    setYMoveSwipe(0);
     const lastTouch =event.changedTouches[event.changedTouches.length-1];
    
     if(!timeoutId){
@@ -62,16 +63,16 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   }
 
   if(matchMedia('(pointer:fine)').matches){handleUserInteraction(); window.addEventListener("mousemove", handleUserInteraction);}
-    window.addEventListener("touchstart", handleTouchStart,true);
-    window.addEventListener(" touchmove", handleTouchYMove,true);
+    window.addEventListener("touchstart", handleTouchStart, false);
+    window.addEventListener("touchmove", handleTouchYMove, false);
    
     window.addEventListener("touchend", handleTouchInteraction);
 
 
     return () =>{ 
      if(matchMedia('(pointer:fine)').matches) window.removeEventListener("mousemove", handleUserInteraction);
-     window.removeEventListener("touchstart", handleTouchStart, true);
-     window.addEventListener("touchmove", handleTouchYMove,true);
+     window.removeEventListener("touchstart", handleTouchStart, false);
+     window.addEventListener("touchmove", handleTouchYMove, false);
       window.removeEventListener("touchend", handleTouchInteraction);
 
 }
@@ -79,7 +80,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
 
   return (
     <>
-      <div className={styles.full_screen_container} style={{transform: `{translateY(${yMoveSwipe})}`}} >
+      <div className={styles.full_screen_container} >
 
 {/* document.addEventListener("mousemove", handleUserInteraction);
   document.addEventListener("click", handleUserInteraction);
@@ -125,7 +126,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
           speed={400}
          slidesPerView={1}
          touchStartPreventDefault={false}
-         
+         style={{transform: Math.abs(yMoveSwipe)>16 && `translateY(${yMoveSwipe}px)`}}
          navigation={{
           prevEl: `.${styles.leftArrow}`, 
           nextEl: `.${styles.rightArrow}`, 
