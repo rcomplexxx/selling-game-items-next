@@ -10,8 +10,8 @@ import "swiper/css";
 
 export default function ProductPics({ images, onAddToCart }) {
   const [imageIndex, setImageIndex] = useState(0);
-  const [zoomed, setZoomed] = useState(undefined);
-  const [mount, setMount]=useState(false);
+  const [zoomed, setZoomed] = useState(false);
+
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
   const [swiper, setSwiper] = useState(null);
@@ -20,12 +20,12 @@ export default function ProductPics({ images, onAddToCart }) {
   const router = useRouter();
 
   useEffect(() => {
-    if(!mount ){
+    if(zoomed===undefined){
       if(router.asPath.includes("#"))
-      router.push(router.asPath.split('#')[0]);
-    
+      router.push(router.asPath.split('#zoom')[0]);
+      setZoomed(false);
+      return;
     }
-    else{
     if (zoomed) {
       router.push(router.asPath + "#zoom");
 
@@ -40,12 +40,10 @@ export default function ProductPics({ images, onAddToCart }) {
     } else document.body.classList.remove("hideScroll");
 
     if (router.asPath.includes("#")) router.back();
-  }
   }, [zoomed]);
 
   useEffect(() => {
-    if (!router.asPath.includes("#") && mount) setZoomed(false);
-    setMount(true);
+    if (!router.asPath.includes("#zoom")) setZoomed(false);
   }, [router.asPath]);
   
   useEffect(()=>{

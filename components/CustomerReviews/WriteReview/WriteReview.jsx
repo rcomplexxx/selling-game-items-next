@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function WriteReview({ stars, reviewNumber }) {
-  const [infoDivOpen, setInfoDivOpen] = useState(false);
+  const [infoDivOpen, setInfoDivOpen] = useState(undefined);
   const [rating, setRating] = useState(5);
   const [raitingPage, setRaitingPage] = useState(0);
   const [animation, setAnimation] = useState(false);
@@ -103,11 +103,19 @@ useEffect(()=>{
   const router = useRouter();
 
   useEffect(() => {
+
+    if(infoDivOpen===undefined){
+      if(router.asPath.includes("#write-review"))
+      router.push(router.asPath.split('#write-review')[0]);
+      setInfoDivOpen(false);
+      return;
+    }
+    
     if (infoDivOpen) {
       router.push(router.asPath + "#write-review");
     }
 
-    if (router.asPath.includes("#")) router.back();
+    if (!infoDivOpen && router.asPath.includes("#write-review")) router.back();
 
     setRaitingPage(0);
   }, [infoDivOpen]);
