@@ -20,7 +20,7 @@ export default function ProductPics({ images, onAddToCart }) {
   const router = useRouter();
 
   useEffect(() => {
-    if(zoomed===undefined ){
+    if(zoomed==undefined ){
       if(router.asPath.includes("#"))
       router.push(router.asPath.split('#')[0]);
     
@@ -44,7 +44,7 @@ export default function ProductPics({ images, onAddToCart }) {
   }, [zoomed]);
 
   useEffect(() => {
-    if (!router.asPath.includes("#") && zoomed!==undefined) setZoomed(false);
+    if (!router.asPath.includes("#") && zoomed!=undefined) setZoomed(false);
   }, [router.asPath]);
   
   useEffect(()=>{
