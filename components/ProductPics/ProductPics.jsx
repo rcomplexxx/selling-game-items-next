@@ -39,12 +39,12 @@ export default function ProductPics({ images, onAddToCart }) {
 
     } else document.body.classList.remove("hideScroll");
 
-   
+    if (router.asPath.includes("#")) router.back();
   }
   }, [zoomed]);
 
   useEffect(() => {
-    if (!router.asPath.includes("#") && zoomed!==undefined) setZoomed(false);
+    if (!router.asPath.includes("#")) setZoomed(false);
   }, [router.asPath]);
   
   useEffect(()=>{
