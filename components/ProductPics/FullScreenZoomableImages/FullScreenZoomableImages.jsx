@@ -39,7 +39,14 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
     
     const lastTouch =event.changedTouches[event.changedTouches.length-1];
     if(Math.abs(lastTouch.clientX-touchCoordinates.x)<16 && Math.abs(lastTouch.clientY-touchCoordinates.y)<16)
-  setNavActive(navActive=>!navActive);
+    if(!timeoutId){
+      timeoutId= setTimeout(function () {
+        setNavActive(navActive=>!navActive);
+      }, 300);
+    
+
+    }
+    else   clearTimeout(timeoutId);
   }
 
   if(matchMedia('(pointer:fine)').matches){handleUserInteraction(); window.addEventListener("mousemove", handleUserInteraction);}
