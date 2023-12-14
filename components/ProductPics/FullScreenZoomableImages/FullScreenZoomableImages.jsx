@@ -43,11 +43,12 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
       timeoutId= setTimeout(function () {
         setNavActive(navActive=>!navActive);
         clearTimeout(timeoutId);
+        timeoutId= null;
       }, 300);
     
 
     }
-    else   clearTimeout(timeoutId);
+    else  { clearTimeout(timeoutId);  timeoutId= null;}
   }
 
   if(matchMedia('(pointer:fine)').matches){handleUserInteraction(); window.addEventListener("mousemove", handleUserInteraction);}
