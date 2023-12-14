@@ -14,12 +14,12 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   const [grabbing, setGrabbing] = useState(false);
   const [swiper,setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({x:0, y:0});
-  const [yMoveSwipe, setYMoveSwipe] = useState(0);
 
   useEffect(()=>{
 
     let timeoutId;
     let touchCoordinates= {x:0, y:0};
+    const imgDiv = document.getElementById('zoomDiv'+imageIndex);
     
     const handleUserInteraction=()=>{
       
@@ -37,15 +37,16 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
   }
 
   const handleTouchYMove=(event)=>{
-    if(yMoveSwipe==undefined)return;
-    
+  
+      const y = Math.round(event.changedTouches[event.changedTouches.length - 1].clientY)-touchCoordinates.y;
  
+    imgDiv.style.transform = `translateY(${Math.abs(y)>16?y:0}px)`;
 
-  setYMoveSwipe(Math.round(event.changedTouches[event.changedTouches.length - 1].clientY)-touchCoordinates.y);
   }
 
   const handleTouchInteraction=(event)=>{
-    setYMoveSwipe(0);
+    imgDiv.style.transform = ``;
+
     const lastTouch =event.changedTouches[event.changedTouches.length-1];
    
     if(!timeoutId){
@@ -75,7 +76,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
       window.removeEventListener("touchend", handleTouchInteraction);
 
 }
-  }, []);
+  }, [imageIndex]);
 
   return (
     <>
@@ -125,7 +126,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
           speed={400}
          slidesPerView={1}
          touchStartPreventDefault={false}
-         style={{transform: Math.abs(yMoveSwipe)>16 && `translateY(${yMoveSwipe}px)`}}
+      
          navigation={{
           prevEl: `.${styles.leftArrow}`, 
           nextEl: `.${styles.rightArrow}`, 
@@ -152,7 +153,7 @@ const FullScreenZoomableImage = ({ imageIndex,setImageIndex, fullScreenChange, i
             {images.map((image, index) => (
               <SwiperSlide key={index} className='carousel-item'>
                   <div className="swiper-zoom-container">
-                <div id="zoomDiv" className={`${styles.productImageDiv} ${zoomed && (grabbing?styles.grabbing:styles.grabCursor)} swiper-zoom-target`}
+                <div id={"zoomDiv"+index} className={`${styles.productImageDiv} ${zoomed && (grabbing?styles.grabbing:styles.grabCursor)} swiper-zoom-target`}
                
                 onMouseDown={(event)=>{
                   setGrabbing(true);
