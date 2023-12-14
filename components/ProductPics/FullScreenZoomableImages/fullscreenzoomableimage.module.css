@@ -235,7 +235,7 @@ align-items: center;
   
 @keyframes spawnNav {
   0% {
-    display: none;
+    visibility: hidden;
     opacity: 0;
   
   }
@@ -244,13 +244,13 @@ align-items: center;
   
   100% {
     opacity: 1;
-    display: flex;
+    visibility: visible;
   }
 }
 
 @keyframes killNav{
   0% {
-    display: flex;
+    visibility: visible;
     opacity: 1;
   }
 
@@ -258,7 +258,7 @@ align-items: center;
   
   100% {
     opacity: 0;
-    display: none;
+    visibility: hidden;
   }
 }
 
