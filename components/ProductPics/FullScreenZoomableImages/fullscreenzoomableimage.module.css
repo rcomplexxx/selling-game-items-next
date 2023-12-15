@@ -168,7 +168,9 @@ align-items: center;
     justify-content: center;
     align-items: center;
     width: 100%;
-   height: calc(100vh - var(--size-8));
+    height: calc(100vh - var(--size-8));
+   height: calc(100svh - var(--size-8));
+  
       touch-action: pan-y;
       cursor: zoom-in;
       margin-top: var(--size-8);
