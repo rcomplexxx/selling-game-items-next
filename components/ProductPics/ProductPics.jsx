@@ -27,7 +27,7 @@ export default function ProductPics({ images, onAddToCart }) {
       return;
     }
     if (zoomed) {
-      router.push(router.asPath + "#zoom");
+      if(!router.asPath.includes("#zoom"))router.push(router.asPath + "#zoom");
 
       document.body.classList.add("hideScroll");
 
@@ -46,6 +46,7 @@ export default function ProductPics({ images, onAddToCart }) {
 
   useEffect(() => {
     if (!router.asPath.includes("#zoom")) setZoomed(false);
+    else {document.body.classList.add("hideScroll");}
   }, [router.asPath]);
   
   useEffect(()=>{
