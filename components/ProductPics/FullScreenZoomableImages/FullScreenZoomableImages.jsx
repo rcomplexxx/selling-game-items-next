@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const FullScreenZoomableImage = ({
   imageIndex,
-  setImageIndex,
+  changeImageIndex,
   fullScreenChange,
   images,
 }) => {
@@ -255,7 +255,7 @@ const timeoutId = setTimeout(function () {
             onSlideChange={(swiper) => {
               if (zoomed) swiper.zoom.out();
               setZoomed(false);
-              setImageIndex(swiper.activeIndex);
+              changeImageIndex(swiper.activeIndex);
             }}
             initialSlide={imageIndex}
             onSwiper={setSwiper}

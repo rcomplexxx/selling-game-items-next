@@ -136,7 +136,11 @@ export default function ProductPics({ images, onAddToCart }) {
         <FullScreenZoomableImage
         
           imageIndex={imageIndex}
-          setImageIndex={ setImageIndex}
+         
+          changeImageIndex={(imageIndex)=>{
+            
+            swiper.slideTo(imageIndex, 0, false);
+            setImageIndex(imageIndex)}}
           fullScreenChange={fullScreenChange}
           images={images}
         />
