@@ -29,7 +29,7 @@ export default function ProductPics({ images, onAddToCart }) {
     if (zoomed) {
       if(!router.asPath.includes("#zoom"))router.push(router.asPath + "#zoom");
 
-      document.body.classList.add("hideScroll");
+   
 
 
       router.beforePopState((state) => {
