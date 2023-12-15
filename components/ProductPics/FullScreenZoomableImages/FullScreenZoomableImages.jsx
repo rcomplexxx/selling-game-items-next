@@ -49,9 +49,17 @@ const FullScreenZoomableImage = ({
       currY =
         event.changedTouches[event.changedTouches.length - 1].clientY -
         touchCoordinates.y;
-
+        if(currY > -16 && currY < 16 ){imgDiv.style.transform = `translateY(${
+           0
+        }px)`;
+        fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${
+          rgbValues[2]
+        }, ${1-Math.abs((imgDiv.getBoundingClientRect().top-48) / window.innerHeight) * 2})`;
+    
+        
+        return;}
       imgDiv.style.transform = `translateY(${
-        currY < -16 || currY > 16 ? currY : 0
+       currY 
       }px)`;
    
       
