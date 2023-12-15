@@ -153,7 +153,18 @@ export default function ProductPics({ images, onAddToCart }) {
       {images.map((img, index) => (
         <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}
         onClick={() => {
-          setZoomed(true);
+
+          let timeoutId;
+
+          const checkZoomDefined=() => {
+            
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(checkZoomDefined, 100)
+            
+          };
+
+          if(zoomed==undefined)  checkZoomDefined();
+          else setZoomed(true);
         }}>
          
             <Image
