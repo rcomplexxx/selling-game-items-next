@@ -134,7 +134,7 @@ export default function ProductPics({ images, onAddToCart }) {
 
       {zoomed && (
         <FullScreenZoomableImage
-          imageUrl="/images/boxItem.png"
+        
           imageIndex={imageIndex}
           setImageIndex={ setImageIndex}
           fullScreenChange={fullScreenChange}
@@ -158,6 +158,7 @@ export default function ProductPics({ images, onAddToCart }) {
         }}>
          
             <Image
+            id={`mainImage${index}`}
               className={styles.productImage}
               src={img.src}
               alt={img.alt}

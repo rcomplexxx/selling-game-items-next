@@ -96,7 +96,10 @@ const FullScreenZoomableImage = ({
       imgDiv.style.transform = ``;
       swipeYLock=false;
       const lastTouch = event.changedTouches[event.changedTouches.length - 1];
-      if (currY < -128 || currY > 128) fullScreenChange(imageIndex);
+      if (currY < -128 || currY > 128) {
+        killFullScreen();
+      // fullScreenChange(imageIndex);
+      }
       else{
         setNavLocked(false);
         fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${
@@ -139,6 +142,33 @@ const FullScreenZoomableImage = ({
     };
   }, [imageIndex]);
 
+const killFullScreen=()=>{
+ const fullImg = document.getElementById(`fullImage${imageIndex}`);
+const mainImg = document.getElementById(`mainImage${imageIndex}`);
+
+const scaleRatio = mainImg.getBoundingClientRect().height / fullImg.getBoundingClientRect().height;
+const distanceDifference = mainImg.getBoundingClientRect().top - fullImg.getBoundingClientRect().top;
+const distanceXDifference = mainImg.getBoundingClientRect().left - fullImg.getBoundingClientRect().left;
+const XTr= (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth?
+distanceXDifference - (fullImg.getBoundingClientRect().width - fullImg.getBoundingClientRect().width*scaleRatio)/2
+:mainImg.getBoundingClientRect().left- (window.innerWidth-fullImg.getBoundingClientRect().height/fullImg.naturalHeight* fullImg.naturalWidth*scaleRatio)/2;
+
+fullImg.style.transformOrigin = 'top center';
+fullImg.style.transition = 'transform 0.3s';
+fullImg.style.transform = `translateX(${XTr}px) translateY(${distanceDifference}px) scale(${scaleRatio})`;
+
+fixedZoomDiv.style.backgroundColor = `rgba(0, 0, 0, 0)`;
+
+
+const timeoutId = setTimeout(function () {
+  fullScreenChange(imageIndex)
+  clearTimeout(timeoutId);
+}, 300);
+
+
+}
+
+
   return (
     <>
       <div id="fixedZoomDiv" className={styles.full_screen_container}>
@@ -179,7 +209,7 @@ const FullScreenZoomableImage = ({
                 alt="cancel"
                 onClick={(event) => {
                   event.stopPropagation()
-                  fullScreenChange(imageIndex);
+                  killFullScreen();
                 }}
                 className={styles.close_button}
               />
@@ -275,6 +305,7 @@ const FullScreenZoomableImage = ({
                     }}
                   >
                     <Image
+                    id={`fullImage${index}`}
                       height={0}
                       width={0}
                       sizes="100vw"
