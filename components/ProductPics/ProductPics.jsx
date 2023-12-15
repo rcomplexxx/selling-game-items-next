@@ -157,9 +157,9 @@ export default function ProductPics({ images, onAddToCart }) {
           let timeoutId;
 
           const checkZoomDefined=() => {
-            
+            const timeoutIdPom = setTimeout(checkZoomDefined, 100);
             clearTimeout(timeoutId);
-            timeoutId = setTimeout(checkZoomDefined, 100)
+            timeoutId = timeoutIdPom;
             
           };
 
