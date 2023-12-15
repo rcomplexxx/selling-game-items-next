@@ -15,6 +15,7 @@ const FullScreenZoomableImage = ({
 }) => {
   const [navActive, setNavActive] = useState(true);
   const [navLocked, setNavLocked] = useState(false);
+ 
   const [zoomed, setZoomed] = useState(false);
   const [grabbing, setGrabbing] = useState(false);
   const [swiper, setSwiper] = useState();
@@ -22,6 +23,7 @@ const FullScreenZoomableImage = ({
 
   useEffect(() => {
     let timeoutId;
+    let swipeYLock=false;
     let touchCoordinates = { x: 0, y: 0 };
     const imgDiv = document.getElementById("zoomDiv" + imageIndex);
     const fixedZoomDiv=  document.getElementById("fixedZoomDiv");
@@ -29,6 +31,7 @@ const FullScreenZoomableImage = ({
       fixedZoomDiv
     ).backgroundColor.match(/\d+/g);
 
+    let currX= 0;
     let currY = 0;
 
     const handleUserInteraction = () => {
@@ -47,6 +50,11 @@ const FullScreenZoomableImage = ({
     };
 
     const handleTouchYMove = (event) => {
+      if(swipeYLock) return;
+
+     
+
+
       currY =
         event.changedTouches[event.changedTouches.length - 1].clientY -
         touchCoordinates.y;
@@ -55,13 +63,21 @@ const FullScreenZoomableImage = ({
         }px)`;
         fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${
           rgbValues[2]
-        }, ${1-Math.abs((imgDiv.getBoundingClientRect().top-48) / window.innerHeight) * 2})`;
+        }, 1`;
     
-        
+        currX =
+        event.changedTouches[event.changedTouches.length - 1].clientX -
+        touchCoordinates.x;
+        if((currX < -5) || currX > 5 ) swipeYLock=true;
+
         return;}
-        else{
+       
+
+
+
           setNavLocked(true);
-        }
+         
+        
       imgDiv.style.transform = `translateY(${
        currY 
       }px)`;
@@ -74,9 +90,11 @@ const FullScreenZoomableImage = ({
       }, ${1-Math.abs((imgDiv.getBoundingClientRect().top-48) / window.innerHeight) * 2})`;
     };
 
+
+
     const handleTouchInteraction = (event) => {
       imgDiv.style.transform = ``;
-
+      swipeYLock=false;
       const lastTouch = event.changedTouches[event.changedTouches.length - 1];
       if (currY < -128 || currY > 128) fullScreenChange(imageIndex);
       else{
@@ -85,6 +103,7 @@ const FullScreenZoomableImage = ({
           rgbValues[2]
         }, 1`;
       }
+      
       if (!timeoutId) {
         if (
           Math.abs(lastTouch.clientX - touchCoordinates.x) < 16 &&
