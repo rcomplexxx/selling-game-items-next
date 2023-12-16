@@ -21,6 +21,54 @@ const FullScreenZoomableImage = ({
   const [swiper, setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({ x: 0, y: 0 });
 
+  useEffect(()=>{
+    const fixedZoomDiv=  document.getElementById("fixedZoomDiv");
+    // fixedZoomDiv.style.opacity = `0`;
+    const mainImg = document.getElementById(`mainImage${imageIndex}`);
+    const imgDiv = document.getElementById("zoomDiv" + imageIndex);
+    const fullImg = document.getElementById(`fullImage${imageIndex}`);
+ const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
+    const scaleRatio =biggerWidth?
+    mainImg.getBoundingClientRect().width/window.innerWidth :
+    mainImg.getBoundingClientRect().height/(window.innerHeight - 48)  ;
+
+
+
+
+
+
+    const distanceDifference = mainImg.getBoundingClientRect().top - fullImg.getBoundingClientRect().top;
+const distanceXDifference = mainImg.getBoundingClientRect().left - fullImg.getBoundingClientRect().left;
+const XTr= biggerWidth?
+distanceXDifference - (fullImg.getBoundingClientRect().width - fullImg.getBoundingClientRect().width*scaleRatio)/2
+:mainImg.getBoundingClientRect().left- (window.innerWidth-fullImg.getBoundingClientRect().height/fullImg.naturalHeight* fullImg.naturalWidth*scaleRatio)/2;
+const YTr = biggerWidth?
+mainImg.getBoundingClientRect().top-48- 
+(window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio
+:distanceDifference 
+
+
+fullImg.style.transformOrigin = 'top center';
+
+
+
+
+
+
+fullImg.animate([
+      // key frames
+      { transform: `translateX(${XTr}px) translateY(${YTr}px) scale(${scaleRatio})` },
+      { transform: 'translateX(0) translateY(0) scale(1)' }
+    ], {
+      // sync options
+      duration: 300,
+      
+    });
+
+
+  
+  },[])
+
   useEffect(() => {
     let timeoutId;
     let swipeYLock=false;
@@ -93,11 +141,13 @@ const FullScreenZoomableImage = ({
 
 
     const handleTouchInteraction = (event) => {
-      imgDiv.style.transform = ``;
+      imgDiv.style.transform = `translateY(${
+        currY 
+       }px)`;
       swipeYLock=false;
       const lastTouch = event.changedTouches[event.changedTouches.length - 1];
       if (currY < -128 || currY > 128) {
-        killFullScreen();
+        killFullScreen(currY);
       // fullScreenChange(imageIndex);
       }
       else{
@@ -142,7 +192,7 @@ const FullScreenZoomableImage = ({
     };
   }, [imageIndex]);
 
-const killFullScreen=()=>{
+const killFullScreen=(currY=0)=>{
  const fullImg = document.getElementById(`fullImage${imageIndex}`);
 const mainImg = document.getElementById(`mainImage${imageIndex}`);
 const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
@@ -159,8 +209,8 @@ distanceXDifference - (fullImg.getBoundingClientRect().width - fullImg.getBoundi
 :mainImg.getBoundingClientRect().left- (window.innerWidth-fullImg.getBoundingClientRect().height/fullImg.naturalHeight* fullImg.naturalWidth*scaleRatio)/2;
 const YTr = biggerWidth?
 mainImg.getBoundingClientRect().top-48- 
-(window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio
-:distanceDifference
+(window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio-currY
+:distanceDifference 
 
 
 fullImg.style.transformOrigin = 'top center';

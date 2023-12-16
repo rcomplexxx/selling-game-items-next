@@ -11,8 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
-    animation: summonFullImgDiv 0.3s ease;
+
     z-index: 12;
   }
 
@@ -268,19 +267,6 @@ align-items: center;
 }
 
 
-@keyframes summonFullImgDiv{
-  0% {
-
-   transform: translate(-50%, -50%) rotate3d(1, 0, 0, -90deg);
-
-  }
-
-
-  
-  100% {
-    transform: translateX(0);
-  }
-}
 
 
 
