@@ -248,15 +248,15 @@ mainImg.getBoundingClientRect().top-48-
 (window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio-currY
 :distanceDifference 
 
-const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
-zoomInImg.style.opacity = '0';
+// const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
+// zoomInImg.style.opacity = '0';
 
 
 mainImg.style.opacity = '0';
 
 setTimeout(()=>{
   mainImg.style.opacity = '1';
-  zoomInImg.style.opacity = '1';
+  // zoomInImg.style.opacity = '1';
 },300)
 
 fullImg.style.transformOrigin = 'top center';
