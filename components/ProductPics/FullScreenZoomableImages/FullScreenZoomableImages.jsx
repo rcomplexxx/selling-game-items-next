@@ -145,20 +145,30 @@ const FullScreenZoomableImage = ({
 const killFullScreen=()=>{
  const fullImg = document.getElementById(`fullImage${imageIndex}`);
 const mainImg = document.getElementById(`mainImage${imageIndex}`);
+const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
 
-const scaleRatio = mainImg.getBoundingClientRect().height / fullImg.getBoundingClientRect().height;
+const scaleRatio =biggerWidth?
+mainImg.getBoundingClientRect().width /window.innerWidth:
+mainImg.getBoundingClientRect().height /(window.innerHeight - 48);
+
+
 const distanceDifference = mainImg.getBoundingClientRect().top - fullImg.getBoundingClientRect().top;
 const distanceXDifference = mainImg.getBoundingClientRect().left - fullImg.getBoundingClientRect().left;
-const XTr= (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth?
+const XTr= biggerWidth?
 distanceXDifference - (fullImg.getBoundingClientRect().width - fullImg.getBoundingClientRect().width*scaleRatio)/2
 :mainImg.getBoundingClientRect().left- (window.innerWidth-fullImg.getBoundingClientRect().height/fullImg.naturalHeight* fullImg.naturalWidth*scaleRatio)/2;
+const YTr = biggerWidth?
+mainImg.getBoundingClientRect().top-48- 
+(window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio
+:distanceDifference
+
 
 fullImg.style.transformOrigin = 'top center';
-fullImg.style.transition = 'transform 0.3s';
-fullImg.style.transform = `translateX(${XTr}px) translateY(${distanceDifference}px) scale(${scaleRatio})`;
+fullImg.style.transition = 'transform 0.3s ease';
+fullImg.style.transform = `translateX(${XTr}px) translateY(${YTr}px) scale(${scaleRatio})`;
 
 fixedZoomDiv.style.backgroundColor = `rgba(0, 0, 0, 0)`;
-
+setNavLocked(true);
 
 const timeoutId = setTimeout(function () {
   fullScreenChange(imageIndex)
@@ -167,6 +177,7 @@ const timeoutId = setTimeout(function () {
 
 
 }
+
 
 
   return (
