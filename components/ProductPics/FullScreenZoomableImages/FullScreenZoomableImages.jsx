@@ -248,16 +248,20 @@ mainImg.getBoundingClientRect().top-48-
 (window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio-currY
 :distanceDifference 
 
-// const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
-// zoomInImg.style.opacity = '0';
+if(matchMedia("(pointer:fine)").matches){const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
+zoomInImg.style.opacity = '0';
 
 
-// mainImg.style.opacity = '0';
+mainImg.style.opacity = '0';
 
-// setTimeout(()=>{
-//   mainImg.style.opacity = '1';
-//   zoomInImg.style.opacity = '1';
-// },300)
+setTimeout(()=>{
+  mainImg.style.opacity = '1';
+  zoomInImg.style.opacity = '1';
+},300)
+
+}
+
+//doraditi
 
 fullImg.style.transformOrigin = 'top center';
 fullImg.style.transition = 'transform 0.3s ease';
