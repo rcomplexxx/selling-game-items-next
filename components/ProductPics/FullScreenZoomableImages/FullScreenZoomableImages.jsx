@@ -23,9 +23,9 @@ const FullScreenZoomableImage = ({
 
   useEffect(()=>{
     const fixedZoomDiv=  document.getElementById("fixedZoomDiv");
-    // fixedZoomDiv.style.opacity = `0`;
+   
     const mainImg = document.getElementById(`mainImage${imageIndex}`);
-    const imgDiv = document.getElementById("zoomDiv" + imageIndex);
+    
     const fullImg = document.getElementById(`fullImage${imageIndex}`);
  const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
     const scaleRatio =biggerWidth?
@@ -52,6 +52,31 @@ fullImg.style.transformOrigin = 'top center';
 
 
 
+// fixedZoomDiv.style.opacity = `0`;
+
+
+
+const rgbValues = getComputedStyle(
+  fixedZoomDiv
+).backgroundColor.match(/\d+/g);
+
+fixedZoomDiv.animate([
+  { backgroundColor: `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 0)` },
+  { backgroundColor: `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 1)` }
+], {
+  duration: 50,
+  easing: 'ease',
+});
+
+const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
+
+zoomInImg.style.opacity = '0';
+mainImg.style.opacity = '0';
+
+setTimeout(()=>{
+  mainImg.style.opacity = '1';
+  zoomInImg.style.opacity = '1';
+},100)
 
 
 
@@ -62,10 +87,21 @@ fullImg.animate([
     ], {
       // sync options
       duration: 300,
-      
+       easing: 'ease'
     });
 
+  
 
+
+    
+
+
+
+
+  
+
+
+   
   
   },[])
 
@@ -212,6 +248,16 @@ mainImg.getBoundingClientRect().top-48-
 (window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio-currY
 :distanceDifference 
 
+const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
+zoomInImg.style.opacity = '0';
+
+
+mainImg.style.opacity = '0';
+
+setTimeout(()=>{
+  mainImg.style.opacity = '1';
+  zoomInImg.style.opacity = '1';
+},300)
 
 fullImg.style.transformOrigin = 'top center';
 fullImg.style.transition = 'transform 0.3s ease';
