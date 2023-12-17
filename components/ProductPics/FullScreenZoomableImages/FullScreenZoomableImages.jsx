@@ -78,13 +78,13 @@ const transitionEnded = ()=>{
 
 fixedZoomDiv.style.transition = 'background-color 0.2s 0.01s ease'
 fixedZoomDiv.style.backgroundColor  = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 1)`
-const leftArrow = document.getElementsByClassName(styles.leftArrow);
-const rightArrow = document.getElementsByClassName(styles.rightArrow);
-console.log('arrows', leftArrow,rightArrow);
-leftArrow[0].style.transition = ''
-leftArrow[0].style.opacity = '1'
-rightArrow[0].style.transition = 'opacity 3s ease'
-rightArrow[0].style.opacity = '1'
+// const leftArrow = document.getElementsByClassName(styles.leftArrow);
+// const rightArrow = document.getElementsByClassName(styles.rightArrow);
+// console.log('arrows', leftArrow,rightArrow);
+// leftArrow[0].style.transition = ''
+// leftArrow[0].style.opacity = '1'
+// rightArrow[0].style.transition = 'opacity 3s ease'
+// rightArrow[0].style.opacity = '1'
 
 const deltaX=biggerWidth?
 0:
@@ -98,7 +98,7 @@ fullImg.style.transform= `translateX(${deltaX}px) translateY(${deltaY}px) scale(
 
 setTimeout(()=>{
  
-  fullImg.style.transition = 'left 0.29s ease, top 0.29s ease, transform 0.29s ease'
+  fullImg.style.transition = 'left 0.3s ease, top 0.3s ease, transform 0.3s ease'
 fullImg.style.left= `0`
 fullImg.style.transform= `scale(1)`
 fullImg.style.top= `0`
@@ -110,27 +110,11 @@ fullImg.style.top= `0`
 
 
     
-
-
-
-
-  
-
-
-   
-  
-  },[])
-
-  useEffect(() => {
-    let timeoutId;
+ let timeoutId;
     let swipeYLock=false;
     let touchCoordinates = { x: 0, y: 0 };
     const imgDiv = document.getElementById("zoomDiv" + imageIndex);
-    const fixedZoomDiv=  document.getElementById("fixedZoomDiv");
-    const rgbValues = getComputedStyle(
-      fixedZoomDiv
-    ).backgroundColor.match(/\d+/g);
-
+   
     let currX= 0;
     let currY = 0;
 
@@ -200,7 +184,6 @@ fullImg.style.top= `0`
       const lastTouch = event.changedTouches[event.changedTouches.length - 1];
       if (currY < -128 || currY > 128) {
         killFullScreen(currY);
-      // fullScreenChange(imageIndex);
       }
       else{
         setNavLocked(false);
@@ -242,7 +225,17 @@ fullImg.style.top= `0`
       window.addEventListener("touchmove", handleTouchYMove, true);
       window.removeEventListener("touchend", handleTouchInteraction);
     };
-  }, [imageIndex]);
+
+
+
+  
+
+
+   
+  
+  },[])
+
+ 
 
 const killFullScreen=(currY=0)=>{
 
