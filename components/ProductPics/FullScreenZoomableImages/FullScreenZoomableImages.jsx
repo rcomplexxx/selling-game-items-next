@@ -76,11 +76,15 @@ const transitionEnded = ()=>{
  fixedZoomDiv.addEventListener('transitionend', transitionEnded);
 
 
-fixedZoomDiv.style.transition = 'background-color 0.3s ease'
+fixedZoomDiv.style.transition = 'background-color 0.1s ease'
 fixedZoomDiv.style.backgroundColor  = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 1)`
-
-
-
+const leftArrow = document.getElementsByClassName(styles.leftArrow);
+const rightArrow = document.getElementsByClassName(styles.rightArrow);
+console.log('arrows', leftArrow,rightArrow);
+leftArrow[0].style.transition = ''
+leftArrow[0].style.opacity = '1'
+rightArrow[0].style.transition = 'opacity 3s ease'
+rightArrow[0].style.opacity = '1'
 
 const deltaX=biggerWidth?20:mainImg.getBoundingClientRect().left-(window.innerWidth-(window.innerHeight-48)/fullImg.naturalHeight*fullImg.naturalWidth)/2*scaleRatio;
 const deltaY=biggerWidth?mainImg.getBoundingClientRect().top-48-(window.innerHeight-48- window.innerWidth/fullImg.naturalWidth*fullImg.naturalHeight)/2*scaleRatio:mainImg.getBoundingClientRect().top-48;
@@ -104,7 +108,7 @@ fullImg.animate([
   }
 ], {
   // sync options
-  duration: 300,
+  duration: 500,
   easing: 'ease',
   complete: ()=>{
     fullImg.style.position= 'static'
@@ -251,53 +255,65 @@ fullImg.animate([
   }, [imageIndex]);
 
 const killFullScreen=(currY=0)=>{
- const fullImg = document.getElementById(`fullImage${imageIndex}`);
-const mainImg = document.getElementById(`mainImage${imageIndex}`);
-const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
 
-const scaleRatio =biggerWidth?
-(window.innerWidth-40) /window.innerWidth:
-mainImg.getBoundingClientRect().height /(window.innerHeight - 48);
+if(zoomed)swiper.zoom.toggle();
 
-// mainImg.getBoundingClientRect().width /window.innerWidth:
-
-
-const distanceDifference = mainImg.getBoundingClientRect().top - fullImg.getBoundingClientRect().top;
-const distanceXDifference = mainImg.getBoundingClientRect().left - fullImg.getBoundingClientRect().left;
-const XTr= biggerWidth?
-distanceXDifference - (fullImg.getBoundingClientRect().width - fullImg.getBoundingClientRect().width*scaleRatio)/2
-:mainImg.getBoundingClientRect().left- (window.innerWidth-fullImg.getBoundingClientRect().height/fullImg.naturalHeight* fullImg.naturalWidth*scaleRatio)/2;
-const YTr = biggerWidth?
-mainImg.getBoundingClientRect().top-48- 
-(window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio-currY
-:distanceDifference 
-
-if(matchMedia("(pointer:fine)").matches && window.innerWidth>980){const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
-zoomInImg.style.opacity = '0';
-
-
-mainImg.style.opacity = '0';
-
-setTimeout(()=>{
-  mainImg.style.opacity = '1';
-  zoomInImg.style.opacity = '1';
-},300)
-
-}
-
-//doraditi
-
-fullImg.style.transformOrigin = 'top center';
-fullImg.style.transition = 'transform 0.3s ease';
-fullImg.style.transform = `translateX(${XTr}px) translateY(${YTr}px) scale(${scaleRatio})`;
-
-fixedZoomDiv.style.backgroundColor = `rgba(0, 0, 0, 0)`;
-setNavLocked(true);
-
-const timeoutId = setTimeout(function () {
-  fullScreenChange(imageIndex)
-  clearTimeout(timeoutId);
-}, 300);
+const timeoutIdMain = setTimeout(function () {
+  const fullImg = document.getElementById(`fullImage${imageIndex}`);
+  const mainImg = document.getElementById(`mainImage${imageIndex}`);
+  const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
+  
+  
+  // const scaleX = biggerWidth?fullImg.getBoundingClientRect().width / fullImg.offsetWidth:
+  // fullImg.getBoundingClientRect().height / fullImg.offsetHeight;
+  const scaleRatio =biggerWidth?
+  (window.innerWidth-40) /window.innerWidth:
+  mainImg.getBoundingClientRect().height /(window.innerHeight - 48);
+  
+  
+  
+  // mainImg.getBoundingClientRect().width /window.innerWidth:
+  
+  
+  const distanceDifference = mainImg.getBoundingClientRect().top - fullImg.getBoundingClientRect().top;
+  const distanceXDifference = mainImg.getBoundingClientRect().left - fullImg.getBoundingClientRect().left;
+  const XTr= biggerWidth?
+  distanceXDifference - (fullImg.getBoundingClientRect().width - fullImg.getBoundingClientRect().width*scaleRatio)/2
+  :mainImg.getBoundingClientRect().left- (window.innerWidth-fullImg.getBoundingClientRect().height/fullImg.naturalHeight* fullImg.naturalWidth*scaleRatio)/2;
+  const YTr = biggerWidth?
+  mainImg.getBoundingClientRect().top-48- 
+  (window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio-currY
+  :distanceDifference 
+  
+  if(matchMedia("(pointer:fine)").matches && window.innerWidth>980){const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
+  zoomInImg.style.opacity = '0';
+  
+  
+  mainImg.style.opacity = '0';
+  
+  setTimeout(()=>{
+    mainImg.style.opacity = '1';
+    zoomInImg.style.opacity = '1';
+  },300)
+  
+  }
+  
+  //doraditi
+  
+  fullImg.style.transformOrigin = 'top center';
+  fullImg.style.transition = 'transform 0.3s ease';
+  fullImg.style.transform = `translateX(${XTr}px) translateY(${YTr}px) scale(${scaleRatio})`;
+  
+  fixedZoomDiv.style.backgroundColor = `rgba(0, 0, 0, 0)`;
+  setNavLocked(true);
+  
+  const timeoutId = setTimeout(function () {
+    fullScreenChange(imageIndex)
+    clearTimeout(timeoutId);
+  }, 300);
+  
+  clearTimeout(timeoutIdMain);
+}, zoomed?300:0);
 
 
 }
