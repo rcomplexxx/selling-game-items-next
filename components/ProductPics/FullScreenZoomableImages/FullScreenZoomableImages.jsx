@@ -82,25 +82,6 @@ fixedZoomDiv.style.backgroundColor  = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${
 
 
 
-
-// fixedZoomDiv.animate([
-//   { backgroundColor: `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 0)` },
-//   { backgroundColor: `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 1)` }
-// ], {
-//   duration: 50,
-//   easing: 'ease',
-
-// }).finished.then(() => {
-//   // Code to execute after the animation is completed
-//   mainImg.style.opacity = '1';
-//   zoomInImg.style.opacity = '1';
-// });
-
-
-
-
-
-
 const deltaX=biggerWidth?20:mainImg.getBoundingClientRect().left-(window.innerWidth-(window.innerHeight-48)/fullImg.naturalHeight*fullImg.naturalWidth)/2*scaleRatio;
 const deltaY=biggerWidth?mainImg.getBoundingClientRect().top-48-(window.innerHeight-48- window.innerWidth/fullImg.naturalWidth*fullImg.naturalHeight)/2*scaleRatio:mainImg.getBoundingClientRect().top-48;
 
