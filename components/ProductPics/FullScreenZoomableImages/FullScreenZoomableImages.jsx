@@ -54,7 +54,13 @@ const FullScreenZoomableImage = ({
 
 // fixedZoomDiv.style.opacity = `0`;
 
+const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
 
+zoomInImg.style.opacity = '0';
+mainImg.style.opacity = '0';
+
+
+//prebaciti u complete
 
 const rgbValues = getComputedStyle(
   fixedZoomDiv
@@ -66,17 +72,14 @@ fixedZoomDiv.animate([
 ], {
   duration: 50,
   easing: 'ease',
-});
 
-const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
-
-zoomInImg.style.opacity = '0';
-mainImg.style.opacity = '0';
-
-setTimeout(()=>{
+}).finished.then(() => {
+  // Code to execute after the animation is completed
   mainImg.style.opacity = '1';
   zoomInImg.style.opacity = '1';
-},100)
+});
+
+
 
 
 fullImg.style.transformOrigin='top left'
