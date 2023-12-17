@@ -86,28 +86,26 @@ leftArrow[0].style.opacity = '1'
 rightArrow[0].style.transition = 'opacity 3s ease'
 rightArrow[0].style.opacity = '1'
 
-const deltaX=biggerWidth?20:mainImg.getBoundingClientRect().left-(window.innerWidth-(window.innerHeight-48)/fullImg.naturalHeight*fullImg.naturalWidth)/2*scaleRatio;
+const deltaX=biggerWidth?
+0:
+mainImg.getBoundingClientRect().left-(window.innerWidth-(window.innerHeight-48)/fullImg.naturalHeight*fullImg.naturalWidth*scaleRatio)/2;
 const deltaY=biggerWidth?mainImg.getBoundingClientRect().top-48-(window.innerHeight-48- window.innerWidth/fullImg.naturalWidth*fullImg.naturalHeight)/2*scaleRatio:mainImg.getBoundingClientRect().top-48;
 
 
-fullImg.style.transformOrigin='top left'
-fullImg.style.position= 'absolute'
+fullImg.style.transformOrigin='top center'
 fullImg.style.transition = 'transform 0s linear'
-fullImg.style.left= `${deltaX}px`
-fullImg.style.top= `${deltaY}px`
-fullImg.style.transform= `scale(${scaleRatio})`
+fullImg.style.transform= `translateX(${deltaX}px) translateY(${deltaY}px) scale(${scaleRatio})`
 
 setTimeout(()=>{
-
-  fullImg.style.transition = 'left 0.3s ease, top 0.3s ease, transform 0.3s ease'
+ 
+  fullImg.style.transition = 'left 0.29s ease, top 0.29s ease, transform 0.29s ease'
 fullImg.style.left= `0`
-fullImg.style.top= `0`
 fullImg.style.transform= `scale(1)`
+fullImg.style.top= `0`
+
 },10)
 
-setTimeout(()=>{
-  fullImg.style.position= 'static'
-},300)
+
   
 
 
