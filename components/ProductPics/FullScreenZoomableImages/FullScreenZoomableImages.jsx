@@ -3,7 +3,7 @@ import styles from "./fullscreenzoomableimage.module.css";
 import { Zoom, Navigation } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/zoom";
+import "swiper/css/zoom";0
 import "swiper/css/navigation";
 import Image from "next/image";
 
@@ -29,7 +29,7 @@ const FullScreenZoomableImage = ({
     const fullImg = document.getElementById(`fullImage${imageIndex}`);
  const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
     const scaleRatio =biggerWidth?
-    mainImg.getBoundingClientRect().width/window.innerWidth :
+    (window.innerWidth-40)/window.innerWidth :
     mainImg.getBoundingClientRect().height/(window.innerHeight - 48)  ;
 
 
@@ -37,18 +37,18 @@ const FullScreenZoomableImage = ({
 
 
 
-    const distanceDifference = mainImg.getBoundingClientRect().top - fullImg.getBoundingClientRect().top;
-const distanceXDifference = mainImg.getBoundingClientRect().left - fullImg.getBoundingClientRect().left;
-const XTr= biggerWidth?
-distanceXDifference - (fullImg.getBoundingClientRect().width - fullImg.getBoundingClientRect().width*scaleRatio)/2
-:mainImg.getBoundingClientRect().left- (window.innerWidth-fullImg.getBoundingClientRect().height/fullImg.naturalHeight* fullImg.naturalWidth*scaleRatio)/2;
-const YTr = biggerWidth?
-mainImg.getBoundingClientRect().top-48- 
-(window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio
-:distanceDifference 
+//     const distanceDifference = mainImg.getBoundingClientRect().top - fullImg.getBoundingClientRect().top;
+// const distanceXDifference = mainImg.getBoundingClientRect().left - fullImg.getBoundingClientRect().left;
+// const XTr= biggerWidth?
+// distanceXDifference - (fullImg.getBoundingClientRect().width - fullImg.getBoundingClientRect().width*scaleRatio)/2
+// :mainImg.getBoundingClientRect().left- (window.innerWidth-fullImg.getBoundingClientRect().height/fullImg.naturalHeight* fullImg.naturalWidth*scaleRatio)/2;
+// const YTr = biggerWidth?
+// mainImg.getBoundingClientRect().top-48- 
+// (window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio
+// :distanceDifference 
 
 
-fullImg.style.transformOrigin = 'top center';
+
 
 
 
@@ -79,17 +79,37 @@ setTimeout(()=>{
 },100)
 
 
+fullImg.style.transformOrigin='top left'
+fullImg.style.position= 'absolute'
+
+const deltaX=biggerWidth?20:mainImg.getBoundingClientRect().left-(window.innerWidth-(window.innerHeight-48)/fullImg.naturalHeight*fullImg.naturalWidth)/2*scaleRatio;
+const deltaY=biggerWidth?mainImg.getBoundingClientRect().top-48-(window.innerHeight-48- window.innerWidth/fullImg.naturalWidth*fullImg.naturalHeight)/2*scaleRatio:mainImg.getBoundingClientRect().top-48;
+
+
 
 fullImg.animate([
-      // key frames
-      { transform: `translateX(${XTr}px) translateY(${YTr}px) scale(${scaleRatio})` },
-      { transform: 'translateX(0) translateY(0) scale(1)' }
-    ], {
-      // sync options
-      duration: 300,
-       easing: 'ease'
-    });
+  // key frames
+  //Doraditi sutra
+  {
+    left: `${deltaX}px`,
+    top: `${deltaY}px`,
+    transform: `scale(${scaleRatio})`
+  },
+  {
+    top: '0',
+    left: '0',
+    transform: 'scale(1)'
+  }
+], {
+  // sync options
+  duration: 300,
+  easing: 'ease',
+  complete: ()=>{
+    fullImg.style.position= 'static'
+  }
+});
 
+  
   
 
 
@@ -234,8 +254,10 @@ const mainImg = document.getElementById(`mainImage${imageIndex}`);
 const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
 
 const scaleRatio =biggerWidth?
-mainImg.getBoundingClientRect().width /window.innerWidth:
+(window.innerWidth-40) /window.innerWidth:
 mainImg.getBoundingClientRect().height /(window.innerHeight - 48);
+
+// mainImg.getBoundingClientRect().width /window.innerWidth:
 
 
 const distanceDifference = mainImg.getBoundingClientRect().top - fullImg.getBoundingClientRect().top;
@@ -248,7 +270,7 @@ mainImg.getBoundingClientRect().top-48-
 (window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio-currY
 :distanceDifference 
 
-if(matchMedia("(pointer:fine)").matches){const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
+if(matchMedia("(pointer:fine)").matches && window.innerWidth>980){const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
 zoomInImg.style.opacity = '0';
 
 
@@ -348,6 +370,7 @@ const timeoutId = setTimeout(function () {
             }`}
           ></Image>
           <Swiper
+         
             speed={400}
             slidesPerView={1}
             touchStartPreventDefault={false}
@@ -375,7 +398,7 @@ const timeoutId = setTimeout(function () {
             grabCursor={true}
           >
             {images.map((image, index) => (
-              <SwiperSlide key={index} className="carousel-item">
+              <SwiperSlide  id={`slide${index}`} key={index} className="carousel-item">
                 <div className="swiper-zoom-container">
                   <div
                     id={"zoomDiv" + index}
