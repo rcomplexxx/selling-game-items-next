@@ -76,7 +76,7 @@ const transitionEnded = ()=>{
  fixedZoomDiv.addEventListener('transitionend', transitionEnded);
 
 
-fixedZoomDiv.style.transition = 'background-color 0.1s ease'
+fixedZoomDiv.style.transition = 'background-color 0.2s 0.01s ease'
 fixedZoomDiv.style.backgroundColor  = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 1)`
 const leftArrow = document.getElementsByClassName(styles.leftArrow);
 const rightArrow = document.getElementsByClassName(styles.rightArrow);
@@ -92,30 +92,22 @@ const deltaY=biggerWidth?mainImg.getBoundingClientRect().top-48-(window.innerHei
 
 fullImg.style.transformOrigin='top left'
 fullImg.style.position= 'absolute'
+fullImg.style.transition = 'transform 0s linear'
+fullImg.style.left= `${deltaX}px`
+fullImg.style.top= `${deltaY}px`
+fullImg.style.transform= `scale(${scaleRatio})`
 
-fullImg.animate([
-  // key frames
-  //Doraditi sutra
-  {
-    left: `${deltaX}px`,
-    top: `${deltaY}px`,
-    transform: `scale(${scaleRatio})`
-  },
-  {
-    top: '0',
-    left: '0',
-    transform: 'scale(1)'
-  }
-], {
-  // sync options
-  duration: 500,
-  easing: 'ease',
-  complete: ()=>{
-    fullImg.style.position= 'static'
-  }
-});
+setTimeout(()=>{
 
-  
+  fullImg.style.transition = 'left 0.3s ease, top 0.3s ease, transform 0.3s ease'
+fullImg.style.left= `0`
+fullImg.style.top= `0`
+fullImg.style.transform= `scale(1)`
+},10)
+
+setTimeout(()=>{
+  fullImg.style.position= 'static'
+},300)
   
 
 
