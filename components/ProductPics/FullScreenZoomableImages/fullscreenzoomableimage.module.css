@@ -108,12 +108,13 @@ align-items: center;
     left: 16px;
     height: 12px;
     width: 12px;
-    background-color: rgba(74, 94, 101, 0.501);
+    background-color: rgba(27, 60, 73, 0.501);
     padding: 8px;
     border-radius: 4px;
     transform: translateY(-50%);
     z-index: 8;
     cursor: pointer;
+  
   }
 
   @media (hover: hover) {
@@ -133,12 +134,13 @@ align-items: center;
     right: 16px;
     height: 12px;
     width: 12px;
-    background-color: rgba(74, 94, 101, 0.501);
+    background-color: rgba(27, 60, 73, 0.501);
     padding: 8px;
     border-radius: 4px;
     z-index: 8;
     transform: translateY(-50%) rotate(180deg);
     cursor: pointer;
+ 
   }
 
   @media (hover: hover) {
@@ -151,7 +153,10 @@ align-items: center;
     background-color: rgba(113, 154, 170, 0.526);
   }
 
- 
+ .arrowSpawn{
+  opacity: 1 !important;
+  
+ }
 
  
 

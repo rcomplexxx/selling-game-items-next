@@ -78,13 +78,14 @@ const transitionEnded = ()=>{
 
 fixedZoomDiv.style.transition = 'background-color 0.2s 0.01s ease'
 fixedZoomDiv.style.backgroundColor  = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 1)`
-// const leftArrow = document.getElementsByClassName(styles.leftArrow);
-// const rightArrow = document.getElementsByClassName(styles.rightArrow);
-// console.log('arrows', leftArrow,rightArrow);
-// leftArrow[0].style.transition = ''
-// leftArrow[0].style.opacity = '1'
-// rightArrow[0].style.transition = 'opacity 3s ease'
-// rightArrow[0].style.opacity = '1'
+
+
+const leftArrow = document.getElementsByClassName(styles.leftArrow);
+const rightArrow = document.getElementsByClassName(styles.rightArrow);
+console.log('arrows', leftArrow,rightArrow);
+
+leftArrow[0].classList.add(styles.arrowSpawn);
+rightArrow[0].classList.add(styles.arrowSpawn)
 
 const deltaX=biggerWidth?
 0:
