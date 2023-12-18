@@ -80,12 +80,11 @@ fixedZoomDiv.style.transition = 'background-color 0.2s 0.01s ease'
 fixedZoomDiv.style.backgroundColor  = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 1)`
 
 
-const leftArrow = document.getElementsByClassName(styles.leftArrow);
-const rightArrow = document.getElementsByClassName(styles.rightArrow);
-console.log('arrows', leftArrow,rightArrow);
 
-leftArrow[0].classList.add(styles.arrowSpawn);
-rightArrow[0].classList.add(styles.arrowSpawn)
+
+
+document.getElementsByClassName(styles.leftArrow)[0].classList.add(styles.arrowSpawn);
+document.getElementsByClassName(styles.rightArrow)[0].classList.add(styles.arrowSpawn);
 
 const deltaX=biggerWidth?
 0:
@@ -283,12 +282,17 @@ const timeoutIdMain = setTimeout(function () {
   }
   
   //doraditi
-  
+  document.getElementsByClassName(styles.leftArrow)[0].classList.remove(styles.arrowSpawn);
+document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.arrowSpawn);
+  document.getElementsByClassName(styles.leftArrow)[0].classList.add(styles.arrowSpawnReverse);
+  document.getElementsByClassName(styles.rightArrow)[0].classList.add(styles.arrowSpawnReverse);
+
   fullImg.style.transformOrigin = 'top center';
   fullImg.style.transition = 'transform 0.3s ease';
   fullImg.style.transform = `translateX(${XTr}px) translateY(${YTr}px) scale(${scaleRatio})`;
   
   fixedZoomDiv.style.backgroundColor = `rgba(0, 0, 0, 0)`;
+
   setNavLocked(true);
   
   const timeoutId = setTimeout(function () {
@@ -355,31 +359,22 @@ const timeoutIdMain = setTimeout(function () {
             height={12}
             width={12}
             src="/images/greaterLess3.png"
-            className={`${styles.leftArrow} ${
-              matchMedia("(pointer:fine)").matches && navActive
-                ? styles.navActive
-                : styles.navInactive
-            }`}
+            onClick={()=>{swiper.slidePrev()}}
+            className={`${styles.leftArrow}`}
           ></Image>
           <Image
             height={12}
             width={12}
             src="/images/greaterLess3.png"
-            className={`${styles.rightArrow} ${
-              matchMedia("(pointer:fine)").matches && navActive
-                ? styles.navActive
-                : styles.navInactive
-            }`}
+            onClick={()=>{swiper.slideNext()}}
+            className={`${styles.rightArrow}`}
           ></Image>
           <Swiper
          
             speed={400}
             slidesPerView={1}
             touchStartPreventDefault={false}
-            navigation={{
-              prevEl: `.${styles.leftArrow}`,
-              nextEl: `.${styles.rightArrow}`,
-            }}
+      
             zoom={{
               enabled: true,
               maxRatio: 2,

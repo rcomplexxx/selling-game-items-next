@@ -114,7 +114,7 @@ align-items: center;
     transform: translateY(-50%);
     z-index: 8;
     cursor: pointer;
-  
+ 
   }
 
   @media (hover: hover) {
@@ -140,7 +140,9 @@ align-items: center;
     z-index: 8;
     transform: translateY(-50%) rotate(180deg);
     cursor: pointer;
+  
  
+   
   }
 
   @media (hover: hover) {
@@ -153,13 +155,15 @@ align-items: center;
     background-color: rgba(113, 154, 170, 0.526);
   }
 
+
+
  .arrowSpawn{
-  opacity: 1 !important;
-  
+  animation: spawnArrow 0.2s 0.01s ease;
  }
-
  
-
+ .arrowSpawnReverse{
+  animation: killArrow 0.2s 0.01s ease forwards;
+ }
 
 
   
@@ -268,6 +272,32 @@ align-items: center;
   100% {
     opacity: 0;
     visibility: hidden;
+  }
+}
+
+
+
+@keyframes spawnArrow{
+  0% {
+    opacity: 0;
+  }
+
+
+  
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes killArrow{
+  0% {
+    opacity: 1;
+  }
+
+
+  
+  100% {
+    opacity: 0;
   }
 }
 
