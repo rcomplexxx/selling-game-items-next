@@ -159,7 +159,7 @@ fullImg.style.top= `0`
 
 
 
-          setNavLocked(true);
+       
          
         
       imgDiv.style.transform = `translateY(${
@@ -186,7 +186,7 @@ fullImg.style.top= `0`
         killFullScreen(currY);
       }
       else{
-        setNavLocked(false);
+    
         fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${
           rgbValues[2]
         }, 1`;
@@ -293,7 +293,7 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
   
   fixedZoomDiv.style.backgroundColor = `rgba(0, 0, 0, 0)`;
 
-  setNavLocked(true);
+
   
   const timeoutId = setTimeout(function () {
     fullScreenChange(imageIndex)
@@ -317,7 +317,7 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
         <div className={styles.spaceController}>
           <div
             className={`${styles.closeSuiter} ${
-              !navLocked && navActive ? styles.navActive : styles.navInactive
+              navActive ? styles.navActive : styles.navInactive
             }`}
           >
             <div className={styles.pagination}>
