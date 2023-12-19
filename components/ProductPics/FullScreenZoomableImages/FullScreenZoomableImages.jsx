@@ -144,8 +144,8 @@ fullImg.style.top= `0`
     };
 
     const handleTouchYMove = (event) => {
-      if(swipeYLock || zoomRef.current || event.touches.length > 1) return;
-
+      if(swipeYLock || zoomRef.current) return;
+     if(event.touches.length > 1) {document.dispatchEvent(event); return;}
      
 
 
