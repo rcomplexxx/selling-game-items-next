@@ -135,13 +135,7 @@ fullImg.style.top= `0`
     };
 
     const handleTouchStart = (event) => {
-      if(event.touches.length > 1) { const newEvent = new Event("touchstart", {
-        bubbles: true,
-        cancelable: true
-      });
-    
-      // Dispatch the event on the target element
-      event.target.dispatchEvent(newEvent);  return;}
+      if(event.touches.length > 1) {  return;}
       imgDiv.style.transition = 'transform 0s ease';
       
       touchCoordinates = {
@@ -152,13 +146,7 @@ fullImg.style.top= `0`
 
     const handleTouchYMove = (event) => {
       if(swipeYLock || zoomRef.current) return;
-     if(event.touches.length > 1) { const newEvent = new Event("touchstart", {
-      bubbles: true,
-      cancelable: true
-    });
-  
-    // Dispatch the event on the target element
-    event.target.dispatchEvent(newEvent); return;}
+     if(event.touches.length > 1) { return;}
      
 
 
@@ -201,7 +189,7 @@ fullImg.style.top= `0`
 
     const handleTouchEnd = (event) => {
      
-      if(zoomRef.current) return;
+    
       if(event.touches.length > 1) {return;}
       if (!timeoutId) {
 
@@ -215,6 +203,7 @@ fullImg.style.top= `0`
       else{
         if (currY > 16 || currY < -16) {
           setNavLocked(false);
+          if(!zoomRef.current){
           imgDiv.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
           imgDiv.style.transform = `translateY(${
             0 
@@ -223,6 +212,7 @@ fullImg.style.top= `0`
           fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${
             rgbValues[2]
           }, 1`;
+        }
         }
      
       }
