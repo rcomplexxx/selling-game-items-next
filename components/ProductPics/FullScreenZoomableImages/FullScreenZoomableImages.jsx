@@ -29,16 +29,17 @@ const FullScreenZoomableImage = ({
     zoomRef.current = zoomed;
   }
 
-  useEffect(()=>{
-    const fixedZoomDiv=  document.getElementById("fixedZoomDiv");
+
+useEffect(()=>{
+  const fixedZoomDiv=  document.getElementById("fixedZoomDiv");
    
-    const mainImg = document.getElementById(`mainImage${imageIndex}`);
-    
-    const fullImg = document.getElementById(`fullImage${imageIndex}`);
- const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
-    const scaleRatio =biggerWidth?
-    (window.innerWidth-40)/window.innerWidth :
-    mainImg.getBoundingClientRect().height/(window.innerHeight - 48)  ;
+  const mainImg = document.getElementById(`mainImage${imageIndex}`);
+  
+  const fullImg = document.getElementById(`fullImage${imageIndex}`);
+const biggerWidth = (window.innerHeight - 48)/window.innerWidth> fullImg.naturalHeight/ fullImg.naturalWidth;
+  const scaleRatio =biggerWidth?
+  (window.innerWidth-40)/window.innerWidth :
+  mainImg.getBoundingClientRect().height/(window.innerHeight - 48)  ;
 
 
 
@@ -57,17 +58,17 @@ mainImg.style.opacity = '0';
 //prebaciti u complete
 
 const rgbValues = getComputedStyle(
-  fixedZoomDiv
+fixedZoomDiv
 ).backgroundColor.match(/\d+/g);
 
 
 const transitionEnded = ()=>{
-  mainImg.style.opacity = '1';
-    zoomInImg.style.opacity = '1';
-  fixedZoomDiv.removeEventListener('transitionend', transitionEnded);
+mainImg.style.opacity = '1';
+  zoomInImg.style.opacity = '1';
+fixedZoomDiv.removeEventListener('transitionend', transitionEnded);
 }
 
- fixedZoomDiv.addEventListener('transitionend', transitionEnded);
+fixedZoomDiv.addEventListener('transitionend', transitionEnded);
 
 
 fixedZoomDiv.style.transition = 'background-color 0.2s 0.01s ease'
@@ -91,8 +92,8 @@ fullImg.style.transition = 'transform 0s linear'
 fullImg.style.transform= `translateX(${deltaX}px) translateY(${deltaY}px) scale(${scaleRatio})`
 
 setTimeout(()=>{
- 
-  fullImg.style.transition = 'left 0.3s ease, top 0.3s ease, transform 0.3s ease'
+
+fullImg.style.transition = 'left 0.3s ease, top 0.3s ease, transform 0.3s ease'
 fullImg.style.left= `0`
 fullImg.style.transform= `scale(1)`
 fullImg.style.top= `0`
@@ -101,11 +102,16 @@ fullImg.style.top= `0`
 
 
 setTimeout(()=>{
- 
-  document.body.classList.add("hideScroll");
+
+document.body.classList.add("hideScroll");
 },280)
 
-  
+
+
+} ,[])
+
+
+  useEffect(()=>{
 
 
     
@@ -249,7 +255,7 @@ setTimeout(()=>{
 
    
   
-  },[])
+  },[imageIndex])
 
  
 
@@ -388,7 +394,7 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
             className={`${styles.rightArrow}`}
           ></Image>
           <Swiper
-         
+         initialSlide={imageIndex}
             speed={400}
             slidesPerView={1}
             touchStartPreventDefault={false}
