@@ -113,7 +113,11 @@ document.body.classList.add("hideScroll");
 
   useEffect(()=>{
 
-
+    const fixedZoomDiv=  document.getElementById("fixedZoomDiv");
+    const rgbValues = getComputedStyle(
+      fixedZoomDiv
+      ).backgroundColor.match(/\d+/g);
+      
     
  let timeoutId;
     let swipeYLock=false;
