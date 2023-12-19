@@ -195,6 +195,11 @@ align-items: center;
     transition: transform 0.3s ease-in-out;
    
   }
+  
+  .productImgPositionFixed{
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform : translateY(0) !important;
+  }
 
   .grabCursor{
    

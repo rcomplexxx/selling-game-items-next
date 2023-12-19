@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./fullscreenzoomableimage.module.css";
 import { Zoom, Navigation } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,10 +16,18 @@ const FullScreenZoomableImage = ({
   const [navActive, setNavActive] = useState(true);
   const [navLocked, setNavLocked] = useState(false);
  
-  const [zoomed, setZoomed] = useState(false);
+  const [zoomed, _setZoomed] = useState(false);
   const [grabbing, setGrabbing] = useState(false);
   const [swiper, setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({ x: 0, y: 0 });
+
+
+  const zoomRef=useRef(false);
+
+  const setZoomed= (zoomed)=>{
+    _setZoomed(zoomed);
+    zoomRef.current = zoomed;
+  }
 
   useEffect(()=>{
     const fixedZoomDiv=  document.getElementById("fixedZoomDiv");
@@ -134,7 +142,7 @@ fullImg.style.top= `0`
     };
 
     const handleTouchYMove = (event) => {
-      if(swipeYLock) return;
+      if(swipeYLock || zoomRef.current) return;
 
      
 
@@ -159,7 +167,7 @@ fullImg.style.top= `0`
 
 
 
-       
+          setNavLocked(true);
          
         
       imgDiv.style.transform = `translateY(${
@@ -176,23 +184,35 @@ fullImg.style.top= `0`
 
 
 
-    const handleTouchInteraction = (event) => {
-      imgDiv.style.transform = `translateY(${
-        currY 
-       }px)`;
+    const handleTouchEnd = (event) => {
+     
+      if(zoomRef.current) return;
+      if (!timeoutId) {
+
+
+         console.log('Zooming', zoomed);
+      imgDiv.classList.remove(styles.productImgPositionFixed);
       swipeYLock=false;
       const lastTouch = event.changedTouches[event.changedTouches.length - 1];
       if (currY < -128 || currY > 128) {
         killFullScreen(currY);
       }
       else{
-    
-        fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${
-          rgbValues[2]
-        }, 1`;
+        if (currY > 16 || currY < -16) {
+          setNavLocked(false);
+          imgDiv.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+          imgDiv.style.transform = `translateY(${
+            0 
+           }px)`;
+         
+          fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${
+            rgbValues[2]
+          }, 1`;
+        }
+     
       }
-      
-      if (!timeoutId) {
+
+
         if (
           Math.abs(lastTouch.clientX - touchCoordinates.x) < 16 &&
           Math.abs(lastTouch.clientY - touchCoordinates.y) < 16 &&
@@ -216,14 +236,14 @@ fullImg.style.top= `0`
     window.addEventListener("touchstart", handleTouchStart, true);
     window.addEventListener("touchmove", handleTouchYMove, true);
 
-    window.addEventListener("touchend", handleTouchInteraction);
+    window.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       if (matchMedia("(pointer:fine)").matches)
         window.removeEventListener("mousemove", handleUserInteraction);
       window.removeEventListener("touchstart", handleTouchStart, true);
       window.addEventListener("touchmove", handleTouchYMove, true);
-      window.removeEventListener("touchend", handleTouchInteraction);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
 
 
@@ -268,7 +288,8 @@ const timeoutIdMain = setTimeout(function () {
   (window.innerHeight-48-(window.innerWidth* fullImg.naturalHeight /fullImg.naturalWidth))/2*scaleRatio-currY
   :distanceDifference 
   
-  if(matchMedia("(pointer:fine)").matches && window.innerWidth>980){const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
+  if(matchMedia("(pointer:fine)").matches && window.innerWidth>980){
+    const zoomInImg = document.getElementById(`zoomIn${imageIndex}`);
   zoomInImg.style.opacity = '0';
   
   
@@ -293,7 +314,7 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
   
   fixedZoomDiv.style.backgroundColor = `rgba(0, 0, 0, 0)`;
 
-
+  setNavLocked(true);
   
   const timeoutId = setTimeout(function () {
     fullScreenChange(imageIndex)
@@ -317,7 +338,7 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
         <div className={styles.spaceController}>
           <div
             className={`${styles.closeSuiter} ${
-              navActive ? styles.navActive : styles.navInactive
+              !navLocked && navActive ? styles.navActive : styles.navInactive
             }`}
           >
             <div className={styles.pagination}>
@@ -329,7 +350,7 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
                 width={0}
                 sizes="24px"
                 src={
-                  zoomed
+                  zoomed//zoomedChange
                     ? "/images/zoomOutIconAw.png"
                     : "/images/zoomIconAw.png"
                 }
@@ -381,7 +402,7 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
               toggle: !matchMedia("(pointer:fine)").matches,
             }}
             onZoomChange={() => {
-              setZoomed((zoomed) => !zoomed);
+              setZoomed(!zoomed);
             }}
             onSlideChange={(swiper) => {
               if (zoomed) swiper.zoom.out();
@@ -400,7 +421,7 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
                   <div
                     id={"zoomDiv" + index}
                     className={`${styles.productImageDiv} ${
-                      zoomed && (grabbing ? styles.grabbing : styles.grabCursor)
+                      zoomed && (grabbing ? styles.grabbing : styles.grabCursor)//zoomedChange
                     } swiper-zoom-target`}
                     onMouseDown={(event) => {
                       setGrabbing(true);
