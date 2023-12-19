@@ -8,21 +8,18 @@
     flex-direction: column;
     justify-content: space-between;
     
-    height: var(--size-13-5);
+    height: auto;
     width:var(--size-13-5);
     background-color: var(--gray-9-elegant);
-    transition: max-height 0.3s ease;
+    transition: max-height 0.3s 0.03s ease;
     overflow: hidden;
     box-sizing: border-box;
   
   }
 
   .materialize{
-   
-    height: auto;
- 
-    
-    animation: expandHeight 0.28s 0.028s ease forwards;
+    max-height:  var(--size-14);
+    animation: expandHeight 0.3s 0.03s ease forwards;
   }
 
  
@@ -124,16 +121,16 @@
   }
 
   @keyframes expandHeight {
-    from {
+    0% {
       border: none;
       padding: 0 var(--size-7);
-      max-height: 0;
+     
     }
-    to {
+    100% {
       border-bottom: 1px solid rgb(39, 35, 44);
       border-top: 1px solid rgb(39, 35, 44);
       
       padding: var(--size-5) var(--size-7);
-      max-height:  var(--size-14); /* Set your desired max height */
+       /* Set your desired max height */
     }
   }
