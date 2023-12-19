@@ -135,7 +135,13 @@ fullImg.style.top= `0`
     };
 
     const handleTouchStart = (event) => {
-      if(event.touches.length > 1) {document.dispatchEvent(event); return;}
+      if(event.touches.length > 1) { const newEvent = new Event("touchstart", {
+        bubbles: true,
+        cancelable: true
+      });
+    
+      // Dispatch the event on the target element
+      event.target.dispatchEvent(newEvent);  return;}
       imgDiv.style.transition = 'transform 0s ease';
       
       touchCoordinates = {
@@ -146,7 +152,13 @@ fullImg.style.top= `0`
 
     const handleTouchYMove = (event) => {
       if(swipeYLock || zoomRef.current) return;
-     if(event.touches.length > 1) {document.dispatchEvent(event); return;}
+     if(event.touches.length > 1) { const newEvent = new Event("touchstart", {
+      bubbles: true,
+      cancelable: true
+    });
+  
+    // Dispatch the event on the target element
+    event.target.dispatchEvent(newEvent); return;}
      
 
 
