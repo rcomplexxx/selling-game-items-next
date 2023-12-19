@@ -135,6 +135,7 @@ fullImg.style.top= `0`
     };
 
     const handleTouchStart = (event) => {
+      if(event.touches.length > 1) {document.dispatchEvent(event); return;}
       imgDiv.style.transition = 'transform 0s ease';
       
       touchCoordinates = {
@@ -188,7 +189,8 @@ fullImg.style.top= `0`
 
     const handleTouchEnd = (event) => {
      
-      if(zoomRef.current || event.touches.length > 1) return;
+      if(zoomRef.current) return;
+      if(event.touches.length > 1) {return;}
       if (!timeoutId) {
 
 
