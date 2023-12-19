@@ -416,7 +416,6 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
               setZoomed(false);
               changeImageIndex(swiper.activeIndex);
             }}
-            initialSlide={imageIndex}
             onSwiper={setSwiper}
             modules={[Zoom, Navigation]}
             className={styles.productImageSwiper}
