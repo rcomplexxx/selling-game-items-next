@@ -135,6 +135,8 @@ fullImg.style.top= `0`
     };
 
     const handleTouchStart = (event) => {
+      imgDiv.style.transition = 'transform 0s ease';
+      
       touchCoordinates = {
         x: event.touches[0].clientX,
         y: event.touches[0].clientY,
@@ -191,7 +193,6 @@ fullImg.style.top= `0`
 
 
          console.log('Zooming', zoomed);
-      imgDiv.classList.remove(styles.productImgPositionFixed);
       swipeYLock=false;
       const lastTouch = event.changedTouches[event.changedTouches.length - 1];
       if (currY < -128 || currY > 128) {
