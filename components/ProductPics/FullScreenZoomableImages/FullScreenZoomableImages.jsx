@@ -388,14 +388,14 @@ document.getElementsByClassName(styles.rightArrow)[0].classList.remove(styles.ar
             width={12}
             src="/images/greaterLess3.png"
             onClick={()=>{swiper.slidePrev()}}
-            className={`${styles.leftArrow}`}
+            className={`${styles.leftArrow} ${!matchMedia("(pointer:fine)").matches && styles.noArrow}`}
           ></Image>
           <Image
             height={12}
             width={12}
             src="/images/greaterLess3.png"
             onClick={()=>{swiper.slideNext()}}
-            className={`${styles.rightArrow}`}
+            className={`${styles.rightArrow} ${!matchMedia("(pointer:fine)").matches && styles.noArrow}`}
           ></Image>
           <Swiper
          initialSlide={imageIndex}

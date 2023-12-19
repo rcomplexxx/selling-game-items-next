@@ -155,6 +155,10 @@ align-items: center;
     background-color: rgba(113, 154, 170, 0.526);
   }
 
+  .noArrow{
+    visibility: hidden !important;
+  }
+
 
 
  .arrowSpawn{
