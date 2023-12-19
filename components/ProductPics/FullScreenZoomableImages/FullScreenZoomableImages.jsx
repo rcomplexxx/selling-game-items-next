@@ -144,7 +144,7 @@ fullImg.style.top= `0`
     };
 
     const handleTouchYMove = (event) => {
-      if(swipeYLock || zoomRef.current) return;
+      if(swipeYLock || zoomRef.current || event.touches.length > 1) return;
 
      
 
@@ -188,7 +188,7 @@ fullImg.style.top= `0`
 
     const handleTouchEnd = (event) => {
      
-      if(zoomRef.current) return;
+      if(zoomRef.current || event.touches.length > 1) return;
       if (!timeoutId) {
 
 
