@@ -36,6 +36,7 @@
   box-sizing: border-box;
   flex-direction: column;
   align-items: center;
+  margin-bottom: var(--size-9);
 }
 
 .questions_div{
