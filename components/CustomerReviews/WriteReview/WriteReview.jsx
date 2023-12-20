@@ -177,10 +177,10 @@ useEffect(()=>{
               <div
                 className={`${styles.writeReviewFooter} ${styles.writeReviewFooterMobile}`}
               >
-                <button onClick={handleBack} className={styles.remindMeLater}>
+                <button onClick={handleBack} className={`${styles.remindMeLater} ${styles.upFooterBackBtn}`}>
                 <img src='/images/arrowRight3.png'
-                className={styles.arrowBack}
-                ></img> <span>Back</span> 
+                className={styles.arrowBackMob}
+                ></img> 
                 </button>
 
                 {raitingPage == 1 && images.length===1 && (

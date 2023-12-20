@@ -130,16 +130,25 @@
     position: absolute;
     left: 16px;
     top:16px;
-    height: 20px;
-    width: 20px;
+    
+    height: 24px;
+    width: 24px;
     background-color: transparent;
     border: none;
+    border-radius: 6px;
     font-size: var(--font-size-5);
+ 
+      padding: var(--size-4);
+     
+     
   }
 
+  @media (hover: hover) {
   .closeButton:hover{
+    background-color: #364658;
     cursor: pointer;
   }
+}
 
   .writeReviewFooter{
  
@@ -271,6 +280,11 @@
     margin-right: 2px;
   }
 
+  .arrowBackMob{
+    transform: rotate(180deg);
+    height: 24px;
+  }
+
   .remindMeLater{
     position: relative;
     display: flex;
@@ -295,7 +309,11 @@
     }
    }
 
-  
+   .upFooterBackBtn{
+    min-width: 32px;
+    height: auto;
+    aspect-ratio: 1;
+   }
 
   .userImagesDivWrapper{
     position: relative;
