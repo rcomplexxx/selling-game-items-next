@@ -60,6 +60,10 @@ export default function ProductPics({ images, onAddToCart }) {
 
     const productPicsElement = document.getElementById("productPics");
     const AddToCartEl = document.getElementById("addToCart");
+    const  masonryEl = document.getElementById("masonry");
+    setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
+    
+    console.log('mason', masonryEl);
     const productImagesEl=document.getElementById("productImages");
     const handleScroll = () => {
       if(!productPicsElement || !productImagesEl) return;
@@ -73,7 +77,10 @@ export default function ProductPics({ images, onAddToCart }) {
             : 2
           : 0
       );
-      setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0);
+     
+      setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
+
+      
     };
 
     const observer = new ResizeObserver((entries) => {
@@ -88,7 +95,7 @@ export default function ProductPics({ images, onAddToCart }) {
             : 2
           : 0
       );
-      setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0);
+      setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
     });
 
     observer.observe(productPicsElement);
@@ -126,11 +133,11 @@ export default function ProductPics({ images, onAddToCart }) {
 
   return (
     <>
-      {spawnAddToCart && (
-        <div className={styles.fixedAddToCartDiv}>
+       (
+        <div className={`${styles.fixedAddToCartDiv} ${spawnAddToCart && styles.fixedAddToCartDivSpawn}`}>
           <button className={styles.fixedAddToCart} onClick={()=>{onAddToCart()}}>Add to cart</button>
         </div>
-      )}
+      )
 
       {zoomed && (
         <FullScreenZoomableImage

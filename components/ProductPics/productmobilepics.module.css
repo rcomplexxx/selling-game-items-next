@@ -340,12 +340,19 @@
       background-color: transparent;
       border: 1px solid gray;
       border-bottom: none;
-      
-    animation: spawnFixedAddToCart 0.3s ease forwards;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     overflow: hidden;
       z-index: 3;
      
     }
+
+    .fixedAddToCartDivSpawn{
+      opacity: 1;
+      transform: translatey(0);
+    }
+
   
     .fixedAddToCart{
       height: 48px;
@@ -368,13 +375,3 @@
     }
   }
 
-  @keyframes spawnFixedAddToCart {
-    0% {
-      opacity: 0;
-      transform: translatey(100%);
-    }
-    100% {
-      opacity: 1;
-      transform: translatey(0);
-    }
-  }
