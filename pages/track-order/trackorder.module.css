@@ -1,0 +1,27 @@
+
+
+
+.mainDiv{
+    min-height: calc(100svh - 64px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.trackDiv{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+
+.trackIdInput{
+    margin-right: 8px;
+}
