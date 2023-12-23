@@ -4,7 +4,7 @@ import InputField from "./Input/InputField";
 import CountryInput from "./Input/CountryInput/CountryInput";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useRouter } from "next/router";
-import OrderDetails, { OrderDetailsInfo } from "./OrderDetails";
+import GooglePay from "./GooglePay/GooglePay";
 
 export default function CheckoutInfo({ products, setCartProducts }) {
   const [errors, setErrors] = useState({});
@@ -393,6 +393,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
               createOrder={handleOrder}
             />
           </PayPalScriptProvider>
+          <GooglePay/>
         </div>
       </div>
     </>

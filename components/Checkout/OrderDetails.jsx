@@ -39,7 +39,7 @@ export default function OrderDetails({ products }) {
     };
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setMobileInterface(window.innerWidth <= 980);
     };

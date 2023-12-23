@@ -37,7 +37,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
     {(newProduct || searchOpen || isMenuOpen) && <div className={styles.substituteDiv}/>}
   
       <nav className={`${styles.appBar} ${(newProduct || searchOpen || isMenuOpen) && styles.appBarFixed} ${newProduct && styles.appBarMaterialize}`}
-      onMouseDown={(event)=>{ if(newProduct) event.preventDefault()}} id='popupCart' tabindex="0" onBlur={()=>{
+      onMouseDown={(event)=>{ if(newProduct) event.preventDefault()}} id='popupCart' tabIndex="0" onBlur={()=>{
       setNewProduct();
     }}
       >
@@ -107,7 +107,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                 <div className={styles.subMenuPortal}>
 
 <div
-tabindex="0"
+tabIndex="0"
 onBlur={()=>{setSubMenu(0)}}
 className={`${styles.subMenuTitle} ${styles.linkStyle}`}
 onClick={() => {
@@ -147,7 +147,7 @@ setSubMenu(subMenu==2?0:2);
                 <div className={styles.subMenuPortal}>
 
                 <div
-       tabindex="0"
+       tabIndex="0"
        onBlur={()=>{setSubMenu(0)}}
        className={`${styles.subMenuTitle} ${styles.linkStyle}`}
        onClick={() => {
