@@ -2,6 +2,7 @@ import paypal from "@paypal/checkout-server-sdk";
 import productsData from "../../data/products.json";
 import betterSqlite3 from "better-sqlite3";
 import RateLimiter from "@/utils/rateLimiter.js";
+import validateToken from '@/utils/googlePayTokenValidation'
 
 const limiterPerDay = new RateLimiter({
   apiNumberArg: 2,
@@ -20,6 +21,29 @@ const environment =
     : new paypal.core.SandboxEnvironment(clientId, clientSecret);
 
 const client = new paypal.core.PayPalHttpClient(environment);
+
+const paypalPay=async(totalPrice)=>{
+  let request =  new paypal.orders.OrdersCreateRequest();
+  request.requestBody({
+    intent: "CAPTURE",
+    purchase_units: [
+      {
+        amount: {
+          currency_code: "USD",
+          value: totalPrice,
+        },
+      },
+    ],
+    application_context: {
+      payment_method: {
+        payer_selected: "PAYPAL",
+        payee_preferred: "UNRESTRICTED",
+      },
+    },
+  });
+
+ return request;
+}
 
 const makePayment = async (req, res) => {
   const putInDatabase = (orderId) => {
@@ -95,10 +119,10 @@ const makePayment = async (req, res) => {
   };
 
   try {
-    const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    // const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
 
-    if (!(await limiterPerDay.rateLimiterGate(clientIp)))
-      return res.status(429).json({ error: "Too many requests." });
+    // if (!(await limiterPerDay.rateLimiterGate(clientIp)))
+    //   return res.status(429).json({ error: "Too many requests." });
 
     let totalPrice = req.body.order.items
       .reduce((sum, product) => {
@@ -120,29 +144,15 @@ const makePayment = async (req, res) => {
       totalPrice.toFixed(2);
     }
 
-    let request = new paypal.orders.OrdersCreateRequest();
-    request.requestBody({
-      intent: "CAPTURE",
-      purchase_units: [
-        {
-          amount: {
-            currency_code: "USD",
-            value: totalPrice,
-          },
-        },
-      ],
-      application_context: {
-        payment_method: {
-          payer_selected: "PAYPAL",
-          payee_preferred: "UNRESTRICTED",
-        },
-      },
-    });
-
+    
+    if(req.body.paymentMethod==='PAYPAL'){
+      console.log('popusis ti meni')
+    const request = await paypalPay(totalPrice);
     const response = await client.execute(request);
-
+      console.log('Vidi response bato',response);
     // Check if the payment is approved
     if (response.result.status === "CREATED") {
+      console.log('status je creacted')
       await putInDatabase(response.result.id);
       res.status(200).json({ success: true, orderId: response.result.id });
     } else {
@@ -151,6 +161,22 @@ const makePayment = async (req, res) => {
         .status(400)
         .json({ success: false, error: "Payment was not approved." });
     }
+
+  }
+  else if(req.body.paymentMethod==='GPAY'){
+    const tokenValid= await validateToken(req.body.paymentToken)
+    if(tokenValid) res.status(200).json({ success: true, message:'Token validated' });
+    else {
+      res
+      .status(400)
+      .json({ success: false, error: "Payment was not approved." });
+    }
+
+  }
+
+console.log('jos napreduje');
+
+
   } catch (error) {
     // Handle errors
 

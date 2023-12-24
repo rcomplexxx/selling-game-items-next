@@ -22,55 +22,62 @@ export default function CheckoutInfo({ products, setCartProducts }) {
     }
   };
 
+
+
+  const checkFields=()=>{
+    let newErrors = {};
+    // if(document.getElementById('email').value==='') return actions.reject();
+    const testId = (id) => {
+      if (document.getElementById(id).value === "") {
+        newErrors = { ...newErrors, [id]: `${id} is a required field.` };
+      }
+    };
+
+    if (document.getElementById("email").value === "") {
+      newErrors = { ...newErrors, email: "Email is a required field." };
+    }
+    if (
+      !/^\S{3,}@\S{3,}\.\S{2,}$/.test(document.getElementById("email").value)
+    ) {
+      newErrors = {
+        ...newErrors,
+        email: "Please enter a valid email address.",
+      };
+    }
+
+    testId("firstName");
+    testId("lastName");
+    testId("address");
+    testId("country");
+    testId("postcode");
+    testId("state");
+    testId("suburb");
+
+    const phone = document.getElementById("phone").value; //
+    if (phone.length < 5)
+      newErrors = { ...newErrors, phone: "Invalid phone" };
+    else {
+      for (let i = 0; i < phone.length; i++) {
+        const char = phone[i];
+        if (
+          !(
+            (char >= "0" && char <= "9") ||
+            ["+", "-", "(", ")", " ", ".", "/"].includes(char)
+          )
+        ) {
+          newErrors = { ...newErrors, phone: "Invalid phone" };
+        }
+      }
+    }
+
+    setErrors(newErrors);
+    return newErrors;
+  }
+
+
   const handlePaypalButtonClick = async (data, actions) => {
     try {
-      console.log("action checked");
-      let newErrors = {};
-      // if(document.getElementById('email').value==='') return actions.reject();
-      const testId = (id) => {
-        if (document.getElementById(id).value === "") {
-          newErrors = { ...newErrors, [id]: `${id} is a required field.` };
-        }
-      };
-
-      if (document.getElementById("email").value === "") {
-        newErrors = { ...newErrors, email: "Email is a required field." };
-      }
-      if (
-        !/^\S{3,}@\S{3,}\.\S{2,}$/.test(document.getElementById("email").value)
-      ) {
-        newErrors = {
-          ...newErrors,
-          email: "Please enter a valid email address.",
-        };
-      }
-
-      testId("firstName");
-      testId("lastName");
-      testId("address");
-      testId("country");
-      testId("postcode");
-      testId("state");
-      testId("suburb");
-
-      const phone = document.getElementById("phone").value; //
-      if (phone.length < 5)
-        newErrors = { ...newErrors, phone: "Invalid phone" };
-      else {
-        for (let i = 0; i < phone.length; i++) {
-          const char = phone[i];
-          if (
-            !(
-              (char >= "0" && char <= "9") ||
-              ["+", "-", "(", ")", " ", ".", "/"].includes(char)
-            )
-          ) {
-            newErrors = { ...newErrors, phone: "Invalid phone" };
-          }
-        }
-      }
-
-      setErrors(newErrors);
+      const newErrors = checkFields();
 
       if (Object.keys(newErrors).length !== 0) {
         window.scrollTo({
@@ -131,74 +138,79 @@ export default function CheckoutInfo({ products, setCartProducts }) {
     // Payment was successful
   };
 
-  async function handleOrder() {
-    try {
-      const email = document.getElementById("email").value;
-      const firstName = document.getElementById("firstName").value;
-      const lastName = document.getElementById("lastName").value;
-      const address = document.getElementById("address").value;
-      const apt = document.getElementById("apt").value;
-      const country = document.getElementById("country").value;
-      const postcode = document.getElementById("postcode").value;
-      const state = document.getElementById("state").value;
-      const suburb = document.getElementById("suburb").value;
-      const phone = document.getElementById("phone").value;
-      const discountEl = document.getElementById("discountPrice");
-      console.log("disc el", discountEl);
-      let discount = "0";
-      if (discountEl) {
-        discount = discountEl.innerText;
-        discount = discount.substring(discount.indexOf("$") + 1).trim();
-      }
-
-      const requestData = {
-        order: {
-          email,
-          firstName,
-          lastName,
-          address,
-          apt,
-          country,
-          postcode,
-          state,
-          suburb,
-          phone,
-          discount: discount,
-          items: products.map((product) => ({
-            id: product.id,
-            quantity: product.quantity,
-            variant: product.variant
-          })),
-        },
-
-        // Include other payment-related data if required
-      };
-
-      return await fetch("/api/make-payment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
-      })
-        .then((response) => response.json())
-        .then((order) => {
-          if (order.success) {
-            console.log("order id returned");
-            return order.orderId;
-          } else {
-            console.log(order.message);
-            return;
-          }
-        })
-        .catch((error) => {
-          // Handle errors that occur during the fetch or processing of the response
-          console.error("Error creating order:", error);
-          throw error; // Rethrow the error for the calling code to handle
-        });
-    } catch (err) {
-      return;
+  const organizeUserData=(paymentMethod, paymentToken)=>{
+    const email = document.getElementById("email").value;
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const address = document.getElementById("address").value;
+    const apt = document.getElementById("apt").value;
+    const country = document.getElementById("country").value;
+    const postcode = document.getElementById("postcode").value;
+    const state = document.getElementById("state").value;
+    const suburb = document.getElementById("suburb").value;
+    const phone = document.getElementById("phone").value;
+    const discountEl = document.getElementById("discountPrice");
+    console.log("disc el", discountEl);
+    let discount = "0";
+    if (discountEl) {
+      discount = discountEl.innerText;
+      discount = discount.substring(discount.indexOf("$") + 1).trim();
     }
+
+    const requestData = {
+      order: {
+        email,
+        firstName,
+        lastName,
+        address,
+        apt,
+        country,
+        postcode,
+        state,
+        suburb,
+        phone,
+        discount: discount,
+        items: products.map((product) => ({
+          id: product.id,
+          quantity: product.quantity,
+          variant: product.variant
+        })),
+      },
+      paymentMethod: paymentMethod,
+      paymentToken: paymentToken
+
+      // Include other payment-related data if required
+    };
+    return requestData
+  }
+
+  async function handlePaypalOrder(paymentMethod, paymentToken) {
+
+    try {
+      const requestData = organizeUserData(paymentMethod, paymentToken);
+     
+        const response = await fetch("/api/make-payment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        });
+    
+        const order = await response.json();
+    
+        if (order.success) {
+          console.log("order id returned", order.orderId);
+          return order.orderId;
+        } else {
+          console.log(order.message);
+          return;
+        }
+      } catch (error) {
+        console.error("Error creating order:", error);
+        throw error;
+      }
+    
   }
 
   return (
@@ -383,17 +395,17 @@ export default function CheckoutInfo({ products, setCartProducts }) {
               fundingSource="paypal"
               onClick={handlePaypalButtonClick}
               onApprove={handlePaypalButtonApprove}
-              createOrder={handleOrder}
+              createOrder={async()=>{return await handlePaypalOrder('PAYPAL')}}
             />
 
             <PayPalButtons
               fundingSource="card"
               onClick={handlePaypalButtonClick}
               onApprove={handlePaypalButtonApprove}
-              createOrder={handleOrder}
+              createOrder={async()=>{return await handlePaypalOrder('PAYPAL')}}
             />
           </PayPalScriptProvider>
-          <GooglePay/>
+          <GooglePay checkFields={checkFields} organizeUserData={(paymentToken)=>{return organizeUserData('GPAY', paymentToken)}} />
         </div>
       </div>
     </>
