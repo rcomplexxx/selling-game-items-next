@@ -89,7 +89,7 @@ const CreditCardForm = () => {
           maxlength="23"
           value={cardNumber}
           handleChange={handleCardNumber}
-          children={<FloatingBadge imageName='lock2.png'/>}
+          children={<FloatingBadge imageName='lock3.png'/>}
         />
         
 </div>
