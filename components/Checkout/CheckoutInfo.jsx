@@ -8,6 +8,7 @@ import GooglePay from "./GooglePay/GooglePay";
 import PayPalButton from "./PayPal/PayPal";
 import InjectStripe from "./Stripe/Stripe";
 import CreditCardForm from "./CreditCard/CreditCard";
+import FloatingBadge from "./FloatingBadge/FloatingBadge";
 
 export default function CheckoutInfo({ products, setCartProducts }) {
   const [errors, setErrors] = useState({});
@@ -251,6 +252,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
                   type="tel"
                   handleChange={handleChange}
                   error={errors.phone}
+                  children={<FloatingBadge/>}
                 />
               </div>
             </form>

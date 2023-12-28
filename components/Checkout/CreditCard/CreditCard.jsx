@@ -4,6 +4,7 @@ import styles from './creditcard.module.css'
 import 'react-credit-cards/es/styles-compiled.css';
 import InputField from '../Input/InputField';
 import CCInput from './CCInput/CCInput';
+import FloatingBadge from '../FloatingBadge/FloatingBadge';
 
 const CreditCardForm = () => {
     const [billingAddressSameAsShipping, setBillingAddressSameAsShipping] = useState(true);
@@ -88,7 +89,9 @@ const CreditCardForm = () => {
           maxlength="23"
           value={cardNumber}
           handleChange={handleCardNumber}
+          children={<FloatingBadge imageName='lock2.png'/>}
         />
+        
 </div>
       <div className={styles.ccInputRow}>
        
@@ -111,6 +114,7 @@ const CreditCardForm = () => {
           maxlength="4"
           value={cvv}
           handleChange={handleCvv}
+          children={<FloatingBadge/>}
         />
 
 </div>

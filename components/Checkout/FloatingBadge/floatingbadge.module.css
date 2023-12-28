@@ -1,0 +1,27 @@
+
+
+
+.floatingBadge{
+    position:absolute;
+    top: calc(50% - 8px);
+    right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+    width: 16px;
+   
+    user-select: none;
+    cursor: pointer;
+}
+
+
+
+.floatingDiv{
+    color: gray;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    font-size: var(--font-size-1);
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 100%;
+}
