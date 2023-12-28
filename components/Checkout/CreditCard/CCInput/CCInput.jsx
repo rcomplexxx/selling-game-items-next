@@ -3,12 +3,12 @@ import styles from "./ccinput.module.css";
 
 export default function CCInput({
   id,
-  ref,
+  value,
+  handleChange,
   maxlength,
   autocomplete,
   placeHolder,
   type,
-  handleChange,
   error,
   children,
 }) {
@@ -17,9 +17,10 @@ export default function CCInput({
       <input
         type={type}
         id={id}
+        value={value}
         placeholder=" "
         maxlength={  maxlength?maxlength:128}
-        onChange={handleChange}
+        onChange={(event)=>{handleChange(event)}}
         autoComplete={autocomplete && autocomplete}
         className={`${styles.input_field} ${error ? styles.input_error : ""}`}
       />

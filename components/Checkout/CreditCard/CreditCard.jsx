@@ -7,12 +7,51 @@ import CCInput from './CCInput/CCInput';
 
 const CreditCardForm = () => {
     const [billingAddressSameAsShipping, setBillingAddressSameAsShipping] = useState(true);
+    const [cardNumber, setCardNumber]= useState('');
+    const [expDate, setExpDate]= useState('');
+    const [cvv, setCvv]= useState('');
+    const [cardHolderName, setCardHolderName]= useState('');
+
+ 
+  
+
+    const handleCardNumber = (event)=>{
+       
+        const value=event.target.value.replace(/\s/g, '');
+        if(!isNaN(+value)){
+            
+         setCardNumber( value.replace(/(.{4})/g, '$1 '));
+        }
+        
+    }
 
 
-    const cardHolderNameRef= useRef();
-    const cardNumberRef=useRef();
-    const expDateRef= useRef();
-    const csvRef= useRef();
+    const handleExpDate = (event)=>{
+       
+       
+        const value=event.target.value;
+        let newValue=value.replace(/\//g, '').replace(/\s/g, '');
+        if(expDate.length===5 && value.length===4){setExpDate(Math.floor(+newValue / 10)); return;}
+        if(!isNaN(+newValue)){
+        if(value.length===1 && value>1)newValue=`0${value}`;
+      
+        if(newValue.length>1)newValue=newValue.slice(0, 2) + ' / ' + newValue.slice(2)
+       
+         setExpDate(newValue);
+        }
+        
+    }
+
+
+    const handleCvv = (event)=>{
+       
+        const value=event.target.value;
+        if(!isNaN(+value) && value.length<5){
+            
+         setCvv(value);
+        }
+        
+    }
     
      
      const handleExpDateChange = (event) => {
@@ -46,8 +85,9 @@ const CreditCardForm = () => {
         placeHolder='Card number'
           type="text"
           name="number"
-          maxlength="16"
-          ref={cardNumberRef}
+          maxlength="23"
+          value={cardNumber}
+          handleChange={handleCardNumber}
         />
 </div>
       <div className={styles.ccInputRow}>
@@ -60,7 +100,8 @@ const CreditCardForm = () => {
           type="text"
           name="expiry"
           maxlength="9"
-          ref={expDateRef}
+          value={expDate}
+          handleChange={handleExpDate}
         />
          <CCInput
          id="cvv"
@@ -68,7 +109,8 @@ const CreditCardForm = () => {
           type="text"
           name="cvc"
           maxlength="4"
-          ref={csvRef}
+          value={cvv}
+          handleChange={handleCvv}
         />
 
 </div>
@@ -79,8 +121,8 @@ const CreditCardForm = () => {
        placeHolder='Name on card'
           type="text"
           name="name"
-       ref={cardHolderNameRef}
-         
+         value={cardHolderName}
+         handleChange={(event)=>{setCardHolderName(event.target.value)}}
         />
       </div>
       <label>
@@ -89,6 +131,7 @@ const CreditCardForm = () => {
       />
       Use shipping address as billing
     </label>
+    <button className={styles.payNowButton}>Pay now</button>
     </div>
   );
 };
