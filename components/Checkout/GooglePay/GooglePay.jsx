@@ -76,16 +76,16 @@ async function handleGpayOrder(paymentToken) {
           },
           tokenizationSpecification: {
             type: 'PAYMENT_GATEWAY',
-            parameters: {
-              gateway: 'example',
-              gatewayMerchantId: 'exampleGatewayMerchantId',
+          parameters: {
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId',
             },
           },
         },
       ],
       merchantInfo: {
-        merchantId: 'exampleMerchantId',
-        merchantName: 'Example Merchant',
+        merchantId: 'BCR2DN4TZLVYPEIX',
+        merchantName: 'Demo Merchant',
       },
       transactionInfo: {
         totalPriceStatus: 'FINAL',
@@ -96,12 +96,21 @@ async function handleGpayOrder(paymentToken) {
       },
     }}
     onClick={handleGoogleButtonClick}
+   
     onLoadPaymentData={async(paymentRequest) => {
       console.log('load payment data', paymentRequest);
-     return await handleGpayOrder(paymentRequest.paymentMethodData.tokenizationData.token)
+     await handleGpayOrder(paymentRequest.paymentMethodData.tokenizationData.token)
     }}
     onError={(reason)=>{console.log(reason)}}
   />
 }
 
 export default GooglePay;
+
+
+ // onPaymentDataChanged={()=>{}}
+
+//  merchantInfo: {
+//   merchantId: 'BCR2DN4TZLVYPEIX',
+//   merchantName: 'Demo Merchant',
+// },

@@ -18,7 +18,7 @@ const BuyNowPage = () => {
   const [loading, setLoading] = useState(true);
   const [cartProducts, setCartProducts] = useState([]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const queryParameters = window.location.search;
     const urlParams = new URLSearchParams(queryParameters);
 

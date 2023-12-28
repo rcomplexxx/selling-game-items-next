@@ -10,7 +10,7 @@
  }
  
  .checkout_left {
-    max-width: var(--size-16);
+    max-width: var(--size-15-5);
     width: calc(100% - var(--size-11));
     margin-right: var(--size-8);
     margin-left: var(--size-8);

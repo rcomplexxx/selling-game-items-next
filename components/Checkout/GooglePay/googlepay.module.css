@@ -3,6 +3,30 @@
 
 .gpayButton{
   
-    height: 52px;
-    width: 100%;
+    height: 54px;
+    width: calc(100% - 16px);
+    margin-left: var(--size-3);
+    margin-right: var(--size-3);
+}
+
+@media (max-width: 980px){
+    .gpayButton{
+  
+
+        width:100%;
+        margin-left: 0;
+        margin-right:0;
+    }
+}
+
+@media (max-width: 720px){
+    .gpayButton{
+        height: 48px;
+    }
+}
+
+@media (max-width: 600px){
+    .gpayButton{
+        height: 44px;
+    }
 }

@@ -1,0 +1,16 @@
+
+.paypalButton{
+    margin-left: var(--size-3);
+    margin-right: var(--size-3);
+}
+
+
+@media (max-width: 980px){
+    .paypalButton{
+  
+
+       
+        margin-left: 0;
+        margin-right:0;
+    }
+}

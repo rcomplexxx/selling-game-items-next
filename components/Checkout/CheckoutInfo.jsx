@@ -5,6 +5,9 @@ import CountryInput from "./Input/CountryInput/CountryInput";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useRouter } from "next/router";
 import GooglePay from "./GooglePay/GooglePay";
+import PayPalButton from "./PayPal/PayPal";
+import InjectStripe from "./Stripe/Stripe";
+import CreditCardForm from "./CreditCard/CreditCard";
 
 export default function CheckoutInfo({ products, setCartProducts }) {
   const [errors, setErrors] = useState({});
@@ -71,72 +74,31 @@ export default function CheckoutInfo({ products, setCartProducts }) {
     }
 
     setErrors(newErrors);
-    return newErrors;
+
+
+    const errorsExist=Object.keys(newErrors).length !== 0;
+    if (!errorsExist) {
+      window.scrollTo({
+        top:
+          document
+            .getElementById(Object.keys(newErrors)[0])
+            .getBoundingClientRect().top +
+          window.scrollY -
+          12,
+        behavior: "smooth",
+      });
+
+   
   }
 
+  return !errorsExist;
+}
 
-  const handlePaypalButtonClick = async (data, actions) => {
-    try {
-      const newErrors = checkFields();
 
-      if (Object.keys(newErrors).length !== 0) {
-        window.scrollTo({
-          top:
-            document
-              .getElementById(Object.keys(newErrors)[0])
-              .getBoundingClientRect().top +
-            window.scrollY -
-            12,
-          behavior: "smooth",
-        });
 
-        return actions.reject();
-      }
+ 
 
-      return actions.resolve();
-    } catch (error) {
-      return actions.reject();
-    }
-  };
-
-  const handlePaypalButtonApprove = async (data, actions) => {
-    try {
-      console.log("mail to be sent:" + document.getElementById("email").value);
-      const response = await fetch("/api/approve-payment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          orderId: data.orderID,
-        }),
-      });
-      // Parse the JSON response
-
-      if (response.ok) {
-        console.log("Payment was successful");
-        // Handle successful payment logic here
-        setCartProducts([]);
-        router.push("/thank-you");
-      } else {
-        const data = await response.json();
-
-        if (data.error === "INSTRUMENT_DECLINED") {
-          console.log(data.error);
-          return actions.restart();
-        } else {
-          console.log(data.error);
-
-          // Handle other payment errors here
-        }
-      }
-    } catch (error) {
-      console.error("Error capturing payment:", error);
-      // Handle fetch or other errors here
-    }
-
-    // Payment was successful
-  };
+ 
 
   const organizeUserData=(paymentMethod, paymentToken)=>{
     const email = document.getElementById("email").value;
@@ -184,34 +146,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
     return requestData
   }
 
-  async function handlePaypalOrder(paymentMethod, paymentToken) {
-
-    try {
-      const requestData = organizeUserData(paymentMethod, paymentToken);
-     
-        const response = await fetch("/api/make-payment", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestData),
-        });
-    
-        const order = await response.json();
-    
-        if (order.success) {
-          console.log("order id returned", order.orderId);
-          return order.orderId;
-        } else {
-          console.log(order.message);
-          return;
-        }
-      } catch (error) {
-        console.error("Error creating order:", error);
-        throw error;
-      }
-    
-  }
+ 
 
   return (
     <>
@@ -383,31 +318,18 @@ export default function CheckoutInfo({ products, setCartProducts }) {
           <p className={styles.paymentNotification}>
             All transactions are secure and encrypted.
           </p>
-          <PayPalScriptProvider
-            options={{
-              "client-id":
-                "AQB3vOguzerJ-HXgJavEAMlivjs3DTNyWi2W7yKI94arI23zXOAaSJx4Zf4JzTO9RjvJdr5AflrFHWp1",
-            }}
-          >
-            {/* 
-          da prikazem spinner*/}
-            <PayPalButtons
-              fundingSource="paypal"
-              onClick={handlePaypalButtonClick}
-              onApprove={handlePaypalButtonApprove}
-              createOrder={async()=>{return await handlePaypalOrder('PAYPAL')}}
-            />
-
-            <PayPalButtons
-              fundingSource="card"
-              onClick={handlePaypalButtonClick}
-              onApprove={handlePaypalButtonApprove}
-              createOrder={async()=>{return await handlePaypalOrder('PAYPAL')}}
-            />
-          </PayPalScriptProvider>
+         
+          <PayPalButton checkFields={checkFields} organizeUserData={organizeUserData} method="paypal"/>
+          
           <GooglePay checkFields={checkFields} organizeUserData={(paymentToken)=>{return organizeUserData('GPAY', paymentToken)}} />
+          <CreditCardForm/>
         </div>
       </div>
     </>
   );
 }
+
+
+
+
+

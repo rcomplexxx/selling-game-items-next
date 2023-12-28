@@ -5,7 +5,11 @@ const YOUR_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const YOUR_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const YOUR_REDIRECT_URI = process.env.GOOGLE_CLIENT_URI;
 
-const client = new OAuth2Client(YOUR_CLIENT_ID);
+const oAuth2Client = new OAuth2Client(
+  YOUR_CLIENT_ID,
+  YOUR_CLIENT_SECRET,
+  YOUR_REDIRECT_URI
+);
 
 export default async function validateToken(paymentToken){
 
@@ -13,7 +17,7 @@ export default async function validateToken(paymentToken){
 
 
     try{
-    const ticket = await client.verifyIdToken({
+    const ticket = await oAuth2Client.verifyIdToken({
         idToken: paymentToken,
         audience: YOUR_CLIENT_ID, // Specify your Google API client ID
       });
