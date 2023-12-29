@@ -5,6 +5,7 @@ export default function CCInput({
   id,
   value,
   handleChange,
+  handleBlur,
   maxlength,
   autocomplete,
   placeHolder,
@@ -12,22 +13,28 @@ export default function CCInput({
   error,
   children,
 }) {
-  return (
-    <div className={styles.form_group}>
+  return (<>
+    <div className={`${styles.form_group} ${error && styles.formGroupError}`}>
       <input
         type={type}
         id={id}
         value={value}
         placeholder=" "
         maxlength={  maxlength?maxlength:128}
+        onBlur={handleBlur}
         onChange={(event)=>{handleChange(event)}}
         autoComplete={autocomplete && autocomplete}
-        className={`${styles.input_field} ${error ? styles.input_error : ""}`}
+        className={`${styles.input_field} ${error && styles.input_error}`}
       />
       <label htmlFor={id} className={styles.label}>
         {placeHolder}
       </label>
       {children && children}
+     
     </div>
+    {error && (
+        <p className={styles.error}>{error}</p>
+      )}
+      </>
   );
 }

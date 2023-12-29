@@ -12,24 +12,45 @@ const CreditCardForm = () => {
     const [expDate, setExpDate]= useState('');
     const [cvv, setCvv]= useState('');
     const [cardHolderName, setCardHolderName]= useState('');
+    const [cardStatesEntered, setCardStatesEntered]= useState({
+      cardNumber:false, expiryDate:false, cvv:false, cardHolderName:false
+    });
+    const [errors, setErrors] = useState({});
 
+
+
+    const deleteError = (field) => {
+      if (errors.hasOwnProperty(field)) {
+        const newErrors = { ...errors };
+      
+        delete newErrors[field];
+        setErrors(newErrors);
+      }
+    };
  
   
 
     const handleCardNumber = (event)=>{
+      deleteError(event.target.id)
+        const value=event.target.value;
+        const newValue= value.replace(/\s/g, '');
+        if((+cardNumber.replace(/\s/g, '').length)%4===0 && (+newValue.length)%4===0)
+        
+        {setCardNumber((Math.floor(+newValue / 10)).toString().replace(/(.{4})/g, '$1 ')); return;}
        
-        const value=event.target.value.replace(/\s/g, '');
-        if(!isNaN(+value)){
-            
-         setCardNumber( value.replace(/(.{4})/g, '$1 '));
+        if(!isNaN(+newValue)){
+          setCardStatesEntered({...cardStatesEntered,cardNumber:true});
+         setCardNumber( newValue.replace(/(.{4})/g, '$1 '));
         }
         
     }
 
+   
+
 
     const handleExpDate = (event)=>{
        
-       
+      deleteError(event.target.id)
         const value=event.target.value;
         let newValue=value.replace(/\//g, '').replace(/\s/g, '');
         if(expDate.length===5 && value.length===4){setExpDate(Math.floor(+newValue / 10)); return;}
@@ -37,7 +58,7 @@ const CreditCardForm = () => {
         if(value.length===1 && value>1)newValue=`0${value}`;
       
         if(newValue.length>1)newValue=newValue.slice(0, 2) + ' / ' + newValue.slice(2)
-       
+        setCardStatesEntered({...cardStatesEntered,expiryDate:true});
          setExpDate(newValue);
         }
         
@@ -45,34 +66,54 @@ const CreditCardForm = () => {
 
 
     const handleCvv = (event)=>{
-       
+      deleteError(event.target.id)
         const value=event.target.value;
         if(!isNaN(+value) && value.length<5){
-            
+          setCardStatesEntered({...cardStatesEntered,cvv:true});
          setCvv(value);
         }
         
     }
     
-     
-     const handleExpDateChange = (event) => {
-        const typedValue = event.target.value;
-        var numericValue = inputValue.replace(/\D/g, '');
 
-        // Format as YYYY/MM
-        if (numericValue.length >= 4) {
-          numericValue = numericValue.substring(0, 4) + '/' + numericValue.substring(4);
+    const handleCardNumberBlur = (event)=>{
+       
+     
+      if(!cardStatesEntered.cardNumber) return;
+      const value=event.target.value.replace(/\s/g, '');
+      if(value===''){ setErrors({ ...errors, cardNumber: 'Enter a card number' }); return;}
+      if(value.length<12){ setErrors({ ...errors, cardNumber: 'Enter a valid card number' }); return;}
+      let s =0 ;
+      for(let i=0; i<value.length;i++)
+      {
+        if(i%2!==0)s=s+(+value[i]);
+        else {
+          const m=(+value[i])*2;
+          if(m>9)s=s+m-9;
+          else s=s+m;
         }
-    
-        // Set the formatted value back to the input
-        event.target.value = numericValue;
-        
       }
-      //pravila: prvi broj je manji od 12. Ako je prva cifra 1, i length upravo postao 2, dodaje se ' / ' na vrednost
-      //Ako je length ==0, i prva cifra je veca od 1, dodaje se ' / ' i upisuje se broj 0ukucana_cifra.
-      //Ako je prvi broj veci od 12, upisuje se greska ispod inputa.
-      //pravila za csv: Ako je length < 3, izbaci gresku Enter the CVV or security code on your card
-      //Proveriti pravila za cc number
+      if(s%10!==0)   setErrors({ ...errors, cardNumber: 'Enter a valid card number' });
+    
+      
+  }
+
+  const handleExpDateBlur = (event)=>{
+   
+    if(!cardStatesEntered.expiryDate) return;
+   
+    if(event.target.value.length!==9) setErrors({ ...errors, expiryDate: 'Enter a valid card number' });
+  }
+
+  const handleCvvBlur = (event)=>{
+   
+    if(!cardStatesEntered.cvv) return;
+   
+    if(event.target.value.length<3) setErrors({ ...errors, cvv: 'Enter a valid card number' });
+  }
+
+
+  
     
 
   return (
@@ -88,8 +129,11 @@ const CreditCardForm = () => {
           name="number"
           maxlength="23"
           value={cardNumber}
+          
           handleChange={handleCardNumber}
+          handleBlur={handleCardNumberBlur}
           children={<FloatingBadge imageName='lock3.png'/>}
+          error={errors.cardNumber}
         />
         
 </div>
@@ -105,6 +149,8 @@ const CreditCardForm = () => {
           maxlength="9"
           value={expDate}
           handleChange={handleExpDate}
+          handleBlur={handleExpDateBlur}
+          error={errors.expiryDate}
         />
          <CCInput
          id="cvv"
@@ -114,19 +160,26 @@ const CreditCardForm = () => {
           maxlength="4"
           value={cvv}
           handleChange={handleCvv}
+          handleBlur={handleCvvBlur}
           children={<FloatingBadge message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>}
-        />
+          error={errors.cvv}
+       />
 
 </div>
        
 <div className={styles.ccInputRow}>
 <CCInput
-       id="cardholderName"
+       id="cardHolderName"
        placeHolder='Name on card'
           type="text"
           name="name"
          value={cardHolderName}
-         handleChange={(event)=>{setCardHolderName(event.target.value)}}
+         handleChange={(event)=>{deleteError(event.target.id);setCardStatesEntered({...cardStatesEntered,cardHolderName:true});setCardHolderName(event.target.value)}}
+         
+         handleBlur={(event)=>{if(!cardStatesEntered.cardHolderName) return;
+   
+          if(event.target.value.length===0) setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
+         error={errors.cardHolderName}
         />
       </div>
       <label>

@@ -9,12 +9,13 @@
 }
 
 .ccInputRow{
-    width: 100% ;
+    width: calc(100% - 16px);
+  
     
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: var(--size-5);
+    flex-direction: column;
+  
+  
 }
 
 .payNowButton{
@@ -43,6 +44,10 @@
         flex-direction: column;
         margin-bottom: 0;
       }
+
+      .ccInputRow{
+        width: 100% ;
+    }
       .payNowButton{
    
         margin-left: 0;
