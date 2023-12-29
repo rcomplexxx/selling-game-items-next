@@ -252,7 +252,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
                   type="tel"
                   handleChange={handleChange}
                   error={errors.phone}
-                  children={<FloatingBadge/>}
+                  children={<FloatingBadge message={'In case we need to contact you about your order'}/>}
                 />
               </div>
             </form>

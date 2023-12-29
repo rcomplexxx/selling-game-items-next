@@ -27,10 +27,27 @@
     cursor: pointer;
 }
 
-.explain{
+.explainWrapper{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     position:absolute;
-    bottom: calc(50% + 17px);
+    bottom: calc(50% + 12px);
     right: -72px;
+    transform: scale(0.6) translateY(8px);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transform-origin: bottom center;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.explain{
+    
+   
     height: max-content;
     width: var(--size-11-5);
     background-color: rgba(127, 127, 163, 0.9);
@@ -41,22 +58,33 @@
     font-size: var(--font-size-2);
     line-height: 20px;
    
+    
+  
 }
 
 .explainTriangle{
-    position:absolute;
-    bottom: calc(50% + 10px);
-    right: 11px;
+   
+  
     width: 0;
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 8px solid rgba(127, 127, 163, 0.9);
-  z-index: 9999;
+ 
+}
+
+.activateExplain{
+    transform: scale(1)  translateY(0);
+    opacity: 1;
 }
 
 @media (max-width: 980px){
-    .explain{
+    .explainWrapper{
+        align-items: flex-end;
      right: -16px;
+    }
+
+    .explainTriangle{
+        margin-right: 27px;
     }
 }

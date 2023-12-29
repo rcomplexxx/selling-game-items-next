@@ -114,7 +114,7 @@ const CreditCardForm = () => {
           maxlength="4"
           value={cvv}
           handleChange={handleCvv}
-          children={<FloatingBadge/>}
+          children={<FloatingBadge message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>}
         />
 
 </div>
