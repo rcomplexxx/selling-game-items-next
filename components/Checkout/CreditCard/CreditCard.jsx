@@ -84,7 +84,7 @@ const CreditCardForm = () => {
         <CCInput
         id="cardNumber"
         placeHolder='Card number'
-          type="text"
+        type="tel"
           name="number"
           maxlength="23"
           value={cardNumber}
@@ -100,7 +100,7 @@ const CreditCardForm = () => {
         <CCInput
          id="expiryDate"
          placeHolder='Expiration date (MM / YY)'
-          type="text"
+         type="tel"
           name="expiry"
           maxlength="9"
           value={expDate}
@@ -109,7 +109,7 @@ const CreditCardForm = () => {
          <CCInput
          id="cvv"
          placeHolder='Security code'
-          type="text"
+          type="tel"
           name="cvc"
           maxlength="4"
           value={cvv}
