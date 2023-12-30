@@ -3,8 +3,11 @@ import styles from "./writereview.module.css";
 import StarRatings from "react-star-ratings";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
+import RaitingInfo from "./RaitingInfo/RaitingInfo";
 
 export default function WriteReview({ stars, reviewNumber }) {
+  const [openRaitingInfo, setOpenRaitingInfo]=useState(false);
   const [infoDivOpen, setInfoDivOpen] = useState(undefined);
   const [rating, setRating] = useState(5);
   const [raitingPage, setRaitingPage] = useState(0);
@@ -145,7 +148,7 @@ useEffect(()=>{
   return (
     <>
       <div className={styles.writeReviewDiv}>
-        <div className={styles.raitingDiv}>
+        <div className={styles.raitingDiv} onClick={()=>{setOpenRaitingInfo(!openRaitingInfo)}}>
           <StarRatings
             rating={stars}
             starRatedColor="#97892F"
@@ -158,7 +161,20 @@ useEffect(()=>{
           <span className={styles.reviewsNumberSpan}>
             {reviewNumber} reviews
           </span>
+
+          <Image
+        src={'/images/greaterLess3.png'}
+        height={12}
+        width={12}
+          className={`${styles.plusStyle} ${
+            openRaitingInfo && styles.plusStyleRotate
+          }`}
+        />
+
+            
+
         </div>
+        {openRaitingInfo && <RaitingInfo raiting={stars}/>}
         <button
           onClick={() => {
             setInfoDivOpen(!infoDivOpen);

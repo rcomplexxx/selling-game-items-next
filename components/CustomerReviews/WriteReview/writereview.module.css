@@ -1,4 +1,5 @@
 .writeReviewDiv{
+  position: relative;
     width: calc(100% -  var(--size-7));
     display: flex;
     justify-content: space-between;
@@ -7,13 +8,36 @@
   
   }
   
-
+  .raitingDiv{
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+  }
 
   .reviewsNumberSpan{
     margin-left: 8px;
     font-size: var(--font-size-3);
 
   }
+
+  .plusStyle {
+    padding:0;
+    margin: 0;
+    margin-left: 16px;
+    transform:  rotateY(0deg) rotate(-90deg);
+    transform-origin: center;
+ 
+    align-self: end;
+    font-weight: 400;
+  }
+  
+  .plusStyleRotate {
+    transform: rotateY(0deg) rotate(-270deg);
+    transform-origin: center;
+  }
+
+  
+
   
   .writeReviewButton{
     color: white;
