@@ -212,9 +212,9 @@ export async function getStaticProps(context) {
       reviewsNumberFinal = reviewsNumberFinal + reviewsNumber;
       sumOfAllReviews=sumOfAllReviews+reviewsNumber*i;
     }
-    const averageValue=Math.round(sumOfAllReviews/reviewsNumberFinal * 10)/ 10;
-
-    ratingData={...ratingData, reviewsNumber: reviewsNumberFinal, rating: averageValue}
+    const averageValue=reviewsNumberFinal===0?Math.round(sumOfAllReviews/reviewsNumberFinal * 10)/ 10:4.7;
+    if(reviewsNumberFinal===0) ratingData={stars5:386, stars4:60, stars3:0, stars2:1, stars1:2, reviewsNumber: 449, rating: averageValue}
+    else{ratingData={...ratingData, reviewsNumber: reviewsNumberFinal, rating: averageValue}}
   // Return the data as props
   return {
     props: {
