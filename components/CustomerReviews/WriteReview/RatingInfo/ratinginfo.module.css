@@ -12,7 +12,7 @@
     padding: 24px 16px;
     z-index: 9;
     transform-origin: top center;
-    animation: spawnRatingInfo 0.25s ease forwards;
+    animation: spawnRatingInfo 0.25s ease;
   }
 
 
