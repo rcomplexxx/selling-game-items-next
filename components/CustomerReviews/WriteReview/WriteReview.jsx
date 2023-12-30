@@ -148,7 +148,7 @@ useEffect(()=>{
   return (
     <>
       <div className={styles.writeReviewDiv}>
-        <div className={styles.ratingDiv} onClick={()=>{setOpenRatingInfo(!openRatingInfo)}}>
+        <div id="ratingDiv" className={styles.ratingDiv} onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{setOpenRatingInfo(!openRatingInfo)}}>
           <StarRatings
             rating={ratingData.rating}
             starRatedColor="#97892F"
@@ -174,7 +174,7 @@ useEffect(()=>{
             
 
         </div>
-        {openRatingInfo && <RatingInfo ratingData={ratingData}/>}
+        {openRatingInfo && <RatingInfo ratingData={ratingData} setOpenRatingInfo={setOpenRatingInfo}/>}
         <button
           onClick={() => {
             setInfoDivOpen(!infoDivOpen);

@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import StarRatings from "react-star-ratings";
 import styles from "./ratinginfo.module.css";
 
-export default function RatingInfo({ratingData}) {   
+export default function RatingInfo({ratingData, setOpenRatingInfo}) {   
    
+  useEffect(()=>{document.getElementById('ratingInfo').focus()}, [])
 
 
   return (
-    <div className={styles.ratingInfo}>
+    <div id='ratingInfo' className={styles.ratingInfo} tabIndex={0} 
+     onBlur={()=>{setOpenRatingInfo(false)}}>
         <div className={styles.ratingTitle}>
                <StarRatings
             rating={ratingData.rating}
