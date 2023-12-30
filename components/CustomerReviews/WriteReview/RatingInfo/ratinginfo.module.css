@@ -15,6 +15,12 @@
     animation: spawnRatingInfo 0.25s ease;
   }
 
+  .ratingInfo:focus{
+   
+      box-shadow: none;
+    
+  }
+
 
   .ratingTitle{
     display: flex;

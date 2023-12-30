@@ -9,7 +9,10 @@ export default function RatingInfo({ratingData, setOpenRatingInfo}) {
 
   return (
     <div id='ratingInfo' className={styles.ratingInfo} tabIndex={0} 
-     onBlur={()=>{setOpenRatingInfo(false)}}>
+     onBlur={(event)=>{
+   
+      if(window.getComputedStyle(event.target).getPropertyValue('position') === 'absolute')
+      setOpenRatingInfo(false)}}>
         <div className={styles.ratingTitle}>
                <StarRatings
             rating={ratingData.rating}
