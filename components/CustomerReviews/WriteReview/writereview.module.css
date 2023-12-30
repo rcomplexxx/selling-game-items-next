@@ -8,7 +8,7 @@
   
   }
   
-  .raitingDiv{
+  .ratingDiv{
     position: relative;
     user-select: none;
     cursor: pointer;
@@ -740,7 +740,7 @@
         width: calc(100% - var(--size-4));
       }
 
-      .raitingDiv{
+      .ratingDiv{
         margin-left:6px;
         align-self: flex-start;
       }

@@ -1,6 +1,6 @@
-.raitingInfo{
+.ratingInfo{
     position: absolute;
-    top: 32px;
+    top: 40px;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -11,22 +11,24 @@
     border-radius: 4px;
     padding: 24px 16px;
     z-index: 9;
+    transform-origin: top center;
+    animation: spawnRatingInfo 0.25s ease forwards;
   }
 
 
-  .raitingTitle{
+  .ratingTitle{
     display: flex;
     align-items: center;
     
   }
 
-  .raitingSpan{
+  .ratingSpan{
     text-align: center;
     font-size: var(--font-size-7);
     margin-left: 8px;
   }
 
-  .raitingMetric{
+  .ratingMetric{
     height: 16px;
     width: 100%;
     margin-top: 16px;
@@ -37,14 +39,14 @@
     align-items: center;
   }
 
-  .percentRaitingWrapper{
+  .percentRatingWrapper{
     height: var(--size-4);
     flex-grow: 1;
     background-color: rgb(30, 51, 59);
     margin-left: 4px;
     margin-right: 16px;
   }
-  .percentageRaitingDiv{
+  .percentageRatingDiv{
     height: 100%;
     width: 0;
     background-color: rgb(116, 145, 147);
@@ -55,12 +57,46 @@
     width: 34px;
   }
 
-  @media (max-width: 600px)  {
-    .raitingInfo{
+
+
+  @keyframes spawnRatingInfo {
+    0%{
+      opacity: 0;
+      transform: translateY(-24px) scale(0.6);
+    }
+
+    100%{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+
+  @media (max-width: 480px)  {
+    .ratingInfo{
         position: static;
         width: calc(100% - 42px);
         margin-top: var(--size-4);
         margin-bottom: var(--size-5);
      
     }
+
+    @keyframes spawnRatingInfo {
+      0%{
+        opacity: 0;
+        transform: translateY(-16px);
+        max-height: 0;
+      }
+  
+      100%{
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 220px;
+      }
+    }
+
+
+
   }
+
+ 

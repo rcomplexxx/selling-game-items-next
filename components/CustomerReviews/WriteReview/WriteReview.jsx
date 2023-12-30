@@ -4,13 +4,13 @@ import StarRatings from "react-star-ratings";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import RaitingInfo from "./RaitingInfo/RaitingInfo";
+import RatingInfo from "./RatingInfo/RatingInfo";
 
-export default function WriteReview({ stars, reviewNumber }) {
-  const [openRaitingInfo, setOpenRaitingInfo]=useState(false);
+export default function WriteReview({  ratingData }) {
+  const [openRatingInfo, setOpenRatingInfo]=useState(false);
   const [infoDivOpen, setInfoDivOpen] = useState(undefined);
   const [rating, setRating] = useState(5);
-  const [raitingPage, setRaitingPage] = useState(0);
+  const [ratingPage, setRatingPage] = useState(0);
   const [animation, setAnimation] = useState(false);
   const [images, setImages] = useState([]);
   const [reviewInfo, setReviewInfo] = useState({
@@ -79,7 +79,7 @@ useEffect(()=>{
     setAnimation("swipeOutLeft");
 
     setTimeout(() => {
-      setRaitingPage((prev) => prev + 1);
+      setRatingPage((prev) => prev + 1);
 
       setAnimation("swipeInRight");
       setTimeout(() => {
@@ -94,7 +94,7 @@ useEffect(()=>{
     setAnimation("swipeOutRight");
 
     setTimeout(() => {
-      setRaitingPage((prev) => prev - 1);
+      setRatingPage((prev) => prev - 1);
 
       setAnimation("swipeInLeft");
       setTimeout(() => {
@@ -123,7 +123,7 @@ useEffect(()=>{
     if (router.asPath.includes("#write-review")) router.back();
     }
 
-    setRaitingPage(0);
+    setRatingPage(0);
   }, [infoDivOpen]);
 
   useEffect(() => {
@@ -148,9 +148,9 @@ useEffect(()=>{
   return (
     <>
       <div className={styles.writeReviewDiv}>
-        <div className={styles.raitingDiv} onClick={()=>{setOpenRaitingInfo(!openRaitingInfo)}}>
+        <div className={styles.ratingDiv} onClick={()=>{setOpenRatingInfo(!openRatingInfo)}}>
           <StarRatings
-            rating={stars}
+            rating={ratingData.rating}
             starRatedColor="#97892F"
             numberOfStars={5}
             starEmptyColor={"#103939"}
@@ -159,7 +159,7 @@ useEffect(()=>{
             starSpacing="2px"
           />{" "}
           <span className={styles.reviewsNumberSpan}>
-            {reviewNumber} reviews
+            {ratingData.reviewsNumber} reviews
           </span>
 
           <Image
@@ -167,14 +167,14 @@ useEffect(()=>{
         height={12}
         width={12}
           className={`${styles.plusStyle} ${
-            openRaitingInfo && styles.plusStyleRotate
+            openRatingInfo && styles.plusStyleRotate
           }`}
         />
 
             
 
         </div>
-        {openRaitingInfo && <RaitingInfo raiting={stars}/>}
+        {openRatingInfo && <RatingInfo ratingData={ratingData}/>}
         <button
           onClick={() => {
             setInfoDivOpen(!infoDivOpen);
@@ -189,7 +189,7 @@ useEffect(()=>{
         <div className={styles.writeReviewPopupDiv}>
           <div className={styles.reviewBackgroundDiv} />
           <div className={styles.mainReviewDiv}>
-            {raitingPage !== 0 && raitingPage !== 4 && (
+            {ratingPage !== 0 && ratingPage !== 4 && (
               <div
                 className={`${styles.writeReviewFooter} ${styles.writeReviewFooterMobile}`}
               >
@@ -199,7 +199,7 @@ useEffect(()=>{
                 ></img> 
                 </button>
 
-                {raitingPage == 1 && images.length===1 && (
+                {ratingPage == 1 && images.length===1 && (
                   <button onClick={handleNext} className={styles.remindMeLater}>
                     Skip
                   </button>
@@ -220,7 +220,7 @@ useEffect(()=>{
                   : ""
               }`}
             >
-              {raitingPage == 0 ? (
+              {ratingPage == 0 ? (
                 <>
                   <span className={styles.rateQuestion}>
                     How would you rate this product?
@@ -236,7 +236,7 @@ useEffect(()=>{
                     starSpacing="12px"
                   />
                 </>
-              ) : raitingPage == 1 ? (
+              ) : ratingPage == 1 ? (
                 <>
                   <div className={styles.mediaTitle}>
                     <h1>Show it off!</h1>
@@ -312,7 +312,7 @@ useEffect(()=>{
                     </>
                   )}
                 </>
-              ) : raitingPage == 2 ? (
+              ) : ratingPage == 2 ? (
                 <>
                   <h1>Tell us more!</h1>
                   <textarea
@@ -326,7 +326,7 @@ useEffect(()=>{
                     rows={8}
                   />
                 </>
-              ) : raitingPage == 3 ? (
+              ) : ratingPage == 3 ? (
                 <>
                   <h1>About you</h1>
                   <div className={styles.personInfo}>
@@ -405,7 +405,7 @@ useEffect(()=>{
               )}
             </div>
 
-            {raitingPage == 0 || raitingPage == 4 ? (
+            {ratingPage == 0 || ratingPage == 4 ? (
                <img height={0} width={0} src='/images/cancelWhite.png'
                 onClick={() => {
                   setInfoDivOpen(false);
@@ -428,14 +428,14 @@ useEffect(()=>{
             ) : (
               <div
                 className={`${styles.writeReviewFooter} ${
-                  raitingPage == 1
+                  ratingPage == 1
                     ? animation == "swipeInRight"
                       ? styles.writeReviewFooterSpawn
                       : animation == "swipeOutRight"
                       ? styles.swipeOutRightFooterAnimation
                       : animation == "swipeOutLeft" &&
                         styles.nextButtonMobileAnim
-                    : raitingPage == 3 &&
+                    : ratingPage == 3 &&
                       animation == "swipeOutLeft" &&
                       styles.swipeOutLeftFooterAnimation
                 }`}
@@ -451,8 +451,8 @@ useEffect(()=>{
 
                 <div
                   className={`${styles.progressDiv} ${
-                    (raitingPage > 1 ||
-                      (raitingPage == 1 && animation == "swipeOutLeft")) &&
+                    (ratingPage > 1 ||
+                      (ratingPage == 1 && animation == "swipeOutLeft")) &&
                     styles.progressDivMobileControl
                   }`}
                 >
@@ -463,11 +463,11 @@ useEffect(()=>{
                   <div className={styles.progressBar}>
                     <div
                       className={`${
-                        raitingPage == 0 &&
+                        ratingPage == 0 &&
                         animation == "swipeOutLeft" &&
                         styles.fillProgressBar
-                      } ${raitingPage > 0 && styles.progressBarFilled} ${
-                        raitingPage == 1 &&
+                      } ${ratingPage > 0 && styles.progressBarFilled} ${
+                        ratingPage == 1 &&
                         animation == "swipeOutRight" &&
                         styles.fillOutProgressBar
                       }
@@ -478,11 +478,11 @@ useEffect(()=>{
                   <div className={styles.progressBar}>
                     <div
                       className={`${
-                        (raitingPage > 1 ||
-                          (raitingPage == 1 && animation == "swipeOutLeft")) &&
+                        (ratingPage > 1 ||
+                          (ratingPage == 1 && animation == "swipeOutLeft")) &&
                         styles.fillProgressBar
                       } ${
-                        raitingPage == 2 &&
+                        ratingPage == 2 &&
                         animation == "swipeOutRight" &&
                         styles.fillOutProgressBar
                       }
@@ -492,11 +492,11 @@ useEffect(()=>{
                   <div className={styles.progressBar}>
                     <div
                       className={`${
-                        (raitingPage > 2 ||
-                          (raitingPage == 2 && animation == "swipeOutLeft")) &&
+                        (ratingPage > 2 ||
+                          (ratingPage == 2 && animation == "swipeOutLeft")) &&
                         styles.fillProgressBar
                       } ${
-                        raitingPage == 3 &&
+                        ratingPage == 3 &&
                         animation == "swipeOutRight" &&
                         styles.fillOutProgressBar
                       }
@@ -505,7 +505,7 @@ useEffect(()=>{
                   </div>
                 </div>
 
-                {raitingPage == 1 ? (
+                {ratingPage == 1 ? (
                   animation == "swipeOutLeft" ? (
                     <button
                       disabled={reviewInfo.text == ""}
@@ -524,7 +524,7 @@ useEffect(()=>{
                       {images.length!=0?'Continue':'Skip'}
                     </button>
                   )
-                ) : raitingPage == 2 ? (
+                ) : ratingPage == 2 ? (
                   animation == "swipeOutLeft" ? (
                     <button
                       onClick={() => {
@@ -558,7 +558,7 @@ useEffect(()=>{
                       Next
                     </button>
                   )
-                ) : raitingPage == 3 ? (
+                ) : ratingPage == 3 ? (
                   <button
                     onClick={() => {
                       if (reviewInfo.firstName == "") {
@@ -586,7 +586,7 @@ useEffect(()=>{
               </div>
             )}
 
-            {raitingPage == 4 && (
+            {ratingPage == 4 && (
               <div
                 className={`${styles.writeReviewFooter} ${styles.continueFooter}`}
               >

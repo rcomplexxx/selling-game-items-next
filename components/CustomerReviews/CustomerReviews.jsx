@@ -7,7 +7,7 @@ import Masonry from "react-masonry-css";
 import classNames from "classnames";
 import WriteReview from "./WriteReview/WriteReview";
 
-function Review({ name, text, stars, imageNames }) {
+function Review({ name, text,  stars, imageNames }) {
   return (
     <div className={styles.reviewDiv}>
       {imageNames &&
@@ -42,7 +42,7 @@ function Review({ name, text, stars, imageNames }) {
   );
 }
 
-export default function CustomerReviews({ product_id, stars, reviewNumber, startReviews }) {
+export default function CustomerReviews({ product_id, ratingData, startReviews }) {
   const [reviews, setReviews] = useState(startReviews ? startReviews : []);
   const newReviews = useRef([]);
   const [loadButtonExists, setLoadButtonExists] = useState(true);
@@ -53,7 +53,7 @@ export default function CustomerReviews({ product_id, stars, reviewNumber, start
       <h1>Customer Reviews</h1>
 
       
-    <WriteReview stars={stars} reviewNumber={reviewNumber}/>
+    <WriteReview ratingData={ratingData}/>
 
 
 
@@ -96,7 +96,7 @@ export default function CustomerReviews({ product_id, stars, reviewNumber, start
               // Prevent multiple clicks while the operation is in progress
               return;
             }
-
+F
             setIsLoading(true);
 
             try {

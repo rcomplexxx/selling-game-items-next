@@ -19,6 +19,7 @@ import ProductPageCards from "@/components/ProductPageCards/ProductPageCards";
 import ProductPics from "@/components/ProductPics/ProductPics";
 import { useRouter } from "next/router";
 import { getReviewsData } from "@/utils/getStartReviews";
+import getRatingData from "@/utils/getRatingData";
 
 //slickGoTo
 //afterChange(index)=>{}
@@ -26,16 +27,16 @@ import { getReviewsData } from "@/utils/getStartReviews";
 //activeIndex : Number, default 0 - Set carousel at the specified position.
 //onUpdated={(e) => { e.item je index
 
-export default function ProductPage({ product, images, startReviews }) {
+export default function ProductPage({ product, images, startReviews, ratingData }) {
   if (!product) return <p className={styles.notFound}>Product not found.</p>;
-
+ 
 
   const [quantity, setQuantity] = useState(1);
   const [variant, setVariant]=useState(product.variants && product.variants[0].name);
   const router = useRouter();
 
 
-  const { cartProducts, setCartProducts, setNewProduct } = useContext(AppContext);
+  const { cartProducts, setCartProducts, setNewProduct, } = useContext(AppContext);
 
   const onAddToCart = ( quantity = 1) => {
     const productIndex = cartProducts.findIndex((cp) => cp.id === product.id);
@@ -88,7 +89,7 @@ export default function ProductPage({ product, images, startReviews }) {
           >
             {" "}
             <StarRatings
-              rating={product.raiting?product.raiting:4.7}
+              rating={ratingData.rating?ratingData.rating:4.7}
               starRatedColor="#97892F"
               numberOfStars={5}
               starEmptyColor={"#ebebeb"}
@@ -150,7 +151,7 @@ export default function ProductPage({ product, images, startReviews }) {
         </div>
       </div>
 
-      <CustomerReviews product_id={product.id} startReviews={startReviews} reviewNumber={product.reviewNumber} stars={product.raiting?product.raiting:4.7} />
+      <CustomerReviews product_id={product.id} startReviews={startReviews} reviewNumber={product.reviewNumber} ratingData={ratingData} />
     </>
   );
 }
@@ -199,15 +200,28 @@ export async function getStaticProps(context) {
 
 
     const reviewsData= getReviewsData(productId);
+   
     
 
+    let ratingData={};
+    let reviewsNumberFinal = 0;
+    let sumOfAllReviews= 0 ;
+    for(let i=1; i <6; i++){
+      const reviewsNumber = getRatingData(productId, i);
+      ratingData={...ratingData, [`stars${i}`]:reviewsNumber}
+      reviewsNumberFinal = reviewsNumberFinal + reviewsNumber;
+      sumOfAllReviews=sumOfAllReviews+reviewsNumber*i;
+    }
+    const averageValue=Math.round(sumOfAllReviews/reviewsNumberFinal * 10)/ 10;
 
+    ratingData={...ratingData, reviewsNumber: reviewsNumberFinal, rating: averageValue}
   // Return the data as props
   return {
     props: {
       product,
       images,
       startReviews: reviewsData,
+      ratingData: ratingData
     },
   };
 }
