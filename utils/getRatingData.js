@@ -27,11 +27,3 @@ export default getRatingData;
 
 
 
-// db.prepare(`
-//     CREATE TABLE IF NOT EXISTS reviews (
-
-// 		stars INTEGER,
-//         imageNames TEXT,
-//         product_id INTEGER
-//     )
-// `).run();
