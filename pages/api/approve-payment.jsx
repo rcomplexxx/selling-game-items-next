@@ -22,10 +22,13 @@ const environment =
 const client = new paypal.core.PayPalHttpClient(environment);
 
 const approvePayment = async (req, res) => {
-  const { orderId } = req.body;
-  console.log(orderId);
+  const { paymentId, paymentMethod } = req.body;
+  console.log(paymentId);
 
-  const updateDb = async (orderId) => {
+
+
+
+  const updateDb = async (paymentId) => {
     return new Promise((resolve, reject) => {
       try {
         const db = betterSqlite3(process.env.DB_PATH);
@@ -33,8 +36,8 @@ const approvePayment = async (req, res) => {
         // Updating the 'approved' field in the 'orders' table using prepared statements
 
         const result = db
-          .prepare("UPDATE orders SET approved = ? WHERE orderId = ?")
-          .run(1, orderId);
+          .prepare("UPDATE orders SET approved = ? WHERE paymentId = ? AND paymentMethod = ?")
+          .run(1, paymentId, paymentMethod);
 
         // Check the result of the update operation
         if (result.changes > 0) {
@@ -53,21 +56,9 @@ const approvePayment = async (req, res) => {
     });
   };
 
-  try {
-    const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
 
-    if (!(await limiterPerDay.rateLimiterGate(clientIp)))
-      return res.status(429).json({ error: "Too many requests." });
-
-    const request = new paypal.orders.OrdersCaptureRequest(orderId);
-    request.requestBody({});
-    const response = await client.execute(request);
-
-    if (response.result && response.result.status) {
-      let status = response.result.status;
-      // Check if the capture was successful
-      if (response.result.status === "COMPLETED") {
-        await updateDb(orderId);
+  const approvedConsequence= async()=>{
+    await updateDb(paymentId);
 
         try {
           const transporter = nodemailer.createTransport({
@@ -88,7 +79,29 @@ const approvePayment = async (req, res) => {
         } catch (error) {
           console.error("Email not sent.");
         }
+  }
 
+
+
+
+
+  try {
+    const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+
+    if (!(await limiterPerDay.rateLimiterGate(clientIp)))
+      return res.status(429).json({ error: "Too many requests." });
+
+    if(paymentMethod=='PAYPAL'){
+    const request = new paypal.orders.OrdersCaptureRequest(paymentId);
+    request.requestBody({});
+    const response = await client.execute(request);
+
+    if (response.result && response.result.status) {
+      let status = response.result.status;
+      // Check if the capture was successful
+      if (response.result.status === "COMPLETED") {
+        
+        await approvedConsequence();
         return res.status(200).json({ message: "Payment successful" });
       } else if (response.result.status === "INSTRUMENT_DECLINED") {
         res.status(500).json({ error: "INSTRUMENT_DECLINED" });
@@ -96,6 +109,11 @@ const approvePayment = async (req, res) => {
         res.status(500).json({ error: response.result.status });
       }
     }
+  } 
+  else if(paymentMethod==='STRIPE'){
+    await approvedConsequence();
+    return res.status(200).json({ message: "Payment successful" });
+  }
 
     res.status(500).json({ error: response.result });
   } catch (error) {

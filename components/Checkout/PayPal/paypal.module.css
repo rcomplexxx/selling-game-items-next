@@ -4,6 +4,13 @@
     margin-right: var(--size-3);
 }
 
+.paypalError{
+    color: orange;
+     margin-top: var(--size-2);
+      margin-bottom: var(--size-5);
+    margin-left: var(--size-3);
+}
+
 
 @media (max-width: 980px){
     .paypalButton{
@@ -13,4 +20,10 @@
         margin-left: 0;
         margin-right:0;
     }
+
+
+    .paypalError{
+        margin-left: 0;
+    }
+
 }

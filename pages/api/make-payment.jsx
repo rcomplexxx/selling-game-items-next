@@ -1,4 +1,5 @@
 import paypal from "@paypal/checkout-server-sdk";
+import Stripe from 'stripe';
 import productsData from "../../data/products.json";
 import betterSqlite3 from "better-sqlite3";
 import RateLimiter from "@/utils/rateLimiter.js";
@@ -46,7 +47,9 @@ const paypalPay=async(totalPrice)=>{
 }
 
 const makePayment = async (req, res) => {
-  const putInDatabase = (orderId) => {
+  console.log('  reqdata BITNO ~!!!~).', req.body)
+
+  const putInDatabase = (paymentMethod,paymentId) => {
     return new Promise((resolve, reject) => {
       try {
         const db = betterSqlite3(process.env.DB_PATH);
@@ -67,7 +70,8 @@ const makePayment = async (req, res) => {
             phone TEXT,
             discount TEXT,
             items TEXT,
-            orderId TEXT,
+            paymentMethod TEXT,
+            paymentId TEXT,
             packageStatus TEXT,
             approved BOOLEAN,
             createdDate INTEGER
@@ -89,9 +93,10 @@ const makePayment = async (req, res) => {
           discount,
           items,
         } = req.body.order;
+        console.log(' and items!!!!!!!!!',  items);
 
         db.prepare(
-          `INSERT INTO orders (email, firstName, lastName, address, apt, country, postcode, state, suburb, phone, discount, items, orderId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', false, ?)`,
+          `INSERT INTO orders (email, firstName, lastName, address, apt, country, postcode, state, suburb, phone, discount, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', false, ?)`,
         ).run(
           email,
           firstName,
@@ -105,7 +110,8 @@ const makePayment = async (req, res) => {
           phone,
           discount,
           JSON.stringify(items),
-          orderId,
+          paymentMethod,
+          paymentId,
           Math.floor(Date.now() / 86400000),
         );
 
@@ -123,7 +129,7 @@ const makePayment = async (req, res) => {
 
     // if (!(await limiterPerDay.rateLimiterGate(clientIp)))
     //   return res.status(429).json({ error: "Too many requests." });
-
+    console.log('ITEMS', req.body.order.items)
     let totalPrice = req.body.order.items
       .reduce((sum, product) => {
         const productInfo = productsData.find((item) => item.id === product.id);
@@ -135,7 +141,7 @@ const makePayment = async (req, res) => {
       }, 0)
       .toFixed(2);
 
-    console.log(totalPrice);
+    console.log('TOTALPRICE!',totalPrice);
     const discount = req.body.order.discount;
     if (discount != "0") {
       const discountFloat = parseFloat(discount);
@@ -148,13 +154,14 @@ const makePayment = async (req, res) => {
     if(req.body.paymentMethod==='PAYPAL'){
       console.log('popusis ti meni')
     const request = await paypalPay(totalPrice);
+    console.log('popusen request', request)
     const response = await client.execute(request);
       console.log('Vidi response bato',response);
     // Check if the payment is approved
     if (response.result.status === "CREATED") {
       console.log('status je creacted')
-      await putInDatabase(response.result.id);
-      res.status(200).json({ success: true, orderId: response.result.id });
+      await putInDatabase('PAYPAL',response.result.id);
+      res.status(200).json({ success: true, paymentId: response.result.id });
     } else {
       // Payment was not successful
       res
@@ -171,8 +178,49 @@ const makePayment = async (req, res) => {
       .status(400)
       .json({ success: false, error: "Payment was not approved." });
     }
+    // await putInDatabase('GPAY',response.result.id);
+  }
+  else if(req.body.paymentMethod==='STRIPE'){
+    // stripeId amount totalPrice
+    console.log('popusis ti meni STRIPE')
+    const {stripeId, amount} = req.body;
+    if(amount!== totalPrice)
+    return res
+      .status(400)
+      .json({ success: false, error: "Payment was not approved." });
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+      
+    const paymentIntent = await stripe.paymentIntents.create({
+			amount:amount*100,
+			currency: "USD",
+			automatic_payment_methods: {
+          enabled: true
+      }
+		});
+
+    // billing_details: {
+    //   name: 'John Doe',
+    //   email: 'john.doe@example.com',
+    //   address: {
+    //     line1: '123 Main Street',
+    //     city: 'Anytown',
+    //     postal_code: '12345',
+    //     country: 'US',
+    //   },
+    // },
+
+    
+		console.log("Payment client Secret", paymentIntent.client_secret)
+    await putInDatabase('STRIPE',paymentIntent.client_secret);
+		return res.json({
+			
+			success: true,
+      clientSecret: paymentIntent.client_secret
+		})
 
   }
+  
 
 console.log('jos napreduje');
 

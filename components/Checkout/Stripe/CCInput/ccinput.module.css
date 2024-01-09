@@ -1,63 +1,3 @@
-
-
-
-.creditCardForm{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 16px;
-}
-
-.ccInputRow{
-    width: calc(100% - 16px);
-  
-    
-    display: flex;
-    flex-direction: row;
-  
-  
-}
-
-.payNowButton{
-   
-    height: var(--size-8);
-    width: calc(100% - 16px);
-    background-color: var(--blue-7);
-    color: white;
-    margin-top: var(--size-5);
-    margin-bottom: var(--size-2);
-    margin-left: 8px;
-    border: none;
-    border-radius: 4px;
-    font-size: var(--font-size-4);
-    transition: background-color 0.2s ease;
-}
-
-.payNowButton:hover{
-    background-color: var(--blue-8);
-    cursor: pointer;
-}
-
-
-@media (max-width: 980px){
-    .ccInputRow{
-        flex-direction: column;
-        margin-bottom: 0;
-      }
-
-      .ccInputRow{
-        width: 100% ;
-    }
-      .payNowButton{
-   
-        margin-left: 0;
-        width: 100% ;
-      }
- 
-    
-}
-
-
 .form_group {
     position: relative;
     width: 100%;
@@ -68,19 +8,6 @@
       flex-direction: column;
       margin-bottom: var(--size-5);
     }
-
-      .label{
-    color: #979797;
-    position: absolute;
-    left: 8px;
-    top: 12px;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    opacity: 0.7;
-  }
-
-
-
 
     .formGroupError{
       margin-bottom: 0 !important;
@@ -95,7 +22,7 @@
       background-color: #151921;
       color: white;
       padding: var(--size-3);
-      padding-top: 18px;
+      padding-top: 22px;
       border-radius: 2px;
       align-self: center;
       box-sizing: border-box;
@@ -167,21 +94,37 @@
     }
   
   
-    .labelFloating {
+    .input_field:focus + .label,
+    .input_field:not(:placeholder-shown) + .label {
       opacity: 0.9;
     top: 3px;
     font-size: 12px;
     
   }
   
-
-  
-  
-  .stripeError{
-    color: orange;
-    margin-top: var(--size-3);
-    margin-bottom: var(--size-2);
+  .input_field:-webkit-autofill + .label {
+    color: #979797;
+    position: absolute;
+    left: 8px;
+    top: 3px;
+    transition: none;
+    pointer-events: none;
+    opacity: 0.7;
   }
+  
+  /* For Firefox */
+  .input_field:-moz-autofill + .label {
+    color: #979797;
+    position: absolute;
+    left: 8px;
+    top: 3px;
+    transition: none;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+  
+  
+  
     
     @media (max-width: 980px)  {
   
@@ -191,25 +134,20 @@
         margin-right: 0;
       }
 
-      .ccInputRow{
-        flex-direction: column;
-      }
-
-
       .error{
 
         margin-left: 0;
   
-      }
-
-      .stripeError{
-        margin-left: 0;
       }
     
     
     
      
     }
-
-   
   
+  
+    @media (max-width: 580px)  {
+  
+     
+  
+    }

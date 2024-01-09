@@ -3,19 +3,20 @@ import styles from "./checkoutinfo.module.css";
 import InputField from "./Input/InputField";
 import CountryInput from "./Input/CountryInput/CountryInput";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import { useRouter } from "next/router";
+
 import GooglePay from "./GooglePay/GooglePay";
 import PayPalButton from "./PayPal/PayPal";
 import InjectStripe from "./Stripe/Stripe";
 import CreditCardForm from "./CreditCard/CreditCard";
 import FloatingBadge from "./FloatingBadge/FloatingBadge";
+import StripeWrapper from "./Stripe/Stripe";
 
 export default function CheckoutInfo({ products, setCartProducts }) {
   const [errors, setErrors] = useState({});
   const [shippingType, setShippingType] = useState("free");
 
   const contactScrollRef = useRef();
-  const router = useRouter();
+
 
   const handleChange = (event) => {
     if (errors.hasOwnProperty(event.target.id)) {
@@ -78,7 +79,8 @@ export default function CheckoutInfo({ products, setCartProducts }) {
 
 
     const errorsExist=Object.keys(newErrors).length !== 0;
-    if (!errorsExist) {
+    console.log('errorsExist?', errorsExist)
+    if (errorsExist) {
       window.scrollTo({
         top:
           document
@@ -119,6 +121,14 @@ export default function CheckoutInfo({ products, setCartProducts }) {
       discount = discountEl.innerText;
       discount = discount.substring(discount.indexOf("$") + 1).trim();
     }
+    const items=[];
+    products.map((product) => {
+      items.push({
+      id: product.id,
+      quantity: product.quantity,
+      variant: product.variant
+      })
+    });
 
     const requestData = {
       order: {
@@ -133,11 +143,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
         suburb,
         phone,
         discount: discount,
-        items: products.map((product) => ({
-          id: product.id,
-          quantity: product.quantity,
-          variant: product.variant
-        })),
+        items:items ,
       },
       paymentMethod: paymentMethod,
       paymentToken: paymentToken
@@ -321,10 +327,10 @@ export default function CheckoutInfo({ products, setCartProducts }) {
             All transactions are secure and encrypted.
           </p>
          
-          <PayPalButton checkFields={checkFields} organizeUserData={organizeUserData} method="paypal"/>
+          <PayPalButton checkFields={checkFields} organizeUserData={organizeUserData} method="paypal" setCartProducts={setCartProducts } setErrors={setErrors}/>
           
           <GooglePay checkFields={checkFields} organizeUserData={(paymentToken)=>{return organizeUserData('GPAY', paymentToken)}} />
-          <CreditCardForm/>
+          <StripeWrapper products={products} organizeUserData={organizeUserData} checkFields={checkFields} />
         </div>
       </div>
     </>

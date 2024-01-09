@@ -11,13 +11,13 @@ const limiterPerTwoMins = new RateLimiter({
 export default async function adminCheckHandler(req, res) {
   const { token } = req.cookies;
 
-  const getFromDb = (table, queryCondition) => {
+  const getFromDb = (table, queryCondition, selectVariables='*') => {
     try {
       const db = betterSqlite3(process.env.DB_PATH);
 
       let queryString;
       if (table === "orders" || table === "messages") {
-        queryString = `SELECT * FROM ${table} WHERE ${queryCondition}`;
+        queryString = `SELECT ${selectVariables} FROM ${table} WHERE ${queryCondition}`;
       } else {
         queryString = `SELECT id, name, text, stars, imageNames, product_id FROM ${table} WHERE ${queryCondition}`;
       }
@@ -143,7 +143,8 @@ export default async function adminCheckHandler(req, res) {
       console.log(dataType);
       if (!dataType) return res.status(200).json({ successfulLogin: true });
       else {
-        if (dataType === "get_unfulfilled_orders")
+        if(dataType === "get_order_cash_info")  return getFromDb("orders", `approved = '1'`, "createdDate, items");
+        else if (dataType === "get_unfulfilled_orders")
           return getFromDb("orders", `approved = '1' AND packageStatus = '0'`);
         else if (dataType === "get_unapproved_orders")
           return getFromDb("orders", `approved = '0'`);

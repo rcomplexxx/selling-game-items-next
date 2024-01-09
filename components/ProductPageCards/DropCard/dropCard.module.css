@@ -18,12 +18,13 @@
     border: none;
     color: white;
     box-sizing: border-box;
-    padding: var(--size-4) var(--size-2);
+    padding: var(--size-5) var(--size-2);
    
     display: flex;
     justify-content: space-between;
     font-size: var(--font-size-4);
-    font-weight: bold;
+    
+    font-weight: 500;
   }
 
  

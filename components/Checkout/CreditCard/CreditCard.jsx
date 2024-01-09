@@ -127,7 +127,7 @@ const CreditCardForm = () => {
         placeHolder='Card number'
         type="tel"
           name="number"
-          maxlength="23"
+          maxLength="23"
           value={cardNumber}
           
           handleChange={handleCardNumber}
@@ -146,7 +146,7 @@ const CreditCardForm = () => {
          placeHolder='Expiration date (MM / YY)'
          type="tel"
           name="expiry"
-          maxlength="9"
+          maxLength="9"
           value={expDate}
           handleChange={handleExpDate}
           handleBlur={handleExpDateBlur}
@@ -157,7 +157,7 @@ const CreditCardForm = () => {
          placeHolder='Security code'
           type="tel"
           name="cvc"
-          maxlength="4"
+          maxLength="4"
           value={cvv}
           handleChange={handleCvv}
           handleBlur={handleCvvBlur}

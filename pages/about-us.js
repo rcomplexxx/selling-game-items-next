@@ -37,3 +37,6 @@ export default function AboutUs() {
     </div>
   );
 }
+
+
+// The Nue Cup™ was designed from long nights and hard days filled with neck and shoulder pain. I found myself incredibly frequent to cupping therapy appointments, massages and even acupuncture to help cure my build up of stress, knots, and over all pain and discomfort. I quickly realized this was not sustainable and looked to begin developing a new and improved solution. Cupping was the form of therapy that helped my shoulder and neck tension the most so I worked tirelessly to develop something that I could use myself, while sitting at my desk with ease, after 4 years of development I am extremely proud to present to you.... The Nue Cup™

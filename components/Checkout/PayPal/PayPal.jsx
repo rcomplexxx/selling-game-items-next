@@ -1,26 +1,104 @@
-import React from "react";
+import React, { useState } from "react";
 
+import { useRouter } from "next/router";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import styles from './paypal.module.css'
 
 
-const PayPalButton=({checkFields, organizeUserData,method='paypal'})=>{
+const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProducts, setErrors})=>{
+  const [paypalError, setPaypalError] = useState();
+
+
+  const router = useRouter();
 
 
 
+    const handlePayPalButtonClick =  async(data, actions) => {
+      
+      
+    
 
-
-
-    const handlePayPalButtonClick = async (data, actions) => {
         try {
-          const clickPass = checkFields();
-            if(clickPass)return actions.resolve();
-    
-            else return actions.reject();
+          setPaypalError();
           
+          let newErrors = {};
+          // if(document.getElementById('email').value==='') return actions.reject();
+          const testId = (id) => {
+            if (document.getElementById(id).value === "") {
+              newErrors = { ...newErrors, [id]: `${id} is a required field.` };
+            }
+          };
+      
+          if (document.getElementById("email").value === "") {
+            newErrors = { ...newErrors, email: "Email is a required field." };
+          }
+          if (
+            !/^\S{3,}@\S{3,}\.\S{2,}$/.test(document.getElementById("email").value)
+          ) {
+            newErrors = {
+              ...newErrors,
+              email: "Please enter a valid email address.",
+            };
+          }
+      
+          testId("firstName");
+          testId("lastName");
+          testId("address");
+          testId("country");
+          testId("postcode");
+          testId("state");
+          testId("suburb");
+      
+          const phone = document.getElementById("phone").value; //
+          if (phone.length < 5)
+            newErrors = { ...newErrors, phone: "Invalid phone" };
+          else {
+            for (let i = 0; i < phone.length; i++) {
+              const char = phone[i];
+              if (
+                !(
+                  (char >= "0" && char <= "9") ||
+                  ["+", "-", "(", ")", " ", ".", "/"].includes(char)
+                )
+              ) {
+                newErrors = { ...newErrors, phone: "Invalid phone" };
+              }
+            }
+          }
+      
+          setErrors(newErrors);
+      
+      
+          const errorsExist=Object.keys(newErrors).length !== 0;
+          console.log('errorsExist?', errorsExist)
+          if (errorsExist) {
+            window.scrollTo({
+              top:
+                document
+                  .getElementById(Object.keys(newErrors)[0])
+                  .getBoundingClientRect().top +
+                window.scrollY -
+                12,
+              behavior: "smooth",
+            });
+
+            
+            return actions.reject();
+         
+        }
+        else{
+       
+          return actions.resolve();
+        }
+      
     
+
+
+
+
           
         } catch (error) {
+          console.log(error);
           return actions.reject();
         }
       };
@@ -29,8 +107,10 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal'})=>{
       async function handlePayPalOrder(paymentMethod) {
 
         try {
+
+          console.log('creating order');
           const requestData = organizeUserData(paymentMethod);
-         
+          checkFields();
             const response = await fetch("/api/make-payment", {
               method: "POST",
               headers: {
@@ -42,15 +122,15 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal'})=>{
             const order = await response.json();
         
             if (order.success) {
-              console.log("order id returned", order.orderId);
-              return order.orderId;
+              console.log("order id returned", order.paymentId);
+              return order.paymentId;
             } else {
-              console.log(order.message);
+              setPaypalError('Error occured. Payment was not processed.')
               return;
             }
           } catch (error) {
-            console.error("Error creating order:", error);
-            throw error;
+            setPaypalError('Error occured. Payment was not processed.')
+            
           }
         
       }
@@ -69,7 +149,8 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal'})=>{
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              orderId: data.orderID,
+              paymentMethod: 'PAYPAL',
+              paymentId: data.orderID,
             }),
           });
           // Parse the JSON response
@@ -99,6 +180,9 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal'})=>{
         // Payment was successful
       };
 
+      const cancelHandler = async () => { setPaypalError('Payment is canceled.') };
+      const errorHandler = async () => { setPaypalError('Error occured. Payment was not processed.') };
+
 
     return  <PayPalScriptProvider
     options={{
@@ -110,9 +194,11 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal'})=>{
               fundingSource={`${method}`}
               onClick={handlePayPalButtonClick}
               onApprove={handlePayPalButtonApprove}
+              onCancel={cancelHandler}
               createOrder={async()=>{return await handlePayPalOrder('PAYPAL')}}
               className={styles.paypalButton}
             />
+            {paypalError && <p className={styles.paypalError}>{paypalError}</p>}
     </PayPalScriptProvider>
 
 }

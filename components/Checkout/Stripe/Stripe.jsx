@@ -1,98 +1,313 @@
-import {loadStripe} from '@stripe/stripe-js';
-import {
-  PaymentElement,
-  CardElement,
-  Elements,
-  useStripe,
-  useElements,
-} from '@stripe/react-stripe-js';
+import React, { useRef, useState } from 'react';
+import Cards from 'react-credit-cards';
 import styles from './stripe.module.css'
+import 'react-credit-cards/es/styles-compiled.css';
+import { useStripe,  CardNumberElement, CardCvcElement, CardExpiryElement} from "@stripe/react-stripe-js"
+import CCInput from './CCInput/CCInput';
+import FloatingBadge from '../FloatingBadge/FloatingBadge';
+import { Elements, useElements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import { useRouter } from "next/router";
+               
 
-import { useState } from 'react';
-
-
-
-const StripeButton=({checkFields, organizeUserData,method='paypal'})=>{
-
-
+const Stripe = ({organizeUserData, products, checkFields}) => {
+    const [billingAddressSameAsShipping, setBillingAddressSameAsShipping] = useState(true);
+    const [floatingLabels, setFloatingLabels]= useState({});
+    const [cardHolderName, setCardHolderName]= useState('');
+    const [cardStatesEntered, setCardStatesEntered]= useState({
+      cardNumber:false, expiryDate:false, cvv:false, cardHolderName:false
+    });
+    const [stripeError, setStripeError]= useState();
+    const [errors, setErrors] = useState({});
+    const errorhelperRef=useRef({});
+    const floatingLabelsHelper=useRef({});
     const stripe = useStripe();
-    const elements = useElements();
-        const [errorMessage, setErrorMessage] = useState(null);
+    const elements= useElements();
+
+    const router = useRouter();
+
+
+    const deleteError = (field) => {
+      if (errors.hasOwnProperty(field)) {
+        const newErrors = { ...errors };
       
-        const handleSubmit = async (event) => {
-            event.preventDefault();
+        delete newErrors[field];
+        setErrors(newErrors);
+      }
+    };
+ 
+  
+   
+   
 
-            if (elements == null) {
-              return;
-            }
-        
-            // Trigger form validation and wallet collection
-            const {error: submitError} = await elements.submit();
-            if (submitError) {
-              // Show error to your customer
-              setErrorMessage(submitError.message);
-              return;
-            }
-        
-            // // Create the PaymentIntent and obtain clientSecret from your server endpoint
-            // const res = await fetch('/create-intent', {
-            //   method: 'POST',
-            // });
-        
-            // const {client_secret: clientSecret} = await res.json();
-           const clientSecret= `${process.env.STRIPE_SECRET_KEY}`;
-            const {error} = await stripe.confirmPayment({
-              //`Elements` instance that was used to create the Payment Element
-              elements,
-              clientSecret,
-              confirmParams: {
-                return_url: 'https://example.com/order/123/complete',
-              },
-            });
-        
-            if (error) {
-              // This point will only be reached if there is an immediate error when
-              // confirming the payment. Show error to your customer (for example, payment
-              // details incomplete)
-              setErrorMessage(error.message);
-            } else {
-              // Your customer will be redirected to your `return_url`. For some payment
-              // methods like iDEAL, your customer will be redirected to an intermediate
-              // site first to authorize the payment, then redirected to the `return_url`.
-            }
-          };
 
-    return <form onSubmit={handleSubmit} className={styles.mainForm}>
-   <label>
-        Card details
-        <CardElement className={styles.stripeCard}  />
-      </label>
-      <button type="submit" disabled={!stripe || !elements}>
-        Pay
-      </button>
-      {/* Show error message to your customers */}
-      {errorMessage && <div>{errorMessage}</div>}
-  </form>
+ 
+
+
+const handleStripePay= async(event)=>{
+
+  event.preventDefault();
+  setStripeError();
+  errorhelperRef.current={...errors};
+  if (!errors.hasOwnProperty('cardNumber')){errorhelperRef.current={...errorhelperRef.current, cardNumber:'Enter a valid card number'}}
+  if (!errors.hasOwnProperty('expiryDate')){errorhelperRef.current={...errorhelperRef.current, expiryDate:'Enter a valid card number'}}
+  if (!errors.hasOwnProperty('cvv')){errorhelperRef.current={...errorhelperRef.current, cvv:'Enter a valid card number'}}
+  setErrors(errorhelperRef.current);
+  const clickPass= checkFields() && !errors.cardNumber && !errors.expiryDate && !errors.cvv;
+  if(!clickPass) return;
+
+
+  const cardElement = elements.getElement(CardNumberElement);
+
+        const {error, paymentMethod} = await stripe.createPaymentMethod({
+            type: "card",
+            card: cardElement
+        })
+
+        if(!error) {
+          try {
+
+
+
+            
+
+
+
+
+              const {id} = paymentMethod
+              const requestData = organizeUserData('STRIPE');
+              console.log(products);
+              let totalPrice = products
+              .reduce((sum, product) => {
+              
+                  sum += product.price * product.quantity;
+                
+                
+        
+                return sum;
+              }, 0)
+              .toFixed(2);
+
+
+           
+             
+
+              const discountEl = document.getElementById("discountPrice");
+              let discount = "0";
+              if (discountEl) {
+                discount = discountEl.innerText;
+                discount = discount.substring(discount.indexOf("$") + 1).trim();
+              }
+            if (discount != "0") {
+              const discountFloat = parseFloat(discount);
+        
+              totalPrice = totalPrice - discountFloat;
+              totalPrice.toFixed(2);
+            }
+
+
+
+
+              const requestDataFinal=  {...requestData, stripeId:id, amount: totalPrice};
+              console.log('reqdata BITNO ~!!!~', requestDataFinal)
+
+              const response = await fetch("/api/make-payment", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  ...requestDataFinal, items: JSON.stringify(requestDataFinal.items)
+                }),
+              });
+              const data=await response.json();
+              console.log('rp',data);
+              console.log('ss', data.clientSecret)
+              if(data.success) {
+                const clientSecret=data.clientSecret;
+                const result = await stripe.confirmCardPayment(clientSecret, {
+                  payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                      name: 'Jenny Rosen',
+                    },
+                  },
+                });
+              
+                if (!result.error) {
+                  //approve payment
+                  const approved = await fetch("/api/approve-payment", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      paymentMethod: 'STRIPE',
+                      paymentId: clientSecret,
+                    }),
+                  });
+                  if(approved.ok)router.push("/thank-you");
+                }
+                else {
+                  setStripeError('Error occured. Payment was not processed.')
+                }
+              }
+  
+          } catch (error) {
+            console.log(error)
+           
+            setStripeError('Error occured. Payment was not processed.')
+          }
+      } else {
+        console.log(error)
+        if(error.code==='incomplete_number' || error.code==='invalid_number')setErrors({...errors,cardNumber:'Enter a valid card number'})
+        else if( error.code === 'incomplete_expiry') setErrors({...errors,expiryDate:'Enter a valid exipry date'})
+        else if( error.code === 'incomplete_cvc') setErrors({...errors,cvv:'Enter a valid security code'})
+        else setErrors({...errors,payment:'Error occured. Payment was not processed.'})
+        // Enter your name exactly as it’s written on your card
+      }
+
+
 }
 
-const InjectStripe= () => {
-    const options = {
-      
-        mode: 'payment',
-        amount: 1099,
-        currency: 'usd',
-        // Fully customizable with appearance API.
-        appearance: {
-          /*...*/
-        },
-      };
-      
-    const stripePromise = loadStripe(`${process.env.STRIPE_PUBLISHABLE_KEY}`);
-    return <Elements  stripe={stripePromise} options={options}>
-      <StripeButton />
-    </Elements>
+const handleCCChange=   (event) => {
+  // Access the value from the CardElement when it changes
+  //elementType - cardExpiry - cardCvc
+  //  cardNumber expiryDate cvv
+  const errorField= event.elementType==='cardNumber'?'cardNumber':(event.elementType==='cardExpiry'?'expiryDate':'cvv')
+  const errorName = `Enter a valid ${event.elementType==='cardNumber'?'card number':(event.elementType==='expiry date'?'expiryDate':'security number')}`
+  setErrors({...errors, [errorField]: undefined});
+  const cardValue = event;
+  errorhelperRef.current[errorField]=(!cardValue.complete || cardValue.error)?errorName:undefined;
+  floatingLabelsHelper.current[errorField]=!cardValue.empty;
 };
 
-export default InjectStripe;
+const handleCCBlur= ()=>{
+  console.log(errorhelperRef.current);
+  setErrors(errorhelperRef.current);
+  setFloatingLabels({...floatingLabelsHelper.current});
+}
+  
+    
+
+  return (
+    <div className={styles.creditCardForm}>
+    
+     
+    <div className={styles.ccInputRow}>
+    <div className={styles.form_group}>
+    <CardNumberElement
+    onBlur={handleCCBlur}
+    onChange={handleCCChange}
+    onFocus={()=>{
+      setFloatingLabels({...floatingLabels, cardNumber:true});
+      }}
+    options={{placeholder:'',  style: {
+      base: {
+        color: 'white'
+      },
+      invalid: {
+        color: 'white'
+      }
+    }}}
+        className={`${styles.input_field} ${errors.cardNumber && styles.input_error}`}
+      /> 
+      <FloatingBadge imageName='lock3.png'/>
+      <label className={`${styles.label} ${floatingLabels.cardNumber && styles.labelFloating}`}>Card number</label>
+      {errors.cardNumber && <p className={styles.stripeError}>{errors.cardNumber}</p>}
+        </div>
+</div>
+      <div className={styles.ccInputRow}>
+       <div className={styles.form_group}>
+      <CardExpiryElement id="expiryDate"
+ onBlur={handleCCBlur}
+ onFocus={()=>{
+  setFloatingLabels({...floatingLabels, expiryDate:true});
+  }}
+ onChange={handleCCChange}
+      options={{placeholder:'',  style: {
+        base: {
+          color: 'white'
+        },
+        invalid: {
+          color: 'white'
+        }
+      }}}
+      className={`${styles.input_field} ${errors.expiryDate && styles.input_error}`}
+    />
+    <label className={`${styles.label} ${floatingLabels.expiryDate && styles.labelFloating}`}>Expiration Date (MM / YY)</label>
+    {errors.expiryDate && <p className={styles.stripeError}>{errors.expiryDate}</p>}
+    </div>
+     <div className={styles.form_group}>
+  <CardCvcElement  id="cvv" 
+   onBlur={handleCCBlur}
+   onChange={handleCCChange}
+  onFocus={()=>{
+  setFloatingLabels({...floatingLabels, cvv:true});
+  }}
+   options={{placeholder:'',  style: {
+    base: {
+      color: 'white'
+    },
+    invalid: {
+      color: 'white'
+    }
+  }}}
+  className={`${styles.input_field} ${errors.cvv && styles.input_error}`}/>
+  <FloatingBadge message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>
+   <label className={`${styles.label} ${floatingLabels.cvv && styles.labelFloating}`}>Security code</label>
+  {errors.cvv && <p className={styles.stripeError}>{errors.cvv}</p>}
+  </div>
+      
+
+</div>
+       
+<div className={styles.ccInputRow}>
+<CCInput
+       id="cardHolderName"
+       placeHolder='Name on card'
+          type="text"
+          name="name"
+         value={cardHolderName}
+         handleChange={(event)=>{deleteError(event.target.id);setCardStatesEntered({...cardStatesEntered,cardHolderName:true});setCardHolderName(event.target.value)}}
+         
+         handleBlur={(event)=>{if(!cardStatesEntered.cardHolderName) return;
+   
+          if(event.target.value.length===0) setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
+         error={errors.cardHolderName}
+        />
+      </div>
+      <label>
+      <input type="checkbox" id="isShippingBilling" checked={billingAddressSameAsShipping}
+      onChange={()=>{setBillingAddressSameAsShipping(!billingAddressSameAsShipping)}}
+      />
+      Use shipping address as billing
+    </label>
+    <button className={styles.payNowButton} onClick={handleStripePay}>Pay now</button>
+    {stripeError && <p className={styles.stripePayError}>{stripeError}</p>}
+    </div>
+  );
+};
 
 
+
+
+export default function StripeWrapper({organizeUserData,  products, checkFields}){
+const stripePromise = loadStripe('pk_test_51OR1EhAom3KfH7oBf5QRKboVHPrFIrZ3nwmtwS30uSDtrHbpgwsFzf19Np73RjxFiAqUy0tjPi5BIYdDmSPDExya00m4ZFZoI1');
+
+return (
+  <Elements stripe={stripePromise}>
+  <Stripe organizeUserData={organizeUserData}  products={ products} checkFields={checkFields}/>
+  </Elements>
+);
+}
+
+
+
+// {/* <Cards
+// number={cardNumber}
+// name={name}
+// expiry={expiry}
+// cvc={cvc}
+// focused={focus}
+// /> */}
