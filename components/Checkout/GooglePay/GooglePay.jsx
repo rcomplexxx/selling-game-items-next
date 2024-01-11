@@ -65,7 +65,7 @@ async function handleGpayOrder(paymentToken) {
     buttonType='plain'
     buttonSizeMode='fill'
     style={{width:'100%'}}
-    buttonColor="black"
+    buttonColor="white"
     paymentRequest={{
       apiVersion: 2,
       apiVersionMinor: 0,
