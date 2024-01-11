@@ -223,10 +223,7 @@ const handleCCBlur= ()=>{
         color: 'white',
         backgroundColor:'#151921'
       },
-      ':-webkit-autofill': {
-        color: '#FFFFFF',
-        backgroundColor:'yellow'
-      },
+    
      
       invalid: {
         color: 'white'
@@ -258,7 +255,7 @@ const handleCCBlur= ()=>{
       options={{placeholder:'',  style: {
         base: {
           color: 'white',
-          backgroundColor:'transparent'
+          backgroundColor:'#151921'
         },
         invalid: {
           color: 'white'
@@ -282,7 +279,7 @@ const handleCCBlur= ()=>{
    options={{placeholder:'',  style: {
     base: {
       color: 'white',
-      backgroundColor:'transparent'
+      backgroundColor:'#151921'
     },
     invalid: {
       color: 'white'
