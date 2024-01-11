@@ -110,8 +110,8 @@
   
   
   .input_field:-webkit-autofill {
-    background-color: #1c2025;
-    -webkit-box-shadow: 0 0 0 30px #1c2025 inset !important;
+    background-color: #151921;
+    -webkit-box-shadow: 0 0 0 30px #151921 inset !important;
     -webkit-text-fill-color: white !important;
     
     padding: var(--size-3);
@@ -121,8 +121,8 @@
   
   /* For Firefox */
   .input_field:-moz-autofill {
-    background-color: #1c2025;
-    -webkit-box-shadow: 0 0 0 30px #1c2025 inset !important;
+    background-color: #151921;
+    -webkit-box-shadow: 0 0 0 30px #151921 inset !important;
     -webkit-text-fill-color: white !important;
     
     padding: var(--size-3);

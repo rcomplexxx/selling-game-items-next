@@ -221,11 +221,9 @@ const handleCCBlur= ()=>{
     options={{placeholder:'',  style: {
       base: {
         color: 'white',
-        backgroundColor:'gray !important'
+        backgroundColor:'white'
       },
-      empty:{
-        backgroundColor:'white !important'
-      },
+     
       invalid: {
         color: 'white'
       }
