@@ -221,7 +221,7 @@ const handleCCBlur= ()=>{
     options={{placeholder:'',  style: {
       base: {
         color: 'white',
-        backgroundColor:'white'
+        iconColor:'white'
       },
      
       invalid: {
@@ -234,7 +234,8 @@ const handleCCBlur= ()=>{
       <label className={`${styles.label} ${floatingLabels.cardNumber && styles.labelFloating}`}>Card number</label>
 
 </div>
-
+{/* defaultValues */}
+{/* https://stripe.com/docs/js/elements_object/create_payment_element#payment_element_create-options */}
 
 
       {errors.cardNumber && <p className={styles.stripeError}>{errors.cardNumber}</p>}
