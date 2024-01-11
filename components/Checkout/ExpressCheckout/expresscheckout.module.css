@@ -32,8 +32,8 @@
 .paymentDiv{
     width: calc(50% - 8px);
     height: var(--size-8);
-    background-color: brown;
-   
+    background-color: #151921;
+    border-radius: 4px;
 
 }
 
