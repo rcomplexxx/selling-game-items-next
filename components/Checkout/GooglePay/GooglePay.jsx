@@ -62,10 +62,10 @@ async function handleGpayOrder(paymentToken) {
     return <GooglePayButton
     environment={process.env.GPAYENVIRENMENT}
     className={classNames(styles.gpayButton)}
-    buttonType='pay'
+    buttonType='plain'
     buttonSizeMode='fill'
     style={{width:'100%'}}
-    buttonColor="white"
+    buttonColor="black"
     paymentRequest={{
       apiVersion: 2,
       apiVersionMinor: 0,
