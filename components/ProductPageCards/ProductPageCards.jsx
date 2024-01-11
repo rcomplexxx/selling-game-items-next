@@ -165,6 +165,7 @@ export default function ProductPageCards() {
               ref={messageRef}
               className={styles.messageTextArea}
               rows={6}
+              maxLength={500}
             />
           </div>
           <button onClick={handleSubmit} className={styles.sendButton}>

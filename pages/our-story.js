@@ -2,14 +2,14 @@ import React from "react";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
 import Head from "next/head";
 
-export default function AboutUs() {
+export default function OurStory() {
   return (
     <div className="centered">
       <Head>
-        <title>About us - Gamesmoke shop</title>
+        <title>Our story - Gamesmoke shop</title>
       </Head>
       <PolicyCard homeCard={false} smallContent={true}>
-        <h1>About us</h1>
+        <h1>Our story</h1>
 
         <p>Welcome to the League of Items.</p>
         <p>

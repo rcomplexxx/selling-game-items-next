@@ -160,16 +160,16 @@ setSubMenu(subMenu==2?0:2);
 
 
        <Link
-                  href="/aboutus"
+                  href="/our-story"
                   className={`${styles.menuItemDiv} ${
-                    pathname === "/aboutus" ? styles.currentLinkMobile : ""
+                    pathname === "/our-story" ? styles.currentLinkMobile : ""
                   }`}
                   onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
           setSubMenu(0);
         }}
                 >
-                 <p>About us</p> 
+                 <p>Our story</p> 
                 </Link>
 
       <Link

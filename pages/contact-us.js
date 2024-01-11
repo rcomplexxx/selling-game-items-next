@@ -62,7 +62,6 @@ export default function ContactUs() {
                 <label>Name</label>
                 <input
                   id="name"
-                 
                   className={styles.contactInput}
                 />
               </div>
@@ -71,7 +70,6 @@ export default function ContactUs() {
                 <label>Email</label>
                 <input
                   id="email"
-                 
                   className={styles.contactInput}
                 />
               </div>
@@ -80,7 +78,7 @@ export default function ContactUs() {
           <div className={styles.messageField}>
             <label>Message</label>
             <textarea
-            
+             maxLength={500}
               className={styles.messageTextArea}
               rows={6}
             />

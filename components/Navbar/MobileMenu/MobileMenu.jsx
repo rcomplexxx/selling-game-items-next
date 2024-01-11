@@ -147,15 +147,15 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
      </div>
 
      <Link
-        href="/aboutus"
+        href="/our-story"
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
-          pathname === "/aboutus" ?  styles.currentLinkMobile : ""
+          pathname === "/our-story" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/aboutus" && setIsMenuOpen(false);
+          pathname !== "/our-story" && setIsMenuOpen(false);
         }}
       >
-        <p>About us</p>
+        <p>Our story</p>
       </Link>
 
 

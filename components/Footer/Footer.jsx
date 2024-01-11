@@ -80,8 +80,8 @@ export default function Footer() {
           <Link href="/faq" className={styles.footerLink}>
             FAQ
           </Link>
-          <Link href="/aboutus" className={styles.footerLink}>
-            About Us
+          <Link href="/our-story" className={styles.footerLink}>
+          Our story
           </Link>
           <Link href="/contact" className={styles.footerLink}>
             Contact Us
