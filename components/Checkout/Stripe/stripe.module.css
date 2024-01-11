@@ -9,7 +9,7 @@
 }
 
 .ccInputRow{
-    width: calc(100% - 16px);
+    width: 100%;
   
     
     display: flex;
@@ -24,7 +24,7 @@
     width: calc(100% - 16px);
     background-color: var(--blue-7);
     color: white;
-    margin-top: var(--size-5);
+    margin-top: var(--size-7);
     margin-bottom: var(--size-2);
     margin-left: 8px;
     border: none;
@@ -39,22 +39,10 @@
 }
 
 
-@media (max-width: 980px){
-    .ccInputRow{
-        flex-direction: column;
-        margin-bottom: 0;
-      }
-
-      .ccInputRow{
-        width: 100% ;
-    }
-      .payNowButton{
-   
-        margin-left: 0;
-        width: 100% ;
-      }
- 
-    
+.spinner{
+  height: 16px;
+  width: 16px;
+  animation: spin 0.6s linear infinite;
 }
 
 
@@ -107,6 +95,12 @@
     /* rgba(53, 60, 110, 0.459); */
     /* rgb(134, 110, 114); */
     /* #1c2025; */
+
+    .stripeFieldFocused { 
+      outline: none !important;
+      border-color: #7daee2 !important;
+      box-shadow: 0 0 6px #7daee2 !important;
+  }
   
     .input_field:focus { 
       outline: none !important;
@@ -173,17 +167,52 @@
     font-size: 12px;
     
   }
-  
 
+  
+  .inputWrapper{
+    position: relative;
+  }
   
   
   .stripeError{
     color: orange;
     margin-top: var(--size-3);
     margin-bottom: var(--size-2);
+    font-size: var(--font-size-3);
   }
+
+  .billingCheckboxDiv{
+    width: max-content;
+    margin-bottom: var(--size-5);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .billingCheckboxDiv *{
+    cursor: pointer;
+  }
+
+  .billingCheckboxLabel{
+    margin-left: 4px;
+    
+  }
+
+  
     
     @media (max-width: 980px)  {
+
+
+   
+      
+          .payNowButton{
+       
+            margin-left: 0;
+            width: 100% ;
+          }
+     
+        
+    
+
   
       .form_group{
         margin-bottom: var(--size-4);
@@ -193,6 +222,7 @@
 
       .ccInputRow{
         flex-direction: column;
+        margin-bottom: 0;
       }
 
 
@@ -212,4 +242,7 @@
     }
 
    
-  
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }

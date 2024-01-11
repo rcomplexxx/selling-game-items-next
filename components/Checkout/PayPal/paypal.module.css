@@ -1,7 +1,6 @@
 
 .paypalButton{
-    margin-left: var(--size-3);
-    margin-right: var(--size-3);
+    width: 100% !important;
 }
 
 .paypalError{

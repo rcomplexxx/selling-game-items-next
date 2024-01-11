@@ -55,7 +55,12 @@
   }
 
   
-  
+  .aptAdder{
+    color: rgb(230, 245, 254);
+    margin: var(--size-2) var(--size-3);
+    user-select: none;
+    cursor: pointer;
+  }
  
  
 

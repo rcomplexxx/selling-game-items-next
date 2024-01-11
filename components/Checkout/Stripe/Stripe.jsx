@@ -8,11 +8,15 @@ import FloatingBadge from '../FloatingBadge/FloatingBadge';
 import { Elements, useElements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useRouter } from "next/router";
+import Image from 'next/image';
+import BillingInfo from './BillingInfo/BillingInfo';
                
 
 const Stripe = ({organizeUserData, products, checkFields}) => {
     const [billingAddressSameAsShipping, setBillingAddressSameAsShipping] = useState(true);
     const [floatingLabels, setFloatingLabels]= useState({});
+    const [focusedField, setFocusedField]= useState();
+    const [paymentProcessing, setPaymentProcessing]= useState(false);
     const [cardHolderName, setCardHolderName]= useState('');
     const [cardStatesEntered, setCardStatesEntered]= useState({
       cardNumber:false, expiryDate:false, cvv:false, cardHolderName:false
@@ -20,7 +24,7 @@ const Stripe = ({organizeUserData, products, checkFields}) => {
     const [stripeError, setStripeError]= useState();
     const [errors, setErrors] = useState({});
     const errorhelperRef=useRef({});
-    const floatingLabelsHelper=useRef({});
+    const floatingLabelsHelper=useRef({cardNumber:false, expiryDate:false, cvv:false});
     const stripe = useStripe();
     const elements= useElements();
 
@@ -47,14 +51,17 @@ const Stripe = ({organizeUserData, products, checkFields}) => {
 const handleStripePay= async(event)=>{
 
   event.preventDefault();
+  setPaymentProcessing(true);
   setStripeError();
   errorhelperRef.current={...errors};
   if (!errors.hasOwnProperty('cardNumber')){errorhelperRef.current={...errorhelperRef.current, cardNumber:'Enter a valid card number'}}
   if (!errors.hasOwnProperty('expiryDate')){errorhelperRef.current={...errorhelperRef.current, expiryDate:'Enter a valid card number'}}
   if (!errors.hasOwnProperty('cvv')){errorhelperRef.current={...errorhelperRef.current, cvv:'Enter a valid card number'}}
+  if(document.getElementById('cardHolderName').value==='') {errorhelperRef.current={...errorhelperRef.current, cardHolderName:'Enter your name exactly as it\'s written on the card'}}
   setErrors(errorhelperRef.current);
-  const clickPass= checkFields() && !errors.cardNumber && !errors.expiryDate && !errors.cvv;
-  if(!clickPass) return;
+ 
+  const clickPass= checkFields() && !errors.cardNumber && !errors.expiryDate && !errors.cvv && !errors.cardHolderName;
+  if(!clickPass) { setPaymentProcessing(false);return;}
 
 
   const cardElement = elements.getElement(CardNumberElement);
@@ -147,15 +154,19 @@ const handleStripePay= async(event)=>{
                     }),
                   });
                   if(approved.ok)router.push("/thank-you");
+                  else{setPaymentProcessing(false);}
                 }
                 else {
+                  
                   setStripeError('Error occured. Payment was not processed.')
+                  setPaymentProcessing(false);
                 }
               }
+              else{setPaymentProcessing(false);}
   
           } catch (error) {
             console.log(error)
-           
+            setPaymentProcessing(false);
             setStripeError('Error occured. Payment was not processed.')
           }
       } else {
@@ -164,6 +175,7 @@ const handleStripePay= async(event)=>{
         else if( error.code === 'incomplete_expiry') setErrors({...errors,expiryDate:'Enter a valid exipry date'})
         else if( error.code === 'incomplete_cvc') setErrors({...errors,cvv:'Enter a valid security code'})
         else setErrors({...errors,payment:'Error occured. Payment was not processed.'})
+        setPaymentProcessing(false);
         // Enter your name exactly as it’s written on your card
       }
 
@@ -183,9 +195,10 @@ const handleCCChange=   (event) => {
 };
 
 const handleCCBlur= ()=>{
-  console.log(errorhelperRef.current);
+  console.log('b',floatingLabelsHelper.current);
   setErrors(errorhelperRef.current);
   setFloatingLabels({...floatingLabelsHelper.current});
+  setFocusedField(undefined);
 }
   
     
@@ -196,11 +209,14 @@ const handleCCBlur= ()=>{
      
     <div className={styles.ccInputRow}>
     <div className={styles.form_group}>
+    <div className={styles.inputWrapper}>
     <CardNumberElement
     onBlur={handleCCBlur}
     onChange={handleCCChange}
     onFocus={()=>{
-      setFloatingLabels({...floatingLabels, cardNumber:true});
+      setFocusedField('cardNumber');
+      setFloatingLabels({...floatingLabelsHelper.current, cardNumber:true});
+    
       }}
     options={{placeholder:'',  style: {
       base: {
@@ -210,10 +226,15 @@ const handleCCBlur= ()=>{
         color: 'white'
       }
     }}}
-        className={`${styles.input_field} ${errors.cardNumber && styles.input_error}`}
+        className={`${styles.input_field} ${errors.cardNumber && styles.input_error} ${focusedField==='cardNumber' && styles.stripeFieldFocused}`}
       /> 
       <FloatingBadge imageName='lock3.png'/>
       <label className={`${styles.label} ${floatingLabels.cardNumber && styles.labelFloating}`}>Card number</label>
+
+</div>
+
+
+
       {errors.cardNumber && <p className={styles.stripeError}>{errors.cardNumber}</p>}
         </div>
 </div>
@@ -222,7 +243,8 @@ const handleCCBlur= ()=>{
       <CardExpiryElement id="expiryDate"
  onBlur={handleCCBlur}
  onFocus={()=>{
-  setFloatingLabels({...floatingLabels, expiryDate:true});
+  setFocusedField('expiryDate');
+  setFloatingLabels({...floatingLabelsHelper.current, expiryDate:true});
   }}
  onChange={handleCCChange}
       options={{placeholder:'',  style: {
@@ -233,17 +255,20 @@ const handleCCBlur= ()=>{
           color: 'white'
         }
       }}}
-      className={`${styles.input_field} ${errors.expiryDate && styles.input_error}`}
+      className={`${styles.input_field} ${errors.expiryDate && styles.input_error} ${focusedField==='expiryDate' && styles.stripeFieldFocused}`}
     />
     <label className={`${styles.label} ${floatingLabels.expiryDate && styles.labelFloating}`}>Expiration Date (MM / YY)</label>
     {errors.expiryDate && <p className={styles.stripeError}>{errors.expiryDate}</p>}
     </div>
      <div className={styles.form_group}>
+
+      <div className={styles.inputWrapper}>
   <CardCvcElement  id="cvv" 
    onBlur={handleCCBlur}
    onChange={handleCCChange}
   onFocus={()=>{
-  setFloatingLabels({...floatingLabels, cvv:true});
+    setFocusedField('cvv');
+  setFloatingLabels({...floatingLabelsHelper.current, cvv:true});
   }}
    options={{placeholder:'',  style: {
     base: {
@@ -253,9 +278,11 @@ const handleCCBlur= ()=>{
       color: 'white'
     }
   }}}
-  className={`${styles.input_field} ${errors.cvv && styles.input_error}`}/>
+  className={`${styles.input_field} ${errors.cvv && styles.input_error} ${focusedField==='cvv' && styles.stripeFieldFocused}`}/>
   <FloatingBadge message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>
    <label className={`${styles.label} ${floatingLabels.cvv && styles.labelFloating}`}>Security code</label>
+   </div>
+ 
   {errors.cvv && <p className={styles.stripeError}>{errors.cvv}</p>}
   </div>
       
@@ -271,19 +298,36 @@ const handleCCBlur= ()=>{
          value={cardHolderName}
          handleChange={(event)=>{deleteError(event.target.id);setCardStatesEntered({...cardStatesEntered,cardHolderName:true});setCardHolderName(event.target.value)}}
          
-         handleBlur={(event)=>{if(!cardStatesEntered.cardHolderName) return;
+        //  handleBlur={(event)=>{if(!cardStatesEntered.cardHolderName) return;
    
-          if(event.target.value.length===0) setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
+        //   if(event.target.value==='') setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
          error={errors.cardHolderName}
         />
       </div>
-      <label>
+      <div className={styles.billingCheckboxDiv}  onClick={()=>{setBillingAddressSameAsShipping(!billingAddressSameAsShipping)}}>
       <input type="checkbox" id="isShippingBilling" checked={billingAddressSameAsShipping}
-      onChange={()=>{setBillingAddressSameAsShipping(!billingAddressSameAsShipping)}}
+     
       />
+      <label className={styles.billingCheckboxLabel}>
       Use shipping address as billing
     </label>
-    <button className={styles.payNowButton} onClick={handleStripePay}>Pay now</button>
+    </div>
+
+
+  <BillingInfo isOpen={!billingAddressSameAsShipping}/>
+
+
+
+
+
+
+
+
+
+
+    <button className={styles.payNowButton} onClick={handleStripePay}>{paymentProcessing?
+    <Image src='/images/spinner.png' height={0} width={0} className={styles.spinner}/>
+    :'Pay now'}</button>
     {stripeError && <p className={styles.stripePayError}>{stripeError}</p>}
     </div>
   );

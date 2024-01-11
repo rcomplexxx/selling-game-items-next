@@ -99,7 +99,7 @@ export default function Orders({ data, setData }) {
               <OrderCard
                 key={page * 10 + index}
                 id={page * 10 + index}
-                info={`${order.id}, ${order.email}, ${order.firstName}, ${order.lastName}, ${order.address}, ${order.apt}, ${order.country}, ${order.postcode}, ${order.state}, ${order.suburb}, ${order.phone}, ${order.discount}`}
+                info={`${order.id}, ${order.email}, ${order.firstName}, ${order.lastName}, ${order.address}, ${order.apt}, ${order.country}, ${order.zipcode}, ${order.state}, ${order.city}, ${order.phone}, ${order.discount}`}
                 items={`${order.items}`}
                 packageStatus={packageStatusArray[index + page * 10]}
                 handlePackageStatusChange={handlePackageStatusChange}

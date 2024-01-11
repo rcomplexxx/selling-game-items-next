@@ -30,11 +30,11 @@ export default function CCInput({
         {placeHolder}
       </label>
       {children && children}
-     
-    </div>
-    {error && (
+      {error && (
         <p className={styles.error}>{error}</p>
       )}
+    </div>
+   
       </>
   );
 }

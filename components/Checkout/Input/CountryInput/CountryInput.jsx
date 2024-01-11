@@ -6,6 +6,7 @@ import Image from "next/image";
 
 export default function CountryInput({ id, setErrors, error }) {
   const [country, setCountry] = useState("");
+  const [isFocused, setIsFocused]= useState(false);
 
   const handleChange = (c) => {
     console.log(c);
@@ -20,10 +21,12 @@ export default function CountryInput({ id, setErrors, error }) {
         return newErrors;
       });
     }
+
+    document.getElementById(id).blur();
   };
 
   return (
-    <div className={`${styles.form_group}  ${error && styles.input_error}`}>
+    <div className={`${styles.form_group} ${isFocused && styles.countryFocused} ${error && styles.input_error}`}>
       <CountryDropdown
         id={id}
         value={country}
@@ -31,10 +34,11 @@ export default function CountryInput({ id, setErrors, error }) {
         onChange={(c) => {
           handleChange(c);
         }}
+        onFocus={()=>{setIsFocused(true);}}
+        onBlur={()=>{setIsFocused(false)}}
         defaultOptionLabel="Country *"
         classes={`${styles.countrySelectStyle} ${
-          country !== "" ? styles.countryColoredPlaceholder : ""
-        }`}
+          country !== "" && styles.countryColoredPlaceholder}`}
         tabIndex={1000}
         disabled={false}
       />

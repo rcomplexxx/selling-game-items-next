@@ -1,0 +1,58 @@
+
+
+
+.billingAddressWrapper{
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease;
+}
+
+.billingAddressWrapperSpawned{
+    max-height: 384px;
+    transition: max-height 0.5s ease;
+}
+
+
+
+.billingAddressTitle{
+    margin: var(--size-5) 0;
+    opacity: 0.9;
+    font-size: var(--font-size-5);
+    font-weight: 500;
+}
+
+
+.ccInputRow{
+    position: relative;
+    width: 100%;
+  
+    
+    display: flex;
+    flex-direction: row;
+  
+  
+}
+
+.billingCountry{
+    margin-bottom: var(--size-5);
+}
+
+ 
+.aptAdder{
+    color: rgb(230, 245, 254);
+    margin: 0 var(--size-3) ;
+    margin-bottom: var(--size-5);
+    user-select: none;
+    cursor: pointer;
+  }
+
+
+@media(max-width: 980px){
+    .ccInputRow{
+        flex-direction: column;
+        margin-bottom: 0;
+      }
+}
+
+
+

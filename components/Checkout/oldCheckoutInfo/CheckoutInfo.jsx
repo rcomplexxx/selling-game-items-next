@@ -86,8 +86,8 @@ export default function CheckoutInfo({ setUnlockPaypal, unlockPaypal }) {
         billingAddress,
         billingCountry,
         billingState,
-        billingSuburb,
-        billingPostcode,
+        billingCity,
+        billingZipcode,
         billingPhone,
         ...newErrors
       } = errors;
@@ -171,13 +171,13 @@ export default function CheckoutInfo({ setUnlockPaypal, unlockPaypal }) {
               inputNumber={billingAddressType === "sameAddress" ? 9 : 15}
             />
             <InputField
-              id="postcode"
-              placeHolder="Postcode *"
+              id="zipcode"
+              placeHolder="Zipcode *"
               type="text"
               handleBlur={handleBlur}
               handleChange={handleChange}
               handleFocus={handleFocus}
-              error={errors.postcode}
+              error={errors.zipcode}
             />
             <InputField
               id="state"
@@ -191,13 +191,13 @@ export default function CheckoutInfo({ setUnlockPaypal, unlockPaypal }) {
           </div>
           <div className={styles.input_row}>
             <InputField
-              id="suburb"
-              placeHolder="Suburb *"
+              id="city"
+              placeHolder="City *"
               type="text"
               handleBlur={handleBlur}
               handleChange={handleChange}
               handleFocus={handleFocus}
-              error={errors.suburb}
+              error={errors.city}
             />
             <InputField
               id="phone"
@@ -270,13 +270,13 @@ export default function CheckoutInfo({ setUnlockPaypal, unlockPaypal }) {
                 inputNumber={15}
               />
               <InputField
-                id="billingPostcode"
-                placeHolder="Postcode *"
+                id="billingZipcode"
+                placeHolder="Zipcode *"
                 type="text"
                 handleBlur={handleBlur}
                 handleChange={handleChange}
                 handleFocus={handleFocus}
-                error={errors.billingPostcode}
+                error={errors.billingZipcode}
               />
               <InputField
                 id="billingState"
@@ -290,13 +290,13 @@ export default function CheckoutInfo({ setUnlockPaypal, unlockPaypal }) {
             </div>
             <div className={styles.input_row}>
               <InputField
-                id="billingSuburb"
-                placeHolder="Suburb *"
+                id="billingCity"
+                placeHolder="City *"
                 type="text"
                 handleBlur={handleBlur}
                 handleChange={handleChange}
                 handleFocus={handleFocus}
-                error={errors.billingSuburb}
+                error={errors.billingCity}
               />
               <InputField
                 id="billingPhone"

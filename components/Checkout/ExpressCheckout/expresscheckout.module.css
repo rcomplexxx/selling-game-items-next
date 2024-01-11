@@ -1,0 +1,121 @@
+
+
+
+.expressCheckoutWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.expressCheckoutTitle{
+
+    color:white;
+
+    margin-top: var(--size-6);
+    margin-bottom: var(--size-6);
+    opacity: 0.7;
+    font-size: var(--font-size-3);
+
+}
+
+
+.expressPaymentsWrapper{
+   
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.paymentDiv{
+    width: calc(50% - 8px);
+    height: var(--size-8);
+    background-color: brown;
+   
+
+}
+
+
+
+
+
+
+.expressCheckoutBottomBorder{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--size-6);
+}
+
+.borderLineDiv{
+    width: 100%;
+  
+    border-bottom: 1px solid white;
+
+}
+
+.borderOrSpan{
+    margin:0 var(--size-3);
+
+}
+
+
+
+@media(max-width: 980px){
+
+    .expressPaymentsWrapper:last-child{
+        margin-bottom: var(--size-5) !important;
+    }
+
+    .paymentDiv{
+        width: 100%;
+        margin-bottom: var(--size-3);
+    
+    }
+
+    .paymentDivLast{
+        margin-bottom: 0;
+    }
+
+
+    .expressCheckoutTitle{
+        margin-bottom: var(--size-5);
+    }
+
+    .expressPaymentsWrapper{
+        flex-direction: column;
+    }
+
+
+    .expressCheckoutBottomBorder{
+      
+        margin-top: var(--size-5);
+    }
+}
+
+
+
+
+
+
+.expressPaymentsWrapperadasdasdasdasdasdsadsadsa {
+    display: flex;
+    justify-content: space-between;
+}
+
+.expressPaymentsWrapperasdasdasdasdasdsadasd > * {
+    flex: 1;
+    margin-right: calc(4px + 2vw); /* 4px + 2% of the viewport width */
+}
+
+.expressPaymentsWrapperadasdasdasdasdasdasda > *:last-child {
+    margin-right: 0; /* Remove margin from the last child to prevent extra space */
+} 
+
+
+
+
+

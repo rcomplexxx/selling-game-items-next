@@ -45,9 +45,9 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
           testId("lastName");
           testId("address");
           testId("country");
-          testId("postcode");
+          testId("zipcode");
           testId("state");
-          testId("suburb");
+          testId("city");
       
           const phone = document.getElementById("phone").value; //
           if (phone.length < 5)
@@ -196,6 +196,10 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
               onApprove={handlePayPalButtonApprove}
               onCancel={cancelHandler}
               createOrder={async()=>{return await handlePayPalOrder('PAYPAL')}}
+              style={{
+                color: 'gold',
+                height: 48
+              }}
               className={styles.paypalButton}
             />
             {paypalError && <p className={styles.paypalError}>{paypalError}</p>}

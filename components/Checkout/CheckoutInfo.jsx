@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./checkoutinfo.module.css";
 import InputField from "./Input/InputField";
 import CountryInput from "./Input/CountryInput/CountryInput";
@@ -10,13 +10,18 @@ import InjectStripe from "./Stripe/Stripe";
 import CreditCardForm from "./CreditCard/CreditCard";
 import FloatingBadge from "./FloatingBadge/FloatingBadge";
 import StripeWrapper from "./Stripe/Stripe";
+import ExpressCheckout from "./ExpressCheckout/ExpressCheckout";
 
 export default function CheckoutInfo({ products, setCartProducts }) {
+  const [showApt, setShowApt] = useState(false);
   const [errors, setErrors] = useState({});
   const [shippingType, setShippingType] = useState("free");
 
   const contactScrollRef = useRef();
 
+  useEffect(()=>{
+   showApt && document.getElementById("apt").focus();
+   }, [showApt]);
 
   const handleChange = (event) => {
     if (errors.hasOwnProperty(event.target.id)) {
@@ -54,9 +59,9 @@ export default function CheckoutInfo({ products, setCartProducts }) {
     testId("lastName");
     testId("address");
     testId("country");
-    testId("postcode");
+    testId("zipcode");
     testId("state");
-    testId("suburb");
+    testId("city");
 
     const phone = document.getElementById("phone").value; //
     if (phone.length < 5)
@@ -108,11 +113,11 @@ export default function CheckoutInfo({ products, setCartProducts }) {
     const firstName = document.getElementById("firstName").value;
     const lastName = document.getElementById("lastName").value;
     const address = document.getElementById("address").value;
-    const apt = document.getElementById("apt").value;
+    const apt = document.getElementById("apt")?.value;
     const country = document.getElementById("country").value;
-    const postcode = document.getElementById("postcode").value;
+    const zipcode = document.getElementById("zipcode").value;
     const state = document.getElementById("state").value;
-    const suburb = document.getElementById("suburb").value;
+    const city = document.getElementById("city").value;
     const phone = document.getElementById("phone").value;
     const discountEl = document.getElementById("discountPrice");
     console.log("disc el", discountEl);
@@ -138,9 +143,9 @@ export default function CheckoutInfo({ products, setCartProducts }) {
         address,
         apt,
         country,
-        postcode,
+        zipcode,
         state,
-        suburb,
+        city,
         phone,
         discount: discount,
         items:items ,
@@ -159,6 +164,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
     <>
       <div className={styles.leftWrapper}>
         <div className={styles.checkout_left}>
+          <ExpressCheckout  checkFields={checkFields} organizeUserData={organizeUserData} setCartProducts={setCartProducts } setErrors={setErrors}/>
           <div className={styles.checkout_section}>
             <h2 ref={contactScrollRef}>Contact</h2>
             <form>
@@ -191,6 +197,14 @@ export default function CheckoutInfo({ products, setCartProducts }) {
                 </p>
               )}
 
+<div className={styles.input_row}>
+<CountryInput
+                  id="country"
+                  setErrors={setErrors}
+                  error={errors.country}
+                  inputNumber={9}
+                />
+   </div>
               <div className={styles.input_row}>
                 <InputField
                   id="firstName"
@@ -215,27 +229,25 @@ export default function CheckoutInfo({ products, setCartProducts }) {
                   handleChange={handleChange}
                   error={errors.address}
                 />
-
-                <InputField
+                 </div>
+  <div className={styles.input_row}>
+    { showApt ? <InputField
                   id="apt"
                   placeHolder="Apartment, suite, etc. (Optional)"
                   type="text"
-                />
+                />:<p onClick={()=>{setShowApt(true);}}
+                
+                className={styles.aptAdder}>+ Add apartment,suite etc.</p>}
               </div>
               <div className={styles.input_row}>
-                <CountryInput
-                  id="country"
-                  setErrors={setErrors}
-                  error={errors.country}
-                  inputNumber={9}
-                />
-                <InputField
-                  id="postcode"
-                  placeHolder="Postcode"
+              <InputField
+                  id="city"
+                  placeHolder="City"
                   type="text"
                   handleChange={handleChange}
-                  error={errors.postcode}
+                  error={errors.city}
                 />
+              
                 <InputField
                   id="state"
                   placeHolder="State"
@@ -243,15 +255,16 @@ export default function CheckoutInfo({ products, setCartProducts }) {
                   handleChange={handleChange}
                   error={errors.state}
                 />
-              </div>
-              <div className={styles.input_row}>
-                <InputField
-                  id="suburb"
-                  placeHolder="Suburb"
+                  <InputField
+                  id="zipcode"
+                  placeHolder="ZIP code"
                   type="text"
                   handleChange={handleChange}
-                  error={errors.suburb}
+                  error={errors.zipcode}
                 />
+              </div>
+              <div className={styles.input_row}>
+              
                 <InputField
                   id="phone"
                   placeHolder="Phone"
@@ -329,8 +342,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
          
           <PayPalButton checkFields={checkFields} organizeUserData={organizeUserData} method="paypal" setCartProducts={setCartProducts } setErrors={setErrors}/>
           
-          <GooglePay checkFields={checkFields} organizeUserData={(paymentToken)=>{return organizeUserData('GPAY', paymentToken)}} />
-          <StripeWrapper products={products} organizeUserData={organizeUserData} checkFields={checkFields} />
+         <StripeWrapper products={products} organizeUserData={organizeUserData} checkFields={checkFields} />
         </div>
       </div>
     </>
