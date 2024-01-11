@@ -221,7 +221,7 @@ const handleCCBlur= ()=>{
     options={{placeholder:'',  style: {
       base: {
         color: 'white',
-        iconColor:'white'
+        backgroundColor:'gray'
       },
      
       invalid: {
@@ -236,6 +236,7 @@ const handleCCBlur= ()=>{
 </div>
 {/* defaultValues */}
 {/* https://stripe.com/docs/js/elements_object/create_payment_element#payment_element_create-options */}
+
 
 
       {errors.cardNumber && <p className={styles.stripeError}>{errors.cardNumber}</p>}
