@@ -197,7 +197,7 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
               onCancel={cancelHandler}
               createOrder={async()=>{return await handlePayPalOrder('PAYPAL')}}
               style={{
-                color: 'gold',
+                color: 'blue',
                 height: 48
               }}
               className={styles.paypalButton}
