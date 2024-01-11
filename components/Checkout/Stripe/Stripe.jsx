@@ -220,7 +220,8 @@ const handleCCBlur= ()=>{
       }}
     options={{placeholder:'',  style: {
       base: {
-        color: 'white'
+        color: 'white',
+        backgroundColor:'transparent'
       },
       invalid: {
         color: 'white'
@@ -249,7 +250,8 @@ const handleCCBlur= ()=>{
  onChange={handleCCChange}
       options={{placeholder:'',  style: {
         base: {
-          color: 'white'
+          color: 'white',
+          backgroundColor:'transparent'
         },
         invalid: {
           color: 'white'
@@ -272,7 +274,8 @@ const handleCCBlur= ()=>{
   }}
    options={{placeholder:'',  style: {
     base: {
-      color: 'white'
+      color: 'white',
+      backgroundColor:'transparent'
     },
     invalid: {
       color: 'white'
