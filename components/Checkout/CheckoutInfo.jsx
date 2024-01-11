@@ -237,7 +237,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
                   type="text"
                 />:<p onClick={()=>{setShowApt(true);}}
                 
-                className={styles.aptAdder}>+ Add apartment,suite etc.</p>}
+                className={styles.aptAdder}>+ Add apartment, suite etc.</p>}
               </div>
               <div className={styles.input_row}>
               <InputField

@@ -104,7 +104,7 @@ export default function BillingInfo({isOpen}){
                    
                         //   if(event.target.value==='') setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
                          error={errors.cardHolderName}
-                        /> </div>:<p className={styles.aptAdder} onClick={()=>{setShowApt(true);}}>+ Add apartment,suite etc.</p>}
+                        /> </div>:<p className={styles.aptAdder} onClick={()=>{setShowApt(true);}}>+ Add apartment, suite etc.</p>}
                 
             
                      
