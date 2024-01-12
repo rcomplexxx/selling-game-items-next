@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }) {
     router.pathname.startsWith("/admin")
       ? setShowNav(false)
       : setShowNav(true);
-  }, [router.asPath]);
+  }, [router]);
 
 
 
