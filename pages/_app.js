@@ -17,23 +17,49 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     
+
+    const handleRouteChangeStart = (url) => {
+      // 'url' parameter contains the new route
+      setNewProduct(undefined);
+      url.startsWith("/checkout") ||
+      url === "/thank-you" ||
+      
+      url.startsWith("/admin")
+        ? setShowNav(false)
+        : setShowNav(true);
+      console.log('Route change started to:', url);
+    };
+
+    handleRouteChangeStart(router.pathname)
+
+    router.events.on('beforeHistoryChange', handleRouteChangeStart);
+
+    //NAPRAVITI SMOOTH ANIMACIJU ZATVARANJA NAVBARA CIM SE KLIKNE NA LINK KOJI NE TREBA DA SADRZI NAVBAR
+
+
+    // Cleanup the event listener when the component unmounts
+   
+    //beforeHistoryChange
+
+
+
     const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
     setCartProducts(storedCartProducts || []);
+
+
+
+    return () => {
+      router.events.off('beforeHistoryChange', handleRouteChangeStart);
+    };
+
+
   }, []);
 
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
   }, [cartProducts]);
 
-  useEffect(() => {
-    setNewProduct(undefined);
-    router.pathname.startsWith("/checkout") ||
-    router.pathname === "/thank-you" ||
-    
-    router.pathname.startsWith("/admin")
-      ? setShowNav(false)
-      : setShowNav(true);
-  }, [router]);
+
 
 
 
