@@ -11,12 +11,22 @@ import Head from "next/head";
 export default function App({ Component, pageProps }) {
   const [cartProducts, setCartProducts] = useState([]);
   const [newProduct, setNewProduct]=useState();
-  const [showNav, setShowNav] = useState(false);
+  const [showNav, setShowNav] = useState(true);
   const [removeNavFinal, setRemoveNavFinal]= useState(false);
 
   const router = useRouter();
 
   useEffect(() => {
+
+
+    const handleRouteChangeComplete = (url) => {
+      url.startsWith("/checkout") ||
+      url === "/thank-you" ||
+      
+      url.startsWith("/admin")
+        ? setRemoveNavFinal(true)
+        : setRemoveNavFinal(false);
+    }
     
 
     const handleRouteChangeStart = (url) => {
@@ -33,6 +43,7 @@ export default function App({ Component, pageProps }) {
 
    
     handleRouteChangeStart(router.pathname);
+    handleRouteChangeComplete(router.pathname);
 
     router.events.on('routeChangeStart', handleRouteChangeStart);
     //NAPRAVITI SMOOTH ANIMACIJU ZATVARANJA NAVBARA CIM SE KLIKNE NA LINK KOJI NE TREBA DA SADRZI NAVBAR
@@ -68,10 +79,10 @@ export default function App({ Component, pageProps }) {
       url.startsWith("/admin")
         ? setRemoveNavFinal(true)
         : setRemoveNavFinal(false);
-      console.log('Route change started to:', url);
     };
     
     handleRouteChangeComplete(router.pathname)
+    console.log('pageprops:', pageProps, 'Component:', Component)
 
   }, [router.pathname]);
 

@@ -1,5 +1,9 @@
 
-
+.checkoutAbsolute{
+  position: absolute;
+  top:0;
+  left:0;
+}
 
 .checkout_container {
   
