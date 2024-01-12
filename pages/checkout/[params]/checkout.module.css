@@ -1,5 +1,13 @@
 
 
+.loading{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--size-9);
+  font-size: var(--font-size-6);
+}
+
 
 .checkout_container {
   background-color: var(--gray-9-elegant);

@@ -9,7 +9,7 @@ import collections from '@/data/collections.json'
 import Search from "./Search/Search";
 import MobileMenu from "./MobileMenu/MobileMenu";
 
-const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
+const NavBar = ({ totalItems, showNav, newProduct, setNewProduct }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [subMenu, setSubMenu]=useState(0);
   const [searchOpen, setSearchOpen]= useState(false);
@@ -34,9 +34,11 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
 
   return (
     <>
-    {(newProduct || searchOpen || isMenuOpen) && <div className={styles.substituteDiv}/>}
+    {(newProduct || searchOpen || isMenuOpen || !showNav) && <div className={styles.substituteDiv}/>}
   
-      <nav className={`${styles.appBar} ${(newProduct || searchOpen || isMenuOpen) && styles.appBarFixed} ${newProduct && styles.appBarMaterialize}`}
+      <nav className={`${styles.appBar} ${(newProduct || searchOpen || isMenuOpen) && styles.appBarFixed} ${newProduct && styles.appBarMaterialize} ${
+        !showNav && styles.disableNav
+      }`}
       onMouseDown={(event)=>{ if(newProduct) event.preventDefault()}} id='popupCart' tabIndex="0" onBlur={()=>{
       setNewProduct();
     }}

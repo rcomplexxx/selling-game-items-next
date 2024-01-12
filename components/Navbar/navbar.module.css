@@ -13,6 +13,7 @@
    
   }
 
+
   .substituteDiv{
     display: none;
     width:100%;
@@ -33,6 +34,10 @@
     align-items: center;
   }
 
+
+  .disableNav{
+    display: none;
+  }
   
   .title {
     color: var(--blue-2);

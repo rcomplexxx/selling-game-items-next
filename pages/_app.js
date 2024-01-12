@@ -11,7 +11,8 @@ import Head from "next/head";
 export default function App({ Component, pageProps }) {
   const [cartProducts, setCartProducts] = useState([]);
   const [newProduct, setNewProduct]=useState();
-  const [showNav, setShowNav] = useState(true);
+  const [showNav, setShowNav] = useState(false);
+  const [removeNavFinal, setRemoveNavFinal]= useState(false);
 
   const router = useRouter();
 
@@ -30,10 +31,10 @@ export default function App({ Component, pageProps }) {
       console.log('Route change started to:', url);
     };
 
-    handleRouteChangeStart(router.pathname)
+   
+    handleRouteChangeStart(router.pathname);
 
-    router.events.on('beforeHistoryChange', handleRouteChangeStart);
-
+    router.events.on('routeChangeStart', handleRouteChangeStart);
     //NAPRAVITI SMOOTH ANIMACIJU ZATVARANJA NAVBARA CIM SE KLIKNE NA LINK KOJI NE TREBA DA SADRZI NAVBAR
 
 
@@ -49,7 +50,7 @@ export default function App({ Component, pageProps }) {
 
 
     return () => {
-      router.events.off('beforeHistoryChange', handleRouteChangeStart);
+      router.events.off('routeChangeStart', handleRouteChangeStart);
     };
 
 
@@ -58,6 +59,25 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
   }, [cartProducts]);
+
+  useEffect(() => {
+    const handleRouteChangeComplete = (url) => {
+      url.startsWith("/checkout") ||
+      url === "/thank-you" ||
+      
+      url.startsWith("/admin")
+        ? setRemoveNavFinal(true)
+        : setRemoveNavFinal(false);
+      console.log('Route change started to:', url);
+    };
+    
+    handleRouteChangeComplete(router.pathname)
+
+  }, [router.pathname]);
+
+
+
+
 
 
 
@@ -104,7 +124,7 @@ const totalItems= useMemo(()=>{
       <Head>
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      {showNav && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
+      {!removeNavFinal && <Navbar showNav={showNav} totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
 
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>
         <Component {...pageProps} />

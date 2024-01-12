@@ -52,7 +52,7 @@ const BuyNowPage = () => {
   }, []);
 
   if (loading)
-    return <div className={styles.checkout_container}>Loading...</div>;
+    return <div className={styles.loading}>Loading...</div>;
 
   if (params != "buynow" || cartProducts.length == 0)
     return <div className={styles.checkout_container}></div>;
