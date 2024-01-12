@@ -13,6 +13,7 @@ export default function ThankYou() {
   }, []);
 
   return (
+    <div className={styles.thankYouWrapper}>
     <div className={styles.mainDiv}>
       <div className={styles.titleDiv}>
         <h1 className={styles.title}>Thank you</h1>
@@ -28,6 +29,7 @@ export default function ThankYou() {
       </div>
       <p className={styles.mainPharagraph}>Thank you for shopping with us! Your order has been palced. Check your email for order information. Ps. We also left you a surprise in there 🎁</p>
       <Link href='/' className={styles.continue}>Back to home</Link>
+    </div>
     </div>
   );
 }

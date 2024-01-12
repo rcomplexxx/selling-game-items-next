@@ -1,8 +1,17 @@
 
-
+.thankYouWrapper{
+    width: 100%;
+    background-color: var(--gray-9-elegant);
+    position: absolute;
+    top:0;
+    left:0;
+    
+    z-index: 99;
+}
 
 .mainDiv{
-   
+    
+ 
     width: calc(100% - var(--size-8));
     min-height: 100vh ;
     min-height: 100svh ;

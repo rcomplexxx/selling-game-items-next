@@ -32,12 +32,11 @@ export default function App({ Component, pageProps }) {
     const handleRouteChangeStart = (url) => {
       // 'url' parameter contains the new route
       setNewProduct(undefined);
-      url.startsWith("/checkout") ||
+      if(url.startsWith("/checkout") ||
       url === "/thank-you" ||
       
-      url.startsWith("/admin")
-        ? setShowNav(false)
-        : setShowNav(true);
+      url.startsWith("/admin")){ setShowNav(false);}
+        else{ setShowNav(true); setRemoveNavFinal(false);}
       console.log('Route change started to:', url);
     };
 

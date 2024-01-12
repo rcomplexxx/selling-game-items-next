@@ -1,12 +1,13 @@
 
 .checkoutAbsolute{
-  position: absolute;
-  top:0;
-  left:0;
+  
+ 
 }
 
 .checkout_container {
-  
+  position: absolute;
+  top:0;
+  left:0;
   background-color: var(--gray-9-elegant);
   width:100%;
   min-height: 100vh;
@@ -15,7 +16,7 @@
     flex-direction: row-reverse;
  
     justify-content: center;
-   
+    z-index: 99;
   }
 
   .checkout_container h1{
