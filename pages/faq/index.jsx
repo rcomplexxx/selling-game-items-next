@@ -3,6 +3,7 @@ import { useState } from "react";
 import Head from "next/head";
 
 import styles from "./faq.module.css";
+import Image from "next/image";
 
 function Question(props) {
   const [showAnswer, setShowAnswer] = useState(false);
@@ -15,13 +16,15 @@ function Question(props) {
     <>
       <button className={styles.question_div} onClick={summonAnswer}>
         {props.question}
-        <span
+        <Image
+        src='/images/greaterLess3.png'
+        height={16} width={16}
           className={`${styles.plusStyle} ${
             showAnswer ? styles.plusStyleRotate : ""
           }`}
-        >
-          +
-        </span>
+        />
+          
+       
       </button>
       <p className={`${styles.emerge} ${showAnswer ? styles.show : ""}`}>
         {props.answer}

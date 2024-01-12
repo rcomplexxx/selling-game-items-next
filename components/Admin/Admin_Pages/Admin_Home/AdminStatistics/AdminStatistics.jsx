@@ -133,7 +133,7 @@ export default function AdminStatistics(){
 
     <div className={styles.saleStat}>
       <h2>Period</h2>
-      <h2>Order Number</h2>
+      <h2>Number of orders</h2>
       <h2>Cash Earned</h2>
       </div>
 

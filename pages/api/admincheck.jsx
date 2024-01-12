@@ -1,3 +1,4 @@
+import fs from 'fs'
 import { verifyToken } from "../../utils/auth.js"; // Adjust the path based on your project structure
 import RateLimiter from "@/utils/rateLimiter.js";
 import betterSqlite3 from "better-sqlite3";
@@ -51,7 +52,33 @@ export default async function adminCheckHandler(req, res) {
             db.prepare(`UPDATE ${table} SET id = id - 1 WHERE id > ?`).run(
               data[i].id,
             );
+
+
+            console.log('deleted',deleted)
+
+
           } else {
+              let reviewImages= JSON.parse(data[i].imageNames);
+            console.log(reviewImages, 'and', );
+            if(!reviewImages)reviewImages=[];
+            const allReviewImages=  JSON.parse(db.prepare(`SELECT imageNames FROM reviews WHERE id = ${data[i].id}`).all()[0].imageNames);
+            
+            const deletedImages= allReviewImages?.filter((img)=>{
+              console.log('img name', img)
+              return !reviewImages.includes(img)
+            });
+
+
+           if(deletedImages) deletedImages.forEach((deletedImage)=>{
+            console.log('path', deletedImage);
+            fs.rename(process.cwd() +`/public/images/review_images/${deletedImage}`, process.cwd() +`/public/images/review_images/deleted_images/${deletedImage}`,function (err) {
+              if (err) throw err
+              console.log('Successfully renamed - AKA moved!')
+            });
+            
+          
+          });
+
             db.prepare(`UPDATE ${table} ${queryCondition}`).run(
               data[i].name,
               data[i].text,

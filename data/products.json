@@ -13,7 +13,7 @@
     "price": 12,
     "stickerPrice": 32,
     "raiting": 5,
-    "reviewNumber": 102,
+    "reviewNumber": 100,
     "variants": [
       {
         "name": "black",
@@ -40,7 +40,7 @@
       "2.png"
     ],
     "price": 42,
-    "reviewNumber": 103,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -55,7 +55,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 5
+    "raiting": 4.7
   },
   {
     "id": 2,
@@ -65,7 +65,7 @@
     ],
     "price": 74,
     "stickerPrice": 99.99,
-    "reviewNumber": 207,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -80,7 +80,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 3
+    "raiting": 4.7
   },
   {
     "id": 3,
@@ -89,7 +89,7 @@
       "4.png"
     ],
     "price": 120,
-    "reviewNumber": 40,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -104,7 +104,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 3
+    "raiting": 4.7
   },
   {
     "id": 4,
@@ -119,7 +119,7 @@
     ],
     "price": 499.99,
     "stickerPrice": 763.99,
-    "reviewNumber": 101,
+    "reviewNumber": 621,
     "fbt": [
       1,
       2
@@ -138,7 +138,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 5
+    "raiting": 4.7
   },
   {
     "id": 5,
@@ -152,7 +152,7 @@
       1,
       2
     ],
-    "reviewNumber": 30,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -167,7 +167,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 4
+    "raiting": 4.7
   },
   {
     "id": 7,

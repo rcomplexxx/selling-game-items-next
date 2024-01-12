@@ -4,6 +4,7 @@
     position: relative;
     height: 160px;
     width: auto;
+    cursor: pointer;
 }
 
 .reviewImage{
