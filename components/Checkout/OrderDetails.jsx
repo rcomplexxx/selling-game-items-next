@@ -151,6 +151,7 @@ import React, {
                       <label htmlFor={"coupon_code"} className={styles.myLabel}>
                         Coupon code
                       </label>
+                     
                     </div>
                     <button
                       className={`${styles.apply} ${
@@ -166,17 +167,28 @@ import React, {
                           setDiscount(newCoupon.discountPercentage);
                           setCouponError(false);
                           setCouponCode("");
-                        } else setCouponError(true);
+                        } else if(!couponValidCode) setCouponError(true);
                       }}
                     >
                       Apply
                     </button>
                   </div>
+
                   {couponError && (
                     <p className={styles.couponError}>
                       Enter a valid discount code or gift card
                     </p>
                   )}
+            {couponValidCode &&
+                  <div className={styles.mainCouponCode}> 
+                      <Image src='/images/discount7.png' className={styles.mainDiscountImg} height={16} width={16}/>
+                      <span>{couponValidCode}</span>
+                      <Image src='/images/cancelWhite.png' onClick={(()=>{setCouponValidCode(undefined);setDiscount(0);})}
+                       className={styles.discountCancelImage} height={16} width={16}/>
+                      </div>
+  }
+
+                 
   
                   <div className={`${styles.order_pair} ${styles.subTotal}`}>
                     <span>Subtotal</span>

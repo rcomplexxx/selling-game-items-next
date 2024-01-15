@@ -85,6 +85,43 @@
     opacity: 0.5;
   }
 
+
+  .mainCouponCode {
+    
+    background-color: rgb(36, 48, 58);
+    width:min-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--size-2);
+    margin-top: var(--size-4);
+    margin-bottom: 0;
+    border-radius: 4px;
+  }
+
+  .mainCouponCode span{
+
+  }
+  .mainDiscountImg{
+    opacity: 0.7;
+    margin-left: var(--size-2);
+    margin-right: var(--size-1);
+  }
+
+  .discountCancelImage{
+    margin-left: var(--size-2);
+    margin-right: var(--size-1);
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .discountCancelImage:hover{
+    opacity: 1;
+  }
+
+
   .discountCodeDiv{
     display: flex;
     align-items: center;
@@ -162,7 +199,7 @@
 }
 
 .subTotal{
-  margin-top: 32px;
+  margin-top: var(--size-6);
 }
 
 .myLabel{
