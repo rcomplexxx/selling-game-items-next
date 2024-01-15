@@ -3,7 +3,7 @@ import CheckoutInfo from "@/components/Checkout/CheckoutInfo";
 import OrderDetails, {
   OrderDetailsInfo,
 } from "@/components/Checkout/OrderDetails";
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import products from "../../../data/products.json";
 import Head from "next/head";
@@ -17,6 +17,8 @@ const BuyNowPage = () => {
 
   const [loading, setLoading] = useState(true);
   const [cartProducts, setCartProducts] = useState([]);
+  const [discount, setDiscount] = useState(0);
+
 
   useEffect(() => {
     const queryParameters = window.location.search;
@@ -64,9 +66,9 @@ const BuyNowPage = () => {
       </Head>
 
       <div className={styles.checkout_container}>
-        <OrderDetails products={cartProducts} />
+        <OrderDetails discount={discount} setDiscount={setDiscount} products={cartProducts} />
 
-        <CheckoutInfo products={cartProducts} setCartProducts={setCartProducts}>
+        <CheckoutInfo discount={discount} products={cartProducts} setCartProducts={setCartProducts}>
           {" "}
         </CheckoutInfo>
       </div>

@@ -12,7 +12,7 @@ import Image from 'next/image';
 import BillingInfo from './BillingInfo/BillingInfo';
                
 
-const Stripe = ({organizeUserData, products, checkFields}) => {
+const Stripe = ({organizeUserData, products, setCartProducts, checkFields}) => {
     const [billingAddressSameAsShipping, setBillingAddressSameAsShipping] = useState(true);
     const [floatingLabels, setFloatingLabels]= useState({});
     const [focusedField, setFocusedField]= useState();
@@ -68,8 +68,22 @@ const handleStripePay= async(event)=>{
 
         const {error, paymentMethod} = await stripe.createPaymentMethod({
             type: "card",
-            card: cardElement
-        })
+            card: cardElement,
+            billing_details: {
+                name: "John Doe",
+                email: 'hi@lolol.lol',
+                address: {
+                    line1: "123 Main St",
+                    city: "City",
+                    state: "State",
+                    postal_code: "12345",
+                    country: "US"
+                },
+                phone:'030300334'
+            }
+        });
+
+        console.log('pm',paymentMethod)
 
         if(!error) {
           try {
@@ -131,38 +145,19 @@ const handleStripePay= async(event)=>{
               console.log('rp',data);
               console.log('ss', data.clientSecret)
               if(data.success) {
-                const clientSecret=data.clientSecret;
-                const result = await stripe.confirmCardPayment(clientSecret, {
-                  payment_method: {
-                    card: cardElement,
-                    billing_details: {
-                      name: 'Jenny Rosen',
-                    },
-                  },
-                });
-              
-                if (!result.error) {
-                  //approve payment
-                  const approved = await fetch("/api/approve-payment", {
-                    method: "POST",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                      paymentMethod: 'STRIPE',
-                      paymentId: clientSecret,
-                    }),
-                  });
-                  if(approved.ok)router.push("/thank-you");
-                  else{setPaymentProcessing(false);}
-                }
-                else {
+               
+               
+                setCartProducts([]);
+                router.push("/thank-you");
                   
-                  setStripeError('Error occured. Payment was not processed.')
-                  setPaymentProcessing(false);
-                }
+                  
+                
+             
               }
-              else{setPaymentProcessing(false);}
+              else{setPaymentProcessing(false);
+              //Ovde izbaci gresku
+              setStripeError('Error occured. Payment was not processed.')
+              }
   
           } catch (error) {
             console.log(error)

@@ -48,6 +48,8 @@ export default function Admin() {
         items: order.items,
         discount: order.discount,
         packageStatus: order.packageStatus,
+        paymentMethod: order.paymentMethod,
+        paymentId: order.paymentId
       });
     }
 

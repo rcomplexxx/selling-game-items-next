@@ -4,6 +4,7 @@ import OrderCard from "./OrderCard/OrderCard";
 import { useState } from "react";
 import styles from "./orders.module.css";
 import PageIndexButtons from "../MagicButtons/PageIndexButtons";
+import products from '@/data/products.json'
 
 export default function Orders({ data, setData }) {
   const [packageStatusArray, setPackageStatusArray] = useState([]);
@@ -32,7 +33,7 @@ export default function Orders({ data, setData }) {
 
     setPackageStatusArray(newpackageStatusArray);
   };
-
+  console.log(data)
   if (data.length === 1 && data[0] === "No orders")
     return (
       <>
@@ -95,14 +96,18 @@ export default function Orders({ data, setData }) {
                 ? data.length 
                 : (page + 1) * 10,
             )
+            
             .map((order, index) => (
               <OrderCard
                 key={page * 10 + index}
                 id={page * 10 + index}
-                info={`${order.id}, ${order.email}, ${order.firstName}, ${order.lastName}, ${order.address}, ${order.apt}, ${order.country}, ${order.zipcode}, ${order.state}, ${order.city}, ${order.phone}, ${order.discount}`}
-                items={`${order.items}`}
+                info={
+                  JSON.stringify({id:order.id, email:order.email, firstName:order.firstName, lastName:order.lastName, address:order.address, apt: order.apt, country: order.country, zipcode:order.zipcode, state:order.state, city:order.city, phone: order.phone, discount:order.discount,
+                items:order.items, paymentMethod: order.paymentMethod,paymentId:order.paymentId })}
+                orderId
                 packageStatus={packageStatusArray[index + page * 10]}
                 handlePackageStatusChange={handlePackageStatusChange}
+                products={products}
               />
             ))}
         </>

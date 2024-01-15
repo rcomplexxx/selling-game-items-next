@@ -4,7 +4,7 @@ import styles from './expresscheckout.module.css'
 
 
 
-export default function ExpressCheckout({checkFields, organizeUserData,  setCartProducts, setErrors}){
+export default function ExpressCheckout({products, discount, checkFields, organizeUserData,  setCartProducts, setErrors}){
 
 
     return <div className={styles.expressCheckoutWrapper}>
@@ -16,7 +16,7 @@ export default function ExpressCheckout({checkFields, organizeUserData,  setCart
                 </div>
 
                 <div className={`${styles.paymentDiv} ${styles.paymentDivLast}`}>
-                <GooglePay checkFields={checkFields} organizeUserData={(paymentToken)=>{return organizeUserData('GPAY', paymentToken)}} />
+                <GooglePay products={products} setCartProducts={setCartProducts} discount={discount} organizeUserData={(paymentToken)=>{return organizeUserData('GPAY', paymentToken)}} />
                     </div>
 
             </div>

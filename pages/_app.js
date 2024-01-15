@@ -81,7 +81,6 @@ export default function App({ Component, pageProps }) {
     };
     
     handleRouteChangeComplete(router.pathname)
-    console.log('pageprops:', pageProps, 'Component:', Component)
 
   }, [router.pathname]);
 

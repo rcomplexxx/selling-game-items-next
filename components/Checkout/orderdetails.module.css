@@ -81,6 +81,20 @@
    
   }
 
+  .discountPair{
+    opacity: 0.5;
+  }
+
+  .discountCodeDiv{
+    display: flex;
+    align-items: center;
+  }
+
+  .discountImg{
+    margin-left: var(--size-2);
+    margin-right: var(--size-1);
+  }
+
 .discountPrice{
 
   margin:0;

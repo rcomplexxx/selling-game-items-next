@@ -12,7 +12,7 @@ import FloatingBadge from "./FloatingBadge/FloatingBadge";
 import StripeWrapper from "./Stripe/Stripe";
 import ExpressCheckout from "./ExpressCheckout/ExpressCheckout";
 
-export default function CheckoutInfo({ products, setCartProducts }) {
+export default function CheckoutInfo({ products, discount, setCartProducts }) {
   const [showApt, setShowApt] = useState(false);
   const [errors, setErrors] = useState({});
   const [shippingType, setShippingType] = useState("free");
@@ -164,7 +164,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
     <>
       <div className={styles.leftWrapper}>
         <div className={styles.checkout_left}>
-          <ExpressCheckout  checkFields={checkFields} organizeUserData={organizeUserData} setCartProducts={setCartProducts } setErrors={setErrors}/>
+          <ExpressCheckout discount={discount} products={products} checkFields={checkFields} organizeUserData={organizeUserData} setCartProducts={setCartProducts } setErrors={setErrors}/>
           <div className={styles.checkout_section}>
             <h2 ref={contactScrollRef}>Contact</h2>
             <form>
@@ -342,7 +342,7 @@ export default function CheckoutInfo({ products, setCartProducts }) {
          
           <PayPalButton checkFields={checkFields} organizeUserData={organizeUserData} method="paypal" setCartProducts={setCartProducts } setErrors={setErrors}/>
           
-         <StripeWrapper products={products} organizeUserData={organizeUserData} checkFields={checkFields} />
+         <StripeWrapper setCartProducts={setCartProducts} products={products} organizeUserData={organizeUserData} checkFields={checkFields} />
         </div>
       </div>
     </>

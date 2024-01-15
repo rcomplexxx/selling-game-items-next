@@ -49,7 +49,7 @@ const paypalPay=async(totalPrice)=>{
 const makePayment = async (req, res) => {
   console.log('  reqdata BITNO ~!!!~).', req.body)
 
-  const putInDatabase = (paymentMethod,paymentId) => {
+  const putInDatabase = (paymentMethod,paymentId, approved=0) => {
     return new Promise((resolve, reject) => {
       try {
         const db = betterSqlite3(process.env.DB_PATH);
@@ -96,7 +96,7 @@ const makePayment = async (req, res) => {
         console.log(' and items!!!!!!!!!',  items);
 
         db.prepare(
-          `INSERT INTO orders (email, firstName, lastName, address, apt, country, zipcode, state, city, phone, discount, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', false, ?)`,
+          `INSERT INTO orders (email, firstName, lastName, address, apt, country, zipcode, state, city, phone, discount, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', ?, ?)`,
         ).run(
           email,
           firstName,
@@ -112,6 +112,7 @@ const makePayment = async (req, res) => {
           JSON.stringify(items),
           paymentMethod,
           paymentId,
+          approved,
           Math.floor(Date.now() / 86400000),
         );
 
@@ -171,32 +172,80 @@ const makePayment = async (req, res) => {
 
   }
   else if(req.body.paymentMethod==='GPAY'){
-    const tokenValid= await validateToken(req.body.paymentToken)
-    if(tokenValid) res.status(200).json({ success: true, message:'Token validated' });
-    else {
-      res
-      .status(400)
-      .json({ success: false, error: "Payment was not approved." });
-    }
+    // const tokenValid= await validateToken(req.body.paymentToken)
+    // if(tokenValid) res.status(200).json({ success: true, message:'Token validated' });
+    // else {
+    //   res
+    //   .status(400)
+    //   .json({ success: false, error: "Payment was not approved." });
+    // }
     // await putInDatabase('GPAY',response.result.id);
+ 
+    console.log('amount', req.body.amount)
+    const amount= req.body.amount;
+    
+    if(amount!== totalPrice)
+    return res
+      .status(400)
+      .json({ success: false, error: "amount_incorrect" });
+
+      //Namontirati gresku ako je drzava van dozvoljenih drzava
+
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+    const paymentMethod = await stripe.paymentMethods.create({
+      type: 'card',
+      card: {
+        token: req.body.paymentToken, // Google Pay token
+      },
+    });
+
+    const paymentIntent= await stripe.paymentIntents.create({
+			amount:amount*100,
+			currency: "USD",
+      payment_method: paymentMethod.id, // Google Pay token
+      confirm: true,
+      automatic_payment_methods: {
+        enabled: true,
+        allow_redirects: 'never',
+      },
+		});
+    await putInDatabase('GPAY(STRIPE)',paymentIntent.client_secret, 1);
+
+  	return res.json({
+			
+			success: true
+		})
+
+
+
+
+
+
   }
   else if(req.body.paymentMethod==='STRIPE'){
+   
     // stripeId amount totalPrice
     console.log('popusis ti meni STRIPE')
     const {stripeId, amount} = req.body;
     if(amount!== totalPrice)
     return res
       .status(400)
-      .json({ success: false, error: "Payment was not approved." });
+      .json({ success: false, error: "Error occured. Payment was not approved." });
+
+      
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
       
     const paymentIntent = await stripe.paymentIntents.create({
 			amount:amount*100,
 			currency: "USD",
+      payment_method: stripeId, 
 			automatic_payment_methods: {
-          enabled: true
-      }
+          enabled: true,
+          allow_redirects: 'never',
+      },
+      confirm: true
 		});
 
     // billing_details: {
@@ -212,11 +261,10 @@ const makePayment = async (req, res) => {
 
     
 		console.log("Payment client Secret", paymentIntent.client_secret)
-    await putInDatabase('STRIPE',paymentIntent.client_secret);
+    await putInDatabase('STRIPE',paymentIntent.client_secret, 1);
 		return res.json({
 			
-			success: true,
-      clientSecret: paymentIntent.client_secret
+			success: true
 		})
 
   }
@@ -229,7 +277,7 @@ console.log('jos napreduje');
     // Handle errors
 
     console.error("Error verifying payment:", error);
-    res.status(500).json({ success: false, error: "Error verifying payment." });
+    res.status(500).json({ success: false, error: "Error occured. Payment was not approved." });
   }
 };
 
