@@ -96,6 +96,26 @@ import React, {
       const total = (s - discountPrice).toFixed(2);
       return { subTotal: s, discount: discountPrice, total: total };
     }, [products, discount]);
+
+
+
+
+const handleCouponApply = () => {
+    if (couponCode == "") return;
+    const newCoupon = coupons.find((c) => {
+      return c.code.toUpperCase() == couponCode.toUpperCase();
+    });
+    if (newCoupon) {
+        setCouponValidCode(newCoupon.code.toUpperCase())
+      setDiscount(newCoupon.discountPercentage);
+      setCouponError(false);
+      setCouponCode("");
+    } else if(!couponValidCode) setCouponError(true);
+  }
+
+
+
+    
   
     return (
       <div className={styles.rightWrapper}>
@@ -143,6 +163,7 @@ import React, {
                         onChange={(event) => {
                           setCouponCode(event.target.value);
                         }}
+                        onKeyUp={(e) => e.key === 'Enter' && handleCouponApply()}
                         className={`${styles.coupon_code_input} ${
                           couponError && styles.coupon_code_input_error
                         }`}
@@ -157,18 +178,7 @@ import React, {
                       className={`${styles.apply} ${
                         couponCode != "" && styles.applyEnabled
                       }`}
-                      onClick={() => {
-                        if (couponCode == "") return;
-                        const newCoupon = coupons.find((c) => {
-                          return c.code.toUpperCase() == couponCode.toUpperCase();
-                        });
-                        if (newCoupon) {
-                            setCouponValidCode(newCoupon.code.toUpperCase())
-                          setDiscount(newCoupon.discountPercentage);
-                          setCouponError(false);
-                          setCouponCode("");
-                        } else if(!couponValidCode) setCouponError(true);
-                      }}
+                      onClick={handleCouponApply}
                     >
                       Apply
                     </button>
