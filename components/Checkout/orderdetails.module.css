@@ -77,9 +77,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: var(--size-5) 0;
+    margin: var(--size-4) 0;
+    font-size: var(--font-size-2);
    
   }
+  
 
   .discountPair{
     opacity: 0.5;
@@ -200,6 +202,23 @@
 
 .subTotal{
   margin-top: var(--size-6);
+}
+
+.valute{
+  opacity: 0.6;
+  font-size: var(--font-size-1);
+  margin: 0 var(--size-1) !important;
+  
+}
+
+.totalText{
+  font-size: var(--font-size-4);
+  font-weight: 700;
+}
+
+.total{
+  font-size: var(--font-size-4);
+  font-weight: 700;
 }
 
 .myLabel{

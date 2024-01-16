@@ -92,7 +92,7 @@ import React, {
       });
       s = s.toFixed(2);
       let discountPrice = 0;
-      if (discount != 0) discountPrice = ((s * discount) / 100).toFixed(2);
+      if (discount.discount != 0) discountPrice = ((s * discount.discount) / 100).toFixed(2);
       const total = (s - discountPrice).toFixed(2);
       return { subTotal: s, discount: discountPrice, total: total };
     }, [products, discount]);
@@ -107,7 +107,7 @@ const handleCouponApply = () => {
     });
     if (newCoupon) {
         setCouponValidCode(newCoupon.code.toUpperCase())
-      setDiscount(newCoupon.discountPercentage);
+      setDiscount({code: newCoupon.code, discount:newCoupon.discountPercentage});
       setCouponError(false);
       setCouponCode("");
     } else if(!couponValidCode) setCouponError(true);
@@ -193,7 +193,7 @@ const handleCouponApply = () => {
                   <div className={styles.mainCouponCode}> 
                       <Image src='/images/discount7.png' className={styles.mainDiscountImg} height={16} width={16}/>
                       <span>{couponValidCode}</span>
-                      <Image src='/images/cancelWhite.png' onClick={(()=>{setCouponValidCode(undefined);setDiscount(0);})}
+                      <Image src='/images/cancelWhite.png' onClick={(()=>{setCouponValidCode(undefined);setDiscount({code: '', discount: 0});})}
                        className={styles.discountCancelImage} height={16} width={16}/>
                       </div>
   }
@@ -204,7 +204,7 @@ const handleCouponApply = () => {
                     <span>Subtotal</span>
                     <span>${prices.subTotal}</span>
                   </div>
-                  {discount != 0 && (
+                  {discount.discount != 0 && (
                     <>
                     <div className={styles.order_pair}>
                       <span>Order Discount</span>
@@ -227,8 +227,13 @@ const handleCouponApply = () => {
                   </div>
   
                   <div className={styles.order_pair}>
-                    <span>Total</span>
-                    <span>${prices.total}</span>
+                    
+                        <span className={styles.totalText}>Total</span>
+                        
+                        <div>
+                    <span className={styles.valute}>USD</span>
+                    <span id='totalPrice' className={styles.total}>${prices.total}</span>
+                    </div>
                   </div>
                 </div>
               </div>

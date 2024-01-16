@@ -29,7 +29,7 @@
     justify-content: space-between;
     align-items: center;
     flex: 1;
-    padding: 0 var(--size-5);
+    padding: var(--size-3) var(--size-5);
   
 }
 .cardRowNoBorder{

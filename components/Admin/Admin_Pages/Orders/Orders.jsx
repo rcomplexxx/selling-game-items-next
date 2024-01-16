@@ -1,14 +1,18 @@
 import GetDataButton from "../MagicButtons/GetDataButton";
 import SaveButton from "../MagicButtons/SaveButton";
 import OrderCard from "./OrderCard/OrderCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./orders.module.css";
 import PageIndexButtons from "../MagicButtons/PageIndexButtons";
 import products from '@/data/products.json'
+import coupons from '@/data/coupons.json'
 
 export default function Orders({ data, setData }) {
   const [packageStatusArray, setPackageStatusArray] = useState([]);
   const [page, setPage] = useState(0);
+  
+
+
 
   const handlePackageStatusChange = (i, packageStatus) => {
     const updatedPackageStatusArray = [];
@@ -102,12 +106,13 @@ export default function Orders({ data, setData }) {
                 key={page * 10 + index}
                 id={page * 10 + index}
                 info={
-                  JSON.stringify({id:order.id, email:order.email, firstName:order.firstName, lastName:order.lastName, address:order.address, apt: order.apt, country: order.country, zipcode:order.zipcode, state:order.state, city:order.city, phone: order.phone, discount:order.discount,
+                  JSON.stringify({id:order.id, email:order.email, firstName:order.firstName, lastName:order.lastName, address:order.address, apt: order.apt, country: order.country, zipcode:order.zipcode, state:order.state, city:order.city, phone: order.phone, discountCode:order.discountCode,
                 items:order.items, paymentMethod: order.paymentMethod,paymentId:order.paymentId })}
-                orderId
+               
                 packageStatus={packageStatusArray[index + page * 10]}
                 handlePackageStatusChange={handlePackageStatusChange}
                 products={products}
+                coupons={coupons}
               />
             ))}
         </>

@@ -119,13 +119,7 @@ export default function CheckoutInfo({ products, discount, setCartProducts }) {
     const state = document.getElementById("state").value;
     const city = document.getElementById("city").value;
     const phone = document.getElementById("phone").value;
-    const discountEl = document.getElementById("discountPrice");
-    console.log("disc el", discountEl);
-    let discount = "0";
-    if (discountEl) {
-      discount = discountEl.innerText;
-      discount = discount.substring(discount.indexOf("$") + 1).trim();
-    }
+   
     const items=[];
     products.map((product) => {
       items.push({
@@ -134,7 +128,7 @@ export default function CheckoutInfo({ products, discount, setCartProducts }) {
       variant: product.variant
       })
     });
-
+    console.log('disc ele', discount.code)
     const requestData = {
       order: {
         email,
@@ -147,7 +141,7 @@ export default function CheckoutInfo({ products, discount, setCartProducts }) {
         state,
         city,
         phone,
-        discount: discount,
+        discountCode: discount.code,
         items:items ,
       },
       paymentMethod: paymentMethod,

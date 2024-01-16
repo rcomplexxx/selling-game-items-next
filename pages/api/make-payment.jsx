@@ -3,6 +3,7 @@ import Stripe from 'stripe';
 import productsData from "../../data/products.json";
 import betterSqlite3 from "better-sqlite3";
 import RateLimiter from "@/utils/rateLimiter.js";
+import coupons from '../../data/coupons.json'
 import validateToken from '@/utils/googlePayTokenValidation'
 
 const limiterPerDay = new RateLimiter({
@@ -68,7 +69,7 @@ const makePayment = async (req, res) => {
             state TEXT,
             city TEXT,
             phone TEXT,
-            discount TEXT,
+            discountCode TEXT,
             items TEXT,
             paymentMethod TEXT,
             paymentId TEXT,
@@ -90,13 +91,13 @@ const makePayment = async (req, res) => {
           state,
           city,
           phone,
-          discount,
+          discountCode,
           items,
         } = req.body.order;
         console.log(' and items!!!!!!!!!',  items);
 
         db.prepare(
-          `INSERT INTO orders (email, firstName, lastName, address, apt, country, zipcode, state, city, phone, discount, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', ?, ?)`,
+          `INSERT INTO orders (email, firstName, lastName, address, apt, country, zipcode, state, city, phone, discountCode, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', ?, ?)`,
         ).run(
           email,
           firstName,
@@ -108,7 +109,7 @@ const makePayment = async (req, res) => {
           state,
           city,
           phone,
-          discount,
+          discountCode,
           JSON.stringify(items),
           paymentMethod,
           paymentId,
@@ -143,13 +144,20 @@ const makePayment = async (req, res) => {
       .toFixed(2);
 
     console.log('TOTALPRICE!',totalPrice);
-    const discount = req.body.order.discount;
-    if (discount != "0") {
+    const discountCode = req.body.order.discountCode;
+    console.log('discount code is!', discountCode)
+    if (discountCode != "") {
+      const coupon= coupons.find((c)=>{return c.code.toUpperCase()===discountCode});
+      console.log('coupon is!', coupon);
+      if(coupon){
+      const discount= coupon.discountPercentage;
       const discountFloat = parseFloat(discount);
 
-      totalPrice = totalPrice - discountFloat;
-      totalPrice.toFixed(2);
+      totalPrice = totalPrice - totalPrice*discountFloat/100;
+      totalPrice= totalPrice.toFixed(2);
+      }
     }
+    console.log('Total price on server is', totalPrice)
 
     
     if(req.body.paymentMethod==='PAYPAL'){
@@ -181,10 +189,10 @@ const makePayment = async (req, res) => {
     // }
     // await putInDatabase('GPAY',response.result.id);
  
-    console.log('amount', req.body.amount)
+    
     const amount= req.body.amount;
     
-    if(amount!== totalPrice)
+    if(amount!= totalPrice)
     return res
       .status(400)
       .json({ success: false, error: "amount_incorrect" });
@@ -200,8 +208,11 @@ const makePayment = async (req, res) => {
       },
     });
 
+    console.log('Proso stripe tokenizaciju')
+    console.log('amount je', amount);
+
     const paymentIntent= await stripe.paymentIntents.create({
-			amount:amount*100,
+			amount:parseInt(amount*100),
 			currency: "USD",
       payment_method: paymentMethod.id, // Google Pay token
       confirm: true,
@@ -238,7 +249,7 @@ const makePayment = async (req, res) => {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
       
     const paymentIntent = await stripe.paymentIntents.create({
-			amount:amount*100,
+      amount:parseInt(amount*100),
 			currency: "USD",
       payment_method: stripeId, 
 			automatic_payment_methods: {

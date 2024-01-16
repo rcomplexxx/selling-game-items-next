@@ -1,16 +1,81 @@
 import styles from "./ordercard.module.css";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function OrderCard({
   id,
   info,
+ 
   packageStatus,
   handlePackageStatusChange,
-  products
+  products,
+  coupons
 }) {
 
   const [paymentIdCovered, setPaymentIdCovered] = useState(true);
-  const infoObj = useMemo(() => JSON.parse(info), [info]);
+  const [amount, setAmount] = useState(0);
+  const [discoutPercent, setDiscountPercent] = useState();
+  const [discountInCash, setDiscoutInCash] = useState();
+
+
+   const infoObj = useMemo(() => JSON.parse(info), [info]);
+
+
+    useEffect(()=>{
+
+
+     
+
+    
+      let rawAmount =0;
+
+         console.log('inf',info);
+         const infoObj =  JSON.parse(info);
+                const items = JSON.parse(infoObj.items)
+              
+               
+              items.forEach((item) => {
+                  const product = products.find((p) => p.id === item.id);
+                
+                  if (product) {
+                    const price = product.price * parseInt(item.quantity, 10);
+                    rawAmount=rawAmount+price;
+                  }
+                });
+              
+
+              
+
+
+              console.log(rawAmount);
+              console.log('ccCode', infoObj.discountCode)
+                if(infoObj.discountCode){
+      const myCoupon= coupons.find((c)=>{return infoObj.discountCode==c.code.toUpperCase()})
+      console.log('coupon', myCoupon);
+      const myDiscountPercent= myCoupon.discountPercentage;
+
+     
+
+      const myDiscountInCash = (rawAmount*myDiscountPercent/100).toFixed(2);
+      let myAmount = rawAmount - myDiscountInCash;
+     
+
+      setDiscountPercent(myDiscountPercent);
+      setDiscoutInCash(myDiscountInCash);
+      myAmount = myAmount.toFixed(2)
+      setAmount(myAmount);
+                }
+                else{
+                  setAmount(rawAmount.toFixed(2))
+                }
+
+               
+    },[])
+
+
+
+
+
+ 
 
 
   const changePs = () => {
@@ -135,6 +200,19 @@ export default function OrderCard({
    <div className={`${styles.cardRow} ${styles.cardRowNoBorder}`}>
       <h1 className={styles.rowTitle}>Transaction</h1>
      <div className={styles.infoRowDiv}>
+
+     <div className={styles.infoPair}>
+         <p>Total (discount included)</p>
+         <p>{amount}</p>
+      </div>
+
+    
+      {infoObj.discountCode && discoutPercent && discountInCash &&
+     <div className={styles.infoPair}>
+         <p>Discount ({discoutPercent}%)</p>
+         <p>{discountInCash}</p>
+      </div>
+}
       
      <div className={styles.infoPair}>
          <p>Payment method</p>

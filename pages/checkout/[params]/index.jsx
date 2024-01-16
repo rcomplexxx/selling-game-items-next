@@ -17,7 +17,7 @@ const BuyNowPage = () => {
 
   const [loading, setLoading] = useState(true);
   const [cartProducts, setCartProducts] = useState([]);
-  const [discount, setDiscount] = useState(0);
+  const [discount, setDiscount] = useState({code:'', discount: 0 });
 
 
   useEffect(() => {

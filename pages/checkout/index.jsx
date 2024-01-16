@@ -7,7 +7,7 @@ import Head from "next/head";
 
 const CheckoutPage = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
-  const [discount, setDiscount] = useState(0);
+  const [discount, setDiscount] = useState({code:'', discount:0});
   
 
   
