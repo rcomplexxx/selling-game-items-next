@@ -95,11 +95,12 @@
 .itemsMiniRow{
     
     margin: var(--size-3) 0;
+    padding-right: var(--size-3);
     align-self: flex-start;
 }
 
 .itemInfoRow{
-    margin: 0 var(--size-7);
+    margin-left: var(--size-7);
     margin-bottom: var(--size-3);
     border-bottom: 1px solid rgb(105, 79, 12);
     padding: 0 var(--size-1);
@@ -111,6 +112,56 @@
     opacity: 0.5;
     font-size: var(--font-size-5);
 }
+
+.transactionInfoDiv{
+    justify-content: stretch;
+}
+
+.transactionInfoDivCovered{
+    padding-right: 0;
+}
+
+.transactionCoverableDiv{
+    position: relative;
+    flex: 3;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  
+   
+}
+
+.transactionCoverableDivNoDisc{
+flex: 2;
+}
+
+.transactionCovered{
+    height: 100%;
+    color: rgba(255, 255, 255, 0.405);
+    background-color: rgb(10, 12, 19);
+    display: flex;
+    justify-content: center;
+    font-size: var(--font-size-2);
+    font-style: italic;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.pumpTotal{
+    flex:1;
+}
+
+.shrinkTotal{
+    flex: 0;
+    margin-right: var(--size-4);
+}
+.shrinkTotal p{
+white-space: nowrap;
+}
+
+
 
 .paymentIdCovered{
     color: rgba(255, 255, 255, 0.848);

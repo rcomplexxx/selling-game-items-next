@@ -226,7 +226,7 @@ const handleCCBlur= ()=>{
     }}}
         className={`${styles.input_field} ${errors.cardNumber && styles.input_error} ${focusedField==='cardNumber' && styles.stripeFieldFocused}`}
       /> 
-      <FloatingBadge imageName='lock3.png'/>
+      <FloatingBadge imageName='lock11.png'/>
       <label className={`${styles.label} ${floatingLabels.cardNumber && styles.labelFloating}`}>Card number</label>
 
 </div>

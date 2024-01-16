@@ -14,7 +14,7 @@ const CartItem = ({ item }) => {
     setCartProducts(
       cartProducts
         .map((cp) => {
-          if (cp.id === item.id) {
+          if (cp.id === item.id && cp.variant === item.variant) {
             cp.quantity += quantity;
             return cp.quantity !== 0 ? cp : null;
           }
@@ -24,8 +24,8 @@ const CartItem = ({ item }) => {
     );
   };
 
-  const handleRemoveFromCart = async (lineItemId) => {
-    const newCartProducts = cartProducts.filter((cp) => cp.id != lineItemId);
+  const handleRemoveFromCart = async (lineItemId, lineItemVariant) => {
+    const newCartProducts = cartProducts.filter((cp) => cp.id != lineItemId || cp.variant != lineItemVariant);
     console.log(lineItemId);
     console.log(newCartProducts);
     setCartProducts(newCartProducts);
@@ -74,7 +74,7 @@ const CartItem = ({ item }) => {
           <img
           src='/images/bin.png'
             className={styles.removeButton}
-            onClick={() => handleRemoveFromCart(item.id)}
+            onClick={() => handleRemoveFromCart(item.id, item.variant)}
           />
            
         </div>

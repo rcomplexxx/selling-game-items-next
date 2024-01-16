@@ -39,7 +39,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
   const { cartProducts, setCartProducts, setNewProduct, } = useContext(AppContext);
 
   const onAddToCart = ( quantity = 1) => {
-    const productIndex = cartProducts.findIndex((cp) => cp.id === product.id);
+    const productIndex = cartProducts.findIndex((cp) => cp.id === product.id && cp.variant===variant);
 
     if (productIndex !== -1) {
       const updatedCartProducts = [...cartProducts];

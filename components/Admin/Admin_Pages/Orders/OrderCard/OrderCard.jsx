@@ -10,10 +10,10 @@ export default function OrderCard({
   products,
   coupons
 }) {
-
+  const [transactionCovered, setStransactionCovered]= useState(true);
   const [paymentIdCovered, setPaymentIdCovered] = useState(true);
   const [amount, setAmount] = useState(0);
-  const [discoutPercent, setDiscountPercent] = useState();
+  const [discountPercent, setDiscountPercent] = useState();
   const [discountInCash, setDiscoutInCash] = useState();
 
 
@@ -199,17 +199,21 @@ export default function OrderCard({
    </div>
    <div className={`${styles.cardRow} ${styles.cardRowNoBorder}`}>
       <h1 className={styles.rowTitle}>Transaction</h1>
-     <div className={styles.infoRowDiv}>
+     <div className={`${styles.infoRowDiv}  ${styles.transactionInfoDiv} ${transactionCovered && styles.transactionInfoDivCovered}`}>
 
-     <div className={styles.infoPair}>
-         <p>Total (discount included)</p>
+     <div className={`${styles.infoPair} ${transactionCovered? styles.shrinkTotal:styles.pumpTotal}`}>
+         <p>Total{discountPercent && ' (discount included)'}</p>
          <p>{amount}</p>
       </div>
 
-    
-      {infoObj.discountCode && discoutPercent && discountInCash &&
+    <div onClick={()=>{setStransactionCovered(false)}} 
+    className={`${styles.transactionCoverableDiv} ${!discountPercent && styles.transactionCoverableDivNoDisc} ${
+      transactionCovered && styles.transactionCovered
+    }`}>
+
+  { transactionCovered ? <span>Click to see details</span> :<> {infoObj.discountCode && discountPercent && discountInCash &&
      <div className={styles.infoPair}>
-         <p>Discount ({discoutPercent}%)</p>
+         <p>Discount ({discountPercent}%)</p>
          <p>{discountInCash}</p>
       </div>
 }
@@ -224,8 +228,9 @@ export default function OrderCard({
          <p onClick={()=>{setPaymentIdCovered(false)}} className={paymentIdCovered && styles.paymentIdCovered}>{paymentIdCovered?'Click to see':infoObj.paymentId}</p>
       </div>
 
-
-    
+      </> 
+}
+      </div>
       
       </div>
       </div>
