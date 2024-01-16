@@ -1,3 +1,31 @@
+
+.titleDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reviewIdInput{
+    color: rgb(225, 236, 238);
+    background-color: rgb(15, 15, 14);
+    
+    width: auto;
+    align-self: flex-start;
+    box-sizing: border-box;
+    padding: 8px 8px;
+    font-size: var(--font-size-5);
+    line-height: var(--size-7);
+   margin-bottom: 32px;
+   border: 1px solid gray;
+   border-radius: 8px;
+   outline: none;
+}
+
+.reviewIdInput:focus{
+    border: 1px solid #4fabe0;
+    box-shadow: 0 0 8px #4fabe0;
+}
+
 .reviewGetterDiv{
     display: flex;
     flex-direction: column;

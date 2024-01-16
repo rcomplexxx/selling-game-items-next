@@ -76,6 +76,7 @@ export default function Reviews({ reviews, setReviews }) {
           <label>Product id</label>
           <input
             id="product_id"
+           
             value={productId}
             placeholder="Enter product id"
             onChange={(event) => {
@@ -113,6 +114,7 @@ export default function Reviews({ reviews, setReviews }) {
             <label>Product id</label>
             <input
               id="product_id"
+              className={styles.reviewIdInput}
               value={productId}
               placeholder="Enter product id"
               onChange={(event) => {

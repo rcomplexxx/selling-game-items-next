@@ -40,10 +40,10 @@ export default function GetDataButton({
   return (
     <button
       className={
-        secondStyle &&
+         `${styles.magicButton} ${secondStyle &&
         (secondStyle === "firstButton"
           ? styles.secondStyle
-          : styles.secondStyleSecButton)
+          : styles.secondStyleSecButton)}`
       }
       onClick={handleGetData}
     >

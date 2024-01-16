@@ -160,11 +160,11 @@ export default function ReviewsCard({
         ></Image>
       </div>
 
-      <button className={styles.msgStatusButton} onClick={changeReview}>
+      <button className={styles.reviewEditButton} onClick={changeReview}>
         {changed ? "Unsave edit" : "Save edit"}
       </button>
       <button
-        className={styles.msgStatusButton}
+        className={`${styles.reviewEditButton} ${styles.deleteReviewButton}`}
         onClick={() => {
           if (changed) return;
           setDeleted(!deleted);

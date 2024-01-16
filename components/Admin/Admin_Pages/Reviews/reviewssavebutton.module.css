@@ -1,0 +1,11 @@
+
+
+.saveButton{
+    color: white;
+    background-color: transparent;
+    padding: var(--size-3) var(--size-6);
+    border-radius: 2px;
+    border: 1px solid gray;
+    cursor: pointer;
+    user-select: none;
+}

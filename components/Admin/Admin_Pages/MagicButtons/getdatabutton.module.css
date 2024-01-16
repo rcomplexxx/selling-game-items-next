@@ -1,3 +1,14 @@
+
+.magicButton{
+    color: white;
+    background-color: transparent;
+    padding: var(--size-3) var(--size-6);
+    border-radius: 2px;
+    border: 1px solid gray;
+    cursor: pointer;
+    user-select: none;
+}
+
 .secondStyle{
     position:absolute;
     margin-top: 64px;
@@ -7,5 +18,5 @@
 .secondStyleSecButton{
     position:absolute;
     left: var(--size-5);
-    margin-top: 96px;
+    margin-top: 112px;
 }

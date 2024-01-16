@@ -12,12 +12,12 @@ const limiterPerTwoMins = new RateLimiter({
 export default async function adminCheckHandler(req, res) {
   const { token } = req.cookies;
 
-  const getFromDb = (table, queryCondition, selectVariables='*') => {
+  const getFromDb = (table, queryCondition=true, selectVariables='*') => {
     try {
       const db = betterSqlite3(process.env.DB_PATH);
 
       let queryString;
-      if (table === "orders" || table === "messages") {
+      if (table === "orders" || table === "messages" || table==="subscribers") {
         queryString = `SELECT ${selectVariables} FROM ${table} WHERE ${queryCondition}`;
       } else {
         queryString = `SELECT id, name, text, stars, imageNames, product_id FROM ${table} WHERE ${queryCondition}`;
@@ -187,7 +187,7 @@ export default async function adminCheckHandler(req, res) {
             `product_id = ${data.product_id}`,
           ); //Doraditi za product_id===data.product_id
         else if (dataType === "get_subscribers")
-          return getFromDb("subscribers", ``);
+          return getFromDb("subscribers");
         else if (dataType === "send_unfulfilled_orders") {
           if (!data)
             return res

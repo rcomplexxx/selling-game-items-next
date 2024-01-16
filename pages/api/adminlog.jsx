@@ -10,10 +10,7 @@ const limiterPerHour = new RateLimiter({
 
 export default async function logHandler(req, res) {
   try {
-    const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-
-    if (!(await limiterPerHour.rateLimiterGate(clientIp)))
-      return res.status(429).json({ error: "Too many requests." });
+    
 
     // Retrieve user data from the database based on the username
 
@@ -21,6 +18,13 @@ export default async function logHandler(req, res) {
       process.env.ADMIN_USERNAME !== req.body.username ||
       process.env.ADMIN_PASSWORD !== req.body.password
     ) {
+
+
+      const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+
+    if (!(await limiterPerHour.rateLimiterGate(clientIp)))
+      return res.status(429).json({ error: "Too many requests." });
+
       if (req.body.logout) {
         const token = jwt.sign({ userAdmin: false }, process.env.AUTH_SECRET, {
           expiresIn: "0s",

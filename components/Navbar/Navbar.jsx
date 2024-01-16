@@ -247,9 +247,9 @@ setSubMenu(subMenu==2?0:2);
 
                 
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className={`${styles.linkStyle} ${
-                    pathname === "/contact" ? styles.currentLink : ""
+                    pathname === "/contact-us" ? styles.currentLink : ""
                   }`}
                 >
                   Contact us
