@@ -213,7 +213,7 @@ const handleCouponApply = () => {
 
                     <div className={`${styles.order_pair} ${styles.discountPair}`}>
                     <div className={styles.discountCodeDiv}>
-                        <Image src='/images/discount7.png' className={styles.discountImg} height={16} width={16}/>
+                        <Image src='/images/discount7.png' className={styles.discountImg} height={12} width={12}/>
                         <span id="discountCode">{couponValidCode}</span>
                         </div>
                     <span id="discountPrice">- ${prices.discount}</span>
@@ -235,6 +235,14 @@ const handleCouponApply = () => {
                     <span id='totalPrice' className={styles.total}>${prices.total}</span>
                     </div>
                   </div>
+
+                  {couponValidCode &&
+                  <div className={styles.totalDiscount}> 
+                      <Image src='/images/totalDiscount2.png' className={styles.totalDiscountImg} height={16} width={16}/>
+                      <span className={styles.totalDiscountSpan}>Total savings</span><span className={styles.totalDiscountSpan}>${prices.discount}</span>
+                      
+                      </div>
+  }
                 </div>
               </div>
             </div>
