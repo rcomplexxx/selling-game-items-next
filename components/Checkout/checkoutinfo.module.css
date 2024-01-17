@@ -226,6 +226,7 @@
 
     white-space: nowrap;
     margin: var(--size-2) var(--size-3);
+    font-size: var(--font-size-3);
   }
 
   
@@ -250,6 +251,7 @@
       margin-left: var(--size-3);
     }
 
+ 
     
 
     .leftWrapper{
@@ -285,4 +287,9 @@
     .checkout_left{
       width: calc(100% - var(--size-8));
     }
+
+    .footerLink{
+      font-size: var(--font-size-2);
+    }
+
   }
