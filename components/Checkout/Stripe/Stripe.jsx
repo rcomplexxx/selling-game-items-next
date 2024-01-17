@@ -66,20 +66,28 @@ const handleStripePay= async(event)=>{
 
   const cardElement = elements.getElement(CardNumberElement);
 
+  const requestData = organizeUserData('STRIPE');
+  console.log('THE BILLING FUCKING DATA!',requestData);
+
+  if(billingAddressSameAsShipping){}
+  else{
+    billingFirstName
+  }
+
         const {error, paymentMethod} = await stripe.createPaymentMethod({
             type: "card",
             card: cardElement,
             billing_details: {
-                name: "John Doe",
-                email: 'hi@lolol.lol',
+                name: cardHolderName,
+                email: requestData.order.email,
                 address: {
-                    line1: "123 Main St",
-                    city: "City",
-                    state: "State",
-                    postal_code: "12345",
+                    line1: requestData.order.address,
+                    city: requestData.order.city,
+                    state: requestData.order.state,
+                    postal_code: requestData.order.zipcode,
                     country: "US"
                 },
-                phone:'030300334'
+                phone:requestData.order.phone
             }
         });
 
@@ -96,7 +104,7 @@ const handleStripePay= async(event)=>{
 
 
               const {id} = paymentMethod
-              const requestData = organizeUserData('STRIPE');
+             
               console.log(products);
               let totalPrice = products
               .reduce((sum, product) => {

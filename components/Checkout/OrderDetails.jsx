@@ -208,7 +208,7 @@ const handleCouponApply = () => {
                     <>
                     <div className={styles.order_pair}>
                       <span>Order Discount</span>
-                      <span id="discountPrice">- ${prices.discount}</span>
+                      <span></span>
                     </div>
 
                     <div className={`${styles.order_pair} ${styles.discountPair}`}>

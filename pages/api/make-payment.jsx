@@ -147,7 +147,7 @@ const makePayment = async (req, res) => {
     const discountCode = req.body.order.discountCode;
     console.log('discount code is!', discountCode)
     if (discountCode != "") {
-      const coupon= coupons.find((c)=>{return c.code.toUpperCase()===discountCode});
+      const coupon= coupons.find((c)=>{return c.code.toUpperCase()===discountCode.toUpperCase()});
       console.log('coupon is!', coupon);
       if(coupon){
       const discount= coupon.discountPercentage;
@@ -239,7 +239,7 @@ const makePayment = async (req, res) => {
     // stripeId amount totalPrice
     console.log('popusis ti meni STRIPE')
     const {stripeId, amount} = req.body;
-    if(amount!== totalPrice)
+    if(amount!= totalPrice)
     return res
       .status(400)
       .json({ success: false, error: "Error occured. Payment was not approved." });

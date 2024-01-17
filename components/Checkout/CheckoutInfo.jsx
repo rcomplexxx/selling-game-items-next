@@ -11,6 +11,7 @@ import CreditCardForm from "./CreditCard/CreditCard";
 import FloatingBadge from "./FloatingBadge/FloatingBadge";
 import StripeWrapper from "./Stripe/Stripe";
 import ExpressCheckout from "./ExpressCheckout/ExpressCheckout";
+import Link from "next/link";
 
 export default function CheckoutInfo({ products, discount, setCartProducts }) {
   const [showApt, setShowApt] = useState(false);
@@ -338,6 +339,14 @@ export default function CheckoutInfo({ products, discount, setCartProducts }) {
           
          <StripeWrapper setCartProducts={setCartProducts} products={products} organizeUserData={organizeUserData} checkFields={checkFields} />
         </div>
+        <div className={styles.checkoutFooterWrapper}>
+                <div className={styles.checkoutFooter}>
+                  <Link className={styles.footerLink} href='/refund-policy'>Refund policy</Link>
+                  <Link className={styles.footerLink} href='/shipping-policy'>Shipping policy</Link>
+                  <Link className={styles.footerLink} href='/privacy-policy'>Privacy policy</Link>
+                  <Link className={styles.footerLink} href='/terms-of-service'>Terms of service</Link>
+                </div>
+        </div>
       </div>
     </>
   );
@@ -345,5 +354,10 @@ export default function CheckoutInfo({ products, discount, setCartProducts }) {
 
 
 
-
+{/* <div className={styles.paymentMethodWrapper}>
+<PayPalButton checkFields={checkFields} organizeUserData={organizeUserData} method="paypal" setCartProducts={setCartProducts } setErrors={setErrors}/>
+</div>
+<div className={styles.paymentMethodWrapper}>
+<StripeWrapper setCartProducts={setCartProducts} products={products} organizeUserData={organizeUserData} checkFields={checkFields} />
+</div> */}
 

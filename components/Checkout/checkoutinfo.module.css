@@ -1,9 +1,10 @@
  .leftWrapper{
   
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     width: 50%;
-    justify-content: flex-end;
+    align-items: flex-end;
     padding-top: var(--size-8);
     box-sizing: border-box;
  
@@ -14,7 +15,7 @@
     width: calc(100% - var(--size-11));
     margin-right: var(--size-8);
     margin-left: var(--size-8);
-    margin-bottom: calc(100vh - 100lvh + var(--size-5));
+    margin-bottom: calc(100vh - 100lvh + var(--size-7));
   } 
  
   
@@ -189,6 +190,38 @@
       opacity: 0;
       cursor: pointer;
     
+  }
+
+
+  .paymentMethodWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 var(--size-5);
+  }
+
+  .checkoutFooterWrapper{
+    height: var(--size-9);
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid gray;
+  }
+
+  .checkoutFooter{
+    max-width: var(--size-15-5);
+    width: calc(100% - var(--size-11));
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: var(--size-8);
+    margin-left: var(--size-8);
+  }
+
+  .footerLink{
+    margin: 0 var(--size-3);
   }
 
   

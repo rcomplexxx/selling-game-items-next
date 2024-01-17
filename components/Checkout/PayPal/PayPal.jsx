@@ -19,82 +19,11 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
     
 
         try {
-          setPaypalError();
-          
-          let newErrors = {};
-          // if(document.getElementById('email').value==='') return actions.reject();
-          const testId = (id) => {
-            if (document.getElementById(id).value === "") {
-              newErrors = { ...newErrors, [id]: `${id} is a required field.` };
-            }
-          };
-      
-          if (document.getElementById("email").value === "") {
-            newErrors = { ...newErrors, email: "Email is a required field." };
-          }
-          if (
-            !/^\S{3,}@\S{3,}\.\S{2,}$/.test(document.getElementById("email").value)
-          ) {
-            newErrors = {
-              ...newErrors,
-              email: "Please enter a valid email address.",
-            };
-          }
-      
-          testId("firstName");
-          testId("lastName");
-          testId("address");
-          testId("country");
-          testId("zipcode");
-          testId("state");
-          testId("city");
-      
-          const phone = document.getElementById("phone").value; //
-          if (phone.length < 5)
-            newErrors = { ...newErrors, phone: "Invalid phone" };
-          else {
-            for (let i = 0; i < phone.length; i++) {
-              const char = phone[i];
-              if (
-                !(
-                  (char >= "0" && char <= "9") ||
-                  ["+", "-", "(", ")", " ", ".", "/"].includes(char)
-                )
-              ) {
-                newErrors = { ...newErrors, phone: "Invalid phone" };
-              }
-            }
-          }
-      
-          setErrors(newErrors);
-      
-      
-          const errorsExist=Object.keys(newErrors).length !== 0;
-          console.log('errorsExist?', errorsExist)
-          if (errorsExist) {
-            window.scrollTo({
-              top:
-                document
-                  .getElementById(Object.keys(newErrors)[0])
-                  .getBoundingClientRect().top +
-                window.scrollY -
-                12,
-              behavior: "smooth",
-            });
+          const fieldsCorrect=checkFields();
 
-            
-            return actions.reject();
-         
-        }
-        else{
-       
-          return actions.resolve();
-        }
-      
-    
-
-
-
+            if(fieldsCorrect) return actions.reject();
+          else return actions.resolve();
+        
 
           
         } catch (error) {
@@ -110,7 +39,7 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
 
           console.log('creating order');
           const requestData = organizeUserData(paymentMethod);
-          checkFields();
+          
             const response = await fetch("/api/make-payment", {
               method: "POST",
               headers: {
