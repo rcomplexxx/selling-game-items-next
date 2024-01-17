@@ -290,6 +290,7 @@
 
     .footerLink{
       font-size: var(--font-size-2);
+      margin: var(--size-2);
     }
 
   }
