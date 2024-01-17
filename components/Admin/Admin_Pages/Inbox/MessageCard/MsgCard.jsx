@@ -3,7 +3,9 @@ import { useState } from "react";
 
 export default function MessageCard({
   id,
-  info,
+  name,
+  email,
+  message,
   msgStatus,
   handleMsgStatusChange,
 }) {
@@ -17,8 +19,16 @@ export default function MessageCard({
 
   return (
     <div className={styles.cardMainDiv}>
+      <div className={styles.mainInfo}>
       <h1 className={styles.identifier}>{id + 1}</h1>
-      <p>{info}</p>
+      <div className={styles.infoPair}>
+         <p>Name</p>
+         <p>{name}</p>
+      </div>
+      <div className={styles.infoPair}>
+         <p>Email</p>
+         <p>{email}</p>
+      </div>
       <button className={styles.msgStatusButton} onClick={changeMsgStatus}>
         {msgStatus === "0"
           ? "Not Answered"
@@ -26,6 +36,14 @@ export default function MessageCard({
           ? "Answered"
           : "Archived"}
       </button>
+      </div>
+
+      <div className={`${styles.infoPair} ${styles.messagePair}`}>
+         <p>Message</p>
+         <p>{message}</p>
+      </div>
+     
+     
     </div>
   );
 }

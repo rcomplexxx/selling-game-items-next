@@ -135,7 +135,7 @@ export default function ProductPics({ images, onAddToCart }) {
     <>
        
         <div className={`${styles.fixedAddToCartDiv} ${spawnAddToCart && styles.fixedAddToCartDivSpawn}`}>
-          <button className={styles.fixedAddToCart} onClick={()=>{onAddToCart()}}>Add to cart</button>
+          <button className={styles.fixedAddToCart}   onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{onAddToCart()}}>Add to cart</button>
         </div>
       
 

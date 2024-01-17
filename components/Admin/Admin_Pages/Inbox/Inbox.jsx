@@ -90,7 +90,9 @@ export default function Inbox({ data, setData }) {
               <MessageCard
                 key={page * 10 + index}
                 id={page * 10 + index}
-                info={`${msg.email}: ${msg.message}`}
+                name={msg.name}
+                email={msg.email}
+                message={msg.message}
                 msgStatus={msgStatusArray[index]}
                 handleMsgStatusChange={handleMsgStatusChange}
               />

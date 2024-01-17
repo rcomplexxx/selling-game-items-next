@@ -1,17 +1,20 @@
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Head from "next/head";
 import styles from '../styles/contactus.module.css'
 
 export default function ContactUs() {
 
+  const [messageLoading, setMessageLoading]= useState(false);
+  const [messageSent, setMessageSent] = useState(false);
+  
   const nameRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
 
   const handleSubmit = async () => {
     console.log("submite Starter.");
-
+    setMessageLoading(true);
     try {
       const name = nameRef.current.value;
       const email = emailRef.current.value;
@@ -36,6 +39,7 @@ export default function ContactUs() {
       if (response.ok) {
         console.log("Message sent successfully.");
         // Reset form fields if needed
+        setMessageSent(true)
         nameRef.current.value = "";
         emailRef.current.value = "";
         messageRef.current.value = "";
@@ -44,7 +48,7 @@ export default function ContactUs() {
       }
     } catch (error) {
       console.error("Error sending message:", error);
-    }
+    } finally{setMessageLoading(false);}
   };
 
 
@@ -62,6 +66,8 @@ export default function ContactUs() {
                 <label>Name</label>
                 <input
                   id="name"
+                  placeholder="Write your name here"
+                  ref={nameRef}
                   className={styles.contactInput}
                 />
               </div>
@@ -69,8 +75,10 @@ export default function ContactUs() {
               <div className={styles.inputGroup}>
                 <label>Email</label>
                 <input
-                  id="email"
-                  className={styles.contactInput}
+                placeholder="Write your email here"
+                id="email"
+                ref={emailRef}
+                className={styles.contactInput}
                 />
               </div>
             </div>
@@ -78,12 +86,16 @@ export default function ContactUs() {
           <div className={styles.messageField}>
             <label>Message</label>
             <textarea
-             maxLength={500}
+            placeholder="Write your message here"
+              ref={messageRef}
+              onChange={()=>{setMessageSent(false);}}
               className={styles.messageTextArea}
               rows={6}
+              maxLength={500}
             />
+           {messageSent && <span className={styles.messageSuccess}>Message sent successfully.</span>}
           </div>
-          <button  className={styles.sendButton}>
+          <button disabled={messageLoading} onClick={handleSubmit} className={`${styles.sendButton} ${messageLoading && styles.sendButtonDisabled}`}>
             Send
           </button>
         </div>

@@ -75,6 +75,7 @@ export default function Admin() {
       const message = data[i];
       newOrders.push({
         id: message.id,
+        name: message.name,
         email: message.email,
         message: message.message,
       });

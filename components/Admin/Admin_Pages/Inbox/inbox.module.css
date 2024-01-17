@@ -1,3 +1,4 @@
+.titleDiv{}
 
 .cardMainDiv{
    
@@ -17,6 +18,29 @@
     color: rgb(184, 189, 182);
     margin: var(--size-4) var(--size-5);
 }
+
+
+.infoPair{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+
+.infoPair > :first-child{
+    margin: 0;
+    opacity: 0.5;
+    font-size: var(--font-size-1);
+}
+
+.infoPair *{
+    margin-top: var(--size-1);
+    font-size: var(--font-size-5);
+
+}
+
+
+
 
 
 .messageStatusButton{

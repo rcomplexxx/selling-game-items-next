@@ -2,6 +2,12 @@ import betterSqlite3 from "better-sqlite3";
 import RateLimiter from "@/utils/rateLimiter.js";
 
 const limiterPerMinute = new RateLimiter({
+  apiNumberArg: 8,
+  tokenNumberArg: 6,
+  expireDurationArg: 86400, //secs
+});
+
+const dailyMessageLimit = new RateLimiter({
   apiNumberArg: 0,
   tokenNumberArg: 4,
   expireDurationArg: 60, //secs
@@ -72,6 +78,11 @@ export default async function handler(req, res) {
           db.close();
         } else if (req.body.type === "messages") {
           // Create a new SQLite database connection
+
+
+          if (!(await dailyMessageLimit.rateLimiterGate(clientIp)))
+          return res.status(429).json({ error: "Too many messages sent." });
+
           const db = betterSqlite3(process.env.DB_PATH);
 
           // Ensure the messages table exists

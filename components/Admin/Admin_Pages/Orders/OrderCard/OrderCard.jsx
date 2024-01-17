@@ -211,7 +211,7 @@ export default function OrderCard({
       transactionCovered && styles.transactionCovered
     }`}>
 
-  { transactionCovered ? <span>Click to see details</span> :<> {infoObj.discountCode && discountPercent && discountInCash &&
+  { transactionCovered ? <span>Click for details</span> :<> {infoObj.discountCode && discountPercent && discountInCash &&
      <div className={styles.infoPair}>
          <p>Discount ({discountPercent}%)</p>
          <p>{discountInCash}</p>

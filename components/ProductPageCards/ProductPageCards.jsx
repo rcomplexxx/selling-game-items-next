@@ -1,15 +1,17 @@
 import DropCard from "./DropCard/DropCard";
 import styles from "./productPageCards.module.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function ProductPageCards() {
+  const [messageLoading, setMessageLoading]= useState(false);
+  const [messageSent, setMessageSent] = useState(false);
   const nameRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
-
+  
   const handleSubmit = async () => {
     console.log("submite Starter.");
-
+    setMessageLoading(true);
     try {
       const name = nameRef.current.value;
       const email = emailRef.current.value;
@@ -34,6 +36,7 @@ export default function ProductPageCards() {
       if (response.ok) {
         console.log("Message sent successfully.");
         // Reset form fields if needed
+        setMessageSent(true)
         nameRef.current.value = "";
         emailRef.current.value = "";
         messageRef.current.value = "";
@@ -42,7 +45,7 @@ export default function ProductPageCards() {
       }
     } catch (error) {
       console.error("Error sending message:", error);
-    }
+    } finally{setMessageLoading(false);}
   };
 
   return (
@@ -163,12 +166,14 @@ export default function ProductPageCards() {
             <textarea
             placeholder="Write your message here"
               ref={messageRef}
+              onChange={()=>{setMessageSent(false);}}
               className={styles.messageTextArea}
               rows={6}
               maxLength={500}
             />
+            {messageSent && <span className={styles.messageSuccess}>Message sent successfully.</span>}
           </div>
-          <button onClick={handleSubmit} className={styles.sendButton}>
+          <button disabled={messageLoading} onClick={handleSubmit} className={`${styles.sendButton} ${messageLoading && styles.sendButtonDisabled}`}>
             Send
           </button>
         </div>
