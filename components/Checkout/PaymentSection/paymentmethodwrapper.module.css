@@ -1,0 +1,74 @@
+.mainWrapper{
+   
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(128, 128, 128, 0.503);
+    border-radius: 4px;
+    
+}
+
+
+.paymentOptionDiv{
+    background-color: rgb(25, 25, 35);
+    height: var(--size-9);
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: var(--size-3);
+    
+    cursor: pointer;
+    user-select: none;
+}
+
+.selectedOption{
+    width: calc(100% + 2px);
+    border: 1px solid gray;
+}
+
+.pickOption{
+    display: flex;
+}
+
+.pickCheck{
+    height: var(--size-5);
+    width: var(--size-5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    border-radius: 100%;
+    margin: 0 var(--size-3);
+}
+
+.ringEffectDiv{
+    height: var(--size-3);
+    width: var(--size-3);
+    background-color: var(--gray-9-elegant);
+    border-radius: 100%;
+}
+
+
+.paymentFields{
+    height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    transition: height 0.5s ease;
+    overflow: hidden;
+}
+
+.selectedField{
+    height: auto;
+}
+
+.paymentFieldsSpaceAdjuster{
+   
+    width: calc(100% - var(--size-7));
+    margin: var(--size-5) 0;
+}

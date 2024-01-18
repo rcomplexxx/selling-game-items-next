@@ -12,8 +12,11 @@ import FloatingBadge from "./FloatingBadge/FloatingBadge";
 import StripeWrapper from "./Stripe/Stripe";
 import ExpressCheckout from "./ExpressCheckout/ExpressCheckout";
 import Link from "next/link";
+import OrderDetails from "./OrderDetails";
+import PaymentMethodWrapper from "./PaymentSection/PaymentSection";
+import PaymentSection from "./PaymentSection/PaymentSection";
 
-export default function CheckoutInfo({ products, discount, setCartProducts }) {
+export default function CheckoutInfo({ products, discount, setDiscount, setCartProducts }) {
   const [showApt, setShowApt] = useState(false);
   const [errors, setErrors] = useState({});
   const [shippingType, setShippingType] = useState("free");
@@ -330,14 +333,9 @@ export default function CheckoutInfo({ products, discount, setCartProducts }) {
               </span>
             </label>
           </div>
-          <h2 className={styles.paymentTitle}>Payment</h2>
-          <p className={styles.paymentNotification}>
-            All transactions are secure and encrypted.
-          </p>
          
-          <PayPalButton checkFields={checkFields} organizeUserData={organizeUserData} method="paypal" setCartProducts={setCartProducts } setErrors={setErrors}/>
-          
-         <StripeWrapper setCartProducts={setCartProducts} products={products} organizeUserData={organizeUserData} checkFields={checkFields} />
+         <PaymentSection discount={discount} products={products} checkFields={checkFields} organizeUserData={organizeUserData} products={products} setCartProducts={setCartProducts } setErrors={setErrors} />
+       
         </div>
         <div className={styles.checkoutFooterWrapper}>
                 <div className={styles.checkoutFooter}>
@@ -360,4 +358,6 @@ export default function CheckoutInfo({ products, discount, setCartProducts }) {
 <div className={styles.paymentMethodWrapper}>
 <StripeWrapper setCartProducts={setCartProducts} products={products} organizeUserData={organizeUserData} checkFields={checkFields} />
 </div> */}
+
+{/* <OrderDetails products={products} discount={discount} setDiscount={setDiscount} isUpperSummery={false}/> */}
 

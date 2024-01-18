@@ -5,7 +5,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import styles from './paypal.module.css'
 
 
-const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProducts, setErrors})=>{
+const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProducts, setErrors, color='blue'})=>{
   const [paypalError, setPaypalError] = useState();
 
 
@@ -126,7 +126,7 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
               onCancel={cancelHandler}
               createOrder={async()=>{return await handlePayPalOrder('PAYPAL')}}
               style={{
-                color: 'blue',
+                color: color,
                 height: 48
               }}
               className={styles.paypalButton}

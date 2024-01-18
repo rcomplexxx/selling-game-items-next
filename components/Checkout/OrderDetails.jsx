@@ -9,17 +9,19 @@ import React, {
   import Image from "next/image";
   import coupons from "@/data/coupons.json";
   
-  export default function OrderDetails({ discount, setDiscount, products }) {
+  export default function OrderDetails({ discount, setDiscount, products, isUpperSummery=true }) {
     const [showAnswer, setShowAnswer] = useState(false);
     const [mobileInterface, setMobileInterface] = useState(false);
     const [fixedMedia, setFixedMedia] = useState(false);
     const [couponCode, setCouponCode] = useState("");
     const [couponValidCode, setCouponValidCode] = useState("");
     const [couponError, setCouponError] = useState(false);
+    const [productsOpened, setProductsOpened] = useState(true);
   
     useEffect(() => {
       //129
-  
+
+     
       const productPicsElement = document.getElementById("orderWrapper");
       const handleScroll = () => {
         //Vrednost 129 se dobija  console.log(document.getElementById('productPics').getBoundingClientRect().top),
@@ -55,6 +57,9 @@ import React, {
         window.removeEventListener("resize", handleResize);
       };
     }, []);
+
+    useEffect(()=>{ if(!isUpperSummery && products.length>1)setProductsOpened(false);
+      if(!isUpperSummery) setShowAnswer(true);},[products, isUpperSummery])
   
     function summonAnswer() {
       setShowAnswer(!showAnswer);
@@ -118,7 +123,7 @@ const handleCouponApply = () => {
     
   
     return (
-      <div className={styles.rightWrapper}>
+      <div className={`${styles.rightWrapper} ${!isUpperSummery && styles.downOrderDetails}`}>
         <div id="checkout_right" className={styles.checkout_right}>
           <div
             id="orderWrapper"
@@ -127,7 +132,7 @@ const handleCouponApply = () => {
             }`}
           >
             <div className={styles.orderDiv}>
-              <div className={styles.title_div} onClick={summonAnswer}>
+             {isUpperSummery && <div className={styles.title_div} onClick={summonAnswer}>
                 <div className={styles.segmentWrapper}>
                   <div className={styles.titleWrapper}>
                     <h2 className={styles.mobileTitle}>
@@ -144,16 +149,24 @@ const handleCouponApply = () => {
                     </h2>
                   </div>
   
-                  <h2 className={styles.pcTitle}>Order Summery</h2>
-  
+                  
                   <span className={styles.mainPrice}>${prices.total}</span>
                 </div>
               </div>
+  }
               <div
                 className={`${styles.emerge} ${showAnswer ? styles.show : ""}`}
               >
                 <div className={styles.segmentWrapper2}>
-                  {getProductElements()}
+                  {!isUpperSummery && (products.length>1? <div onClick={()=>{setProductsOpened(!productsOpened)}} className={styles.showProductsButton}>
+                    <h2>Order summery{products.length > 1 && ` (${products.length})`}</h2>
+                    <div className={styles.showProducts}>
+                    <span>Show</span>
+                    <Image src={'/images/greaterLess3.png'}  className={styles.showProductsImage} height={12} width={12}></Image>
+                    </div>
+                    </div>:<h2>Order summery</h2>)
+                    }
+                  {productsOpened && getProductElements()}
                   <div className={styles.coupon_code}>
                     <div className={styles.form_group}>
                       <input

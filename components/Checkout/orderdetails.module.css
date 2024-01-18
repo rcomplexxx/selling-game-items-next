@@ -9,6 +9,7 @@
     padding-top: var(--size-8);
     box-sizing: border-box;
     justify-self: flex-start;
+    margin-bottom: var(--size-6);
   }
   
   .checkout_right {
@@ -25,6 +26,48 @@
     font-size: var(--font-size-6);
     font-weight: bold;
     
+  }
+
+  .underSummeryTitleWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: var(--size-5) 0;
+  }
+
+  .underSummeryTitleSegment{
+    background-color: #091a29;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--size-16);
+   width: calc(100% - var(--size-11));
+ 
+
+  }
+
+  .underSummeryTitle{
+
+    font-size: var(--font-size-6);
+    
+  }
+
+  .showProductsButton{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  .showProducts{
+    display: flex;
+    align-items: center;
+  }
+
+  .showProductsImage {
+    margin-left: var(--size-2);
+    transform: rotate(-90deg);
   }
 
   .productImageDiv{
@@ -410,6 +453,13 @@
 
    }
 
+   .underSummeryTitleSegment{
+   
+    max-width: var(--size-16);
+   width: calc(100% - var(--size-11) + 12px);
+
+  }
+
    .titleWrapper h2{
     user-select: none;
     font-size: var(--font-size-4);
@@ -492,6 +542,13 @@
   
   @media(max-width:600px){
 
+    
+   .underSummeryTitleSegment{
+
+   width: calc(100% - var(--size-8) + 12px);
+
+  }
+
     .segmentWrapper{
       
      width: calc(100% - var(--size-8));
@@ -514,7 +571,11 @@
   }
 
    
-
+@media(min-width: 980px){
+  .downOrderDetails{
+    display: none;
+  }
+}
 
 
 

@@ -21,7 +21,7 @@ const CheckoutPage = () => {
       <div className={`${styles.checkout_container} ${styles.checkoutAbsolute}`}>
         <OrderDetails discount={discount} setDiscount={setDiscount} products={cartProducts} />
 
-        <CheckoutInfo discount={discount} products={cartProducts} setCartProducts={setCartProducts}>
+        <CheckoutInfo discount={discount} setDiscount={setDiscount} products={cartProducts} setCartProducts={setCartProducts}>
           {" "}
         </CheckoutInfo>
       </div>

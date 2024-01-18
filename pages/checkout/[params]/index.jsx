@@ -68,7 +68,7 @@ const BuyNowPage = () => {
       <div className={styles.checkout_container}>
         <OrderDetails discount={discount} setDiscount={setDiscount} products={cartProducts} />
 
-        <CheckoutInfo discount={discount} products={cartProducts} setCartProducts={setCartProducts}>
+        <CheckoutInfo discount={discount} setDiscount={setDiscount} products={cartProducts} setCartProducts={setCartProducts}>
           {" "}
         </CheckoutInfo>
       </div>
