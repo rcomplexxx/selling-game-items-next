@@ -17,7 +17,7 @@ export default function CountryInput({ id, setErrors, error }) {
       setErrors((prevErrors) => {
         const newErrors = { ...prevErrors };
 
-        delete newErrors.country;
+        delete newErrors[id];
         return newErrors;
       });
     }

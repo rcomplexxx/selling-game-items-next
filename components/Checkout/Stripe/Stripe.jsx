@@ -140,7 +140,8 @@ const handleStripePay= async(event)=>{
           name: cardHolderName,
           email: requestData.order.email,
           address: {
-              line1: `${requestData.order.address}${requestData.order.apt && ', '+ requestData.order.apt}`,
+              line1: requestData.order.address,
+              line2: requestData.order.apt,
               city: requestData.order.city,
               state: requestData.order.state,
               postal_code: requestData.order.zipcode,
@@ -170,7 +171,8 @@ const handleStripePay= async(event)=>{
           name: cardHolderName,
           email: requestData.order.email,
           address: {
-              line1: `${billingAddress}${billingApt && ', '+ billingApt}`,
+            line1: billingAddress,
+            line2: billingApt!=""?billingApt:undefined,
               city: billingCity,
               state: billingState,
               postal_code: billingZipcode,

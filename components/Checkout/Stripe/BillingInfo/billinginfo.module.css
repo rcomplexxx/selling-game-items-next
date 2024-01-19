@@ -2,14 +2,15 @@
 
 
 .billingAddressWrapper{
-    
+    width: calc(100% + 4px);
     max-height: 0;
-    
+    padding: 0 4px;
     overflow: hidden;
     transition: max-height 0.5s ease;
 }
 
 .billingAddressWrapperSpawned{
+    
     max-height: 512px;
     transition: max-height 0.5s ease;
 }
