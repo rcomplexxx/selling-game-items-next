@@ -141,7 +141,7 @@ const handleStripePay= async(event)=>{
           email: requestData.order.email,
           address: {
               line1: requestData.order.address,
-              line2: requestData.order.apt,
+              line2: requestData.order.apt?requestData.order.apt:null,
               city: requestData.order.city,
               state: requestData.order.state,
               postal_code: requestData.order.zipcode,
@@ -172,7 +172,7 @@ const handleStripePay= async(event)=>{
           email: requestData.order.email,
           address: {
             line1: billingAddress,
-            line2: billingApt!=""?billingApt:undefined,
+            line2: billingApt!=""?billingApt:null,
               city: billingCity,
               state: billingState,
               postal_code: billingZipcode,
@@ -268,10 +268,11 @@ const handleStripePay= async(event)=>{
             setStripeError('Error occured. Payment was not processed.')
           }
       } else {
-        console.log(error)
-        if(error.code==='incomplete_number' || error.code==='invalid_number')setErrors({...errors,cardNumber:'Enter a valid card number'})
-        else if( error.code === 'incomplete_expiry') setErrors({...errors,expiryDate:'Enter a valid exipry date'})
-        else if( error.code === 'incomplete_cvc') setErrors({...errors,cvv:'Enter a valid security code'})
+        console.log(transactionError)
+        if(transactionError.code==='incomplete_number' || transactionError.code==='invalid_number')setErrors({...errors,cardNumber:'Enter a valid card number'})
+        else if( transactionError.code === 'incomplete_expiry') setErrors({...errors,expiryDate:'Enter a valid exipry date'})
+        else if( transactionError.code === 'incomplete_cvc') setErrors({...errors,cvv:'Enter a valid security code'})
+        else if( transactionError.code === 'incorrect_address' || transactionError.code === "account_number_invalid") stripeError('Billing address invalid. Please check provided information.')
         else setErrors({...errors,payment:'Error occured. Payment was not processed.'})
         setPaymentProcessing(false);
         // Enter your name exactly as it’s written on your card
