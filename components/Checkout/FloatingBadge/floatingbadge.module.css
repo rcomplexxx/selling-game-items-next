@@ -7,6 +7,7 @@
     right: 8px;
     padding: 2px;
     border-radius: 100%;
+    z-index: 12;
 }
 
 .floatingBadge{
