@@ -57,10 +57,20 @@ const Stripe = ({organizeUserData, products, setCartProducts, checkFields}) => {
         }
       };
   
+      if (document.getElementById("billingEmail").value === "") {
+        newErrors = { ...newErrors, billingEmail: "Email is a required field." };
+      }
+      if (
+        !/^\S{3,}@\S{3,}\.\S{2,}$/.test(document.getElementById("billingEmail").value)
+      ) {
+        newErrors = {
+          ...newErrors,
+          billingEmail: "Please enter a valid email address.",
+        };
+      }
     
   
-      testId("billingFirstName");
-      testId("billingLastName");
+     
       testId("billingAddress");
       testId("billingCountry");
       testId("billingZipcode");
@@ -178,7 +188,7 @@ const handleStripePay= async(event)=>{
               postal_code: billingZipcode,
               country: "US"
           },
-          phone:  billingPhone
+          phone:  billingPhone?billingPhone:null
       }
   });
 

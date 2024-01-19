@@ -32,6 +32,22 @@ export default function BillingInfo({isOpen, errors, setErrors}){
         
             <h3 className={styles.billingAddressTitle}>Billing address</h3>
 
+            <div className={styles.InputFieldRow}>
+    <InputField
+           id="billingEmail"
+           placeHolder='Email'
+              type="text"
+              name="name"
+              handleChange={handleChange} 
+            //  handleBlur={(event)=>{if(!cardStatesEntered.cardHolderName) return;
+       
+            //   if(event.target.value==='') setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
+             error={errors.billingEmail}
+            />
+    
+
+          </div>
+
         <div className={`${styles.InputFieldRow} ${styles.billingCountry}`}>
         <CountryInput
                   id="billingCountry"
