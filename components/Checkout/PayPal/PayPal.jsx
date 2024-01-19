@@ -21,7 +21,7 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
         try {
           const fieldsCorrect=checkFields();
 
-            if(fieldsCorrect) return actions.reject();
+            if(!fieldsCorrect) return actions.reject();
           else return actions.resolve();
         
 

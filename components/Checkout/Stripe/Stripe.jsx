@@ -130,10 +130,10 @@ const handleStripePay= async(event)=>{
   const requestData = organizeUserData('STRIPE');
   console.log('THE BILLING FUCKING DATA!',requestData);
 
-  let error, paymentMethod;
+  let transactionError, transactionPaymentMethod;
 
   if(billingAddressSameAsShipping){
-    const {errorTemp, paymentMethodTemp} = await stripe.createPaymentMethod({
+    const {error, paymentMethod} = await stripe.createPaymentMethod({
       type: "card",
       card: cardElement,
       billing_details: {
@@ -151,7 +151,7 @@ const handleStripePay= async(event)=>{
       }
   });
 
-  error= errorTemp; paymentMethod= paymentMethodTemp;
+  transactionError= error; transactionPaymentMethod= paymentMethod;
     
   }
   else{
@@ -164,7 +164,7 @@ const handleStripePay= async(event)=>{
     const billingCity = document.getElementById("city").value;
     const billingPhone = document.getElementById("phone").value;
 
-      const {errorTemp, paymentMethodTemp} = await stripe.createPaymentMethod({
+      const {error, paymentMethod} = await stripe.createPaymentMethod({
       type: "card",
       card: cardElement,
       billing_details: {
@@ -182,14 +182,13 @@ const handleStripePay= async(event)=>{
       }
   });
 
-  error= errorTemp; paymentMethod= paymentMethodTemp;
+  transactionError= error; transactionPaymentMethod= paymentMethod;
   }
 
        
 
-        console.log('pm',paymentMethod)
 
-        if(!error) {
+        if(!transactionError) {
           try {
 
 
@@ -199,7 +198,7 @@ const handleStripePay= async(event)=>{
 
 
 
-              const {id} = paymentMethod
+              const {id} = transactionPaymentMethod
              
               console.log(products);
               let totalPrice = products
@@ -411,7 +410,7 @@ const handleCCBlur= ()=>{
         />
       </div>
       <div className={styles.billingCheckboxDiv}  onClick={()=>{setBillingAddressSameAsShipping(!billingAddressSameAsShipping)}}>
-      <input type="checkbox" id="isShippingBilling" checked={billingAddressSameAsShipping}
+      <input type="checkbox" id="isShippingBilling" className={styles.addresTypeChecker} checked={billingAddressSameAsShipping}
      
       />
       <label className={styles.billingCheckboxLabel}>

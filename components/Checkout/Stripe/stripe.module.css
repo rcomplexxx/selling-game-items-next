@@ -192,8 +192,12 @@
     cursor: pointer;
   }
 
+  .addresTypeChecker{
+    margin-left: var(--size-3) !important;
+  }
+
   .billingCheckboxLabel{
-    margin-left: 4px;
+    margin-left: var(--size-2);
     
   }
 

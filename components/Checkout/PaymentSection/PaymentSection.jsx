@@ -5,7 +5,6 @@ import styles from "./paymentmethodwrapper.module.css";
 
 export default function PaymentSection({ checkFields, organizeUserData, setErrors, products,setCartProducts}) {
     const [paymentMethod, setPaymentMethod] = useState("creditcard");
-    const [fieldScrollHeight, setFieldScrollHeight]= useState(0);
     const maxHeightTimoutAdj = useRef();
     
   useEffect(()=>{
@@ -24,25 +23,22 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
   nonSelectedPaymentFields = document.getElementById('creditCardFields');
   }
 
-  if(selectedPaymentFields){console.log('payment fields detected')
+  if(selectedPaymentFields){
 
 
-  const containerHeight = selectedPaymentFields.scrollHeight;
-    // Set the max-height to a precise number (e.g., 300 pixels)
-    console.log(containerHeight);
-    setFieldScrollHeight(containerHeight);
-    selectedPaymentFields.style.maxHeight=`${containerHeight}px`;
+ 
+    selectedPaymentFields.style.maxHeight=`${selectedPaymentFields.scrollHeight}px`;
 
     nonSelectedPaymentFields.style.transition=`max-height 0s ease`;
     nonSelectedPaymentFields.style.maxHeight=`${nonSelectedPaymentFields.scrollHeight}px`;
     setTimeout(()=>{
-      nonSelectedPaymentFields.style.transition=`max-height 0.795s ease`;
+      nonSelectedPaymentFields.style.transition=`max-height 0.6s ease`;
       nonSelectedPaymentFields.style.maxHeight=`0`;
-     }, 5)
+     }, 1)
    
      maxHeightTimoutAdj.current=setTimeout(()=>{
       selectedPaymentFields.style.maxHeight=`999px`;
-     }, 800)
+     }, 600)
   }
 
 
@@ -98,6 +94,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
 
         <div id='paypalFields' className={`${styles.paymentFields} ${paymentMethod=="paypal" && styles.selectedField}`}>
         <div className={styles.paymentFieldsSpaceAdjuster}> 
+        <div className={styles.paypalFieldWrapper}>
           <PayPalButton
             checkFields={checkFields}
             organizeUserData={organizeUserData}
@@ -105,6 +102,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
             setCartProducts={setCartProducts}
             setErrors={setErrors}
           />
+          </div>
         </div>  </div>
 
 

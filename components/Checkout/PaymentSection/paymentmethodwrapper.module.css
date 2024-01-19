@@ -10,6 +10,11 @@
     
 }
 
+.mainWrapper > :first-child{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
 .innerBorder {
     width: calc(100% - 2px);
     height: calc(100% - 2px);
@@ -17,6 +22,8 @@
     position: absolute;
     top: 1px;
     left: 1px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     outline: 1px solid rgba(128, 128, 128, 0.503); /* Inner border color and width */
     pointer-events: none;
     z-index: 2;
@@ -81,7 +88,7 @@
     flex-direction: column;
     align-items: center;
     
-    transition: max-height 0.8s ease;
+    transition: max-height 0.6s ease;
     overflow: hidden;
 }
 
@@ -92,4 +99,8 @@
    
     width: calc(100% - var(--size-7));
     margin:  0;
+}
+
+.paypalFieldWrapper{
+    margin: var(--size-5) 0;
 }
