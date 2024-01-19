@@ -55,6 +55,12 @@
         flex-direction: column;
         margin-bottom: 0;
       }
+
+      .aptAdder{
+      
+        margin-bottom: var(--size-4);
+      
+      }
 }
 
 
