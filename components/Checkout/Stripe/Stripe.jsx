@@ -14,6 +14,7 @@ import BillingInfo from './BillingInfo/BillingInfo';
 
 const Stripe = ({organizeUserData, products, setCartProducts, checkFields}) => {
     const [billingAddressSameAsShipping, setBillingAddressSameAsShipping] = useState(true);
+    const [billingErrors, setBillingErrors]= useState({});
     const [floatingLabels, setFloatingLabels]= useState({});
     const [focusedField, setFocusedField]= useState();
     const [paymentProcessing, setPaymentProcessing]= useState(false);
@@ -43,13 +44,73 @@ const Stripe = ({organizeUserData, products, setCartProducts, checkFields}) => {
   
    
    
+    const checkBillingFields=()=>{
 
+
+      if(billingAddressSameAsShipping)return true;
+
+      let newErrors = {};
+      // if(document.getElementById('email').value==='') return actions.reject();
+      const testId = (id) => {
+        if (document.getElementById(id).value === "") {
+          newErrors = { ...newErrors, [id]: `${id} is a required field.` };
+        }
+      };
+  
+    
+  
+      testId("billingFirstName");
+      testId("billingLastName");
+      testId("billingAddress");
+      testId("billingCountry");
+      testId("billingZipcode");
+      testId("billingState");
+      testId("billingCity");
+  
+      const phone = document.getElementById("billingPhone").value; //
+      if (phone.length < 5)
+        newErrors = { ...newErrors, phone: "Invalid phone" };
+      else {
+        for (let i = 0; i < phone.length; i++) {
+          const char = phone[i];
+          if (
+            !(
+              (char >= "0" && char <= "9") ||
+              ["+", "-", "(", ")", " ", ".", "/"].includes(char)
+            )
+          ) {
+            newErrors = { ...newErrors, phone: "Invalid phone" };
+          }
+        }
+      }
+  
+      setBillingErrors(newErrors);
+  
+  
+      const errorsExist=Object.keys(newErrors).length !== 0;
+      console.log('errorsExist?', errorsExist)
+      if (errorsExist) {
+        window.scrollTo({
+          top:
+            document
+              .getElementById(Object.keys(newErrors)[0])
+              .getBoundingClientRect().top +
+            window.scrollY -
+            12,
+          behavior: "smooth",
+        });
+  
+     
+    }
+  
+    return !errorsExist;
+  }
 
  
 
 
 const handleStripePay= async(event)=>{
-
+  console.log('billErr', billingErrors);
   event.preventDefault();
   setPaymentProcessing(true);
   setStripeError();
@@ -60,36 +121,69 @@ const handleStripePay= async(event)=>{
   if(document.getElementById('cardHolderName').value==='') {errorhelperRef.current={...errorhelperRef.current, cardHolderName:'Enter your name exactly as it\'s written on the card'}}
   setErrors(errorhelperRef.current);
  
-  const clickPass= checkFields() && !errors.cardNumber && !errors.expiryDate && !errors.cvv && !errors.cardHolderName;
-  if(!clickPass) { setPaymentProcessing(false);return;}
-
+  const clickPass= checkFields()   && !errors.cardNumber && !errors.expiryDate && !errors.cvv && !errors.cardHolderName;
+  if(!clickPass) {checkBillingFields(); setPaymentProcessing(false);return;}
+  if(!checkBillingFields()){setPaymentProcessing(false);return;}
 
   const cardElement = elements.getElement(CardNumberElement);
 
   const requestData = organizeUserData('STRIPE');
   console.log('THE BILLING FUCKING DATA!',requestData);
 
-  if(billingAddressSameAsShipping){}
+  let error, paymentMethod;
+
+  if(billingAddressSameAsShipping){
+    const {errorTemp, paymentMethodTemp} = await stripe.createPaymentMethod({
+      type: "card",
+      card: cardElement,
+      billing_details: {
+          name: cardHolderName,
+          email: requestData.order.email,
+          address: {
+              line1: `${requestData.order.address}${requestData.order.apt && ', '+ requestData.order.apt}`,
+              city: requestData.order.city,
+              state: requestData.order.state,
+              postal_code: requestData.order.zipcode,
+              country: "US"
+          },
+          phone:requestData.order.phone
+      }
+  });
+
+  error= errorTemp; paymentMethod= paymentMethodTemp;
+    
+  }
   else{
-    billingFirstName
+   
+    const billingAddress = document.getElementById("address").value;
+    const billingApt = document.getElementById("apt")?.value;
+    const billingCountry = document.getElementById("country").value;
+    const billingZipcode = document.getElementById("zipcode").value;
+    const billingState = document.getElementById("state").value;
+    const billingCity = document.getElementById("city").value;
+    const billingPhone = document.getElementById("phone").value;
+
+      const {errorTemp, paymentMethodTemp} = await stripe.createPaymentMethod({
+      type: "card",
+      card: cardElement,
+      billing_details: {
+          name: cardHolderName,
+          email: requestData.order.email,
+          address: {
+              line1: `${billingAddress}${billingApt && ', '+ billingApt}`,
+              city: billingCity,
+              state: billingState,
+              postal_code: billingZipcode,
+              country: "US"
+          },
+          phone:  billingPhone
+      }
+  });
+
+  error= errorTemp; paymentMethod= paymentMethodTemp;
   }
 
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
-            type: "card",
-            card: cardElement,
-            billing_details: {
-                name: cardHolderName,
-                email: requestData.order.email,
-                address: {
-                    line1: requestData.order.address,
-                    city: requestData.order.city,
-                    state: requestData.order.state,
-                    postal_code: requestData.order.zipcode,
-                    country: "US"
-                },
-                phone:requestData.order.phone
-            }
-        });
+       
 
         console.log('pm',paymentMethod)
 
@@ -324,7 +418,7 @@ const handleCCBlur= ()=>{
     </div>
 
 
-  <BillingInfo isOpen={!billingAddressSameAsShipping}/>
+  <BillingInfo isOpen={!billingAddressSameAsShipping} errors={billingErrors} setErrors={setBillingErrors}/>
 
 
 
