@@ -41,33 +41,7 @@ export default function BillingInfo({isOpen, errors, setErrors}){
                 />
 </div>
         
-        <div className={styles.InputFieldRow}>
-    <InputField
-           id="billingFirstName"
-           placeHolder='First name'
-              type="text"
-              name="name"
-              handleChange={handleChange}
-            //  handleBlur={(event)=>{if(!cardStatesEntered.cardHolderName) return;
        
-            //   if(event.target.value==='') setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
-             error={errors.billingFirstName}
-            />
-    
-    <InputField
-           id="billingLastName"
-           placeHolder='Last name'
-              type="text"
-              name="name"
-           
-             handleChange={handleChange}
-             
-            //  handleBlur={(event)=>{if(!cardStatesEntered.cardHolderName) return;
-       
-            //   if(event.target.value==='') setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
-             error={errors.billingLastName}
-            />
-          </div>
 
 
 

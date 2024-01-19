@@ -22,7 +22,7 @@ const CheckoutPage = () => {
         <OrderDetails discount={discount} setDiscount={setDiscount} products={cartProducts} />
 
         <CheckoutInfo discount={discount} setDiscount={setDiscount} products={cartProducts} setCartProducts={setCartProducts}>
-          {" "}
+          
         </CheckoutInfo>
       </div>
     </>
