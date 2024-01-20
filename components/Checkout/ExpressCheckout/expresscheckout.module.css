@@ -30,15 +30,33 @@
 
 
 .paymentDiv{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     width: calc(50% - 8px);
     min-height: var(--size-8);
-  
-    border-radius: 4px;
+   
 
+}
+
+.paymentDivFront{
+    
+    z-index: 2;
+    width: 100%;
+    min-height: var(--size-8);
+}
+
+.paymentDivBg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--size-8);
+    background-color: #151921;
+    border-radius: 4px;
+    z-index: 1;
 }
 
 

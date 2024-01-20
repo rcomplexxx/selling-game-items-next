@@ -15,6 +15,8 @@ export default function ExpressCheckout({
       <h3 className={styles.expressCheckoutTitle}>Express checkout</h3>
       <div className={styles.expressPaymentsWrapper}>
         <div className={styles.paymentDiv}>
+          <span className={styles.paymentDivBg}/>
+          <div className={styles.paymentDivFront}>
           <PayPalButton
           color='gold'
           type='express'
@@ -24,9 +26,11 @@ export default function ExpressCheckout({
              setCartProducts={setCartProducts}
              setErrors={setErrors}
           />
+          </div>
         </div>
 
         <div className={`${styles.paymentDiv} ${styles.paymentDivLast}`}>
+          <div className={styles.paymentDivFront}>
           <GooglePay
             products={products}
             setCartProducts={setCartProducts}
@@ -35,6 +39,8 @@ export default function ExpressCheckout({
               return organizeUserData("GPAY", paymentToken);
             }}
           />
+          </div>
+          <span className={styles.paymentDivBg}/>
         </div>
       </div>
 
