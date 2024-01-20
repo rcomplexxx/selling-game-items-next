@@ -24,7 +24,7 @@
     width: calc(100% - 16px);
     background-color: var(--blue-7);
     color: white;
-    margin-top: var(--size-7);
+    margin-top: var(--size-6);
     margin-bottom: var(--size-5);
     margin-left: 8px;
     border: none;

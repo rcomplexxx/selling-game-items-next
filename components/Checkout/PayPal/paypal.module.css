@@ -1,12 +1,15 @@
 
 .paypalButton{
+    height: 48px;
     width: 100% !important;
+    background-color: #151921;
+    border-radius: 4px;
 }
 
 .paypalError{
     color: orange;
      margin-top: var(--size-2);
-      margin-bottom: var(--size-5);
+      margin-bottom: var(--size-2);
     margin-left: var(--size-3);
 }
 

@@ -3,6 +3,7 @@ import GooglePayButton from "@google-pay/button-react";
 import styles from "./googlepay.module.css";
 import classNames from "classnames";
 import { useRouter } from "next/router";
+import swapCountryCode from "@/utils/countryList";
 
 const GooglePay = ({
   products,
@@ -99,7 +100,7 @@ const GooglePay = ({
           lastName: lastName,
           address: paymentData.shippingAddress.address1,
           apt: undefined,
-          country: paymentData.shippingAddress.countryCode,
+          country: swapCountryCode(paymentData.shippingAddress.countryCode),
           zipcode: paymentData.shippingAddress.postalCode,
           state: paymentData.shippingAddress.administrativeArea,
           city: paymentData.shippingAddress.locality,
@@ -175,7 +176,6 @@ const GooglePay = ({
       className={classNames(styles.gpayButton)}
       buttonType="plain"
       buttonSizeMode="fill"
-      style={{ width: "100%" }}
       buttonColor="white"
       paymentRequest={{
         apiVersion: 2,

@@ -28,7 +28,7 @@ const approvePayment = async (req, res) => {
 
 
 
-  const updateDb = async (paymentId) => {
+  const updateDb = async () => {
     return new Promise((resolve, reject) => {
       try {
         const db = betterSqlite3(process.env.DB_PATH);
@@ -57,8 +57,53 @@ const approvePayment = async (req, res) => {
   };
 
 
+
+  const updateAddress = async (email,shippingAddress) => {
+    return new Promise((resolve, reject) => {
+      try {
+        const db = betterSqlite3(process.env.DB_PATH);
+
+        // Updating the 'approved' field in the 'orders' table using prepared statements
+
+  const paypalExpressChecker=  db.prepare(`SELECT address, city FROM orders WHERE paymentId = ? AND paymentMethod = ?` ).get(paymentId, paymentMethod);
+          if(!paypalExpressChecker)throw new Error('Something went wrong. No data found in the database for the specified paymentId and paymentMethod.');
+          if(paypalExpressChecker.address!="" && paypalExpressChecker.city!="")return resolve();
+  console.log('Paypal express!', paypalExpressChecker);
+ 
+        const fullName=shippingAddress.name.full_name;
+
+        console.log("Here is my data!",email, fullName.slice(0, fullName.indexOf(" ")), fullName.slice(fullName.indexOf(" "), fullName.length), shippingAddress.address.address_line_1, shippingAddress.address.address_line_2,shippingAddress.address.country_code, shippingAddress.address.postal_code, shippingAddress.address.admin_area_1,shippingAddress.address.admin_area_2 , paymentId, paymentMethod)
+        
+
+        const result = db
+          .prepare("UPDATE orders SET email = ?, firstName = ?, lastName = ?, address = ?, apt = ?, country = ?, zipcode =?, state = ?, city=? WHERE paymentId = ? AND paymentMethod = ?")
+          .run(email, fullName.slice(0, fullName.indexOf(" ")), fullName.slice(fullName.indexOf(" "), fullName.length), shippingAddress.address.address_line_1, shippingAddress.address.address_line_2,shippingAddress.address.country_code, shippingAddress.address.postal_code, shippingAddress.address.admin_area_1,shippingAddress.address.admin_area_2 , paymentId, paymentMethod);
+          // , phone=?
+        // Check the result of the update operation
+        console.log('result',result);
+        if (result.changes > 0) {
+          // If changes were made, resolve the promise
+          resolve("Order approved successfully.");
+        } else {
+          // If no changes were made, reject the promise with an error message
+          reject("Error: Order not found or not updated.");
+        }
+
+        // Closing the database connection
+        db.close();
+      } catch (error) {
+        reject("Error in database operations." + error);
+      }
+    });
+  };
+
+
   const approvedConsequence= async()=>{
-    await updateDb(paymentId);
+
+    
+
+
+    await updateDb();
 
         try {
           const transporter = nodemailer.createTransport({
@@ -93,13 +138,21 @@ const approvePayment = async (req, res) => {
 
     if(paymentMethod=='PAYPAL'){
     const request = new paypal.orders.OrdersCaptureRequest(paymentId);
+    
     request.requestBody({});
     const response = await client.execute(request);
-
+    console.log('Response details:', response.result);
+    console.log('Shipping Address:', response.result.purchase_units[0].shipping);
+    console.log('payments:', response.result.purchase_units[0]. payments);
+   
+    //Nadgledam adresu
     if (response.result && response.result.status) {
       let status = response.result.status;
       // Check if the capture was successful
       if (response.result.status === "COMPLETED") {
+        console.log('hello!', response.result.purchase_units[0].shipping)
+
+        await updateAddress(response.result.payer.email_address,response.result.purchase_units[0].shipping);
         
         await approvedConsequence();
         return res.status(200).json({ message: "Payment successful" });

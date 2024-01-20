@@ -30,9 +30,13 @@
 
 
 .paymentDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: calc(50% - 8px);
-    height: var(--size-8);
-    background-color: #151921;
+    min-height: var(--size-8);
+  
     border-radius: 4px;
 
 }

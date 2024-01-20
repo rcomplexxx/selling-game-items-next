@@ -10,6 +10,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useRouter } from "next/router";
 import Image from 'next/image';
 import BillingInfo from './BillingInfo/BillingInfo';
+import swapCountryCode from '@/utils/countryList';
                
 
 const Stripe = ({organizeUserData, products, setCartProducts, checkFields}) => {
@@ -155,7 +156,7 @@ const handleStripePay= async(event)=>{
               city: requestData.order.city,
               state: requestData.order.state,
               postal_code: requestData.order.zipcode,
-              country: "US"
+              country: swapCountryCode(requestData.order.country)
           },
           phone:requestData.order.phone
       }
@@ -188,7 +189,7 @@ const handleStripePay= async(event)=>{
               postal_code: billingZipcode,
               country: "US"
           },
-          phone:  billingPhone?billingPhone:null
+          phone:  billingPhone!=""?billingPhone:null
       }
   });
 

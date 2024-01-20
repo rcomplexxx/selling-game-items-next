@@ -17,6 +17,7 @@ export default function ExpressCheckout({
         <div className={styles.paymentDiv}>
           <PayPalButton
           color='gold'
+          type='express'
              checkFields={checkFields}
              organizeUserData={organizeUserData}
              method="paypal"

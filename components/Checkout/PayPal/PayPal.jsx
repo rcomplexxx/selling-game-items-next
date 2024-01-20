@@ -5,7 +5,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import styles from './paypal.module.css'
 
 
-const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProducts, setErrors, color='blue'})=>{
+const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProducts, setErrors, type='normal', color='blue'})=>{
   const [paypalError, setPaypalError] = useState();
 
 
@@ -15,9 +15,12 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
 
     const handlePayPalButtonClick =  async(data, actions) => {
       
-      
+        // if(type=='express') return actions.resolve();
+        //Ako je type==express i address i city field vec provajdovan, mogu ici sa normal checkout.
+        //Ako nije, i type=='express' ici sa epress checkut, tj zatraziti shipping od usera na paypal client
     
-
+        if(type=='express' && document.getElementById("address").value == "" && document.getElementById("city").value == "")
+        return actions.resolve();
         try {
           const fieldsCorrect=checkFields();
 
@@ -72,6 +75,9 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
       const handlePayPalButtonApprove = async (data, actions) => {
         try {
           console.log("mail to be sent:" + document.getElementById("email").value);
+        
+
+     
           const response = await fetch("/api/approve-payment", {
             method: "POST",
             headers: {
@@ -87,8 +93,9 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
           if (response.ok) {
             console.log("Payment was successful");
             // Handle successful payment logic here
-            setCartProducts([]);
-            router.push("/thank-you");
+            
+            // setCartProducts([]);
+            // router.push("/thank-you");
           } else {
             const data = await response.json();
     
@@ -129,6 +136,7 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
                 color: color,
                 height: 48
               }}
+              
               className={styles.paypalButton}
             />
             {paypalError && <p className={styles.paypalError}>{paypalError}</p>}

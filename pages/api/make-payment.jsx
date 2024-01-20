@@ -35,11 +35,20 @@ const paypalPay=async(totalPrice)=>{
           value: totalPrice,
         },
       },
+      
     ],
     application_context: {
       payment_method: {
         payer_selected: "PAYPAL",
         payee_preferred: "UNRESTRICTED",
+     
+    
+        
+          // shipping_preference: 'SET_PROVIDED_ADDRESS', // This sets the shipping address to the one provided by the buyer
+          // shipping_preference: 'NO_SHIPPING',
+          // address_override: '1', // Prevents PayPal from overriding the shipping address
+        
+     
       },
     },
   });
@@ -95,6 +104,7 @@ const makePayment = async (req, res) => {
           items,
         } = req.body.order;
         console.log(' and items!!!!!!!!!',  items);
+      
 
         db.prepare(
           `INSERT INTO orders (email, firstName, lastName, address, apt, country, zipcode, state, city, phone, discountCode, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', ?, ?)`,
