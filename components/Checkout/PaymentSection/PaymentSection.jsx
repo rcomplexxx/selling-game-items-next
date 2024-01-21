@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import PayPalButton from "../PayPal/PayPal";
 import StripeWrapper from "../Stripe/Stripe";
 import styles from "./paymentmethodwrapper.module.css";
+import Image from "next/image";
 
 export default function PaymentSection({ checkFields, organizeUserData, setErrors, products,setCartProducts}) {
     const [paymentMethod, setPaymentMethod] = useState("creditcard");
@@ -63,7 +64,19 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
             </div>
             <span>Credit Card</span>
            </div>
-           <div className={styles.ccSolutions}></div>
+           <div className={styles.CCSolutions}>
+            <Image src='/images/cardVisa2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <div className={styles.moreCards}><span>+3</span>
+           
+            {/* <div className={styles.moreCardsPopup}>
+            <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            </div> */}
+            </div>
+           </div>
         </div>
 
         <div id='creditCardFields'  className={`${styles.paymentFields} ${paymentMethod=="creditcard" && styles.selectedField}`}>
@@ -89,7 +102,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
             </div>
             <span>Paypal</span>
            </div>
-           <div className={styles.ccSolutions}></div>
+           <Image src={'/images/paypalTextLogo2.png'} className={styles.paypalLogo} height={24} width={96} />
         </div>
 
         <div id='paypalFields' className={`${styles.paymentFields} ${paymentMethod=="paypal" && styles.selectedField}`}>

@@ -79,6 +79,61 @@
     border-radius: 100%;
 }
 
+.CCSolutions{
+   
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.CCSolutions > :last-child{
+    margin-right: 5px !important;
+}
+
+.creditCardLogo{
+    margin-left: var(--size-1);
+    margin-right:  var(--size-1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.moreCards{
+    position: relative;
+    color: var(--blue-4);
+    background-color: white;  
+    height: 26px;
+    width: 46px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    font-size: var(--font-size-1);
+    font-weight: 500;
+    
+}
+
+.moreCardsPopup{
+    background-color: brown;
+    min-height: 48px;
+    width: 158px;
+    position: absolute;
+    bottom: 100%;
+    right: 50% ;
+    transform: translateX(50%);
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.paypalLogo{
+    margin-right: var(--size-3);
+}
+
 
 .paymentFields{
     background-color: rgb(11, 18, 24);
