@@ -54,6 +54,7 @@
 }
 
 .pickOption{
+    width: max-content;
     display: flex;
 }
 
@@ -79,18 +80,31 @@
     border-radius: 100%;
 }
 
+.optionSpan{
+    white-space: nowrap;
+}
+
 .CCSolutions{
+    width: max-content;
    
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex: 1;
-    flex-wrap: wrap;
+   
+   
 }
 
-.CCSolutions > :last-child{
+.CCWrapper{
+    
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: var(--size-3);
     margin-right: 5px !important;
 }
+
+
 
 .creditCardLogo{
     margin-left: var(--size-1);
@@ -109,12 +123,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 3px;
+    margin-left: 4px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 3px;
     font-size: var(--font-size-1);
     font-weight: 500;
-    
+    justify-self: flex-start;
 }
 
 .moreCardsPopup{
@@ -124,6 +138,7 @@
     position: absolute;
     bottom: 100%;
     right: 50% ;
+    transform-origin: bottom center;
     transform: translateX(50%);
     display: flex;
     flex-wrap: wrap;

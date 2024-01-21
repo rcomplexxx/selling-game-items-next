@@ -63,9 +63,10 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
             <div className={`${styles.pickCheck} ${paymentMethod=="creditcard" && styles.pickCheckSelected}`}>
                 <div className={paymentMethod=="creditcard" && styles.ringEffectDiv}></div>
             </div>
-            <span>Credit Card</span>
+            <span className={styles.optionSpan}>Credit Card</span>
            </div>
            <div className={styles.CCSolutions}>
+            <div className={styles.CCWrapper}>
             <Image src='/images/cardVisa2.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
@@ -73,10 +74,11 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
             onMouseLeave={()=>{setMoreCardsPopupOpen(false)}}><span>+3</span>
            
            {moreCardsPopupOpen && <div className={styles.moreCardsPopup}>
-            <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
-            <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
-            <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardJcb2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardUnionPay2.svg' className={styles.creditCardLogo} height={28} width={48}/>
             </div>}
+            </div>
             </div>
            </div>
         </div>
