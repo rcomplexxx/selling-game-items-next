@@ -1,13 +1,13 @@
 .mainWrapper{
    position: relative;
-    width: calc(100% - var(--size-5));
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
     
     border-radius: 4px;
-    margin: 0 var(--size-3);
+    
 }
 
 .mainWrapper > :first-child{
@@ -103,11 +103,4 @@
 
 .paypalFieldWrapper{
     margin: var(--size-5) 0;
-}
-
-@media(max-width: 980px){
-    .mainWrapper{
-        width: 100%;
-        margin: 0;
-    }
 }
