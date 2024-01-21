@@ -9,7 +9,6 @@ const GooglePay = ({
   products,
   setCartProducts,
   discount,
-  organizeUserData,
 }) => {
   //paymentRequest.paymentMethodData.tokenizationData.token
 

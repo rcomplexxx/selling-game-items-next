@@ -5,7 +5,7 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import styles from './paypal.module.css'
 
 
-const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProducts, setErrors, type='normal', color='blue'})=>{
+const PayPalButton=({checkFields, organizeUserData, discount, method='paypal',  type='normal', color='blue'})=>{
   const [paypalError, setPaypalError] = useState();
 
 
@@ -18,6 +18,8 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
         // if(type=='express') return actions.resolve();
         //Ako je type==express i address i city field vec provajdovan, mogu ici sa normal checkout.
         //Ako nije, i type=='express' ici sa epress checkut, tj zatraziti shipping od usera na paypal client
+
+        setPaypalError();
     
         if(type=='express' && document.getElementById("address").value == "" && document.getElementById("city").value == "")
         return actions.resolve();
@@ -41,7 +43,12 @@ const PayPalButton=({checkFields, organizeUserData,method='paypal',  setCartProd
         try {
 
           console.log('creating order');
-          const requestData = organizeUserData(paymentMethod);
+          let requestData = organizeUserData(paymentMethod);
+          const discEle = document.getElementById("discountCode");
+          if(discEle){
+            console.log('discount exists', discEle.innerText)
+            requestData={...requestData, order:{...requestData.order, discountCode: discEle.innerText}}
+          }
           
             const response = await fetch("/api/make-payment", {
               method: "POST",
