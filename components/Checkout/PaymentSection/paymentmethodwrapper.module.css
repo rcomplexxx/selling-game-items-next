@@ -86,7 +86,6 @@
 
 .CCSolutions{
     width: max-content;
-    background-color: brown;
    
     display: flex;
     justify-content: flex-end;
@@ -138,18 +137,55 @@
     z-index: 15;
 }
 
-.moreCardsPopup{
-    background-color: brown;
-    min-height: 48px;
-    width: 158px;
-    position: absolute;
-    bottom: 100%;
-    right: 50% ;
-    transform-origin: bottom center;
-    transform: translateX(50%);
-    display: flex;
-    flex-wrap: wrap;
 
+.moreCardsPopupWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position:absolute;
+    bottom: calc(50% + 15px);
+    right: -64px;
+    transform: scale(0.6) translateY(4px);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease,margin-right 0.2s ease;
+    transform-origin: bottom center;
+
+    user-select: none;
+    pointer-events: none;
+
+}
+
+.moreCardsPopupOpen{
+    transform: scale(1)  translateY(0);
+    opacity: 1;
+}
+
+
+.moreCardsPopup{
+   
+    height: 32px;
+    width: max-content;
+    background-color: rgba(127, 127, 163, 0.9);
+    color: black;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: var(--font-size-2);
+    line-height: 20px;
+   
+
+}
+
+.moreCardsPopupTriangle{
+   
+  
+    width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid rgba(127, 127, 163, 0.9);
+ 
 }
 
 .paypalLogo{
@@ -166,7 +202,7 @@
     align-items: center;
     
     transition: max-height 0.6s ease;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 
@@ -185,11 +221,31 @@
 @media(max-width: 980px){
     
 .creditCardLogo{
-    width: 32px;
+    width: 40px;
 }
 
 .moreCards{
-    height: max-content;
-    width: 32px;
+    height: 22px;
+    width: 40px;
+}
+
+.moreCardsPopupWrapper{
+    align-items: flex-end;
+    right: -28px;
+    bottom: calc(50% + 13px);
+    margin-right: 16px;
+    transform-origin: bottom right;
+}
+
+
+
+
+.moreCardsPopupOpen{
+    transform: scale(1)  translateY(0);
+    margin-right: 0;
+}
+
+.moreCardsPopupTriangle{
+    margin-right: 42px;
 }
 }
