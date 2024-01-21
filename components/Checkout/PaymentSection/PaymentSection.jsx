@@ -6,6 +6,7 @@ import Image from "next/image";
 
 export default function PaymentSection({ checkFields, organizeUserData, setErrors, products,setCartProducts}) {
     const [paymentMethod, setPaymentMethod] = useState("creditcard");
+    const [moreCardsPopupOpen, setMoreCardsPopupOpen] = useState(false);
     const maxHeightTimoutAdj = useRef();
     
   useEffect(()=>{
@@ -68,13 +69,14 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
             <Image src='/images/cardVisa2.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
-            <div className={styles.moreCards}><span>+3</span>
+            <div className={styles.moreCards} onMouseEnter={()=>{setMoreCardsPopupOpen(true)}}
+            onMouseLeave={()=>{setMoreCardsPopupOpen(false)}}><span>+3</span>
            
-            {/* <div className={styles.moreCardsPopup}>
+           {moreCardsPopupOpen && <div className={styles.moreCardsPopup}>
             <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
-            </div> */}
+            </div>}
             </div>
            </div>
         </div>
