@@ -9,6 +9,7 @@
     background-color: var(--gray-9-elegant);
     color: white;
     border-bottom: 1px solid rgb(72, 69, 85);
+    transition: height 0.1s linear;
     z-index: 5;
    
   }
@@ -36,7 +37,8 @@
 
 
   .disableNav{
-    display: none;
+    overflow: hidden;
+    height: 0;
   }
   
   .title {
