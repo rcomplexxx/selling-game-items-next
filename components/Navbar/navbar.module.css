@@ -2,14 +2,14 @@
   position:relative;
   width:100%;
   max-width: 100%;
-  min-height: var(--size-9);
+  
   height: var(--size-9);
  
     box-shadow: none;
     background-color: var(--gray-9-elegant);
     color: white;
     border-bottom: 1px solid rgb(72, 69, 85);
-    transition: height 0.2s ease, opacity 0.2s ease;
+    transition: height 0.3s ease, opacity 0.3s ease;
     z-index: 5;
    
   }
@@ -37,9 +37,13 @@
 
 
   .disableNav{
+    position: absolute;
+    left: 0;
+    top: 0;
     overflow: hidden;
     height: 0;
     opacity:0.5;
+    z-index: 6;
   }
   
   .title {
