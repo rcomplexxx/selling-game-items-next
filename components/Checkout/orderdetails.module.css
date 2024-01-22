@@ -473,7 +473,7 @@
     color: #e5e5e6;
     
     user-select: none;
-    font-size: var(--font-size-5);
+    font-size: var(--font-size-4);
     font-weight: 500;
    }
 
@@ -496,6 +496,20 @@
     transform: rotateY(180deg) rotate(270deg);
     transform-origin: center;
    }
+
+   .mainPriceDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+   }
+
+   .mainPriceSub{
+    opacity: 0.5;
+    font-size: 12px !important;
+    text-decoration: line-through;
+   }
+
+   .mainPrice{}
 
    .segmentWrapper h2{
     margin-right: 0;

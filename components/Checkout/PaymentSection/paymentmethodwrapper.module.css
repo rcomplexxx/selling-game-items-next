@@ -102,7 +102,7 @@
     align-items: center;
     flex-wrap: wrap;
     margin-left: var(--size-3);
-    margin-right: 5px !important;
+    margin-right: 3px !important;
 }
 
 
@@ -128,7 +128,7 @@
     padding-top: 1px;
     padding-bottom: 1px;
     margin-left: 2px;
-    
+    margin-right: 2px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 3px;
     font-size: var(--font-size-1);
@@ -226,7 +226,8 @@
 
 .moreCards{
     height: 22px;
-    width: 40px;
+    width: 38px;
+    margin-right: 2px;
 }
 
 .moreCardsPopupWrapper{

@@ -149,8 +149,11 @@ const handleCouponApply = () => {
                     </h2>
                   </div>
   
-                  
+                  <div className={styles.mainPriceDiv}>
+                  {discount.code!="" && <span className={styles.mainPriceSub}>${prices.subTotal}</span>}
                   <span className={styles.mainPrice}>${prices.total}</span>
+                  
+                  </div>
                 </div>
               </div>
   }
