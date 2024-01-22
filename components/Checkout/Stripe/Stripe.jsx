@@ -396,7 +396,7 @@ const handleCCBlur= ()=>{
     }
   }}}
   className={`${styles.input_field} ${errors.cvv && styles.input_error} ${focusedField==='cvv' && styles.stripeFieldFocused}`}/>
-  <FloatingBadge message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>
+  <FloatingBadge rift={true} message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>
    <label className={`${styles.label} ${floatingLabels.cvv && styles.labelFloating}`}>Security code</label>
    </div>
  

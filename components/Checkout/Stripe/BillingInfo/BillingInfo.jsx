@@ -1,5 +1,5 @@
 import styles from './billinginfo.module.css'
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import CountryInput from '../../Input/CountryInput/CountryInput';
 import FloatingBadge from '../../FloatingBadge/FloatingBadge';
 import InputField from '../../Input/InputField';
@@ -12,11 +12,30 @@ import InputField from '../../Input/InputField';
 
 export default function BillingInfo({isOpen, errors, setErrors}){
     const [showApt, setShowApt] = useState(false);
+
+    const visibilityTimeout= useRef();
    
 
     useEffect(()=>{
         showApt && document.getElementById("billingApt").focus();
         }, [showApt]);
+
+        useEffect(()=>{
+
+          clearTimeout(visibilityTimeout.current);
+          const billingInfoDiv= document.getElementById("billingInfo")
+          if(isOpen){
+         
+          billingInfoDiv.style.maxHeight=`${billingInfoDiv.scrollHeight}px`;
+          visibilityTimeout.current=setTimeout(()=>{
+            billingInfoDiv.style.overflow = `visible`
+           }, 600)
+          }
+          else{
+            billingInfoDiv.style.overflow = `hidden`
+            billingInfoDiv.style.maxHeight=`0`;
+          }
+        },[isOpen])
         
         const handleChange = (event) => {
          if (errors.hasOwnProperty(event.target.id)) {
@@ -28,7 +47,7 @@ export default function BillingInfo({isOpen, errors, setErrors}){
        };
     
 
-    return <div className={`${styles.billingAddressWrapper} ${isOpen && styles.billingAddressWrapperSpawned}`}> 
+    return <div id='billingInfo' className={`${styles.billingAddressWrapper}`}> 
         
             <h3 className={styles.billingAddressTitle}>Billing address</h3>
 
@@ -158,7 +177,7 @@ export default function BillingInfo({isOpen, errors, setErrors}){
        
             //   if(event.target.value==='') setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
              error={errors.billingPhone}
-             children={ <FloatingBadge message={'In case we need to contact you about your order'}/>}
+             children={ <FloatingBadge message={'In case we need to contact you about your order'} rift={true}/>}
             />
        
 

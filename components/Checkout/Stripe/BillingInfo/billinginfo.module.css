@@ -12,7 +12,6 @@
 .billingAddressWrapperSpawned{
     
     max-height: 512px;
-    transition: max-height 0.5s ease;
 }
 
 

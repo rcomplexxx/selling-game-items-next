@@ -53,6 +53,7 @@
 
     user-select: none;
     pointer-events: none;
+    z-index: 99999;
     
    
 }

@@ -32,6 +32,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
     selectedPaymentFields.style.maxHeight=`${selectedPaymentFields.scrollHeight}px`;
 
     nonSelectedPaymentFields.style.transition=`max-height 0s ease`;
+    nonSelectedPaymentFields.style.overflow=`hidden`;
     nonSelectedPaymentFields.style.maxHeight=`${nonSelectedPaymentFields.scrollHeight}px`;
     setTimeout(()=>{
       nonSelectedPaymentFields.style.transition=`max-height 0.6s ease`;
@@ -40,6 +41,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
    
      maxHeightTimoutAdj.current=setTimeout(()=>{
       selectedPaymentFields.style.maxHeight=`999px`;
+      selectedPaymentFields.style.overflow = `visible`
      }, 600)
   }
 
