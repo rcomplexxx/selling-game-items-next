@@ -2,15 +2,50 @@
 
 .tipMainDiv{
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+   
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     border: 1px solid rgba(128, 128, 128, 0.503);
     box-sizing: border-box;
     padding: var(--size-5) var(--size-6) ;
     margin-top: var(--size-7);
+}
+
+
+.tipShowCheckboxDiv{
+  width: max-content;
+  margin-bottom: var(--size-5);
+  cursor: pointer;
+  user-select: none;
+}
+
+.tipShowCheckboxDiv *{
+  cursor: pointer;
+}
+
+.tipShowChecker{
+  margin-left: var(--size-3) !important;
+}
+
+.tipShowCheckboxLabel{
+  margin-left: var(--size-2);
+  
+}
+
+
+
+
+
+
+.tipDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-height: 0;
+   
+  overflow: hidden;
+  transition: max-height 0.5s ease;
 }
 
 
@@ -59,7 +94,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: var(--size-6) 0;
+    margin-top: var(--size-6);
     
 }
 
@@ -158,11 +193,18 @@
   
 
 
-
+  .tipError{
+    color: red;
+    margin-top: var(--size-2);
+    margin-left: 2px;
+    font-size: var(--font-size-2);
+  }
 
 
 .thankYouMessage{
+  margin-top: var(--size-6);
     margin-left: 2px;
+    font-size: var(--font-size-3);
 }
 
 
