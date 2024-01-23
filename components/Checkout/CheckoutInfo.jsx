@@ -15,8 +15,9 @@ import Link from "next/link";
 import OrderDetails from "./OrderDetails";
 import PaymentMethodWrapper from "./PaymentSection/PaymentSection";
 import PaymentSection from "./PaymentSection/PaymentSection";
+import Tip from "./Tip/Tip";
 
-export default function CheckoutInfo({ products, discount, setDiscount, setCartProducts }) {
+export default function CheckoutInfo({ products, discount,  tip, setTip, setCartProducts }) {
   const [showApt, setShowApt] = useState(false);
   const [errors, setErrors] = useState({});
   const [shippingType, setShippingType] = useState("free");
@@ -146,6 +147,7 @@ export default function CheckoutInfo({ products, discount, setDiscount, setCartP
         city,
         phone,
         discountCode: discount.code,
+        tip: tip,
         items:items ,
       },
       paymentMethod: paymentMethod,
@@ -162,7 +164,7 @@ export default function CheckoutInfo({ products, discount, setDiscount, setCartP
     <>
       <div className={styles.leftWrapper}>
         <div className={styles.checkout_left}>
-          <ExpressCheckout discount={discount} products={products} checkFields={checkFields} organizeUserData={organizeUserData} setCartProducts={setCartProducts } setErrors={setErrors}/>
+          <ExpressCheckout discount={discount} tip={tip} products={products} checkFields={checkFields} organizeUserData={organizeUserData} setCartProducts={setCartProducts } setErrors={setErrors}/>
           <div className={styles.checkout_section}>
             <h2 ref={contactScrollRef}>Contact</h2>
             <form>
@@ -334,8 +336,9 @@ export default function CheckoutInfo({ products, discount, setDiscount, setCartP
             </label>
           </div>
          
-         <PaymentSection discount={discount} products={products} checkFields={checkFields} organizeUserData={organizeUserData} products={products} setCartProducts={setCartProducts } setErrors={setErrors} />
-       
+         <PaymentSection discount={discount} checkFields={checkFields} organizeUserData={organizeUserData} products={products} setCartProducts={setCartProducts } setErrors={setErrors} />
+                
+                <Tip products={products} tip={tip} setTip={setTip} />
         </div>
         <div className={styles.checkoutFooterWrapper}>
                 <div className={styles.checkoutFooter}>

@@ -8,7 +8,7 @@ import Head from "next/head";
 const CheckoutPage = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [discount, setDiscount] = useState({code:'', discount:0});
-  
+  const [tip, setTip]= useState(0);
 
   
 
@@ -19,9 +19,9 @@ const CheckoutPage = () => {
       </Head>
 
       <div className={`${styles.checkout_container} ${styles.checkoutAbsolute}`}>
-        <OrderDetails discount={discount} setDiscount={setDiscount} products={cartProducts} />
+        <OrderDetails discount={discount} setDiscount={setDiscount} tip={tip} products={cartProducts} />
 
-        <CheckoutInfo discount={discount} setDiscount={setDiscount} products={cartProducts} setCartProducts={setCartProducts}>
+        <CheckoutInfo discount={discount} tip={tip} setTip={setTip} products={cartProducts} setCartProducts={setCartProducts}>
           
         </CheckoutInfo>
       </div>

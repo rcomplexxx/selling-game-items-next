@@ -49,6 +49,14 @@ const PayPalButton=({checkFields, organizeUserData, discount, method='paypal',  
             console.log('discount exists', discEle.innerText)
             requestData={...requestData, order:{...requestData.order, discountCode: discEle.innerText}}
           }
+
+          const tipEl = document.getElementById("tipPrice");
+         
+          if (tipEl) {
+            tip = tipEl.innerText;
+            tip = tip.substring(tip.indexOf("$") + 1).trim();
+            requestData={...requestData, order:{...requestData.order, tip: tip}}
+          }
           
             const response = await fetch("/api/make-payment", {
               method: "POST",

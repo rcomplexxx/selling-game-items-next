@@ -79,6 +79,7 @@ const makePayment = async (req, res) => {
             city TEXT,
             phone TEXT,
             discountCode TEXT,
+            tip TEXT,
             items TEXT,
             paymentMethod TEXT,
             paymentId TEXT,
@@ -101,13 +102,14 @@ const makePayment = async (req, res) => {
           city,
           phone,
           discountCode,
+          tip,
           items,
         } = req.body.order;
         console.log(' and items!!!!!!!!!',  items);
       
 
         db.prepare(
-          `INSERT INTO orders (email, firstName, lastName, address, apt, country, zipcode, state, city, phone, discountCode, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', ?, ?)`,
+          `INSERT INTO orders (email, firstName, lastName, address, apt, country, zipcode, state, city, phone, discountCode, tip, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', ?, ?)`,
         ).run(
           email,
           firstName,
@@ -120,6 +122,7 @@ const makePayment = async (req, res) => {
           city,
           phone,
           discountCode,
+          tip,
           JSON.stringify(items),
           paymentMethod,
           paymentId,
@@ -166,9 +169,19 @@ const makePayment = async (req, res) => {
       totalPrice = totalPrice - totalPrice*discountFloat/100;
       totalPrice= totalPrice.toFixed(2);
       }
-    }
-    console.log('Total price on server is', totalPrice)
 
+    }
+
+    const tip =req.body.order.tip;
+      if (tip && tip!="0") {
+      
+        const tipFloat = parseFloat(tip);
+  
+        totalPrice = parseFloat(totalPrice) + tipFloat;
+        totalPrice= totalPrice.toFixed(2);
+        }
+    console.log('Total price on server is', totalPrice)
+    console.log('tip je:', req.body.order.tip);
     
     if(req.body.paymentMethod==='PAYPAL'){
       console.log('popusis ti meni')

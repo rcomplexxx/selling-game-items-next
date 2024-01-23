@@ -133,7 +133,7 @@ const totalItems= useMemo(()=>{
       <Head>
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      {!removeNavFinal && <Navbar showNav={showNav} totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
+      {!removeNavFinal && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
 
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>
         <Component {...pageProps} />

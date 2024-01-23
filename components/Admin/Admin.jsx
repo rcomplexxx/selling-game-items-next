@@ -47,6 +47,7 @@ export default function Admin() {
         phone: order.phone,
         items: order.items,
         discountCode: order.discountCode,
+        tip: order.tip,
         packageStatus: order.packageStatus,
         paymentMethod: order.paymentMethod,
         paymentId: order.paymentId

@@ -224,7 +224,7 @@ const handleStripePay= async(event)=>{
               .toFixed(2);
 
 
-           
+              console.log('first disc', totalPrice)
              
 
               const discountEl = document.getElementById("discountPrice");
@@ -239,6 +239,23 @@ const handleStripePay= async(event)=>{
               totalPrice = totalPrice - discountFloat;
               totalPrice.toFixed(2);
             }
+            console.log('after disc', totalPrice)
+
+            const tipEl = document.getElementById("tipPrice");
+            let tip="0"
+            if (tipEl) {
+              tip = tipEl.innerText;
+              tip = tip.substring(tip.indexOf("$") + 1).trim();
+            }
+
+            if (tip != "0") {
+              const tipFloat = parseFloat(tip);
+        
+              totalPrice = parseFloat(totalPrice) + tipFloat;
+              totalPrice = totalPrice.toFixed(2);
+            }
+
+            console.log('after tip', totalPrice)
 
 
 

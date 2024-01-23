@@ -9,7 +9,7 @@ import React, {
   import Image from "next/image";
   import coupons from "@/data/coupons.json";
   
-  export default function OrderDetails({ discount, setDiscount, products, isUpperSummery=true }) {
+  export default function OrderDetails({ discount, setDiscount,tip, products, isUpperSummery=true }) {
     const [showAnswer, setShowAnswer] = useState(false);
     const [mobileInterface, setMobileInterface] = useState(false);
     const [fixedMedia, setFixedMedia] = useState(false);
@@ -91,6 +91,7 @@ import React, {
     };
   
     const prices = useMemo(() => {
+      console.log('tip', tip)
       let s = 0;
       products.forEach((cp, i) => {
         s = s + cp.quantity * cp.price;
@@ -98,9 +99,10 @@ import React, {
       s = s.toFixed(2);
       let discountPrice = 0;
       if (discount.discount != 0) discountPrice = ((s * discount.discount) / 100).toFixed(2);
-      const total = (s - discountPrice).toFixed(2);
+     
+      const total = (s  - discountPrice + parseFloat(tip)).toFixed(2);
       return { subTotal: s, discount: discountPrice, total: total };
-    }, [products, discount]);
+    }, [products, tip, discount]);
 
 
 
@@ -241,6 +243,13 @@ const handleCouponApply = () => {
                     <span>Shipping</span>
                     <span>Free</span>
                   </div>
+
+                  {tip!==0 && tip!="" && <div className={styles.order_pair}>
+                    <span>Tip</span>
+                    <span id="tipPrice">${tip}</span>
+                  </div>}
+
+                  
   
                   <div className={styles.order_pair}>
                     

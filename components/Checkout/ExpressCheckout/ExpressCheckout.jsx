@@ -4,6 +4,7 @@ import styles from "./expresscheckout.module.css";
 
 export default function ExpressCheckout({
   products,
+  tip,
   discount,
   checkFields,
   organizeUserData,
@@ -35,6 +36,7 @@ export default function ExpressCheckout({
             products={products}
             setCartProducts={setCartProducts}
             discount={discount}
+            tip={tip}
             organizeUserData={(paymentToken) => {
               return organizeUserData("GPAY", paymentToken);
             }}

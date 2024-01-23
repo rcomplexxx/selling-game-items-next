@@ -51,7 +51,7 @@ export default function OrderCard({
                 if(infoObj.discountCode){
       const myCoupon= coupons.find((c)=>{return infoObj.discountCode==c.code.toUpperCase()})
       console.log('coupon', myCoupon);
-      const myDiscountPercent= myCoupon.discountPercentage;
+      const myDiscountPercent= myCoupon?myCoupon.discountPercentage:0;
 
      
 
@@ -61,12 +61,26 @@ export default function OrderCard({
 
       setDiscountPercent(myDiscountPercent);
       setDiscoutInCash(myDiscountInCash);
-      myAmount = myAmount.toFixed(2)
-      setAmount(myAmount);
+      rawAmount=myAmount.toFixed(2);
                 }
                 else{
-                  setAmount(rawAmount.toFixed(2))
+                  rawAmount=rawAmount.toFixed(2)
                 }
+
+
+                if(infoObj.tip){
+               
+            
+                  let myAmount = parseFloat(rawAmount) + parseFloat(infoObj.tip);
+                 
+                  rawAmount=myAmount.toFixed(2);
+                            }
+                          
+
+
+
+
+                setAmount(rawAmount)
 
                
     },[])
@@ -202,7 +216,8 @@ export default function OrderCard({
      <div className={`${styles.infoRowDiv}  ${styles.transactionInfoDiv} ${transactionCovered && styles.transactionInfoDivCovered}`}>
 
      <div className={`${styles.infoPair} ${transactionCovered? styles.shrinkTotal:styles.pumpTotal}`}>
-         <p>Total{discountPercent && ' (discount included)'}</p>
+         <p>Total{(discountPercent && infoObj.tip) ?'(tip & disc. included)':(discountPercent?'(discount included)':
+         infoObj.tip && '(tip included)')}</p>
          <p>{amount}</p>
       </div>
 
@@ -215,6 +230,13 @@ export default function OrderCard({
      <div className={styles.infoPair}>
          <p>Discount ({discountPercent}%)</p>
          <p>{discountInCash}</p>
+      </div>
+}
+
+{infoObj.tip &&
+     <div className={styles.infoPair}>
+         <p>Tip</p>
+         <p>{infoObj.tip}</p>
       </div>
 }
       

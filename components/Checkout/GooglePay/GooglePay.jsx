@@ -9,6 +9,7 @@ const GooglePay = ({
   products,
   setCartProducts,
   discount,
+  tip
 }) => {
   //paymentRequest.paymentMethodData.tokenizationData.token
 
@@ -34,12 +35,17 @@ const GooglePay = ({
       .toFixed(2);
 
     if (discount.discount!=0) {
+      
       totalPriceNow = totalPriceNow - (totalPriceNow * discount.discount) / 100;
       totalPriceNow = totalPriceNow.toFixed(2);
     }
+    if(tip && tip!=0){
+      totalPriceNow=parseFloat(totalPriceNow) + parseFloat(tip);
+      totalPriceNow= totalPriceNow.toFixed(2);
+    }
     console.log("price", totalPriceNow);
     setTotalPrice(totalPriceNow);
-  }, [discount.discount, products]);
+  }, [discount.discount, tip, products]);
 
   const handleGpayOrder = async (paymentData) => {
     try {
@@ -55,6 +61,15 @@ const GooglePay = ({
       if (discountEl) {
         discountCode = discountEl.innerText;
       }
+
+      const tipEl = document.getElementById("tipPrice");
+      let tip = "";
+      if (tipEl) {
+        tip = tipEl.innerText;
+        tip = tip.substring(tip.indexOf("$") + 1).trim();
+      }
+
+
 
 
       const finalTotalPriceEl = document.getElementById("totalPrice");
@@ -105,6 +120,7 @@ const GooglePay = ({
           city: paymentData.shippingAddress.locality,
           phone: paymentData.shippingAddress.phoneNumber,
           discountCode: discountCode,
+          tip:tip,
           items: items,
         },
         paymentMethod: "GPAY",

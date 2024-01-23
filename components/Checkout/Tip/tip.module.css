@@ -1,0 +1,168 @@
+
+
+.tipMainDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.503);
+    box-sizing: border-box;
+    padding: var(--size-5) var(--size-6) ;
+    margin-top: var(--size-7);
+}
+
+
+
+
+
+.roundPercentWrapper{
+    width: 100%;
+    display: flex;
+    border: 1px solid rgba(128, 128, 128, 0.503);
+    border-radius: 2px;
+}
+
+.roundPercentWrapper > :last-child{
+    border-right: none;
+}
+
+.roundPercent{
+    flex:1;
+    border-right: 1px solid rgba(128, 128, 128, 0.503);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--size-3);
+    cursor: pointer;
+    user-select: none;
+}
+
+.selectedPercent{
+    border: 1px solid var(--blue-4);
+}
+
+.roundPercentSpan{
+    height: auto;
+  
+}
+
+.roundTipSpan{
+    margin-top: var(--size-1);
+    font-size: var(--font-size-2);
+    opacity: 0.5;
+}
+
+.customTipDiv{
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: var(--size-6) 0;
+    
+}
+
+.customTipField {
+    position: relative;
+    flex: 1;
+    margin-right: var(--size-5);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+  
+  
+    .customTipInput {
+      width: 100%;
+      height: 40px;
+      /* background-color: rgb(191, 209, 208); */
+      background-color: #151921;
+      color: white;
+      padding: var(--size-3);
+      padding-left: var(--size-6);
+      padding-top: 22px;
+      border-radius: 2px;
+      align-self: center;
+      box-sizing: border-box;
+      border: solid 1px rgba(134, 110, 114, 0.425);
+      font-size: var(--font-size-2);
+      
+    }
+    /* rgb(74, 85, 187) */
+    /* background-color: #202020; */
+    /* rgba(53, 60, 110, 0.459); */
+    /* rgb(134, 110, 114); */
+    /* #1c2025; */
+  
+    .customTipInput:focus { 
+      outline: none !important;
+      border-color: #7daee2;
+      box-shadow: 0 0 6px #7daee2;
+      
+  }
+  
+  .dollarSign{
+    position: absolute;
+    top: 18px;
+    left: var(--size-3);
+    font-size: var(--font-size-3);
+  }
+
+  
+  
+  
+   
+
+  
+    .label{
+      color: #979797;
+      position: absolute;
+      left: 8px;
+      top: 12px;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  
+  
+    .customTipInput:focus + .label,
+    .customTipInput:not(:placeholder-shown) + .label {
+      opacity: 0.9;
+    top: 3px;
+    font-size: 12px;
+    
+  }
+  
+ 
+
+  .addTip{
+    background-color: brown;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 0 var(--size-5);
+    transition: background-color 0.1s ease;
+    cursor: pointer;
+    user-select: none;
+   
+  }
+
+  .addTip:hover{
+    background-color: rgb(140, 34, 34);
+
+  }
+  
+
+
+
+
+
+.thankYouMessage{
+    margin-left: 2px;
+}
+
+
