@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Cards from 'react-credit-cards';
 import styles from './stripe.module.css'
 import 'react-credit-cards/es/styles-compiled.css';
@@ -325,14 +325,8 @@ const handleCCBlur= ()=>{
   console.log('b',floatingLabelsHelper.current);
   setErrors(errorhelperRef.current);
   setFloatingLabels({...floatingLabelsHelper.current});
-  setFocusedField();
+
 }
-
-
-useEffect(() => {
-  if(!focusedField) return;
-  document.getElementById(focusedField)?.focus();
-}, [focusedField]);
   
     
 
@@ -380,10 +374,9 @@ useEffect(() => {
        <div className={styles.form_group}>
       <CardExpiryElement id="expiryDate"
  onBlur={handleCCBlur}
- onFocus={(event)=>{
+ onFocus={()=>{
   setFocusedField('expiryDate');
   setFloatingLabels({...floatingLabelsHelper.current, expiryDate:true});
-
   }}
  onChange={handleCCChange}
       options={{placeholder:'',  style: {
