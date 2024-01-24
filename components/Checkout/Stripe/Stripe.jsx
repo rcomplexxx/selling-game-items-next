@@ -340,7 +340,11 @@ const handleCCBlur= ()=>{
     <CardNumberElement
     onBlur={handleCCBlur}
     onChange={handleCCChange}
-   
+    onFocus={()=>{
+      setFocusedField('cardNumber');
+      setFloatingLabels({...floatingLabelsHelper.current, cardNumber:true});
+    
+      }}
     options={{placeholder:'',  style: {
       base: {
         color: 'white',
@@ -352,6 +356,7 @@ const handleCCBlur= ()=>{
         color: 'white'
       }
     }}}
+    inputProps={{ type: 'tel' }}
         className={`${styles.input_field} ${errors.cardNumber && styles.input_error} ${focusedField==='cardNumber' && styles.stripeFieldFocused}`}
       /> 
       <FloatingBadge imageName='lock11.png'/>
@@ -370,7 +375,10 @@ const handleCCBlur= ()=>{
        <div className={styles.form_group}>
       <CardExpiryElement id="expiryDate"
  onBlur={handleCCBlur}
-
+ onFocus={()=>{
+  setFocusedField('expiryDate');
+  setFloatingLabels({...floatingLabelsHelper.current, expiryDate:true});
+  }}
  onChange={handleCCChange}
       options={{placeholder:'',  style: {
         base: {
@@ -381,6 +389,7 @@ const handleCCBlur= ()=>{
           color: 'white'
         }
       }}}
+      inputProps={{ type: 'tel' }}
       className={`${styles.input_field} ${errors.expiryDate && styles.input_error} ${focusedField==='expiryDate' && styles.stripeFieldFocused}`}
     />
     <span className={`${styles.label} ${floatingLabels.expiryDate && styles.labelFloating}`}>Expiration Date (MM / YY)</span>
@@ -392,7 +401,10 @@ const handleCCBlur= ()=>{
   <CardCvcElement  id="cvv" 
    onBlur={handleCCBlur}
    onChange={handleCCChange}
-
+  onFocus={()=>{
+    setFocusedField('cvv');
+  setFloatingLabels({...floatingLabelsHelper.current, cvv:true});
+  }}
    options={{placeholder:'',  style: {
     base: {
       color: 'white',
@@ -402,6 +414,7 @@ const handleCCBlur= ()=>{
       color: 'white'
     }
   }}}
+  inputProps={{ type: 'tel' }}
   className={`${styles.input_field} ${errors.cvv && styles.input_error} ${focusedField==='cvv' && styles.stripeFieldFocused}`}/>
   <FloatingBadge message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>
   <span className={`${styles.label} ${floatingLabels.cvv && styles.labelFloating}`}>Security code</span>
