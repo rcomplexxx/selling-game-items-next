@@ -205,7 +205,7 @@
       align-items: center;
       border-radius: 4px;
       border: 1px solid gray;
-    
+      flex-shrink: 0;
   }
 
   .billingCheckboxLabel{
