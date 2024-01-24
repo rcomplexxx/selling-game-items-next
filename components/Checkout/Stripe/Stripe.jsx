@@ -356,7 +356,7 @@ const handleCCBlur= ()=>{
         color: 'white'
       }
     }}}
-        className={`${styles.input_field} ${errors.cardNumber && styles.input_error} ${focusedField==='cardNumber' && styles.stripeFieldFocused}`}
+        className={`${styles.input_field} ${errors.cardNumber && styles.input_error}`}
       /> 
       <FloatingBadge imageName='lock11.png'/>
       <label className={`${styles.label} ${floatingLabels.cardNumber && styles.labelFloating}`}>Card number</label>
@@ -412,7 +412,7 @@ const handleCCBlur= ()=>{
       color: 'white'
     }
   }}}
-  className={`${styles.input_field} ${errors.cvv && styles.input_error} ${focusedField==='cvv' && styles.stripeFieldFocused}`}/>
+  className={`${styles.input_field} ${errors.cvv && styles.input_error}`}/>
   <FloatingBadge rift={true} message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>
    <label className={`${styles.label} ${floatingLabels.cvv && styles.labelFloating}`}>Security code</label>
    </div>
