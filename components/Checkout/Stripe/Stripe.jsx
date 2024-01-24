@@ -447,9 +447,9 @@ const handleCCBlur= ()=>{
       >
           {billingAddressSameAsShipping && <Image src='/images/correct.svg' height={10} width={10}/>}
         </div>
-      <label className={styles.billingCheckboxLabel}>
+      <span className={styles.billingCheckboxLabel}>
       Use shipping address as billing address
-    </label>
+    </span>
     </div>
 
 

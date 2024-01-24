@@ -67,14 +67,14 @@ export default function Tip({products, tip, setTip}){
 
 
 <div className={styles.tipShowCheckboxDiv}  onClick={()=>{setTipShow(!tipShow)}}>
-      <div type="checkbox" className={styles.tipShowChecker}>
+      <div  className={styles.tipShowChecker}>
         {tipShow && <Image src='/images/correct.svg' height={10} width={10}/>}
       </div>
      
   
-      <label className={styles.tipShowCheckboxLabel}>
+      <span className={styles.tipShowCheckboxLabel}>
      Show your support for the GameBuff team
-    </label>
+    </span>
 
    
     </div>
