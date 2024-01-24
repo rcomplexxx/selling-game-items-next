@@ -91,16 +91,28 @@
       width: 100%;
       height: 40px;
       /* background-color: rgb(191, 209, 208); */
+    
       background-color: #151921;
       color: white;
-      padding: var(--size-3);
-      padding-top: 18px;
       border-radius: 2px;
       align-self: center;
       box-sizing: border-box;
+      padding-left: var(--size-3);
       border: solid 1px rgba(134, 110, 114, 0.425);
       font-size: var(--font-size-2);
+      overflow: hidden;
+      cursor: text;
     }
+
+
+    .inputHelper{
+      padding: var(--size-3);
+      padding-top: 18px;
+    }
+
+    /**/
+    /* padding: var(--size-3);
+    padding-top: 18px; */
     /* rgb(74, 85, 187) */
     /* background-color: #202020; */
     /* rgba(53, 60, 110, 0.459); */

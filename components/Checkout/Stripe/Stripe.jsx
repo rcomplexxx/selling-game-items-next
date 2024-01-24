@@ -338,12 +338,18 @@ const handleCCBlur= ()=>{
     <div className={styles.form_group}>
     <div className={styles.inputWrapper}>
     <CardNumberElement
+    onBlur={handleCCBlur}
     onChange={handleCCChange}
-  
+    onFocus={()=>{
+      setFocusedField('cardNumber');
+      setFloatingLabels({...floatingLabelsHelper.current, cardNumber:true});
+    
+      }}
     options={{placeholder:'',  style: {
       base: {
         color: 'white',
-        backgroundColor:'#151921'
+        backgroundColor:'#151921',
+        lineHeight:"52px",
       },
     
      
@@ -368,12 +374,17 @@ const handleCCBlur= ()=>{
       <div className={styles.ccInputRow}>
        <div className={styles.form_group}>
       <CardExpiryElement id="expiryDate"
-
+ onBlur={handleCCBlur}
+ onFocus={()=>{
+  setFocusedField('expiryDate');
+  setFloatingLabels({...floatingLabelsHelper.current, expiryDate:true});
+  }}
  onChange={handleCCChange}
       options={{placeholder:'',  style: {
         base: {
           color: 'white',
-          backgroundColor:'#151921'
+          backgroundColor:'#151921',
+          lineHeight:"52px",
         },
         invalid: {
           color: 'white'
@@ -397,7 +408,8 @@ const handleCCBlur= ()=>{
    options={{placeholder:'',  style: {
     base: {
       color: 'white',
-      backgroundColor:'#151921'
+      backgroundColor:'#151921',
+      lineHeight:"52px",
     },
     invalid: {
       color: 'white'
