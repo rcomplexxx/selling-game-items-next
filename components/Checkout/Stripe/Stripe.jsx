@@ -325,7 +325,7 @@ const handleCCBlur= ()=>{
   console.log('b',floatingLabelsHelper.current);
   setErrors(errorhelperRef.current);
   setFloatingLabels({...floatingLabelsHelper.current});
-  setFocusedField();
+  setFocusedField(undefined);
 }
   
     
@@ -356,10 +356,10 @@ const handleCCBlur= ()=>{
         color: 'white'
       }
     }}}
-        className={`${styles.input_field} ${errors.cardNumber && styles.input_error}`}
+        className={`${styles.input_field} ${errors.cardNumber && styles.input_error} ${focusedField==='cardNumber' && styles.stripeFieldFocused}`}
       /> 
       <FloatingBadge imageName='lock11.png'/>
-      <label className={`${styles.label} ${floatingLabels.cardNumber && styles.labelFloating}`}>Card number</label>
+      <span className={`${styles.label} ${floatingLabels.cardNumber && styles.labelFloating}`}>Card number</span>
 
 </div>
 {/* defaultValues */}
@@ -388,9 +388,9 @@ const handleCCBlur= ()=>{
           color: 'white'
         }
       }}}
-      className={`${styles.input_field} ${errors.expiryDate && styles.input_error}`}
+      className={`${styles.input_field} ${errors.expiryDate && styles.input_error} ${focusedField==='expiryDate' && styles.stripeFieldFocused}`}
     />
-    <label className={`${styles.label} ${floatingLabels.expiryDate && styles.labelFloating}`}>Expiration Date (MM / YY)</label>
+    <span className={`${styles.label} ${floatingLabels.expiryDate && styles.labelFloating}`}>Expiration Date (MM / YY)</span>
     {errors.expiryDate && <p className={styles.stripeError}>{errors.expiryDate}</p>}
     </div>
      <div className={styles.form_group}>
@@ -412,9 +412,9 @@ const handleCCBlur= ()=>{
       color: 'white'
     }
   }}}
-  className={`${styles.input_field} ${errors.cvv && styles.input_error}`}/>
-  <FloatingBadge rift={true} message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>
-   <label className={`${styles.label} ${floatingLabels.cvv && styles.labelFloating}`}>Security code</label>
+  className={`${styles.input_field} ${errors.cvv && styles.input_error} ${focusedField==='cvv' && styles.stripeFieldFocused}`}/>
+  <FloatingBadge message={'3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.'}/>
+  <span className={`${styles.label} ${floatingLabels.cvv && styles.labelFloating}`}>Security code</span>
    </div>
  
   {errors.cvv && <p className={styles.stripeError}>{errors.cvv}</p>}
