@@ -33,7 +33,7 @@
 .tipShowChecker{
   
   height: 16px;
-  width: 16px;
+  width: 16px !important;
   display: flex;
   justify-content: center;
   align-items: center;

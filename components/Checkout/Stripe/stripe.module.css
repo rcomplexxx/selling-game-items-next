@@ -187,7 +187,6 @@
   .billingCheckboxDiv{
     display: flex;
     align-items: center;
-    width: max-content;
      padding: 0 var(--size-3);
     margin-bottom: var(--size-5);
     cursor: pointer;
@@ -201,7 +200,7 @@
   .addressTypeChecker{
   
       height: 16px;
-      width: 16px;
+      width: 16px !important;
       display: flex;
       justify-content: center;
       align-items: center;
