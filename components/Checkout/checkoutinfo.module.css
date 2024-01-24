@@ -157,19 +157,7 @@
    
   }
 
-  .paymentTitle{
-    opacity: 0.9;
-    font-weight: 500;
-    font-size: var(--font-size-6);
-    margin-bottom: 0;
-  }
-
-  .paymentNotification{
-    opacity: 0.5;
-    font-size: 14px;
-    margin-top: 0;
-    margin-bottom: 16px;
-  }
+  
   
  
  
