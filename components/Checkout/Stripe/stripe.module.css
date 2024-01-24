@@ -175,7 +175,7 @@
     display: flex;
     align-items: center;
     width: max-content;
-     padding: 0 ;
+     padding: 0 var(--size-3);
     margin-bottom: var(--size-5);
     cursor: pointer;
     user-select: none;
@@ -249,6 +249,11 @@
         margin-left: 0;
       }
     
+
+      .billingCheckboxDiv{
+      
+         padding: 0;
+      }
     
     
      

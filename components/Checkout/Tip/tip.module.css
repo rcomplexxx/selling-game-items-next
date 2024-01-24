@@ -19,7 +19,7 @@
   width: 100%;
 
   box-sizing: border-box;
-  padding: var(--size-6) var(--size-6) ;
+  padding: var(--size-6) var(--size-5) ;
   font-size: var(--font-size-3);
   cursor: pointer;
   user-select: none;

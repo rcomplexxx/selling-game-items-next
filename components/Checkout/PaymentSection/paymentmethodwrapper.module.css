@@ -222,7 +222,7 @@
 .paymentFieldsSpaceAdjuster{
    
     width: calc(100% - var(--size-7));
-    margin:  var(--size-2) 0;
+    margin:  var(--size-4) 0;
 }
 
 .paypalFieldWrapper{
@@ -259,6 +259,12 @@
 
 .moreCardsPopupTriangle{
     margin-right: 42px;
+}
+
+
+.paymentFieldsSpaceAdjuster{
+   
+    margin:  var(--size-1) 0;
 }
 
 .paypalFieldWrapper{
