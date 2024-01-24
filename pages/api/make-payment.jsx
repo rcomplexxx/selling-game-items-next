@@ -173,7 +173,7 @@ const makePayment = async (req, res) => {
     }
 
     const tip =req.body.order.tip;
-      if (tip && tip!="0") {
+      if (tip && tip!="" && tip!="0") {
       
         const tipFloat = parseFloat(tip);
   

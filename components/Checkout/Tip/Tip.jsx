@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import InputField from '../Input/InputField'
 import styles from './tip.module.css'
+import Image from 'next/image';
 
 
 export default function Tip({products, tip, setTip}){
@@ -35,17 +36,30 @@ export default function Tip({products, tip, setTip}){
           clearTimeout(visibilityTimeout.current);
           const tipDiv= document.getElementById("tipDiv")
           if(tipShow){
+
+
+
          
             tipDiv.style.maxHeight=`${ tipDiv.scrollHeight}px`;
           visibilityTimeout.current=setTimeout(()=>{
             tipDiv.style.overflow = `visible`
+             tipDiv.style.maxHeight=`999px`;
            }, 600)
           }
           else{
+
             tipDiv.style.overflow = `hidden`
-            tipDiv.style.maxHeight=`0`;
+            tipDiv.style.transition=`max-height 0s ease`;
+            tipDiv.style.maxHeight=`${tipDiv.scrollHeight}px`;
+            setTimeout(()=>{
+              tipDiv.style.transition=`max-height 0.6s ease`;
+              tipDiv.style.maxHeight=`0`;
+             }, 1)
+
           }
         },[tipShow])
+
+    
       
 
 
@@ -53,12 +67,16 @@ export default function Tip({products, tip, setTip}){
 
 
 <div className={styles.tipShowCheckboxDiv}  onClick={()=>{setTipShow(!tipShow)}}>
-      <input type="checkbox" className={styles.tipShowChecker} checked={tipShow}
+      <div type="checkbox" className={styles.tipShowChecker}>
+        {tipShow && <Image src='/images/correct.svg' height={10} width={10}/>}
+      </div>
      
-      />
+  
       <label className={styles.tipShowCheckboxLabel}>
      Show your support for the GameBuff team
     </label>
+
+   
     </div>
       
       <div id='tipDiv' className={styles.tipDiv}>
@@ -136,3 +154,5 @@ export default function Tip({products, tip, setTip}){
     </div>
      </div>
 }
+
+// <div className={styles.tipCheckerBorderSupport}/>

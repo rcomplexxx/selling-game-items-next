@@ -439,9 +439,11 @@ const handleCCBlur= ()=>{
         />
       </div>
       <div className={styles.billingCheckboxDiv}  onClick={()=>{setBillingAddressSameAsShipping(!billingAddressSameAsShipping)}}>
-      <input type="checkbox" id="isShippingBilling" className={styles.addresTypeChecker} checked={billingAddressSameAsShipping}
+      <div id="isShippingBilling" className={styles.addressTypeChecker} 
      
-      />
+      >
+          {!billingAddressSameAsShipping && <Image src='/images/correct.svg' height={10} width={10}/>}
+        </div>
       <label className={styles.billingCheckboxLabel}>
       Use shipping address as billing
     </label>

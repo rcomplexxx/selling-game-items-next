@@ -117,7 +117,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
            <Image src={'/images/paypalTextLogo2.png'} className={styles.paypalLogo} height={24} width={96} />
         </div>
 
-        <div id='paypalFields' className={`${styles.paymentFields} ${paymentMethod=="paypal" && styles.selectedField}`}>
+        <div id='paypalFields' className={`${styles.paymentFields} ${styles.paypalField} ${paymentMethod=="paypal" && styles.selectedField}`}>
         <div className={styles.paymentFieldsSpaceAdjuster}> 
         <div className={styles.paypalFieldWrapper}>
           <PayPalButton

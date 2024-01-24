@@ -242,7 +242,7 @@ export default function swapCountryCode(country) {
       code: "GB",
     },
     { country: "United States Minor Outlying Islands (the)", code: "UM" },
-    { country: "United States of America (the)", code: "US" },
+    { country: "United States", code: "US" },
     { country: "Uruguay", code: "UY" },
     { country: "Uzbekistan", code: "UZ" },
     { country: "Vanuatu", code: "VU" },

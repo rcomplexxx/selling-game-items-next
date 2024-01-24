@@ -55,14 +55,14 @@ const GooglePay = ({
         paymentData.paymentMethodData.tokenizationData.token
       ).id;
 
-      const discountEl = document.getElementById("discountCode");
+      const discountEl = document?.getElementById("discountCode");
       console.log("disc el", discountEl);
       let discountCode = "";
       if (discountEl) {
         discountCode = discountEl.innerText;
       }
 
-      const tipEl = document.getElementById("tipPrice");
+      const tipEl = document?.getElementById("tipPrice");
       let tip = "";
       if (tipEl) {
         tip = tipEl.innerText;
@@ -72,7 +72,7 @@ const GooglePay = ({
 
 
 
-      const finalTotalPriceEl = document.getElementById("totalPrice");
+      const finalTotalPriceEl = document?.getElementById("totalPrice");
     
       let finalTotalPrice = totalPrice;
       console.log('final price', finalTotalPrice)

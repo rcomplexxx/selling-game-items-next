@@ -217,7 +217,7 @@ export default function OrderCard({
 
      <div className={`${styles.infoPair} ${transactionCovered? styles.shrinkTotal:styles.pumpTotal}`}>
          <p>Total{(discountPercent && infoObj.tip) ?'(tip & disc. included)':(discountPercent?'(discount included)':
-         infoObj.tip && '(tip included)')}</p>
+         infoObj.tip && infoObj.tip!=0 && '(tip included)')}</p>
          <p>{amount}</p>
       </div>
 
@@ -233,7 +233,7 @@ export default function OrderCard({
       </div>
 }
 
-{infoObj.tip &&
+{infoObj.tip && infoObj.tip!=0 &&
      <div className={styles.infoPair}>
          <p>Tip</p>
          <p>{infoObj.tip}</p>

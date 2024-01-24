@@ -323,13 +323,7 @@
    
   }
 
-  .orderWrapperFixed{
-    position: fixed;
-    width: calc(50% - var(--size-11));
-    max-width: var(--size-14-5);
-  
-    top: var(--size-8);
-  }
+ 
 
   .orderDiv{ 
     width: 100%;
@@ -403,6 +397,16 @@
     
   
     @media(min-width:980px){
+
+
+      .orderWrapper{
+        position: fixed;
+        width: calc(50% - var(--size-11));
+        max-width: var(--size-14-5);
+      
+        top: var(--size-8);
+      }
+
       .mobileTitle{
         display:none
       }

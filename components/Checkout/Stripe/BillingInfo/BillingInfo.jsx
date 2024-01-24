@@ -177,7 +177,7 @@ export default function BillingInfo({isOpen, errors, setErrors}){
        
             //   if(event.target.value==='') setErrors({ ...errors, cardHolderName: 'Enter a valid card number' });}}
              error={errors.billingPhone}
-             children={ <FloatingBadge message={'In case we need to contact you about your order'} rift={true}/>}
+             children={ <FloatingBadge message={'In case we need to contact you about your order'}/>}
             />
        
 

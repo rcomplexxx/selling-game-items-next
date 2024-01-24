@@ -11,52 +11,14 @@ import React, {
   
   export default function OrderDetails({ discount, setDiscount,tip, products, isUpperSummery=true }) {
     const [showAnswer, setShowAnswer] = useState(false);
-    const [mobileInterface, setMobileInterface] = useState(false);
-    const [fixedMedia, setFixedMedia] = useState(false);
     const [couponCode, setCouponCode] = useState("");
     const [couponValidCode, setCouponValidCode] = useState("");
     const [couponError, setCouponError] = useState(false);
     const [productsOpened, setProductsOpened] = useState(true);
   
-    useEffect(() => {
-      //129
-
-     
-      const productPicsElement = document.getElementById("orderWrapper");
-      const handleScroll = () => {
-        //Vrednost 129 se dobija  console.log(document.getElementById('productPics').getBoundingClientRect().top),
-        //a od pocetka do dna elementa dodamo samo njegovu visinu, tj. + document.getElementById('productPics').clientHeight
-        //console.log(document.getElementById('productPics').getBoundingClientRect().top+ document.getElementById('productPics').clientHeight)
-        const height = productPicsElement.clientHeight;
+   
   
-        setFixedMedia(window.scrollY >= 0 ? true : false);
-      };
-  
-      // Add event listener for window resize
-  
-      window.addEventListener("scroll", handleScroll);
-      // Clean up event listener on component unmount
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }, []);
-  
-    useEffect(() => {
-      const handleResize = () => {
-        setMobileInterface(window.innerWidth <= 980);
-      };
-  
-      // Initial check and event listener setup
-      handleResize();
-  
-      // Add event listener for window resize
-      window.addEventListener("resize", handleResize);
-  
-      // Clean up the event listener on component unmount
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }, []);
+   
 
     useEffect(()=>{ if(!isUpperSummery && products.length>1)setProductsOpened(false);
       if(!isUpperSummery) setShowAnswer(true);},[products, isUpperSummery])
@@ -129,9 +91,7 @@ const handleCouponApply = () => {
         <div id="checkout_right" className={styles.checkout_right}>
           <div
             id="orderWrapper"
-            className={`${styles.orderWrapper} ${
-              !mobileInterface && fixedMedia && styles.orderWrapperFixed
-            }`}
+            className={`${styles.orderWrapper}`}
           >
             <div className={styles.orderDiv}>
              {isUpperSummery && <div className={styles.title_div} onClick={summonAnswer}>

@@ -17,7 +17,7 @@
 
 
 .billingAddressTitle{
-    margin: var(--size-5) 0;
+    margin: var(--size-4) 0;
     opacity: 0.9;
     font-size: var(--font-size-5);
     font-weight: 500;
@@ -28,13 +28,21 @@
     position: relative;
     width: calc(100% - 4px);
     box-sizing: border-box;
-    padding: 0 2px;
+  
   
     display: flex;
     flex-direction: row;
    
     margin-bottom: var(--size-5);
   
+}
+
+.InputFieldRow > :first-child{
+    margin-left: var(--size-2);
+}
+
+.InputFieldRow > :last-child{
+    margin-right: var(--size-2);
 }
 
 .billingCountry{
@@ -62,6 +70,14 @@
         margin-bottom: var(--size-4);
       
       }
+
+      .InputFieldRow > :first-child{
+        margin-left: 0;
+    }
+    
+    .InputFieldRow > :last-child{
+        margin-right: 0;
+    }
 }
 
 

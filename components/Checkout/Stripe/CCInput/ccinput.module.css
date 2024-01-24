@@ -42,27 +42,7 @@
   }
   
   
-  .input_field:-webkit-autofill {
-    background-color: #1c2025;
-    -webkit-box-shadow: 0 0 0 30px #1c2025 inset !important;
-    -webkit-text-fill-color: white !important;
-    
-    padding: var(--size-3);
-    padding-top: 22px;
-    border-radius: 2px;
-  }
-  
-  /* For Firefox */
-  .input_field:-moz-autofill {
-    background-color: #1c2025;
-    -webkit-box-shadow: 0 0 0 30px #1c2025 inset !important;
-    -webkit-text-fill-color: white !important;
-    
-    padding: var(--size-3);
-    padding-top: 22px;
-    border-radius: 2px;
-  }
-  
+
   
    
   
