@@ -187,7 +187,7 @@ const handleStripePay= async(event)=>{
               city: billingCity,
               state: billingState,
               postal_code: billingZipcode,
-              country: "US"
+              country: swapCountryCode(billingCountry)
           },
           phone:  billingPhone!=""?billingPhone:null
       }
@@ -442,10 +442,10 @@ const handleCCBlur= ()=>{
       <div id="isShippingBilling" className={styles.addressTypeChecker} 
      
       >
-          {!billingAddressSameAsShipping && <Image src='/images/correct.svg' height={10} width={10}/>}
+          {billingAddressSameAsShipping && <Image src='/images/correct.svg' height={10} width={10}/>}
         </div>
       <label className={styles.billingCheckboxLabel}>
-      Use shipping address as billing
+      Use shipping address as billing address
     </label>
     </div>
 

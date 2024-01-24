@@ -25,15 +25,28 @@ export default function BillingInfo({isOpen, errors, setErrors}){
           clearTimeout(visibilityTimeout.current);
           const billingInfoDiv= document.getElementById("billingInfo")
           if(isOpen){
+
+
+
          
           billingInfoDiv.style.maxHeight=`${billingInfoDiv.scrollHeight}px`;
           visibilityTimeout.current=setTimeout(()=>{
             billingInfoDiv.style.overflow = `visible`
-           }, 600)
+            billingInfoDiv.style.maxHeight=`999px`;
+           }, 500)
           }
           else{
-            billingInfoDiv.style.overflow = `hidden`
-            billingInfoDiv.style.maxHeight=`0`;
+
+            billingInfoDiv.style.transition=`max-height 0s ease`;
+            billingInfoDiv.style.overflow=`hidden`;
+            billingInfoDiv.style.maxHeight=`${billingInfoDiv.scrollHeight}px`;
+            setTimeout(()=>{
+              billingInfoDiv.style.transition=`max-height 0.5s ease`;
+              billingInfoDiv.style.maxHeight=`0`;
+             }, 1)
+
+
+            
           }
         },[isOpen])
         

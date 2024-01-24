@@ -40,7 +40,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
      }, 1)
    
      maxHeightTimoutAdj.current=setTimeout(()=>{
-      selectedPaymentFields.style.maxHeight=`999px`;
+      selectedPaymentFields.style.maxHeight=`1999px`;
       selectedPaymentFields.style.overflow = `visible`
      }, 600)
   }

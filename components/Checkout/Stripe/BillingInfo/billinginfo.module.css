@@ -4,9 +4,12 @@
 .billingAddressWrapper{
     width: calc(100% + 4px);
     max-height: 0;
-   
     overflow: hidden;
     transition: max-height 0.5s ease;
+}
+
+.billingAddressWrapper > :last-child{
+    margin-bottom: var(--size-2);
 }
 
 .billingAddressWrapperSpawned{
