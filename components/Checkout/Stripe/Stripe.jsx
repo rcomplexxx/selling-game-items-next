@@ -325,7 +325,7 @@ const handleCCBlur= ()=>{
   console.log('b',floatingLabelsHelper.current);
   setErrors(errorhelperRef.current);
   setFloatingLabels({...floatingLabelsHelper.current});
-
+  setFocusedField();
 }
   
     
@@ -388,7 +388,7 @@ const handleCCBlur= ()=>{
           color: 'white'
         }
       }}}
-      className={`${styles.input_field} ${errors.expiryDate && styles.input_error} ${focusedField==='expiryDate' && styles.stripeFieldFocused}`}
+      className={`${styles.input_field} ${errors.expiryDate && styles.input_error}`}
     />
     <label className={`${styles.label} ${floatingLabels.expiryDate && styles.labelFloating}`}>Expiration Date (MM / YY)</label>
     {errors.expiryDate && <p className={styles.stripeError}>{errors.expiryDate}</p>}
