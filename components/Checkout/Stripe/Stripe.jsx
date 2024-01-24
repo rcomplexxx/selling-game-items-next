@@ -356,7 +356,7 @@ const handleCCBlur= ()=>{
         color: 'white'
       }
     }}}
-    inputProps={{ type: 'tel' }}
+    inputProps={{ type: 'text' }}
         className={`${styles.input_field} ${errors.cardNumber && styles.input_error} ${focusedField==='cardNumber' && styles.stripeFieldFocused}`}
       /> 
       <FloatingBadge imageName='lock11.png'/>
@@ -389,7 +389,7 @@ const handleCCBlur= ()=>{
           color: 'white'
         }
       }}}
-      inputProps={{ type: 'tel' }}
+      inputProps={{ type: 'text' }}
       className={`${styles.input_field} ${errors.expiryDate && styles.input_error} ${focusedField==='expiryDate' && styles.stripeFieldFocused}`}
     />
     <span className={`${styles.label} ${floatingLabels.expiryDate && styles.labelFloating}`}>Expiration Date (MM / YY)</span>
