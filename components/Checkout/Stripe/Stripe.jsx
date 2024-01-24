@@ -340,11 +340,7 @@ const handleCCBlur= ()=>{
     <CardNumberElement
     onBlur={handleCCBlur}
     onChange={handleCCChange}
-    onFocus={()=>{
-      setFocusedField('cardNumber');
-      setFloatingLabels({...floatingLabelsHelper.current, cardNumber:true});
-    
-      }}
+   
     options={{placeholder:'',  style: {
       base: {
         color: 'white',
@@ -374,10 +370,7 @@ const handleCCBlur= ()=>{
        <div className={styles.form_group}>
       <CardExpiryElement id="expiryDate"
  onBlur={handleCCBlur}
- onFocus={()=>{
-  setFocusedField('expiryDate');
-  setFloatingLabels({...floatingLabelsHelper.current, expiryDate:true});
-  }}
+
  onChange={handleCCChange}
       options={{placeholder:'',  style: {
         base: {
@@ -399,10 +392,7 @@ const handleCCBlur= ()=>{
   <CardCvcElement  id="cvv" 
    onBlur={handleCCBlur}
    onChange={handleCCChange}
-  onFocus={()=>{
-    setFocusedField('cvv');
-  setFloatingLabels({...floatingLabelsHelper.current, cvv:true});
-  }}
+
    options={{placeholder:'',  style: {
     base: {
       color: 'white',

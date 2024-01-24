@@ -114,7 +114,7 @@
   }
   
     .input_field:focus { 
-      outline: none !important;
+      outline: none;
       border-color: #7daee2;
       box-shadow: 0 0 6px #7daee2;
   }
