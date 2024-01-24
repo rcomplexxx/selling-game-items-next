@@ -19,7 +19,7 @@
   width: 100%;
 
   box-sizing: border-box;
-  padding: var(--size-6) var(--size-5) ;
+  padding: var(--size-6) var(--size-6) ;
   font-size: var(--font-size-3);
   cursor: pointer;
   user-select: none;
@@ -62,7 +62,7 @@
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   box-sizing: border-box;
-  padding: 0 var(--size-5) ;
+  padding: 0 var(--size-6) ;
 
   overflow: hidden;
   transition: max-height 0.5s ease;
@@ -235,3 +235,16 @@
 }
 
 
+
+@media(max-width: 980px){
+
+  .tipDiv{
+  padding: 0 var(--size-5) ;
+  }
+
+
+  .tipShowCheckboxDiv{
+
+    padding: var(--size-6) var(--size-5) ;
+  }
+}
