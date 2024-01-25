@@ -139,7 +139,7 @@
 
 .moreCards{
     position: relative;
-    color: var(--blue-4);
+    color: var(--blue-8);
     background-color: white;  
     height: 26px;
     width: 46px;
@@ -155,7 +155,7 @@
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 3px;
     font-size: var(--font-size-1);
-    font-weight: 500;
+    font-weight: 700;
     justify-self: flex-start;
     z-index: 15;
 }
@@ -167,12 +167,12 @@
     align-items: center;
 
     position:absolute;
-    bottom: calc(50% + 15px);
-    right: -64px;
-    transform: scale(0.6) translateY(4px);
+    bottom: calc(100% - 2px);
+    right: 50%;
+    transform: scale(0.6) translateY(0);
     opacity: 0;
-    transition: opacity 0.2s ease, transform 0.2s ease,margin-right 0.2s ease;
-    transform-origin: bottom center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transform-origin: bottom;
 
     user-select: none;
     pointer-events: none;
@@ -180,7 +180,8 @@
 }
 
 .moreCardsPopupOpen{
-    transform: scale(1)  translateY(0);
+    bottom: calc(100% + 2px);
+    transform: scale(1) translateY(4px);
     opacity: 1;
 }
 
@@ -188,7 +189,8 @@
 .moreCardsPopup{
    
     height: 32px;
-    width: max-content;
+    display: flex;
+    
     background-color: rgba(127, 127, 163, 0.9);
     color: black;
     padding: 8px;
@@ -261,9 +263,10 @@
 .moreCardsPopupWrapper{
     align-items: flex-end;
     right: -28px;
-    bottom: calc(50% + 13px);
-    margin-right: 16px;
+    bottom: calc(100% + 2px);
     transform-origin: bottom right;
+    transform: scale(0.6) translateY(4px) translateX(-28px);
+   
 }
 
 
@@ -275,7 +278,7 @@
 }
 
 .moreCardsPopupTriangle{
-    margin-right: 42px;
+    transform:  translateX(-40px);
 }
 
 
