@@ -201,12 +201,15 @@
  
 
   .addTip{
-    background-color: rgb(104, 34, 34);
+    color: white;
+    background-color: rgb(62, 44, 36);
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid rgba(128, 128, 128, 0.503);
     padding: 0 var(--size-5);
     transition: background-color 0.1s ease;
     cursor: pointer;
@@ -215,7 +218,18 @@
   }
 
   .addTip:hover{
-    background-color: rgb(85, 28, 28);
+    background-color: rgb(50, 36, 30);
+
+  }
+
+  .addTipDisabled{
+    color: rgb(152, 152, 152);
+    background-color: rgb(24, 24, 34);
+    cursor:auto;
+  }
+
+  .addTipDisabled:hover{
+    background-color: rgb(24, 24, 34);
 
   }
   

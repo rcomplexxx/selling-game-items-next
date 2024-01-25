@@ -75,7 +75,7 @@
 .borderLineDiv{
     width: 100%;
   
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.503);
 
 }
 

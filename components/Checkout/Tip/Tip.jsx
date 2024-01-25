@@ -13,6 +13,7 @@ export default function Tip({products, tip, setTip}){
     
     const [tipInputValue, setTipInputValue]= useState("");
     const [tipInputFocused, setTipInputFocused] = useState(false);
+    const [applyDisabled, setApplyDisabled] = useState(true);
     const [tipError, setTipError] = useState();
     const visibilityTimeout = useRef();
 
@@ -55,6 +56,9 @@ export default function Tip({products, tip, setTip}){
               tipDiv.style.transition=`max-height 0.6s ease`;
               tipDiv.style.maxHeight=`0`;
              }, 1)
+             setTipInputValue("");
+             setSelectedField();
+            setTip(0);
 
           }
         },[tipShow])
@@ -66,7 +70,7 @@ export default function Tip({products, tip, setTip}){
     return <div className={styles.tipMainDiv}>
 
 
-<div className={styles.tipShowCheckboxDiv}  onClick={()=>{setTipShow(!tipShow)}}>
+<div className={styles.tipShowCheckboxDiv}  onClick={()=>{ setTipShow(!tipShow)}}>
       <div  className={styles.tipShowChecker}>
         {tipShow && <Image src='/images/correct.svg' height={10} width={10}/>}
       </div>
@@ -83,17 +87,17 @@ export default function Tip({products, tip, setTip}){
         <div className={styles.roundPercentWrapper}>
             <div className={`${styles.roundPercent} ${selectedField==5 && styles.selectedPercent}`} 
             onClick={()=>{
-              setTipError(); setTipInputValue(""); setSelectedField(5); setTip((fullProductCost*5/100).toFixed(2));}}>
+              setTipError(); setTipInputValue(""); setApplyDisabled(true); setSelectedField(5); setTip((fullProductCost*5/100).toFixed(2));}}>
             <span className={styles.roundPercentSpan}>5%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*5/100).toFixed(2)}</span>
             </div>
             <div className={`${styles.roundPercent} ${selectedField==10 && styles.selectedPercent}`}
-             onClick={()=>{setTipError();setTipInputValue(""); setSelectedField(10); setTip((fullProductCost*10/100).toFixed(2));}}>
+             onClick={()=>{setTipError();setTipInputValue(""); setApplyDisabled(true); setSelectedField(10); setTip((fullProductCost*10/100).toFixed(2));}}>
             <span className={styles.roundPercentSpan}>10%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*10/100).toFixed(2)}</span>
             </div>
             <div className={`${styles.roundPercent} ${selectedField==15 && styles.selectedPercent}`} 
-            onClick={()=>{setTipError();setTipInputValue(""); setSelectedField(15); setTip((fullProductCost*15/100).toFixed(2));}}>
+            onClick={()=>{setTipError();setTipInputValue(""); setApplyDisabled(true); setSelectedField(15); setTip((fullProductCost*15/100).toFixed(2));}}>
             <span className={styles.roundPercentSpan}>15%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*15/100).toFixed(2)}</span>
             </div>
@@ -114,13 +118,23 @@ export default function Tip({products, tip, setTip}){
             
             // Check if all other characters are digits
             const areAllOtherCharsDigits = /^[0-9]+$/.test(tipValue.slice(0, -1));
-            if(tipValue==="" || (hasOnlyOneDot && areAllOtherCharsDigits)){
+            if(tipValue==="" ){
+              if(tip==0)setApplyDisabled(true);
+              else setApplyDisabled(false);
                 setTipInputValue(tipValue);
                 return;
-            }            
+            }    
+            if(hasOnlyOneDot && areAllOtherCharsDigits){
+              if(tip==parseFloat(tipValue.slice(0, -1)))setApplyDisabled(true);
+              else setApplyDisabled(false);
+              setTipInputValue(tipValue);
+              return;
+            }        
             setTipError();
             const floatValue = parseFloat(tipValue);
             if(isNaN(floatValue) || /^-?\d*\.\d{3,}$/.test(tipValue))return;
+            if(floatValue!=tip)setApplyDisabled(false);
+            else setApplyDisabled(true);
         
             setTipInputValue(floatValue)
         }}
@@ -137,10 +151,11 @@ export default function Tip({products, tip, setTip}){
       {(tipInputValue!=="" || tipInputFocused ) && <span className={styles.dollarSign}>$ </span>}
 
         </div>
-        <span className={`${styles.addTip} ${tipInputValue=="" && styles.addTipDisabled}`}
+        <span className={`${styles.addTip} ${applyDisabled && styles.addTipDisabled}`}
         onClick={()=>{
           if(parseFloat(tipInputValue, 2) > fullProductCost) {setTipInputValue(""); setTipError(true); return;}
             setSelectedField(0);
+            setApplyDisabled(true);
             if(tipInputValue=="")setTip(0);
             else setTip(parseFloat(tipInputValue).toFixed(2));
         }}    >{tip==0?"Add tip":"Update tip"}</span>

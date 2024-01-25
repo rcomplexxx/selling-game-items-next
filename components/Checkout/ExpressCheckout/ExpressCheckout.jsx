@@ -19,7 +19,7 @@ export default function ExpressCheckout({
           <span className={styles.paymentDivBg}/>
           <div className={styles.paymentDivFront}>
           <PayPalButton
-          color='gold'
+          color='blue'
           type='express'
              checkFields={checkFields}
              organizeUserData={organizeUserData}
