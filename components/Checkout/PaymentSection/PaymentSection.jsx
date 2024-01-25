@@ -52,7 +52,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
 
   useEffect(() => {
     const handleResize = () => {
-      if(window.innerWidth<370)
+      if(window.innerWidth<372)
       setShowOnlyTwoCards(true);
     else setShowOnlyTwoCards(false);
     };
@@ -90,8 +90,8 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
            <div className={styles.CCSolutions}>
             <div className={styles.CCWrapper}>
             <Image src='/images/cardVisa2.svg' className={styles.creditCardLogo} height={28} width={48}/>
-            <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={28} width={48}/>
-            {!showOnlyTwoCards && <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>}
+            {!showOnlyTwoCards &&  <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={28} width={48}/>}
+            <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>
            
             <div className={styles.moreCards} onMouseEnter={()=>{window.matchMedia('(pointer: fine)').matches && setMoreCardsPopupOpen(true)}}
             onMouseLeave={()=>{window.matchMedia('(pointer: fine)').matches && setMoreCardsPopupOpen(false)}}
@@ -100,7 +100,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
            
             <div className={`${styles.moreCardsPopupWrapper} ${moreCardsPopupOpen && styles.moreCardsPopupOpen}`}>
             <div className={styles.moreCardsPopup}>
-            {showOnlyTwoCards && <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>}
+            {showOnlyTwoCards && <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={28} width={48}/>}
             <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardJcb2.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardUnionPay2.svg' className={styles.creditCardLogo} height={28} width={48}/>
