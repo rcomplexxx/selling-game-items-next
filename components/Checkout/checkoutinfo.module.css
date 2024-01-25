@@ -210,7 +210,7 @@
   .checkoutFooter{
     max-width: var(--size-15-5);
     width: calc(100% - var(--size-11));
-    margin: var(--size-4) var(--size-8);
+    margin: var(--size-5) var(--size-8);
     
     display: flex;
     justify-content: flex-start;
@@ -252,11 +252,11 @@
   
 
    
-    .checkoutFooter{
+    /* .checkoutFooter{
       width: 100% ;
       margin-right: var(--size-3);
       margin-left: var(--size-3);
-    }
+    } */
 
  
     
@@ -284,6 +284,11 @@
   .aptAdder{
     margin-bottom: var(--size-4);
   }
+
+  .checkoutFooter{
+    margin-right: var(--size-6);
+    margin-left: var(--size-6);
+  }
   
  
    
@@ -292,6 +297,10 @@
 
   @media (max-width: 600px)  {
     .checkout_left{
+      width: calc(100% - var(--size-8));
+    }
+
+    .checkoutFooter{
       width: calc(100% - var(--size-8));
     }
 
