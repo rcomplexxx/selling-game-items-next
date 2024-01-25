@@ -208,7 +208,7 @@
   }
 
   .checkoutFooter{
-    max-width: calc(var(--size-15-5) + var(--size-5));
+    max-width: var(--size-15-5);
     width: calc(100% - var(--size-11));
     margin: 20px var(--size-8);
     
