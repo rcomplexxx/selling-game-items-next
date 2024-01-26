@@ -201,11 +201,6 @@
         margin-top: var(--size-5);
     }
 
-    .trustIconImage{
-        height: 40px;
-        width: 40px;
-    }
-
     .trustIcon span{
         font-size: var(--font-size-1);
     }
@@ -217,7 +212,10 @@
         margin-top: var(--size-4);
     }
 
-   
+    .trustIconImage{
+        height: 40px;
+        width: 40px;
+    }
 
     .trustIcon span{
         margin-top: var(--size-2);
