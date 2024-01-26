@@ -329,7 +329,7 @@
   @media (max-width: 580px){
     .fixedAddToCartDiv{
       position: fixed;
-      bottom: 0;
+      bottom: 0svh;
       left: -1px;
       width: 100%;
      
