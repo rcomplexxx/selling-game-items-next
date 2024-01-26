@@ -400,6 +400,10 @@
   
     @media(min-width:980px){
 
+      .rightWrapper{
+        box-sizing: border-box;
+        border-left: 1px solid rgba(128, 128, 128, 0.503);
+      }
 
       .orderWrapper{
         position: sticky;
