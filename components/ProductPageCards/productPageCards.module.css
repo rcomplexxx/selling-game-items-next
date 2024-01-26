@@ -214,6 +214,10 @@
         height: var(--size-7);
         width: var(--size-7);
     }
+
+    .trustIcon span{
+        margin-top: var(--size-2);
+    }
   
 }
 
