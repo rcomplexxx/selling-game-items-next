@@ -344,7 +344,7 @@
       transform: translateY(100%);
       transition: opacity 0.3s ease, transform 0.3s ease;
     overflow: hidden;
-      z-index: 3;
+    z-index: 10;
      
     }
 
@@ -355,7 +355,7 @@
 
   
     .fixedAddToCart{
-      height: 48px;
+      height: var(--size-8);
       width: 100%;
       max-width: var(--size-15);
   
