@@ -8,6 +8,7 @@ import React, { useState, useEffect } from "react";
 import products from "../../../data/products.json";
 import Head from "next/head";
 import styles from "./checkout.module.css";
+import CheckoutLogo from "@/components/Checkout/CheckoutLogo/CheckoutLogo";
 
 const BuyNowPage = () => {
   const router = useRouter();
@@ -66,12 +67,14 @@ const BuyNowPage = () => {
         <title>Checkout - Gamesmoke shop</title>
       </Head>
 
+      <div className={styles.checkoutMainContainer}>
+      <CheckoutLogo/>
       <div className={styles.checkout_container}>
         <OrderDetails discount={discount} setDiscount={setDiscount} tip={tip} products={cartProducts} />
 
-        <CheckoutInfo discount={discount} tip={tip} setTip={setTip} products={cartProducts} setCartProducts={setCartProducts}>
+        <CheckoutInfo discount={discount} tip={tip} setTip={setTip} products={cartProducts} setCartProducts={setCartProducts}/>
         
-        </CheckoutInfo>
+        </div>
       </div>
     </>
   );

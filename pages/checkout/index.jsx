@@ -21,9 +21,9 @@ const CheckoutPage = () => {
       <div className={`${styles.checkout_container} ${styles.checkoutAbsolute}`}>
         <OrderDetails discount={discount} setDiscount={setDiscount} tip={tip} products={cartProducts} />
 
-        <CheckoutInfo discount={discount} tip={tip} setTip={setTip} products={cartProducts} setCartProducts={setCartProducts}>
+        <CheckoutInfo discount={discount} tip={tip} setTip={setTip} products={cartProducts} setCartProducts={setCartProducts}/>
           
-        </CheckoutInfo>
+        
       </div>
     </>
   );

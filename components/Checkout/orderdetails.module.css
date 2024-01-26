@@ -19,6 +19,17 @@
     margin-right: var(--size-6);
     margin-left: var(--size-6);
   }
+
+  .orderWrapper{
+    border-radius: 4px;
+   
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   box-sizing: border-box;
+   padding: 0;
+   
+  }
   
  
   
@@ -312,16 +323,7 @@
 
 
 
-  .orderWrapper{
-    border-radius: 4px;
-   
-    width: 100%;
-    display: flex;
-    justify-content: center;
-   box-sizing: border-box;
-   padding: 0;
-   
-  }
+ 
 
  
 
@@ -400,9 +402,8 @@
 
 
       .orderWrapper{
-        position: fixed;
-        width: calc(50% - var(--size-11));
-        max-width: var(--size-14-5);
+        position: sticky;
+       
       
         top: var(--size-8);
       }
