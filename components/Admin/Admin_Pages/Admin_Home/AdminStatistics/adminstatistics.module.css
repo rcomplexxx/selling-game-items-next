@@ -84,3 +84,12 @@
     margin: var(--size-3) 0;
     border: 1px solid gray;
 }
+
+
+.lineStatsWrapper{
+    height: var(--size-13);
+    width: 100%;
+    margin-top: var(--size-7);
+    margin-bottom: var(--size-7);
+    z-index: 10;
+}

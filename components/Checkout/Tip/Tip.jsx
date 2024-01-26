@@ -85,21 +85,33 @@ export default function Tip({products, tip, setTip}){
       
       <div id='tipDiv' className={styles.tipDiv}>
         <div className={styles.roundPercentWrapper}>
-            <div className={`${styles.roundPercent} ${selectedField==5 && styles.selectedPercent}`} 
+            <div className={`${styles.roundPercent}`} 
             onClick={()=>{
               setTipError(); setTipInputValue(""); setApplyDisabled(true); setSelectedField(5); setTip((fullProductCost*5/100).toFixed(2));}}>
             <span className={styles.roundPercentSpan}>5%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*5/100).toFixed(2)}</span>
+            {
+              selectedField==5 &&
+              <div className={styles.selectedPercent}/>
+            }
             </div>
-            <div className={`${styles.roundPercent} ${selectedField==10 && styles.selectedPercent}`}
+            <div className={`${styles.roundPercent}`}
              onClick={()=>{setTipError();setTipInputValue(""); setApplyDisabled(true); setSelectedField(10); setTip((fullProductCost*10/100).toFixed(2));}}>
             <span className={styles.roundPercentSpan}>10%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*10/100).toFixed(2)}</span>
+            {
+              selectedField==10 &&
+              <div className={styles.selectedPercent}/>
+            }
             </div>
-            <div className={`${styles.roundPercent} ${selectedField==15 && styles.selectedPercent}`} 
+            <div className={`${styles.roundPercent}`} 
             onClick={()=>{setTipError();setTipInputValue(""); setApplyDisabled(true); setSelectedField(15); setTip((fullProductCost*15/100).toFixed(2));}}>
             <span className={styles.roundPercentSpan}>15%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*15/100).toFixed(2)}</span>
+            {
+              selectedField==15 &&
+              <div className={styles.selectedPercent}/>
+            }
             </div>
            
         </div>

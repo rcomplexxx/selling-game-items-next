@@ -32,23 +32,7 @@ export default async function handler(req, res) {
 
     // Rate limiting checks passed, proceed with API logic
 
-    if (req.method === "GET") {
-      try {
-        // Create a new SQLite database connection
-        const db = betterSqlite3(process.env.DB_PATH);
-
-        // Define a database query for fetching data (example: all orders)
-        const rows = db.prepare("SELECT * FROM orders").all();
-
-        res.status(200).json({ data: rows });
-
-        // Close the database connection when done
-        db.close();
-      } catch (error) {
-        console.error("Error handling GET request:", error);
-        res.status(500).json({ error: "Internal Server Error" });
-      }
-    } else if (req.method === "POST") {
+    if (req.method === "POST") {
       // Handle POST requests here
       try {
         if (!req.body.type) return;

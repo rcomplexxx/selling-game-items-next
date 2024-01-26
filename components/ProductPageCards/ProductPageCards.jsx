@@ -1,3 +1,4 @@
+import Image from "next/image";
 import DropCard from "./DropCard/DropCard";
 import styles from "./productPageCards.module.css";
 import { useRef, useState } from "react";
@@ -178,6 +179,21 @@ export default function ProductPageCards() {
           </button>
         </div>
       </DropCard>
+
+      <div className={styles.trustIcons}>
+        <div className={styles.trustIcon}>
+          <Image height={0} width={0} sizes="48px" className={styles.trustIconImage} src='/images/truckIcon8.svg' />
+          <span>Free shipping</span>
+        </div>
+        <div className={styles.trustIcon}>
+          <Image height={0} width={0} sizes="48px" className={styles.trustIconImage} src='/images/packageReturn4.png'/>
+          <span>Free returns</span>
+        </div>
+        <div className={styles.trustIcon}>
+          <Image height={0} width={0} sizes="48px" className={styles.trustIconImage} src='/images/guarantee4.png'/>
+          <span>30 Days money back guarantee</span>
+        </div>
+      </div>
     </>
   );
 }

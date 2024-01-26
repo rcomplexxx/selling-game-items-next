@@ -3,14 +3,55 @@ import styles from './adminstatistics.module.css'
 import DatePicker from 'react-multi-date-picker';
 import "react-multi-date-picker/styles/backgrounds/bg-dark.css"
 import products from "@/data/products.json";
+import { Line } from 'react-chartjs-2';
+import 'chartjs-adapter-moment';
+import {Chart, LinearScale, PointElement,LineElement , Tooltip, Legend, TimeScale, Filler} from "chart.js"; 
 
 
 
-
+Chart.register(LinearScale, LineElement , PointElement, Tooltip, Legend, TimeScale, Filler); 
 
 export default function AdminStatistics(){
     const [selectedRange, setSelectedRange] = useState([]);
-    const [cashData, setCashDate] = useState([]);
+    const [cashData, setCashData] = useState([]);
+
+    const [chartData, setChartData] = useState(null);
+
+    const chartOptions = {
+      scales: {
+        x: {
+          type: 'time',
+          time: {
+            unit: 'day', // You can change the unit to 'week', 'month', or 'hour' as needed
+          },
+        },
+        y: {
+          beginAtZero: true,
+        },
+      },
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+        },
+        zoom: {
+          zoom: {
+            wheel: {
+              enabled: true,
+            },
+            pinch: {
+              enabled: true,
+            },
+            mode: 'x',
+          },
+        },
+      },
+
+      
+    };
+
+
+
     // dataType={}
     useEffect(() => {
         const fetchData = async () => {
@@ -48,11 +89,60 @@ export default function AdminStatistics(){
 
               }
               );
-              setCashDate(cashInfo);
+              setCashData(cashInfo);
 
-              
-              
+              const chartInfo = [];
 
+              const startDate = Math.floor(Math.min(
+                ...cashInfo.map(item => {console.log(item);return item.createdDate})
+                
+                )
+                );
+              const currentDate = Math.floor(Date.now() / (1000 * 60 * 60 * 24))+1;
+
+              for ( let i = startDate; i < currentDate; i++){
+                console.log('dates',new Date(i * 1000 * 60 * 60 * 24));
+                chartInfo.push({date: i, cash: 0})
+              }
+
+              cashInfo.map(item=>{
+               const foundItemIndex= chartInfo.findIndex(chartItem=>{return chartItem.date===item.createdDate});
+               if(foundItemIndex != -1)chartInfo[foundItemIndex].cash=chartInfo[foundItemIndex].cash+item.cash;
+            
+               
+               else    chartInfo.push({date:item.createdDate, cash:item.cash});
+
+               
+              })
+
+                
+          
+                const formattedData = chartInfo.map(item => ({
+                  x: new Date(item.date * 24 * 60 * 60 * 1000),
+                  y: item.cash,
+                }));
+            
+                // Sorting data based on the date
+                formattedData.sort((a, b) => a.x - b.x);
+            
+                // Creating datasets for Chart.js
+                const chartDatasets = [
+                  {
+                    label: 'Money in (without expenses)',
+                    data: formattedData,
+                    fill: "origin",
+                    backgroundColor: 'rgba(21, 23, 27, 0.507)',
+                    borderColor: 'rgba(63, 96, 79, 0.85)',
+                    responsive: true,
+                    tension: 0.1
+                  },
+                ];
+            
+              
+            
+                setChartData({
+                  datasets: chartDatasets,
+                });
   
 
               // products
@@ -68,6 +158,12 @@ export default function AdminStatistics(){
       
         fetchData();
       }, []);
+
+
+
+
+
+
 
       const StatField=(period,startPeriod, endPeriod)=>{
         
@@ -164,12 +260,24 @@ export default function AdminStatistics(){
 </div>
       
         
-       
+
     
 
     </div>
 
 
+
+
+    <div className={styles.lineStatsWrapper}>
+      {chartData && (
+        <Line
+          data={chartData}
+          options={chartOptions}
+          width={600}
+          height={400}
+        />
+      )}
+    </div>
 
     </div>
 }

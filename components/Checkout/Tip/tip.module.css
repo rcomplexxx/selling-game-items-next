@@ -90,6 +90,7 @@
 }
 
 .roundPercent{
+  position: relative;
     flex:1;
    
     display: flex;
@@ -103,6 +104,11 @@
 }
 
 .selectedPercent{
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  height: 100%;
+  width: 100%;
     border: 1px solid var(--blue-4);
 }
 

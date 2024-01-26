@@ -9,6 +9,12 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
     const [moreCardsPopupOpen, setMoreCardsPopupOpen] = useState(false);
     const [showOnlyTwoCards, setShowOnlyTwoCards] = useState(false);
     const maxHeightTimoutAdj = useRef();
+    const moreCardsPopupRef = useRef();
+
+
+ 
+
+
     
   useEffect(()=>{
 
@@ -67,6 +73,28 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (moreCardsPopupRef.current && !moreCardsPopupRef.current.contains(event.target)) {
+        // Clicked outside the floating div, so close the dialog
+        setMoreCardsPopupOpen(false);
+      }
+    };
+
+    if(moreCardsPopupOpen){
+      document.addEventListener('click', handleClickOutside);
+    }
+    else{
+      document.removeEventListener('click', handleClickOutside);
+    }
+
+  
+
+    return () => {
+      if(moreCardsPopupOpen) document.removeEventListener('click', handleClickOutside);
+    };
+  }, [moreCardsPopupOpen]);
   
 
 
@@ -80,7 +108,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
       <div className={styles.mainWrapper}>
        
       
-        <div className={`${styles.paymentOptionDiv} ${paymentMethod=="creditcard" && styles.selectedOption}`} onClick={()=>{setPaymentMethod("creditcard")}}>
+        <div className={`${styles.paymentOptionDiv} ${paymentMethod=="creditcard" && styles.selectedOption}`} onClick={(event)=>{if(!document.getElementById("moreCards")?.contains(event.target))setPaymentMethod("creditcard")}}>
            <div className={styles.pickOption}>
             <div className={`${styles.pickCheck} ${paymentMethod=="creditcard" && styles.pickCheckSelected}`}>
                 <div className={paymentMethod=="creditcard" && styles.ringEffectDiv}></div>
@@ -93,13 +121,13 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
             <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={28} width={48}/>
             {!showOnlyTwoCards && <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>}
            
-            <div className={styles.moreCards} onMouseEnter={()=>{window.matchMedia('(pointer: fine)').matches && setMoreCardsPopupOpen(true)}}
-            onMouseLeave={()=>{window.matchMedia('(pointer: fine)').matches && setMoreCardsPopupOpen(false)}}
-            onClick={(event)=>{ event.stopPropagation(); setMoreCardsPopupOpen(!moreCardsPopupOpen)}}
+            <div id="moreCards" className={styles.moreCards} onMouseEnter={()=>{if(window.matchMedia('(pointer: fine)').matches) setMoreCardsPopupOpen(true)}}
+            onMouseLeave={()=>{if(window.matchMedia('(pointer: fine)').matches) setMoreCardsPopupOpen(false)}}
+            onClick={(event)=>{  if(!moreCardsPopupOpen)moreCardsPopupRef.current=event.target; setMoreCardsPopupOpen(!moreCardsPopupOpen)}}
             ><span>+{showOnlyTwoCards?"4":"3"}</span>
            
             <div className={`${styles.moreCardsPopupWrapper} ${moreCardsPopupOpen && styles.moreCardsPopupOpen}`}>
-            <div className={styles.moreCardsPopup}>
+            <div onClick={(event)=>{event.stopPropagation();setMoreCardsPopupOpen(false);}} className={styles.moreCardsPopup}>
             {showOnlyTwoCards && <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>}
             <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardJcb2.svg' className={styles.creditCardLogo} height={28} width={48}/>
