@@ -184,9 +184,20 @@
    
 }
 
+@media(max-width: 600px){
+
+    .trustIcon{
+        margin-top: var(--size-6);
+    }
+}
+
 
 
 @media( max-width: 370px){
+
+    .trustIcon{
+        margin-top: var(--size-5);
+    }
 
     .trustIcon span{
         font-size: var(--font-size-1);
@@ -194,6 +205,10 @@
 }
 
 @media( max-width: 320px){
+
+    .trustIcon{
+        margin-top: var(--size-4);
+    }
 
     .trustIconImage{
         height: var(--size-7);
