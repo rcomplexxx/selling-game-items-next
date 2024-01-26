@@ -158,11 +158,13 @@
     box-sizing: border-box;
     padding: var(--size-5) var(--size-2);
     margin-top: var(--size-7);
+   
 }
 
 .trustIconImage{
     height: 48px;
     width: 48px;
+    opacity: 0.9;
 }
 
 .trustIcon span{
