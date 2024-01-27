@@ -283,4 +283,14 @@
     }
   }
 
- 
+  @media(max-width: 352px){
+    .buyBadges{
+      width: var(--size-13);
+    }
+
+    .creditCardLogo{
+   
+      margin: var(--size-2) var(--size-2);
+   
+    }
+  }
