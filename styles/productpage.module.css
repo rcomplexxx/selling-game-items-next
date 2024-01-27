@@ -118,7 +118,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: var(--size-1);
+    margin-top: calc(var(--size-2));
   }
   
 
@@ -127,7 +127,7 @@
   .creditCardLogo{
     height:42px; 
     width: 72px;
-    margin: var(--size-3) var(--size-3);
+    margin: var(--size-4) var(--size-2);
  
   }
 
@@ -269,7 +269,7 @@
     .creditCardLogo{
       height:35px; 
       width: 60px;
-      margin: var(--size-2) var(--size-2);
+      margin: var(--size-3) var(--size-2);
    
     }
   }
