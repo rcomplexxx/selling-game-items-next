@@ -45,6 +45,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
           
             <div className={styles.growAlt}>
               <div
+              id='mobileMenuSpawn'
                 className={styles.menuIconDiv}
                 onClick={handleMobileMenuOpen}
               >
@@ -275,9 +276,9 @@ setSubMenu(subMenu==2?0:2);
         {!isMenuOpen && <PopupCart totalItems={totalItems} newProduct={newProduct} setNewProduct={setNewProduct}/>}
       </nav>
 
-      {isMenuOpen && (
-        <MobileMenu subMenu={subMenu} setSubMenu={setSubMenu} setIsMenuOpen={setIsMenuOpen}/>
-      )}
+    
+        <MobileMenu isMenuOpen={isMenuOpen} subMenu={subMenu} setSubMenu={setSubMenu} setIsMenuOpen={setIsMenuOpen}/>
+    
     </>
   );
 };

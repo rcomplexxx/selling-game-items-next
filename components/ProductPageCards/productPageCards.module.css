@@ -164,7 +164,6 @@
 .trustIconImage{
     height: var(--size-8);
     width: var(--size-8);
-    opacity: 0.9;
 }
 
 .trustIcon span{

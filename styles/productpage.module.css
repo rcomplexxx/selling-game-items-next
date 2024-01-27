@@ -111,6 +111,14 @@
     box-shadow: 0 0 3px rgb(182, 184, 100);
   }
 
+
+  .buyBadges{
+    background-color: brown;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .productInfo{
     
     width: var(--size-14-5);

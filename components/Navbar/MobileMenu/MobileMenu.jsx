@@ -2,50 +2,59 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./mobilemenu.module.css";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import collections from '@/data/collections.json'
 import Image from "next/image";
 
-export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
+export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMenu}){
 
-    const [isMenuClosing, setIsMenuClosing] = useState(false);
-
-
+ 
   
 
     const router = useRouter();
     const pathname = router.asPath;
 
+    useEffect(() => {
 
-    
-    const handleMobileMenuClose = () => {
-        
-        setIsMenuClosing(true);
-    
-        setTimeout(() => {
-          setIsMenuOpen(false);
-          setIsMenuClosing(false);
-          if(pathname!=='/faq' && pathname!=='/terms-of-service' && pathname!=='/privacy-policy'
-        && pathname!=='/shipping-policy' && pathname!=='/refund-policy') setSubMenu(0);
-        }, 500);
+      const handleClickOutside = (event) => {
+       
+        event.stopPropagation();
+      
+
+        if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
+        setIsMenuOpen(false);
+        document.removeEventListener('click', handleClickOutside, true);
       };
+      if(isMenuOpen){
+        document?.addEventListener('click', handleClickOutside, true);
+      }
+      else{
+        document?.removeEventListener('click', handleClickOutside, true);
+      }
+  
+      return () => {
+        if (isMenuOpen) {
+          document?.removeEventListener('click', handleClickOutside);
+        }
+      };
+    }, [isMenuOpen]);
 
-
-    return <div
+    console.log(isMenuOpen)
     
-    className={
-      styles.mobileMenu +
-      " " +
-      (isMenuClosing ? styles.menuCoverDissapear : "")
-    }
-    onClick={handleMobileMenuClose}
-  >
-    <div
+ 
+
+
+  //   return <div
+    
+  //   className={`${styles.mobileMenu} ${isMenuClosing && styles.menuCoverDissapear}`
+    
+  //   }
+  //   onClick={handleMobileMenuClose} ${!isMenuOpen && styles.menuClosed}
+  // >
+    return <div
     id='mobileMenu'
-      className={
-        styles.mainMenuCard +
-        " " +
-        (isMenuClosing ? styles.menuClose : "")
+      className={`${styles.mainMenuCard} ${!isMenuOpen && styles.menuClosed}`
+     
       }
       onClick={(e) => e.stopPropagation()}
     >
@@ -53,7 +62,7 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
 
 
    
-      <Image height={16} width={16} src='/images/cancelWhite.png' className={styles.menuItem_x_button}   onClick={handleMobileMenuClose}/>                 
+      <Image height={16} width={16} src='/images/cancelWhite.png' onClick={()=>{setIsMenuOpen(false)}} className={styles.menuItem_x_button}/>                 
                     
 
      
@@ -256,7 +265,6 @@ export default function MobileMenu({setIsMenuOpen, subMenu, setSubMenu}){
 
 
       
-      </div>
     
   </div>
 }

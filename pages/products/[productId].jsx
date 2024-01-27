@@ -87,7 +87,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
                 .scrollIntoView({ behavior: "smooth" });
             }}
           >
-            {" "}
+           
             <StarRatings
               rating={ratingData.rating?ratingData.rating:4.7}
               starRatedColor="#97892F"
@@ -142,6 +142,13 @@ export default function ProductPage({ product, images, startReviews, ratingData 
           <button className={styles.but_now_button} onClick={() => buyNow()}>
             Buy it now
           </button>
+
+          <div className={styles.buyBadges}>
+          <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardJcb2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardUnionPay2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            
+          </div>
 
           <FrequentlyBoughtTogether
             products={product.fbt}
