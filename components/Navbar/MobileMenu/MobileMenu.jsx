@@ -23,23 +23,29 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
       const handleClickOutside = (event) => {
 
+        
+
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { event.stopPropagation(); event.preventDefault(); setIsMenuOpen(false);}
         document.removeEventListener('click', handleClickOutside, true);
       };
 
       const handlePopState = (event)=>{
-        if ('scrollRestoration' in history) {
-          history.scrollRestoration = 'manual';
-        }
+        
         backLinkSetRef.current=false;
        
         setIsMenuOpen(false);
+        window?.removeEventListener("popstate", handlePopState);
          console.log('popstate')
       }
 
 
       if(isMenuOpen){
+
+        router.beforePopState((state) => {
+          state.options.scroll = false;
+          return true;
+        });
         
 
         console.log('asPath', router.asPath,'pathname', router.pathname);
