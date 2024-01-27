@@ -159,7 +159,7 @@ p {
   display: flex;
   flex-direction: column;
   color: white;
-  min-height: 100vh;
+  min-height: 100svh;
   width: 100% ;
   align-items: center;
   overflow-y: overlay;
