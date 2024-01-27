@@ -12,7 +12,7 @@
   width:100%;
     display: flex;
     flex-direction: column;
-
+    min-height: 100vh;
    
   
     z-index: 99;
@@ -24,14 +24,14 @@
 
 .checkout_container {
   width:100%;
-  min-height: 100svh;
+
   height: auto;
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
     justify-content: center;
 
-    overflow: hidden;
+   
   
      
 
