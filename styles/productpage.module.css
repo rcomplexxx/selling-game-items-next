@@ -113,10 +113,22 @@
 
 
   .buyBadges{
-    background-color: brown;
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+    margin-top: var(--size-1);
+  }
+  
+
+  
+
+  .creditCardLogo{
+    height:42px; 
+    width: 72px;
+    margin: var(--size-3) var(--size-3);
+ 
   }
 
   .productInfo{
@@ -252,3 +264,23 @@
     
     }
   }
+
+  @media(max-width: 500px){
+    .creditCardLogo{
+      height:35px; 
+      width: 60px;
+      margin: var(--size-2) var(--size-2);
+   
+    }
+  }
+
+  @media(max-width: 380px){
+    .creditCardLogo{
+      height:35px; 
+      width: 60px;
+      margin: var(--size-2) var(--size-1);
+   
+    }
+  }
+
+ 

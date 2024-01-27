@@ -144,9 +144,12 @@ export default function ProductPage({ product, images, startReviews, ratingData 
           </button>
 
           <div className={styles.buyBadges}>
-          <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={28} width={48}/>
-            <Image src='/images/cardJcb2.svg' className={styles.creditCardLogo} height={28} width={48}/>
-            <Image src='/images/cardUnionPay2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+          <Image src='/images/cardVisa2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+           <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+           
+          <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardJcb2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
             
           </div>
 
