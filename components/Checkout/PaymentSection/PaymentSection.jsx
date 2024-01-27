@@ -10,14 +10,14 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
     const [showOnlyTwoCards, setShowOnlyTwoCards] = useState(false);
     const maxHeightTimoutAdj = useRef();
     const moreCardsPopupRef = useRef();
-
+    const mounted= useRef(false);
 
  
 
 
     
   useEffect(()=>{
-
+    if(!mounted.current)return;
     clearTimeout(maxHeightTimoutAdj.current);
 
 
@@ -95,6 +95,10 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
       if(moreCardsPopupOpen) document.removeEventListener('click', handleClickOutside);
     };
   }, [moreCardsPopupOpen]);
+
+  useEffect(()=>{
+    mounted.current=true;
+  },[])
   
 
 
@@ -141,7 +145,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
            </div>
         </div>
 
-        <div id='creditCardFields'  className={`${styles.paymentFields} ${paymentMethod=="creditcard" && styles.selectedField}`}>
+        <div id='creditCardFields'  className={`${styles.paymentFields} ${styles.creditCardField} ${paymentMethod=="creditcard" && styles.selectedField}`}>
             <div className={styles.paymentFieldsSpaceAdjuster}> 
           <StripeWrapper
             setCartProducts={setCartProducts}

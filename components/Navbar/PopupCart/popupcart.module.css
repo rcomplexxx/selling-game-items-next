@@ -20,7 +20,7 @@
   .materialize{
     max-height:  var(--size-14);
     border-bottom: 1px solid rgb(39, 35, 44);
-    border-top: 1px solid rgb(39, 35, 44);
+    border-top: 1px solid rgb(151, 112, 198);
     
     padding: var(--size-5) var(--size-7);
   }

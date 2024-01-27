@@ -16,6 +16,7 @@ export default function Tip({products, tip, setTip}){
     const [applyDisabled, setApplyDisabled] = useState(true);
     const [tipError, setTipError] = useState();
     const visibilityTimeout = useRef();
+    const mounted = useRef(false);
 
 
     useEffect(() => {
@@ -33,6 +34,8 @@ export default function Tip({products, tip, setTip}){
 
 
   useEffect(()=>{
+
+    if(!mounted.current)return;
 
           clearTimeout(visibilityTimeout.current);
           const tipDiv= document.getElementById("tipDiv")
@@ -62,6 +65,11 @@ export default function Tip({products, tip, setTip}){
 
           }
         },[tipShow])
+
+
+        useEffect(()=>{
+          mounted.current=true;
+        },[])
 
     
       

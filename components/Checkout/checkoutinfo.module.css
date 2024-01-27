@@ -3,12 +3,15 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    width: 50%;
-    align-items: center;
+  
+    align-items: flex-end;
     padding-top: var(--size-8);
     box-sizing: border-box;
+    flex: 1 1 auto;
  
  }
+
+ /* Ako hocu punu polovinu, samo izbaciti  flex: 1 1 auto; i ubaciti   width: 50%; */
  
  .checkout_left {
     max-width: var(--size-15-5);

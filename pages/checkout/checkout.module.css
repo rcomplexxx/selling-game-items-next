@@ -4,19 +4,39 @@
  
 }
 
-.checkout_container {
+.checkoutMainContainer {
   position: absolute;
   top:0;
   left:0;
   background-color: var(--gray-9-elegant);
   width:100%;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
+   
+  
+    z-index: 99;
+
+
+
+  }
+
+
+.checkout_container {
+  width:100%;
+  min-height: 100vh;
+  height: auto;
     display: flex;
     flex-direction: row-reverse;
- 
+    flex-wrap: wrap-reverse;
     justify-content: center;
-    z-index: 99;
+
+   
+  
+     
+
+
+
   }
 
   .checkout_container h1{

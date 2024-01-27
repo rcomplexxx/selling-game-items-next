@@ -12,7 +12,7 @@ import InputField from '../../Input/InputField';
 
 export default function BillingInfo({isOpen, errors, setErrors}){
     const [showApt, setShowApt] = useState(false);
-
+    const mounted= useRef(false);
     const visibilityTimeout= useRef();
    
 
@@ -21,6 +21,7 @@ export default function BillingInfo({isOpen, errors, setErrors}){
         }, [showApt]);
 
         useEffect(()=>{
+          if(!mounted.current)return;
 
           clearTimeout(visibilityTimeout.current);
           const billingInfoDiv= document.getElementById("billingInfo")
@@ -49,6 +50,10 @@ export default function BillingInfo({isOpen, errors, setErrors}){
             
           }
         },[isOpen])
+
+        useEffect(()=>{
+          mounted.current=true;
+        },[])
         
         const handleChange = (event) => {
          if (errors.hasOwnProperty(event.target.id)) {
