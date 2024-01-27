@@ -29,7 +29,9 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       };
 
       const handlePopState = (event)=>{
-        event.preventDefault();
+        if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
+        }
         backLinkSetRef.current=false;
        
         setIsMenuOpen(false);
