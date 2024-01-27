@@ -33,7 +33,6 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         backLinkSetRef.current=false;
        
         setIsMenuOpen(false);
-        window?.removeEventListener("popstate", handlePopState);
          console.log('popstate')
       }
 
