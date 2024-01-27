@@ -24,6 +24,7 @@
     width:100%;
     max-width: 100%;
     height: var(--size-9);
+    border-bottom: 1px solid rgb(72, 69, 85);
     background-color: var(--gray-9-elegant);
   }
 

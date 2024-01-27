@@ -19,7 +19,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       const handleClickOutside = (event) => {
        
         event.stopPropagation();
-      
+        event.preventDefault()
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
         setIsMenuOpen(false);
