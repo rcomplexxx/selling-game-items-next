@@ -12,11 +12,11 @@
  
  }
 
- /* Ako hocu punu polovinu, samo izbaciti  flex: 1 1 auto; i ubaciti   width: 50%; */
+ /* Ako hocu punu polovinu, samo izbaciti  flex: 1 1 auto; i ubaciti   width: 50%; 
+    width: calc(100% - var(--size-11));*/
  
  .checkout_left {
     max-width: var(--size-15-5);
-    width: calc(100% - var(--size-11));
     margin-right: var(--size-8);
     margin-left: var(--size-8);
     margin-bottom: calc(100vh - 100lvh + var(--size-7));
@@ -235,14 +235,6 @@
 
   
  
-  @media(max-width:1420px){
-   
-  }
-
-  @media(max-width:1020px){
-   
-  }
-  
   
  
 
