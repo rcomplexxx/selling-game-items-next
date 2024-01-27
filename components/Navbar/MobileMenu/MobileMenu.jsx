@@ -18,11 +18,11 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
       const handleClickOutside = (event) => {
        
-        event.stopPropagation();
-        event.preventDefault()
+       
+       
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
-        setIsMenuOpen(false);
+       { event.stopPropagation(); event.preventDefault(); setIsMenuOpen(false);}
         document.removeEventListener('click', handleClickOutside, true);
       };
       if(isMenuOpen){
@@ -53,10 +53,8 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
   // >
     return <div
     id='mobileMenu'
-      className={`${styles.mainMenuCard} ${!isMenuOpen && styles.menuClosed}`
-     
-      }
-      onClick={(e) => e.stopPropagation()}
+      className={`${styles.mainMenuCard} ${!isMenuOpen && styles.menuClosed}` }
+      
     >
       <div className={styles.menuItemsDiv}>
 
