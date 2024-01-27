@@ -31,6 +31,49 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
     }
   }},[newProduct])
 
+
+  useEffect(()=>{
+
+    let handleClickOutside;
+     
+ if(subMenu==1){
+ 
+ 
+   handleClickOutside = (event) => {
+ 
+         
+ 
+     if(!document?.getElementById("infoDropMenu").contains(event.target))
+    { event.stopPropagation(); event.preventDefault(); setSubMenu(0);}
+     document.removeEventListener('click', handleClickOutside, true);
+   };
+   
+   document?.addEventListener('click', handleClickOutside, true);
+ }
+ 
+    else if(subMenu==2){
+ 
+ 
+     
+       handleClickOutside = (event) => {
+ 
+         
+ 
+         if(!document?.getElementById("collectionsDropMenu").contains(event.target))
+        { event.stopPropagation(); event.preventDefault(); setSubMenu(0);}
+         document.removeEventListener('click', handleClickOutside, true);
+       };
+       
+       document?.addEventListener('click', handleClickOutside, true);
+       
+     }
+ 
+     return ()=>{
+       document.removeEventListener('click', handleClickOutside, true);
+     }
+   },[subMenu])
+
+
   // !showNav && styles.disableNav
   return (
     <>
@@ -109,7 +152,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
 
 <div
 tabIndex="0"
-onBlur={()=>{setSubMenu(0)}}
+
 className={`${styles.subMenuTitle} ${styles.linkStyle}`}
 onClick={() => {
 setSubMenu(subMenu==2?0:2);
@@ -117,7 +160,7 @@ setSubMenu(subMenu==2?0:2);
 >
 <span>Collections</span><Image height={8} width={8} src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==2 && styles.subMenuArrowOpen}`}/>
 </div>
-{subMenu==2 && <div className={`${styles.subMenu}`}>
+{subMenu==2 && <div id='collectionsDropMenu' className={`${styles.subMenu}`}>
 
    {collections.map(c => {return <Link
   href={`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`}
@@ -149,7 +192,7 @@ setSubMenu(subMenu==2?0:2);
 
                 <div
        tabIndex="0"
-       onBlur={()=>{setSubMenu(0)}}
+      
        className={`${styles.subMenuTitle} ${styles.linkStyle}`}
        onClick={() => {
          setSubMenu(subMenu==1?0:1);
@@ -157,7 +200,7 @@ setSubMenu(subMenu==2?0:2);
      >
        <span>Info</span><Image height={8} width={8} src='/images/greaterLessx.png' className={`${styles.subMenuArrow} ${subMenu==1 && styles.subMenuArrowOpen}`}/>
        </div>
-       {subMenu==1 && <div className={`${styles.subMenu} ${styles.subMenuFaq}`}>
+       {subMenu==1 && <div id='infoDropMenu' className={`${styles.subMenu} ${styles.subMenuFaq}`}>
 
 
        <Link
