@@ -28,7 +28,8 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         document.removeEventListener('click', handleClickOutside, true);
       };
 
-      const handlePopState = ()=>{
+      const handlePopState = (event)=>{
+        event.preventDefault();
         backLinkSetRef.current=false;
        
         setIsMenuOpen(false);
@@ -61,7 +62,8 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         document?.addEventListener('click', handleClickOutside, true);
       }
       else{
-        if(backLinkSetRef.current){router.back(); backLinkSetRef.current=false;}
+        if(backLinkSetRef.current){router.back( { scroll: false, }); 
+        backLinkSetRef.current=false;}
         document?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
       }
