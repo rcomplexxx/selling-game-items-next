@@ -84,7 +84,7 @@ export default function ProductPics({ images, onAddToCart }) {
     };
 
     const observer = new ResizeObserver((entries) => {
-   
+      if(window.innerWidth<980)return;
       if(!productImagesEl) return;
       const height = productPicsElement.clientHeight;
       setFixedMedia(
