@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./mobilemenu.module.css";
-import { useState , useEffect } from "react";
+import { useState , useEffect, useRef } from "react";
 import collections from '@/data/collections.json'
 import Image from "next/image";
 
@@ -13,34 +13,71 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
     const router = useRouter();
     const pathname = router.asPath;
+    const backLinkSetRef=useRef(false);
 
+   
     useEffect(() => {
 
+   
+    
+
       const handleClickOutside = (event) => {
-       
-       
-       
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { event.stopPropagation(); event.preventDefault(); setIsMenuOpen(false);}
         document.removeEventListener('click', handleClickOutside, true);
       };
+
+      const handlePopState = ()=>{
+        backLinkSetRef.current=false;
+       
+        setIsMenuOpen(false);
+        window?.removeEventListener("popstate", handlePopState);
+         console.log('popstate')
+      }
+
+
       if(isMenuOpen){
+        
+
+        console.log('asPath', router.asPath,'pathname', router.pathname);
+        
+        window.history.pushState(null, document.title, window.location.href);
+        backLinkSetRef.current=true;
+
+        // router.beforePopState((state) => {
+        //   backLinkSet=false;
+        //   state.options.scroll = false;
+        //   setIsMenuOpen(false);
+        //   // window.history.pushState(null, "", "");
+        //   // router.push(router.asPath, { scroll: false });
+        //   return true;
+        // });
+
+     
+       
+
+        window?.addEventListener("popstate", handlePopState);
         document?.addEventListener('click', handleClickOutside, true);
       }
       else{
+        if(backLinkSetRef.current){router.back(); backLinkSetRef.current=false;}
+        document?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
       }
   
       return () => {
         if (isMenuOpen) {
           document?.removeEventListener('click', handleClickOutside);
+          window?.removeEventListener("popstate", handlePopState);
         }
       };
     }, [isMenuOpen]);
 
-    console.log(isMenuOpen)
-    
+
+
+   
+
  
 
 
