@@ -41,7 +41,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
  
    handleClickOutside = (event) => {
  
-         
+         if(window.innerWidth < 980) return;
  
      if(!document?.getElementById("infoDropMenu").contains(event.target))
     { event.stopPropagation(); event.preventDefault(); setSubMenu(0);}
@@ -57,7 +57,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
      
        handleClickOutside = (event) => {
  
-         
+        if(window.innerWidth < 980) return;
  
          if(!document?.getElementById("collectionsDropMenu").contains(event.target))
         { event.stopPropagation(); event.preventDefault(); setSubMenu(0);}

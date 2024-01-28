@@ -6,9 +6,14 @@ import products from "../data/products.json";
 import styles from "../styles/appStyle.module.css";
 import Head from "next/head";
 import Link from "next/link";
+import Ticker from 'react-ticker'
 import Image from "next/image";
 
 const HomePage = ({ products }) => {
+
+
+
+
   return (
     <>
       <Head>
@@ -40,6 +45,11 @@ const HomePage = ({ products }) => {
           Shop Now
         </Link>
         </picture>
+
+      
+     
+
+
 
       <div className={styles.content}>
      

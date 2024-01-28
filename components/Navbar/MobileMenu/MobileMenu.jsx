@@ -13,7 +13,6 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
     const router = useRouter();
     const pathname = router.asPath;
-    const backLinkSetRef=useRef(false);
 
    
     useEffect(() => {
@@ -31,8 +30,8 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       };
 
       const handlePopState = (event)=>{
-        
-        backLinkSetRef.current=false;
+        history.go(1);
+     
        
         setIsMenuOpen(false);
         window?.removeEventListener("popstate", handlePopState);
@@ -48,19 +47,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         });
         
 
-        console.log('asPath', router.asPath,'pathname', router.pathname);
-        
-        window.history.pushState(null, document.title, window.location.href);
-        backLinkSetRef.current=true;
-
-        // router.beforePopState((state) => {
-        //   backLinkSet=false;
-        //   state.options.scroll = false;
-        //   setIsMenuOpen(false);
-        //   // window.history.pushState(null, "", "");
-        //   // router.push(router.asPath, { scroll: false });
-        //   return true;
-        // });
+     
 
      
        
@@ -69,8 +56,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         document?.addEventListener('click', handleClickOutside, true);
       }
       else{
-        if(backLinkSetRef.current){router.back( { scroll: false, }); 
-        backLinkSetRef.current=false;}
+        
         document?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
       }
@@ -229,7 +215,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           pathname === "/terms-of-service" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/terms-of-service" && setIsMenuOpen(false);
+          if(pathname !== "/terms-of-service"){ setIsMenuOpen(false);}
         }}
       >
         <p>Terms of service</p>
@@ -287,7 +273,6 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
   className={`${styles.linkStyle} ${styles.menuItemDiv} ${
     pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
   }`}
-  onMouseDown={(event)=>{event.preventDefault()}}
   onClick={() => {
     pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` && setIsMenuOpen(false);
     
