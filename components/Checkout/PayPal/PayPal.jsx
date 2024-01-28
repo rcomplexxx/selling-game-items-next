@@ -21,7 +21,7 @@ const PayPalButton=({checkFields, organizeUserData, discount, method='paypal',  
 
         setPaypalError();
     
-        if(type=='express' && document.getElementById("address").value == "" && document.getElementById("city").value == "")
+        if(type=='instant' || (type=='express' && document.getElementById("address").value == "" && document.getElementById("city").value == "") )
         return actions.resolve();
         try {
           const fieldsCorrect=checkFields();
@@ -149,10 +149,10 @@ const PayPalButton=({checkFields, organizeUserData, discount, method='paypal',  
               createOrder={async()=>{return await handlePayPalOrder('PAYPAL')}}
               style={{
                 color: color,
-                height: 48
+                height: type=="instant"?44:48
               }}
               
-              className={styles.paypalButton}
+              className={`${styles.paypalButton} ${type==="instant" && styles.instantPaypalButton}`}
             />
             {paypalError && <p className={styles.paypalError}>{paypalError}</p>}
     </PayPalScriptProvider>

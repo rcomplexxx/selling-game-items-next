@@ -84,8 +84,16 @@
     border-radius: 4px;
   }
   
+  /* margin-top: 24px; */
+
+
   .add_to_cart_button:hover {
     background-color: var(--blue-4);
+  }
+
+  .paypalWrapper{
+    max-width: var(--size-15);
+    width: calc(100% - 2px);
   }
 
 

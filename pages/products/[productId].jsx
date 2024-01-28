@@ -20,6 +20,7 @@ import ProductPics from "@/components/ProductPics/ProductPics";
 import { useRouter } from "next/router";
 import { getReviewsData } from "@/utils/getStartReviews";
 import getRatingData from "@/utils/getRatingData";
+import PayPalButton from "@/components/Checkout/PayPal/PayPal";
 
 //slickGoTo
 //afterChange(index)=>{}
@@ -130,6 +131,8 @@ export default function ProductPage({ product, images, startReviews, ratingData 
 
           <QuantityButton quantity={quantity} setQuantity={setQuantity} />
 
+         
+
           <button
           id='addToCart'
             className={styles.add_to_cart_button}
@@ -139,9 +142,59 @@ export default function ProductPage({ product, images, startReviews, ratingData 
             Add to Cart
           </button>
 
+          <div className={styles.paypalWrapper}>
+            <PayPalButton type='instant' color='gold' organizeUserData={
+             (paymentMethod)=>{
+                const email = "";
+                const firstName = "";
+                const lastName = "";
+                const address = "";
+                const apt = "";
+                const country = "";
+                const zipcode = "";
+                const state = "";
+                const city = "";
+                const phone = "";
+               
+                const items=[{
+                  id: product.id,
+                  quantity: quantity,  
+                  variant: variant
+                }];
+               
+                const requestData = {
+                  order: {
+                    email,
+                    firstName,
+                    lastName,
+                    address,
+                    apt,
+                    country,
+                    zipcode,
+                    state,
+                    city,
+                    phone,
+                    discountCode: "",
+                    tip: 0,
+                    items:items ,
+                  },
+                  paymentMethod: "PAYPAL",
+                  paymentToken: undefined
+            
+                  // Include other payment-related data if required
+                };
+                return requestData
+              }
+            
+          }/>
+          </div>
+
           <button className={styles.but_now_button} onClick={() => buyNow()}>
             Buy it now
           </button>
+
+
+        
 
           <div className={styles.buyBadges}>
           <Image src='/images/cardVisa2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>

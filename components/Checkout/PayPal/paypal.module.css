@@ -6,6 +6,16 @@
     border-radius: 4px;
 }
 
+.instantPaypalButton{
+    height: 44px;
+   margin-bottom: 4px;
+   background-color: #FFC439;
+   border: 1px solid #41855b;
+}
+
+/* margin-top: 24px;#2C2E2F
+margin-bottom: 8px; */
+
 .paypalError{
     color: orange;
      margin-top: var(--size-2);
