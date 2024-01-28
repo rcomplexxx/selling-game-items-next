@@ -183,8 +183,8 @@ const makePayment = async (req, res) => {
     console.log('Total price on server is', totalPrice)
     console.log('tip je:', req.body.order.tip);
     
-    if(req.body.paymentMethod==='PAYPAL'){
-      console.log('popusis ti meni')
+    if(req.body.paymentMethod.includes('PAYPAL')){
+      console.log('popusis ti meni',req.body.paymentMethod)
     const request = await paypalPay(totalPrice);
     console.log('popusen request', request)
     const response = await client.execute(request);
@@ -192,7 +192,7 @@ const makePayment = async (req, res) => {
     // Check if the payment is approved
     if (response.result.status === "CREATED") {
       console.log('status je creacted')
-      await putInDatabase('PAYPAL',response.result.id);
+      await putInDatabase(req.body.paymentMethod,response.result.id);
       res.status(200).json({ success: true, paymentId: response.result.id });
     } else {
       // Payment was not successful

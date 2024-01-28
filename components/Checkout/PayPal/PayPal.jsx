@@ -43,7 +43,7 @@ const PayPalButton=({checkFields, organizeUserData, discount, method='paypal',  
         try {
 
           console.log('creating order');
-          let requestData = organizeUserData(paymentMethod);
+          let requestData = organizeUserData(type=="normal"?"PAYPAL":(type=="express"?"PAYPAL(EXPRESS)":"PAYPAL(INSTANT)"));
           const discEle = document.getElementById("discountCode");
           if(discEle){
             console.log('discount exists', discEle.innerText)
@@ -99,7 +99,7 @@ const PayPalButton=({checkFields, organizeUserData, discount, method='paypal',  
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              paymentMethod: 'PAYPAL',
+              paymentMethod: type=="normal"?"PAYPAL":(type=="express"?"PAYPAL(EXPRESS)":"PAYPAL(INSTANT)"),
               paymentId: data.orderID,
             }),
           });

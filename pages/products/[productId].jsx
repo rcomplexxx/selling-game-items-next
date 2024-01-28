@@ -21,6 +21,7 @@ import { useRouter } from "next/router";
 import { getReviewsData } from "@/utils/getStartReviews";
 import getRatingData from "@/utils/getRatingData";
 import PayPalButton from "@/components/Checkout/PayPal/PayPal";
+import GooglePay from "@/components/Checkout/GooglePay/GooglePay";
 
 //slickGoTo
 //afterChange(index)=>{}
@@ -178,7 +179,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
                     tip: 0,
                     items:items ,
                   },
-                  paymentMethod: "PAYPAL",
+                  paymentMethod: paymentMethod,
                   paymentToken: undefined
             
                   // Include other payment-related data if required
@@ -188,6 +189,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
             
           }/>
           </div>
+
 
           <button className={styles.but_now_button} onClick={() => buyNow()}>
             Buy it now

@@ -5,6 +5,7 @@ import CartItem from "./CartItem/CartItem";
 import styles from "./cart.module.css";
 import AppContext from "@/contexts/AppContext";
 import BestSellers from "@/components/BestSellers/BestSellers";
+import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 
 
 
@@ -42,13 +43,22 @@ const Cart = () => {
     </>
   );
 
+  if(cartProducts.length === 0) return  <div className={styles.mainWrapper}>
+  <div className={`${styles.containerStyle} ${styles.emptyCartMainDiv}`}>
+  <h1 className={`${styles.title}  ${styles.emptyTitle}`}>Your cart is empty!</h1>
+ 
+  {renderEmptyCart()}
+  </div>
+  <BestSellers/>
+  </div>
+
   return (
     <div className={styles.mainWrapper}>
-    <div className={`${styles.containerStyle} ${cartProducts.length === 0 && styles.emptyCartMainDiv}`}>
-      {cartProducts.length === 0 ?<h1 className={`${styles.title}  ${styles.emptyTitle}`}>Your cart is empty!</h1>: (
+    <div className={`${styles.containerStyle}`}>
+      
         <h1 className={styles.title}>Your shopping cart</h1>
-      )}
-      {cartProducts.length === 0 ? renderEmptyCart() : renderCart()}
+        <FreeShippingSlider subtotal={subtotal}/>
+      {renderCart()}
       
     </div>
     <BestSellers/>

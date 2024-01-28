@@ -136,7 +136,7 @@ const approvePayment = async (req, res) => {
     if (!(await limiterPerDay.rateLimiterGate(clientIp)))
       return res.status(429).json({ error: "Too many requests." });
 
-    if(paymentMethod=='PAYPAL'){
+    if(paymentMethod.includes('PAYPAL')){
     const request = new paypal.orders.OrdersCaptureRequest(paymentId);
     
     request.requestBody({});
