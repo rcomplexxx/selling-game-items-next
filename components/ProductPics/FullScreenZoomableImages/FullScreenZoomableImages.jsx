@@ -109,6 +109,16 @@ const FullScreenZoomableImage = ({
     setTimeout(() => {
       document.body.classList.add("hideScroll");
     }, 280);
+
+    const handlePopState=()=>{killFullScreen()}
+
+    window?.addEventListener("popstate", handlePopState);
+
+   return ()=>{
+    window?.removeEventListener("popstate", handlePopState);
+   }
+
+
   }, []);
 
   useEffect(() => {
@@ -335,10 +345,11 @@ const FullScreenZoomableImage = ({
 
 
   useEffect(() => {
-    if (routeMounted.current && !router.asPath.includes("#zoom")) killFullScreen();
+    if (routeMounted.current && !router.asPath.includes("#zoom")) ;
     
     routeMounted.current=true;
   }, [router.asPath]);
+
 
 
 
