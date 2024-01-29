@@ -89,14 +89,14 @@ export default function App({ Component, pageProps }) {
 
 
     clearInterval(popupTimeout.current); popupTimeout.current= setInterval(()=>{
-      if(localStorage.getItem("popupShown") && false){ clearTimeout(popupTimeout.current); return;}
+      if(localStorage.getItem("popupShown")){ clearTimeout(popupTimeout.current); return;}
         console.log(router);
     if(router.pathname!='/404' && (router.pathname=='/' || (router.pathname.includes('/products') && !router.asPath.includes('#zoom')
     && !router.asPath.includes('#write-review')) || router.pathname.includes('/collection') || router.pathname=='/our-story' || router.pathname=='/faq')){
       setEmailPopup(true);  clearTimeout(popupTimeout.current);
     }
    
-    }, 3000);
+    }, 30000);
 
 
 

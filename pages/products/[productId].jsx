@@ -98,7 +98,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
               starDimension="20px"
               starSpacing="0.4px"
             />
-            <span>({product.reviewNumber})</span>
+            <span>({ratingData.reviewsNumber})</span>
           </div>
           <div className={styles.product_price}>
             {product.stickerPrice && <span>${product.stickerPrice.toFixed(2)}</span>}$
@@ -217,7 +217,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
         </div>
       </div>
 
-      <CustomerReviews product_id={product.id} startReviews={startReviews} reviewNumber={product.reviewNumber} ratingData={ratingData} />
+      <CustomerReviews product_id={product.id} startReviews={startReviews} ratingData={ratingData} />
     </>
   );
 }
