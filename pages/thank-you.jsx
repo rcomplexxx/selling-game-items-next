@@ -9,7 +9,6 @@ export default function ThankYou() {
 
   useEffect(() => {
     setCartProducts([]);
-    localStorage.setItem("cartProducts", JSON.stringify([]));
   }, []);
 
   return (

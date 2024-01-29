@@ -154,7 +154,7 @@ const PayPalButton=({checkFields, organizeUserData, discount, method='paypal',  
               
               className={`${styles.paypalButton} ${type==="instant" && styles.instantPaypalButton}`}
             />
-            {paypalError && <p className={styles.paypalError}>{paypalError}</p>}
+            {paypalError && type!=='instant'&& <p className={styles.paypalError}>{paypalError}</p>}
     </PayPalScriptProvider>
 
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useMemo } from "react";
+import React, { useState, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import { useRouter } from "next/router";
 // import sqlite3 from 'sqlite3';
 
@@ -7,17 +7,21 @@ import Navbar from "../components/Navbar/Navbar.jsx";
 import AppContext from "@/contexts/AppContext";
 import Footer from "@/components/Footer/Footer";
 import Head from "next/head";
+import EmailFlowPopup from "@/components/EmailFlowPopup/EmailFlowPopup";
 
 export default function App({ Component, pageProps }) {
   const [cartProducts, setCartProducts] = useState([]);
   const [newProduct, setNewProduct]=useState();
   const [showNav, setShowNav] = useState(true);
   const [removeNavFinal, setRemoveNavFinal]= useState(false);
+  const [emailPopup, setEmailPopup] = useState(false);
 
   const router = useRouter();
+  const popupTimeout=useRef();
 
   useEffect(() => {
 
+  
 
     const handleRouteChangeComplete = (url) => {
       url.startsWith("/checkout") ||
@@ -80,9 +84,25 @@ export default function App({ Component, pageProps }) {
         : setRemoveNavFinal(false);
     };
     
-    handleRouteChangeComplete(router.pathname)
+    handleRouteChangeComplete(router.pathname);
 
-  }, [router.pathname]);
+
+
+    clearInterval(popupTimeout.current); popupTimeout.current= setInterval(()=>{
+      if(localStorage.getItem("popupShown") && false){ clearTimeout(popupTimeout.current); return;}
+        console.log(router);
+    if(router.pathname!='/404' && (router.pathname=='/' || (router.pathname.includes('/products') && !router.asPath.includes('#zoom')
+    && !router.asPath.includes('#write-review')) || router.pathname.includes('/collection') || router.pathname=='/our-story' || router.pathname=='/faq')){
+      setEmailPopup(true);  clearTimeout(popupTimeout.current);
+    }
+   
+    }, 3000);
+
+
+
+
+
+  }, [router.asPath]);
 
 
 
@@ -133,6 +153,7 @@ const totalItems= useMemo(()=>{
       <Head>
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
+      {    emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
       {!removeNavFinal && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
 
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>
