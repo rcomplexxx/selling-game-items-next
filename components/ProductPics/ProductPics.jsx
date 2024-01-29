@@ -44,10 +44,10 @@ export default function ProductPics({ images, onAddToCart }) {
    
   }, [zoomed]);
 
-  useEffect(() => {
-    if (!router.asPath.includes("#zoom")) setZoomed(false);
+  // useEffect(() => {
+  //   if (!router.asPath.includes("#zoom")) setZoomed(false);
     
-  }, [router.asPath]);
+  // }, [router.asPath]);
   
   useEffect(()=>{
     swiper && swiper.slideTo(0, 400);
