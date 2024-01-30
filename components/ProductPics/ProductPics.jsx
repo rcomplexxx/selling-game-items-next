@@ -112,7 +112,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
   useEffect(()=>{
     console.log('variant image index', variantImageIndex);
     if(variantImageIndex && variantImageIndex>=-1 && variantImageIndex < images.length && variantImageIndexMountedRef.current){
-      swiper?.slideTo(variantImageIndex,0);
+      swiper?.slideTo(variantImageIndex,window.innerWidth<980?400:0);
       
     }
     variantImageIndexMountedRef.current=true;

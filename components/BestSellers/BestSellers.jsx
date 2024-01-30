@@ -6,19 +6,23 @@ import PicWithThumbnail from '../Products/Product/PicWithThumbnail/PicWithThumbn
 import bestSellerProductsInfo from '../../data/bestsellers.json';
 import styles from './bestsellers.module.css';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import products from '@/data/products.json'
 
 // Import Swiper styles
 import "swiper/css";
+import AppContext from '@/contexts/AppContext';
 
-export default function BestSellers({cartProducts, setCartProducts} ) {
+export default function BestSellers( ) {
   const sliderRef = useRef();
-  const [bestSellersMounted, setBestSellersMounted]= useState(false);
+
+
+
+  const { cartProducts, setCartProducts } = useContext(AppContext);
   
-  useEffect(()=>{
-    setBestSellersMounted(true);
-  },[])
+  
+ 
+  
 
   const bestSellerProducts = bestSellerProductsInfo.map((bsp) => {
     const product= products.find(p=>{return p.id== bsp.id});
@@ -35,10 +39,11 @@ export default function BestSellers({cartProducts, setCartProducts} ) {
     return newBsp;
   });
 
-  const onAddToCart = ( quantity = 1,addedProduct, addedVariant) => {
+  console.log('context check main', cartProducts,setCartProducts)
 
-    if(!cartProducts){
-      return;}
+  const onAddToCart = ( quantity = 1,addedProduct, addedVariant) => {
+    console.log('context check', cartProducts,setCartProducts)
+    if(!cartProducts ){ return;}
 
       if(cartProducts.length==0){
         setCartProducts([{
