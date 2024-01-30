@@ -3,16 +3,75 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import PicWithThumbnail from '../Products/Product/PicWithThumbnail/PicWithThumbnail';
 
-import products from '../../data/bestsellers.json';
+import bestSellerProductsInfo from '../../data/bestsellers.json';
 import styles from './bestsellers.module.css';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import products from '@/data/products.json'
 
 // Import Swiper styles
-import 'swiper/swiper.min.css';
+import "swiper/css";
 
-export default function BestSellers() {
+export default function BestSellers({cartProducts, setCartProducts} ) {
   const sliderRef = useRef();
+  const [bestSellersMounted, setBestSellersMounted]= useState(false);
+  
+  useEffect(()=>{
+    setBestSellersMounted(true);
+  },[])
+
+  const bestSellerProducts = bestSellerProductsInfo.map((bsp) => {
+    const product= products.find(p=>{return p.id== bsp.id});
+    let variantName;
+    if(bsp.variantIndex){
+    variantName =  bsp.variantIndex>0 && bsp.variantIndex<product.variants.length-1? product.variants[bsp.variantIndex].name:product?.variants[0].name;
+   
+    }
+
+    else{
+      variantName= product?.variants[0].name;
+    }
+     const newBsp = {product:product,variantName:variantName};
+    return newBsp;
+  });
+
+  const onAddToCart = ( quantity = 1,addedProduct, addedVariant) => {
+
+    if(!cartProducts){
+      return;}
+
+      if(cartProducts.length==0){
+        setCartProducts([{
+          id: addedProduct.id,
+          quantity: quantity,
+          name: addedProduct.name,
+          image: addedProduct.images[0],
+          price: addedProduct.price,
+          variant: addedVariant
+        }]);
+      }
+
+    const productIndex = cartProducts.findIndex((cp) => cp.id === addedProduct.id && cp.variant===addedVariant);
+
+    if (productIndex !== -1 ) {
+      const updatedCartProducts = [...cartProducts];
+      updatedCartProducts[productIndex].quantity += quantity;
+     
+      setCartProducts(updatedCartProducts);
+    } else {
+      const newProduct = {
+        id: addedProduct.id,
+        quantity: quantity,
+        name: addedProduct.name,
+        image: addedProduct.images[0],
+        price: addedProduct.price,
+        variant: addedVariant
+      };
+      setCartProducts([...cartProducts, newProduct]);
+    }
+  };
+
+ 
 
   const settings = {
     speed: 400,
@@ -52,20 +111,23 @@ export default function BestSellers() {
     <div className={styles.mainDiv}>
       <h1>Bestsellers</h1>
       <Swiper {...settings} ref={sliderRef} className={styles.slider}>
-        {products.map((product, index) => (
+        {bestSellerProducts.map((bsp, index) => (
           <SwiperSlide key={index} className={styles.productImageDiv}>
-            <Link href={`/products/${product.id}`} className={styles.productImageLink}>
+            <h2>{bsp.product.name}</h2>
+            <Link href={`/products/${bsp.product.id}`} className={styles.productImageLink}>
+            
               <div className={styles.productImageDiv2}>
-                <PicWithThumbnail product={product} />
+                <PicWithThumbnail product={bsp.product} />
              
               </div>
             </Link>
-            <h2>{product.name}</h2>
+            <div onClick={()=>{ onAddToCart(1, bsp.product, bsp.variantName)}} className={styles.addToCartButton}>
+              <span>Add</span>
+            </div>
             
           </SwiperSlide>
         ))}
-        <div className="swiper-button-next"></div>
-        <div className="swiper-button-prev"></div>
+    
       </Swiper>
     </div>
   );

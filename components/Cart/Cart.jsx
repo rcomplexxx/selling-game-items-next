@@ -10,7 +10,7 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 
 
 const Cart = () => {
-  const { cartProducts } = useContext(AppContext);
+  const { cartProducts, setCartProducts } = useContext(AppContext);
 
   const renderEmptyCart = () => (
     <div className={styles.emptyCartDiv}>
@@ -61,7 +61,7 @@ const Cart = () => {
       {renderCart()}
       
     </div>
-    <BestSellers/>
+    <BestSellers cartProducts={cartProducts} setCartProducts={setCartProducts}/>
     </div>
   );
 };
