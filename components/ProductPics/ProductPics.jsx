@@ -1,14 +1,14 @@
 import styles from "./productmobilepics.module.css";
 
 import FullScreenZoomableImage from "@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages";
-import { useCallback, useEffect,   useState } from "react";
+import { useCallback, useEffect,   useRef,   useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 
 
-export default function ProductPics({ images, onAddToCart }) {
+export default function ProductPics({ images, onAddToCart, variantImageIndex }) {
   const [imageIndex, setImageIndex] = useState(0);
   const [zoomed, setZoomed] = useState(undefined);
 
@@ -18,6 +18,8 @@ export default function ProductPics({ images, onAddToCart }) {
   const [swiperMini, setSwiperMini] = useState(null);
 
   const router = useRouter();
+  const variantImageIndexMountedRef=useRef(false);
+  
 
   useEffect(() => {
     if(zoomed===undefined){
@@ -106,6 +108,15 @@ export default function ProductPics({ images, onAddToCart }) {
       observer.disconnect();
     };
   }, []);
+
+  useEffect(()=>{
+    console.log('variant image index', variantImageIndex);
+    if(variantImageIndex && variantImageIndex>=-1 && variantImageIndex < images.length && variantImageIndexMountedRef.current){
+      swiper?.slideTo(variantImageIndex,0);
+      
+    }
+    variantImageIndexMountedRef.current=true;
+  },[variantImageIndex])
 
   
 

@@ -3,10 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import products from "../../data/products.json";
 
-const FreqProduct = ({ productId, onAddToCart }) => {
+const FreqProduct = ({ productId, variantIndex, onAddToCart }) => {
   const product = products.find((p) => {
     return p.id == productId;
   });
+
+  console.log('variant index', variantIndex)
+
+  const variantName= product.variants && (variantIndex<0 || variantIndex>product.variants?.length-1)?product.variants[0].name:product.variants[variantIndex].name;
 
   return (
     <div className={styles.product_style_div}>
@@ -29,7 +33,8 @@ const FreqProduct = ({ productId, onAddToCart }) => {
       </div>
       <button
         className={styles.add_to_cart_button}
-        onClick={() => onAddToCart(product, 1)}
+        onClick={() => onAddToCart(1,product, variantName)}
+        onMouseDown={(event)=>{event.preventDefault()}}
       >
         Add to Cart
       </button>
@@ -37,19 +42,19 @@ const FreqProduct = ({ productId, onAddToCart }) => {
   );
 };
 
-export default function FrequentlyBoughtTogether({ products, onAddToCart }) {
+export default function FrequentlyBoughtTogether({ fbtProductInfo, onAddToCart }) {
   return (
     <div className={styles.freqMain}>
       <h3 className={styles.h2Title}>Frequently bought together</h3>
       <div className={styles.freqBought}>
-        {products ? (
-          products.map((p, index) => (
-            <FreqProduct key={index} productId={p} onAddToCart={onAddToCart} />
+        {fbtProductInfo ? (
+          fbtProductInfo.map((p, index) => (
+            <FreqProduct key={index} productId={p.id} variantIndex={p.variantIndex} onAddToCart={onAddToCart} />
           ))
         ) : (
           <>
-            <FreqProduct onAddToCart={onAddToCart} productId={4} />
-            <FreqProduct onAddToCart={onAddToCart} productId={5} />
+            <FreqProduct onAddToCart={onAddToCart} productId={4} variantIndex={0} />
+            <FreqProduct onAddToCart={onAddToCart} productId={5} variantIndex={0}/>
           </>
         )}
       </div>

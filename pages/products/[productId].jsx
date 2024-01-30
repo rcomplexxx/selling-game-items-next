@@ -40,8 +40,8 @@ export default function ProductPage({ product, images, startReviews, ratingData 
 
   const { cartProducts, setCartProducts, setNewProduct, } = useContext(AppContext);
 
-  const onAddToCart = ( quantity = 1) => {
-    const productIndex = cartProducts.findIndex((cp) => cp.id === product.id && cp.variant===variant);
+  const onAddToCart = ( quantity = 1,addedProduct=product, addedVariant=variant) => {
+    const productIndex = cartProducts.findIndex((cp) => cp.id === addedProduct.id && cp.variant===addedVariant);
 
     if (productIndex !== -1) {
       const updatedCartProducts = [...cartProducts];
@@ -50,12 +50,12 @@ export default function ProductPage({ product, images, startReviews, ratingData 
       setCartProducts(updatedCartProducts);
     } else {
       const newProduct = {
-        id: product.id,
+        id: addedProduct.id,
         quantity: quantity,
-        name: product.name,
-        image: product.images[0],
-        price: product.price,
-        variant: variant
+        name: addedProduct.name,
+        image: addedProduct.images[0],
+        price: addedProduct.price,
+        variant: addedVariant
       };
       setNewProduct(newProduct);
       setCartProducts([...cartProducts, newProduct]);
@@ -76,7 +76,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
       </Head>
       <div className={styles.productPageDiv}>
         <div className={styles.media}>
-          <ProductPics productId={product.id} onAddToCart ={ onAddToCart }images={images} />
+          <ProductPics productId={product.id} onAddToCart ={ onAddToCart }images={images} variantImageIndex={product.variants && product.variants.find((v)=>{return v.name==variant})?.variantProductImageIndex} />
         </div>
 
         <div className={styles.productInfo}>
@@ -107,8 +107,8 @@ export default function ProductPage({ product, images, startReviews, ratingData 
           <p className={styles.product_style_label}>Color: {variant}</p>
           <div className={styles.product_style_options}>
             {product.variants && product.variants.map(v=>{
-           return  <span
-              className={styles.product_style_span}
+           return  <div
+              className={`${styles.product_style_span}`}
               onClick={() => {
                 
                 setVariant(v.name);
@@ -118,12 +118,12 @@ export default function ProductPage({ product, images, startReviews, ratingData 
                 src={"/images/" + v.image}
                 alt={v.name}
                 sizes="(max-width: 980px) 48px, 64px"
-                className={styles.productVariantImage}
+                className={`${styles.productVariantImage} ${v.name==variant && styles.productVariantSelected}`}
                
                 height={0}
                 width={0}
               />
-            </span>
+            </div>
             })
 
 }
@@ -209,7 +209,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
           </div>
 
           <FrequentlyBoughtTogether
-            products={product.fbt}
+            fbtProductInfo={product.fbt}
             onAddToCart={onAddToCart}
           />
 

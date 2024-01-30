@@ -12,8 +12,8 @@
     ],
     "price": 12,
     "stickerPrice": 32,
-    "raiting": 5,
-    "reviewNumber": 13,
+    "raiting": 4.7,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -29,7 +29,8 @@
       },
       {
         "name": "orange",
-        "image": "boxItem2.png"
+        "image": "boxItem2.png",
+        "variantProductImageIndex": 4
       }
     ]
   },
@@ -40,7 +41,7 @@
       "2.png"
     ],
     "price": 42,
-    "reviewNumber": 621,
+    "reviewNumber": 104,
     "variants": [
       {
         "name": "black",
@@ -55,7 +56,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 4.7
+    "raiting": 3
   },
   {
     "id": 2,
@@ -121,8 +122,10 @@
     "stickerPrice": 763.99,
     "reviewNumber": 621,
     "fbt": [
-      1,
-      2
+      {"id":1,
+      "variantIndex":0},
+      {"id":2,
+      "variantIndex":2}
     ],
     "variants": [
       {
@@ -149,10 +152,12 @@
     "price": 34.99,
     "stickerPrice": 89.49,
     "fbt": [
-      1,
-      2
+      {"id":1,
+      "variantIndex":0},
+      {"id":2,
+      "variantIndex":3}
     ],
-    "reviewNumber": 16,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -167,7 +172,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 5
+    "raiting": 4.7
   },
   {
     "id": 7,
@@ -250,7 +255,7 @@
     ],
     "price": 117,
     "stickerPrice": 124,
-    "reviewNumber": 108,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -265,7 +270,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 5
+    "raiting": 4.7
   },
   {
     "id": 11,
@@ -298,7 +303,7 @@
       "13.png"
     ],
     "price": 138.99,
-    "reviewNumber": 6,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -313,7 +318,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 5
+    "raiting": 4.7
   },
   {
     "id": 13,
@@ -322,7 +327,7 @@
       "14.png"
     ],
     "price": 15.99,
-    "reviewNumber": 111,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -337,7 +342,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 5
+    "raiting": 4.7
   },
   {
     "id": 14,
