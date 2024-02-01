@@ -302,10 +302,10 @@ setSubMenu(subMenu==2?0:2);
           <div className={styles.rightOptions}>
 
                   <Search searchOpen={searchOpen} setSearchOpen={setSearchOpen}/>
-                  <Link href={router.asPath=='/cart'?"/checkout":"/cart"}>
+                  <Link href={(router.asPath=='/cart' && totalItems>0)?"/checkout":"/cart"}>
                 <div className={styles.cartStyle}>
                   <Image height={32} width={32}
-                    src={router.asPath=='/cart'?"/images/bagBlueCheckout7.png":"/images/bagBlue.png"}
+                    src={(router.asPath=='/cart' && totalItems>0)?"/images/bagBlueCheckout7.png":"/images/bagBlue.png"}
                     className={styles.bagImg}
                     alt="cart"
                   />

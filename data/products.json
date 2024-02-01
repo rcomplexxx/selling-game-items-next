@@ -120,12 +120,16 @@
     ],
     "price": 499.99,
     "stickerPrice": 763.99,
-    "reviewNumber": 621,
+    "reviewNumber": 713,
     "fbt": [
-      {"id":1,
-      "variantIndex":0},
-      {"id":2,
-      "variantIndex":2}
+      {
+        "id": 1,
+        "variantIndex": 0
+      },
+      {
+        "id": 2,
+        "variantIndex": 2
+      }
     ],
     "variants": [
       {
@@ -141,7 +145,7 @@
         "image": "boxItem.png"
       }
     ],
-    "raiting": 4.7
+    "raiting": 5
   },
   {
     "id": 5,
@@ -152,10 +156,14 @@
     "price": 34.99,
     "stickerPrice": 89.49,
     "fbt": [
-      {"id":1,
-      "variantIndex":0},
-      {"id":2,
-      "variantIndex":3}
+      {
+        "id": 1,
+        "variantIndex": 0
+      },
+      {
+        "id": 2,
+        "variantIndex": 3
+      }
     ],
     "reviewNumber": 621,
     "variants": [
