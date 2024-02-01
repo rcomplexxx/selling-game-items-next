@@ -10,6 +10,10 @@
    
 }
 
+.mainDivCloseToBottom{
+    margin-bottom: var(--size-5);
+}
+
 .mainDiv a{
     color: white;
     text-decoration: none;

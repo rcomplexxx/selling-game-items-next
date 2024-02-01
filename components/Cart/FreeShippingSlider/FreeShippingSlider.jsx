@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './fresshippingslider.module.css'
 
 
@@ -6,16 +6,23 @@ import styles from './fresshippingslider.module.css'
 
 
 export default function FreeShippingSlider({subtotal}){
+    const [subtotalDelayed, setSubtotalDelayed] = useState(subtotal);
+    const sliderTimeout = useRef();
+
+    useEffect(()=>{
+        clearTimeout( sliderTimeout.current);
+        sliderTimeout.current = setTimeout(()=>{
+        setSubtotalDelayed(subtotal);
+        }, 260);
+    }, 
+    [subtotal])
 
 
 
     return <div className={styles.shippingSliderWrapper}>
-        {subtotal<40 ? <span>
-            Add just <span className={styles.boldedSliderText}>${(40-subtotal).toFixed(2)}</span> more to get <span className={styles.boldedSliderText}>FREE SHIPPING</span> 💫
-            </span>:
-            <span>
-            You've unlocked free shipping! 🎉
-            </span>
+        {subtotalDelayed<40 ? <span>
+            Add just <span className={styles.boldedSliderText}>${(40-subtotalDelayed).toFixed(2)}</span> more to get <span className={styles.boldedSliderText}>FREE SHIPPING</span> 💫</span>:
+            <span>You've unlocked free shipping! 🎉</span>
 }
         <div className={styles.sliderWrapper}>
      <div className={styles.sliderShell}>
