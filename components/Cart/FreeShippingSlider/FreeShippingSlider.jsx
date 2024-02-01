@@ -13,7 +13,7 @@ export default function FreeShippingSlider({subtotal}){
         clearTimeout( sliderTimeout.current);
         sliderTimeout.current = setTimeout(()=>{
         setSubtotalDelayed(subtotal);
-        }, 260);
+        }, 220);
     }, 
     [subtotal])
 
