@@ -94,14 +94,12 @@ width: 100%;
 }
 
   .removeButton{
-    color:white;
     height: auto;
     width: var(--size-6);
-    margin-bottom: var(--size-1);
     margin-right: var(--size-1);
     border: none;
     border-radius: 4px;
-    opacity: 0.7;
+    opacity: 0.65;
     cursor: pointer;
   }
 
@@ -114,16 +112,13 @@ width: 100%;
   
   }
 
-  .buttons h2{
-    margin: 0 var(--size-5);
-    
-  }
+
 
 
   .quantityButton{
     color: white;
-    height: var(--size-6);
-    width: var(--size-6);
+    height: 20px;
+    width: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,15 +128,16 @@ width: 100%;
 
     box-sizing: border-box;
     border-radius: 2px;
-     border: 1px solid gray;
+     border: 1px solid rgba(128, 128, 128, 0.503);
     font-weight: 500;
+    opacity: 0.9;
      cursor: pointer;
   }
   
   .quantity{
     font-size: var(--font-size-3);
-    font-weight: 500;
-
+    font-weight: 300;
+    margin: 0 var(--size-4);
   }
 
 
@@ -292,10 +288,7 @@ width: 100%;
         margin-left: var(--size-3);
     }
 
-      .buttons h2{  
-          font-size: var(--font-size-3);
-      }
-     
+   
       
   }
 
