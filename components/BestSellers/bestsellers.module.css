@@ -43,14 +43,19 @@
     align-items: center;
     box-sizing: border-box;
     margin-top: auto;
-    
+    user-select: none;
 
+}
+
+.productImageDiv:last-child{
+    padding-right: 32px;
 }
 
 .productImageDiv h2{
     font-size: var(--font-size-5);
     font-weight: 500;
-     user-select: none;
+   
+     margin: var(--size-5);
 }
 
 .productImageLink{
