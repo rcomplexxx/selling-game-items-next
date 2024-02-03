@@ -288,8 +288,8 @@
   }
 
   .checkoutFooter{
-    margin-right: var(--size-6);
-    margin-left: var(--size-6);
+    margin-right: 20px;
+    margin-left: 20px;
   }
   
  
@@ -303,7 +303,7 @@
     }
 
     .checkoutFooter{
-      width: calc(100% - var(--size-8));
+      width: calc(100% - 40px);
     }
 
     .footerLink{
