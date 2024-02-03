@@ -29,10 +29,9 @@
 }
 
 .slider{ 
-    box-sizing: border-box;
     padding-left: 32px !important;
     padding-right: 8px !important;
-    width: 100%;
+    width: calc(100% - 40px);
    
 
 }
