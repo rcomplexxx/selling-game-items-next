@@ -29,8 +29,9 @@
 }
 
 .slider{ 
+    box-sizing: border-box;
     padding-left: 32px !important;
-    padding-right: 32px !important;
+    padding-right: 8px !important;
     width: 100%;
    
 
@@ -50,10 +51,7 @@
 
 }
 
-.productImageDiv:last-child{
-    width: calc(100% + 32px); 
-    padding-right: 32px;
-}
+
 
 .productImageDiv h2{
     font-size: var(--font-size-4);
