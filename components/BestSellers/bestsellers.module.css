@@ -59,6 +59,7 @@
     font-weight: 500;
    
      margin: var(--size-5) 0;
+     margin-top: var(--size-3);
 }
 
 .productImageLink{

@@ -20,6 +20,13 @@ export default function Search({searchOpen, setSearchOpen}){
     const searchBoxRef = useRef();
     const searchIconRef = useRef();
     const searchInputRef = useRef();
+
+
+
+   
+
+
+
   
     useEffect(()=>{
 
@@ -40,6 +47,14 @@ export default function Search({searchOpen, setSearchOpen}){
         }
 
 
+        const handlePopState = (event)=>{
+          history.go(1);
+       
+         
+          setSearchOpen(false);
+          window?.removeEventListener("popstate", handlePopState);
+        
+        }
 
            
        const handleClickOutside = (event)=>{
@@ -50,10 +65,20 @@ export default function Search({searchOpen, setSearchOpen}){
       };
 
       if(searchOpen){
+
+        router.beforePopState((state) => {
+          state.options.scroll = false;
+          return true;
+        });
+        
+
+
         document.addEventListener('click', handleClickOutside);
+        window?.addEventListener("popstate", handlePopState);
       }
       else{
         document.removeEventListener('click', handleClickOutside);
+        document?.removeEventListener("popstate", handlePopState);
       }
   
         
@@ -63,13 +88,34 @@ export default function Search({searchOpen, setSearchOpen}){
 
     
         return () => {
-          if(searchOpen) document.removeEventListener('click', handleClickOutside);
+          if(searchOpen) {
+            document.removeEventListener('click', handleClickOutside);
+            window?.removeEventListener("popstate", handlePopState);
+          }
         };
     
 
 
 
     },[searchOpen])
+
+
+
+
+
+
+   
+
+   
+
+
+
+
+
+
+
+
+
 
     const handleSearch = (term) => {
       setSearchTerm(term);

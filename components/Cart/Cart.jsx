@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 
 import CartItem from "./CartItem/CartItem";
@@ -11,6 +11,12 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
+
+
+  useEffect(()=>{
+    window.scrollBy(0, -1);
+  }, [])
+
 
 
   const renderEmptyCart = () => (
