@@ -54,10 +54,11 @@
 
 
 .productImageDiv h2{
+   
     font-size: var(--font-size-4);
     font-weight: 500;
    
-     margin: var(--size-5);
+     margin: var(--size-5) 0;
 }
 
 .productImageLink{
