@@ -220,7 +220,8 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    
+    margin-left: auto;
+   
    
   }
 
@@ -288,8 +289,8 @@
   }
 
   .checkoutFooter{
-    margin-right: 22px;
-    margin-left: 22px;
+    margin-right: 20px;
+    margin-left: 20px;
   }
   
  
@@ -303,12 +304,15 @@
     }
 
     .checkoutFooter{
-      width: calc(100% - 44px);
+      width: calc(100% - 48px);
+      background-color: brown;
+    
     }
 
     .footerLink{
       font-size: var(--font-size-2);
       margin: var(--size-2);
+    
     }
 
   }

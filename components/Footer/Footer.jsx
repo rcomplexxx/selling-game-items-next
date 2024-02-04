@@ -74,27 +74,24 @@ export default function Footer() {
           <Link href="/" className={styles.footerLink}>
             Home
           </Link>
+          <Link href="/products" className={styles.footerLink}>
+            Shop
+          </Link>
           <Link href="/faq" className={styles.footerLink}>
             FAQ
           </Link>
-          
+          <Link href="/our-story" className={styles.footerLink}>
+          Our story
+          </Link>
           <Link href="/contact-us" className={styles.footerLink}>
             Contact Us
           </Link>
-        
           <Link href="/privacy-policy" className={styles.footerLink}>
             Privacy Policy
-          </Link>
-          <Link href="/privacy-policy" className={styles.footerLink}>
-            Terms of service
           </Link>
           <Link href="/shipping-policy" className={styles.footerLink}>
             Shipping Policy
           </Link>
-          <Link href="/shipping-policy" className={styles.footerLink}>
-            Refund Policy
-          </Link>
-        
         </div>
         <div  className={styles.paymentsDiv}>
         <Image

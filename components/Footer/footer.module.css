@@ -81,14 +81,12 @@
     flex-wrap: wrap;
    justify-content: space-between;
     margin-top: var(--size-5);
-    
   }
   
   
   .footerLink {
     color: #fff;
-    margin-right: var(--size-5);
-
+    margin: 0 var(--size-3);
     text-decoration: none;
     font-size: var(--font-size-2);
    
@@ -126,14 +124,14 @@
     font-size: var(--font-size-2)
   }
 
-  @media(max-width:600px){
+  @media(max-width:532px){
 
 
   
 
     .footerLink {
       
-    margin-bottom: var(--size-2);
+    margin-bottom: var(--size-1);
     }
 
     .payments{

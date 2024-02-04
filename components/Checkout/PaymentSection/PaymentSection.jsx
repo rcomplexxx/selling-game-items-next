@@ -112,7 +112,8 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
       <div className={styles.mainWrapper}>
        
       
-        <div className={`${styles.paymentOptionDiv} ${paymentMethod=="creditcard" && styles.selectedOption}`} onClick={(event)=>{if(!document.getElementById("moreCards")?.contains(event.target))setPaymentMethod("creditcard")}}>
+        <div className={`${styles.paymentOptionDiv} ${paymentMethod=="creditcard" && styles.selectedOption}`} 
+        onClick={(event)=>{if(!document.getElementById("moreCards")?.contains(event.target))setPaymentMethod("creditcard")}}>
            <div className={styles.pickOption}>
             <div className={`${styles.pickCheck} ${paymentMethod=="creditcard" && styles.pickCheckSelected}`}>
                 <div className={paymentMethod=="creditcard" && styles.ringEffectDiv}></div>
@@ -135,7 +136,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
             {showOnlyTwoCards && <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={28} width={48}/>}
             <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={28} width={48}/>
             <Image src='/images/cardJcb2.svg' className={styles.creditCardLogo} height={28} width={48}/>
-            <Image src='/images/cardUnionPay2.svg' className={styles.creditCardLogo} height={28} width={48}/>
+            <Image src='/images/cardUnionPay4.svg' className={styles.creditCardLogo} height={28} width={48}/>
             </div>
             <div className={styles.moreCardsPopupTriangle}/>
             </div>
