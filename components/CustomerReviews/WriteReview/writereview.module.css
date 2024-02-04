@@ -10,26 +10,33 @@
   
   .ratingDiv{
     position: relative;
+    display: flex;
+    align-items: center;
+  
+
 
     user-select: none;
     cursor: pointer;
   }
 
   .reviewsNumberSpan{
-    margin-left: 8px;
+    margin-bottom: var(--size-1);
+    margin-left: var(--size-3);
     font-size: var(--font-size-3);
 
   }
 
   .plusStyle {
+    height: var(--size-4);
+    width: var(--size-4);
     padding:0;
     margin: 0;
-    margin-left: 16px;
+    margin-bottom: var(--size-1);
+    margin-left: var(--size-4);
     transform:  rotateY(0deg) rotate(-90deg);
     transform-origin: center;
  
-    align-self: end;
-    font-weight: 400;
+   
   }
   
   .plusStyleRotate {
@@ -74,7 +81,7 @@
     justify-content: center;
     align-items: center;
 
-    z-index: 5;
+    z-index: 11;
   }
 
   .reviewBackgroundDiv{
@@ -746,9 +753,15 @@
         align-self: flex-start;
         padding: var(--size-2) 0;
       }
+
+      .plusStyle {
+     
+        margin-left: var(--size-4);
+      }
+
       
   .reviewsNumberSpan{
-    margin-left: var(--size-2);
+    margin-left: var(--size-3);
   }
   
   }

@@ -157,15 +157,16 @@ useEffect(()=>{
             starHoverColor="orange"
             starDimension="24px"
             starSpacing="2px"
-          />{" "}
+          />
           <span className={styles.reviewsNumberSpan}>
             {ratingData.reviewsNumber} reviews
           </span>
 
           <Image
         src={'/images/greaterLess3.png'}
-        height={12}
-        width={12}
+        height={0}
+        width={0}
+        sizes="12px"
           className={`${styles.plusStyle} ${
             openRatingInfo && styles.plusStyleRotate
           }`}
