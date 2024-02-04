@@ -74,9 +74,7 @@ export default function Footer() {
           <Link href="/" className={styles.footerLink}>
             Home
           </Link>
-          <Link href="/products" className={styles.footerLink}>
-            Shop
-          </Link>
+        
           <Link href="/faq" className={styles.footerLink}>
             FAQ
           </Link>
@@ -93,16 +91,19 @@ export default function Footer() {
             Shipping Policy
           </Link>
         </div>
+        
         <div  className={styles.paymentsDiv}>
-        <Image
-        height={0}
-        width={0}
-        sizes='100vw'
-          src="/images/paymentsNoBg.png"
-          className={styles.payments}
-          alt="pay"
-        />
+      
+           <Image src='/images/cardVisa2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardMasterCard5.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+           <Image src='/images/cardAmex2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+           
+          <Image src='/images/cardDiscover3.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardJcb2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardUnionPay4.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardPaypalWhite.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
         </div>
+    
         <p className={styles.reservedRightsPharagraph}>
           © 2023, Gamebuff All Rights Reserved.
         </p>
