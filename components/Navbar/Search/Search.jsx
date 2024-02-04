@@ -17,14 +17,58 @@ export default function Search({searchOpen, setSearchOpen}){
     
 
     const isMounted=useRef(false)
+    const searchBoxRef = useRef();
+    const searchIconRef = useRef();
+    const searchInputRef = useRef();
   
     useEffect(()=>{
+
+
+
+
        if(!isMounted.current) {isMounted.current=true;return;}
+       console.log('proso mount');
+
+
+  
+
+      
         const inputElement = document.getElementById('search');
         if (inputElement) {
             isMounted.current=false;
           inputElement.focus();
         }
+
+
+
+           
+       const handleClickOutside = (event)=>{
+        if ((searchIconRef.current && !searchIconRef.current.contains(event.target)) &&(searchInputRef.current && !searchInputRef.current.contains(event.target)) && (searchBoxRef.current && !searchBoxRef.current.contains(event.target))) {
+          // Clicked outside the floating div, so close the dialog
+          setSearchOpen(false);
+        }
+      };
+
+      if(searchOpen){
+        document.addEventListener('click', handleClickOutside);
+      }
+      else{
+        document.removeEventListener('click', handleClickOutside);
+      }
+  
+        
+
+
+
+
+    
+        return () => {
+          if(searchOpen) document.removeEventListener('click', handleClickOutside);
+        };
+    
+
+
+
     },[searchOpen])
 
     const handleSearch = (term) => {
@@ -44,17 +88,18 @@ export default function Search({searchOpen, setSearchOpen}){
       <div className={styles.searchBarWrapper}>
           <input
           id='search'
+          ref={searchInputRef}
             type="text"
             placeholder="Search products..."
             value={searchTerm}
             onFocus={()=>{setSearchOpen(true)}}
             onChange={(e) => handleSearch(e.target.value)}
-            onBlur={()=>{setSearchOpen(false)}}
+          
           />
-          <Image src={`/images/searchIcon.png`} className={styles.searchIcon} height={0} width={0} sizes='20px' onClick={()=>{setSearchOpen(!searchOpen);
+          <Image ref={searchIconRef}  src={`/images/searchIcon.png`} className={styles.searchIcon} height={0} width={0} sizes='20px' onClick={()=>{setSearchOpen(!searchOpen);
         }}/>
           {/* Custom results section */}
-          <div className={`${styles.custom_results} ${searchOpen && styles.itemsVisible}` }>
+          <div ref={searchBoxRef} className={`${styles.custom_results} ${searchOpen && styles.itemsVisible}` }>
 
 
           {filteredcollections.length>0 && <div className={styles.resultProductsLabel}>Collections</div>}
