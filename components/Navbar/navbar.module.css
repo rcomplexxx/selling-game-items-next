@@ -60,6 +60,8 @@
     font-size: var(--font-size-5);
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+    margin-top: var(--size-2);
+    margin-bottom: var(--size-2);
   
     
   }
@@ -78,7 +80,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: var(--size-2) 0;
+    padding: var(--size-2) 0;
   }
   
  
@@ -338,6 +340,7 @@
 
       .logoLink{
         margin-left: 8px;
+        
       }
 
     }
@@ -346,6 +349,10 @@
    @media(max-width: 980px){
     .grow{
       display: none;
+    }
+
+    .logoLink{
+      padding: var(--size-2);
     }
    
    }

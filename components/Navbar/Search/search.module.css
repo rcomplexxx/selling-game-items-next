@@ -115,7 +115,7 @@
          background-color: var(--gray-9-elegant);
         height:64px;
         width: 100%;
-        padding-right: 72px;
+        padding-right: 64px;
         justify-content: flex-end;
         z-index: 9;
 
@@ -124,8 +124,7 @@
     .searchCancel{
       position: absolute;
       display: block;
-      top: 20px;
-      right: 40px;
+      right: 32px;
       color: var(--red-2);
       font-size: var(--font-size-5);
       font-family: Arial, sans-serif;
@@ -176,7 +175,23 @@
    
 }
 
-@media(max-width: 280px){
+
+
+@media(max-width: 330px){
+
+  .custom_search_bar input {
+
+      width: var(--size-12);
+  }
+
+  .custom_results{
+      width: var(--size-12);
+  }
+
+ 
+}
+
+@media(max-width: 300px){
 
     .custom_search_bar input {
 

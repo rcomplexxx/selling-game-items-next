@@ -10,6 +10,7 @@
   
   .ratingDiv{
     position: relative;
+
     user-select: none;
     cursor: pointer;
   }
@@ -736,13 +737,14 @@
       }
 
       .writeReviewButton{
-        margin-top: var(--size-3);
+        margin-top: var(--size-2);
         width: calc(100% - var(--size-4));
       }
 
       .ratingDiv{
         margin-left:6px;
         align-self: flex-start;
+        padding: var(--size-2) 0;
       }
       
   .reviewsNumberSpan{
