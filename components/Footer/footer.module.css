@@ -120,9 +120,8 @@
     align-items: center;
     flex-wrap: wrap;
 
-    margin-top: var(--size-5);
+    margin-top: var(--size-6);
    margin-bottom: var(--size-4);
-   background-color: #101B2D;
 
   
     
@@ -163,8 +162,7 @@
 
     
   .payments{
-    height:28px; 
-    width: 48px;
+   
   
     margin: 0 var(--size-2);
  
@@ -177,11 +175,13 @@
   @media(max-width: 408px){
     .paymentsDiv{
   
+      
       width: 336px;
      
     
       justify-content: flex-start;
     }
+    
   }
 
   
@@ -193,4 +193,45 @@
       justify-content: center;
     }
   }
+
+
+  @media(max-width: 298px){
+
+    .paymentsDiv{
+  
+      
+      width: 264px;
+     
+    
+      justify-content: flex-start;
+    }
+
+
+    .payments{
+      height:21px; 
+      width: 36px;
+    
+   
+      
+    }
+  }
+
+
+  @media(max-width: 274px){
+
+    .paymentsDiv{
+  
+      
+      width: auto;
+     
+    
+      justify-content: center;
+    }
+
+
+ 
+  }
+
+
+
 
