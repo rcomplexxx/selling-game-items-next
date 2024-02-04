@@ -110,16 +110,20 @@ const FullScreenZoomableImage = ({
       document.body.classList.add("hideScroll");
     }, 280);
 
-    const handlePopState=()=>{killFullScreen()}
+   
+
+
+  }, []);
+
+  useEffect(()=>{
+    const handlePopState=()=>{ setNavLocked(false); setNavActive(false);killFullScreen()}
 
     window?.addEventListener("popstate", handlePopState);
 
    return ()=>{
     window?.removeEventListener("popstate", handlePopState);
    }
-
-
-  }, []);
+  },[imageIndex])
 
   useEffect(() => {
     const fixedZoomDiv = document.getElementById("fixedZoomDiv");
