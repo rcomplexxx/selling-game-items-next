@@ -92,6 +92,7 @@ export default function Footer() {
           </Link>
         </div>
         
+        <div  className={styles.paymentsDivWrapper}>
         <div  className={styles.paymentsDiv}>
       
            <Image src='/images/cardVisa2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
@@ -103,7 +104,7 @@ export default function Footer() {
             <Image src='/images/cardUnionPay4.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
             <Image src='/images/cardPaypalWhite.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
         </div>
-    
+        </div>
         <p className={styles.reservedRightsPharagraph}>
           © 2023, Gamebuff All Rights Reserved.
         </p>

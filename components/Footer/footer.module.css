@@ -102,28 +102,35 @@
 
   
 
-  .paymentsDiv{
+  .paymentsDivWrapper{
     width: 100%;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+  }
+  .paymentsDiv{
+  
     
     position: relative;
     
-
     display: flex;
     
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 
     margin-top: var(--size-5);
    margin-bottom: var(--size-4);
+   background-color: #101B2D;
 
   
     
   }
 
   .payments{
-    height:35px; 
-    width: 60px;
+    height:28px; 
+    width: 48px;
     margin: 0 var(--size-2);
     padding-bottom: var(--size-2);
    
@@ -147,20 +154,43 @@
     margin-bottom: var(--size-1);
     }
 
-    .payments{
-      margin-top: 14px;
+    .paymentsDiv{
+  
+      width: 392px;
     }
+
+   
 
     
   .payments{
     height:28px; 
     width: 48px;
-    margin: 0 var(--size-2);
-   
   
+    margin: 0 var(--size-2);
+ 
     
   }
 
 
+  }
+
+  @media(max-width: 408px){
+    .paymentsDiv{
+  
+      width: 336px;
+     
+    
+      justify-content: flex-start;
+    }
+  }
+
+  
+  @media(max-width: 350px){
+    .paymentsDiv{
+  
+      width: auto;
+    
+      justify-content: center;
+    }
   }
 
