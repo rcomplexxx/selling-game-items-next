@@ -78,7 +78,8 @@ const Cart = () => {
 
   return (
     <div className={styles.mainWrapper}>
-    <div className={`${styles.containerStyle}`} style={cartMinHeight && {minHeight:`${cartMinHeight}px`}}>
+    <div className={`${styles.containerStyle}`} 
+    style={cartMinHeight && {minHeight:`${cartMinHeight}px`, transition: "min-height 0.05s ease"}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
