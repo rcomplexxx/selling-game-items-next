@@ -28,8 +28,8 @@ div.style.height = '100vh';
 div.style.visibility = 'hidden';
 document.body.appendChild(div);
 let divHeight = div.getBoundingClientRect().height;
-  if(divHeight > window.innerHeight)setAddressBarDown(false);
-  else setAddressBarDown(true);
+  if(divHeight > window.innerHeight)setAddressBarDown(true);
+  else setAddressBarDown(false);
 
 
 
