@@ -48,9 +48,9 @@ export default function Search({searchOpen, setSearchOpen}){
 
 
         const handlePopState = (event)=>{
-          history.go(1);
+        
        
-         
+          history.go(1);
           setSearchOpen(false);
           window?.removeEventListener("popstate", handlePopState);
         
@@ -66,10 +66,7 @@ export default function Search({searchOpen, setSearchOpen}){
 
       if(searchOpen){
 
-        router.beforePopState((state) => {
-          state.options.scroll = false;
-          return true;
-        });
+       
         
 
 
@@ -83,7 +80,7 @@ export default function Search({searchOpen, setSearchOpen}){
   
         
 
-
+     
 
 
     
@@ -98,6 +95,17 @@ export default function Search({searchOpen, setSearchOpen}){
 
 
     },[searchOpen])
+
+    useEffect(()=>{
+      router.beforePopState((state) => {
+        if(searchOpen){
+        state.options.scroll = false;
+          
+        return false;
+      }
+    return true;
+      });
+    },[searchOpen,router])
 
 
 

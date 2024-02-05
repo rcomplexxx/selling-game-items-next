@@ -41,11 +41,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
       if(isMenuOpen){
 
-        router.beforePopState((state) => {
-          state.options.scroll = false;
-          return true;
-        });
-        
+      
 
      
 
@@ -57,17 +53,28 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       }
       else{
         
-        document?.removeEventListener("popstate", handlePopState);
+        window?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
       }
   
       return () => {
         if (isMenuOpen) {
-          document?.removeEventListener('click', handleClickOutside);
+          document?.removeEventListener('click', handleClickOutside, true);
           window?.removeEventListener("popstate", handlePopState);
         }
       };
     }, [isMenuOpen]);
+
+    useEffect(()=>{
+      router.beforePopState((state) => {
+        if(isMenuOpen){
+        state.options.scroll = false;
+          
+        return false;
+      }
+    return true;
+      });
+    },[isMenuOpen,router])
 
 
 
