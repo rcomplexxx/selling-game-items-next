@@ -16,11 +16,12 @@ const Cart = () => {
 
   useLayoutEffect(()=>{
       setCartMinHeight(window.innerHeight - 64);
-      const updateSize=()=>{
-        setCartMinHeight(window.innerHeight - 64);
-      }
-      window.addEventListener('resize', updateSize);
-      return () => window.removeEventListener('resize', updateSize);
+      console.log('heights', window.innerHeight, window.outerHeight);
+      // const updateSize=()=>{
+      //   setCartMinHeight(window.innerHeight - 64);
+      // }
+      // window.addEventListener('resize', updateSize);
+      // return () => window.removeEventListener('resize', updateSize);
 
 
   },[]);
@@ -78,8 +79,7 @@ const Cart = () => {
 
   return (
     <div className={styles.mainWrapper}>
-    <div className={`${styles.containerStyle}`} 
-    style={cartMinHeight && {minHeight:`${cartMinHeight}px`, transition: "min-height 0.05s ease"}}>
+    <div className={`${styles.containerStyle}`} style={cartMinHeight && {minHeight:`${cartMinHeight}px`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
