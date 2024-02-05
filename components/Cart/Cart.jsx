@@ -90,8 +90,8 @@ let divHeight = div.getBoundingClientRect().height;
   </div>
 
   return (
-    <div className={styles.mainWrapper} style={{minHeight:`${addressBarDown?"calc(100svh - 64)":"calc(100vh - 64)"}`}}>
-    <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100svh - 64)":"calc(100vh - 64)"}`}}>
+    <div className={styles.mainWrapper} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
+    <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
