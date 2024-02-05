@@ -14,7 +14,7 @@ const Cart = () => {
 
 
   useEffect(()=>{
-    window.scrollBy(0, -1);
+    window.scrollBy(0, -20);
   }, [])
 
 
