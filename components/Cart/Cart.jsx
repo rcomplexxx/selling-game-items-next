@@ -11,17 +11,26 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
+  
   const [cartMinHeight, setCartMinHeight] = useState();
+  const [cartOuterHeight, setCartOuterHeight] = useState();
+  const [lockMinHeight, setLockMinHeight] = useState(false);
 
 
   useLayoutEffect(()=>{
       setCartMinHeight(window.innerHeight - 64);
-      console.log('heights', window.innerHeight, window.outerHeight);
-      // const updateSize=()=>{
-      //   setCartMinHeight(window.innerHeight - 64);
-      // }
-      // window.addEventListener('resize', updateSize);
-      // return () => window.removeEventListener('resize', updateSize);
+      setCartOuterHeight(window.outerHeight - window.innerHeight);
+
+
+      const updateSize=()=>{
+        if(window.outerHeight - window.innerHeight>cartOuterHeight){
+            setCartOuterHeight(window.outerHeight - window.innerHeight);
+            setLockMinHeight(true);
+        }
+        setCartMinHeight(window.innerHeight - 64);
+      }
+      window.addEventListener('resize', updateSize);
+      return () => window.removeEventListener('resize', updateSize);
 
 
   },[]);
@@ -79,7 +88,7 @@ const Cart = () => {
 
   return (
     <div className={styles.mainWrapper}>
-    <div className={`${styles.containerStyle}`} style={cartMinHeight && {minHeight:`${cartMinHeight}px`}}>
+    <div className={`${styles.containerStyle}`} style={lockMinHeight?{minHeight:`100vh`}:cartMinHeight && {minHeight:`${cartMinHeight}px`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
