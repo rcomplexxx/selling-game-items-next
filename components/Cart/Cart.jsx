@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import Link from "next/link";
 
 import CartItem from "./CartItem/CartItem";
@@ -11,6 +11,13 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
+  const [cartMinHeight, setCartMinHeight] = useState();
+
+
+  useLayoutEffect(()=>{
+      if(window)setCartMinHeight(window.innerHeight - 64);
+  },[]);
+
 
 
   useEffect(()=>{
@@ -64,7 +71,7 @@ const Cart = () => {
 
   return (
     <div className={styles.mainWrapper}>
-    <div className={`${styles.containerStyle}`}>
+    <div className={`${styles.containerStyle}`} style={cartMinHeight && {minHeight:`${cartMinHeight}px`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
