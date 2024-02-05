@@ -14,7 +14,10 @@ const Cart = () => {
 
 
   useEffect(()=>{
-    window.scrollBy(0, -20);
+    setTimeout(function(){
+      // This hides the address bar:
+      window.scrollTo(0, -20);
+  },100);
   }, [])
 
 
