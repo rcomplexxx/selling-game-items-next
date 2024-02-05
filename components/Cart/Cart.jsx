@@ -15,7 +15,14 @@ const Cart = () => {
 
 
   useLayoutEffect(()=>{
-      if(window)setCartMinHeight(window.innerHeight - 64);
+      setCartMinHeight(window.innerHeight - 64);
+      const updateSize=()=>{
+        setCartMinHeight(window.innerHeight - 64);
+      }
+      window.addEventListener('resize', updateSize);
+      return () => window.removeEventListener('resize', updateSize);
+
+
   },[]);
 
 
