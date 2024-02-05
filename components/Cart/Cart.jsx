@@ -16,8 +16,8 @@ const Cart = () => {
 
 
   useLayoutEffect(()=>{
-    if (window.innerWidth<980)
-      setCartMinHeight(window.innerHeight - 64);
+   
+    
 
 
       let div = document.createElement('div');
@@ -28,13 +28,16 @@ div.style.height = '100vh';
 div.style.visibility = 'hidden';
 document.body.appendChild(div);
 let divHeight = div.getBoundingClientRect().height;
+if (window.innerWidth<980){
   if(divHeight > window.innerHeight)setAddressBarDown(true);
   else setAddressBarDown(false);
+}
 
 
 
 
       const updateSize=()=>{
+        if (window.innerWidth<980){
         if(divHeight > window.innerHeight){
           setAddressBarDown(true);
           document.body.removeChild(div);
@@ -46,6 +49,7 @@ let divHeight = div.getBoundingClientRect().height;
           window.removeEventListener('resize', updateSize);
         }
         else setAddressBarDown(false);
+      }
       }
       window.addEventListener('resize', updateSize);
       return () => window.removeEventListener('resize', updateSize);
