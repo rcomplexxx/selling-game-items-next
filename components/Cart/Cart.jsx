@@ -24,7 +24,6 @@ const Cart = () => {
 
       const updateSize=()=>{
         if(window.outerHeight - window.innerHeight>cartOuterHeight){
-            setCartOuterHeight(window.outerHeight - window.innerHeight);
             setLockMinHeight(true);
         }
         setCartMinHeight(window.innerHeight - 64);
@@ -88,7 +87,7 @@ const Cart = () => {
 
   return (
     <div className={styles.mainWrapper}>
-    <div className={`${styles.containerStyle}`} style={lockMinHeight?{minHeight:`100vh`}:cartMinHeight && {minHeight:`${cartMinHeight}px`}}>
+    <div className={`${styles.containerStyle}`} style={lockMinHeight?{minHeight:`100vh`}:(cartMinHeight && {minHeight:`${cartMinHeight}px`})}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
