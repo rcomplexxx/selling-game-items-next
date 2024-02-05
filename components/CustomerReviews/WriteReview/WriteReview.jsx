@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./writereview.module.css";
 import StarRatings from "react-star-ratings";
 import { useRouter } from "next/router";
@@ -105,6 +105,37 @@ useEffect(()=>{
 
   const router = useRouter();
 
+  const popTriggeredRef= useRef(false);
+
+
+
+  useEffect(() => {
+
+
+    router.beforePopState((state) => {
+      popTriggeredRef.current=true;
+      state.options.scroll = false;
+      if(infoDivOpen){
+      setInfoDivOpen(false);
+      setImages([]);
+      setReviewInfo({
+        text: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+      });
+     setErrors({ firstName: false, email: false });
+     
+  return true;
+    }
+    return true;
+    });
+
+    
+  }, [router]);
+
+
+
   useEffect(() => {
 
     if(infoDivOpen===undefined){
@@ -115,29 +146,19 @@ useEffect(()=>{
     }
     
     if (infoDivOpen) {
-      router.push(router.asPath + "#write-review");
+      if(!router.asPath.includes("#write-review")) router.push(router.asPath + "#write-review");
     }
 
     else{
 
-    if (router.asPath.includes("#write-review")) router.back();
+    if (router.asPath.includes("#write-review") && !popTriggeredRef.current) router.back();
+    else if(popTriggeredRef.current) popTriggeredRef.current=false;
     }
 
     setRatingPage(0);
-  }, [infoDivOpen]);
+  }, [infoDivOpen, router]);
 
-  useEffect(() => {
-    if (!router.asPath.includes("#write-review")) {setInfoDivOpen(false);
-      setImages([]);
-      setReviewInfo({
-        text: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-      });
-     setErrors({ firstName: false, email: false });
-    }
-  }, [router.asPath]);
+ 
 
   const handleRatingClick = (newRating) => {
     setRating(newRating);
