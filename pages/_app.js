@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
 
     const handleRouteChangeStart = (url) => {
       // 'url' parameter contains the new route
-      setNewProduct(undefined);
+      setNewProduct();
       if(url.startsWith("/checkout") ||
       url === "/thank-you" ||
       

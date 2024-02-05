@@ -4,13 +4,67 @@ import Link from 'next/link'
 import styles from './popupcart.module.css'
 import Image from 'next/image';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 
 
 export default function PopupCart({totalItems,newProduct, setNewProduct}){
 
 
+const router = useRouter();
 
+useEffect(()=>{
+
+
+
+
+ 
+
+
+   const handlePopState = (event)=>{
+   
+  
+     history.go(1);
+     setNewProduct();
+     window?.removeEventListener("popstate", handlePopState);
+   
+   }
+
+      
+
+
+ if(newProduct){
+
+   window?.addEventListener("popstate", handlePopState);
+ }
+
+   
+
+
+
+
+
+   return () => {
+   
+       window?.removeEventListener("popstate", handlePopState);
+     
+   };
+
+
+
+
+},[newProduct])
+
+useEffect(()=>{
+ router.beforePopState((state) => {
+   if(newProduct){
+   state.options.scroll = false;
+     
+   return false;
+ }
+return true;
+ });
+},[newProduct,router])
 
     return <div className={`${styles.cartPopup} ${newProduct && styles.materialize}`} >
     {newProduct && <><div  className={styles.contentWrapper}>
