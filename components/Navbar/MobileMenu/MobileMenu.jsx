@@ -59,8 +59,9 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
   
       return () => {
         if (isMenuOpen) {
-          document?.removeEventListener('click', handleClickOutside, true);
           window?.removeEventListener("popstate", handlePopState);
+          document?.removeEventListener('click', handleClickOutside, true);
+         
         }
       };
     }, [isMenuOpen]);
