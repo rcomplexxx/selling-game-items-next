@@ -8,7 +8,6 @@
 
 .containerStyle{
   min-height: calc(100vh - 64px);
-  min-height: calc(100svh - 64px);
   display: flex;
   flex-direction: column;
   width: 100%;
