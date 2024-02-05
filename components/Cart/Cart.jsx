@@ -34,11 +34,15 @@ let divHeight = div.getBoundingClientRect().height;
 
 
 
-      // const updateSize=()=>{
-      //   setCartMinHeight(window.innerHeight - 64);
-      // }
-      // window.addEventListener('resize', updateSize);
-      // return () => window.removeEventListener('resize', updateSize);
+      const updateSize=()=>{
+        if(divHeight > window.innerHeight){
+          setAddressBarDown(true);
+          window.removeEventListener('resize', updateSize);
+        }
+        else setAddressBarDown(false);
+      }
+      window.addEventListener('resize', updateSize);
+      return () => window.removeEventListener('resize', updateSize);
 
 
   },[]);
