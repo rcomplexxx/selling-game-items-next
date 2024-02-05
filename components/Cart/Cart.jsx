@@ -40,6 +40,11 @@ let divHeight = div.getBoundingClientRect().height;
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
         }
+        else if(divHeight < window.innerHeight) {
+          setAddressBarDown(false);
+          document.body.removeChild(div);
+          window.removeEventListener('resize', updateSize);
+        }
         else setAddressBarDown(false);
       }
       window.addEventListener('resize', updateSize);

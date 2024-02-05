@@ -14,7 +14,7 @@
   flex-direction: column;
   width: 100%;
   min-width: 100%;
-  transition: min-height 0.3s ease;
+  transition: min-height 0.2s ease;
   padding: 0 var(--size-10);
   padding-bottom: var(--size-8) ;
   box-sizing: border-box;
