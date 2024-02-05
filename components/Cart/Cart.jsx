@@ -37,6 +37,7 @@ let divHeight = div.getBoundingClientRect().height;
       const updateSize=()=>{
         if(divHeight > window.innerHeight){
           setAddressBarDown(true);
+          document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
         }
         else setAddressBarDown(false);
