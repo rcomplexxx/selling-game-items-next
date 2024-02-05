@@ -11,37 +11,41 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
-  
   const [cartMinHeight, setCartMinHeight] = useState();
-  const [cartOuterHeight, setCartOuterHeight] = useState();
-  const [lockMinHeight, setLockMinHeight] = useState(false);
+  const [addressBarDown, setAddressBarDown] = useState(false);
 
 
   useLayoutEffect(()=>{
+    if (window.innerWidth<980)
       setCartMinHeight(window.innerHeight - 64);
-      setCartOuterHeight(window.outerHeight - window.innerHeight);
 
 
-      const updateSize=()=>{
-        if(window.outerHeight - window.innerHeight>cartOuterHeight){
-            setLockMinHeight(true);
-        }
-        setCartMinHeight(window.innerHeight - 64);
-      }
-      window.addEventListener('resize', updateSize);
-      return () => window.removeEventListener('resize', updateSize);
+      let div = document.createElement('div');
+      div.style.position = 'absolute';
+      div.style.top = '0';
+      div.style.left='0';
+div.style.height = '100vh';
+div.style.visibility = 'hidden';
+document.body.appendChild(div);
+let divHeight = div.getBoundingClientRect().height;
+  if(divHeight > window.innerHeight)setAddressBarDown(false);
+  else setAddressBarDown(true);
+
+
+
+
+      // const updateSize=()=>{
+      //   setCartMinHeight(window.innerHeight - 64);
+      // }
+      // window.addEventListener('resize', updateSize);
+      // return () => window.removeEventListener('resize', updateSize);
 
 
   },[]);
 
 
 
-  useEffect(()=>{
-    setTimeout(function(){
-      // This hides the address bar:
-      window.scrollTo(0, -20);
-  },100);
-  }, [])
+ 
 
 
 
@@ -86,8 +90,8 @@ const Cart = () => {
   </div>
 
   return (
-    <div className={styles.mainWrapper}>
-    <div className={`${styles.containerStyle}`} style={lockMinHeight?{minHeight:`100vh`}:(cartMinHeight && {minHeight:`${cartMinHeight}px`})}>
+    <div className={styles.mainWrapper} style={{minHeight:`${addressBarDown?"calc(100svh - 64)":"calc(100vh - 64)"}`}}>
+    <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100svh - 64)":"calc(100vh - 64)"}`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
