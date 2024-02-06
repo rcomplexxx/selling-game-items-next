@@ -2,7 +2,7 @@
   width:100%;
   max-width: 100%;
     background: linear-gradient(to right, #101B2D, #233D5E);
-    padding: var(--size-6);
+    padding: var(--size-5) var(--size-6);
     padding-top: 0;
     
     z-index: 4;
@@ -17,7 +17,7 @@
   }
 
   .mainDiv{
-    max-width: 96%;
+    max-width: var(--size-14-5);
     padding-left: 3%;
     padding-right: 3%;
     display: flex;
@@ -45,11 +45,16 @@
     height: var(--size-7);
     color: #7a857a;
     background-color: transparent;
+    outline: none;
     border: solid #3e3e3e 1px;
     border-radius: var(--size-2);
     box-sizing: border-box;
     padding: var(--size-2);
     
+  }
+
+  .subscribeInput:focus{
+    border: solid #7daee2 2px;
   }
 
   .subscribeValidationMessage{
@@ -79,14 +84,15 @@
   .footerLinks {
     display: flex;
     flex-wrap: wrap;
-   justify-content: space-between;
-    margin-top: var(--size-5);
+   justify-content: flex-start;
+    margin-top: var(--size-3);
   }
   
   
   .footerLink {
     color: #fff;
     margin: 0 var(--size-3);
+    margin-top: var(--size-3);
     text-decoration: none;
     font-size: var(--font-size-2);
    
@@ -140,7 +146,7 @@
   .reservedRightsPharagraph{
     margin: 0;
     padding: 0;
-    font-size: var(--font-size-2)
+    font-size: var(--font-size-2);
   }
 
   @media(max-width:532px){
@@ -148,9 +154,9 @@
 
   
 
-    .footerLink {
+    .footerLinks {
       
-    margin-bottom: var(--size-1);
+    margin-bottom: var(--size-2);
     }
 
     .paymentsDiv{

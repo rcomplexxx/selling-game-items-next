@@ -71,24 +71,27 @@ export default function Footer() {
           Subscribe
         </button>
         <div className={styles.footerLinks}>
-          <Link href="/" className={styles.footerLink}>
-            Home
-          </Link>
+         
         
-          <Link href="/faq" className={styles.footerLink}>
-            FAQ
-          </Link>
-          <Link href="/our-story" className={styles.footerLink}>
-          Our story
-          </Link>
-          <Link href="/contact-us" className={styles.footerLink}>
-            Contact Us
-          </Link>
+        
           <Link href="/privacy-policy" className={styles.footerLink}>
             Privacy Policy
           </Link>
           <Link href="/shipping-policy" className={styles.footerLink}>
             Shipping Policy
+          </Link>
+          <Link href="/shipping-policy" className={styles.footerLink}>
+            Refund Policy
+          </Link>
+          <Link href="/shipping-policy" className={styles.footerLink}>
+            Terms of service
+          </Link>
+          <Link href="/faq" className={styles.footerLink}>
+            FAQ
+          </Link>
+          
+          <Link href="/contact-us" className={styles.footerLink}>
+            Contact Us
           </Link>
         </div>
         
