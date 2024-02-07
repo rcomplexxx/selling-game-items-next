@@ -79,7 +79,7 @@ export default function Footer() {
       <LinkCard title={"Explore"}>
       <div className={styles.footerLinks}>
       {collections.map(c=>{
-        return <Link href={`/collection/${c.name}`} className={styles.footerLink}>
+        return <Link href={`/collection/${c.name.toLowerCase().replace(/ /g, '-')+'/page/1'}`} className={styles.footerLink}>
        {c.name}
       </Link>
       })}
