@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Link from "next/link";
 import styles from "./footer.module.css";
 import Image from "next/image";
+import LinkCard from "./LinkCard/LinkCard";
 
 export default function Footer() {
   const email = useRef();
@@ -44,10 +45,13 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.mainDiv}>
-        <h1 className={styles.subscribeTitle}>Stay connected</h1>
+        
+      
+        <div className={styles.linkCards}>
+        <LinkCard title={"Connect"}>
+          <div className={styles.connectWrapper}>
         <p className={styles.subscribePharagraph}>
-          Join our newsletters to get the latest Gamebuff updates and surprise
-          discounts!
+          Join for special updates & discounts
         </p>
         <input
           id="subscribe"
@@ -70,30 +74,47 @@ export default function Footer() {
         <button className={styles.subscribeButton} onClick={handleSubscribe}>
           Subscribe
         </button>
-        <div className={styles.footerLinks}>
+        </div>
+          </LinkCard>
+     <LinkCard title={"Info"}>
+     <div className={styles.footerLinks}>
          
         
-        
-          <Link href="/privacy-policy" className={styles.footerLink}>
-            Privacy Policy
-          </Link>
-          <Link href="/shipping-policy" className={styles.footerLink}>
-            Shipping Policy
-          </Link>
-          <Link href="/shipping-policy" className={styles.footerLink}>
-            Refund Policy
-          </Link>
-          <Link href="/shipping-policy" className={styles.footerLink}>
-            Terms of service
-          </Link>
-          <Link href="/faq" className={styles.footerLink}>
-            FAQ
-          </Link>
-          
-          <Link href="/contact-us" className={styles.footerLink}>
-            Contact Us
-          </Link>
-        </div>
+     <Link href="/faq" className={styles.footerLink}>
+           Our story
+         </Link>
+       
+         <Link href="/faq" className={styles.footerLink}>
+           FAQ
+         </Link>
+         
+         <Link href="/contact-us" className={styles.footerLink}>
+           Contact Us
+         </Link>
+       </div>
+      </LinkCard>
+     <LinkCard title={"Help"}>
+     <div className={styles.footerLinks}>
+         
+     <Link href="/privacy-policy" className={styles.footerLink}>
+           Privacy Policy
+         </Link>
+         <Link href="/shipping-policy" className={styles.footerLink}>
+           Shipping Policy
+         </Link>
+         <Link href="/shipping-policy" className={styles.footerLink}>
+           Refund Policy
+         </Link>
+         <Link href="/shipping-policy" className={styles.footerLink}>
+           Terms of service
+         </Link>
+         <Link href="/contact-us" className={styles.footerLink}>
+           Contact Us
+         </Link>
+          </div>
+
+      </LinkCard>
+     </div>
         
         <div  className={styles.paymentsDivWrapper}>
         <div  className={styles.paymentsDiv}>

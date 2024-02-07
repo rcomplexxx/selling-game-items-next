@@ -9,7 +9,7 @@ const Products = ({ products, showAll }) => {
 
   return (
     <div className={styles.toolbar}>
-      <h1 className={styles.title}>Explore our collection</h1>
+      <h1 className={styles.title}>Trending products</h1>
       <div className={styles.mainGridStyle}>
         {products.map((product, i) => (
           <Product
