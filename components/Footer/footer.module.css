@@ -38,9 +38,9 @@
 
   .subscribePharagraph{
     color: rgb(200, 202, 198);
-    margin:0 var(--size-1);
+    margin:0;
     padding:0;
-    margin-bottom: var(--size-3);
+    margin-bottom: var(--size-2);
     font-size: var(--font-size-2);
   }
 
@@ -88,7 +88,7 @@
   }
 
   .subscribeButton{
-    color: rgba(255, 255, 255, 0.851);
+    color: rgba(255, 255, 255, 0.85);
     background-color: rgb(62, 44, 36);
 
     width: var(--size-10);
@@ -106,7 +106,7 @@
 
   .subscribeButton:hover{
     color: white;
-    background-color: rgb(16, 3, 34);
+    background-color: rgb(50, 36, 30);
   }
   
   .footerLinks {
@@ -122,12 +122,11 @@
   
   
   .footerLink {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.65);
     margin: 0 var(--size-1);
     margin-top: var(--size-3);
     text-decoration: none;
     font-size: var(--font-size-2);
-    opacity: 0.7;
    
   }
   
@@ -153,8 +152,10 @@
   }
 
   .getInTouch{
+    color: rgba(255, 255, 255, 0.85);
     margin-top: var(--size-4);
     margin-bottom: var(--size-6);
+    font-size: var(--font-size-2);
   }
 
 
@@ -199,6 +200,7 @@
   }
 
   .reservedRightsPharagraph{
+    color: rgba(255, 255, 255, 0.85);
     margin: 0;
     padding: 0;
     font-size: var(--font-size-2);
