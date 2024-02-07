@@ -17,9 +17,9 @@
   }
 
   .mainDiv{
-    max-width: var(--size-14-5);
-    padding-left: 3%;
-    padding-right: 3%;
+    max-width: var(--size-15);
+    width: 100%;
+    padding: 0 var(--size-5);
     display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,6 +49,8 @@
   }
 
   .subscribeInput{
+    min-width: 0;
+    width: 0;
     flex: 1;
     height: var(--size-7);
     color: white;
@@ -92,9 +94,14 @@
     border-radius: var(--size-2);
     box-sizing: border-box;
     margin-left: var(--size-3);
-    
+    transition: background-color 0.1s ease, color 0.1s ease;
     font-size: var(--font-size-2);
     cursor: pointer;
+  }
+
+  .subscribeButton:hover{
+    color: white;
+    background-color: rgb(16, 3, 34);
   }
   
   .footerLinks {
@@ -129,7 +136,7 @@
 
 
   .linkCards{
-    width: calc(100% - var(--size-2));
+    width: 100%;
     margin-top: var(--size-4);
   }
   
