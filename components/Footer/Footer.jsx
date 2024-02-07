@@ -48,37 +48,7 @@ export default function Footer() {
         
       
         <div className={styles.linkCards}>
-        <LinkCard title={"Connect"}>
-          <div className={styles.connectWrapper}>
-        <p className={styles.subscribePharagraph}>
-          Join for special updates & discounts
-        </p>
-        <div className={styles.subscribeWrapper}>
-        <input
-          id="subscribe"
-          className={styles.subscribeInput}
-          placeholder="Enter your email address"
-          ref={email}
-          onChange={() => {
-            if (error) setError(null);
-            if (successful) setSuccessful(false);
-          }}
-        />
- <button className={styles.subscribeButton} onClick={handleSubscribe}>
-          Subscribe
-        </button>
-        </div>
-        {error && <p className={styles.subscribeValidationMessage}>{error}</p>}
-        {successful && !error && (
-          <p
-            className={`${styles.subscribeValidationMessage} ${styles.subscribeSuccess}`}
-          >
-            Successfuly subscribed.
-          </p>
-        )}
        
-        </div>
-          </LinkCard>
      <LinkCard title={"Info"}>
      <div className={styles.footerLinks}>
          
@@ -117,6 +87,38 @@ export default function Footer() {
           </div>
 
       </LinkCard>
+
+      <LinkCard title={"Stay connected"}>
+          <div className={styles.connectWrapper}>
+        <p className={styles.subscribePharagraph}>
+          Join for special updates & discounts 👇 
+        </p>
+        <div className={styles.subscribeWrapper}>
+        <input
+          id="subscribe"
+          className={styles.subscribeInput}
+          placeholder="Enter your email address"
+          ref={email}
+          onChange={() => {
+            if (error) setError(null);
+            if (successful) setSuccessful(false);
+          }}
+        />
+ <button className={styles.subscribeButton} onClick={handleSubscribe}>
+          Subscribe
+        </button>
+        </div>
+        {error && <p className={styles.subscribeValidationMessage}>{error}</p>}
+        {successful && !error && (
+          <p
+            className={`${styles.subscribeValidationMessage} ${styles.subscribeSuccess}`}
+          >
+            Successfuly subscribed.
+          </p>
+        )}
+       
+        </div>
+          </LinkCard>
      </div>
         
         <div  className={styles.paymentsDivWrapper}>

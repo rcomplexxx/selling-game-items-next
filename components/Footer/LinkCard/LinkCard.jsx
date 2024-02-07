@@ -4,9 +4,8 @@ import Image from 'next/image';
 
 export default function LinkCard({title, children}) {
 
-    const [cardOpen, setCardOpen] = useState(false);
+    const [cardOpen, setCardOpen] = useState(title=='Stay connected'?true:false);
     
-    const mountedRef= useRef(false);
     const cardContentRef=useRef();
     const maxHeightTimoutAdj = useRef();
 
@@ -15,7 +14,6 @@ export default function LinkCard({title, children}) {
 
     
     useEffect(()=>{
-      if(!mountedRef.current){mountedRef.current=true;return;}
       clearTimeout(maxHeightTimoutAdj.current);
   
       const cardContentDiv = cardContentRef.current;
@@ -50,7 +48,7 @@ export default function LinkCard({title, children}) {
   return (
     <div className={styles.footerLinksWrapper}>
         <div onClick={()=>{setCardOpen(!cardOpen)}} className={styles.linksCard}>
-        <span>{title}</span>
+        <span className={styles.title}>{title}</span>
         <Image className={`${styles.dropMenuSign} ${cardOpen && styles.dropMenuOpen}`} src='/images/greaterLess3.png' height={8} width={8}/>
         </div>
         <div ref={cardContentRef} className={styles.linksContent}>
