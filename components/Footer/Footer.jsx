@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./footer.module.css";
 import Image from "next/image";
 import LinkCard from "./LinkCard/LinkCard";
+import collections from "@/data/collections.json"
 
 export default function Footer() {
   const email = useRef();
@@ -55,9 +56,6 @@ export default function Footer() {
         <LinkCard title={"Policies"}>
      <div className={styles.footerLinks}>
 
-     <Link href="/faq" className={styles.footerLink}>
-           Our story
-         </Link>
          
      <Link href="/privacy-policy" className={styles.footerLink}>
            Privacy Policy
@@ -65,10 +63,10 @@ export default function Footer() {
          <Link href="/shipping-policy" className={styles.footerLink}>
            Shipping Policy
          </Link>
-         <Link href="/shipping-policy" className={styles.footerLink}>
+         <Link href="/refund-policy" className={styles.footerLink}>
            Refund Policy
          </Link>
-         <Link href="/shipping-policy" className={styles.footerLink}>
+         <Link href="/terms-of-service" className={styles.footerLink}>
            Terms of service
          </Link>
        
@@ -79,7 +77,13 @@ export default function Footer() {
     
 
       <LinkCard title={"Explore"}>
-
+      <div className={styles.footerLinks}>
+      {collections.map(c=>{
+        return <Link href={`/collections/${c.name}`} className={styles.footerLink}>
+       {c.name}
+      </Link>
+      })}
+      </div>
         </LinkCard>
 
 
