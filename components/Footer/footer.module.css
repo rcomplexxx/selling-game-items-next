@@ -88,14 +88,16 @@
   }
 
   .subscribeButton{
-    background-color: var(--gray-9-elegant);
-    color:var(--gray-1);
+    color: rgba(255, 255, 255, 0.851);
+    background-color: rgb(62, 44, 36);
+
     width: var(--size-10);
     height: var(--size-7);
     box-sizing: border-box;
-    border: none;
+
     border-radius: var(--size-2);
     box-sizing: border-box;
+    border: 1px solid rgba(128, 128, 128, 0.503);
     margin-left: var(--size-3);
     transition: background-color 0.1s ease, color 0.1s ease;
     font-size: var(--font-size-2);
