@@ -53,6 +53,7 @@ export default function Footer() {
         <p className={styles.subscribePharagraph}>
           Join for special updates & discounts
         </p>
+        <div className={styles.subscribeWrapper}>
         <input
           id="subscribe"
           className={styles.subscribeInput}
@@ -63,6 +64,10 @@ export default function Footer() {
             if (successful) setSuccessful(false);
           }}
         />
+ <button className={styles.subscribeButton} onClick={handleSubscribe}>
+          Subscribe
+        </button>
+        </div>
         {error && <p className={styles.subscribeValidationMessage}>{error}</p>}
         {successful && !error && (
           <p
@@ -71,9 +76,7 @@ export default function Footer() {
             Successfuly subscribed.
           </p>
         )}
-        <button className={styles.subscribeButton} onClick={handleSubscribe}>
-          Subscribe
-        </button>
+       
         </div>
           </LinkCard>
      <LinkCard title={"Info"}>
