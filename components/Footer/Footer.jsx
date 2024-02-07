@@ -48,26 +48,16 @@ export default function Footer() {
         
       
         <div className={styles.linkCards}>
-       
-     <LinkCard title={"Info"}>
+
+
+
+
+        <LinkCard title={"Policies"}>
      <div className={styles.footerLinks}>
-         
-        
+
      <Link href="/faq" className={styles.footerLink}>
            Our story
          </Link>
-       
-         <Link href="/faq" className={styles.footerLink}>
-           FAQ
-         </Link>
-         
-         <Link href="/contact-us" className={styles.footerLink}>
-           Contact Us
-         </Link>
-       </div>
-      </LinkCard>
-     <LinkCard title={"Help"}>
-     <div className={styles.footerLinks}>
          
      <Link href="/privacy-policy" className={styles.footerLink}>
            Privacy Policy
@@ -81,17 +71,25 @@ export default function Footer() {
          <Link href="/shipping-policy" className={styles.footerLink}>
            Terms of service
          </Link>
-         <Link href="/contact-us" className={styles.footerLink}>
-           Contact Us
-         </Link>
+       
           </div>
 
       </LinkCard>
+       
+    
+
+      <LinkCard title={"Explore"}>
+
+        </LinkCard>
+
+
+
+   
 
       <LinkCard title={"Stay connected"}>
           <div className={styles.connectWrapper}>
         <p className={styles.subscribePharagraph}>
-          Join for special updates & discounts 👇 
+          Join for special updates & discounts 
         </p>
         <div className={styles.subscribeWrapper}>
         <input
@@ -119,6 +117,15 @@ export default function Footer() {
        
         </div>
           </LinkCard>
+
+          <LinkCard title={"Get in touch"}>
+     <span className={styles.getInTouch}>
+         
+     To get in touch with our helpful Customer Service team, please click here . They will respond to all your questions and enquiries ASAP.
+       </span>
+      </LinkCard>
+
+
      </div>
         
         <div  className={styles.paymentsDivWrapper}>
@@ -131,7 +138,8 @@ export default function Footer() {
           <Image src='/images/cardDiscover3.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
             <Image src='/images/cardJcb2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
             <Image src='/images/cardUnionPay4.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image src='/images/cardPaypalWhite.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardPaypalWhite3.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardGpay2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
         </div>
         </div>
         <p className={styles.reservedRightsPharagraph}>

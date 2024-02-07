@@ -1,16 +1,19 @@
 .footer {
   width:100%;
   max-width: 100%;
-    background: linear-gradient(to right, #101B2D, #233D5E);
+  display: flex;
+  justify-content: center;
+  align-content: center;
     padding: var(--size-5) var(--size-6);
     padding-top: 0;
+    border-top: 1px solid rgb(72, 69, 85);
     
     z-index: 4;
-    display: flex;
-    justify-content: center;
-    align-content: center;
+    
     margin-top: auto;
   }
+
+  /* background: linear-gradient(to right, #101B2D, #233D5E); */
   
   .hideFooter{
     display: none;
@@ -111,8 +114,8 @@
    width: 100%;
    display: flex;
    flex-direction: column;
-   margin-top:var(--size-5);
-   margin-bottom: var(--size-3);
+   margin-top: 0;
+   margin-bottom: var(--size-5);
   }
   
   
@@ -137,23 +140,30 @@
 
   .linkCards{
     width: 100%;
-    margin-top: var(--size-4);
+    margin-top: var(--size-3);
   }
   
 
   .connectWrapper{
     width: 100%;
-    margin-top: var(--size-6);
-    margin-bottom: var(--size-4);
+    margin-top: var(--size-4);
+    margin-bottom: var(--size-6);
+  }
+
+  .getInTouch{
+    margin-top: var(--size-4);
+    margin-bottom: var(--size-6);
   }
 
 
   .paymentsDivWrapper{
     width: 100%;
     display: flex;
-    
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+     margin-top: var(--size-6);
+   margin-bottom: var(--size-4);
   }
 
 
@@ -170,8 +180,7 @@
     align-items: center;
     flex-wrap: wrap;
 
-    margin-top: var(--size-6);
-   margin-bottom: var(--size-4);
+   
 
   
     
@@ -193,6 +202,13 @@
     font-size: var(--font-size-2);
   }
 
+
+  @media(max-width: 776px){
+
+  }
+
+
+
   @media(max-width:532px){
 
 
@@ -200,7 +216,7 @@
 
     .footerLinks {
       
-    margin-bottom: var(--size-2);
+    /* margin-bottom: var(--size-2); */
     }
 
     .paymentsDiv{

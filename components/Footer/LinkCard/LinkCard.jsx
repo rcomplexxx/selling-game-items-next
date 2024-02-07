@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function LinkCard({title, children}) {
 
-    const [cardOpen, setCardOpen] = useState(title=='Stay connected'?true:false);
+    const [cardOpen, setCardOpen] = useState(false);
     
     const cardContentRef=useRef();
     const maxHeightTimoutAdj = useRef();
