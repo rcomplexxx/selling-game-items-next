@@ -45,3 +45,25 @@
     overflow: hidden;
     transition: max-height 0.3s ease;
   }
+
+
+  @media(min-width: 980px){
+
+    .dropMenuSign{
+      display: none;
+    }
+
+    .footerLinksWrapper{
+      flex: 1;
+     align-items: flex-start;
+    }
+
+
+    .linksContent{
+      width: max-content;
+      overflow:auto;
+      max-height: none !important;
+      padding: 0;
+      margin: 0;
+    }
+  }
