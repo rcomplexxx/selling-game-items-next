@@ -53,7 +53,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
   }
 
 
-  },[paymentMethod]);
+  },[paymentMethod, mounted.current]);
 
 
   useEffect(() => {
