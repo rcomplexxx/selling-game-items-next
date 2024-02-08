@@ -140,7 +140,7 @@
 .moreCards{
     position: relative;
     color: var(--blue-8);
-    background-color: white;  
+    background-color: rgb(179, 220, 245);  
     height: 26px;
     width: 46px;
     

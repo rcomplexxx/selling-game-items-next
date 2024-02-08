@@ -9,6 +9,11 @@
     border-radius: 8px;
 }
 
+.contactUsText{
+    display: flex;
+    flex-direction: column;
+}
+
 .contactInfoDiv{
     width: calc(100% - var(--size-4));
     border-radius: 8px;

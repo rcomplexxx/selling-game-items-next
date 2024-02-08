@@ -43,8 +43,8 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
  
          if(window.innerWidth < 980) return;
  
-     if(!document?.getElementById("infoDropMenu").contains(event.target))
-    { event.stopPropagation(); event.preventDefault(); setSubMenu(0);}
+     if(!document?.getElementById("infoDropMenu").contains(event.target) && !document?.getElementById('infoDropMenuLink').contains(event.target) )
+    { setSubMenu(0);}
      document.removeEventListener('click', handleClickOutside, true);
    };
    
@@ -59,8 +59,8 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
  
         if(window.innerWidth < 980) return;
  
-         if(!document?.getElementById("collectionsDropMenu").contains(event.target))
-        { event.stopPropagation(); event.preventDefault(); setSubMenu(0);}
+         if(!document?.getElementById("collectionsDropMenu").contains(event.target) && !document?.getElementById('collectionsDropMenuLink').contains(event.target))
+        {setSubMenu(0);}
          document.removeEventListener('click', handleClickOutside, true);
        };
        
@@ -152,7 +152,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
 
 <div
 tabIndex="0"
-
+id='collectionsDropMenuLink'
 className={`${styles.subMenuTitle} ${styles.linkStyle}`}
 onClick={() => {
 setSubMenu(subMenu==2?0:2);
@@ -192,7 +192,7 @@ setSubMenu(subMenu==2?0:2);
 
                 <div
        tabIndex="0"
-      
+       id='infoDropMenuLink'
        className={`${styles.subMenuTitle} ${styles.linkStyle}`}
        onClick={() => {
          setSubMenu(subMenu==1?0:1);

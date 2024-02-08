@@ -11,6 +11,7 @@ export default function ContactUs() {
   const nameRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
+  
 
   const handleSubmit = async () => {
     console.log("submite Starter.");
@@ -60,6 +61,15 @@ export default function ContactUs() {
 
     <div className={styles.mainDiv}>
         <h1>Contact Us</h1>
+        <div className={styles.contactUsText}>
+
+        <span>Before contacting us, please briefly check if your question/concern has been answered on our FAQ PAGE.</span>
+        <span>If you could not find the answer to you question or concern in our FAQ page, kindly provide us your 4 digit order number. If you can't find your 4 digit order number, please provide us the full name/address you provided when placing your order.</span>
+        <span>Please note, we are currently experiencing minor processing and shipping delays due to high demand.</span>
+        
+
+
+        </div>  
           <div className={styles.contactInfoDiv}>
             <div className={styles.infoDiv}>
               <div className={styles.inputGroup}>
