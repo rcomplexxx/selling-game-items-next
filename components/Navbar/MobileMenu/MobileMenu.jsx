@@ -25,16 +25,23 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
-       { event.stopPropagation(); event.preventDefault(); setIsMenuOpen(false);}
-        document.removeEventListener('click', handleClickOutside, true);
+       { event.stopPropagation(); event.preventDefault(); setIsMenuOpen(false);document.removeEventListener('click', handleClickOutside, true);}
+        
       };
+
+
+      
 
       const handlePopState = (event)=>{
         history.go(1);
-     
+        console.log(subMenu);
        
-        setIsMenuOpen(false);
+       if(subMenu!=0) setSubMenu(0);
+       else {
+        setIsMenuOpen(false); 
         window?.removeEventListener("popstate", handlePopState);
+      }
+       
          console.log('popstate')
       }
 
@@ -64,7 +71,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
          
         }
       };
-    }, [isMenuOpen]);
+    }, [isMenuOpen, subMenu]);
 
     useEffect(()=>{
       router.beforePopState((state) => {
