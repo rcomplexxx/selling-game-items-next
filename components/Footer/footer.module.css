@@ -218,6 +218,7 @@
     .linkCards{
       
       display: flex;
+      justify-content: space-between;
       margin-top: var(--size-5);
       margin-bottom: 0;
 
@@ -228,7 +229,6 @@
     }
 
     .subscribeButton{
-      margin-right: var(--size-7);
     }
 
     .getInTouch{

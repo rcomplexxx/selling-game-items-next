@@ -49,13 +49,21 @@
 
   @media(min-width: 980px){
 
+   
+
     .dropMenuSign{
       display: none;
     }
 
     .footerLinksWrapper{
-      flex: 1;
+      width: max-content;
+    
      align-items: flex-start;
+     user-select:auto;
+    }
+
+    .linksCard{
+      cursor:auto;
     }
 
 
