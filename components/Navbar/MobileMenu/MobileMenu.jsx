@@ -13,6 +13,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
     const router = useRouter();
     const pathname = router.asPath;
+    const subMenuPopstateStabilizer=useRef(false);
 
    
     useEffect(() => {
@@ -29,14 +30,12 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         
       };
 
-
-      
-
       const handlePopState = (event)=>{
+        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false; return}
         history.go(1);
         console.log(subMenu);
        
-       if(subMenu!=0) setSubMenu(0);
+       if(subMenu!=0) {setSubMenu(0); subMenuPopstateStabilizer.current=true;}
        else {
         setIsMenuOpen(false); 
         window?.removeEventListener("popstate", handlePopState);
