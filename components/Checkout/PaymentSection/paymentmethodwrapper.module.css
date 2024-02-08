@@ -140,7 +140,7 @@
 .moreCards{
     position: relative;
     color: var(--blue-8);
-    background-color: rgb(179, 220, 245);  
+    background-color: rgb(187, 225, 248);  
     height: 26px;
     width: 46px;
     
@@ -159,6 +159,8 @@
     justify-self: flex-start;
     z-index: 15;
 }
+
+/* background-color: rgb(179, 220, 245);   */
 
 
 .moreCardsPopupWrapper{
