@@ -4,6 +4,7 @@
 .gpayButton{
     height: var(--size-8);
     width: 100%;
+    box-shadow: 0 0 2px #7daee2;
 }
 
 
