@@ -191,7 +191,7 @@ const GooglePay = ({
       className={classNames(styles.gpayButton)}
       buttonType="plain"
       buttonSizeMode="fill"
-      buttonColor="black"
+      buttonColor="white"
       paymentRequest={{
         apiVersion: 2,
         apiVersionMinor: 0,
