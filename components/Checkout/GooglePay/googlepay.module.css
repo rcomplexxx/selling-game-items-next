@@ -2,8 +2,12 @@
 
 
 .gpayButton{
+   
     height: var(--size-8);
     width: 100%;
+    border-radius: 4px;
+    background-color: var(--elegant-gray-9);
+    box-shadow: 0 0 1px #203024;
 }
 
 
