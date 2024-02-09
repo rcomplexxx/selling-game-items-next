@@ -277,7 +277,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
             </form>
           </div>
 
-          <div className={styles.checkout_section}>
+          {/* <div className={styles.checkout_section}>
             <h2>Shipping Method</h2>
             <label className={styles.shipping_method}>
               <input
@@ -334,7 +334,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
                 <span className={styles.shipping_method_sp}>$9.99</span>
               </span>
             </label>
-          </div>
+          </div> */}
          
          <PaymentSection discount={discount} checkFields={checkFields} organizeUserData={organizeUserData} products={products} setCartProducts={setCartProducts } setErrors={setErrors} />
                 
