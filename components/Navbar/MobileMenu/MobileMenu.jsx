@@ -14,6 +14,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const router = useRouter();
     const pathname = router.asPath;
     const subMenuPopstateStabilizer=useRef(false);
+    const historyPushMountedRef=useRef(false);
 
    
     useEffect(() => {
@@ -22,20 +23,22 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     
 
       const handleClickOutside = (event) => {
-
+        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;return;}
         
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
-       { event.stopPropagation(); event.preventDefault(); setIsMenuOpen(false);document.removeEventListener('click', handleClickOutside, true);}
+       { event.stopPropagation(); event.preventDefault(); 
+
+        setIsMenuOpen(false);document.removeEventListener('click', handleClickOutside, true);}
         
       };
 
       const handlePopState = (event)=>{
-        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false; return}
-        history.go(1);
+        
         console.log(subMenu);
        
-       if(subMenu!=0) {setSubMenu(0); subMenuPopstateStabilizer.current=true;}
+       if(subMenu!=0) {setSubMenu(0); }
+      //  subMenuPopstateStabilizer.current=true;
        else {
         setIsMenuOpen(false); 
         window?.removeEventListener("popstate", handlePopState);
@@ -47,8 +50,11 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
       if(isMenuOpen){
 
-      
-
+      if(subMenu==0 && !historyPushMountedRef.current){
+window.history.pushState(null, null, router.asPath);
+        history.go(1);
+        historyPushMountedRef.current=true;
+      }
      
 
      
@@ -58,12 +64,12 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         document?.addEventListener('click', handleClickOutside, true);
       }
       else{
-        
         window?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
       }
   
       return () => {
+        
         if (isMenuOpen) {
           window?.removeEventListener("popstate", handlePopState);
           document?.removeEventListener('click', handleClickOutside, true);
@@ -84,7 +90,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     },[isMenuOpen,router])
 
 
-
+  
    
 
  
@@ -106,7 +112,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
 
    
-      <Image height={16} width={16} src='/images/cancelWhite.png' onClick={()=>{setIsMenuOpen(false)}} className={styles.menuItem_x_button}/>                 
+      <Image height={16} width={16} src='/images/cancelWhite.png' onClick={()=>{setIsMenuOpen(false); }} className={styles.menuItem_x_button}/>                 
                     
 
      
@@ -143,6 +149,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           pathname === "/collection/sale/page/1" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
+          
           pathname !== "/collection/sale/page/1" && setIsMenuOpen(false);
         }}
       >
@@ -178,6 +185,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/contact-us" ?  styles.currentLinkMobile : ""
         }`}
+       
         onClick={() => {
           pathname !== "/contact-us" && setIsMenuOpen(false);
         }}
@@ -204,6 +212,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/our-story" ?  styles.currentLinkMobile : ""
         }`}
+  
         onClick={() => {
           pathname !== "/our-story" && setIsMenuOpen(false);
         }}
@@ -217,6 +226,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/faq" ? styles.currentLinkMobile : ""
         }`}
+       
         onClick={() => {
           pathname !== "/faq" && setIsMenuOpen(false);
         }}
@@ -228,6 +238,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/terms-of-service" ? styles.currentLinkMobile : ""
         }`}
+    
         onClick={() => {
           if(pathname !== "/terms-of-service"){ setIsMenuOpen(false);}
         }}
@@ -236,6 +247,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       </Link>
       <Link
         href="/privacy-policy"
+      
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/privacy-policy" ? styles.currentLinkMobile : ""
         }`}
@@ -247,6 +259,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       </Link>
       <Link
         href="/shipping-policy"
+     
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/shipping-policy" ? styles.currentLinkMobile : ""
         }`}
@@ -262,6 +275,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           pathname === "/refund-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
+        
           pathname !== "/refund-policy" && setIsMenuOpen(false);
         }}
       >

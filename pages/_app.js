@@ -22,7 +22,6 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
 
   
-
     const handleRouteChangeComplete = (url) => {
       url.startsWith("/checkout") ||
       url === "/thank-you" ||
@@ -34,6 +33,8 @@ export default function App({ Component, pageProps }) {
     
 
     const handleRouteChangeStart = (url) => {
+
+      
       // 'url' parameter contains the new route
       setNewProduct();
       if(url.startsWith("/checkout") ||

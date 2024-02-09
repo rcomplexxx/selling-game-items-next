@@ -50,7 +50,7 @@ export default function Search({searchOpen, setSearchOpen}){
         const handlePopState = (event)=>{
         
        
-          history.go(1);
+          // history.go(1);
           setSearchOpen(false);
           window?.removeEventListener("popstate", handlePopState);
         
@@ -60,14 +60,17 @@ export default function Search({searchOpen, setSearchOpen}){
        const handleClickOutside = (event)=>{
         if ((searchIconRef.current && !searchIconRef.current.contains(event.target)) &&(searchInputRef.current && !searchInputRef.current.contains(event.target)) && (searchBoxRef.current && !searchBoxRef.current.contains(event.target))) {
           // Clicked outside the floating div, so close the dialog
+          
           setSearchOpen(false);
+          history.back();
         }
       };
 
       if(searchOpen){
 
        
-        
+        window.history.pushState(null, null, router.asPath);
+        history.go(1);
 
 
         document.addEventListener('click', handleClickOutside);
