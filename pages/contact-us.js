@@ -66,7 +66,7 @@ export default function ContactUs() {
 
         <span className={styles.contactUsText}>Before contacting us, please check if your question/concern has been answered on our <Link href={'/faq'}>FAQ PAGE</Link>.</span>
         <span className={styles.contactUsText}>If your question/concern can't be found on our FAQ page, kindly provide us your <b>order id number</b>, from the email sent after purchase. If you can't find it, please provide us with <b>full name/address</b> you used when placing the order.</span>
-        <span className={styles.contactUsText}>Note - Normal response time is 1 - 2 days. Please be patient, we answer all questions as quickly as possible.</span>
+        <span className={styles.contactUsText}><b>Please note</b>, normal response time is 1 - 2 days. Please be patient, we answer all questions as quickly as possible.</span>
         
 
 
