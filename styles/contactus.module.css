@@ -9,9 +9,15 @@
     border-radius: 8px;
 }
 
-.contactUsText{
+.contactUsTextDiv{
     display: flex;
     flex-direction: column;
+    margin-bottom: var(--size-3);
+}
+
+
+.contactUsText{
+    margin: var(--size-3) var(--size-5);
 }
 
 .contactInfoDiv{

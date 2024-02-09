@@ -2,6 +2,7 @@ import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
 import React, { useRef, useState } from "react";
 import Head from "next/head";
 import styles from '../styles/contactus.module.css'
+import Link from "next/link";
 
 export default function ContactUs() {
 
@@ -61,11 +62,11 @@ export default function ContactUs() {
 
     <div className={styles.mainDiv}>
         <h1>Contact Us</h1>
-        <div className={styles.contactUsText}>
+        <div className={styles.contactUsTextDiv}>
 
-        <span>Before contacting us, please briefly check if your question/concern has been answered on our FAQ PAGE.</span>
-        <span>If you could not find the answer to you question or concern in our FAQ page, kindly provide us your 4 digit order number. If you can't find your 4 digit order number, please provide us the full name/address you provided when placing your order.</span>
-        <span>Please note, we are currently experiencing minor processing and shipping delays due to high demand.</span>
+        <span className={styles.contactUsText}>Before contacting us, please check if your question/concern has been answered on our <Link href={'/faq'}>FAQ PAGE</Link>.</span>
+        <span className={styles.contactUsText}>If your question/concern can't be found on our FAQ page, kindly provide us your <b>order id number</b>, from the email sent after purchase. If you can't find it, please provide us with <b>full name/address</b> you used when placing the order.</span>
+        <span className={styles.contactUsText}>Note - Normal response time is 1 - 2 days. Please be patient, we answer all questions as quickly as possible.</span>
         
 
 
