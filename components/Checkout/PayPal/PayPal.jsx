@@ -148,12 +148,14 @@ const PayPalButton=({checkFields, organizeUserData, discount, method='paypal',  
               onCancel={cancelHandler}
               createOrder={async()=>{return await handlePayPalOrder('PAYPAL')}}
               style={{
-                color: color,
-                height: type=="instant"?44:48
+                color: 'blue',
+                height: type=="instant"?44:48,
+                
               }}
               
               className={`${styles.paypalButton} ${type==="instant" && styles.instantPaypalButton}`}
             />
+            {/* {type=="express" && <div className={styles.paypalBoxShadow}></div>} */}
             {paypalError && type!=='instant'&& <p className={styles.paypalError}>{paypalError}</p>}
     </PayPalScriptProvider>
 
