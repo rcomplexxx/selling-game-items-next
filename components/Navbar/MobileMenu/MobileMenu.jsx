@@ -15,6 +15,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const pathname = router.asPath;
     const subMenuPopstateStabilizer=useRef(false);
     const historyPushMountedRef=useRef(false);
+    const subMenuEnteredRef=useRef(false);
 
    
     useEffect(() => {
@@ -37,9 +38,14 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         
         console.log(subMenu);
        
-       if(subMenu!=0) {setSubMenu(0); }
+       if(subMenu!=0) {setSubMenu(0); 
+        window.history.pushState(null, null, router.asPath);
+        
+        subMenuEnteredRef.current=true;
+      }
       //  subMenuPopstateStabilizer.current=true;
        else {
+        if(subMenuEnteredRef.current){subMenuEnteredRef.current=false; history.go(1); }
         setIsMenuOpen(false); 
         window?.removeEventListener("popstate", handlePopState);
       }
