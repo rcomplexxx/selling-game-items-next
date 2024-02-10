@@ -16,6 +16,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const subMenuPopstateStabilizer=useRef(false);
     const historyPushMountedRef=useRef(false);
     const subMenuEnteredRef=useRef(false);
+    const disabledByClickRef= useRef(false);
 
    
     useEffect(() => {
@@ -29,23 +30,37 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { event.stopPropagation(); event.preventDefault(); 
-
+        disabledByClickRef.current=true;
         setIsMenuOpen(false);document.removeEventListener('click', handleClickOutside, true);}
         
       };
 
       const handlePopState = (event)=>{
         
-        console.log(subMenu);
+        if(subMenuPopstateStabilizer.current){
+          subMenuPopstateStabilizer.current=false;
+          return;
+        }
+        console.log('Pop State Event', event);
        
-       if(subMenu!=0) {setSubMenu(0); 
-        window.history.pushState(null, null, router.asPath);
+       if(subMenu!=0) {
+        if(isMenuOpen){
+          history.go(1);
+          historyPushMountedRef.current=true;
+          subMenuPopstateStabilizer.current=true;
+        setSubMenu(0);
+        }
+      else history.back(); 
+        // window.history.pushState(null, null, router.asPath);
         
         subMenuEnteredRef.current=true;
       }
       //  subMenuPopstateStabilizer.current=true;
        else {
-        if(subMenuEnteredRef.current){subMenuEnteredRef.current=false; history.go(1); }
+        
+         if(subMenuEnteredRef.current){
+          subMenuEnteredRef.current=false; history.go(1); 
+        }
         setIsMenuOpen(false); 
         window?.removeEventListener("popstate", handlePopState);
       }
@@ -61,6 +76,10 @@ window.history.pushState(null, null, router.asPath);
         history.go(1);
         historyPushMountedRef.current=true;
       }
+      if(subMenu!=0){
+        subMenuPopstateStabilizer.current=true;
+       history.back(); 
+      }
      
 
      
@@ -70,6 +89,8 @@ window.history.pushState(null, null, router.asPath);
         document?.addEventListener('click', handleClickOutside, true);
       }
       else{
+        if(disabledByClickRef.current){disabledByClickRef.current=false; if(subMenu==0)history.back();}
+        historyPushMountedRef.current=false;
         window?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
       }
@@ -118,7 +139,7 @@ window.history.pushState(null, null, router.asPath);
 
 
    
-      <Image height={16} width={16} src='/images/cancelWhite.png' onClick={()=>{setIsMenuOpen(false); }} className={styles.menuItem_x_button}/>                 
+      <Image height={16} width={16} src='/images/cancelWhite.png' onClick={()=>{disabledByClickRef.current=true;setIsMenuOpen(false); }} className={styles.menuItem_x_button}/>                 
                     
 
      
