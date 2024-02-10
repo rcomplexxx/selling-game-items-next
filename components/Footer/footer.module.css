@@ -30,46 +30,59 @@
   }
 
   .benefitDivWrapper{
-    max-width: var(--size-13-5);
+    position: relative;
+    
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: var(--size-5);
-    margin-bottom: var(--size-3);
+    margin-top: var(--size-3);
+    margin-bottom: var(--size-2);
   }
 
   
 
   .arrowLeft{
-    height: var(--size-5);
-    width: var(--size-5);
-    opacity: 0.65;
+  
+    height: var(--size-4);
+    width: var(--size-4);
+    margin-left: var(--size-2);
+    opacity: 0.5;
     cursor: pointer;
   }
 
   .arrowRight{
     transform: rotate(180deg);
+    margin-left: 0;
+    margin-right: var(--size-2);
   }
 
   .benefitSlide{
     width:  100%;
+  
     
+  }
+
+  .benefitSlideInsideWrapper{
+    width:  100%;
+    display: flex;
+    justify-content: center;
   }
 
   .benefitDiv{
     
     height: var(--size-7);
-    width: calc(100% - var(--size-7));
+    max-width: var(--size-13);
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
    
    
     box-sizing: border-box;
-    border-radius: 2px;
-    border: 1px solid gray;
-    margin: 0 var(--size-5);
+    border-radius: 4px;
+    border: 1px solid rgb(72, 69, 85);
+  
     user-select: none;
    
   }
@@ -80,7 +93,7 @@
     width: max-content;
     display: flex;
     align-items: center;
-    
+  
   }
 
   .benefitImg{
@@ -91,7 +104,7 @@
     opacity: 0.9;
   }
 
-  .benegitText{
+  .benefitText{
     color: rgba(255, 255, 255, 0.65);
     flex: 1;
     margin-right: var(--size-2);
@@ -325,10 +338,13 @@
 
   }
 
-  @meida(max-width: 600px){
+  @media(max-width: 600px){
     .internalBenefitDiv{
       font-size: var(--font-size-2);
     }
+
+   
+
   }
 
 
