@@ -88,8 +88,10 @@ export default function Footer() {
        >
          
          <div className={styles.benefitDiv}>
+         <div className={styles.internalBenefitDiv}>
       <Image className={styles.benefitImg} src='/images/shippingReturnIcon2.png' width={0} height={0}/>
       <span className={styles.benegitText} src='/images/greaterLess3.png'>Free returns</span>
+      </div>
       </div>
          
         </SwiperSlide>
@@ -97,8 +99,10 @@ export default function Footer() {
        >
          
          <div className={styles.benefitDiv}>
+         <div className={styles.internalBenefitDiv}>
       <Image className={styles.benefitImg} src='/images/guarantee3.png' width={0} height={0}/>
       <span className={styles.benegitText} src='/images/greaterLess3.png'>30-days Money back guarantee</span>
+      </div>
       </div>
          
         </SwiperSlide>
