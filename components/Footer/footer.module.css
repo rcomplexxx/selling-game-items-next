@@ -90,6 +90,7 @@
   }
 
   .benegitText{
+    color: rgba(255, 255, 255, 0.65);
     flex: 1;
     margin-right: var(--size-2);
   }
