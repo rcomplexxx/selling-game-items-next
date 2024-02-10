@@ -36,6 +36,7 @@
     justify-content: center;
     align-items: center;
     margin-top: var(--size-5);
+    margin-bottom: var(--size-3);
   }
 
   
@@ -87,6 +88,7 @@
     width: 20px;
     margin-right: var(--size-3);
     margin-left: var(--size-2);
+    opacity: 0.9;
   }
 
   .benegitText{
