@@ -3,10 +3,16 @@ import Link from "next/link";
 import styles from "./footer.module.css";
 import Image from "next/image";
 import LinkCard from "./LinkCard/LinkCard";
-import collections from "@/data/collections.json"
+import collections from "@/data/collections.json";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay } from 'swiper';
+import "swiper/css";
+import 'swiper/css/autoplay';
 
 export default function Footer() {
+  const [swiper, setSwiper] = useState(null);
   const email = useRef();
+  const swiperAutoPlayStopTimoutRef= useRef();
   const [error, setError] = useState(null);
   const [successful, setSuccessful] = useState(false);
 
@@ -43,10 +49,82 @@ export default function Footer() {
     }
   };
 
+  const pauseSwiperAutoPlay = () =>{
+    swiper.autoplay.stop(); // Stop autoplay immediately
+         clearTimeout(swiperAutoPlayStopTimoutRef.current);
+       swiperAutoPlayStopTimoutRef.current=setTimeout(() => {
+         swiper.autoplay.start(); // Restart autoplay after 5 seconds
+       }, 2000);
+  }
+
   return (
     <footer className={styles.footer}>
       <div className={styles.mainDiv}>
         
+      <div className={styles.benefitDivWrapper}>
+        <Image onClick={()=>{swiper.slidePrev();   pauseSwiperAutoPlay();}} className={styles.arrowLeft} src='/images/greaterLess3.png' width={0} height={0}/>
+
+
+
+
+
+
+        <Swiper onSwiper={setSwiper}  speed={400} slidesPerView='auto'   loop  autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+         modules={[Autoplay]} onTransitionStart={()=>{swiper.autoplay.stop();}} onTransitionEnd={()=>{ pauseSwiperAutoPlay();}}
+        >
+    
+        <SwiperSlide key={0} className={`carousel-item ${styles.benefitSlide}`}
+       >
+         
+         <div className={styles.benefitDiv}>
+          <div className={styles.internalBenefitDiv}>
+      <Image className={styles.benefitImg} src='/images/truckIcon8.svg' width={0} height={0}/>
+      <span className={styles.benegitText} src='/images/greaterLess3.png'>Free shipping</span>
+      </div>
+      </div>
+         
+        </SwiperSlide>
+        <SwiperSlide key={1} className={`carousel-item`}
+       >
+         
+         <div className={styles.benefitDiv}>
+      <Image className={styles.benefitImg} src='/images/shippingReturnIcon2.png' width={0} height={0}/>
+      <span className={styles.benegitText} src='/images/greaterLess3.png'>Free returns</span>
+      </div>
+         
+        </SwiperSlide>
+        <SwiperSlide key={2} className={`carousel-item`}
+       >
+         
+         <div className={styles.benefitDiv}>
+      <Image className={styles.benefitImg} src='/images/guarantee3.png' width={0} height={0}/>
+      <span className={styles.benegitText} src='/images/greaterLess3.png'>30-days Money back guarantee</span>
+      </div>
+         
+        </SwiperSlide>
+      
+    </Swiper>
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+      <Image onClick={()=>{swiper.slideNext();    pauseSwiperAutoPlay();}} 
+      className={`${styles.arrowLeft} ${styles.arrowRight}`} src='/images/greaterLess3.png' width={0} height={0}/>
+        </div>
       
         <div className={styles.linkCards}>
 
