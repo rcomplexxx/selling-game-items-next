@@ -43,6 +43,7 @@
   .arrowLeft{
     height: var(--size-5);
     width: var(--size-5);
+    opacity: 0.65;
     cursor: pointer;
   }
 
@@ -65,6 +66,7 @@
    
    
     box-sizing: border-box;
+    border-radius: 2px;
     border: 1px solid gray;
     margin: 0 var(--size-5);
     user-select: none;
