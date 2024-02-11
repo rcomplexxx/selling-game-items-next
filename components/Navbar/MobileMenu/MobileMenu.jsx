@@ -134,8 +134,8 @@ window.history.pushState(null, null, router.asPath);
       </div>
      
             {subMenu===0 &&
-      <><Link
-        href="/"
+      <><span
+     
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/" ? styles.currentLinkMobile : ""
         }`}
@@ -143,25 +143,26 @@ window.history.pushState(null, null, router.asPath);
           // subMenuPopstateStabilizer.current=true;
           // router.back();
           // router.push('/');
-          isMenuOpen(false);
+          setIsMenuOpen(false);
           router.back();
+          router.push('/');
         }}
       >
         <p>Home</p>
-      </Link>
+      </span>
 
-      <Link
-        href="/products"
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+      <span
+        href="/products"  className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/products" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          
+          setIsMenuOpen(false);
           router.back();
+          router.push('/products');
         }}
       >
         <p>Products</p>
-      </Link>
+      </span>
 
       <Link
         href="/collection/sale/page/1"
