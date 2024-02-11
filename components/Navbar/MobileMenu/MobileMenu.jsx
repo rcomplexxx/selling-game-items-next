@@ -16,7 +16,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const historyPushMountedRef=useRef(false);
     const subMenuEnteredRef=useRef(false);
     const nextLink= useRef();
-    const nextLinkSecondLevelStopper= useRef(false);
+    const clickStabilizerRef=useRef(false);
 
    
     useEffect(() => {
@@ -25,13 +25,14 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     
 
       const handleClickOutside = (event) => {
-        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;return;}
+        // if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;return;}
         
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { event.stopPropagation(); event.preventDefault(); 
-
-        setIsMenuOpen(false);document.removeEventListener('click', handleClickOutside, true);}
+        clickStabilizerRef.current=true; history.back();
+        // setIsMenuOpen(false);
+        document.removeEventListener('click', handleClickOutside, true);}
         
       };
 
@@ -42,7 +43,12 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
       const handlePopState = (event)=>{
         
-        console.log(subMenu);
+       if(clickStabilizerRef.current){
+        clickStabilizerRef.current=false;
+        setIsMenuOpen(false);
+       
+        return;
+       }
 
         // if(nextLinkSecondLevelStopper.current){
         //   nextLinkSecondLevelStopper.current=false;
@@ -140,7 +146,11 @@ window.history.pushState(null, null, router.asPath);
 
 
    
-      <Image height={16} width={16} src='/images/cancelWhite.png' onClick={()=>{setIsMenuOpen(false); }} className={styles.menuItem_x_button}/>                 
+      <Image id='cancelMobileMenu' height={16} width={16} src='/images/cancelWhite.png' 
+      onClick={()=>{
+         clickStabilizerRef.current=true; history.back();
+        // setIsMenuOpen(false); 
+        }} className={styles.menuItem_x_button}/>                 
                     
 
      
