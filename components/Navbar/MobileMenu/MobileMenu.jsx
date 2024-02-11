@@ -44,11 +44,11 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         
         console.log(subMenu);
 
-        if(nextLinkSecondLevelStopper.current){
-          nextLinkSecondLevelStopper.current=false;
-          history.back();
-          return;
-        }
+        // if(nextLinkSecondLevelStopper.current){
+        //   nextLinkSecondLevelStopper.current=false;
+        //   history.back();
+        //   return;
+        // }
 
         if( nextLink.current){
           setIsMenuOpen(false); 
@@ -256,7 +256,6 @@ window.history.pushState(null, null, router.asPath);
   
         onClick={() => {
           if(pathname !== "/our-story") { 
-            nextLinkSecondLevelStopper.current=true;
             nextLink.current='/our-story';
            history.back();
 
@@ -275,7 +274,6 @@ window.history.pushState(null, null, router.asPath);
        
         onClick={() => {
           if(pathname !== "/faq") { 
-            nextLinkSecondLevelStopper.current=true;
             nextLink.current="/faq";
            history.back();
 
@@ -292,7 +290,6 @@ window.history.pushState(null, null, router.asPath);
     
         onClick={() => {
           if(pathname !== "/terms-of-service") { 
-            nextLinkSecondLevelStopper.current=true;
             nextLink.current="/terms-of-service";
            history.back();
           }
@@ -308,7 +305,7 @@ window.history.pushState(null, null, router.asPath);
         }`}
         onClick={() => {
           if(pathname !== "/privacy-policy") { 
-            nextLinkSecondLevelStopper.current=true;
+        
             nextLink.current="/privacy-policy";
            history.back();
           }
@@ -323,7 +320,7 @@ window.history.pushState(null, null, router.asPath);
         }`}
         onClick={() => {
           if(pathname !== "/shipping-policy") { 
-            nextLinkSecondLevelStopper.current=true;
+       
             nextLink.current="/shipping-policy";
            history.back();
           }
@@ -338,7 +335,7 @@ window.history.pushState(null, null, router.asPath);
         onClick={() => {
         
           if(pathname !== "/refund-policy") { 
-            nextLinkSecondLevelStopper.current=true;
+         
             nextLink.current="/refund-policy";
            history.back();
           }
@@ -367,7 +364,7 @@ window.history.pushState(null, null, router.asPath);
   }`}
   onClick={() => {
     if(pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`) { 
-      nextLinkSecondLevelStopper.current=true;
+
       nextLink.current=`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`;
      history.back();
     }
