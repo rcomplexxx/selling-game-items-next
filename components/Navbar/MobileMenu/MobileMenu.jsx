@@ -15,6 +15,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const subMenuPopstateStabilizer=useRef(false);
     const historyPushMountedRef=useRef(false);
     const subMenuEnteredRef=useRef(false);
+    const nextLink= useRef();
 
    
     useEffect(() => {
@@ -33,9 +34,22 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         
       };
 
+
+
+
+
+
       const handlePopState = (event)=>{
         
         console.log(subMenu);
+
+        if( nextLink.current){
+          setIsMenuOpen(false); 
+          window?.removeEventListener("popstate", handlePopState);
+          router.push(nextLink.current);
+          nextLink.current=undefined;
+          return;
+        }
        
        if(subMenu!=0 ) {if(isMenuOpen){setSubMenu(0); subMenuEnteredRef.current=true; }}
       //  subMenuPopstateStabilizer.current=true;
@@ -48,6 +62,12 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
        
          console.log('popstate')
       }
+
+
+
+
+
+
 
 
       if(isMenuOpen){
@@ -120,17 +140,21 @@ window.history.pushState(null, null, router.asPath);
       </div>
      
             {subMenu===0 &&
-      <><Link
-        href="/"
+      <><span
+       
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/" && setIsMenuOpen(false);
+          if(pathname !== "/") { 
+            nextLink.current='/';
+           history.back();
+
+          }
         }}
       >
         <p>Home</p>
-      </Link>
+      </span>
 
       <Link
         href="/products"
