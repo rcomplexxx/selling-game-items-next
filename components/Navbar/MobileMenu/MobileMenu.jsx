@@ -16,6 +16,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const historyPushMountedRef=useRef(false);
     const subMenuEnteredRef=useRef(false);
     const nextLink= useRef();
+    const nextLinkSecondLevelStopper= useRef(false);
 
    
     useEffect(() => {
@@ -42,6 +43,12 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       const handlePopState = (event)=>{
         
         console.log(subMenu);
+
+        if(nextLinkSecondLevelStopper.current){
+          nextLinkSecondLevelStopper.current=false;
+          history.back();
+          return;
+        }
 
         if( nextLink.current){
           setIsMenuOpen(false); 
@@ -156,30 +163,36 @@ window.history.pushState(null, null, router.asPath);
         <p>Home</p>
       </span>
 
-      <Link
-        href="/products"
+      <span
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/products" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/products" && setIsMenuOpen(false);
+          if(pathname !== "/products") { 
+            nextLink.current='/products';
+           history.back();
+
+          }
         }}
       >
         <p>Products</p>
-      </Link>
+      </span>
 
-      <Link
-        href="/collection/sale/page/1"
+      <span
+       
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/collection/sale/page/1" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          
-          pathname !== "/collection/sale/page/1" && setIsMenuOpen(false);
+          if(pathname !== "/collection/sale/page/1") { 
+            nextLink.current='/collection/sale/page/1';
+           history.back();
+
+          }
         }}
       >
         <p>Sale</p>
-      </Link>
+      </span>
 
 
       <div
@@ -205,18 +218,22 @@ window.history.pushState(null, null, router.asPath);
         <Image height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
      
-      <Link
-        href="/contact-us"
+      <span
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/contact-us" ?  styles.currentLinkMobile : ""
         }`}
        
         onClick={() => {
-          pathname !== "/contact-us" && setIsMenuOpen(false);
-        }}
+          if(pathname !== "/contact-us") { 
+            nextLink.current='/contact-us';
+           history.back();
+
+          }
+        }
+      }
       >
         <p>Contact us</p>
-      </Link></>
+      </span></>
         
       }
 
@@ -232,80 +249,103 @@ window.history.pushState(null, null, router.asPath);
        <Image height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Info</p>
      </div>
 
-     <Link
-        href="/our-story"
+     <span
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/our-story" ?  styles.currentLinkMobile : ""
         }`}
   
         onClick={() => {
-          pathname !== "/our-story" && setIsMenuOpen(false);
+          if(pathname !== "/our-story") { 
+            nextLinkSecondLevelStopper.current=true;
+            nextLink.current='/our-story';
+           history.back();
+
+          }
         }}
       >
         <p>Our story</p>
-      </Link>
+      </span>
 
 
-      <Link
-        href="/faq"
+      <span
+      
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/faq" ? styles.currentLinkMobile : ""
         }`}
        
         onClick={() => {
-          pathname !== "/faq" && setIsMenuOpen(false);
+          if(pathname !== "/faq") { 
+            nextLinkSecondLevelStopper.current=true;
+            nextLink.current="/faq";
+           history.back();
+
+          }
         }}
       >
         <p>FAQ</p>
-      </Link>
-      <Link
-        href="/terms-of-service"
+      </span>
+      <span
+       
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/terms-of-service" ? styles.currentLinkMobile : ""
         }`}
     
         onClick={() => {
-          if(pathname !== "/terms-of-service"){ setIsMenuOpen(false);}
+          if(pathname !== "/terms-of-service") { 
+            nextLinkSecondLevelStopper.current=true;
+            nextLink.current="/terms-of-service";
+           history.back();
+          }
         }}
       >
         <p>Terms of service</p>
-      </Link>
-      <Link
-        href="/privacy-policy"
+      </span>
+      <span
+      
       
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/privacy-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/privacy-policy" && setIsMenuOpen(false);
+          if(pathname !== "/privacy-policy") { 
+            nextLinkSecondLevelStopper.current=true;
+            nextLink.current="/privacy-policy";
+           history.back();
+          }
         }}
       >
         <p>Privacy policy</p>
-      </Link>
-      <Link
-        href="/shipping-policy"
+      </span>
+      <span
      
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/shipping-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/shipping-policy" && setIsMenuOpen(false);
+          if(pathname !== "/shipping-policy") { 
+            nextLinkSecondLevelStopper.current=true;
+            nextLink.current="/shipping-policy";
+           history.back();
+          }
         }}
       >
         <p>Shipping policy</p>
-      </Link>
-      <Link
-        href="/refund-policy"
+      </span>
+      <span
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/refund-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
         
-          pathname !== "/refund-policy" && setIsMenuOpen(false);
+          if(pathname !== "/refund-policy") { 
+            nextLinkSecondLevelStopper.current=true;
+            nextLink.current="/refund-policy";
+           history.back();
+          }
         }}
       >
         <p>Refund policy</p>
-      </Link>
+      </span>
       </>
       }
 
@@ -321,18 +361,21 @@ window.history.pushState(null, null, router.asPath);
        <Image height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Collections</p>
      </div>
 
-{collections.map((c, index) => {return <Link key={index}
-  href={`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`}
+{collections.map((c, index) => {return <span key={index}
   className={`${styles.linkStyle} ${styles.menuItemDiv} ${
     pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
   }`}
   onClick={() => {
-    pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` && setIsMenuOpen(false);
+    if(pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`) { 
+      nextLinkSecondLevelStopper.current=true;
+      nextLink.current=`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`;
+     history.back();
+    }
     
   }}
   >
   <p>{c.name}</p>
-  </Link>
+  </span>
 })}
 </>
 
