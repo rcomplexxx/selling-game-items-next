@@ -337,9 +337,9 @@ window.history.pushState(null, null, router.asPath);
     pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
   }`}
   onClick={() => {
-    router.back();
+   
     setIsMenuOpen(false);
-    
+    router.back();
     
       }}
   >
