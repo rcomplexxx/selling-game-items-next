@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./mobilemenu.module.css";
@@ -15,6 +14,8 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const pathname = router.asPath;
     const subMenuPopstateStabilizer=useRef(false);
     const historyPushMountedRef=useRef(false);
+    const subMenuEnteredRef=useRef(false);
+    const popStateSubmenuNeutralizer= useRef(false);
 
    
     useEffect(() => {
@@ -23,8 +24,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     
 
       const handleClickOutside = (event) => {
-        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;return;}
-        
+     
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { event.stopPropagation(); event.preventDefault(); 
@@ -36,11 +36,27 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       const handlePopState = (event)=>{
         
         console.log(subMenu);
-       
-       if(subMenu!=0) {setSubMenu(0); }
+       console.log('pop is triggered');
+       if(subMenu!=0 ) {
+        
+        
+        
+        if(isMenuOpen){setSubMenu(0); subMenuEnteredRef.current=true; }
+      
+      }
       //  subMenuPopstateStabilizer.current=true;
        else {
+        if(subMenuEnteredRef.current){ 
+          if(isMenuOpen){ 
+            if(popStateSubmenuNeutralizer.current){popStateSubmenuNeutralizer.current=false; return;}
+            window.history.pushState(null, null, router.asPath);
+          history.go(1);  
+          subMenuEnteredRef.current=false;
+        }
+        }
+        
         setIsMenuOpen(false); 
+         
         window?.removeEventListener("popstate", handlePopState);
       }
        
@@ -64,6 +80,7 @@ window.history.pushState(null, null, router.asPath);
         document?.addEventListener('click', handleClickOutside, true);
       }
       else{
+        historyPushMountedRef.current=false;
         window?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
       }
@@ -88,8 +105,6 @@ window.history.pushState(null, null, router.asPath);
     return true;
       });
     },[isMenuOpen,router])
-
-
   
    
 
@@ -125,7 +140,11 @@ window.history.pushState(null, null, router.asPath);
           pathname === "/" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/" && setIsMenuOpen(false);
+          // subMenuPopstateStabilizer.current=true;
+          // router.back();
+          // router.push('/');
+          
+          history.back();
         }}
       >
         <p>Home</p>
@@ -137,7 +156,8 @@ window.history.pushState(null, null, router.asPath);
           pathname === "/products" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/products" && setIsMenuOpen(false);
+      
+          history.back();
         }}
       >
         <p>Products</p>
@@ -149,8 +169,8 @@ window.history.pushState(null, null, router.asPath);
           pathname === "/collection/sale/page/1" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          
-          pathname !== "/collection/sale/page/1" && setIsMenuOpen(false);
+      
+          history.back();
         }}
       >
         <p>Sale</p>
@@ -187,7 +207,8 @@ window.history.pushState(null, null, router.asPath);
         }`}
        
         onClick={() => {
-          pathname !== "/contact-us" && setIsMenuOpen(false);
+      
+          history.back();
         }}
       >
         <p>Contact us</p>
@@ -214,7 +235,10 @@ window.history.pushState(null, null, router.asPath);
         }`}
   
         onClick={() => {
-          pathname !== "/our-story" && setIsMenuOpen(false);
+        
+      setIsMenuOpen(false);
+      history.back();
+      history.back();
         }}
       >
         <p>Our story</p>
@@ -228,8 +252,10 @@ window.history.pushState(null, null, router.asPath);
         }`}
        
         onClick={() => {
-          pathname !== "/faq" && setIsMenuOpen(false);
-        }}
+        
+          setIsMenuOpen(false);
+          history.back();
+            }}
       >
         <p>FAQ</p>
       </Link>
@@ -240,8 +266,10 @@ window.history.pushState(null, null, router.asPath);
         }`}
     
         onClick={() => {
-          if(pathname !== "/terms-of-service"){ setIsMenuOpen(false);}
-        }}
+        
+          setIsMenuOpen(false);
+          history.back();
+            }}
       >
         <p>Terms of service</p>
       </Link>
@@ -252,8 +280,10 @@ window.history.pushState(null, null, router.asPath);
           pathname === "/privacy-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/privacy-policy" && setIsMenuOpen(false);
-        }}
+        
+          setIsMenuOpen(false);
+          history.back();
+            }}
       >
         <p>Privacy policy</p>
       </Link>
@@ -264,8 +294,10 @@ window.history.pushState(null, null, router.asPath);
           pathname === "/shipping-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          pathname !== "/shipping-policy" && setIsMenuOpen(false);
-        }}
+        
+          setIsMenuOpen(false);
+          history.back();
+            }}
       >
         <p>Shipping policy</p>
       </Link>
@@ -276,8 +308,9 @@ window.history.pushState(null, null, router.asPath);
         }`}
         onClick={() => {
         
-          pathname !== "/refund-policy" && setIsMenuOpen(false);
-        }}
+          setIsMenuOpen(false);
+          history.back();
+            }}
       >
         <p>Refund policy</p>
       </Link>
@@ -302,9 +335,10 @@ window.history.pushState(null, null, router.asPath);
     pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
   }`}
   onClick={() => {
-    pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` && setIsMenuOpen(false);
-    
-  }}
+        
+    setIsMenuOpen(false);
+    history.back();
+      }}
   >
   <p>{c.name}</p>
   </Link>
