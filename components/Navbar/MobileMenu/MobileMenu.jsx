@@ -143,8 +143,8 @@ window.history.pushState(null, null, router.asPath);
           // subMenuPopstateStabilizer.current=true;
           // router.back();
           // router.push('/');
-          
-          history.back();
+          isMenuOpen(false);
+          router.back();
         }}
       >
         <p>Home</p>
@@ -156,8 +156,8 @@ window.history.pushState(null, null, router.asPath);
           pathname === "/products" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-      
-          history.back();
+          
+          router.back();
         }}
       >
         <p>Products</p>
