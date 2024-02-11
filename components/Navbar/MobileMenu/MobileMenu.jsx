@@ -15,7 +15,6 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const subMenuPopstateStabilizer=useRef(false);
     const historyPushMountedRef=useRef(false);
     const subMenuEnteredRef=useRef(false);
-    const popStateSubmenuNeutralizer= useRef(false);
 
    
     useEffect(() => {
@@ -24,7 +23,8 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     
 
       const handleClickOutside = (event) => {
-     
+        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;return;}
+        
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { event.stopPropagation(); event.preventDefault(); 
@@ -36,27 +36,13 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       const handlePopState = (event)=>{
         
         console.log(subMenu);
-       console.log('pop is triggered');
-       if(subMenu!=0 ) {
-        
-        
-        
-        if(isMenuOpen){setSubMenu(0); subMenuEnteredRef.current=true; }
-      
-      }
+       
+       if(subMenu!=0 ) {if(isMenuOpen){setSubMenu(0); subMenuEnteredRef.current=true; }}
       //  subMenuPopstateStabilizer.current=true;
        else {
-        if(subMenuEnteredRef.current){ 
-          if(isMenuOpen){ 
-            if(popStateSubmenuNeutralizer.current){popStateSubmenuNeutralizer.current=false; return;}
-            window.history.pushState(null, null, router.asPath);
-          history.go(1);  
-          subMenuEnteredRef.current=false;
-        }
-        }
-        
+        if(subMenuEnteredRef.current){ window.history.pushState(null, null, router.asPath);
+          history.go(1); subMenuEnteredRef.current=false; }
         setIsMenuOpen(false); 
-         
         window?.removeEventListener("popstate", handlePopState);
       }
        
@@ -134,35 +120,29 @@ window.history.pushState(null, null, router.asPath);
       </div>
      
             {subMenu===0 &&
-      <><span
-     
+      <><Link
+        href="/"
         className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          // subMenuPopstateStabilizer.current=true;
-          // router.back();
-          // router.push('/');
-          setIsMenuOpen(false);
-          router.back();
-          router.push('/');
+          pathname !== "/" && setIsMenuOpen(false);
         }}
       >
         <p>Home</p>
-      </span>
+      </Link>
 
-      <span
-        href="/products"  className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+      <Link
+        href="/products"
+        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
           pathname === "/products" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-          setIsMenuOpen(false);
-          router.back();
-          router.push('/products');
+          pathname !== "/products" && setIsMenuOpen(false);
         }}
       >
         <p>Products</p>
-      </span>
+      </Link>
 
       <Link
         href="/collection/sale/page/1"
@@ -170,8 +150,8 @@ window.history.pushState(null, null, router.asPath);
           pathname === "/collection/sale/page/1" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-      
-          history.back();
+          
+          pathname !== "/collection/sale/page/1" && setIsMenuOpen(false);
         }}
       >
         <p>Sale</p>
@@ -208,8 +188,7 @@ window.history.pushState(null, null, router.asPath);
         }`}
        
         onClick={() => {
-      
-          history.back();
+          pathname !== "/contact-us" && setIsMenuOpen(false);
         }}
       >
         <p>Contact us</p>
@@ -236,10 +215,7 @@ window.history.pushState(null, null, router.asPath);
         }`}
   
         onClick={() => {
-        
-      setIsMenuOpen(false);
-      history.back();
-      history.back();
+          pathname !== "/our-story" && setIsMenuOpen(false);
         }}
       >
         <p>Our story</p>
@@ -253,10 +229,8 @@ window.history.pushState(null, null, router.asPath);
         }`}
        
         onClick={() => {
-        
-          setIsMenuOpen(false);
-          history.back();
-            }}
+          pathname !== "/faq" && setIsMenuOpen(false);
+        }}
       >
         <p>FAQ</p>
       </Link>
@@ -267,10 +241,8 @@ window.history.pushState(null, null, router.asPath);
         }`}
     
         onClick={() => {
-        
-          setIsMenuOpen(false);
-          history.back();
-            }}
+          if(pathname !== "/terms-of-service"){ setIsMenuOpen(false);}
+        }}
       >
         <p>Terms of service</p>
       </Link>
@@ -281,10 +253,8 @@ window.history.pushState(null, null, router.asPath);
           pathname === "/privacy-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-        
-          setIsMenuOpen(false);
-          history.back();
-            }}
+          pathname !== "/privacy-policy" && setIsMenuOpen(false);
+        }}
       >
         <p>Privacy policy</p>
       </Link>
@@ -295,10 +265,8 @@ window.history.pushState(null, null, router.asPath);
           pathname === "/shipping-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
-        
-          setIsMenuOpen(false);
-          history.back();
-            }}
+          pathname !== "/shipping-policy" && setIsMenuOpen(false);
+        }}
       >
         <p>Shipping policy</p>
       </Link>
@@ -309,9 +277,8 @@ window.history.pushState(null, null, router.asPath);
         }`}
         onClick={() => {
         
-          setIsMenuOpen(false);
-          history.back();
-            }}
+          pathname !== "/refund-policy" && setIsMenuOpen(false);
+        }}
       >
         <p>Refund policy</p>
       </Link>
@@ -336,11 +303,9 @@ window.history.pushState(null, null, router.asPath);
     pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
   }`}
   onClick={() => {
-        
-    setIsMenuOpen(false);
-    history.back();
+    pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` && setIsMenuOpen(false);
     
-      }}
+  }}
   >
   <p>{c.name}</p>
   </Link>
