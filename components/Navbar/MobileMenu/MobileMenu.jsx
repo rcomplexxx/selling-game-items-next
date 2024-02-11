@@ -84,7 +84,7 @@ window.history.pushState(null, null, router.asPath);
         historyPushMountedRef.current=false;
         window?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
-        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;history.back();}
+        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;history.back();history.back();}
       }
   
       return () => {
