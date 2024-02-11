@@ -84,7 +84,7 @@ window.history.pushState(null, null, router.asPath);
         historyPushMountedRef.current=false;
         window?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
-        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;history.back();history.back();}
+        if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;}
       }
   
       return () => {
@@ -337,7 +337,7 @@ window.history.pushState(null, null, router.asPath);
     pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
   }`}
   onClick={() => {
-    subMenuPopstateStabilizer.current=true;
+    router.back();
     setIsMenuOpen(false);
     
     
