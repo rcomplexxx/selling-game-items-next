@@ -20,7 +20,7 @@ export default function Search({searchOpen, setSearchOpen}){
     const searchBoxRef = useRef();
     const searchIconRef = useRef();
     const searchInputRef = useRef();
-
+    const nextLink= useRef();
 
 
    
@@ -48,7 +48,7 @@ export default function Search({searchOpen, setSearchOpen}){
 
 
         const handlePopState = (event)=>{
-        
+          if(nextLink.current){router.push(nextLink.current); nextLink.current=undefined;}
        
           // history.go(1);
           setSearchOpen(false);
@@ -77,6 +77,7 @@ export default function Search({searchOpen, setSearchOpen}){
         window?.addEventListener("popstate", handlePopState);
       }
       else{
+       
         document.removeEventListener('click', handleClickOutside);
         document?.removeEventListener("popstate", handlePopState);
       }
@@ -161,13 +162,24 @@ export default function Search({searchOpen, setSearchOpen}){
 
           {filteredcollections.length>0 && <div className={styles.resultProductsLabel}>Collections</div>}
             {filteredcollections.map((collection, index) => (
-              <Link href={`/collection/${collection.name.toLowerCase().replace(/ /g, '-')}/page/1`} key={index} className={styles.result_item} onClick={()=>{setSearchOpen(false);setSearchTerm('')}}
+              <span key={index} className={styles.result_item} 
+              onClick={(event)=>{
+            
+                event.preventDefault();
+                event.stopPropagation();
+            nextLink.current=`/collection/${collection.name.toLowerCase().replace(/ /g, '-')}/page/1`;
+           history.back();
+
+          setSearchTerm('');
+              
+              }}
               onMouseDown={(event)=>{event.preventDefault()}}
+           
               >
                 <Image height={36} width={64} src={`/images/${collection.image}`} className={styles.searchItemImg}/>
                 <strong>{collection.name}</strong>
                 
-              </Link>
+              </span>
             ))}
 
 
@@ -176,18 +188,29 @@ export default function Search({searchOpen, setSearchOpen}){
 
             {filteredProducts.length>0 && <div className={styles.resultProductsLabel}>Products</div>}
             {filteredProducts.map((product, index) => (
-              <Link href={`/products/${product.id}`} key={index} className={styles.result_item} onClick={()=>{setSearchOpen(false); setSearchTerm('');}}
+              <span key={index} className={styles.result_item} 
+              onClick={(event)=>{
+            
+                event.preventDefault();
+                event.stopPropagation();
+            nextLink.current=`/products/${product.id}`;
+           history.back();
+
+          setSearchTerm('');
+              
+              }}
               onMouseDown={(event)=>{event.preventDefault()}}
               >
                 <Image height={36} width={64} src={`/images/${product.images[0]}`} className={styles.searchItemImg}/>
                 <strong>{product.name}</strong>
                 
-              </Link>
+              </span>
             ))}
           </div>
          
           </div>
-          {searchOpen && <span onClick={()=>{setSearchOpen(false)}} className={styles.searchCancel}>X</span>}
+          {searchOpen && <span onClick={()=>{  setSearchOpen(false);
+          history.back();}} className={styles.searchCancel}>X</span>}
         </div>
     
     
