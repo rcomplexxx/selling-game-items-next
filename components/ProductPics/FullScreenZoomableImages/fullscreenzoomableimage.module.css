@@ -332,9 +332,10 @@ align-items: center;
 
 @keyframes spawnToast {
   0%{
-    transform: translateX(-50%)  translateY(48px);
+    transform: translateX(-50%)  translateY(12px);
     opacity: 0;
   }
+  
   100% {
     opacity: 1;
     transform: translateX(-50%) translateY(0);

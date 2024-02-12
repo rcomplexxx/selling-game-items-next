@@ -115,7 +115,7 @@ const FullScreenZoomableImage = ({
       setShowToastMessage(true);
 
 
-    }, 240);
+    }, 420);
 
 
     toastTimeout.current= setTimeout(()=> {
@@ -131,7 +131,7 @@ const FullScreenZoomableImage = ({
       
     }
     },
-    4260)
+    4500)
 
 
   }
