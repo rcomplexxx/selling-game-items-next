@@ -29,6 +29,25 @@ align-items: center;
  
  
   }
+
+  .toast{
+    position: absolute;
+    bottom: var(--size-5);
+    left: 50%;
+   
+
+    background-color: #323232;
+    
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: var(--size-3) var(--size-5);
+    opacity: 1;
+    transition: opacity 0.3s ease,  transform 0.3s ease;
+
+    transform: translateX(-50%);
+    animation: spawnToast 0.3s ease;
+    z-index: 20;
+  }
   
   .closeSuiter{
     background-color: rgba(45, 95, 145, 0.604);
@@ -311,7 +330,16 @@ align-items: center;
 }
 
 
-
+@keyframes spawnToast {
+  0%{
+    transform: translateX(-50%)  translateY(48px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
 
 
 

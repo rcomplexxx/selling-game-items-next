@@ -4,7 +4,7 @@ import { Zoom, Navigation } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/zoom";
-0;
+
 import "swiper/css/navigation";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -18,11 +18,13 @@ const FullScreenZoomableImage = ({
   const [navActive, setNavActive] = useState(true);
   const [navLocked, setNavLocked] = useState(false);
 
+  const [showToastMessage, setShowToastMessage] = useState(false);
   const [zoomed, _setZoomed] = useState(false);
   const [grabbing, setGrabbing] = useState(false);
   const [swiper, setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({ x: 0, y: 0 });
-
+ 
+  const toastTimeout = useRef();
   const routeMounted=useRef(false)
   const router = useRouter();
 
@@ -106,17 +108,47 @@ const FullScreenZoomableImage = ({
       fullImg.style.top = `0`;
     }, 10);
 
+
+      if(!matchMedia("(pointer:fine)").matches){
+    setTimeout(()=>{
+      
+      setShowToastMessage(true);
+
+
+    }, 240);
+
+
+    toastTimeout.current= setTimeout(()=> {
+      const toast = document.getElementById("toastMessage");
+      if(toast){
+      toast.style.opacity= '0';
+      toast.style.transform = 'translateX(-50%) translateY(16px)';
+      setTimeout(()=>{
+        setShowToastMessage(false);
+        clearTimeout(toastTimeout.current);
+      },500);
+      
+      
+    }
+    },
+    4260)
+
+
+  }
+
+
     setTimeout(() => {
       document.body.classList.add("hideScroll");
+      
     }, 280);
 
-   
+  
 
 
   }, []);
 
   useEffect(()=>{
-    const handlePopState=()=>{ setNavLocked(false); setNavActive(false);killFullScreen()}
+    const handlePopState=()=>{ setNavLocked(false); setNavActive(false);killFullScreen();}
 
     window?.addEventListener("popstate", handlePopState);
 
@@ -256,6 +288,26 @@ const FullScreenZoomableImage = ({
   const killFullScreen = (currY = 0) => {
     if (zoomed) swiper.zoom.toggle();
 
+
+    clearTimeout(toastTimeout.current);
+    const toast = document.getElementById("toastMessage");
+      if(toast){
+        toast.style.transition = `transform 0.2s ease, opacity 0.2s ease`
+      toast.style.transform = 'translateX(-50%) translateY(48px)'
+      toast.style.opacity = '0.7';
+      setTimeout(()=>{setShowToastMessage(false)},200)
+      
+
+      //   toast.style.transition = `transform 0.2s ease, opacity 0.2s ease`
+      // toast.style.transform = 'translateX(50vw)'
+      // toast.style.opacity = '0.5'
+      // setTimeout(()=>{setShowToastMessage(false)},200)
+
+
+    }
+
+
+
     const timeoutIdMain = setTimeout(
       function () {
         const fullImg = document.getElementById(`fullImage${imageIndex}`);
@@ -363,6 +415,7 @@ const FullScreenZoomableImage = ({
         {/* document.addEventListener("mousemove", handleUserInteraction);
   document.addEventListener("click", handleUserInteraction);
   document.addEventListener("touchstart", handleUserInteraction); */}
+ { showToastMessage && <div id='toastMessage' className={styles.toast}>Double tap to zoom</div>}
         <div className={styles.spaceController}>
           <div
             className={`${styles.closeSuiter} ${
