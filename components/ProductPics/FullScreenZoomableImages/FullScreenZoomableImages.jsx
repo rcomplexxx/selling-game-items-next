@@ -305,7 +305,7 @@ const FullScreenZoomableImage = ({
 
   const killFullScreen = (currY = 0) => {
   
-    if (swiper.zoom && swiper.zoom.scale !== 1) swiper.zoom.toggle();
+    if (zoomed) swiper.zoom.toggle();
 
 
     clearTimeout(toastTimeout.current);
@@ -503,8 +503,8 @@ const FullScreenZoomableImage = ({
               maxRatio: 2,
               toggle: !matchMedia("(pointer:fine)").matches,
             }}
-            onZoomChange={() => {
-              setZoomed(!zoomed);
+            onZoomChange={(swiper,scale) => {
+              setZoomed(scale>1);
             }}
             onSlideChange={(swiper) => {
               if (zoomed) swiper.zoom.out();
