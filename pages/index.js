@@ -11,25 +11,25 @@ import Image from "next/image";
 
 const HomePage = ({ products }) => {
 
-useEffect(()=>{
-  var s = document.getElementById("heroShopNow");
+// useEffect(()=>{
+//   var s = document.getElementById("heroShopNow");
 
-  const parallax=()=> {
-    if(window.scrollY>window.innerHeight)return;
-  var yPos = -window.scrollY/10;  
-  var verticalShadow = 8-window.innerHeight/(window.innerHeight-window.scrollY)*8;
-  console.log('verSh', verticalShadow)
+//   const parallax=()=> {
+//     if(window.scrollY>window.innerHeight)return;
+//   var yPos = -window.scrollY/20;  
+//   var verticalShadow = 8-window.innerHeight/(window.innerHeight-window.scrollY)*8;
+//   console.log('verSh', verticalShadow)
   
-  s.style.transform = `translateY(${yPos}px)` 
-  s.style.boxShadow= `0 ${2+verticalShadow}px 8px hsla(0, 0%, 0%, 0.8)`
-}
+//   s.style.transform = `translateY(${yPos}px)` 
+//   s.style.boxShadow= `0 ${2+verticalShadow}px 8px hsla(0, 0%, 0%, 0.8)`
+// }
 
-window.addEventListener("scroll", parallax);
-return()=>{
-  window.removeEventListener("scroll", parallax)
-}
+// window.addEventListener("scroll", parallax);
+// return()=>{
+//   window.removeEventListener("scroll", parallax)
+// }
 
-},[])
+// },[])
 
 
   return (
