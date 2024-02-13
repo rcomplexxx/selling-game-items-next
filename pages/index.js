@@ -17,11 +17,11 @@ useEffect(()=>{
   const parallax=()=> {
     if(window.scrollY>window.innerHeight)return;
   var yPos = -window.scrollY/45;  
-  var verticalShadow = 1-window.innerHeight/(window.innerHeight-window.scrollY);
+  var verticalShadow = 3-window.innerHeight/(window.innerHeight-window.scrollY)*3;
   console.log('verSh', verticalShadow)
   
   s.style.transform = `translateY(${yPos}px)` 
-  s.style.boxShadow= `0 ${2+verticalShadow}px 8px hsla(0, 0%, 0%, 0.8)`
+  s.style.boxShadow= `0 ${2+verticalShadow}px 8px hsla(0, 0, 0, 1)`
 }
 
 window.addEventListener("scroll", parallax);
