@@ -20,13 +20,9 @@ const Cart = () => {
     
 
 
-      let div = document.createElement('div');
-      div.style.position = 'absolute';
-      div.style.top = '0';
-      div.style.left='0';
-div.style.height = '100vh';
-div.style.visibility = 'hidden';
-document.body.appendChild(div);
+    const div = document.createElement('div');
+    div.id = 'invisibleDiv';
+    div.className = styles.invisibleDiv;
 let divHeight = div.getBoundingClientRect().height;
 if (window.innerWidth<980){
   if(divHeight > window.innerHeight)setAddressBarDown(true);
