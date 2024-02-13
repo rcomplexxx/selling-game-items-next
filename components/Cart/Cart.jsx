@@ -13,6 +13,7 @@ const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [cartMinHeight, setCartMinHeight] = useState();
   const [addressBarDown, setAddressBarDown] = useState(false);
+  
 
 
   useLayoutEffect(()=>{
