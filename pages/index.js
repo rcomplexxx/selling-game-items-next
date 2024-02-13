@@ -16,7 +16,7 @@ useEffect(()=>{
 
   const parallax=()=> {
     if(window.scrollY>window.innerHeight)return;
-  var yPos = -window.scrollY/40;  
+  var yPos = -window.scrollY/35;  
   var verticalShadow = 4-window.innerHeight/(window.innerHeight-window.scrollY)*4;
   console.log('verSh', verticalShadow)
   
