@@ -19,7 +19,6 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
   const router = useRouter();
   const variantImageIndexMountedRef=useRef(false);
-  const [toastMessageShowable, setToastMessageShowable] = useState(true);
 
   useEffect(() => {
     if(zoomed===undefined){
@@ -152,8 +151,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
       {zoomed && (
         <FullScreenZoomableImage
-        toastMessageShowable={toastMessageShowable}
-        setToastMessageShowable={setToastMessageShowable}
+       
           imageIndex={imageIndex}
          
           changeImageIndex={(imageIndex)=>{

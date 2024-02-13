@@ -14,8 +14,6 @@ const FullScreenZoomableImage = ({
   changeImageIndex,
   fullScreenChange,
   images,
-  toastMessageShowable,
-  setToastMessageShowable
 }) => {
   const [navActive, setNavActive] = useState(true);
   const [navLocked, setNavLocked] = useState(false);
@@ -113,9 +111,9 @@ const FullScreenZoomableImage = ({
 
       if(!matchMedia("(pointer:fine)").matches){
     setTimeout(()=>{
-      if(toastMessageShowable){
+      if(!global.toastMessageNotShowable){
       setShowToastMessage(true);
-      setToastMessageShowable(false);
+      global.toastMessageNotShowable=true;
     }
 
 

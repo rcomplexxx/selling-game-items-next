@@ -306,8 +306,7 @@
 
   @media(max-width: 380px){
     .creditCardLogo{
-      height:35px; 
-      width: 60px;
+    
       margin: var(--size-2) var(--size-1);
    
     }
