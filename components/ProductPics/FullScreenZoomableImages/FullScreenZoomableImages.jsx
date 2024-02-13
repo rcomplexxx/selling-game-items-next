@@ -262,7 +262,8 @@ const FullScreenZoomableImage = ({
               const toast = document.getElementById("toastMessage");
               if(toast){
               
-              toast.classList.add(styles.dissapearingToast);      
+              toast.classList.add(styles.dissapearingToast);  
+              setTimeout(()=>{setShowToastMessage(false)},300)    
               }  
                     
             setNavActive((navActive) => !navActive);
