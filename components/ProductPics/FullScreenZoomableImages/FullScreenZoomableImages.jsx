@@ -132,7 +132,7 @@ const FullScreenZoomableImage = ({
       
     }
     },
-    4000)
+    4500)
 
 
   }
