@@ -79,7 +79,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
     <>
     {(newProduct || searchOpen || isMenuOpen ) && <div className={styles.substituteDiv}/>}
   
-      <nav className={`${styles.appBar} ${(newProduct || searchOpen || isMenuOpen) && styles.appBarFixed} ${newProduct && styles.appBarMaterialize}`}
+      <nav className={`${styles.appBar} ${((newProduct || searchOpen || isMenuOpen)) && styles.appBarFixed} ${newProduct && window.scrollY>0 && styles.appBarMaterialize}`}
       onMouseDown={(event)=>{ if(newProduct) event.preventDefault()}} id='popupCart' tabIndex="0" onBlur={()=>{
       setNewProduct();
     }}
