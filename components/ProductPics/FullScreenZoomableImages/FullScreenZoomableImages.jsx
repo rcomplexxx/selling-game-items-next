@@ -122,7 +122,7 @@ const FullScreenZoomableImage = ({
       const toast = document.getElementById("toastMessage");
       if(toast){
       toast.style.opacity= '0';
-      toast.style.transform = 'translateX(-50%) translateY(16px)';
+      toast.style.transform = 'translateX(-50%) translateY(8px)';
       setTimeout(()=>{
         setShowToastMessage(false);
         clearTimeout(toastTimeout.current);
