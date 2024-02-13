@@ -16,8 +16,8 @@ useEffect(()=>{
 
   const parallax=()=> {
     if(window.scrollY>window.innerHeight)return;
-  var yPos = -window.scrollY/30;  
-  var verticalShadow = 5-window.innerHeight/(window.innerHeight-window.scrollY)*5;
+  var yPos = -window.scrollY/10;  
+  var verticalShadow = 8-window.innerHeight/(window.innerHeight-window.scrollY)*8;
   console.log('verSh', verticalShadow)
   
   s.style.transform = `translateY(${yPos}px)` 
