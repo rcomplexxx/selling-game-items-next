@@ -149,6 +149,7 @@ const FullScreenZoomableImage = ({
 
 
   }, []);
+  //
 
   useEffect(()=>{
     const handlePopState=()=>{ setNavLocked(false); setNavActive(false);killFullScreen();}
