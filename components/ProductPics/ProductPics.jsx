@@ -11,7 +11,7 @@ import "swiper/css";
 export default function ProductPics({ images, onAddToCart, variantImageIndex }) {
   const [imageIndex, setImageIndex] = useState(0);
   const [zoomed, setZoomed] = useState(undefined);
-
+  
   const [fixedMedia, setFixedMedia] = useState(0);
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
   const [swiper, setSwiper] = useState(null);
@@ -19,7 +19,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
   const router = useRouter();
   const variantImageIndexMountedRef=useRef(false);
-  
+  const [toastMessageShowable, setToastMessageShowable] = useState(true);
 
   useEffect(() => {
     if(zoomed===undefined){
@@ -40,7 +40,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
       });
 
     } else { 
-    if (router.asPath.includes("#zoom")) router.back();
+    if (router.asPath.includes("#zoom")) {router.back();}
   }
 
    
@@ -152,7 +152,8 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
       {zoomed && (
         <FullScreenZoomableImage
-        
+        toastMessageShowable={toastMessageShowable}
+        setToastMessageShowable={setToastMessageShowable}
           imageIndex={imageIndex}
          
           changeImageIndex={(imageIndex)=>{

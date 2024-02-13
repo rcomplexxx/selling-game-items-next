@@ -14,6 +14,8 @@ const FullScreenZoomableImage = ({
   changeImageIndex,
   fullScreenChange,
   images,
+  toastMessageShowable,
+  setToastMessageShowable
 }) => {
   const [navActive, setNavActive] = useState(true);
   const [navLocked, setNavLocked] = useState(false);
@@ -111,8 +113,10 @@ const FullScreenZoomableImage = ({
 
       if(!matchMedia("(pointer:fine)").matches){
     setTimeout(()=>{
-      
+      if(toastMessageShowable){
       setShowToastMessage(true);
+      setToastMessageShowable(false);
+    }
 
 
     }, 380);
@@ -143,7 +147,7 @@ const FullScreenZoomableImage = ({
       
     }, 280);
 
-  
+
 
 
   }, []);
@@ -302,6 +306,7 @@ const FullScreenZoomableImage = ({
   }, [imageIndex]);
 
   const killFullScreen = (currY = 0) => {
+  
     if (zoomed) swiper.zoom.toggle();
 
 
@@ -426,7 +431,7 @@ const FullScreenZoomableImage = ({
         {/* document.addEventListener("mousemove", handleUserInteraction);
   document.addEventListener("click", handleUserInteraction);
   document.addEventListener("touchstart", handleUserInteraction); */}
- { showToastMessage && <div id='toastMessage' className={styles.toast}>Double tap to zoom</div>}
+ {showToastMessage && <div id='toastMessage' className={styles.toast}>Double tap to zoom</div>}
         <div className={styles.spaceController}>
           <div
             className={`${styles.closeSuiter} ${
