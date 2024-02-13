@@ -257,19 +257,26 @@ const FullScreenZoomableImage = ({
           event.target !== document.querySelector(`.${styles.zoomButton}`) &&
           event.target !== document.querySelector(`.${styles.close_button}`)
         )
-          timeoutId = setTimeout(function () {
-          
+        {
+
+            setTimeout(()=>{
               const toast = document.getElementById("toastMessage");
               if(toast){
               
               toast.classList.add(styles.dissapearingToast);  
               setTimeout(()=>{setShowToastMessage(false)},300)    
-              }  
-                    
+              } 
+            },300)
+          
+
+          timeoutId = setTimeout(function () {
+                
             setNavActive((navActive) => !navActive);
             clearTimeout(timeoutId);
             timeoutId = null;
           }, 300);
+
+          }
       } else {
         clearTimeout(timeoutId);
         timeoutId = null;
