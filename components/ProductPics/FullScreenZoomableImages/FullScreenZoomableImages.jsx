@@ -305,6 +305,19 @@ const FullScreenZoomableImage = ({
 
   const killFullScreen = (currY = 0) => {
   
+    // const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    //   const deviceWidth = window.screen.width;
+
+    //   const zoomLevel = deviceWidth / viewportWidth;
+    //   const zoomThreshold = 1.05;
+    //   if (zoomLevel > zoomThreshold) {
+    //     console.log('Page is zoomed');
+
+    //     document.querySelector('meta[name="viewport"]').content = 'width=device-width, initial-scale=1.0';
+    //   }
+    
+
+
     if (zoomed) swiper.zoom.toggle();
 
 
