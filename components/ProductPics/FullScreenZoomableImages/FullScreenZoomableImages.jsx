@@ -121,8 +121,9 @@ const FullScreenZoomableImage = ({
     toastTimeout.current= setTimeout(()=> {
       const toast = document.getElementById("toastMessage");
       if(toast){
-      toast.style.opacity= '0';
-      toast.style.transform = 'translateX(-50%) translateY(8px)';
+      
+      toast.classList.add(styles.dissapearingToast);      
+
       setTimeout(()=>{
         setShowToastMessage(false);
         clearTimeout(toastTimeout.current);
@@ -257,6 +258,13 @@ const FullScreenZoomableImage = ({
           event.target !== document.querySelector(`.${styles.close_button}`)
         )
           timeoutId = setTimeout(function () {
+          
+              const toast = document.getElementById("toastMessage");
+              if(toast){
+              
+              toast.classList.add(styles.dissapearingToast);      
+              }  
+                    
             setNavActive((navActive) => !navActive);
             clearTimeout(timeoutId);
             timeoutId = null;
@@ -292,21 +300,11 @@ const FullScreenZoomableImage = ({
     clearTimeout(toastTimeout.current);
     const toast = document.getElementById("toastMessage");
       if(toast){
-        toast.style.transition = `transform 0.15s ease, opacity 0.15s ease`
-      toast.style.transform = 'translateX(-50%) translateY(48px)'
-      toast.style.opacity = '0.5';
-      setTimeout(()=>{
-        
-        setShowToastMessage(false);
-        toast.style.transition = `opacity 0s ease`;
-        toast.style.opacity = '0';
-      }, 150)
+        toast.classList.add(styles.instantDissapearingToast);
+     
       
 
-      //   toast.style.transition = `transform 0.2s ease, opacity 0.2s ease`
-      // toast.style.transform = 'translateX(50vw)'
-      // toast.style.opacity = '0.5'
-      // setTimeout(()=>{setShowToastMessage(false)},200)
+    
 
 
     }
