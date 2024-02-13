@@ -158,7 +158,7 @@ const FullScreenZoomableImage = ({
    return ()=>{
     window?.removeEventListener("popstate", handlePopState);
    }
-  },[imageIndex])
+  },[imageIndex,zoomed])
 
   useEffect(() => {
     const fixedZoomDiv = document.getElementById("fixedZoomDiv");
@@ -194,7 +194,6 @@ const FullScreenZoomableImage = ({
     };
 
     const handleTouchYMove = (event) => {
-      event.preventDefault();
       if (swipeYLock || zoomRef.current) return;
       if (event.touches.length > 1) {
         return;
