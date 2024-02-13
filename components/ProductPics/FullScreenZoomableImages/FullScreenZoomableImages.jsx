@@ -305,7 +305,7 @@ const FullScreenZoomableImage = ({
 
   const killFullScreen = (currY = 0) => {
   
-    if (swiper.zoom && swiper.zoom.scale !== 1) swiper.zoom.toggle();
+    if (swiperInstance.zoom && swiperInstance.zoom.scale !== 1) swiper.zoom.toggle();
 
 
     clearTimeout(toastTimeout.current);
