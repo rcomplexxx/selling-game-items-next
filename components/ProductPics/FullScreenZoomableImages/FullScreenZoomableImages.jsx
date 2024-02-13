@@ -295,7 +295,12 @@ const FullScreenZoomableImage = ({
         toast.style.transition = `transform 0.1s ease, opacity 0.1s ease`
       toast.style.transform = 'translateX(-50%) translateY(40px)'
       toast.style.opacity = '0.5';
-      setTimeout(()=>{setShowToastMessage(false)},100)
+      setTimeout(()=>{
+        
+        setShowToastMessage(false);
+        toast.style.transition = `opacity 0s ease`;
+        toast.style.opacity = '0';
+      }, 100)
       
 
       //   toast.style.transition = `transform 0.2s ease, opacity 0.2s ease`
