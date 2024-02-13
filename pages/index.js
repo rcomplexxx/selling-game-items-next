@@ -16,7 +16,7 @@ useEffect(()=>{
 
   const parallax=()=> {
     
-  var yPos = -window.scrollY/25;  
+  var yPos = -window.scrollY/30;  
   s.style.transform = `translateY(${yPos}px)` }
 
 window.addEventListener("scroll", parallax);
