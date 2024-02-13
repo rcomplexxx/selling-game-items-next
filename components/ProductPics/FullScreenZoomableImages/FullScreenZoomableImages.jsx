@@ -305,23 +305,7 @@ const FullScreenZoomableImage = ({
 
   const killFullScreen = (currY = 0) => {
   
-    const fixedZoomDiv = document.getElementById('fixedZoomDiv');
-    const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-    const fixedDivWidth = fixedZoomDiv.offsetWidth;
-
-      const zoomLevel =  viewportWidth /fixedDivWidth;
-      const zoomThreshold = 1.05;
-      if (zoomLevel > zoomThreshold) {
-        console.log('Page is zoomed');
-
-        const unzoomScale = 1 / zoomLevel;
-fixedZoomDiv.style.transform = `scale(${unzoomScale})`;
-    
-      }
-    
-
-
-    if (zoomed) swiper.zoom.toggle();
+    if (swiper.zoom && swiper.zoom.scale !== 1) swiper.zoom.toggle();
 
 
     clearTimeout(toastTimeout.current);
