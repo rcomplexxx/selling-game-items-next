@@ -194,6 +194,7 @@ const FullScreenZoomableImage = ({
     };
 
     const handleTouchYMove = (event) => {
+      event.preventDefault();
       if (swipeYLock || zoomRef.current) return;
       if (event.touches.length > 1) {
         return;
@@ -503,8 +504,8 @@ const FullScreenZoomableImage = ({
               maxRatio: 2,
               toggle: !matchMedia("(pointer:fine)").matches,
             }}
-            onZoomChange={(swiper,scale) => {
-              setZoomed(scale>1);
+            onZoomChange={() => {
+              setZoomed(!zoomed);
             }}
             onSlideChange={(swiper) => {
               if (zoomed) swiper.zoom.out();
