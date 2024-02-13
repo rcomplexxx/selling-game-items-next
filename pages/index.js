@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HomeText from "@/components/HomeText/HomeText";
 import HomeReviews from "../components/HomeReviews/HomeReviews.jsx";
 import Products from "@/components/Products/Products.jsx";
@@ -11,7 +11,20 @@ import Image from "next/image";
 
 const HomePage = ({ products }) => {
 
+useEffect(()=>{
+  var s = document.getElementById("heroShopNow");
 
+  const parallax=()=> {
+    
+  var yPos = -window.scrollY/20;  
+  s.style.transform = `translateY(${yPos}px)` }
+
+window.addEventListener("scroll", parallax);
+return()=>{
+  window.removeEventListener("scroll", parallax)
+}
+
+},[])
 
 
   return (
@@ -41,7 +54,7 @@ const HomePage = ({ products }) => {
 
 
 
-        <Link href="/products" className={styles.linkButton}>
+        <Link id='heroShopNow' href="/products" className={styles.linkButton}>
           Shop Now
         </Link>
         </picture>

@@ -11,12 +11,16 @@
     border-radius: 4px;
      width:var(--size-11-5);
      height: var(--size-8);
-    transition: transform 0.1s ease-in;
+    /* transition: transform 0.1s ease-in; */
     box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.8);
     z-index: 2;
     position: absolute;
   }
 
+  .linkButton:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+  }
  
  
 
@@ -49,10 +53,7 @@
 
 
 
-  .linkButton:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+
 
   .ticker {
     background-color: red;
