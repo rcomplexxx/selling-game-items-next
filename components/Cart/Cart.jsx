@@ -28,9 +28,9 @@ const Cart = () => {
   let div2Height = document.getElementById('invisibleDiv2').getBoundingClientRect().height;
   firstHeightRef.current= divHeight;
 if (window.innerWidth<980){
-  if(divHeight < div2Height)setAddressBarDown(false);
+  if(divHeight < div2Height)setAddressBarDown(true);
 
-  else setAddressBarDown(true);
+  else setAddressBarDown(false);
 }
 
 
