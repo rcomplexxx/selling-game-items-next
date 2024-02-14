@@ -12,7 +12,7 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [cartMinHeight, setCartMinHeight] = useState();
-  const [addressBarDown, setAddressBarDown] = useState(false);
+  const [addressBarUp, setAddressBarUp] = useState(false);
   const [invDivsPresent, setInvDivsPresent] = useState(true);
   const firstHeightRef = useRef();
   const invisibleDiv = useRef();
@@ -28,9 +28,9 @@ const Cart = () => {
   let div2Height = document.getElementById('invisibleDiv2').getBoundingClientRect().height;
   firstHeightRef.current= divHeight;
 if (window.innerWidth<980){
-  if(divHeight < div2Height)setAddressBarDown(true);
+  if(divHeight < div2Height)setAddressBarUp(true);
 
-  else setAddressBarDown(false);
+  else setAddressBarUp(false);
 }
 
 
@@ -39,14 +39,14 @@ if (window.innerWidth<980){
       const updateSize=()=>{
         if (window.innerWidth<980){
         if(divHeight < firstHeightRef.current){
-          setAddressBarDown(true);
+          setAddressBarUp(false);
           window.removeEventListener('resize', updateSize);
         }
         else if(divHeight > firstHeightRef.current) {
-          setAddressBarDown(false);
+          setAddressBarUp(true);
           window.removeEventListener('resize', updateSize);
         }
-        else setAddressBarDown(false);
+        else setAddressBarUp(true);
       }
       }
       window.addEventListener('resize', updateSize);
@@ -103,8 +103,8 @@ if (window.innerWidth<980){
 
   return (<>
   {invDivsPresent && <><div ref={invisibleDiv} id='invisibleDiv' className={styles.invisibleDiv}></div><div id='invisibleDiv2' className={styles.invisibleDiv2}></div></>}
-    <div className={styles.mainWrapper} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
-    <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
+    <div className={styles.mainWrapper} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
+    <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>

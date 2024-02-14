@@ -1,19 +1,23 @@
-/* 
+
 .invisibleDiv{
+  background-color: #1976d2;
   position : absolute;
   top : 0;
   left:0;
 height : 100dvh;
-visibility : hidden;
+width: 12px;
+z-index: 10001;
 }
 
 .invisibleDiv2{
+  background-color: #3d4113;
   position : absolute;
   top : 0;
   left:0;
 height : 100vh;
-visibility : hidden;
-} */
+width: 24px;
+z-index: 10000;
+} 
 
 
 .mainWrapper{
