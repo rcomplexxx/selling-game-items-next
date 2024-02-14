@@ -36,12 +36,12 @@ firstInvisibleDivHeight.current=divHeight;
       const updateSize=()=>{
         if (window.innerWidth<980){
           divHeight = div.getBoundingClientRect().height;
-        if(divHeight > firstInvisibleDivHeight.current){
+        if(divHeight < firstInvisibleDivHeight.current){
           setAddressBarDown(true);
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
         }
-        else if(divHeight < firstInvisibleDivHeight.current) {
+        else if(divHeight > firstInvisibleDivHeight.current) {
           setAddressBarDown(false);
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
