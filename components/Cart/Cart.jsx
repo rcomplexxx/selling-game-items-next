@@ -11,9 +11,8 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
-  const [cartMinHeight, setCartMinHeight] = useState();
   const [addressBarDown, setAddressBarDown] = useState(false);
-  const firstInvisibleDivHeight = useRef(false)
+  const fullInvisibleHeight = useRef(false)
   
 
 
@@ -26,27 +25,31 @@ const Cart = () => {
     div.id = 'invisibleDiv';
     div.className = styles.invisibleDiv;
     document.body.appendChild(div);
+    fullInvisibleHeight.current=div.getBoundingClientRect().height;
+    div.height = '100dvh';
 let divHeight = div.getBoundingClientRect().height;
-firstInvisibleDivHeight.current=divHeight;
-
+fullInvisibleHeight.current=divHeight;
+if (window.innerWidth<980){
+  if(divHeight < fullInvisibleHeight.current)setAddressBarDown(false);
+  else setAddressBarDown(true);
+}
 
 
 
 
       const updateSize=()=>{
         if (window.innerWidth<980){
-          divHeight = div.getBoundingClientRect().height;
-        if(divHeight < firstInvisibleDivHeight.current){
-          // setAddressBarDown(true);
+        // if(divHeight > window.innerHeight){
+        //   setAddressBarDown(true);
+        //   document.body.removeChild(div);
+        //   window.removeEventListener('resize', updateSize);
+        // }
+        // else
+         if(divHeight == fullInvisibleHeight.current) {
+          setAddressBarDown(false);
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
         }
-        else if(divHeight > firstInvisibleDivHeight.current) {
-          setAddressBarDown(true);
-          document.body.removeChild(div);
-          window.removeEventListener('resize', updateSize);
-        }
-        // else setAddressBarDown(false);
       }
       }
       window.addEventListener('resize', updateSize);
