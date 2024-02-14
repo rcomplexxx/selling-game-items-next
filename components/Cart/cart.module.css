@@ -7,7 +7,7 @@ height : 100dvh;
 visibility : hidden;
 }
 
-invisibleDiv2{
+.invisibleDiv2{
   position : absolute;
   top : 0;
   left:0;
