@@ -1,5 +1,4 @@
 .mainDiv{
-    min-height: calc(100dvh - var(--size-9));
     min-height: calc(100vh - var(--size-9));
     width: calc(100% - var(--size-6));
     max-width: var(--size-15-5);

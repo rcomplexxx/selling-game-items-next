@@ -27,7 +27,7 @@ const obtainDiv2Height = useCallback((node) => {
 }, []);
 
 
-  useEffect(()=>{
+  useLayoutEffect(()=>{
    
     if(!invisibleDivHeight || !invisibleDiv2Height){return}
   firstHeightRef.current= invisibleDivHeight;
@@ -45,22 +45,22 @@ if (window.innerWidth<980){
 
 
 
-      const updateSize=()=>{
-        if (window.innerWidth<980){
-          const divHeight = Math.round(document.getElementById('invisibleDiv').getBoundingClientRect().height);
-   const div2Height = Math.round(document.getElementById('invisibleDiv2').getBoundingClientRect().height);
+  //     const updateSize=()=>{
+  //       if (window.innerWidth<980){
+  //         const divHeight = Math.round(document.getElementById('invisibleDiv').getBoundingClientRect().height);
+  //  const div2Height = Math.round(document.getElementById('invisibleDiv2').getBoundingClientRect().height);
 
-          console.log('sizes', divHeight, div2Height)
+  //         console.log('sizes', divHeight, div2Height)
           
-        if(divHeight < div2Height){
-          setAddressBarUp(true);
-          window.removeEventListener('resize', updateSize);
-        }
-      }
-      }
-      if(invisibleDivHeight==invisibleDiv2Height)
-      window.addEventListener('resize', updateSize);
-      return () => window.removeEventListener('resize', updateSize);
+  //       if(divHeight < div2Height){
+  //         setAddressBarUp(true);
+  //         window.removeEventListener('resize', updateSize);
+  //       }
+  //     }
+  //     }
+  //     if(invisibleDivHeight==invisibleDiv2Height)
+  //     window.addEventListener('resize', updateSize);
+  //     return () => window.removeEventListener('resize', updateSize);
 
 
   },[invisibleDivHeight,invisibleDiv2Height]);

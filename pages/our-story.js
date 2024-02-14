@@ -1,6 +1,8 @@
 import React from "react";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
 import Head from "next/head";
+import Image from "next/image";
+import styles from '../styles/ourstory.module.css'
 
 export default function OurStory() {
   return (
@@ -8,10 +10,12 @@ export default function OurStory() {
       <Head>
         <title>Our story - Gamesmoke shop</title>
       </Head>
-      <PolicyCard homeCard={false} smallContent={true}>
+      <div className={styles.mainDiv}>
         <h1>Our story</h1>
-
-        <p>Welcome to the League of Items.</p>
+        <div className={styles.mainContent}>
+        <Image src='/images/gamingFriends2.jpg' className={styles.ourStoryImage} sizes="100vw" height={0} width={0}/>
+        <div className={styles.ourStoryText}>
+        
         <p>
           Our story began when we saw a gap in the market of new and innovative
           products not being pushed into the market quick enough nor without any
@@ -33,7 +37,9 @@ export default function OurStory() {
           games!
         </p>
         <p>Happy shopping! 🌠</p>
-      </PolicyCard>
+        </div>
+      </div>
+      </div>
     </div>
   );
 }

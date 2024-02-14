@@ -203,9 +203,12 @@ export default function ProductPage({ product, images, startReviews, ratingData 
             <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
            <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
            
-          <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+         
+          {/* <div id="moreCards" className={styles.moreCards}>+4</div> */}
             <Image src='/images/cardJcb2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
             
+            {/* <Image src='/images/cardGpay2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/> */}
+            <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
           </div>
 
           <FrequentlyBoughtTogether

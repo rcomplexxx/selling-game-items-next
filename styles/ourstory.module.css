@@ -1,0 +1,71 @@
+
+.mainDiv{
+    min-height: calc(100vh - var(--size-9));
+    width: calc(100% - var(--size-6));
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: none;
+    border-radius: 8px;
+}
+
+.mainContent{
+   
+    display: flex;
+    flex-direction: row-reverse;
+    border-bottom: none;
+    border-radius: 8px;
+}
+
+.mainDiv h1{
+    margin-top: var(--size-7);
+    margin-bottom: var(--size-6);
+}
+
+
+.ourStoryImage{
+    height: max-content;
+    max-width: var(--size-13);
+    width: 100%;
+    object-fit: contain;
+    margin-left: var(--size-7);
+    margin-bottom: var(--size-6);
+}
+
+.ourStoryText{
+    max-width: var(--size-15-5);
+    margin-bottom: var(--size-6);
+}
+
+@media(max-width: 980px){
+    .mainContent{
+        width: calc(100% - var(--size-8));
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .ourStoryImage{
+        width: calc(100% - var(--size-8));
+        max-width: var(--size-15);
+        
+        margin-left: 0;
+    }
+
+
+}
+
+
+@media(max-width: 480px){
+    .mainDiv{
+       
+        width: calc(100% - var(--size-4));
+    }
+
+    .ourStoryImage{
+        width: calc(100% - var(--size-4));
+       
+    }
+}
