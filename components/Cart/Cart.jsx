@@ -12,46 +12,24 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [cartMinHeight, setCartMinHeight] = useState();
-  const [addressBarDown, setAddressBarDown] = useState(false);
+  const [addressBarDown, setAddressBarDown] = useState(true);
   const firstHeight = useRef();
 
 
-  useLayoutEffect(()=>{
+  useEffect(()=>{
    
     
 
-   
-    const div = document.createElement('div');
-    div.id = 'invisibleDiv';
-    div.className = styles.invisibleDiv;
-    document.body.appendChild(div);
-
-    const div2 = document.createElement('div');
-    div2.id = 'invisibleDiv2';
-    div2.className = styles.invisibleDiv2;
-    document.body.appendChild(div2);
-
-
-    let divHeight = div.getBoundingClientRect().height;
-    firstHeight.current= divHeight; 
-    let divHeight2 = div2.getBoundingClientRect().height;
-    console.log(divHeight, divHeight2)
-if (window.innerWidth<980){
-  if(divHeight < divHeight2)setAddressBarDown(false);
-  else setAddressBarDown(true);
-}
-
-
-
+    const container = document.getElementById('cartMainContainer');
+    firstHeight.current = container.getBoundingClientRect().height;
 
       const updateSize=()=>{
         if (window.innerWidth<980){
+            
+         containerCurrentHeight = container.getBoundingClientRect().height;
 
-         divHeight = div.getBoundingClientRect().height;
-
-        if(divHeight < firstHeight.current){
+        if(containerCurrentHeight < firstHeight.current){
           setAddressBarDown(false);
-          document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
         }
        
@@ -110,8 +88,8 @@ if (window.innerWidth<980){
   </div>
 
   return (
-    <div id='cartMainWrapper' className={styles.mainWrapper} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
-    <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
+    <div  className={styles.mainWrapper}>
+    <div id='cartMainContainer' className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100dvh - 64px)":"calc(100vh - 64px)"}`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
