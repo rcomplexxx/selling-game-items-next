@@ -48,7 +48,7 @@ if (window.innerWidth<980){
         }
       }
       }
-      if(divHeight == div2Height)
+   
       window.addEventListener('resize', updateSize);
       return () => window.removeEventListener('resize', updateSize);
 
