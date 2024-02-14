@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useLayoutEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import Link from "next/link";
 
 import CartItem from "./CartItem/CartItem";
@@ -11,27 +11,25 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
+  const [cartMinHeight, setCartMinHeight] = useState();
   const [addressBarDown, setAddressBarDown] = useState(false);
-  const fullInvisibleHeight = useRef(false)
-  
+  const firstHeight = useRef();
 
 
   useLayoutEffect(()=>{
    
     
 
-
+   
     const div = document.createElement('div');
     div.id = 'invisibleDiv';
     div.className = styles.invisibleDiv;
     document.body.appendChild(div);
-    fullInvisibleHeight.current=div.getBoundingClientRect().height;
-    div.height = '100dvh';
-let divHeight = div.getBoundingClientRect().height;
-fullInvisibleHeight.current=divHeight;
+    let divHeight = div.getBoundingClientRect().height;
+    firstHeight.current= divHeight; 
 if (window.innerWidth<980){
-  if(divHeight < fullInvisibleHeight.current)setAddressBarDown(false);
-  else setAddressBarDown(true);
+  if(divHeight > window.innerHeight)setAddressBarDown(true);
+  else setAddressBarDown(false);
 }
 
 
@@ -39,17 +37,15 @@ if (window.innerWidth<980){
 
       const updateSize=()=>{
         if (window.innerWidth<980){
-        // if(divHeight > window.innerHeight){
-        //   setAddressBarDown(true);
-        //   document.body.removeChild(div);
-        //   window.removeEventListener('resize', updateSize);
-        // }
-        // else
-         if(divHeight == fullInvisibleHeight.current) {
+
+         divHeight = div.getBoundingClientRect().height;
+
+        if(divHeight > firstHeight.current){
           setAddressBarDown(false);
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
         }
+       
       }
       }
       window.addEventListener('resize', updateSize);
@@ -105,7 +101,7 @@ if (window.innerWidth<980){
   </div>
 
   return (
-    <div className={styles.mainWrapper} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
+    <div id='cartMainWrapper' className={styles.mainWrapper} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
     <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
