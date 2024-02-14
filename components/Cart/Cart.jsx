@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState, useRef } from "react";
 import Link from "next/link";
 
 import CartItem from "./CartItem/CartItem";
@@ -13,6 +13,7 @@ const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [cartMinHeight, setCartMinHeight] = useState();
   const [addressBarDown, setAddressBarDown] = useState(false);
+  const firstInvisibleDivHeight = useRef(false)
   
 
 
@@ -26,22 +27,21 @@ const Cart = () => {
     div.className = styles.invisibleDiv;
     document.body.appendChild(div);
 let divHeight = div.getBoundingClientRect().height;
-if (window.innerWidth<980){
-  if(divHeight > window.innerHeight)setAddressBarDown(true);
-  else setAddressBarDown(false);
-}
+firstInvisibleDivHeight.current=divHeight;
+
 
 
 
 
       const updateSize=()=>{
         if (window.innerWidth<980){
-        if(divHeight > window.innerHeight){
+          divHeight = div.getBoundingClientRect().height;
+        if(divHeight > firstInvisibleDivHeight.current){
           setAddressBarDown(true);
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
         }
-        else if(divHeight < window.innerHeight) {
+        else if(divHeight < firstInvisibleDivHeight.current) {
           setAddressBarDown(false);
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
