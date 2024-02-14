@@ -38,11 +38,11 @@ if (window.innerWidth<980){
 
       const updateSize=()=>{
         if (window.innerWidth<980){
-        if(divHeight > firstHeightRef.current){
+        if(divHeight < firstHeightRef.current){
           setAddressBarDown(true);
           window.removeEventListener('resize', updateSize);
         }
-        else if(divHeight < firstHeightRef.current) {
+        else if(divHeight > firstHeightRef.current) {
           setAddressBarDown(false);
           window.removeEventListener('resize', updateSize);
         }
