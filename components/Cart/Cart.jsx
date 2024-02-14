@@ -28,6 +28,8 @@ const Cart = () => {
   firstHeightRef.current= divHeight;
 if (window.innerWidth<980){
 
+  console.log('sizes', divHeight, div2Height)
+
   if(divHeight < div2Height)setAddressBarUp(true);
 
   else setAddressBarUp(false);
@@ -103,7 +105,7 @@ if (window.innerWidth<980){
   {invDivsPresent && <><div ref={invisibleDiv2} className={styles.invisibleDiv2}/><div ref={invisibleDiv} id='invisibleDiv' className={styles.invisibleDiv}/></>}
     <div className={styles.mainWrapper} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
     <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
-      
+      <span>{`Brojevi su ${invisibleDiv.current?invisibleDiv.current.getBoundingClientRect().height:"?"}, ${invisibleDiv.current?invisibleDiv2.current.getBoundingClientRect().height:"?"}`}</span>
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
       {renderCart()}
