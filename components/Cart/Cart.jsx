@@ -24,7 +24,7 @@ const Cart = () => {
     console.log('exists inv div');
 
   let divHeight = invisibleDiv.current.getBoundingClientRect().height;
-  let div2Height = invisibleDiv2.getBoundingClientRect().height;
+  let div2Height = invisibleDiv2.current.getBoundingClientRect().height;
   firstHeightRef.current= divHeight;
 if (window.innerWidth<980){
 
