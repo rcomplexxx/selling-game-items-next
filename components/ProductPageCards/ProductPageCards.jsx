@@ -51,7 +51,7 @@ export default function ProductPageCards() {
 
   return (
     <>
-      <DropCard title="Description">
+      <DropCard dropCardId={'0'} title="Description">
         <div className={styles.descriptionDiv}>
           <p>
             Satisfy your cat’s natural instincts to scratch, perch, play, and
@@ -102,9 +102,9 @@ export default function ProductPageCards() {
         </div>
       </DropCard>
 
-      <DropCard title="Key features">
+      <DropCard dropCardId={'1'} title="Key features">
         <div className={styles.descriptionDiv}>
-          {" "}
+         
           <ul>
             <li>Measures approximately: 24" x 19.5" x 50"</li>
             <li>100% all-natural Ash Wood</li>
@@ -121,10 +121,10 @@ export default function ProductPageCards() {
             <li>Top observation platform</li>
             <li>Made from non-toxic and pet-safe materials</li>
             <li>Assembly Required (View assembly instructions)</li>
-          </ul>{" "}
+          </ul>
         </div>
       </DropCard>
-      <DropCard title="Shipping & Returns">
+      <DropCard dropCardId={'2'} title="Shipping & Returns">
         <div className={styles.descriptionDiv}>
           <p>
             THIS PRODUCT SHIPS FREE TO CONTINENTAL USA. A SAVINGS OF OVER $75!
@@ -135,9 +135,9 @@ export default function ProductPageCards() {
             customers interested in a return for a refund must pay for the
             return shipping costs.
           </p>
-        </div>{" "}
+        </div>
       </DropCard>
-      <DropCard title="Ask a question" contactCard={true}>
+      <DropCard dropCardId={'3'} title="Ask a question" contactCard={true}>
         <div className={styles.mainDiv}>
           <div className={styles.contactInfoDiv}>
             <div className={styles.infoDiv}>

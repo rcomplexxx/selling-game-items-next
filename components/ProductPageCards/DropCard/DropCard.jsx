@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./dropCard.module.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function DropCard(props) {
   const [showAnswer, setShowAnswer] = useState(false);
@@ -8,6 +8,48 @@ export default function DropCard(props) {
   function summonAnswer() {
     setShowAnswer(!showAnswer);
   }
+
+
+    const mounted= useRef(false);
+
+ 
+
+    
+  useEffect(()=>{
+    if(!mounted.current){mounted.current=true; return;}
+   
+
+    let myAnswer=document.getElementById(`dropCardAnswer${props.dropCardId}`);
+  
+ 
+    
+  
+  if(showAnswer){
+
+
+ 
+    myAnswer.style.maxHeight=`${myAnswer.scrollHeight}px`;
+  }
+  else{
+    myAnswer.style.maxHeight="0";
+  
+
+  }
+
+
+  },[showAnswer, mounted.current]);
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className={styles.dropDiv}>
@@ -30,7 +72,8 @@ export default function DropCard(props) {
          
       </button>
       <div
-        className={`${styles.emerge} ${showAnswer ? styles.show : ""} ${
+      id={`dropCardAnswer${props.dropCardId}`}
+        className={`${styles.emerge} ${
           showAnswer && props.contactCard && styles.borderRad
         }`}
       >
