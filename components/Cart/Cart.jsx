@@ -25,11 +25,19 @@ const Cart = () => {
     div.id = 'invisibleDiv';
     div.className = styles.invisibleDiv;
     document.body.appendChild(div);
+
+    const div2 = document.createElement('div2');
+    div.id = 'invisibleDiv2';
+    div.className = styles.invisibleDiv2;
+    document.body.appendChild(div);
+
+
     let divHeight = div.getBoundingClientRect().height;
     firstHeight.current= divHeight; 
+    let divHeight2 = div2.getBoundingClientRect().height;
 if (window.innerWidth<980){
-  if(divHeight > window.innerHeight)setAddressBarDown(true);
-  else setAddressBarDown(false);
+  if(divHeight < divHeight2)setAddressBarDown(false);
+  else setAddressBarDown(true);
 }
 
 
