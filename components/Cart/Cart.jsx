@@ -12,7 +12,7 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [cartMinHeight, setCartMinHeight] = useState();
-  const [addressBarDown, setAddressBarDown] = useState(false);
+  const [addressBarDown, setAddressBarDown] = useState(true);
   const firstInvisibleDivHeight = useRef(false)
   
 
