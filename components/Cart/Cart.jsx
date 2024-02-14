@@ -20,17 +20,21 @@ const Cart = () => {
    
     
 
-    const container = document.getElementById('cartMainContainer');
-    firstHeight.current = container.getBoundingClientRect().height;
+   
+    
 
       const updateSize=()=>{
         if (window.innerWidth<980){
-            
+          const container = document?.getElementById('cartMainContainer');
+          if(!container)return;
+          console.log('proso document exists');
          containerCurrentHeight = container.getBoundingClientRect().height;
-
+          console.log()
         if(containerCurrentHeight < firstHeight.current){
           setAddressBarDown(false);
           window.removeEventListener('resize', updateSize);
+        } else{
+          firstHeight.current = containerCurrentHeight;
         }
        
       }
