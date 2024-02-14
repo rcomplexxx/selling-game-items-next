@@ -1,22 +1,20 @@
 
 .invisibleDiv{
-  background-color: #1976d2;
   position : absolute;
   top : 0;
   left:0;
 height : 100dvh;
-width: 12px;
-z-index: 10001;
+visibility: hidden;
 }
 
 .invisibleDiv2{
-  background-color: #3d4113;
   position : absolute;
   top : 0;
   left:0;
 height : 100vh;
-width: 24px;
-z-index: 10000;
+visibility: hidden;
+
+
 } 
 
 
