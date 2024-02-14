@@ -3,7 +3,7 @@
   position : absolute;
   top : 0;
   left:0;
-height : 100vh;
+height : 100dvh;
 visibility : hidden;
 }
 
@@ -12,7 +12,7 @@ visibility : hidden;
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100svh - 64px);
   
 }
 

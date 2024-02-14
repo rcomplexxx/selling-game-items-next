@@ -40,7 +40,7 @@ if (window.innerWidth<980){
 
          divHeight = div.getBoundingClientRect().height;
 
-        if(divHeight > firstHeight.current){
+        if(divHeight < firstHeight.current){
           setAddressBarDown(false);
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
