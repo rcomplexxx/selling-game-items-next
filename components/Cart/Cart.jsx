@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useLayoutEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState, useRef, useCallback } from "react";
 import Link from "next/link";
 
 import CartItem from "./CartItem/CartItem";
@@ -14,46 +14,56 @@ const Cart = () => {
   const [addressBarUp, setAddressBarUp] = useState(false);
   const [invDivsPresent, setInvDivsPresent] = useState(true);
   const firstHeightRef = useRef();
-  const invisibleDiv = useRef();
-  const invisibleDiv2 = useRef();
+  const [invisibleDivHeight, setInvisibleDivHeight] = useState();
+  const [invisibleDiv2Height, setInvisibleDiv2Height] = useState();
 //
+
+const obtainDivHeight = useCallback((node) => {
+  setInvisibleDivHeight(node?.getBoundingClientRect().height);
+}, []);
+
+const obtainDiv2Height = useCallback((node) => {
+  setInvisibleDiv2Height(node?.getBoundingClientRect().height);
+}, []);
+
 
   useEffect(()=>{
    
-    if(!invisibleDiv.current || !invisibleDiv2.current){return}
-    console.log('exists inv div');
+    if(!invisibleDivHeight || !invisibleDiv2Height){return}
+  firstHeightRef.current= invisibleDivHeight;
 
-  let divHeight = invisibleDiv.current.clientHeight;
-  let div2Height = invisibleDiv2.current.clientHeight;
-  firstHeightRef.current= divHeight;
+
+
 if (window.innerWidth<980){
 
-  console.log('sizes', divHeight, div2Height)
+  
 
-  if(divHeight < div2Height)setAddressBarUp(true);
+  if(Math.round(invisibleDivHeight) < Math.round(invisibleDiv2Height))setAddressBarUp(true);
 
   else setAddressBarUp(false);
 }
 
 
 
-
       const updateSize=()=>{
         if (window.innerWidth<980){
-          let divHeight = invisibleDiv.current.clientHeight;
-          let div2Height = invisibleDiv2.current.clientHeight;
+          const divHeight = Math.round(document.getElementById('invisibleDiv').getBoundingClientRect().height);
+   const div2Height = Math.round(document.getElementById('invisibleDiv2').getBoundingClientRect().height);
+
+          console.log('sizes', divHeight, div2Height)
+          
         if(divHeight < div2Height){
           setAddressBarUp(true);
           window.removeEventListener('resize', updateSize);
         }
       }
       }
-   
+      if(invisibleDivHeight==invisibleDiv2Height)
       window.addEventListener('resize', updateSize);
       return () => window.removeEventListener('resize', updateSize);
 
 
-  },[invisibleDiv.current,invisibleDiv2.current]);
+  },[invisibleDivHeight,invisibleDiv2Height]);
 
 
 
@@ -102,7 +112,7 @@ if (window.innerWidth<980){
   </div>
 
   return (<>
-  {invDivsPresent && <><div ref={invisibleDiv2} className={styles.invisibleDiv2}/><div ref={invisibleDiv} id='invisibleDiv' className={styles.invisibleDiv}/></>}
+  {invDivsPresent && <><div id="invisibleDiv2" ref={obtainDiv2Height} className={styles.invisibleDiv2}/><div id="invisibleDiv" ref={obtainDivHeight} className={styles.invisibleDiv}/></>}
     <div className={styles.mainWrapper} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
     <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
       
