@@ -19,7 +19,7 @@ const Cart = () => {
   
 
 
-  useEffect(()=>{
+  useLayoutEffect(()=>{
    
     if(!invisibleDiv.current){return}
     console.log('exists inv div');
@@ -52,7 +52,7 @@ if (window.innerWidth<980){
       return () => window.removeEventListener('resize', updateSize);
 
 
-  },[invisibleDiv.current]);
+  },[invisibleDiv]);
 
 
 
