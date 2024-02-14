@@ -101,7 +101,7 @@ if (window.innerWidth<980){
   </div>
 
   return (<>
-  {invDivsPresent && <><div ref={invisibleDiv} id='invisibleDiv' className={styles.invisibleDiv}></div><div id='invisibleDiv2' className={styles.invisibleDiv2}></div></>}
+  {invDivsPresent && <><div id='invisibleDiv2' className={styles.invisibleDiv2}/><div ref={invisibleDiv} id='invisibleDiv' className={styles.invisibleDiv}/></>}
     <div className={styles.mainWrapper} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
     <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
       

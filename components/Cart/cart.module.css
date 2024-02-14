@@ -28,7 +28,6 @@ z-index: 10000;
 }
 
 .containerStyle{
-  min-height: calc(100dvh - 64px);
   display: flex;
   flex-direction: column;
   width: 100%;
