@@ -12,39 +12,48 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [cartMinHeight, setCartMinHeight] = useState();
-  const [addressBarDown, setAddressBarDown] = useState(true);
-  const containerRef = useRef();
-  const firstHeight = useRef();
+  const [addressBarDown, setAddressBarDown] = useState(false);
+  const [invDivsPresent, setInvDivsPresent] = useState(true);
+  const firstHeightRef = useRef();
+  const invisibleDiv = useRef();
+  
 
 
-  useEffect(()=>{
+  useLayoutEffect(()=>{
    
-    
-    if(!containerRef.current)return;
-        
-    const containerCurrentHeight = containerRef.current.getBoundingClientRect().height;
-    if(!firstHeight.current)firstHeight.current = containerCurrentHeight;
-   
-    
+    if(!invisibleDiv.current){return}
+    console.log('exists inv div');
+
+  let divHeight = invisibleDiv.current.getBoundingClientRect().height;
+  let div2Height = document.getElementById('invisibleDiv2').getBoundingClientRect().height;
+  firstHeightRef.current= divHeight;
+if (window.innerWidth<980){
+  if(divHeight < div2Height)setAddressBarDown(false);
+
+  else setAddressBarDown(true);
+}
+
+
+
 
       const updateSize=()=>{
         if (window.innerWidth<980){
-          const containerCurrentHeight = containerRef.current.getBoundingClientRect().height;
-    
-         console.log('proso document exists',  containerCurrentHeight);
-        if(containerCurrentHeight < firstHeight.current){
+        if(divHeight > firstHeightRef.current){
+          setAddressBarDown(true);
+          window.removeEventListener('resize', updateSize);
+        }
+        else if(divHeight < firstHeightRef.current) {
           setAddressBarDown(false);
           window.removeEventListener('resize', updateSize);
-
         }
-       
+        else setAddressBarDown(false);
       }
       }
       window.addEventListener('resize', updateSize);
       return () => window.removeEventListener('resize', updateSize);
 
 
-  },[containerRef.current]);
+  },[invisibleDiv.current]);
 
 
 
@@ -92,9 +101,10 @@ const Cart = () => {
   <BestSellers/>
   </div>
 
-  return (
-    <div  className={styles.mainWrapper}>
-    <div ref={containerRef} className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100dvh - 64px)":"calc(100vh - 64px)"}`}}>
+  return (<>
+  {invDivsPresent && <><div ref={invisibleDiv} id='invisibleDiv' className={styles.invisibleDiv}></div><div id='invisibleDiv2' className={styles.invisibleDiv2}></div></>}
+    <div className={styles.mainWrapper} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
+    <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
@@ -103,6 +113,7 @@ const Cart = () => {
     </div>
     <BestSellers/>
     </div>
+    </>
   );
 };
 
