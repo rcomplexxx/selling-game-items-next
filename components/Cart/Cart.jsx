@@ -19,7 +19,7 @@ const Cart = () => {
   
 
 
-  useLayoutEffect(()=>{
+  useEffect(()=>{
    
     if(!invisibleDiv.current){return}
     console.log('exists inv div');
