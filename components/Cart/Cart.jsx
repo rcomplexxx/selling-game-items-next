@@ -13,28 +13,29 @@ const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [cartMinHeight, setCartMinHeight] = useState();
   const [addressBarDown, setAddressBarDown] = useState(true);
+  const containerRef = useRef();
   const firstHeight = useRef();
 
 
   useEffect(()=>{
    
     
-
+    if(!containerRef.current)return;
+        
+    const containerCurrentHeight = containerRef.current.getBoundingClientRect().height;
+    if(!firstHeight.current)firstHeight.current = containerCurrentHeight;
    
     
 
       const updateSize=()=>{
         if (window.innerWidth<980){
-          const container = document?.getElementById('cartMainContainer');
-          if(!container)return;
-          console.log('proso document exists');
-         containerCurrentHeight = container.getBoundingClientRect().height;
-          console.log()
+          const containerCurrentHeight = containerRef.current.getBoundingClientRect().height;
+    
+         console.log('proso document exists',  containerCurrentHeight);
         if(containerCurrentHeight < firstHeight.current){
           setAddressBarDown(false);
           window.removeEventListener('resize', updateSize);
-        } else{
-          firstHeight.current = containerCurrentHeight;
+
         }
        
       }
@@ -43,7 +44,7 @@ const Cart = () => {
       return () => window.removeEventListener('resize', updateSize);
 
 
-  },[]);
+  },[containerRef.current]);
 
 
 
@@ -93,7 +94,7 @@ const Cart = () => {
 
   return (
     <div  className={styles.mainWrapper}>
-    <div id='cartMainContainer' className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100dvh - 64px)":"calc(100vh - 64px)"}`}}>
+    <div ref={containerRef} className={`${styles.containerStyle}`} style={{minHeight:`${addressBarDown?"calc(100dvh - 64px)":"calc(100vh - 64px)"}`}}>
       
         <h1 className={styles.title}>Your shopping cart</h1>
         <FreeShippingSlider subtotal={subtotal}/>
