@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState, useRef } from "react";
 import Link from "next/link";
 
 import CartItem from "./CartItem/CartItem";
