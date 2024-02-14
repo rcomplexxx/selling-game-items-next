@@ -12,7 +12,7 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [cartMinHeight, setCartMinHeight] = useState();
-  const [addressBarDown, setAddressBarDown] = useState(true);
+  const [addressBarDown, setAddressBarDown] = useState(false);
   const firstInvisibleDivHeight = useRef(false)
   
 
@@ -37,16 +37,16 @@ firstInvisibleDivHeight.current=divHeight;
         if (window.innerWidth<980){
           divHeight = div.getBoundingClientRect().height;
         if(divHeight < firstInvisibleDivHeight.current){
-          setAddressBarDown(true);
+          // setAddressBarDown(true);
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
         }
         else if(divHeight > firstInvisibleDivHeight.current) {
-          setAddressBarDown(false);
+          setAddressBarDown(true);
           document.body.removeChild(div);
           window.removeEventListener('resize', updateSize);
         }
-        else setAddressBarDown(false);
+        // else setAddressBarDown(false);
       }
       }
       window.addEventListener('resize', updateSize);
