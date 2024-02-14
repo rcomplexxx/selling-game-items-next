@@ -28,6 +28,7 @@ const Cart = () => {
   let div2Height = document.getElementById('invisibleDiv2').getBoundingClientRect().height;
   firstHeightRef.current= divHeight;
 if (window.innerWidth<980){
+
   if(divHeight < div2Height)setAddressBarUp(true);
 
   else setAddressBarUp(false);
@@ -38,17 +39,15 @@ if (window.innerWidth<980){
 
       const updateSize=()=>{
         if (window.innerWidth<980){
-        if(divHeight < firstHeightRef.current){
-          setAddressBarUp(false);
-          window.removeEventListener('resize', updateSize);
-        }
-        else if(divHeight > firstHeightRef.current) {
+          let divHeight = invisibleDiv.current.getBoundingClientRect().height;
+          let div2Height = document.getElementById('invisibleDiv2').getBoundingClientRect().height;
+        if(divHeight < div2Height){
           setAddressBarUp(true);
           window.removeEventListener('resize', updateSize);
         }
-        else setAddressBarUp(true);
       }
       }
+      if(divHeight == div2Height)
       window.addEventListener('resize', updateSize);
       return () => window.removeEventListener('resize', updateSize);
 
