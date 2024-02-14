@@ -11,21 +11,20 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
-  const [cartMinHeight, setCartMinHeight] = useState();
   const [addressBarUp, setAddressBarUp] = useState(false);
   const [invDivsPresent, setInvDivsPresent] = useState(true);
   const firstHeightRef = useRef();
   const invisibleDiv = useRef();
-  
+  const invisibleDiv2 = useRef();
 //
 
   useEffect(()=>{
    
-    if(!invisibleDiv.current){return}
+    if(!invisibleDiv.current || !invisibleDiv2.current){return}
     console.log('exists inv div');
 
   let divHeight = invisibleDiv.current.getBoundingClientRect().height;
-  let div2Height = document.getElementById('invisibleDiv2').getBoundingClientRect().height;
+  let div2Height = invisibleDiv2.getBoundingClientRect().height;
   firstHeightRef.current= divHeight;
 if (window.innerWidth<980){
 
@@ -52,7 +51,7 @@ if (window.innerWidth<980){
       return () => window.removeEventListener('resize', updateSize);
 
 
-  },[invisibleDiv.current]);
+  },[invisibleDiv.current,invisibleDiv2.current]);
 
 
 
@@ -101,7 +100,7 @@ if (window.innerWidth<980){
   </div>
 
   return (<>
-  {invDivsPresent && <><div id='invisibleDiv2' className={styles.invisibleDiv2}/><div ref={invisibleDiv} id='invisibleDiv' className={styles.invisibleDiv}/></>}
+  {invDivsPresent && <><div ref={invisibleDiv2} className={styles.invisibleDiv2}/><div ref={invisibleDiv} id='invisibleDiv' className={styles.invisibleDiv}/></>}
     <div className={styles.mainWrapper} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
     <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
       
