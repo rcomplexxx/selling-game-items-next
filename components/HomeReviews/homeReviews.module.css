@@ -50,10 +50,28 @@
   }
   
 
-  .author{
+  .authorDiv{
+
+    display: flex;
+    align-items: center;
+
     margin-top: auto;
-    margin-bottom: var(--size-6);
+    margin-bottom:0;
   }
+
+
+ .authorImage{
+    height: var(--size-7);
+    width: var(--size-7);
+    border-radius: 100%;
+  }
+
+
+  .authorName{
+    margin-left: var(--size-4);
+  }
+
+ 
   
 
  

@@ -4,6 +4,7 @@ import styles from "./homeReviews.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -12,6 +13,7 @@ const reviews = [
     reviewText:
       "I don't like ordering online, but I decided to go with the flow. These products were out of this world! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
     author: "Monika W.",
+    authorImage: "girl1Edited.png"
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ const reviews = [
     reviewText:
       "I love the headphones I got from here. The sound is three dimensional, litelarry!",
     author: "Marta N.",
+    authorImage: "girl2Edited.png"
   },
   {
     id: 3,
@@ -26,16 +29,21 @@ const reviews = [
     reviewText:
       "I knew I found the best online store for gaming when I've seen amazing keyboard that I couldn't find anywhere! I ordered, it arrived, and I am more then satisfied with product.",
     author: "Luke B.",
+    authorImage: "guy1Edited.png"
   },
 ];
 
-function Review({ title, reviewText, author }) {
+function Review({ title, reviewText, author, authorImage }) {
+  console.log('authorImage', authorImage);
   return (
     <div className={styles.reviewDiv}>
       <h1 className={styles.reviewTitle}>{title}</h1>
       <RatingStar maxScore={5} id="123" rating={5} />
       <p className={styles.reviewText}>{reviewText}</p>
-      <p className={styles.author}>- {author}</p>
+      <div className={styles.authorDiv}>
+        <Image className={styles.authorImage} src={`/images/${authorImage}`} height={0} width={0} sizes="48px"/>
+      <p className={styles.authorName}>{author}</p>
+      </div>
     </div>
   );
 }
@@ -77,6 +85,7 @@ export default function HomeReviews() {
               title={review.title}
               reviewText={review.reviewText}
               author={review.author}
+              authorImage={review.authorImage}
             />
           ))
         ) : (
@@ -89,6 +98,7 @@ export default function HomeReviews() {
                     title={review.title}
                     reviewText={review.reviewText}
                     author={review.author}
+                    authorImage={review.authorImage}
                   />
                 </div>
               ))}

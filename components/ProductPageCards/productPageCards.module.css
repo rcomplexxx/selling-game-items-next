@@ -12,7 +12,7 @@
 .mainDiv{
     display: flex;
     flex-direction: column;
-    border: 1px solid #b1b1b1;
+    border: 1px solid #b1b1b17a;
     border-bottom: none;
     border-radius: 8px;
 }

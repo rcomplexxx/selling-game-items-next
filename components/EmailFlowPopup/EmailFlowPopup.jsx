@@ -12,22 +12,21 @@ export default function EmailFlowPopup({setEmailPopup}){
 
     const emailFieldRef = useRef();
     const router = useRouter();
-
-    useEffect(()=>{
-        
-        localStorage.setItem("popupShown", true);
-    },[])
+    const backPressed = useRef(false);
+   
 
 
     useEffect(() => {
 
    
-    
+      localStorage.setItem("popupShownDateInDays", Math.floor(Date.now() / 86400000));
+
 
        
   
         const handlePopState = (event)=>{
-          history.go(1);
+        
+          backPressed.current=true;
           setEmailPopup(false);
 
         }
@@ -36,21 +35,22 @@ export default function EmailFlowPopup({setEmailPopup}){
    
           router.beforePopState((state) => {
             state.options.scroll = false;
-            return true;
+            return false;
           });
           
   
        
   
        
-         
+         window.history.pushState(null, null, router.asPath);
+        history.go(1);
   
           window?.addEventListener("popstate", handlePopState);
         
        
     
         return () => {
-       
+            if(!backPressed.current)history.back();
             window?.removeEventListener("popstate", handlePopState);
           
         };

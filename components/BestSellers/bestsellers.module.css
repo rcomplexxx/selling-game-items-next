@@ -86,7 +86,7 @@
     margin-top: var(--size-4);
     border-radius: 4px;
     box-sizing: border-box;
-    border: 1px solid gray;
+    border: 1px solid rgb(64, 73, 65);
     user-select: none;
     cursor: pointer;
 }
