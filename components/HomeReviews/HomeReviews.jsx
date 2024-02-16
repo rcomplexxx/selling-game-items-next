@@ -41,7 +41,7 @@ function Review({ title, reviewText, author, authorImage }) {
       <RatingStar maxScore={5} id="123" rating={5} />
       <p className={styles.reviewText}>{reviewText}</p>
       <div className={styles.authorDiv}>
-        <Image className={styles.authorImage} src={`/images/${authorImage}`} height={0} width={0} sizes="48px"/>
+        <img className={styles.authorImage} src={`/images/${authorImage}`} />
       <p className={styles.authorName}>{author}</p>
       </div>
     </div>
