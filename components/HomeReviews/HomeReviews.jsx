@@ -30,7 +30,7 @@ const reviews = [
     id: 3,
     title: "Love your headphones!",
     reviewText:
-      "I love the headphones I got from here. The sound is three dimensional, litelarry! My fav song hits different haha. I will try them on new game I bought. Also, they are so comfortable for ears! :3",
+      "I love the headphones I got from here. The sound is three dimensional, litelarry! My fav song hits different haha. Also, they fit so comfortably on ears! :3",
     author: "Marta N.",
     authorImage: "girl2edited3.png"
   },
