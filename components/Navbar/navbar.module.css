@@ -58,7 +58,7 @@
     text-decoration: none;
     transition: transform 0.08s ease-in;
     font-size: var(--font-size-5);
-    font-family: 'Roboto', sans-serif;
+ 
     font-weight: 300;
     margin-top: var(--size-2);
     margin-bottom: var(--size-2);

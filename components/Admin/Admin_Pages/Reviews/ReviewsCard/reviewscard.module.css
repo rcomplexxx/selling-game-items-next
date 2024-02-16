@@ -34,7 +34,7 @@
     font-weight: 500;
     color: rgb(184, 189, 182);
     margin: var(--size-4) var(--size-5);
-    font-family: Arial, sans-serif;
+  
     box-shadow: 0 0 4px rgb(60, 119, 85);
     border-radius: 8px;
 }

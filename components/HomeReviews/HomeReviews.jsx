@@ -12,7 +12,7 @@ const reviews = [
     id: 1,
     title: "Much love from night gamer",
     reviewText:
-      "I don't like ordering online, but I decided to go with the flow. These products were out of this world! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
+      "I don't like ordering online, but I decided to go with the flow. When it arrived, I gamed the whole night, and had a perfect gaming night! Gaming was out of this world! Love it!",
     author: "Monika W.",
     authorImage: "girl1edited3.png"
   },
