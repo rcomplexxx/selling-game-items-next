@@ -13,7 +13,7 @@ const reviews = [
     reviewText:
       "I don't like ordering online, but I decided to go with the flow. These products were out of this world! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
     author: "Monika W.",
-    authorImage: "girl1Edited3.png"
+    authorImage: "girl1edited3.png"
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const reviews = [
     reviewText:
       "I love the headphones I got from here. The sound is three dimensional, litelarry!",
     author: "Marta N.",
-    authorImage: "girl2Edited3.png"
+    authorImage: "girl2edited3.png"
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const reviews = [
     reviewText:
       "I knew I found the best online store for gaming when I've seen amazing keyboard that I couldn't find anywhere! I ordered, it arrived, and I am more then satisfied with product.",
     author: "Luke B.",
-    authorImage: "guy1Edited3.png"
+    authorImage: "guy1edited3.png"
   },
 ];
 
