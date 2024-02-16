@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RatingStar } from "rating-star";
+import StarRatings from "react-star-ratings";
 import styles from "./homeReviews.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -9,7 +10,7 @@ import Image from "next/image";
 const reviews = [
   {
     id: 1,
-    title: "Review one",
+    title: "Much love from night gamer",
     reviewText:
       "I don't like ordering online, but I decided to go with the flow. These products were out of this world! When it arrived, I gamed the whole night, and had a perfect gaming night! Love it!",
     author: "Monika W.",
@@ -18,7 +19,7 @@ const reviews = [
 
   {
     id: 2,
-    title: "Review two",
+    title: "Very cool keyboard! Thx",
     reviewText:
       "I knew I found the best online store for gaming when I've seen amazing keyboard that I couldn't find anywhere! I ordered, it arrived, and I am more then satisfied with product.",
     author: "Luke B.",
@@ -27,9 +28,9 @@ const reviews = [
 
   {
     id: 3,
-    title: "Review three",
+    title: "Love your headphones!",
     reviewText:
-      "I love the headphones I got from here. The sound is three dimensional, litelarry!",
+      "I love the headphones I got from here. The sound is three dimensional, litelarry! My fav song hits different haha. I will try them on new game I bought. Also, they are so comfortable for ears! :3",
     author: "Marta N.",
     authorImage: "girl2edited3.png"
   },
@@ -42,7 +43,21 @@ function Review({ title, reviewText, author, authorImage }) {
   return (
     <div className={styles.reviewDiv}>
       <h1 className={styles.reviewTitle}>{title}</h1>
-      <RatingStar maxScore={5} id="123" rating={5} />
+      
+      <div   className={styles.ratingStarDiv}>
+
+      <StarRatings
+          rating={5}
+        
+          starRatedColor="#FFCA28"
+          numberOfStars={5}
+          starEmptyColor={"#103939"}
+          starDimension="24px"
+          starSpacing="2px"
+        />
+
+</div>
+
       <p className={styles.reviewText}>{reviewText}</p>
       <div className={styles.authorDiv}>
         <Image className={styles.authorImage} src={`/images/${authorImage}`} height={48} width={48} sizes="48px"/>

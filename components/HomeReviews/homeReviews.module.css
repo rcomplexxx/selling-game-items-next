@@ -48,6 +48,15 @@
     margin-top: var(--size-2);
     margin-bottom: var(--size-2);
   }
+
+  .ratingStarDiv{
+    width: 100%;
+   /* display: flex;
+   justify-content: center; */
+   margin-left: var(--size-1);
+   margin-top: var(--size-3);
+   margin-bottom: var(--size-2);
+  }
   
 
   .authorDiv{
@@ -71,6 +80,12 @@
     margin-left: var(--size-4);
   }
 
+  
+  
+  .reviewText{
+    text-align: left;
+    /* text-indent:var(--size-3); */
+   }
  
   
 
@@ -83,10 +98,7 @@ width: 100vw ;
   }
  
  
-  
- .reviewText{
-  text-align: left;
- }
+
 
 
 
