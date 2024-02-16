@@ -35,6 +35,7 @@ const reviews = [
   },
   
 ];
+//
 
 function Review({ title, reviewText, author, authorImage }) {
   console.log('authorImage', `/images/${authorImage}`);
