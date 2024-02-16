@@ -17,26 +17,21 @@ export default function OurStory() {
         <div className={styles.ourStoryText}>
         
         <p>
-          Our story began when we saw a gap in the market of new and innovative
-          products not being pushed into the market quick enough nor without any
-          quality control. Huge brands and corporations are slow and often not
-          caring about their customers as they have millions more.
+        In our tight-knit group of four, our profound connection centered around a shared passion for gaming. From the early consoles of our childhood to the intricate worlds of adulthood, our bond deepened through countless nights spent in front of screens, navigating virtual landscapes together. Victories and defeats wove into the fabric of our connection, creating enduring memories.
+
+       </p>
+        <p>
+        Facing the challenges of growing up, gaming became more than an escape – it became a vessel for self-discovery. Each of us brought a unique flair to the gaming table – the strategist, the creative soul, the quick reflexes, and the meticulous attention to detail.
         </p>
         <p>
-          That’s where our idea was born - create a shop with highest quality
-          products for our favorite game while providing EXCEPTIONAL customer
-          satisfaction level.
-        </p>
-        <p>
-          We have worked really hard to pull this all together simply to satisfy
-          you - the end customer. Hopefully you can feel that genuine love for
-          our products when purchasing from us!
-        </p>
-        <p>
-          Thank you for showing interest in our shop, and gl hf in your future
-          games!
-        </p>
-        <p>Happy shopping! 🌠</p>
+        Our shared experiences in virtual realms spilled into our real lives. As graduation loomed, we collectively decided to channel our passion into something greater, the Gamebuff! Our mission is promoting the amazing gaming night experience with friends, and enhancing that experience by providing exceptional gaming equipment. 
+         </p>
+         <p>
+         Join us in utilizing technology to create the sureally joyful experience noone has ever had a chance to experience throughout history.
+         </p>
+         <p>
+          Happy shopping!
+           </p>
         </div>
       </div>
       </div>

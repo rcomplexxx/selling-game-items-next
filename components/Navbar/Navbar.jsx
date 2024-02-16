@@ -37,7 +37,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
     let handleClickOutside;
      
  if(subMenu==1){
- 
+  document.getElementById('infoDropMenu').style.top = '40px';
  
    handleClickOutside = (event) => {
  
@@ -53,7 +53,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
  
     else if(subMenu==2){
  
- 
+        document.getElementById('collectionsDropMenu').style.top = '40px';
      
        handleClickOutside = (event) => {
  

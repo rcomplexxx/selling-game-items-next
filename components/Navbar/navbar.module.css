@@ -185,12 +185,13 @@
   .subMenu{
     position: absolute;
     top: calc(100% + 8px);
-    left: 204px;
+    left: 200px;
     background-color: var(--gray-9-elegant);
-    border: 1px solid gray;
+    border: 1px solid rgb(72, 69, 85);
+
     width: var(--size-11-5);
     padding: var(--size-3) 0;
-    
+    animation: spawnSubMenu 0.2s ease;
   }
 
   .subMenuFaq{
@@ -380,3 +381,18 @@
         max-height:  var(--size-9); /* Set your desired max height */
       }
     }
+
+
+
+    @keyframes  spawnSubMenu {
+      from {
+        opacity: 0;
+        transform: translateY(calc(-1 * var(--size-3)));
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  

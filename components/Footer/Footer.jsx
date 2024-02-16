@@ -98,7 +98,7 @@ export default function Footer() {
       <LinkCard title={"Stay connected"}>
           <div className={styles.connectWrapper}>
         <p className={styles.subscribePharagraph}>
-          Join for special updates & discounts 
+          Sign up for discounts & special updates
         </p>
         <div className={styles.subscribeWrapper}>
         <input

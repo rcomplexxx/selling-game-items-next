@@ -97,7 +97,7 @@ export default function HomeReviews() {
     <div className={styles.mainReviewDiv}>
       <h1 className={styles.title}>Customer reviews</h1>
       <div className={styles.mainDiv}>
-        {windowWidth > 1080 ? (
+        {windowWidth > 980 ? (
           reviews.map((review, index) => (
             <Review
               key={review.id}
