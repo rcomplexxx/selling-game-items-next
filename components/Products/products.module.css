@@ -17,8 +17,9 @@
   /* #030a08 */
   /* Mozda ovde staviti max width ili nesto */
   .title {
-    margin-bottom: var(--size-7);
+  
     margin-top: 0;
+    margin-bottom: var(--size-8);
   }
   
 

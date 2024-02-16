@@ -20,7 +20,6 @@ export default function PolicyCard(props) {
         props.smallContent && styles.bigBackDiv
       }`}
     >
-      {" "}
       <PolicyMiniCard homeCard={props.homeCard}>
         {props.children}
       </PolicyMiniCard>

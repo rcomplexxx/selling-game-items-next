@@ -46,7 +46,7 @@ export default function Collection({
         </div>
       </div>
 
-      <div className={styles.mainDiv}>
+      <div className={`${styles.mainDiv} ${styles.mainDivSecond}`}>
       
         <Products showAll={true} products={products} />
         <PageNumber

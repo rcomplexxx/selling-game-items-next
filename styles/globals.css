@@ -22,7 +22,7 @@ body{
 h1{
   text-align: center;
   font-size: var(--font-size-7);
-  margin-bottom: var(--size-7);
+  margin-bottom: var(--size-8);
   margin-top: var(--size-7);
 }
 

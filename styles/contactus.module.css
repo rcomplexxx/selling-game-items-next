@@ -9,9 +9,11 @@
 }
 
 .mainDiv h1{
-    margin-top: var(--size-7);
-    margin-bottom: var(--size-6);
+
+    margin-bottom:var(--size-7);
 }
+
+/* iz nekog razloga racunica se ne podadudara kad stavim size-8, pa sam stavio size-7 */
 
 .contactUsTextDiv{
     display: flex;
@@ -22,6 +24,7 @@
 
 .contactUsText{
     margin: var(--size-3) var(--size-5);
+ 
 }
 
 .contactInfoDiv{
