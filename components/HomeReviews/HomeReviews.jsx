@@ -15,22 +15,25 @@ const reviews = [
     author: "Monika W.",
     authorImage: "girl1edited3.png"
   },
+
   {
     id: 2,
     title: "Review two",
-    reviewText:
-      "I love the headphones I got from here. The sound is three dimensional, litelarry!",
-    author: "Marta N.",
-    authorImage: "girl2edited3.png"
-  },
-  {
-    id: 3,
-    title: "Review three",
     reviewText:
       "I knew I found the best online store for gaming when I've seen amazing keyboard that I couldn't find anywhere! I ordered, it arrived, and I am more then satisfied with product.",
     author: "Luke B.",
     authorImage: "guy1edited3.png"
   },
+
+  {
+    id: 3,
+    title: "Review three",
+    reviewText:
+      "I love the headphones I got from here. The sound is three dimensional, litelarry!",
+    author: "Marta N.",
+    authorImage: "girl2edited3.png"
+  },
+  
 ];
 
 function Review({ title, reviewText, author, authorImage }) {
