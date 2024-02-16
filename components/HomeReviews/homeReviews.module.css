@@ -44,16 +44,19 @@
   }
 
   .reviewTitle {
+    white-space: wrap;
     color: var(--gray-1);
     margin-top: var(--size-2);
     margin-bottom: var(--size-2);
+    text-align: start;
+    font-size: var(--font-size-6);
   }
 
   .ratingStarDiv{
     width: 100%;
    /* display: flex;
    justify-content: center; */
-   margin-left: var(--size-1);
+   margin-left: var(--size-2);
    margin-top: var(--size-3);
    margin-bottom: var(--size-2);
   }

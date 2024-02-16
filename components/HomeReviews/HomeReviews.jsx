@@ -19,7 +19,7 @@ const reviews = [
 
   {
     id: 2,
-    title: "Very cool keyboard! Thx",
+    title: "Very cool keyboard!",
     reviewText:
       "I knew I found the best online store for gaming when I've seen amazing keyboard that I couldn't find anywhere! I ordered, it arrived, and I am more then satisfied with product.",
     author: "Luke B.",
