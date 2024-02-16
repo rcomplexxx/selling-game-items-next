@@ -91,7 +91,7 @@ export default function App({ Component, pageProps }) {
 
     clearInterval(popupTimeout.current); popupTimeout.current= setInterval(()=>{
       console.log('lstr', localStorage.getItem("popupShownDateInDays"), Math.floor(Date.now() / 86400000) )
-      if(localStorage.getItem("popupShownDateInDays") && localStorage.getItem("popupShownDateInDays")+1< Math.floor(Date.now() / 86400000)){ clearTimeout(popupTimeout.current); return;}
+      if(localStorage.getItem("popupShownDateInDays") && (Math.floor(Date.now() / 86400000))-localStorage.getItem("popupShownDateInDays")<1 ){ clearTimeout(popupTimeout.current); return;}
         console.log(router);
     if(router.pathname!='/404' && (router.pathname=='/' || (router.pathname.includes('/products') && !router.asPath.includes('#zoom')
     && !router.asPath.includes('#write-review')) || router.pathname.includes('/collection') || router.pathname=='/our-story' || router.pathname=='/faq')){
@@ -155,7 +155,7 @@ const totalItems= useMemo(()=>{
       <Head>
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
-      {    emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
+      {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
       {!removeNavFinal && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
 
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>

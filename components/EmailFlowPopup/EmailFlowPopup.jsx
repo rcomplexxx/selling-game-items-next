@@ -38,7 +38,6 @@ export default function EmailFlowPopup({setEmailPopup}){
             return false;
           });
           
-  
        
   
        
@@ -46,13 +45,13 @@ export default function EmailFlowPopup({setEmailPopup}){
         history.go(1);
   
           window?.addEventListener("popstate", handlePopState);
-        
-       
-    
+
+
         return () => {
+
             if(!backPressed.current)history.back();
             window?.removeEventListener("popstate", handlePopState);
-          
+
         };
       }, []);
   
