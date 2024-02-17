@@ -17,6 +17,7 @@ export default function Tip({products, tip, setTip}){
     const [tipError, setTipError] = useState();
     const visibilityTimeout = useRef();
     const mounted = useRef(false);
+    const tipDivRef = useRef();
 
 
     useEffect(() => {
@@ -38,7 +39,7 @@ export default function Tip({products, tip, setTip}){
     if(!mounted.current)return;
 
           clearTimeout(visibilityTimeout.current);
-          const tipDiv= document.getElementById("tipDiv")
+          const tipDiv= tipDivRef.current;
           if(tipShow){
 
 
@@ -91,7 +92,7 @@ export default function Tip({products, tip, setTip}){
    
     </div>
       
-      <div id='tipDiv' className={styles.tipDiv}>
+      <div id='tipDiv' ref={tipDivRef} className={styles.tipDiv}>
         <div className={styles.roundPercentWrapper}>
             <div className={`${styles.roundPercent}`} 
             onClick={()=>{

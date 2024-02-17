@@ -9,6 +9,8 @@ export default function DropCard(props) {
     setShowAnswer(!showAnswer);
   }
 
+  const dropCardAnswerRef= useRef();
+
 
     const mounted= useRef(false);
 
@@ -19,7 +21,7 @@ export default function DropCard(props) {
     if(!mounted.current){mounted.current=true; return;}
    
 
-    let myAnswer=document.getElementById(`dropCardAnswer${props.dropCardId}`);
+    let myAnswer=dropCardAnswerRef.current;
   
  
     
@@ -73,6 +75,7 @@ export default function DropCard(props) {
       </button>
       <div
       id={`dropCardAnswer${props.dropCardId}`}
+      ref={dropCardAnswerRef}
         className={`${styles.emerge} ${
           showAnswer && props.contactCard && styles.borderRad
         }`}

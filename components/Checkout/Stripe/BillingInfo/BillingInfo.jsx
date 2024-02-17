@@ -14,6 +14,7 @@ export default function BillingInfo({isOpen, errors, setErrors}){
     const [showApt, setShowApt] = useState(false);
     const mounted= useRef(false);
     const visibilityTimeout= useRef();
+    const billingInfoDivRef = useRef();
    
 
     useEffect(()=>{
@@ -24,7 +25,7 @@ export default function BillingInfo({isOpen, errors, setErrors}){
           if(!mounted.current)return;
 
           clearTimeout(visibilityTimeout.current);
-          const billingInfoDiv= document.getElementById("billingInfo")
+          const billingInfoDiv= billingInfoDivRef.current
           if(isOpen){
 
 
@@ -65,7 +66,7 @@ export default function BillingInfo({isOpen, errors, setErrors}){
        };
     
 
-    return <div id='billingInfo' className={`${styles.billingAddressWrapper}`}> 
+    return <div id='billingInfo' ref={billingInfoDivRef} className={`${styles.billingAddressWrapper}`}> 
         
             <h3 className={styles.billingAddressTitle}>Billing address</h3>
 

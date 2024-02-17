@@ -15,13 +15,20 @@ import React, {
     const [couponValidCode, setCouponValidCode] = useState("");
     const [couponError, setCouponError] = useState(false);
     const [productsOpened, setProductsOpened] = useState(true);
-  
+    const summeryDivRef = useRef();
    
   
    
 
     useEffect(()=>{ if(!isUpperSummery && products.length>1)setProductsOpened(false);
       if(!isUpperSummery) setShowAnswer(true);},[products, isUpperSummery])
+
+
+      useEffect(()=>{
+        const summeryDiv = summeryDivRef.current;
+        if(showAnswer)summeryDiv.style.maxHeight = `${summeryDiv.scrollHeight}px`;
+        else summeryDiv.style.maxHeight =0;
+      },[showAnswer])
   
     function summonAnswer() {
       setShowAnswer(!showAnswer);
@@ -120,7 +127,8 @@ const handleCouponApply = () => {
               </div>
   }
               <div
-                className={`${styles.emerge} ${showAnswer ? styles.show : ""}`}
+              ref={summeryDivRef}
+                className={`${styles.emerge} ${showAnswer && styles.showEmerge}`}
               >
                 <div className={styles.segmentWrapper2}>
                   {!isUpperSummery && (products.length>1? <div onClick={()=>{setProductsOpened(!productsOpened)}} className={styles.showProductsButton}>
@@ -131,7 +139,7 @@ const handleCouponApply = () => {
                     </div>
                     </div>:<h2>Order summery</h2>)
                     }
-                  {productsOpened && getProductElements()}
+                 { getProductElements()}
                   <div className={styles.coupon_code}>
                     <div className={styles.form_group}>
                       <input

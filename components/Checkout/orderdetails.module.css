@@ -386,18 +386,14 @@
     .emerge {
       background-color: #091a29;
       width: 100%;
-      padding: 0 32px;
-      box-sizing: border-box;
+     
       
       overflow: hidden;
       transform-origin: top;
       transition: all 0.5s ease;
     
     }
-    
-    .emerge.show {
-      max-height: 999px;
-    }
+  
     
   
     @media(min-width:980px){
@@ -420,6 +416,8 @@
       .mainPriceDiv{
         display:none;
       }
+
+    
 
 
     }
@@ -532,6 +530,7 @@
    width: calc(100% - var(--size-11));
    margin-right: var(--size-6);
    margin-left: var(--size-6);
+ 
 
    }
 
@@ -560,8 +559,16 @@
     justify-content: center;
       max-height: 0;
       padding: 0;
+     
     }
 
+    .showEmerge{
+      box-sizing: content-box;
+    
+      padding-bottom: var(--size-5);
+    }
+
+   
    
 
   }
@@ -584,6 +591,7 @@
      .segmentWrapper2{
 
      width: calc(100% - var(--size-8));
+    
   
      }
 
