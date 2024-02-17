@@ -17,6 +17,7 @@ import React, {
     const [productsOpened, setProductsOpened] = useState(true);
     const summeryDivRef = useRef();
     const expendHeightTimeout = useRef();
+    const mountedRef=useRef();
   
    
 
@@ -26,7 +27,7 @@ import React, {
 
       useEffect(()=>{
 
-
+        if(!mountedRef.current){mountedRef.current=true; return;}
 
         clearTimeout(expendHeightTimeout.current);
 
@@ -59,11 +60,8 @@ import React, {
 
 
 
-
-
-
-
       },[showAnswer])
+
   
     function summonAnswer() {
       setShowAnswer(!showAnswer);

@@ -18,9 +18,14 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
 
     
   useEffect(()=>{
-    if(!mounted.current){return;}
+   
+    if(!mounted.current){
+      lastSelectedPaymentRef.current= creditCardPaymentFieldsRef.current;
+      mounted.current=true;
+      return;
+    }
     clearTimeout(maxHeightTimoutAdj.current);
-    if(!lastSelectedPaymentRef.current)lastSelectedPaymentRef.current= document.getElementById('paypalFields');
+   
 
     let selectedPaymentFields;
     let nonSelectedPaymentFields;
@@ -57,7 +62,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
   }
 
 
-  },[paymentMethod, mounted.current]);
+  },[paymentMethod]);
 
 
   useEffect(() => {
@@ -100,9 +105,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
     };
   }, [moreCardsPopupOpen]);
 
-  useEffect(()=>{
-    mounted.current=true;
-  },[])
+
   
 
 

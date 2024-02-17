@@ -1,12 +1,13 @@
 import Link from "next/link";
 import styles from "./checkoutlogo.module.css";
+import Image from "next/image";
 
 export default function CheckoutLogo() {
   return (
     <div className={styles.logoDiv}>
       
       <Link href='/'>
-      <img className={styles.logo} src="/images/commerce.png" />
+      <Image className={styles.logo} src="/images/commerce.png" height={0} width={0} sizes={'80px'}/>
       </Link>
     </div>
   );
