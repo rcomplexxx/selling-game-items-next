@@ -58,6 +58,10 @@
     cursor: pointer;
 }
 
+.signUpText{
+    font-family: var(--hand-writing-font);
+}
+
 
 .provideEmailDiv{
     width: 100%;
@@ -79,8 +83,14 @@
     flex: 1;
     margin-right: var(--size-3);
     box-sizing: border-box;
+    text-indent: var(--size-2);
     border: 1px solid rgb(255, 255, 255);
     border-radius: 8px;
+}
+
+.emailField::placeholder{
+    
+    font-family: var(--hand-writing-font);
 }
 
 .emailField:focus{
@@ -114,6 +124,7 @@
 .thankYouMessage{
   
     margin-bottom: var(--size-6);
+    font-family: var(--hand-writing-font);
     opacity: 0.8;
 }
 

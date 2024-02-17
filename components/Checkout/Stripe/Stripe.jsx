@@ -464,7 +464,7 @@ const handleCCBlur= ()=>{
 
 
 
-    <button className={styles.payNowButton} onClick={()=>{router.push('/thank-you')}}>{paymentProcessing?
+    <button className={styles.payNowButton} onClick={handleStripePay}>{paymentProcessing?
     <Image src='/images/spinner.png' height={0} width={0} className={styles.spinner}/>
     :'Pay now'}</button>
     {stripeError && <p className={styles.stripePayError}>{stripeError}</p>}
