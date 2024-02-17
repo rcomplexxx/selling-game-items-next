@@ -16,6 +16,7 @@
     flex-direction: row-reverse;
     border-bottom: none;
     border-radius: 8px;
+    
 }
 
 .mainDiv h1{
@@ -37,6 +38,7 @@
 .ourStoryText{
     max-width: var(--size-15-5);
     margin-bottom: var(--size-6);
+    font-family: var(--hand-writing-font);
 }
 
 .ourStoryText > :first-child{

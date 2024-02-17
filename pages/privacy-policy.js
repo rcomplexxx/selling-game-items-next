@@ -12,22 +12,22 @@ export default function PrivacyPolicy() {
 
 <h2>Section 1: Consent</h2>
 <p>
-  <strong>Q: What do we do with your information?</strong><br/>
+  <strong>Q: What do we do with your information?</strong><br/><br/>
   A: When you make a purchase on our website, we collect the personal information you provide, such as your name, address, and email. We also automatically receive your computer’s IP address when you browse our site to enhance your experience and gather information about your browser and operating system. With your permission, we may send you emails about our products and updates.
 </p>
 
 <p>
-  <strong>Q: How do you get my consent?</strong><br/>
+  <strong>Q: How do you get my consent?</strong><br/><br/>
   A: Your consent is implied when you provide personal information for a transaction, verify your credit card, place an order, arrange for a delivery, or return a purchase. If we need your information for secondary reasons like marketing, we will ask for your explicit consent.
 </p>
 
 <p>
-  <strong>Q: How do I withdraw my consent?</strong><br/>
+  <strong>Q: How do I withdraw my consent?</strong><br/><br/>
   A: If you change your mind, you can withdraw your consent at any time by contacting us at [your email address].
 </p>
 
 <p>
-  <strong>Q: Define any situation where we may disclose your information</strong><br/>
+  <strong>Q: Define any situation where we may disclose your information</strong><br/><br/>
   A: We may disclose your information if required by law or if you violate our Terms of Service.
 </p>
 

@@ -84,13 +84,14 @@
   .reviewText{
     margin-top: var(--size-1);
     margin-bottom: var(--size-4);
+    font-family: var(--hand-writing-font);
     font-size: var(--font-size-3);
     line-height: 20px;
   }
 
   .reviewAuthor{
     margin-top: var(--size-2);
-    font-weight: 700;
+    font-weight: 500;
   }
 
   .showMoreButton{

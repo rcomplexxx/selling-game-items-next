@@ -42,7 +42,6 @@ function Review({ title, reviewText, author, authorImage }) {
   console.log('authorImage', `/images/${authorImage}`);
   return (
     <div className={styles.reviewDiv}>
-      <h1 className={styles.reviewTitle}>{title}</h1>
       
       <div   className={styles.ratingStarDiv}>
 

@@ -336,7 +336,7 @@ useEffect(()=>{
                 </>
               ) : ratingPage == 2 ? (
                 <>
-                  <h1>Tell us more!</h1>
+                  <h1 className={styles.tellUsMore}>Tell us more!</h1>
                   <textarea
                     className={styles.writeReviewText}
                     value={reviewInfo.text}

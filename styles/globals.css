@@ -1,5 +1,38 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap');
+
+
+
+
+
+@font-face {
+  font-family: 'Site font';
+  src: url('/fonts/Diagramm-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Site font2';
+  src: url('/fonts/MADEAvenuePERSONALUSE-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Site font3';
+  src: url('/fonts/Gilmer Outline.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+
 
 body{
 
@@ -15,8 +48,7 @@ body{
   color:var(--yellow-white);
   margin: 0;
   padding: 0;
-  font-family: 'Space Grotesk', sans-serif !important;
-  
+  font-family: var(--font-neutral);
 }
 
 h1{
@@ -94,6 +126,9 @@ p {
   --size-18: 1024px;
   --size-18-5: 1102px;
   --size-19: 1280px;
+
+  --hand-writing-font: 'Times New Roman', serif;
+  --font-neutral: 'Roboto', sans-serif;
 
   --font-size-1: 12px;
   --font-size-2: 14px;

@@ -116,6 +116,9 @@
     margin-right: var(--size-2);
     resize: none;
     border-radius: 8px;
+    font-family: var(--font-neutral);
+    box-sizing: border-box;
+    padding: var(--size-2);
 }
 
 .messageSuccess{

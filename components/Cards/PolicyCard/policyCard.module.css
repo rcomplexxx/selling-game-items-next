@@ -34,8 +34,17 @@ box-sizing: border-box;
 }
 
 .policy_main_div p{
-  
+  font-family: var(--hand-writing-font);
   font-size: var(--font-size-3);
+}
+
+.policy_main_div strong{
+  font-family: var(--font-neutral);
+ 
+}
+
+.policy_main_div li{
+  font-family: var(--hand-writing-font);
 }
 
 .policy_main_div h1{

@@ -15,6 +15,7 @@
     box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.8);
     z-index: 2;
     position: absolute;
+    font-family: var(--hand-writing-font);
   }
 
   .linkButton:hover{

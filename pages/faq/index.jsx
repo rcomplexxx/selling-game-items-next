@@ -18,7 +18,7 @@ function Question(props) {
         {props.question}
         <Image
         src='/images/greaterLess3.png'
-        height={16} width={16}
+        height={12} width={12}
           className={`${styles.plusStyle} ${
             showAnswer ? styles.plusStyleRotate : ""
           }`}
