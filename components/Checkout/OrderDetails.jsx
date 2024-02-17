@@ -39,7 +39,7 @@ import React, {
           expendHeightTimeout.current=setTimeout(()=>{
        
             summeryDiv.style.maxHeight=`none`;
-           }, 500)
+           }, 300)
 
       }
 
@@ -50,7 +50,7 @@ import React, {
           summeryDiv.style.transition=`max-height 0s ease`;
           summeryDiv.style.maxHeight=`${summeryDiv.scrollHeight}px`;
           setTimeout(()=>{
-            summeryDiv.style.transition=`max-height 0.5s ease`;
+            summeryDiv.style.transition=`max-height 0.3s ease`;
             summeryDiv.style.maxHeight =0;
            }, 1)
 
