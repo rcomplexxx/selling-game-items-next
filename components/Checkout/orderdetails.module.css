@@ -239,6 +239,7 @@
 
   .coupon_code_input_error{
     box-shadow: 0 0 2px rgb(158, 49, 6);
+   
   }
 
   .coupon_code_input:focus { 
@@ -252,7 +253,7 @@
   margin-top: 6px;
   margin-bottom: 0;
   margin-left: var(--size-1);
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-2);
   
 }
 
@@ -417,7 +418,9 @@
         display:none;
       }
 
-    
+      .emerge {
+        max-height: none !important;
+      }
 
 
     }
@@ -561,11 +564,15 @@
       padding: 0;
      
     }
+    
+
+    .segmentWrapper2 > :last-child{
+      margin-bottom: 0;
+    }
 
     .showEmerge{
       box-sizing: content-box;
-    
-      padding-bottom: var(--size-5);
+      padding-bottom: var(--size-4);
     }
 
    

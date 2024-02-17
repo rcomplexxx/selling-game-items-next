@@ -16,7 +16,7 @@ import React, {
     const [couponError, setCouponError] = useState(false);
     const [productsOpened, setProductsOpened] = useState(true);
     const summeryDivRef = useRef();
-   
+    const expendHeightTimeout = useRef();
   
    
 
@@ -25,9 +25,44 @@ import React, {
 
 
       useEffect(()=>{
+
+
+
+        clearTimeout(expendHeightTimeout.current);
+
+
         const summeryDiv = summeryDivRef.current;
-        if(showAnswer)summeryDiv.style.maxHeight = `${summeryDiv.scrollHeight}px`;
-        else summeryDiv.style.maxHeight =0;
+        if(showAnswer){
+
+          summeryDiv.style.maxHeight = `${summeryDiv.scrollHeight}px`;
+          expendHeightTimeout.current=setTimeout(()=>{
+       
+            summeryDiv.style.maxHeight=`none`;
+           }, 500)
+
+      }
+
+        else {
+
+
+
+          summeryDiv.style.transition=`max-height 0s ease`;
+          summeryDiv.style.maxHeight=`${summeryDiv.scrollHeight}px`;
+          setTimeout(()=>{
+            summeryDiv.style.transition=`max-height 0.5s ease`;
+            summeryDiv.style.maxHeight =0;
+           }, 1)
+
+
+
+        }
+
+
+
+
+
+
+
       },[showAnswer])
   
     function summonAnswer() {

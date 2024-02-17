@@ -27,7 +27,7 @@ export default function LinkCard({title, children}) {
     
      
        maxHeightTimoutAdj.current=setTimeout(()=>{
-        cardContentDiv.style.maxHeight=`1999px`;
+        cardContentDiv.style.maxHeight=`none`;
         
        }, 300)
     }
