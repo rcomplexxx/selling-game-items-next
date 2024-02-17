@@ -20,7 +20,7 @@ function Review({ name, text,  stars, imageNames }) {
               src={`/images/review_images/${image}`}
               alt="review image"
               loading="lazy"
-              sizes="(max-width: 580px) 90vw,(max-width: 700px) 48vw, (max-width: 1200px) 30vw, 25vw"
+              sizes="100vw"
               className={styles.reviewImage}
             />
           );
@@ -96,7 +96,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
               // Prevent multiple clicks while the operation is in progress
               return;
             }
-F
+
             setIsLoading(true);
 
             try {
