@@ -57,6 +57,7 @@
     font-weight: 500;
     margin-top: var(--size-6);
     margin-bottom: 0;
+    font-family: var(--hand-writing-font);
 }
 
 .continue{

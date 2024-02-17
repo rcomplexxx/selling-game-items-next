@@ -254,6 +254,7 @@
   margin-bottom:  var(--size-5);
     margin-left: 2px;
     font-size: var(--font-size-3);
+    font-family: var(--hand-writing-font);
 }
 
 
