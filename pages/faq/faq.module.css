@@ -91,14 +91,14 @@
   max-height: 0;
   overflow: hidden;
   transform-origin: top;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
   font-size: var(--font-size-2);
 }
 
 .emerge.show {
   margin-top: var(--size-5);
   margin-bottom: var(--size-5);
-  max-height: 999px;
+ 
 }
 
 

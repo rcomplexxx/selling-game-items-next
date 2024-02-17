@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Head from "next/head";
 
 import styles from "./faq.module.css";
@@ -7,8 +7,15 @@ import Image from "next/image";
 
 function Question(props) {
   const [showAnswer, setShowAnswer] = useState(false);
-
+  const answerRef= useRef();
+  
   function summonAnswer() {
+    if(!showAnswer){
+     
+      answerRef.current.style.maxHeight = `${answerRef.current.scrollHeight}px`;
+    } else{
+      answerRef.current.style.maxHeight = 0;
+    }
     setShowAnswer(!showAnswer);
   }
 
@@ -26,7 +33,7 @@ function Question(props) {
           
        
       </button>
-      <p className={`${styles.emerge} ${showAnswer ? styles.show : ""}`}>
+      <p ref={answerRef} className={`${styles.emerge} ${showAnswer && styles.show }`} >
         {props.answer}
       </p>
     </>
@@ -53,6 +60,7 @@ export default function Faq({ questionData }) {
           return (
             <Question
               key={i}
+              id={i}
               question={q.question}
               answer={q.answer}
             ></Question>

@@ -11,25 +11,27 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
     const maxHeightTimoutAdj = useRef();
     const moreCardsPopupRef = useRef();
     const mounted= useRef(false);
-
- 
+    const lastSelectedPaymentRef = useRef();
+    const creditCardPaymentFieldsRef = useRef();
+    const paypalPaymentFieldsRef = useRef();
 
 
     
   useEffect(()=>{
-    if(!mounted.current)return;
+    if(!mounted.current){return;}
     clearTimeout(maxHeightTimoutAdj.current);
-
+    if(!lastSelectedPaymentRef.current)lastSelectedPaymentRef.current= document.getElementById('paypalFields');
 
     let selectedPaymentFields;
     let nonSelectedPaymentFields;
     if(paymentMethod=='creditcard'){
-    selectedPaymentFields = document.getElementById('creditCardFields');
-    nonSelectedPaymentFields=  document.getElementById('paypalFields');
+      
+    selectedPaymentFields = creditCardPaymentFieldsRef.current;
+    nonSelectedPaymentFields=  lastSelectedPaymentRef.current;
     }
   else if(paymentMethod=='paypal'){
-  selectedPaymentFields = document.getElementById('paypalFields');
-  nonSelectedPaymentFields = document.getElementById('creditCardFields');
+  selectedPaymentFields = paypalPaymentFieldsRef.current;
+  nonSelectedPaymentFields = lastSelectedPaymentRef.current;
   }
 
   if(selectedPaymentFields){
@@ -49,7 +51,9 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
      maxHeightTimoutAdj.current=setTimeout(()=>{
       selectedPaymentFields.style.maxHeight=`1999px`;
       selectedPaymentFields.style.overflow = `visible`
-     }, 600)
+     }, 600);
+
+     lastSelectedPaymentRef.current= selectedPaymentFields;
   }
 
 
@@ -146,7 +150,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
            </div>
         </div>
 
-        <div id='creditCardFields'  className={`${styles.paymentFields} ${styles.creditCardField} ${paymentMethod=="creditcard" && styles.selectedField}`}>
+        <div id='creditCardFields' ref={creditCardPaymentFieldsRef}  className={`${styles.paymentFields} ${styles.creditCardField} ${paymentMethod=="creditcard" && styles.selectedField}`}>
             <div className={styles.paymentFieldsSpaceAdjuster}> 
           <StripeWrapper
             setCartProducts={setCartProducts}
@@ -172,7 +176,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
            <Image src={'/images/paypalTextLogo2.png'} className={styles.paypalLogo} height={24} width={96} />
         </div>
 
-        <div id='paypalFields' className={`${styles.paymentFields} ${styles.paypalField} ${paymentMethod=="paypal" && styles.selectedField}`}>
+        <div id='paypalFields' ref={paypalPaymentFieldsRef} className={`${styles.paymentFields} ${styles.paypalField} ${paymentMethod=="paypal" && styles.selectedField}`}>
         <div className={styles.paymentFieldsSpaceAdjuster}> 
         <div className={styles.paypalFieldWrapper}>
           <PayPalButton
