@@ -57,15 +57,13 @@
     max-height: 0;
     overflow: hidden;
     transform-origin: top;
-    transition: all 0.5s ease;
+    transition: max-height 0.5s ease;
     border-bottom: 1px solid #b1b1b17a;
     /* opacity: 0.9; */
     font-family: var(--hand-writing-font);
   }
   
-  .emerge.show {
-    max-height: 999px;
-  }
+ 
 
   .borderRad{
     border-radius: 8px;

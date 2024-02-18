@@ -13,14 +13,14 @@ export default function DropCard(props) {
 
 
     const mounted= useRef(false);
-
+    const emergeTimeoutRef = useRef();
  
 
     
   useEffect(()=>{
     if(!mounted.current){mounted.current=true; return;}
    
-
+    
     let myAnswer=dropCardAnswerRef.current;
   
  
@@ -31,11 +31,23 @@ export default function DropCard(props) {
 
  
     myAnswer.style.maxHeight=`${myAnswer.scrollHeight}px`;
+    emergeTimeoutRef.current= setTimeout(()=>{
+      myAnswer.style.maxHeight='none'
+    },500);
+    
   }
   else{
-    myAnswer.style.maxHeight="0";
-  
 
+    clearTimeout(emergeTimeoutRef.current);
+   
+
+    myAnswer.style.maxHeight=`${myAnswer.scrollHeight}px`;
+    setTimeout(()=>{
+      myAnswer.style.transition=`max-height 0.5s ease`;
+      myAnswer.style.maxHeight="0";
+     }, 1)
+  
+   
   }
 
 
