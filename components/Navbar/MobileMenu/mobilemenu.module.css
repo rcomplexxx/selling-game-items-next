@@ -170,7 +170,7 @@
 
 
   @media(min-width: 980px){
-    .mobileMenu{
+    .mainMenuCard{
         display: none;
     }
   }

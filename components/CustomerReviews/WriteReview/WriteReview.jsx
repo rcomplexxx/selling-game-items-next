@@ -196,7 +196,7 @@ useEffect(()=>{
             
 
         </div>
-        {openRatingInfo && <RatingInfo ratingData={ratingData} setOpenRatingInfo={setOpenRatingInfo}/>}
+       <RatingInfo ratingData={ratingData} openRatingInfo={openRatingInfo} setOpenRatingInfo={setOpenRatingInfo}/>
         <button
           onClick={() => {
             setInfoDivOpen(!infoDivOpen);

@@ -12,7 +12,6 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
     const router = useRouter();
     const pathname = router.asPath;
-    const subMenuPopstateStabilizer=useRef(false);
     const historyPushMountedRef=useRef(false);
     const subMenuEnteredRef=useRef(false);
     const nextLink= useRef();
@@ -20,6 +19,10 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
    
     useEffect(() => {
+
+      const handleResize = () =>{
+        if (window.innerWidth>980)setIsMenuOpen(false);
+      }
 
    
     
@@ -94,12 +97,13 @@ window.history.pushState(null, null, router.asPath);
 
      
        
-
+        window?.addEventListener("resize", handleResize);
         window?.addEventListener("popstate", handlePopState);
         document?.addEventListener('click', handleClickOutside, true);
       }
       else{
         historyPushMountedRef.current=false;
+        window?.removeEventListener("resize", handleResize);
         window?.removeEventListener("popstate", handlePopState);
         document?.removeEventListener('click', handleClickOutside, true);
       }
