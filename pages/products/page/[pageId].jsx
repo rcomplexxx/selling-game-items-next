@@ -26,7 +26,7 @@ const ProductPage = ({  pageId, products, links }) => {
   return (
     <div className={styles.mainDiv}>
       <Head>
-        <title>Products - Page {pageId} - Gamesmoke shop</title>
+        <title>Products - Page {pageId} - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
       <Products
         showAll={true}

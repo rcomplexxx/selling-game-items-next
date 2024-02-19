@@ -107,11 +107,11 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                     height={24}
                     width={24}
                     src="/images/commerce.png"
-                    alt="Gamebuff icon"
+                    alt={`${process.env.NEXT_PUBLIC_SITE_NAME} icon`}
                     className={styles.image}
                   />
                   <h1 className={styles.title}>
-                  Gamebuff
+                  {process.env.NEXT_PUBLIC_SITE_NAME}
                 </h1>
               </Link>
             </div>

@@ -3,6 +3,7 @@ import styles from "../styles/thankyou.module.css";
 import React, { useEffect, useContext } from "react";
 import AppContext from "@/contexts/AppContext";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function ThankYou() {
   const { cartProducts, setCartProducts } = useContext(AppContext);
@@ -13,6 +14,9 @@ export default function ThankYou() {
 
   return (
     <div className={styles.thankYouWrapper}>
+      <Head>
+        <title>Thank you - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
+      </Head>
     <div className={styles.mainDiv}>
       <div className={styles.titleDiv}>
         <h1 className={styles.title}>Thank you</h1>

@@ -72,7 +72,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
   return (
     <>
       <Head>
-        <title>{product.name} - Gamesmoke shop</title>
+        <title>{product.name} - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
       <div className={styles.productPageDiv}>
         <div className={styles.media}>

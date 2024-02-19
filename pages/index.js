@@ -35,7 +35,7 @@ const HomePage = ({ products }) => {
   return (
     <>
       <Head>
-        <title>Gamesmoke shop</title>
+        <title>{process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
 
    

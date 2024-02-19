@@ -10,7 +10,7 @@ export default function Faq({ questionData }) {
   return (
     <PolicyCard>
       <Head>
-        <title>FAQ - Gamesmoke shop</title>
+        <title>FAQ - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
    
         <h1>FAQ</h1>

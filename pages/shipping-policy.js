@@ -6,7 +6,7 @@ function ShippingPolicy() {
   return (
     <PolicyCard>
       <Head>
-        <title>Shipping policy - Gamesmoke shop</title>
+        <title>Shipping policy - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
       <h1>Shipping policy</h1>
       <h2>Do you ship globally?</h2>

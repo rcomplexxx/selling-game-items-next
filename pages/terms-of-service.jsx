@@ -10,7 +10,7 @@ export default function TermsOfService() {
   return (
     <PolicyCard>
       <Head>
-        <title>Terms of service - Gamesmoke shop</title>
+        <title>Terms of service - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
 
 

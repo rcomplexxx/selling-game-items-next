@@ -2,6 +2,7 @@ import Image from "next/image";
 import DropCard from "./DropCard/DropCard";
 import styles from "./productPageCards.module.css";
 import { useRef, useState } from "react";
+import Link from "next/link";
 
 export default function ProductPageCards() {
   const [messageLoading, setMessageLoading]= useState(false);
@@ -159,9 +160,20 @@ export default function ProductPageCards() {
           </p>
         </div>
       </DropCard>
-      <DropCard dropCardId={'3'} title="Ask a question" contactCard={true}>
+      <DropCard dropCardId={'3'} title="Ask a question"  contactCard={true}>
+    
+
+
+      
         <div className={styles.mainDiv}>
+        <p className={styles.getInTouch}>
+         
+         For any question or enquiry, feel free to contact our helpful Customer Service team.
+          </p>
+
+          <p className={styles.getInTouch}><b>Please note</b>, normal response time is 1 - 2 days. Please be patient, we answer all questions as quickly as possible.</p>
           <div className={styles.contactInfoDiv}>
+            
             <div className={styles.infoDiv}>
               <div className={styles.inputGroup}>
                 <label>Name</label>

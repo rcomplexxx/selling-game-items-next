@@ -21,7 +21,7 @@ export default function Collection({
   return (
     <div className={styles.mainDiv}>
       <Head>
-        <title>Collection - {collectionFullName}</title>
+        <title>Collection - {collectionFullName} - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
       {/* <Products showAll={true} products={products}></Products> */}
 

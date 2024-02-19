@@ -18,7 +18,7 @@ export default function TrackOrder() {
   return (
     <>
       <Head>
-        <title>Track Order - Gamebuff</title>
+        <title>Track Order - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
       <div className={styles.mainDiv}>
 

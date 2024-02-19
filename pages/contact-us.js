@@ -78,7 +78,7 @@ export default function ContactUs() {
   return (
 <>
 <Head>
-        <title>Contact - Gamesmoke shop</title>
+        <title>Contact us - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
 
     <div className={styles.mainDiv}>

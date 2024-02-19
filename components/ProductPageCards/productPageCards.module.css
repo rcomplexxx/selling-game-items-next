@@ -13,8 +13,14 @@
     display: flex;
     flex-direction: column;
   
+    border: 1px solid #b1b1b17a;
     border-bottom: none;
     border-radius: 8px;
+}
+
+.getInTouch{
+    padding-left:  var(--size-4);
+    padding-right:  var(--size-4);
 }
 
 .contactInfoDiv{
@@ -159,7 +165,7 @@
     background-color: #202020;
     margin-left: var(--size-4);
     margin-right: var(--size-4);
-    margin-bottom: var(--size-5);
+    margin-bottom: var(--size-4);
     font-family: var(--font-neutral);
 }
 

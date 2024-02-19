@@ -7,7 +7,7 @@ export default function CartPage() {
   return (
     <>
       <Head>
-        <title>Cart - Gamesmoke shop</title>
+        <title>Cart - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
       <Cart />
      

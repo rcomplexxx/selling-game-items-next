@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
   return (
     <PolicyCard>
       <Head>
-        <title>Privacy policy - Gamesmoke shop</title>
+        <title>Privacy policy - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
       </Head>
       <h1>Privacy Policy</h1>
 
