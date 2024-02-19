@@ -24,19 +24,18 @@
 }
 
 .contactInfoDiv{
-    width: calc(100% - var(--size-4));
+    width: auto;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     margin-top: var(--size-3);
-    padding-left:  var(--size-2);
-  
-    margin-left:  var(--size-2);
+    padding-left:  var(--size-4);
+    padding-right:  var(--size-4);
 
 }
 
 .contactInput{
-    width: calc(100% - var(--size-3));
+  
     box-sizing: border-box;
     margin-bottom: 0;
 }
@@ -63,14 +62,11 @@
 
 
 .inputGroup{
-    width: 100%;
     display: flex;
     flex-direction: column;
-    width: auto;
-    padding-top: var(--size-2);
-    padding-left:  var(--size-2);
-    padding-right: var(--size-2);
-    margin-right: var(--size-2);
+ 
+    margin-top: var(--size-2);
+   
     margin-bottom: var(--size-3);
 }
 
@@ -101,19 +97,18 @@
 
 
 .messageField{
-    width: calc(100% - var(--size-3));
+ 
    
     display: flex;
     flex-direction: column;
    
-    margin: var(--size-5) var(--size-2);
+    margin: var(--size-5) var(--size-4);
    
 
     box-sizing: border-box;
     padding-top: var(--size-2);
    
-    padding-left:  var(--size-2);
-    padding-right:  var(--size-2);
+   
 
     box-sizing: border-box;
     border-radius: 8px;
@@ -121,7 +116,7 @@
 }
 
 .messageField label{
-    margin-left: 6px;
+    margin-left: var(--size-1);
     margin-bottom: var(--size-1);
     font-family: var(--font-neutral);
 }
@@ -130,16 +125,14 @@
     border: none;
     color: white;
     background-color: #0c212b;
-    flex-grow: 1;
+ 
    
-    margin-left: var(--size-2);
-    margin-right: var(--size-2);
+   
   
 
     border-radius: 8px;
     box-sizing: border-box;
-    padding: var(--size-1);
-
+   
     font-family: var(--font-neutral);
     font-size: var(--font-size-2);
     resize: none;
@@ -156,17 +149,18 @@
 }
 
 .sendButton{
-    align-self: flex-end;
+   
     width: var(--size-10);
     height: var(--size-7);
     border: none;
     border-radius: 12px;
     color:white;
     background-color: #202020;
-    margin-left: var(--size-4);
+  
     margin-right: var(--size-4);
     margin-bottom: var(--size-4);
     font-family: var(--font-neutral);
+    align-self: flex-end;
 }
 
 .sendButton:hover{
@@ -199,7 +193,7 @@
     align-items: center;
     text-align: center;
     box-sizing: border-box;
-    padding: var(--size-5) var(--size-2);
+    padding: 0 var(--size-2);
     margin-top: var(--size-7);
    
 }
