@@ -49,6 +49,7 @@ box-sizing: border-box;
 
 .policy_main_div h1{
   align-self: center;
+  margin-bottom: var(--size-7);
 }
 
 .policy_main_div h2{

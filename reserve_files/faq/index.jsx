@@ -2,18 +2,52 @@ import React from "react";
 import { useState, useRef } from "react";
 import Head from "next/head";
 
+import styles from "./faq.module.css";
 import Image from "next/image";
-import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
 
+function Question(props) {
+  const [showAnswer, setShowAnswer] = useState(false);
+  const answerRef= useRef();
+  
+  function summonAnswer() {
+    if(!showAnswer){
+     
+      answerRef.current.style.maxHeight = `${answerRef.current.scrollHeight}px`;
+    } else{
+      answerRef.current.style.maxHeight = 0;
+    }
+    setShowAnswer(!showAnswer);
+  }
+
+  return (
+    <>
+      <button className={styles.question_div} onClick={summonAnswer}>
+        {props.question}
+        <Image
+        src='/images/greaterLess3.png'
+        height={12} width={12}
+          className={`${styles.plusStyle} ${
+            showAnswer ? styles.plusStyleRotate : ""
+          }`}
+        />
+          
+       
+      </button>
+      <p ref={answerRef} className={`${styles.emerge} ${showAnswer && styles.show }`} >
+        {props.answer}
+      </p>
+    </>
+  );
+}
 
 export default function Faq({ questionData }) {
   return (
-    <PolicyCard>
+    <div className={styles.coverDiv}>
       <Head>
         <title>FAQ - Gamesmoke shop</title>
       </Head>
-   
-        <h1>FAQ</h1>
+      <div className={styles.mainDiv}>
+        <h1 className={styles.title}>FAQ</h1>
         <p>
           Here are a few of the frequently asked questions. To provide you with
           the best customer experience, your feedback is greatly encouraged. If
@@ -21,23 +55,20 @@ export default function Faq({ questionData }) {
           support@petboutique.co.
         </p>
       
-     
+      <div className={styles.questions_div}>
         {questionData.map((q, i) => {
           return (
-           
-              <p>
-           <strong>
-            Q: {q.question}
-            </strong><br/><br/>
-        
-            {q.answer}
-          </p>
-         
+            <Question
+              key={i}
+              id={i}
+              question={q.question}
+              answer={q.answer}
+            ></Question>
           );
         })}
-     
-    
-    </PolicyCard>
+      </div>
+    </div>
+    </div>
   );
 }
 

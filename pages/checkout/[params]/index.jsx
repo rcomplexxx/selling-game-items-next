@@ -7,8 +7,9 @@ import React, { useState, useEffect } from "react";
 
 import products from "../../../data/products.json";
 import Head from "next/head";
-import styles from "./checkout.module.css";
+import styles from "../checkout.module.css";
 import CheckoutLogo from "@/components/Checkout/CheckoutLogo/CheckoutLogo";
+import Link from "next/link";
 
 const BuyNowPage = () => {
   const router = useRouter();
@@ -36,7 +37,7 @@ const BuyNowPage = () => {
     }
 
     const product = products.find((p) => {
-      return p.id == productid;
+      return p.id == productid && p.variants.find((v)=>{return v.name==variant});
     });
 
     if (product) {
@@ -59,7 +60,23 @@ const BuyNowPage = () => {
     return <div className={styles.loading}>Loading...</div>;
 
   if (params != "buynow" || cartProducts.length == 0)
-    return <div className={styles.checkout_container}></div>;
+    return <div className={styles.checkoutMainContainer}>
+
+<div className={styles.mainWrapper}>
+    <div className={`${styles.containerStyle} ${styles.emptyCartMainDiv}`}>
+    <h1 className={`${styles.title}  ${styles.emptyTitle}`}>Product not found.</h1>
+    <div className={styles.emptyCartDiv}>
+      <p className={styles.emptyCartText}>
+   Check url for type errors, or go to product page.
+      </p>
+      <Link className={styles.shopNowLink} href="/products">
+            <button className={styles.shopNow}>Shop Now</button>
+          </Link>
+      </div>
+    </div>
+    </div>
+ 
+    </div>;
 
   return (
     <>

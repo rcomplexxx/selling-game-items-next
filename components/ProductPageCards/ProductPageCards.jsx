@@ -57,17 +57,17 @@ export default function ProductPageCards() {
       });
 
       if (response.ok) {
-        console.log("Message sent successfully.");
+        console.log("Question sent successfully.");
         // Reset form fields if needed
         setMessageSent(true)
         nameRef.current.value = "";
         emailRef.current.value = "";
         messageRef.current.value = "";
       } else {
-        console.error("Error sending message:", response.statusText);
+        console.error("Error sending question:", response.statusText);
       }
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error("Error sending question:", error);
     } finally{setMessageLoading(false);}
   };
 
@@ -190,9 +190,9 @@ export default function ProductPageCards() {
             </div>
           </div>
           <div className={styles.messageField}>
-            <label>Message</label>
+            <label>Question</label>
             <textarea
-            placeholder="Write your message here"
+            placeholder="Write your question here"
               ref={messageRef}
               onChange={()=>{setMessageSent(false);
                setContactErrors({...contactErrors, message: false})
