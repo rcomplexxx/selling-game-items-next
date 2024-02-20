@@ -14,6 +14,7 @@ export default function ProductPageCards() {
   const messageRef = useRef();
   
   const handleSubmit = async () => {
+    if(messageSent)return;
     console.log("submite Starter.");
     setMessageLoading(true);
     try {
@@ -215,9 +216,9 @@ export default function ProductPageCards() {
             />
              {contactErrors.message && <span className={`${styles.contactError} ${styles.contactMessageError}`}>{contactErrors.message}</span>}
             
-            {messageSent && <span className={styles.messageSuccess}>Message sent successfully.</span>}
+            {messageSent && <span className={styles.messageSuccess}>Question sent successfully.</span>}
           </div>
-          <button disabled={messageLoading} onClick={handleSubmit} className={`${styles.sendButton} ${messageLoading && styles.sendButtonDisabled}`}>
+          <button disabled={messageLoading} onClick={handleSubmit} className={`${styles.sendButton} ${(messageLoading || messageSent) && styles.sendButtonDisabled}`}>
             Send
           </button>
         </div>

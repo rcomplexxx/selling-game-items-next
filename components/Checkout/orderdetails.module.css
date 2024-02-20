@@ -239,7 +239,7 @@
   }
 
   .coupon_code_input_error{
-    box-shadow: 0 0 2px rgb(158, 49, 6);
+    box-shadow: 0 0 2px var(--error-box-shadow-color);
    
   }
 
@@ -250,7 +250,7 @@
 }
 
 .couponError{
-  color: rgb(179, 30, 54);
+  color: var(--error-color);
   margin-top: 6px;
   margin-bottom: 0;
   margin-left: var(--size-1);

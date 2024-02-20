@@ -13,3 +13,10 @@
 }
 
 
+.googlePayError{
+    color: var(--error-color);
+     margin-top: var(--size-2);
+      margin-bottom: var(--size-2);
+    margin-left: var(--size-1);
+    font-size: var(--font-size-2);
+}

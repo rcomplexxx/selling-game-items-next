@@ -129,7 +129,7 @@ const handleStripePay= async(event)=>{
   if (!errors.hasOwnProperty('cardNumber')){errorhelperRef.current={...errorhelperRef.current, cardNumber:'Enter a valid card number'}}
   if (!errors.hasOwnProperty('expiryDate')){errorhelperRef.current={...errorhelperRef.current, expiryDate:'Enter a valid card number'}}
   if (!errors.hasOwnProperty('cvv')){errorhelperRef.current={...errorhelperRef.current, cvv:'Enter a valid card number'}}
-  if(document.getElementById('cardHolderName').value==='') {errorhelperRef.current={...errorhelperRef.current, cardHolderName:'Enter your name exactly as it\'s written on the card'}}
+  if(cardHolderName==='') {errorhelperRef.current={...errorhelperRef.current, cardHolderName:'Enter your name exactly as it\'s written on the card'}}
   setErrors(errorhelperRef.current);
  
   const clickPass= checkFields()   && !errors.cardNumber && !errors.expiryDate && !errors.cvv && !errors.cardHolderName;
@@ -467,7 +467,6 @@ const handleCCBlur= ()=>{
     <button className={styles.payNowButton} onClick={handleStripePay}>{paymentProcessing?
     <Image src='/images/spinner.png' height={0} width={0} className={styles.spinner}/>
     :'Pay now'}</button>
-    {stripeError && <p className={styles.stripePayError}>{stripeError}</p>}
     </div>
   );
 };

@@ -242,7 +242,7 @@
 
 
   .tipError{
-    color: red;
+    color: var(--error-color);
     margin-top: var(--size-2);
     margin-left: 2px;
     font-size: var(--font-size-2);

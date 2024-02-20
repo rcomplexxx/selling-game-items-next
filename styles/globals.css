@@ -224,6 +224,10 @@ Cormorant+Garamond */
 
   --action-button-bg-color: rgb(62, 44, 36);
   --action-button-bg-color-hover:rgb(50, 36, 30);
+  --success-color: #43A146;
+  /* //#43A146 //#42A147 */
+  --error-color: red;
+  --error-box-shadow-color: rgb(158, 49, 6);
 
 
   color-scheme: light only;

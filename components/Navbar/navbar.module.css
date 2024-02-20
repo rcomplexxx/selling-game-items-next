@@ -247,7 +247,6 @@
   .search_bar{
     height:var(--size-5);
     width:var(--size-9);
-    background-color: red;
   }
 
   .cartStyle {

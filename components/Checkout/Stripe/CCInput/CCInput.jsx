@@ -31,7 +31,7 @@ export default function CCInput({
       </label>
       {children && children}
       {error && (
-        <p className={styles.error}></p>
+        <p className={styles.error}>{error}</p>
       )}
     </div>
    

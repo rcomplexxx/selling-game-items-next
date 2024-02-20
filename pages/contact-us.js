@@ -16,6 +16,7 @@ export default function ContactUs() {
   
 
   const handleSubmit = async () => {
+    if(messageSent)return;
     console.log("submite Starter.");
     setMessageLoading(true);
     try {
@@ -135,7 +136,7 @@ export default function ContactUs() {
           {errors.message &&  <span className={`${styles.contactError} ${styles.contactMessageError}`}>{errors.message}</span>}
            {messageSent && <span className={styles.messageSuccess}>Message sent successfully.</span>}
           </div>
-          <button disabled={messageLoading} onClick={handleSubmit} className={`${styles.sendButton} ${messageLoading && styles.sendButtonDisabled}`}>
+          <button onClick={handleSubmit} className={`${styles.sendButton} ${(messageLoading || messageSent) && styles.sendButtonDisabled}`}>
             Send
           </button>
         </div>

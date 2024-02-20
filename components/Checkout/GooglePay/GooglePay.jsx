@@ -12,6 +12,7 @@ const GooglePay = ({
   tip
 }) => {
   //paymentRequest.paymentMethodData.tokenizationData.token
+  const [googlePayError, setGooglePayError] = useState();
 
   const [totalPrice, setTotalPrice] = useState(
     products
@@ -49,6 +50,7 @@ const GooglePay = ({
 
   const handleGpayOrder = async (paymentData) => {
     try {
+      setGooglePayError();
       console.log("Time to uncover data", paymentData);
 
       const paymentToken = JSON.parse(
@@ -186,6 +188,7 @@ const GooglePay = ({
   };
 
   return (
+    <>
     <GooglePayButton
       environment={process.env.GPAYENVIRENMENT}
       className={classNames(styles.gpayButton)}
@@ -241,10 +244,16 @@ const GooglePay = ({
       onPaymentDataChanged={(paymentData) => {
         console.log("Data changed", paymentData);
       }}
+      onCancel={(reason)=>{
+        setGooglePayError('Payment is canceled.');
+      }}
       onError={(reason) => {
         console.log(reason);
+        setGooglePayError('Error occured. Payment was not processed.')
       }}
     />
+   <p className={styles.googlePayError}>{googlePayError}</p>
+    </>
   );
 };
 

@@ -49,15 +49,15 @@
    
     .input_error{
       border: none;
-      box-shadow: 0 0 4px rgb(158, 49, 6);
+      box-shadow: 0 0 4px var(--error-box-shadow-color);
     }
 
     .error{
 
-      color: orange;
+      color: var(--error-color);
       margin-top: var(--size-3);
       margin-bottom: var(--size-5);
-      font-size: var(--font-size-3);
+      font-size: var(--font-size-2);
 
     }
   

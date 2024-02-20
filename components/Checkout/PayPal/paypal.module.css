@@ -19,10 +19,11 @@
 margin-bottom: 8px; */
 
 .paypalError{
-    color: orange;
+    color: var(--error-color);
      margin-top: var(--size-2);
       margin-bottom: var(--size-2);
-    margin-left: var(--size-3);
+    margin-left: var(--size-1);
+    font-size: var(--font-size-2);
 }
 
 

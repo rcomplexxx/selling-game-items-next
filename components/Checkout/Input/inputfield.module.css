@@ -66,7 +66,7 @@
  
   .input_error{
     border: none;
-    box-shadow: 0 0 4px rgb(158, 49, 6);
+    box-shadow: 0 0 4px var(--error-box-shadow-color);
   }
 
 
