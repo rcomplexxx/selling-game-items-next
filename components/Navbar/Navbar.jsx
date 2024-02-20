@@ -111,6 +111,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                     className={styles.image}
                   />
                   <h1 className={styles.title}>
+                  {/* {process.env.NEXT_PUBLIC_SITE_NAME} */}
                   Gamebuff
                 </h1>
               </Link>

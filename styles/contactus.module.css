@@ -164,7 +164,7 @@
     height: var(--size-7);
     border: none;
     border-radius: 12px;
-    color:white;
+    color: rgba(255, 255, 255, 0.9);
     background-color: var(--action-button-bg-color);
     /* background-color: #202020; */
     margin-left: var(--size-4);
