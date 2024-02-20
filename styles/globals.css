@@ -175,6 +175,10 @@ p {
   --yellow-8: #796632;
   --practice:#e9e2c3;
 
+  --action-button-bg-color: rgb(62, 44, 36);
+  --action-button-bg-color-hover:rgb(50, 36, 30);
+
+
   color-scheme: light only;
 
 }

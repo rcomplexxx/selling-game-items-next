@@ -92,7 +92,7 @@
 
   .subscribeButton{
     color: rgba(255, 255, 255, 0.65);
-    background-color: rgb(62, 44, 36);
+    background-color: var(--action-button-bg-color);
 
     width: var(--size-10);
     height: var(--size-7);
@@ -109,7 +109,7 @@
 
   .subscribeButton:hover{
     color: white;
-    background-color: rgb(50, 36, 30);
+    background-color: var(--action-button-bg-color-hover);
   }
   
   .footerLinks {

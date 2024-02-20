@@ -208,7 +208,7 @@
 
   .addTip{
     color: white;
-    background-color: rgb(62, 44, 36);
+    background-color: var(--action-button-bg-color);
     height: 40px;
     display: flex;
     justify-content: center;
@@ -224,7 +224,7 @@
   }
 
   .addTip:hover{
-    background-color: rgb(50, 36, 30);
+    background-color: var(--action-button-bg-color-hover);
 
   }
 
