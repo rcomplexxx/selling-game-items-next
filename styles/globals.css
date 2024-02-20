@@ -15,6 +15,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Didot:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Adore+Modern+Serif:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap'); /* Example of a popular serif font */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap'); /* Another example of a popular serif font */
+@import url('https://fonts.googleapis.com/css2?family=Tiempos+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap');
 
 
 body{
@@ -32,6 +39,13 @@ body{
   margin: 0;
   padding: 0;
   font-family: 'Raleway', sans-serif !important;
+  font-variant-numeric: lining-nums;
+-moz-font-feature-settings:"lnum" 1; 
+-moz-font-feature-settings:"lnum=1"; 
+-ms-font-feature-settings:"lnum" 1; 
+-o-font-feature-settings:"lnum" 1; 
+-webkit-font-feature-settings:"lnum" 1; 
+font-feature-settings:"lnum" 1;
 }
 
 h1{
@@ -153,7 +167,14 @@ p {
   --size-18-5: 1102px;
   --size-19: 1280px;
 
-  --hand-writing-font: 'Times New Roman', serif;
+
+ /* Didot
+Baskervville
+Adore+Modern+Serif
+Playfair+Display
+Cormorant+Garamond */
+
+  --hand-writing-font: 'EB Garamond', serif;
   /* --font-neutral: 'Roboto', sans-serif; */
   --font-neutral: 'Inter', sans-serif;
   --font-size-1: 12px;

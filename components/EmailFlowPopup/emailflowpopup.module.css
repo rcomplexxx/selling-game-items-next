@@ -59,7 +59,6 @@
 }
 
 .signUpText{
-    font-family: var(--hand-writing-font);
 }
 
 
@@ -90,7 +89,6 @@
 
 .emailField::placeholder{
     
-    font-family: var(--hand-writing-font);
 }
 
 .emailField:focus{
@@ -124,7 +122,6 @@
 .thankYouMessage{
   
     margin-bottom: var(--size-6);
-    font-family: var(--hand-writing-font);
     opacity: 0.8;
 }
 
