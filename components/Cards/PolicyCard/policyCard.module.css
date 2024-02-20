@@ -15,7 +15,7 @@ box-sizing: border-box;
     margin:auto;
   
   height: max-content;
-    color:var(--yellow-white);
+  opacity: 0.9;
     background-color:var(--gray-9-elegant);
      overflow: auto;
      margin-top: 0;

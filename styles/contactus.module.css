@@ -6,6 +6,9 @@
     flex-direction: column;
     border-bottom: none;
     border-radius: 8px;
+     font-family: var(--hand-writing-font);
+     /* color: rgba(255, 255, 255, 0.9); */
+   
 }
 
 .mainDiv h1{
@@ -19,6 +22,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: var(--size-3);
+    opacity: 0.9;
 }
 
 
@@ -82,6 +86,8 @@
 .inputGroup label{
     margin-left: var(--size-1);
     margin-bottom: var(--size-1);
+    font-family: var(--font-neutral);
+    opacity: 1;
 }
 
 .inputGroup input{
@@ -95,6 +101,11 @@
     border-radius: 4px;
     outline: none;
     font-size: var(--font-size-2);
+    font-family: var(--font-neutral);
+}
+
+.inputGroup input::placeholder{
+    font-family: var(--hand-writing-font);
 }
 
 .inputGroup input:focus{
@@ -126,6 +137,8 @@
 .messageField label{
     margin-left: 6px;
     margin-bottom: var(--size-1);
+    font-family: var(--font-neutral);
+    opacity: 1;
 }
 
 .messageTextArea{
@@ -137,7 +150,7 @@
     margin-right: var(--size-2);
     resize: none;
     border-radius: 8px;
-    font-family: var(--font-for-writing);
+    font-family: var(--hand-writing-font);
     /* font-family: var(--font-neutral); */
     font-size: var(--font-size-2);
     box-sizing: border-box;
