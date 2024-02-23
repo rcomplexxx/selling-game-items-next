@@ -85,7 +85,7 @@ export default function ReviewsCard({
       <h1 className={styles.identifier}>{index}</h1>
 
       <div className={styles.headDiv}>
-        {" "}
+     
         <div
           ref={divEditorRefName}
           contentEditable={!changed}

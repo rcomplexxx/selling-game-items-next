@@ -15,16 +15,39 @@ export default async function adminCheckHandler(req, res) {
   const getFromDb = (table, queryCondition=true, selectVariables='*') => {
     try {
       const db = betterSqlite3(process.env.DB_PATH);
+      let rows;
+
+      if(table=="emails"){
+        
+       let queryString = `SELECT * FROM emails`;
+       const rows1 = db.prepare(queryString).all();
+
+       
+       let rows2=[];
+       try{
+        queryString = `SELECT * FROM emailCampaigns`;
+        rows2 = db.prepare(queryString).all();
+       }catch{}
+       rows= {emails: rows1, campaigns: rows2};
+
+      }
+
+else{
+
 
       let queryString;
       if (table === "orders" || table === "messages" || table==="subscribers") {
         queryString = `SELECT ${selectVariables} FROM ${table} WHERE ${queryCondition}`;
-      } else {
+      } 
+      
+      else {
         queryString = `SELECT id, name, text, stars, imageNames, product_id FROM ${table} WHERE ${queryCondition}`;
       }
 
       // Fetching data from the specified table with the given query condition
-      const rows = db.prepare(queryString).all();
+     rows = db.prepare(queryString).all();
+
+    }
 
       // Closing the database connection
       db.close();
@@ -41,7 +64,7 @@ export default async function adminCheckHandler(req, res) {
   const updateDb = async (table, data, queryCondition) => {
     try {
       const db = betterSqlite3(process.env.DB_PATH);
-
+      if(table!='emails' && table!='emailCampaigns'){
       for (let i = 0; i < data.length; i++) {
         if (table === "reviews") {
           if (data[i].deleted) {
@@ -130,12 +153,60 @@ export default async function adminCheckHandler(req, res) {
               }
             }
           }
-        } else {
+        } 
+       
+        
+        else {
           db.prepare(`UPDATE ${table} ${queryCondition}`).run(
             data[i].status,
             data[i].id,
           );
         }
+      }
+    }
+
+      else if(table=='emails'){
+
+        console.log('in table emails');
+        db.prepare(
+          `
+          CREATE TABLE IF NOT EXISTS emails (
+            id INTEGER PRIMARY KEY,
+            title TEXT,
+            text TEXT 
+          )
+        `).run();
+
+        console.log('should be created');
+
+        db.prepare(`INSERT INTO ${table} (title, text) VALUES (?, ?)`).run(
+          data.title,
+          data.text,
+        );
+
+        console.log('should be inserted?');
+      }
+
+      else{
+        console.log('in table emailCampaigns');
+        db.prepare(
+          `
+          CREATE TABLE IF NOT EXISTS emailCampaigns (
+            id INTEGER PRIMARY KEY,
+            title TEXT,
+            emails TEXT 
+          )
+        `).run();
+
+        console.log('should be created');
+
+        db.prepare(`INSERT INTO ${table} (title, emails) VALUES (?, ?)`).run(
+          data.title,
+          data.emails,
+        );
+
+        console.log('should be inserted?',data.title,
+        data.emails,);
       }
 
       db.close();
@@ -188,6 +259,10 @@ export default async function adminCheckHandler(req, res) {
           ); //Doraditi za product_id===data.product_id
         else if (dataType === "get_subscribers")
           return getFromDb("subscribers");
+          else if (dataType === "get_emails")
+          {return getFromDb("emails");}
+          else if (dataType === "get_email_campaigns")
+          return getFromDb("email_campaigns");
         else if (dataType === "send_unfulfilled_orders") {
           if (!data)
             return res
@@ -213,7 +288,36 @@ export default async function adminCheckHandler(req, res) {
             data,
             "SET name = ?, text = ?, imageNames = ? WHERE id = ?",
           );
-        } else {
+        } else if (dataType === "send_new_email") {
+          console.log('started email send');
+          if (!data)
+            return res
+              .status(500)
+              .json({ successfulLogin: false, error: "No data to send" });
+
+              console.log('No data crossed', data);
+
+          await updateDb(
+            "emails",
+            data,
+          );
+        } else if(dataType === 'send_new_capaign'){
+          console.log('started campaign send');
+          if (!data)
+            return res
+              .status(500)
+              .json({ successfulLogin: false, error: "No data to send" });
+
+              console.log('No data crossed', data);
+
+          await updateDb(
+            "emailCampaigns",
+            data,
+          );
+        }
+        
+        
+        else {
           console.error("Wrong data type");
           res
             .status(500)

@@ -135,6 +135,14 @@ const AdminNavbar = ({ setIsAdmin }) => {
                 >
                   Reviews
                 </Link>
+                <Link
+                  href="/admin/emails"
+                  className={`${styles.linkStyle} ${
+                    adminroute === "emails" ? styles.currentLink : ""
+                  }`}
+                >
+                  Emails
+                </Link>
               </div>
             </>
           )}

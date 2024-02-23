@@ -1,16 +1,23 @@
-import cron from 'node-cron';
-import betterSqlite3 from 'better-sqlite3';
+const cron = require('node-cron');
+const betterSqlite3 = require('better-sqlite3');
+
+// Schedule the cron job to run every day at midnight
+ function dbCleaner() {
+cron.schedule('0 0 * * *', async () => {
+  console.log('Running the task to delete rows from the database...');
+
+
+ 
+
 
 // Open a database connection (or create a new one if the file does not exist)
 const db = betterSqlite3(process.env.DB_PATH);
 
-// Schedule the cron job to run every day at midnight
-cron.schedule('0 0 * * *', async () => {
-  console.log('Running the task to delete rows from the database...');
+
 
   // Your SQL query to delete rows (for example, delete rows older than a certain date)
   const currUnixDateInDays = Math.floor(Date.now() / (86400000)) - 100;
-  const currUnixDateInSeconds= (Math.floor(Date.now() / 1000);
+  const currUnixDateInSeconds= (Math.floor(Date.now() / 1000));
   // const cleanOrdersQuery = `DELETE FROM orders WHERE ((packageStatus='2' OR packageStatus='3')  AND createdDate < ${currUnixDateInDays+33}) OR (approved='0' AND createdDate < ${currUnixDateInDays})`;
   const cleanOrdersQuery = `DELETE FROM orders WHERE createdDate < ${currUnixDateInDays}`;
   const cleanMessagesQuery = `DELETE FROM messages WHERE msgStatus = '2'`;
@@ -25,7 +32,8 @@ cron.schedule('0 0 * * *', async () => {
   } catch (error) {
     console.error('Error deleting rows:', error.message);
   }
-});
+
+
 
 // Handle errors
 db.on('error', (err) => {
@@ -42,3 +50,11 @@ process.on('exit', () => {
     }
   });
 });
+
+
+
+});
+
+}
+
+module.exports = dbCleaner;

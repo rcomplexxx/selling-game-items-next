@@ -8,11 +8,18 @@ import Orders from "./Admin_Pages/Orders/Orders";
 import Inbox from "./Admin_Pages/Inbox/Inbox";
 import Subscribers from "./Admin_Pages/Subscribers/Subscribers";
 import Reviews from "./Admin_Pages/Reviews/Reviews";
+import Emails from "./Admin_Pages/Emails/Emails";
+import NewEmail from "./Admin_Pages/Emails/NewEmail/NewEmail";
+import NewCampaign from "./Admin_Pages/Emails/NewCampaign/NewCampaign";
+import { ElectricalServices } from "@mui/icons-material";
+import Campaigns from "./Admin_Pages/Emails/Campaigns/Campaigns";
 
 export default function Admin() {
   const [isAdmin, setIsAdmin] = useState();
   const [triggerRender, setTriggerRender] = useState(false);
   const [subscribers, setSubscribers] = useState("");
+
+  const [emailData, setEmailData] = useState({emails: [], campaigns: []});
 
   const orders = useRef([]);
   const messages = useRef([]);
@@ -115,6 +122,8 @@ export default function Admin() {
     setTriggerRender(!triggerRender);
   };
 
+ 
+
   const checkAdminStatus = async () => {
     try {
       const response = await fetch("/api/admincheck");
@@ -137,10 +146,14 @@ export default function Admin() {
   if (isAdmin) {
     const router = useRouter();
     const { adminroute } = router.query;
-
+      
     let content;
-    if (adminroute) {
-      switch (adminroute) {
+    console.log('new route', adminroute);
+    if (adminroute && adminroute.length!=0) {
+
+    
+
+      switch (adminroute[0]) {
         case "orders":
           content = <Orders data={orders.current} setData={setOrders} />;
           break;
@@ -160,6 +173,24 @@ export default function Admin() {
             <Reviews reviews={reviews.current} setReviews={setReviews} />
           );
           break;
+          case "emails":
+            if(adminroute.length==2){
+                if(adminroute[1]=='new-email')content= <NewEmail/>
+                else if(adminroute[1]=='campaigns')content = <Campaigns campaignData={emailData.campaigns}/>
+                else if(adminroute[1]=='new-campaign')content = <NewCampaign  emailData={emailData} setEmailData={setEmailData}/>
+               else{ 
+               content = <Emails  emailData={emailData} setEmailData={setEmailData}/>
+               }
+            }
+
+            else{
+              content = <Emails  emailData={emailData} setEmailData={setEmailData}/>
+            }
+
+
+        
+            break;
+           
         default:
           content = <h1>Error 404. Page does not exist.</h1>;
       }
