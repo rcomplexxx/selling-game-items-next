@@ -16,7 +16,7 @@ export default function NewCampaign({emailData, setEmailData}) {
 
   let campaignEmailsInputString = useMemo(()=>{
     let inputString=``;
-    campaignEmails.forEach(email=>{inputString=inputString+ `{Id:${email.id}, title:${email.title}, sendDate:${Date(email.sendDate).toLocaleString('en-US')}}`})
+    campaignEmails.forEach(email=>{inputString=inputString+ `{Id:${email.id}, title:${email.title}, sendDate:${new Date(email.sendDate).toLocaleDateString('en-US', { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short'  })}}`})
     return inputString;
   },[campaignEmails])
   
@@ -61,6 +61,10 @@ export default function NewCampaign({emailData, setEmailData}) {
     },[])
 
     const addEmail=(newEmail)=>{
+      console.log('add', campaignEmails.findIndex((email)=>{return email.id==newEmail.id}))
+      if(
+        campaignEmails.findIndex((email)=>{return email.id==newEmail.id})!==-1
+      )return;
       setCampaignEmails([...campaignEmails, newEmail])
     }
 
@@ -69,7 +73,7 @@ export default function NewCampaign({emailData, setEmailData}) {
 
       let sortedCapaignEmails= campaignEmails.sort((a, b) => a.sendDate - b.sendDate);
 
-      let newCampaignData = {title:titleRef.current.value, emails:JSON.stringify(sortedCapaignEmails.map((email)=>{return {id:email.id, sendDate:email.sendDate}})) };
+      let newCampaignData = {title:titleRef.current.value, emails:JSON.stringify(sortedCapaignEmails.map((email)=>{return {id:email.id, sendDate:email.sendDate, sent:false}})) };
 
     
      

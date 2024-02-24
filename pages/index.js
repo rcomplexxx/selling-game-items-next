@@ -41,7 +41,7 @@ const HomePage = ({ products }) => {
    
 
       <picture className={styles.heroWindow}>
-    <source srcset="/images/gameGirl2Zoomed.png"
+    <source srcSet="/images/gameGirl2Zoomed.png"
             media="(min-width: 720px)"/>
    
         <img

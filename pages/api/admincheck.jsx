@@ -2,6 +2,7 @@ import fs from 'fs'
 import { verifyToken } from "../../utils/auth.js"; // Adjust the path based on your project structure
 import RateLimiter from "@/utils/rateLimiter.js";
 import betterSqlite3 from "better-sqlite3";
+import emailSendJob from '@/utils/sendEmailJob.jsx';
 
 const limiterPerTwoMins = new RateLimiter({
   apiNumberArg: 5,
@@ -200,13 +201,17 @@ else{
 
         console.log('should be created');
 
-        db.prepare(`INSERT INTO ${table} (title, emails) VALUES (?, ?)`).run(
+        const result =db.prepare(`INSERT INTO ${table} (title, emails) VALUES (?, ?)`).run(
           data.title,
           data.emails,
         );
 
+        const campaignId = result.lastInsertRowid;
+
         console.log('should be inserted?',data.title,
         data.emails,);
+        console.log('first email date,',JSON.parse(data.emails)[0]);
+        emailSendJob(JSON.parse(data.emails)[0].sendDate,campaignId, JSON.parse(data.emails)[0].id);
       }
 
       db.close();

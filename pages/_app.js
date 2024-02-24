@@ -93,7 +93,7 @@ export default function App({ Component, pageProps }) {
       console.log('lstr', localStorage.getItem("popupShownDateInDays"), Math.floor(Date.now() / 86400000) )
       if(localStorage.getItem("popupShownDateInDays") && (Math.floor(Date.now() / 86400000))-localStorage.getItem("popupShownDateInDays")<15 ){ clearTimeout(popupTimeout.current); return;}
         console.log(router);
-    if(router.pathname!='/404' && (router.pathname=='/' || (router.pathname.includes('/products') && !router.asPath.includes('#zoom')
+    if(router.pathname!=='/404' && (router.pathname==='/' || (router.pathname.includes('/products') && !router.asPath.includes('#zoom')
     && !router.asPath.includes('#write-review')) || router.pathname.includes('/collection') || router.pathname=='/our-story' || router.pathname=='/faq')){
       setEmailPopup(true);  clearTimeout(popupTimeout.current);
     }
@@ -140,7 +140,7 @@ export default function App({ Component, pageProps }) {
 
 const totalItems= useMemo(()=>{
   let s=0;
-  cartProducts.map(cp=>{
+  cartProducts.forEach(cp=>{
     s=s+cp.quantity;
   })
   return s

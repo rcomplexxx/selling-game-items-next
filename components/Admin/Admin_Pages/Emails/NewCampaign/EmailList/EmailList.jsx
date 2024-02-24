@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import styles from './emaillist.module.css'
 import DatePicker from 'react-multi-date-picker';
 import "react-multi-date-picker/styles/backgrounds/bg-dark.css"
@@ -24,12 +24,13 @@ const EmailElement= ({id, title, addEmail})=>{
   const [emailSendDate, setEmailSendDate] = useState(null);
  
 
-
+  console.log('email send date', emailSendDate)
 
   const handleAddEmail= ()=>{
     if (!emailSendDate)return;
+    console.log('email send date inside', emailSendDate)
 
-    addEmail({id:id, title:title, sendDate:emailSendDate, sent:false});
+    addEmail({id:id, title:title, sendDate:emailSendDate});
 
 
 
@@ -44,7 +45,9 @@ const EmailElement= ({id, title, addEmail})=>{
             plugins={[
                 <TimePicker format="HH:mm:ss" position="bottom" />
               ]}
-            onChange={(date)=>{setEmailSendDate(date.unix)}}
+            onChange={(date)=>{
+             
+              setEmailSendDate(date.unix*1000)}}
             minDate={Date.now()} 
             format="MM/DD/YYYY HH:mm:ss"  
             className={`bg-dark ${styles.datePicker}`}
