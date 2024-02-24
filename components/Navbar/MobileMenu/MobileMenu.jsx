@@ -12,8 +12,6 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
     const router = useRouter();
     const pathname = router.asPath;
-    const mobileMenuRef= useRef();
-    const visiblityTimeoutRef= useRef()
     const historyPushMountedRef=useRef(false);
     const subMenuEnteredRef=useRef(false);
     const nextLink= useRef();
@@ -33,7 +31,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         // if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;return;}
         
 
-        if(mobileMenuRef.current.contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
+        if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { event.stopPropagation(); event.preventDefault(); 
         clickStabilizerRef.current=true; history.back();
         // setIsMenuOpen(false);
@@ -130,14 +128,6 @@ window.history.pushState(null, null, router.asPath);
     return true;
       });
     },[isMenuOpen,router])
-
-    useEffect(()=>{
-      clearTimeout(visiblityTimeoutRef.current);
-      if(isMenuOpen)
-      mobileMenuRef.current.style.display='visible'
-      else visiblityTimeoutRef.current=setTimeout(()=>{mobileMenuRef.current.style.visibility='hidden'},5000)
-  
-  },[isMenuOpen])
   
    
 
@@ -153,8 +143,7 @@ window.history.pushState(null, null, router.asPath);
   // >
     return <div
     id='mobileMenu'
-    ref={mobileMenuRef}
-      className={`${styles.mainMenuCard} ${!isMenuOpen && styles.menuClosed} ${!historyPushMountedRef && styles.menuCompletelyClosed}` }
+      className={`${styles.mainMenuCard} ${!isMenuOpen && styles.menuClosed}` }
       
     >
       <div className={styles.menuItemsDiv}>

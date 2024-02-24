@@ -44,7 +44,7 @@ const HomePage = ({ products }) => {
     <source srcSet="/images/gameGirl2Zoomed.png"
             media="(min-width: 720px)"/>
    
-        <img
+        <Image
           height={0}
           width={0}
          src={`/images/gameGirl2.png`} // Path to your image from the `public` directory

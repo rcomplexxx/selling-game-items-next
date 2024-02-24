@@ -13,7 +13,7 @@ const Products = ({ products, showAll }) => {
       <div className={styles.mainGridStyle}>
         {products.map((product, i) => (
           <Product
-            key={product.id}
+            key={i}
             product={product}
           
           />

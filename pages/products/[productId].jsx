@@ -106,8 +106,9 @@ export default function ProductPage({ product, images, startReviews, ratingData 
           </div>
           <p className={styles.product_style_label}>Color: {variant}</p>
           <div className={styles.product_style_options}>
-            {product.variants && product.variants.map(v=>{
+            {product.variants && product.variants.map((v, i)=>{
            return  <div
+           key={i}
               className={`${styles.product_style_span}`}
               onClick={() => {
                 
