@@ -36,7 +36,10 @@
     transform: translateX(-100%);
     /* max-width: 0; */
   }
-
+  
+  .menuCompletelyClosed{
+    display:none;
+  }
  
   
   .menuItemsDiv{
