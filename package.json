@@ -124,6 +124,7 @@
     "@next/bundle-analyzer": "^14.0.3",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint-config-next": "13.4.3",
+    "terser-webpack-plugin": "^5.3.10",
     "webpack-bundle-analyzer": "^4.10.1"
   }
 }
