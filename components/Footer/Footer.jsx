@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState,  useCallback } from "react";
 import Link from "next/link";
 import styles from "./footer.module.css";
 import Image from "next/image";
@@ -8,13 +8,14 @@ import BenefitSwiper from "./BenefitSwiper/BenefitSwiper";
 
 
 export default function Footer() {
-  const email = useRef();
+ 
   const [error, setError] = useState(null);
   const [successful, setSuccessful] = useState(false);
 
-  const handleSubscribe = useCallback(async () => {
+  const handleSubscribe =async () => {
+    const email= document.getElementById('subscribe');
     const emailPattern = /^\w+@\w+\.\w+$/;
-    if (!emailPattern.test(email.current.value)) {
+    if (!emailPattern.test(email.value)) {
       setError("Please enter a valid email address.");
       return;
     } else {
@@ -25,7 +26,7 @@ export default function Footer() {
         },
         body: JSON.stringify({
           type: "subscribers",
-          email: email.current.value,
+          email: email.value,
         }), // Send the form data as JSON
       })
         .then((response) => {
@@ -40,10 +41,10 @@ export default function Footer() {
           setError("Server error");
         })
         .finally(() => {
-          email.current.value = "";
+          email.value = "";
         });
     }
-  },[]);
+  }
 
 
 
@@ -105,7 +106,7 @@ export default function Footer() {
           id="subscribe"
           className={styles.subscribeInput}
           placeholder="Enter your email address"
-          ref={email}
+         
           onChange={() => {
             if (error) setError(null);
             if (successful) setSuccessful(false);
