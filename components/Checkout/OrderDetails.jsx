@@ -2,7 +2,6 @@ import React, {
     useState,
     useMemo,
     useEffect,
-    useLayoutEffect,
     useRef,
   } from "react";
   import styles from "./orderdetails.module.css";

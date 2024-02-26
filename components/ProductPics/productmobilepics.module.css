@@ -12,7 +12,7 @@
     opacity: 1;
     border-radius: 100%;
     background-color: var(--gray-9-elegant-op08);
-    display:none !important;
+    display:none;
     
   }
 
@@ -62,7 +62,7 @@
 
   .productImage:hover + .zoomImg{
     /* Styles applied to .target when .trigger is hovered */
-    display: inline-block !important;
+    display: inline-block;
   }
 
  

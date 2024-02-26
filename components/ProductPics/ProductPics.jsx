@@ -195,10 +195,10 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
               height={0}
               width={0}
               sizes="20px"
-              priority={index === 0}
+              
               className={styles.zoomImg}
               src={"/images/zoomIconAw.png"}
-              loading={index>0?'lazy':undefined}
+              loading={'lazy'}
             />}
          
         </SwiperSlide>
@@ -214,7 +214,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                 height={12}
                 width={12}
                 src='/images/greaterLess3.png'
-                
+                loading={'lazy'}
                 />
             </div>
 
@@ -222,6 +222,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                 <Image 
                height={12}
                width={12}
+               loading={'lazy'}
                 src='/images/greaterLess3.png'
                 />
             </div>
@@ -246,7 +247,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                   src={img.src}
                   alt={img.alt}
                   sizes="25vw"
-                  loading={index>2?'lazy':undefined}
+                  loading={index>2 ? 'lazy':undefined}
                   height={0}
                   width={0}
                   draggable="false"
@@ -277,6 +278,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                     sizes="20vw"
                     height={0}
                     width={0}
+                    loading={'lazy'}
                     draggable="false"
                   />
                 </div>
