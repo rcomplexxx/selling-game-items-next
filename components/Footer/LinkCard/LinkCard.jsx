@@ -6,14 +6,16 @@ export default function LinkCard({title, children}) {
 
     const [cardOpen, setCardOpen] = useState(false);
     
+    const mountedRef= useRef(false);
     const cardContentRef=useRef();
-    const maxHeightTimoutAdj = useRef();
+    const maxHeightTimoutAdj = useRef(-);
 
  
 
 
     
     useEffect(()=>{
+      if(!mountedRef.current){mountedRef.current=true; return;}
       clearTimeout(maxHeightTimoutAdj.current);
   
       const cardContentDiv = cardContentRef.current;
