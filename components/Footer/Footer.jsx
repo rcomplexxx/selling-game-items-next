@@ -12,7 +12,7 @@ export default function Footer() {
   const [error, setError] = useState(null);
   const [successful, setSuccessful] = useState(false);
 
-  const handleSubscribe = async () => {
+  const handleSubscribe = useCallback(async () => {
     const emailPattern = /^\w+@\w+\.\w+$/;
     if (!emailPattern.test(email.current.value)) {
       setError("Please enter a valid email address.");
@@ -43,7 +43,7 @@ export default function Footer() {
           email.current.value = "";
         });
     }
-  };
+  },[]);
 
 
 
@@ -140,15 +140,15 @@ export default function Footer() {
         <div  className={styles.paymentsDivWrapper}>
         <div  className={styles.paymentsDiv}>
       
-           <Image src='/images/cardVisa2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image src='/images/cardMasterCard5.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-           <Image src='/images/cardAmex2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+           <Image loading={'lazy'} src='/images/cardVisa2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardMasterCard5.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+           <Image loading={'lazy'} src='/images/cardAmex2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
            
-          <Image src='/images/cardDiscover3.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image src='/images/cardJcb2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image src='/images/cardUnionPay4.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image src='/images/cardPaypalWhite3.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image src='/images/cardGpay2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+          <Image loading={'lazy'} src='/images/cardDiscover3.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardJcb2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardUnionPay4.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardPaypalWhite3.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardGpay2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
         </div>
         </div>
         <p className={styles.reservedRightsPharagraph}>
