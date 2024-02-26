@@ -6,9 +6,7 @@ import Head from 'next/head';
 const Custom404 = () => {
   return (
     <div className={styles.mainDiv}>
-      <Head>
-        <title>Checkout - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+   
       <h1>Page Not Found</h1>
       <p className={styles.notification404}>Oops, Something went wrong<br/>
 We can't find the page you're looking for</p>

@@ -5,9 +5,7 @@ import Head from "next/head";
 function RefundPolicy() {
   return (
     <PolicyCard>
-      <Head>
-        <title>Refund policy - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+   
       <h1>Refund policy</h1>
      
       <h2>Can a replacement request be made on gamebuff.com?</h2>

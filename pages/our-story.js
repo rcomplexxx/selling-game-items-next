@@ -7,9 +7,7 @@ import styles from '../styles/ourstory.module.css'
 export default function OurStory() {
   return (
     <div className="centered">
-      <Head>
-        <title>Our story - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+  
       <div className={styles.mainDiv}>
         <h1>Our story</h1>
         <div className={styles.mainContent}>

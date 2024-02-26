@@ -10,9 +10,7 @@ import PageNumber from "@/components/PageNumbers/PageNumbers";
 export default function ProductPage({ products, links }) {
   return (
     <div className={styles.mainDiv}>
-      <Head>
-        <title>Products - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+      
       <Products showAll={true} products={products}></Products>
 
       <PageNumber mainLink='/products/page/' links={links} pageId={1}/>

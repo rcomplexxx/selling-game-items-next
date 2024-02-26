@@ -77,10 +77,7 @@ export default function ContactUs() {
 
 
   return (
-<>
-<Head>
-        <title>Contact us - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+
 
     <div className={styles.mainDiv}>
         <h1>Contact Us</h1>
@@ -140,6 +137,6 @@ export default function ContactUs() {
             Send
           </button>
         </div>
-        </>
+     
   );
 }

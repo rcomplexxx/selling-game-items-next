@@ -5,9 +5,7 @@ import Head from "next/head";
 export default function PrivacyPolicy() {
   return (
     <PolicyCard>
-      <Head>
-        <title>Privacy policy - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+    
       <h1>Privacy Policy</h1>
 
 <h2>Section 1: Consent</h2>

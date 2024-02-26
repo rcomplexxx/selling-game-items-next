@@ -14,9 +14,7 @@ export default function ThankYou() {
 
   return (
     <div className={styles.thankYouWrapper}>
-      <Head>
-        <title>Thank you - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+     
     <div className={styles.mainDiv}>
       <div className={styles.titleDiv}>
         <h1 className={styles.title}>Thank you</h1>

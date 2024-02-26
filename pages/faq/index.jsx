@@ -9,9 +9,7 @@ import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
 export default function Faq({ questionData }) {
   return (
     <PolicyCard>
-      <Head>
-        <title>FAQ - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+      
    
         <h1>FAQ</h1>
         <p>

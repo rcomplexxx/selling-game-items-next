@@ -34,10 +34,7 @@ const CheckoutPage = () => {
   console.log('cp', cartProducts.length);
 
   return (
-    <>
-      <Head>
-        <title>Checkout - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+   
       <div className={styles.checkoutMainContainer}>
       {cartProducts.length==0 ?renderEmptyCartCheckout():
       <>
@@ -53,7 +50,7 @@ const CheckoutPage = () => {
 } 
 
 </div>
-    </>
+    
   );
 };
 

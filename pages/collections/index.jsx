@@ -9,9 +9,7 @@ import Image from "next/image";
 export default function Collections({ collections}) {
   return (
     <>
-      <Head>
-        <title>Collections - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+     
       {/* <Products showAll={true} products={products}></Products> */}
 
 

@@ -5,9 +5,7 @@ import Head from "next/head";
 function ShippingPolicy() {
   return (
     <PolicyCard>
-      <Head>
-        <title>Shipping policy - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+     
       <h1>Shipping policy</h1>
       <h2>Do you ship globally?</h2>
       <p>Shipping is WORLDWIDE on ALL PRODUCTS!</p>

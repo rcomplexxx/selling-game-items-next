@@ -80,9 +80,7 @@ const BuyNowPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Checkout - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+      
 
       <div className={styles.checkoutMainContainer}>
       <CheckoutLogo/>

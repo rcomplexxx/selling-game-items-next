@@ -18,7 +18,7 @@ const getRatingData = (product_id, stars) => {
     console.log('number', result);
     return result;
   } catch (error) {
-    console.error("Capture request failed:", error);
+
    return 0;
   }
 };

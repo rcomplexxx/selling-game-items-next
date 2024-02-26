@@ -34,10 +34,7 @@ const HomePage = ({ products }) => {
 
   return (
     <>
-      <Head>
-        <title>{process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
-
+   
    
 
       <picture className={styles.heroWindow}>

@@ -153,6 +153,7 @@ const totalItems= useMemo(()=>{
       className={`hronika`}
     >
       <Head>
+      <title>Gamebuff</title>
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
       {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}

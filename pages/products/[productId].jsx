@@ -71,9 +71,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
 
   return (
     <>
-      <Head>
-        <title>{product.name} - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+      
       <div className={styles.productPageDiv}>
         <div className={styles.media}>
           <ProductPics productId={product.id} onAddToCart ={ onAddToCart }images={images} variantImageIndex={product.variants && product.variants.find((v)=>{return v.name==variant})?.variantProductImageIndex} />
@@ -270,7 +268,7 @@ export async function getStaticProps(context) {
 
 
     const reviewsData= getReviewsData(productId);
-   
+    
     
 
     let ratingData={};
