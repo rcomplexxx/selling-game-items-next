@@ -93,7 +93,7 @@
 }
 
 .inputGroup input::placeholder{
-    font-family: var(--hand-writing-font);
+  
 }
 
 .inputGroup input:focus{
@@ -138,7 +138,7 @@
 
     border-radius: 8px;
     box-sizing: border-box;
-    font-family: var(--font-for-writing);
+    font-family: var(--font-neutral);
     /* font-family: var(--font-neutral); */
     font-size: var(--font-size-2);
     resize: none;

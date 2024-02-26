@@ -167,10 +167,10 @@ export default function ProductPageCards() {
 
       
         <div className={styles.mainDiv}>
-        <p className={styles.getInTouch}>
+        {/* <p className={styles.getInTouch}>
          
          For any question or enquiry, feel free to contact our helpful Customer Service team.
-          </p>
+          </p> */}
 
           <p className={styles.getInTouch}><b>Please note</b>, normal response time is 1 - 2 days. Please be patient, we answer all questions as quickly as possible.</p>
           <div className={styles.contactInfoDiv}>

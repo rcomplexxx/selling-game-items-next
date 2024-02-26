@@ -51,15 +51,6 @@ const betterSqlite3 = require('better-sqlite3');
     catch(error){
         console.log('cron error', error)
     }
- 
-       
-
-
-  console.log('Initialize new job scheduler if condition is met by calling emailSendJob again, and it is not'
-  ,'considered a recursion as the task ends once the cron is set');
-  //doSomethingWithEmail(email); Allowed because cron captures the variables used inside of it
-
-
 
 
 

@@ -43,7 +43,7 @@ export default function Inbox({ data, setData }) {
           setData={setData}
           initializeData={initializeMsgStatusData}
         />
-        <p>All messages answered for now.</p>
+        <p>All/No messages answered for now.</p>
       </>
     );
 

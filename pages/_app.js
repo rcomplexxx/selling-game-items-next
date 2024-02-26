@@ -156,7 +156,7 @@ const totalItems= useMemo(()=>{
         <link rel="icon" href="/images/favicon.ico" />
       </Head>
       {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
-      {!removeNavFinal && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
+      {/* {!removeNavFinal && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>} */}
 
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>
         <Component {...pageProps} />

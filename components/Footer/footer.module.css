@@ -71,7 +71,6 @@
   .subscribeInput::placeholder{
     color: #7a857a;
     font-size: var(--font-size-1);
-    font-family: var(--hand-writing-font);
   }
 
   .subscribeInput:focus{

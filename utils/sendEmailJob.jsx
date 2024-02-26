@@ -1,6 +1,6 @@
 const cron = require('node-cron');
 const betterSqlite3 = require('better-sqlite3');
-
+const nodemailer = require("nodemailer");
 
 
 
@@ -63,20 +63,18 @@ cron.schedule(date, () => {
             campaign.id,
           );
 
-
+          const emails = db.prepare(`SELECT * FROM subscribers`).all();
+          const campaigns= db.prepare(`SELECT * FROM emailCampaigns`).all();
             db.close();
 
 
 
-            console.log('Initialize new job scheduler if condition is met by calling emailSendJob again, and it is not'
-            ,'considered a recursion as the task ends once the cron is set');
-            //doSomethingWithEmail(email); Allowed because cron captures the variables used inside of it
-            //campaign.targetMail // ako je all salji svima.
+          
 
             try {
-              const emails = db.prepare(`SELECT * FROM subscribers`).all();
-              const campaigns= db.prepare(`SELECT * FROM emailCampaigns`).all();
-    
+             
+              //pored ovih filtered majlova dodatno filtrirati ako im je sent==false uz email=target.
+              //Ako je sent==true i target je, ispitati da li je zadnji datu minus trenutni 7+ dana
               const filteredEmails= emails.filter(email=>{
                 return campaigns.findIndex(campaign=>{
                 return email==campaign.targetMail
@@ -105,7 +103,7 @@ cron.schedule(date, () => {
                 html: email.text,
               });
             } catch (error) {
-              console.error("Email not sent.");
+              console.error("Email not sent.", error);
             }
 
           

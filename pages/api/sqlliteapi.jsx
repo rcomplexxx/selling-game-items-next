@@ -50,10 +50,15 @@ export default async function handler(req, res) {
           `,
           ).run();
 
+              const result = db.prepare("SELECT * FROM subscribers WHERE email = ?").get(req.body.email);
+              
+          
+              if(!result){
           // Insert subscriber email into the subscribers table
           db.prepare("INSERT INTO subscribers (email) VALUES (?)").run(
             req.body.email,
           );
+              }
 
           console.log("Successfully subscribed.");
           res.status(201).json({ message: "Successfully subscribed." });
