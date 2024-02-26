@@ -14,7 +14,26 @@
     padding-top: 0;
 }
 
+.campaignTypeSelect{
+    align-self: flex-start;
+    color: white;
+    background-color: transparent;
 
+    margin-bottom: var(--size-6);
+  
+    padding: var(--size-3) var(--size-6);
+   
+    border-radius: 2px;
+    border: 1px solid gray;
+    cursor: pointer;
+    user-select: none;
+  
+}
+
+.campaignTypeSelect option{
+    background-color: rgb(76, 46, 46);
+    margin: 40px;
+}
 
 
 
@@ -43,3 +62,15 @@
 
 
 
+.saveCampaign{
+    
+    margin: var(--size-4) var(--size-5);
+    margin-top: var(--size-7);
+    color: white;
+    background-color: transparent;
+    padding: var(--size-3) var(--size-6);
+    border-radius: 2px;
+    border: 1px solid rgb(22, 168, 51);
+    cursor: pointer;
+    user-select: none;
+}

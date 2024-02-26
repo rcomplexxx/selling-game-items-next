@@ -1,0 +1,34 @@
+
+
+.mainDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.interfaceDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--size-9);
+}
+
+
+.magicButton{
+    color: white;
+    background-color: transparent;
+
+
+    margin-bottom: var(--size-3);
+    padding: var(--size-3) var(--size-6);
+   
+    border-radius: 2px;
+    border: 1px solid gray;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.emailLink{
+    margin-top: var(--size-3);
+}

@@ -22,6 +22,7 @@ console.log('setting email cron scheduler', date)
 
 cron.schedule(date, () => {
   console.log('Send email here');
+  //da li poslati svim mejlovima ili samo nekim?
 
     //inicijalizuji kampanju, i email kampanje(sa svim atributima).
     //proveri da li kampanja poseduje taj mejl, ako ne, neka greska je u pitanju i return
@@ -64,6 +65,51 @@ cron.schedule(date, () => {
 
 
             db.close();
+
+
+
+            console.log('Initialize new job scheduler if condition is met by calling emailSendJob again, and it is not'
+            ,'considered a recursion as the task ends once the cron is set');
+            //doSomethingWithEmail(email); Allowed because cron captures the variables used inside of it
+            //campaign.targetMail // ako je all salji svima.
+
+            try {
+              const emails = db.prepare(`SELECT * FROM subscribers`).all();
+              const campaigns= db.prepare(`SELECT * FROM emailCampaigns`).all();
+    
+              const filteredEmails= emails.filter(email=>{
+                return campaigns.findIndex(campaign=>{
+                return email==campaign.targetMail
+              })==-1
+            })
+              const mailTarget = campaign.targetMail=='all'?filteredEmails:campaign.targetMail;
+              //umesto lol, providuji sve emaila preko subscribers ili ness
+              //izbaciti odredjene subscribere ako imaju vec neku kampanju u koju su upleteni(i targetovani samo oni)
+              //a to mogu proveriti tako sto njihov mejlo uporedim sa nizom emailova kampanje tj polja targetEmail
+             
+
+
+              const transporter = nodemailer.createTransport({
+                service: "hotmail",
+                auth: {
+                  user: process.env.EMAIL_USER,
+                  pass: process.env.EMAIL_PASSWORD,
+                },
+              });
+    
+              transporter.sendMail({
+                //   from: 'orderconfirmed@selling-game-items-next.com',
+                from: process.env.EMAIL_USER,
+                to: mailTarget,
+                subject: email.title,
+                html: email.text,
+              });
+            } catch (error) {
+              console.error("Email not sent.");
+            }
+
+          
+
         
     }
     catch(error){
@@ -72,10 +118,6 @@ cron.schedule(date, () => {
  
        
 
-
-  console.log('Initialize new job scheduler if condition is met by calling emailSendJob again, and it is not'
-  ,'considered a recursion as the task ends once the cron is set');
-  //doSomethingWithEmail(email); Allowed because cron captures the variables used inside of it
 
 
 

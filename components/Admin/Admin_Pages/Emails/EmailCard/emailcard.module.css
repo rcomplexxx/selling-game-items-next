@@ -1,5 +1,32 @@
 .emailContentDiv{
     width: 100%;
+    
+    padding-bottom: var(--size-8);
+    padding-top: var(--size-8);
+    border-bottom: 1px solid green;
+}
+
+
+.idDiv{
+    width:100%;
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+   
+}
+
+.currentId{
+   
+    font-size: var(--font-size-8);
+    color: rgb(134, 149, 180);
+    margin-left: var(--size-2);
+    margin-right: var(--size-2);
+}
+
+.currentIdText{
+    font-size: var(--font-size-7);
+    opacity: 0.18;
+    color:white;
 }
 
 
@@ -37,13 +64,14 @@
 .textArea{
     color: rgb(225, 236, 238);
     background-color: rgb(15, 15, 14);
-    min-height: var(--size-14);
+    max-height: var(--size-14);
+    min-height: var(--size-12);
     width: 100%;
     box-sizing: border-box;
     padding: 24px;
     font-size: var(--font-size-5);
     line-height: var(--size-7);
-    padding-bottom: 128px;
+  
     border-radius: 8px;
     border: none;
     outline: none;
@@ -70,6 +98,8 @@
 
 
 
+
+
 .previewContent{
     position: relative;
     color: rgb(225, 236, 238);
@@ -81,7 +111,7 @@
     align-items: center;
     border: 1px solid rgb(143, 151, 156);
     border-radius: 8px;
-    margin-top: var(--size-9);
+    margin-top: var(--size-5);
     box-sizing: border-box;
     padding: 32px;
 }

@@ -168,6 +168,8 @@ else{
 
       else if(table=='emails'){
 
+        if(queryCondition=== 'newEmail'){
+
         console.log('in table emails');
         db.prepare(
           `
@@ -186,6 +188,17 @@ else{
         );
 
         console.log('should be inserted?');
+        }
+        else{
+          data.forEach(emailData=>{
+            db.prepare(`UPDATE ${table} SET title = ?, text = ? WHERE id = ?`).run(
+              emailData.title,
+              emailData.text,
+              emailData.id
+              );
+          })
+        
+        }
       }
 
       else{
@@ -195,22 +208,26 @@ else{
           CREATE TABLE IF NOT EXISTS emailCampaigns (
             id INTEGER PRIMARY KEY,
             title TEXT,
-            emails TEXT 
+            campaignType TEXT,
+            emails TEXT,
+            targetEmail TEXT
           )
         `).run();
 
         console.log('should be created');
 
-        const result =db.prepare(`INSERT INTO ${table} (title, emails) VALUES (?, ?)`).run(
+        const result =db.prepare(`INSERT INTO ${table} (title, emails,campaignType, targetEmail) VALUES (?, ?, ?, ?)`).run(
           data.title,
           data.emails,
+          data.campaignType,
+          data.targetEmail?data.targetEmail:'all',
         );
 
         const campaignId = result.lastInsertRowid;
 
         console.log('should be inserted?',data.title,
-        data.emails,);
-        console.log('first email date,',JSON.parse(data.emails)[0]);
+        data.emails,data.campaignType);
+        if(data.campaignType=='campaign')
         emailSendJob(JSON.parse(data.emails)[0].sendDate,campaignId, JSON.parse(data.emails)[0].id);
       }
 
@@ -293,7 +310,23 @@ else{
             data,
             "SET name = ?, text = ?, imageNames = ? WHERE id = ?",
           );
-        } else if (dataType === "send_new_email") {
+        } 
+        else if (dataType === "send_email_data") {
+          console.log('started email send');
+          if (!data)
+            return res
+              .status(500)
+              .json({ successfulLogin: false, error: "No data to send" });
+
+           
+          await updateDb(
+            "emails",
+            data,
+          );
+
+        }
+        
+        else if (dataType === "send_new_email") {
           console.log('started email send');
           if (!data)
             return res
@@ -305,6 +338,7 @@ else{
           await updateDb(
             "emails",
             data,
+            'newEmail'
           );
         } else if(dataType === 'send_new_capaign'){
           console.log('started campaign send');
@@ -318,6 +352,8 @@ else{
           await updateDb(
             "emailCampaigns",
             data,
+            
+            'updateEmails'
           );
         }
         

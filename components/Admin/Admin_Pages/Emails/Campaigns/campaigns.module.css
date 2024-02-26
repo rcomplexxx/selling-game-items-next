@@ -1,15 +1,69 @@
+
+.mainDiv{
+    max-width: var(--size-17);
+    width: 100%;
+    
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+
+.campaignDiv{
+    width: 100%;
+    padding-top: var(--size-6);
+    padding-bottom: var(--size-9);
+    border-bottom: 1px solid green;
+}
+
+
+
+.idDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.currentId{
+   
+    font-size: var(--font-size-8);
+    color: rgb(134, 149, 180);
+   
+}
+
+.currentId span{
+    font-size: var(--font-size-7);
+    opacity: 0.18;
+    color:white;
+}
+
+
+
+.campaignType{
+    width: min-content;
+    margin-bottom: var(--size-3);
+    padding:var(--size-3) var(--size-5);
+    border: 1px solid gray;
+
+}
+
+
 .campaignInput{
+    
     color: rgb(225, 236, 238);
     background-color: rgb(15, 15, 14);
-    min-width: var(--size-14);
+  
     width: 100%;
-    align-self: flex-start;
+
     box-sizing: border-box;
     padding: 8px 8px;
     font-size: var(--font-size-5);
     line-height: var(--size-7);
    margin-bottom: var(--size-6);
    /* border: 1px solid gray; */
+   
    border: none;
  
    border-radius: 8px;
@@ -19,5 +73,31 @@
 .campaignInput:focus{
     border: 1px solid #4fabe0;
     box-shadow: 0 0 8px #4fabe0;
+}
+
+.campaignEmailsDiv{
+
+    background-color: rgba(43, 35, 35, 0.145);
+    min-height: var(--size-12);
+    max-width: var(--size-17);
+    width: 100%;
+
+
+    display:flex;
+    flex-direction: column;
+  
+   
+
+}
+
+.campaignEmailsDiv span{
+    
+    margin-top: var(--size-3);
+    margin-bottom: var(--size-3);
+}
+
+.campaignInputEmail{
+   
+    resize:vertical;
 }
 

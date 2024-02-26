@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import ReactHtmlParser from "react-html-parser";
 
@@ -6,10 +6,16 @@ import styles from './emailcard.module.css'
 import { useRouter } from 'next/router';
 
 
-export default function EmailCard({title, text}) {
+export default function EmailCard({id,title, text, handleSaveEmail}) {
 
-    
+    const [emailTitle, setEmailTitle] = useState()
+    const [emailText, setEmailText] = useState()
     const [previewEmailContent, setPreviewEmailContent]= useState();
+
+    useEffect(()=>{
+      setEmailTitle(title);
+      setEmailText(text)
+    },[])
 
 
 
@@ -65,10 +71,24 @@ export default function EmailCard({title, text}) {
   return (
   <>
       <div className={styles.emailContentDiv}>
-        <input value={title} className={styles.titleInput} placeholder='Email title...'/>
+     
+
+
+
+<div className={styles.idDiv}> 
+  
+   <span className={styles.currentIdText}>email id:</span>
+   <span className={styles.currentId}>{id}</span>
+ </div>
+
+
+        <input value={emailTitle} 
+        onChange={(event)=>{setEmailTitle(event.target.value)}}
+        className={styles.titleInput} placeholder='Email title...'/>
 
         <textarea
-        value={text}
+        value={emailText}
+        onChange={(event)=>{setEmailText(event.target.value)}}
         tabIndex={0}
         contentEditable={true}
         suppressContentEditableWarning={true}
@@ -80,13 +100,16 @@ export default function EmailCard({title, text}) {
         }}
         />
         <button className={styles.previewButton} onClick={handlePreviewEmail}>Preview Email</button>
-      </div>
-
-     { previewEmailContent && <><div className={styles.previewContent}>
+        <button onClick={()=>{handleSaveEmail(id, emailTitle, emailText)}} className={`${styles.previewButton} ${styles.saveButton}`}>Save Email</button> 
+     
+        { previewEmailContent && <><div className={styles.previewContent}>
         {previewEmailContent}
       </div> 
-      {/* <button onClick={handleSaveEmail} className={`${styles.previewButton} ${styles.saveButton}`}>Save Email</button>  */}
-      </>}
+      </>} 
+      </div>
+
+    
+     
       </>
   )
 }

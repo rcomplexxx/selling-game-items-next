@@ -22,19 +22,23 @@
 }
 
 
+
 .emailInfoDiv{
-    
+    flex:1;
 
 display: flex;
 align-items: center;
   
 }
 
-
+.id{
+    margin-right: var(--size-2);
+}
 
 .datePicker{
+  
     background-color: black !important;
- 
+
 }
 
 .dateRangeLabel{
@@ -51,7 +55,22 @@ align-items: center;
     border: 1px solid gray;
 }
 
+.addEmailWrapper{
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
+}
 
-.addEmailButton{
+.addEmail{
+    
+    color: white;
+    background-color: transparent;
 
+ 
+    padding: var(--size-3) var(--size-6);
+   
+    border-radius: 2px;
+    border: 1px solid gray;
+    cursor: pointer;
+    user-select: none;
 }

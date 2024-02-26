@@ -74,8 +74,14 @@
     box-shadow: 0 0 8px #4fabe0;
 } */
 
+.newEmailButtons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .previewButton{
-    margin: var(--size-4) var(--size-5);
+    margin: var(--size-4) var(--size-2);
     margin-top: 32px;
     color: white;
     background-color: transparent;
@@ -86,7 +92,9 @@
     user-select: none;
 }
 
-
+.saveButton{
+    align-self: flex-end;
+}
 
 
 .previewContent{
@@ -105,7 +113,3 @@
     padding: 32px;
 }
 
-.saveButton{
-    align-self: flex-end;
-    margin-right: var(--size-5);
-}

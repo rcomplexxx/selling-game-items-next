@@ -4,14 +4,14 @@ import DatePicker from 'react-multi-date-picker';
 import "react-multi-date-picker/styles/backgrounds/bg-dark.css"
 import TimePicker from 'react-multi-date-picker/plugins/time_picker';
 
-export default function EmailList({emailData, addEmail}) {
+export default function EmailList({emailData, addEmail, campaignType}) {
 
    
-
+//brisi sve kad se promeni sequenceType
   return (
     <div className = {styles.emailsListDiv}>
       {emailData?.emails.map(email=>{
-         return <EmailElement id={email.id} title={email.title} addEmail={addEmail}/>
+         return <EmailElement id={email.id} title={email.title} addEmail={addEmail} campaignType={campaignType}/>
 
       })}
       </div>
@@ -19,7 +19,7 @@ export default function EmailList({emailData, addEmail}) {
 }
 
 
-const EmailElement= ({id, title, addEmail})=>{
+const EmailElement= ({id, title, addEmail, campaignType})=>{
 
   const [emailSendDate, setEmailSendDate] = useState(null);
  
@@ -27,10 +27,14 @@ const EmailElement= ({id, title, addEmail})=>{
   console.log('email send date', emailSendDate)
 
   const handleAddEmail= ()=>{
+    if(campaignType=='sequence' ){
+      addEmail({id:id, title:title, campaignType:campaignType});
+      return;
+    }
     if (!emailSendDate)return;
     console.log('email send date inside', emailSendDate)
 
-    addEmail({id:id, title:title, sendDate:emailSendDate});
+    addEmail({id:id, title:title, sendDate:emailSendDate,campaignType:campaignType});
 
 
 
@@ -39,9 +43,9 @@ const EmailElement= ({id, title, addEmail})=>{
 
 
   return <div className={styles.emailDiv}>
-            <div className={styles.emailInfoDiv}><span>{id}</span><span>{title}</span></div>
+            <div className={styles.emailInfoDiv}><span className={styles.id}>{id}</span><span>{title}</span></div>
 
-            <DatePicker multiple={false}
+           {campaignType =='campaign' && <DatePicker multiple={false}
             plugins={[
                 <TimePicker format="HH:mm:ss" position="bottom" />
               ]}
@@ -52,9 +56,10 @@ const EmailElement= ({id, title, addEmail})=>{
             format="MM/DD/YYYY HH:mm:ss"  
             className={`bg-dark ${styles.datePicker}`}
     inputClass={styles.dateInput}
-   />
-
-         <button onClick={handleAddEmail}>Add email</button>
+   />}
+      <div className={styles.addEmailWrapper}>
+         <button className={styles.addEmail} onClick={handleAddEmail}>Add email</button>
+         </div>
          </div>
 
   

@@ -8,11 +8,20 @@ import EmailList from './EmailList/EmailList';
 export default function NewCampaign({emailData, setEmailData}) {
 
   const [campaignEmails, setCampaignEmails] = useState([]);
+  const [campaignType, setCampaignType] = useState('campaign');
   const titleRef = useRef();
 
   const router = useRouter();
 
+
+
   console.log('camp emails', campaignEmails);
+
+
+  const handleSelectChange = (e) => {
+    setCampaignType(e.target.value);
+    setCampaignEmails([]);
+  };
 
   let campaignEmailsInputString = useMemo(()=>{
     let inputString=``;
@@ -69,11 +78,18 @@ export default function NewCampaign({emailData, setEmailData}) {
     }
 
     const handleSaveCampaign = async()=>{
+      if(titleRef.current.value=='' || campaignEmails.length==0)return;
+      let sortedCapaignEmails= [...campaignEmails];
+      if(campaignType=='campaign')
+      sortedCapaignEmails=campaignEmails.sort((a, b) => a.sendDate - b.sendDate);
 
-
-      let sortedCapaignEmails= campaignEmails.sort((a, b) => a.sendDate - b.sendDate);
-
-      let newCampaignData = {title:titleRef.current.value, emails:JSON.stringify(sortedCapaignEmails.map((email)=>{return {id:email.id, sendDate:email.sendDate, sent:false}})) };
+      let newCampaignData = {title:titleRef.current.value, campaignType:campaignType, emails:JSON.stringify(sortedCapaignEmails.map((email)=>{
+        if(campaignType=='campaign')
+        return {id:email.id, sendDate:email.sendDate, sent:false}
+        else{return {id:email.id, sent:false}}
+      }))
+      
+      };
 
     
      
@@ -98,12 +114,21 @@ export default function NewCampaign({emailData, setEmailData}) {
   return (
     <div className={styles.mainDiv}>
       <h1>New email campaign</h1>
-
+      <select
+        id="campaignTypeSelect"
+        className={styles.campaignTypeSelect}
+        value={campaignType}
+        onChange={handleSelectChange}
+      >
+         <option value="campaign">Campaign</option>
+        <option value="sequence">Sequence</option>
+       
+      </select>
 
       <input ref={titleRef} className={styles.campaignInput} placeholder='Campaign title'/>
       <input value={campaignEmailsInputString} className={styles.campaignInput} placeholder='Included emails'/>
-      <EmailList emailData={emailData} addEmail={addEmail}/>
-      <button onClick={handleSaveCampaign}>Save campaign</button>
+      <EmailList emailData={emailData} addEmail={addEmail} campaignType={campaignType}/>
+      <button className={styles.saveCampaign} onClick={handleSaveCampaign}>Save campaign</button>
       </div>
 
   )

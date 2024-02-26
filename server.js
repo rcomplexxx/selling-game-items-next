@@ -20,6 +20,7 @@ const campaigns= db.prepare(`SELECT * FROM emailCampaigns`).all();
 console.log('campaigns', campaigns);
 
 campaigns.forEach(campaign=>{
+  if(campaign.campaignType=='sequence')return;
   const emails = JSON.parse(campaign.emails);
   const emailToSend=emails.find(email=>{
     return email.sent==false

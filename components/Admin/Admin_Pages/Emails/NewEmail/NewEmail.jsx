@@ -36,6 +36,10 @@ export default function NewEmail() {
 
 
     const handleSaveEmail = async()=>{
+
+
+      if(titleRef.current.value=='' || emailTextRef.current.value=='')return;
+
       let newEmailData = {title:titleRef.current.value, text:emailTextRef.current.value };
 
     
@@ -77,12 +81,17 @@ export default function NewEmail() {
           event.target.style.height = event.target.scrollHeight + "px";
         }}
         />
+        <div className={styles.newEmailButtons}>
+
         <button className={styles.previewButton} onClick={handlePreviewEmail}>Preview Email</button>
+        <button onClick={handleSaveEmail} className={`${styles.previewButton} ${styles.saveButton}`}>Save Email</button>
+        </div>
+        
       </div>
 
      { previewEmailContent && <><div className={styles.previewContent}>
         {previewEmailContent}
-      </div> <button onClick={handleSaveEmail} className={`${styles.previewButton} ${styles.saveButton}`}>Save Email</button></>}
+      </div> </>}
     </div>
   )
 }
