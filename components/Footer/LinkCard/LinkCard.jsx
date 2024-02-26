@@ -8,7 +8,7 @@ export default function LinkCard({title, children}) {
     
     const mountedRef= useRef(false);
     const cardContentRef=useRef();
-    const maxHeightTimoutAdj = useRef(-);
+    const maxHeightTimoutAdj = useRef();
 
  
 
