@@ -163,7 +163,7 @@ const totalItems= useMemo(()=>{
         <Component {...pageProps} />
       </AppContext.Provider>
 
-      {showNav && <Footer />}
+      {/* {showNav && <Footer />} */}
     </div>
   );
 }
