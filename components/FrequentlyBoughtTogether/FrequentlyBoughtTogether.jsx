@@ -24,7 +24,7 @@ const FreqProduct = ({ productId, variantIndex, onAddToCart }) => {
           alt="Black"
           className={styles.productImage}
           sizes="128px"
-         
+          
         />
       </Link>
       <div className={styles.infoSpaceDiv}>

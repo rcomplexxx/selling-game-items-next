@@ -1,5 +1,3 @@
-const TerserPlugin = require('terser-webpack-plugin');
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
@@ -9,7 +7,11 @@ const nextConfig = {
       optimization: {
         usedExports: true,  // Enable tree shaking by marking unused exports
         minimize: true,     // Enable minification to further reduce bundle size
-    
+        experimental: {
+          optimizeCss: true,
+        },
+
+        
       },
 }
 
