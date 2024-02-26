@@ -73,9 +73,9 @@ export default function ProductPage({ product, images, startReviews, ratingData 
     <>
       
       <div className={styles.productPageDiv}>
-        <div className={styles.media}>
+        {/* <div className={styles.media}>
           <ProductPics productId={product.id} onAddToCart ={ onAddToCart }images={images} variantImageIndex={product.variants && product.variants.find((v)=>{return v.name==variant})?.variantProductImageIndex} />
-        </div>
+        </div> */}
 
         <div className={styles.productInfo}>
           <h1 className={styles.product_title}>{product.name}</h1>
@@ -219,7 +219,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
         </div>
       </div>
 
-      {/* <CustomerReviews product_id={product.id} startReviews={startReviews} ratingData={ratingData} /> */}
+      <CustomerReviews product_id={product.id} startReviews={startReviews} ratingData={ratingData} />
     </>
   );
 }
