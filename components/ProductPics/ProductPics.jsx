@@ -186,8 +186,8 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
               sizes="100vw"
               height={0}
               width={0}
-              priority={index === 0}
-              loading={index===0?'eager':'lazy'}
+              priority={index == 0}
+              loading={index==0?'eager':'lazy'}
               draggable="false"
             />
            {imageIndex==index && <Image

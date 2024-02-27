@@ -16,7 +16,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   
 
   const router = useRouter();
-  const pathname = router.asPath;
+  const pathname = useMemo(()=>{return router.asPath}, router.asPath);
 
   const handleMobileMenuOpen = (event) => {
     setSubMenu(0);
@@ -152,7 +152,6 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                 <div className={styles.subMenuPortal}>
 
 <div
-tabIndex="0"
 id='collectionsDropMenuLink'
 className={`${styles.subMenuTitle} ${styles.linkStyle}`}
 onClick={() => {
