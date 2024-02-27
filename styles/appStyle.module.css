@@ -37,14 +37,14 @@
     /* #2e2e31 */  /* #2e2e31 */
         border-top:1px black solid;
         min-height: var(--size-13);
-        max-height: calc(100vh - var(--size-11));
-        height: fit-content;
+    
+       
   }
 
   .heroImage{
     position: relative;
     width: 100%;
-    height: fit-content;
+    height: max-content;
   
     min-height: var(--size-13);
     max-height: calc(100vh - var(--size-11));
@@ -57,7 +57,7 @@
 
 
 
-  .ticker {
+  /* .ticker {
     background-color: red;
     width: 130%;
     display: flex;
@@ -77,16 +77,16 @@
 
   .ticker__track span{
     margin-right: var(--size-11);
-  }
+  } */
   
-  @keyframes scroll {
+  /* @keyframes scroll {
    0% {
     transform: translateX(100%);
   }
   100% {
     transform: translateX(-160%);
   }
-  } 
+  }  */
 
  
 
