@@ -1,0 +1,117 @@
+.writeReviewDiv{
+    position: relative;
+      width: calc(100% -  var(--size-7));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: var(--size-7) 0;
+    
+    }
+
+    .ratingDiv{
+        position: relative;
+        display: flex;
+        align-items: center;
+      
+    
+    
+        user-select: none;
+        cursor: pointer;
+      }
+
+      .reviewsNumberSpan{
+        margin-bottom: var(--size-1);
+        margin-left: var(--size-3);
+        font-size: var(--font-size-3);
+    
+      }
+
+
+      .plusStyle {
+        height: var(--size-4);
+        width: var(--size-4);
+        padding:0;
+        margin: 0;
+        margin-bottom: var(--size-1);
+        margin-left: var(--size-4);
+        transform:  rotateY(0deg) rotate(-90deg);
+        transform-origin: center;
+     
+       
+      }
+      
+      .plusStyleRotate {
+        transform: rotateY(0deg) rotate(-270deg);
+        transform-origin: center;
+      }
+    
+
+
+      .writeReviewButton{
+        color: white;
+        height: var(--size-8);
+        width: var(--size-11);
+        background-color: transparent;
+        border: 1px solid gray;
+        cursor: pointer;
+        
+       
+        border-radius: 4px;
+      }
+
+
+    @media(max-width: 980px){
+        .writeReviewDiv{
+ 
+            width: calc(100% - var(--size-11));
+            margin: 32px var(--size-3);
+            margin-bottom: var(--size-7);
+           
+          
+          }
+      
+    }
+
+    @media(max-width: 600px){
+    .writeReviewDiv{
+        width: calc(100% - var(--size-8));
+      }
+
+      .reviewsNumberSpan{
+        font-size: var(--font-size-2);
+      }
+    }
+
+      @media(max-width: 480px){
+      .writeReviewDiv{
+        flex-direction: column;
+         justify-content: center;
+         align-items: center;
+        
+      }
+
+      .ratingDiv{
+        margin-left:6px;
+        align-self: flex-start;
+        padding: var(--size-2) 0;
+      }
+
+
+
+      .writeReviewButton{
+        margin-top: var(--size-2);
+        width: calc(100% - var(--size-4));
+      }
+
+      .reviewsNumberSpan{
+        margin-left: var(--size-3);
+      }
+
+      .plusStyle {
+     
+        margin-left: var(--size-4);
+      }
+
+
+       }
+ 
