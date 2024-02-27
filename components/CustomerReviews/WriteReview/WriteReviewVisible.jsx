@@ -47,6 +47,7 @@ export default function WriteReviewVisible({ratingData}) {
 
           <Image
         src={'/images/greaterLess3.png'}
+        loading={'lazy'} alt='Show'
         height={0}
         width={0}
         sizes="12px"

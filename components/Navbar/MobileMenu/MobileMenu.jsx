@@ -160,7 +160,7 @@ window.history.pushState(null, null, router.asPath);
 
 
    
-      <Image id='cancelMobileMenu' height={16} width={16} src='/images/cancelWhite.png' 
+      <Image id='cancelMobileMenu' loading={'lazy'} alt='Cancel' height={16} width={16} src='/images/cancelWhite.png' 
       onClick={()=>{
          clickStabilizerRef.current=true; history.back();
         // setIsMenuOpen(false); 
@@ -227,7 +227,7 @@ window.history.pushState(null, null, router.asPath);
         }}
       >
         <p>Collections</p>
-        <Image height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
+        <Image loading={'lazy'} alt='Go' height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
 
     
@@ -239,7 +239,7 @@ window.history.pushState(null, null, router.asPath);
         }}
       >
         <p>Info</p>
-        <Image height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
+        <Image loading={'lazy'} alt='Go' height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
      
       <span
@@ -270,7 +270,7 @@ window.history.pushState(null, null, router.asPath);
          setSubMenu(0);
        }}
      >
-       <Image height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Info</p>
+       <Image loading={'lazy'} alt='Back' height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Info</p>
      </div>
 
      <span
@@ -379,7 +379,7 @@ window.history.pushState(null, null, router.asPath);
          setSubMenu(0);
        }}
      >
-       <Image height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Collections</p>
+       <Image loading={'lazy'} alt='Back' height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Collections</p>
      </div>
 
 {collections.map((c, index) => {return <span key={index}
