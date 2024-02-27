@@ -226,15 +226,15 @@ export default function ProductPageCards() {
 
       <div className={styles.trustIcons}>
         <div className={styles.trustIcon}>
-          <Image height={0} width={0} sizes="48px" className={styles.trustIconImage} src='/images/truckIcon8.svg' />
+          <Image height={0} width={0} sizes="48px" loading={'lazy'} className={styles.trustIconImage} alt='Free shipping' src='/images/truckIcon8.svg' />
           <span>Free shipping</span>
         </div>
         <div className={styles.trustIcon}>
-          <Image height={0} width={0} sizes="48px" className={styles.trustIconImage} src='/images/packageReturn4.png'/>
+          <Image height={0} width={0} sizes="48px" loading={'lazy'} className={styles.trustIconImage} alt='Free return' src='/images/packageReturn4.png'/>
           <span>Free returns</span>
         </div>
         <div className={styles.trustIcon}>
-          <Image height={0} width={0} sizes="48px" className={styles.trustIconImage} src='/images/guarantee4.png'/>
+          <Image height={0} width={0} sizes="48px" loading={'lazy'} className={styles.trustIconImage} alt='Guarantee' src='/images/guarantee4.png'/>
           <span>30 Days money back guarantee</span>
         </div>
       </div>
