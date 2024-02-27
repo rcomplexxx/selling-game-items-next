@@ -561,9 +561,11 @@ const FullScreenZoomableImage = ({
                       }
                     }}
                   >
-                    <img
+                    <Image
                       id={`fullImage${index}`}
-                      
+                      height={0}
+                      width={0}
+                      sizes="100vw"
                       src={image.src}
                       alt="Zoomable"
                       className={`${styles.productImage}`}
