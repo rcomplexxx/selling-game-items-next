@@ -16,7 +16,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   
 
   const router = useRouter();
-  const pathname = useMemo(()=>{return router.asPath}, router.asPath);
+  const pathname = router.asPath;
 
   const handleMobileMenuOpen = (event) => {
     setSubMenu(0);
