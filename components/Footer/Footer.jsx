@@ -141,15 +141,15 @@ export default function Footer() {
         <div  className={styles.paymentsDivWrapper}>
         <div  className={styles.paymentsDiv}>
       
-           <Image loading={'lazy'} src='/images/cardVisa2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image loading={'lazy'} src='/images/cardMasterCard5.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-           <Image loading={'lazy'} src='/images/cardAmex2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+           <Image loading={'lazy'} src='/images/cardVisa2.svg' alt='Visa' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardMasterCard5.svg' alt='MasterCard' className={styles.payments} height={0} width={0} sizes="72px"/>
+           <Image loading={'lazy'} src='/images/cardAmex2.svg' alt='Amex' className={styles.payments} height={0} width={0} sizes="72px"/>
            
-          <Image loading={'lazy'} src='/images/cardDiscover3.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image loading={'lazy'} src='/images/cardJcb2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image loading={'lazy'} src='/images/cardUnionPay4.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image loading={'lazy'} src='/images/cardPaypalWhite3.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
-            <Image loading={'lazy'} src='/images/cardGpay2.svg' className={styles.payments} height={0} width={0} sizes="72px"/>
+          <Image loading={'lazy'} src='/images/cardDiscover3.svg' alt='Discover' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardJcb2.svg' alt='Jcb' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardUnionPay4.svg' alt='UnionPay' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardPaypalWhite3.svg' alt='Paypal' className={styles.payments} height={0} width={0} sizes="72px"/>
+            <Image loading={'lazy'} src='/images/cardGpay2.svg' alt='Gpay' className={styles.payments} height={0} width={0} sizes="72px"/>
         </div>
         </div>
         <p className={styles.reservedRightsPharagraph}>

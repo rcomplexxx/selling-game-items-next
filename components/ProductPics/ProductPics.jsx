@@ -196,6 +196,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
             />
            {imageIndex==index && <Image
            id={`zoomIn${index}`}
+           alt="Zoom in"
               height={0}
               width={0}
               sizes="20px"
@@ -219,6 +220,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                 width={12}
                 src='/images/greaterLess3.png'
                 loading={'lazy'}
+                alt='Prev'
                 />
             </div>
 
@@ -228,6 +230,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                width={12}
                loading={'lazy'}
                 src='/images/greaterLess3.png'
+                alt='Next'
                 />
             </div>
 

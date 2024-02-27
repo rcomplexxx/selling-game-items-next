@@ -6,11 +6,11 @@ import CustomerReviews from "@/components/CustomerReviews/CustomerReviews.jsx";
 // import Carousel from "react-gallery-carousel";
 // import "react-gallery-carousel/dist/index.css";
 
-import { useState, useContext, useRef } from "react";
+import { useState, useContext} from "react";
 import StarRatings from "react-star-ratings";
 import styles from "../../styles/productpage.module.css";
 
-import Head from "next/head";
+
 import QuantityButton from "@/components/QuantityButton/QuantityButton";
 import FrequentlyBoughtTogether from "@/components/FrequentlyBoughtTogether/FrequentlyBoughtTogether";
 
@@ -198,16 +198,16 @@ export default function ProductPage({ product, images, startReviews, ratingData 
         
 
           <div className={styles.buyBadges}>
-          <Image src='/images/cardVisa2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
-            <Image src='/images/cardMasterCard5.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
-           <Image src='/images/cardAmex2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+          <Image src='/images/cardVisa2.svg' alt='Visa' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardMasterCard5.svg' alt='MasterCard' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+           <Image src='/images/cardAmex2.svg' alt='Amex' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
            
          
           {/* <div id="moreCards" className={styles.moreCards}>+4</div> */}
-            <Image src='/images/cardJcb2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardJcb2.svg' alt='Jcb' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
             
             {/* <Image src='/images/cardGpay2.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/> */}
-            <Image src='/images/cardDiscover3.svg' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
+            <Image src='/images/cardDiscover3.svg' alt='Discover' className={styles.creditCardLogo} height={0} width={0} sizes="72px"/>
           </div>
 
           <FrequentlyBoughtTogether
