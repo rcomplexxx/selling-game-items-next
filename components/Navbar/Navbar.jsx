@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Autosuggest from 'react-autosuggest';
@@ -191,7 +191,6 @@ setSubMenu(subMenu==2?0:2);
                 <div className={styles.subMenuPortal}>
 
                 <div
-       tabIndex="0"
        id='infoDropMenuLink'
        className={`${styles.subMenuTitle} ${styles.linkStyle}`}
        onClick={() => {
