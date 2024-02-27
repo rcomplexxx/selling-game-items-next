@@ -16,7 +16,6 @@ export default function Search({searchOpen, setSearchOpen}){
     const router = useRouter();
     
 
-    const isMounted=useRef(false)
     const searchBoxRef = useRef();
     const searchIconRef = useRef();
     const searchInputRef = useRef();
@@ -33,19 +32,11 @@ export default function Search({searchOpen, setSearchOpen}){
 
 
 
-       if(!isMounted.current) {isMounted.current=true;return;}
-       console.log('proso mount');
-
-
+  
   
 
       
-        const inputElement = document.getElementById('search');
-        if (inputElement) {
-            isMounted.current=false;
-          inputElement.focus();
-        }
-
+     
 
         const handlePopState = (event)=>{
           if(nextLink.current){router.push(nextLink.current); nextLink.current=undefined;}
@@ -67,6 +58,13 @@ export default function Search({searchOpen, setSearchOpen}){
       };
 
       if(searchOpen){
+
+
+        const inputElement = document.getElementById('search');
+        if (inputElement) {
+          inputElement.focus();
+        }
+
 
        
         window.history.pushState(null, null, router.asPath);
