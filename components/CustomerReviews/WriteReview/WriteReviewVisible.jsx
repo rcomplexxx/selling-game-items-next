@@ -13,7 +13,7 @@ const WriteReview = dynamic(() => import('./WriteReview'), {
   });
 
 
-export default function WriteReviewVisible( ratingData) {
+export default function WriteReviewVisible({ratingData}) {
     const [openRatingInfo, setOpenRatingInfo]=useState(false);
     const  [infoDivOpen, setInfoDivOpen] = useState(undefined);
 
