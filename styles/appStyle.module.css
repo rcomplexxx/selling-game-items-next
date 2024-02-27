@@ -1,5 +1,5 @@
 .linkButton{
-    font-weight:700; 
+   
     font-size:var(--font-size-6);
     
     display: flex;
@@ -16,6 +16,7 @@
     z-index: 2;
     position: absolute;
     font-family: var(--hand-writing-font);
+    font-weight: 600; 
   }
 
   .linkButton:hover{
