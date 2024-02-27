@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect,  useMemo, useRef } from "react";
 import { useRouter } from "next/router";
 // import sqlite3 from 'sqlite3';
 
@@ -155,6 +155,8 @@ const totalItems= useMemo(()=>{
       <Head>
       <title>Gamebuff</title>
         <link rel="icon" href="/images/favicon.ico" />
+        {/* <link rel="preconnect" href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap' />
+        <link rel="preconnect" href='https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;400;600&display=swap' /> */}
       </Head>
       {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
       {!removeNavFinal && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
