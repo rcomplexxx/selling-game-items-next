@@ -54,7 +54,7 @@
 @font-face {
   font-family: 'EB Garamond';
   font-weight: 400;
-  src: url('../public/fonts/EB_Garamond/EBGaramond-Regular.woff2') format('woff2');
+  src: url('../public/fonts/EB_Garamond/EBGaramond-Medium.woff2') format('woff2');
 }
 
 @font-face {
