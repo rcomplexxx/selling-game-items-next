@@ -7,9 +7,7 @@ import styles from './writereviewvisible.module.css';
 import dynamic from 'next/dynamic';
 
 
-const WriteReview = dynamic(() => import('./WriteReview'), {
-   ssr:false,
-  });
+const WriteReview = dynamic(() => import('./WriteReview'));
 
 
 export default function WriteReviewVisible({ratingData}) {

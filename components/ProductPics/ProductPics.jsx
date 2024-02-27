@@ -7,9 +7,7 @@ import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 
-const FullScreenZoomableImage = dynamic(() => import('@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages'), {
-  ssr:false,
- });
+const FullScreenZoomableImage = dynamic(() => import('@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages'));
 
 
 export default function ProductPics({ images, onAddToCart, variantImageIndex }) {
