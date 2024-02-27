@@ -218,7 +218,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                 height={12}
                 width={12}
                 src='/images/greaterLess3.png'
-                loading={'lazy'}
+               
                 alt='Prev'
                 />
             </div>
@@ -227,7 +227,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                 <Image 
                height={12}
                width={12}
-               loading={'lazy'}
+             
                 src='/images/greaterLess3.png'
                 alt='Next'
                 />
