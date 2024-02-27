@@ -6,9 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 import RatingInfo from "./RatingInfo/RatingInfo";
 
-export default function WriteReview({  ratingData }) {
-  const [openRatingInfo, setOpenRatingInfo]=useState(false);
-  const [infoDivOpen, setInfoDivOpen] = useState(undefined);
+export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
+ 
+  
   const [rating, setRating] = useState(5);
   const [ratingPage, setRatingPage] = useState(0);
   const [animation, setAnimation] = useState(false);
@@ -21,20 +21,7 @@ export default function WriteReview({  ratingData }) {
   });
   const [errors, setErrors] = useState({ firstName: false, email: false, images5: false });
   
-useEffect(()=>{
 
-   if(infoDivOpen) { 
-    router.beforePopState((state) => {
-      state.options.scroll = false;
-      return true;
-    });
-    document.body.classList.add('hideScroll'); }
-  
-
- 
-   else document.body.classList.remove('hideScroll');
-  
-},[infoDivOpen]);
 
 
   const outAnimationTime = 500;
@@ -168,44 +155,7 @@ useEffect(()=>{
 
   return (
     <>
-      <div className={styles.writeReviewDiv}>
-        <div id="ratingDiv" className={styles.ratingDiv} onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{setOpenRatingInfo(!openRatingInfo)}}>
-          <StarRatings
-            rating={ratingData.rating}
-            starRatedColor="#97892F"
-            numberOfStars={5}
-            starEmptyColor={"#103939"}
-            starHoverColor="orange"
-            starDimension="24px"
-            starSpacing="2px"
-          />
-          <span className={styles.reviewsNumberSpan}>
-            {ratingData.reviewsNumber} reviews
-          </span>
-
-          <Image
-        src={'/images/greaterLess3.png'}
-        height={0}
-        width={0}
-        sizes="12px"
-          className={`${styles.plusStyle} ${
-            openRatingInfo && styles.plusStyleRotate
-          }`}
-        />
-
-            
-
-        </div>
-       <RatingInfo ratingData={ratingData} openRatingInfo={openRatingInfo} setOpenRatingInfo={setOpenRatingInfo}/>
-        <button
-          onClick={() => {
-            setInfoDivOpen(!infoDivOpen);
-          }}
-          className={styles.writeReviewButton}
-        >
-          Write review
-        </button>
-      </div>
+      
 
       {infoDivOpen && (
         <div className={styles.writeReviewPopupDiv}>

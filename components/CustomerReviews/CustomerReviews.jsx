@@ -6,6 +6,7 @@ import ReactHtmlParser from "react-html-parser";
 import Masonry from "react-masonry-css";
 import classNames from "classnames";
 import WriteReview from "./WriteReview/WriteReview";
+import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
 
 function Review({ name, text,  stars, imageNames }) {
   return (
@@ -53,7 +54,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
       <h1>Customer Reviews</h1>
 
       
-    <WriteReview ratingData={ratingData}/>
+   <WriteReviewVisible ratingData={ratingData}/>
 
 
 
