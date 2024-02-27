@@ -13,7 +13,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const router = useRouter();
     const pathname = router.asPath;
     const historyPushMountedRef=useRef(false);
-    // const subMenuEnteredRef=useRef(false);
+    const subMenuEnteredRef=useRef(false);
     const nextLink= useRef();
     const clickStabilizerRef=useRef(false);
 
@@ -67,21 +67,11 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           return;
         }
        
-       if(subMenu!=0 ) {if(isMenuOpen){setSubMenu(0); 
-        window.history.pushState(null, null, router.asPath);
-        history.go(1);}}
+       if(subMenu!=0 ) {if(isMenuOpen){setSubMenu(0); subMenuEnteredRef.current=true; }}
       //  subMenuPopstateStabilizer.current=true;
        else {
-      
-
-
-          // if(subMenu!=0 ) {if(isMenuOpen){setSubMenu(0); subMenuEnteredRef.current=true; }}
-          // //  subMenuPopstateStabilizer.current=true;
-          //  else {
-          //   if(subMenuEnteredRef.current){ window.history.pushState(null, null, router.asPath);
-          //     history.go(1); subMenuEnteredRef.current=false; }
-
-
+        if(subMenuEnteredRef.current){ window.history.pushState(null, null, router.asPath);
+          history.go(1); subMenuEnteredRef.current=false; }
         setIsMenuOpen(false); 
         window?.removeEventListener("popstate", handlePopState);
       }
