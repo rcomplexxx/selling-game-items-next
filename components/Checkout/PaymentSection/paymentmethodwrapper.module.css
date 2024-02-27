@@ -1,7 +1,7 @@
 
 .paymentTitle{
     opacity: 0.9;
-    font-weight: 500;
+    font-weight: 400;
     font-size: var(--font-size-6);
     margin-bottom: 0;
   }
@@ -155,7 +155,7 @@
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 3px;
     font-size: var(--font-size-1);
-    font-weight: 700;
+    font-weight: 600;
     justify-self: flex-start;
     z-index: 15;
 }

@@ -49,7 +49,7 @@ visibility: hidden;
     color: white;
       margin-bottom: var(--size-7);
       margin-top: var(--size-5);
-    font-weight: 500;
+    font-weight: 400;
   }
   
 
@@ -59,7 +59,7 @@ visibility: hidden;
   .subtotalNew{
     color:white;
     font-size: var(--font-size-7); /* Adjust the font size as needed */
-    font-weight: 500; /* You can adjust the font weight */
+    font-weight: 400; /* You can adjust the font weight */
     padding:0;
     margin:0;
    
@@ -132,7 +132,7 @@ visibility: hidden;
     color: white;
     font-size: var(--font-size-5);
     
-    font-weight: 500;
+    font-weight: 400;
    
   }
 

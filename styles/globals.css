@@ -25,8 +25,44 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
  font-family: 'Raleway', sans-serif !important; */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;500;700&display=swap');
+ /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;500;700&display=swap'); */
+
+
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  src: url('../public/fonts/Inter/Inter-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  src: url('../public/fonts/Inter/Inter-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 300;
+  src: url('../public/fonts/Inter/Inter-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-weight: 600;
+  src: url('../public/fonts/Inter/Inter-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-weight: 400;
+  src: url('../public/fonts/EB_Garamond/EBGaramond-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-weight: 500;
+  src: url('../public/fonts/EB_Garamond/EBGaramond-Medium.woff2') format('woff2');
+}
+
 
 
 body{
@@ -44,6 +80,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: var(--font-neutral);
+  font-weight: 400;
   font-variant-numeric: lining-nums;
 -moz-font-feature-settings:"lnum" 1; 
 -moz-font-feature-settings:"lnum=1"; 
@@ -58,6 +95,7 @@ h1{
   font-size: var(--font-size-7);
   margin-bottom: var(--size-8);
   margin-top: var(--size-7);
+  font-weight: 600;
 }
 
 

@@ -211,7 +211,7 @@
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 3px;
     font-size: var(--font-size-4);
-    font-weight: 700;
+    font-weight: 600;
     justify-self: flex-start;
     z-index: 15;
 }
