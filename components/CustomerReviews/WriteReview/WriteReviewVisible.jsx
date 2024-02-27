@@ -8,7 +8,7 @@ import dynamic from 'next/dynamic';
 
 
 const WriteReview = dynamic(() => import('./WriteReview'), {
-   
+   ssr:false,
   });
 
 

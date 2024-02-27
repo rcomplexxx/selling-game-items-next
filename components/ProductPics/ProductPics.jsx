@@ -1,11 +1,15 @@
 import styles from "./productmobilepics.module.css";
 
-import FullScreenZoomableImage from "@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages";
+import dynamic from "next/dynamic";
 import { useCallback, useEffect,   useRef,   useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
+
+const FullScreenZoomableImage = dynamic(() => import('@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages'), {
+  ssr:false,
+ });
 
 
 export default function ProductPics({ images, onAddToCart, variantImageIndex }) {

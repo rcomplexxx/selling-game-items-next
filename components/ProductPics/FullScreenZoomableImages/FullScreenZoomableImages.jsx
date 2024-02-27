@@ -438,7 +438,7 @@ const FullScreenZoomableImage = ({
             }`}
           >
             <div className={styles.pagination}>
-              {imageIndex + 1} / {swiper && swiper.slides.length}
+              {imageIndex + 1} / {swiper && swiper.slides?.length}
             </div>
             <div>
               <Image
