@@ -118,7 +118,7 @@ const totalItems= useMemo(()=>{
   cartProducts.forEach(cp=>{
     s=s+cp.quantity;
   })
-  return s
+  return s;
 },[cartProducts])
 
 
@@ -128,13 +128,14 @@ const totalItems= useMemo(()=>{
  
      
     
-    <div
-      id="hronika"
-      className={`hronika`}
+    <
+     
     >
        <Head>
       <title>Gamebuff</title>
         <link rel="icon" href="/images/favicon.ico" />
+         {/* <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap' />
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;400;600&display=swap' /> */}
         </Head>
        
       
@@ -143,11 +144,13 @@ const totalItems= useMemo(()=>{
 
       
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>
+      <main>
         <Component {...pageProps} />
+        </main>
       </AppContext.Provider>
       
       {showNav && <Footer />}
-    </div>
+    </>
    
      
   
