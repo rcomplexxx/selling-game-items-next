@@ -4,7 +4,6 @@ import productsData from "../../data/products.json";
 import betterSqlite3 from "better-sqlite3";
 import RateLimiter from "@/utils/rateLimiter.js";
 import coupons from '../../data/coupons.json'
-import validateToken from '@/utils/googlePayTokenValidation'
 
 const limiterPerDay = new RateLimiter({
   apiNumberArg: 2,
