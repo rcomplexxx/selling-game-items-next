@@ -118,7 +118,7 @@ const totalItems= useMemo(()=>{
   cartProducts.forEach(cp=>{
     s=s+cp.quantity;
   })
-  return s;
+  return s
 },[cartProducts])
 
 
@@ -128,8 +128,9 @@ const totalItems= useMemo(()=>{
  
      
     
-    <
-     
+    <div
+      id="hronika"
+      className={`hronika`}
     >
        <Head>
       <title>Gamebuff</title>
@@ -144,13 +145,11 @@ const totalItems= useMemo(()=>{
 
       
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>
-      <main>
         <Component {...pageProps} />
-        </main>
       </AppContext.Provider>
       
       {showNav && <Footer />}
-    </>
+    </div>
    
      
   
