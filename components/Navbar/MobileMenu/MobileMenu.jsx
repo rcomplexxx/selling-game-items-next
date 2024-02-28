@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./mobilemenu.module.css";
-import { useState , useEffect, useRef } from "react";
+import {  useEffect, useRef } from "react";
 import collections from '@/data/collections.json'
 import Image from "next/image";
 

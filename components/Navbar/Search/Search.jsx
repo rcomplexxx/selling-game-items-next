@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './search.module.css';
 import collections from '@/data/collections.json'
 import products from '@/data/products.json'
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 

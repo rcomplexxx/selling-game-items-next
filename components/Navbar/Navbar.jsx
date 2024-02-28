@@ -1,13 +1,15 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Autosuggest from 'react-autosuggest';
 import styles from "./navbar.module.css";
 import Image from "next/image";
-import PopupCart from "./PopupCart/PopupCart";
+
 import collections from '@/data/collections.json'
 import Search from "./Search/Search";
 import MobileMenu from "./MobileMenu/MobileMenu";
+import dynamic from "next/dynamic";
+
+const PopupCart = dynamic(() => import('./PopupCart/PopupCart'));
 
 const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
