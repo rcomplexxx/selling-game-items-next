@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./adminhome.module.css";
-// import AdminStatistics from "./AdminStatistics/AdminStatistics";
+import dynamic from "next/dynamic";
+const AdminStatistics = dynamic(()=>{import("./AdminStatistics/AdminStatistics")});
 
 export default function AdminHome() {
   return (
@@ -13,7 +14,7 @@ export default function AdminHome() {
         </div>
       </div>
       <div className={styles.borderLine}></div>
-      {/* <AdminStatistics/> */}
+      <AdminStatistics/>
     </div>
   );
 }
