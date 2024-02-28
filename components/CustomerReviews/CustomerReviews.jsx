@@ -21,7 +21,7 @@ function Review({ name, text,  stars, imageNames }) {
               src={`/images/review_images/${image}`}
               alt="review image"
               loading="lazy"
-              sizes="100vw"
+              sizes="(max-width: 580px) 100vw, (max-width: 700px) 50vw, (max-width: 1200px) 33vw, 25vw"
               className={styles.reviewImage}
             />
           );
