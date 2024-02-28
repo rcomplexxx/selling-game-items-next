@@ -1,5 +1,5 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const withCompression = require('next-compress')();
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const purgecss = require('@fullhuman/postcss-purgecss')
 
 /** @type {import('next').NextConfig} */
