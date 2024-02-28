@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
-import Cards from 'react-credit-cards';
+
 import styles from './stripe.module.css'
-import 'react-credit-cards/es/styles-compiled.css';
 import { useStripe,  CardNumberElement, CardCvcElement, CardExpiryElement} from "@stripe/react-stripe-js"
 import CCInput from './CCInput/CCInput';
 import FloatingBadge from '../FloatingBadge/FloatingBadge';
