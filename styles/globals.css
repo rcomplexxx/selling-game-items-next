@@ -222,9 +222,9 @@ Adore+Modern+Serif
 Playfair+Display
 Cormorant+Garamond */
 
-  --hand-writing-font: 'EB Garamond', serif;
+  --hand-writing-font: var(--font-eb_garamond);
   /* --font-neutral: 'Roboto', sans-serif; */
-  --font-neutral: 'Inter', sans-serif;
+  --font-neutral: var(--font-inter);
   --font-size-1: 12px;
   --font-size-2: 14px;
   --font-size-3: 16px;

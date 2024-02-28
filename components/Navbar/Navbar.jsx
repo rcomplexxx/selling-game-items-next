@@ -9,9 +9,8 @@ import Search from "./Search/Search";
 
 import dynamic from "next/dynamic";
 
-
+// import MobileMenu from "./MobileMenu/MobileMenu";
 const MobileMenu = dynamic(()=> import("./MobileMenu/MobileMenu"));
-
 const PopupCart = dynamic(() => import('./PopupCart/PopupCart'));
 
 const NavBar = ({ totalItems, newProduct, setNewProduct }) => {

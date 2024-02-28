@@ -8,6 +8,7 @@ import AppContext from "@/contexts/AppContext";
 import Footer from "@/components/Footer/Footer";
 import Head from "next/head";
 import EmailFlowPopup from "@/components/EmailFlowPopup/EmailFlowPopup";
+import { inter, eb_Garamond } from "@/utils/fonts";
 
 export default function App({ Component, pageProps }) {
   const [cartProducts, setCartProducts] = useState([]);
@@ -62,7 +63,9 @@ export default function App({ Component, pageProps }) {
     const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
     setCartProducts(storedCartProducts || []);
 
-
+  document.querySelector("html").className=`${inter.variable} ${eb_Garamond.variable}`;
+ 
+ 
 
     return () => {
       router.events.off('routeChangeStart', handleRouteChangeStart);
@@ -110,11 +113,6 @@ export default function App({ Component, pageProps }) {
 
 
 
-
-
-
-
-
 const totalItems= useMemo(()=>{
   let s=0;
   cartProducts.forEach(cp=>{
@@ -124,25 +122,34 @@ const totalItems= useMemo(()=>{
 },[cartProducts])
 
 
+
+
   return (
+ 
+     
+    
     <div
       id="hronika"
       className={`hronika`}
     >
-      <Head>
+       <Head>
       <title>Gamebuff</title>
         <link rel="icon" href="/images/favicon.ico" />
-        {/* <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap' />
-        <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=EB+Garamond:wght@300;400;600&display=swap' /> */}
-      </Head>
+        </Head>
+       
+      
       {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
       {!removeNavFinal && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
 
+      
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>
         <Component {...pageProps} />
       </AppContext.Provider>
-
+      
       {showNav && <Footer />}
     </div>
+   
+     
+  
   );
 }
