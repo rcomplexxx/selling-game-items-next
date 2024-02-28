@@ -86,6 +86,7 @@
     "react-select-country-list": "^2.2.3",
     "react-select-plus": "^1.0.0-rc.3.patch12",
     "slick-carousel": "^1.8.1",
+    "react-slick": "^0.29.0",
     "react-slider": "^2.0.6",
    
     "react-star-rating-component": "^1.4.1",
