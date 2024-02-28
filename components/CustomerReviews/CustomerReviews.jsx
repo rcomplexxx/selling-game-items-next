@@ -5,7 +5,7 @@ import StarRatings from "react-star-ratings";
 import ReactHtmlParser from "react-html-parser";
 import Masonry from "react-masonry-css";
 import classNames from "classnames";
-import WriteReview from "./WriteReview/WriteReview";
+
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
 
 function Review({ name, text,  stars, imageNames }) {
@@ -27,7 +27,7 @@ function Review({ name, text,  stars, imageNames }) {
           );
         })}
 
-      <div className={styles.starDiv}>
+      
         <StarRatings
           rating={parseInt(stars, 10)}
           starRatedColor="#97892F"
@@ -36,7 +36,7 @@ function Review({ name, text,  stars, imageNames }) {
           starDimension="20px"
           starSpacing="2px"
         />
-      </div>
+    
       <p className={styles.reviewText}>{ReactHtmlParser(text)}</p>
       <p className={styles.reviewAuthor}>{name}</p>
     </div>
