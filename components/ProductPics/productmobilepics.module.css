@@ -148,10 +148,7 @@
 
   @media(max-width: 1280px){
 
-    .productPicsWrapper{
-     
-      width: var(--size-15-5);
-    }
+   
     .productPicsFixed{
       width: var(--size-15-5);
     }

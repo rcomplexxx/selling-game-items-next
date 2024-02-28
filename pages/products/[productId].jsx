@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import products from "../../data/products.json";
 import Image from "next/image";
 import AppContext from "@/contexts/AppContext";
@@ -40,7 +40,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
 
   const { cartProducts, setCartProducts, setNewProduct, } = useContext(AppContext);
 
-  const onAddToCart = ( quantity = 1,addedProduct=product, addedVariant=variant) => {
+  const onAddToCart = useCallback(( quantity = 1,addedProduct=product, addedVariant=variant) => {
     const productIndex = cartProducts.findIndex((cp) => cp.id === addedProduct.id && cp.variant===addedVariant);
 
     if (productIndex !== -1) {
@@ -60,13 +60,17 @@ export default function ProductPage({ product, images, startReviews, ratingData 
       setNewProduct(newProduct);
       setCartProducts([...cartProducts, newProduct]);
     }
-  };
+  },[cartProducts, product, variant, ]);
 
   const buyNow = () => {
     router.push(
       `/checkout/buynow?productid=${product.id}${product.variants && `&variant=${variant}`}&quantity=${quantity}`,
     );
   };
+
+  const variantImageIndex = useMemo(()=>{
+    return product.variants && product.variants.find((v)=>{return v.name==variant})?.variantProductImageIndex;
+  },[variant])
   
 
   return (
@@ -74,7 +78,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
       
       <div className={styles.productPageDiv}>
         <div className={styles.media}>
-          <ProductPics productId={product.id} onAddToCart ={ onAddToCart }images={images} variantImageIndex={product.variants && product.variants.find((v)=>{return v.name==variant})?.variantProductImageIndex} />
+          <ProductPics productId={product.id} onAddToCart ={ onAddToCart } images={images} variantImageIndex={variantImageIndex} />
         </div>
 
         <div className={styles.productInfo}>

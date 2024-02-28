@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import styles from "./checkoutinfo.module.css";
 import InputField from "./Input/InputField";
 import CountryInput from "./Input/CountryInput/CountryInput";
@@ -39,7 +39,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
 
 
 
-  const checkFields=()=>{
+  const checkFields=useCallback(()=>{
     let newErrors = {};
     // if(document.getElementById('email').value==='') return actions.reject();
     const testId = (id) => {
@@ -105,7 +105,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
   }
 
   return !errorsExist;
-}
+},[])
 
 
 
@@ -113,7 +113,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
 
  
 
-  const organizeUserData=(paymentMethod, paymentToken)=>{
+  const organizeUserData= useCallback((paymentMethod, paymentToken)=>{
     const email = document.getElementById("email").value;
     const firstName = document.getElementById("firstName").value;
     const lastName = document.getElementById("lastName").value;
@@ -156,7 +156,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
       // Include other payment-related data if required
     };
     return requestData
-  }
+  }, []);
 
  
 

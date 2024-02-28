@@ -147,24 +147,10 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
   return (
     <>
        
-        <div className={`${styles.fixedAddToCartDiv} ${spawnAddToCart && styles.fixedAddToCartDivSpawn}`}>
-          <button className={styles.fixedAddToCart}   onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{onAddToCart()}}>Add to cart</button>
-        </div>
+       
       
 
-      {zoomed && (
-        <FullScreenZoomableImage
-       
-          imageIndex={imageIndex}
-         
-          changeImageIndex={(imageIndex)=>{
-            
-            swiper.slideTo(imageIndex, 0, false);
-            setImageIndex(imageIndex)}}
-          fullScreenChange={fullScreenChange}
-          images={images}
-        />
-      )}
+    
       <div id="productPics" className={styles.productPicsWrapper}>
         <div
           id="productImages"
@@ -294,6 +280,25 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
           
         </div>
       </div>
+
+
+ <div className={`${styles.fixedAddToCartDiv} ${spawnAddToCart && styles.fixedAddToCartDivSpawn}`}>
+          <button className={styles.fixedAddToCart}   onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{onAddToCart()}}>Add to cart</button>
+        </div>
+
+      {zoomed && (
+        <FullScreenZoomableImage
+       
+          imageIndex={imageIndex}
+         
+          changeImageIndex={(imageIndex)=>{
+            
+            swiper.slideTo(imageIndex, 0, false);
+            setImageIndex(imageIndex)}}
+          fullScreenChange={fullScreenChange}
+          images={images}
+        />
+      )}
     </>
   );
 }
