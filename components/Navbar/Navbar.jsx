@@ -6,8 +6,11 @@ import Image from "next/image";
 
 import collections from '@/data/collections.json'
 import Search from "./Search/Search";
-import MobileMenu from "./MobileMenu/MobileMenu";
+
 import dynamic from "next/dynamic";
+
+
+const MobileMenu = dynamic(()=> import("./MobileMenu/MobileMenu"));
 
 const PopupCart = dynamic(() => import('./PopupCart/PopupCart'));
 
@@ -321,7 +324,7 @@ setSubMenu(subMenu==2?0:2);
       </nav>
 
     
-        <MobileMenu isMenuOpen={isMenuOpen} subMenu={subMenu} setSubMenu={setSubMenu} setIsMenuOpen={setIsMenuOpen}/>
+       {isMenuOpen && <MobileMenu isMenuOpen={isMenuOpen} subMenu={subMenu} setSubMenu={setSubMenu} setIsMenuOpen={setIsMenuOpen}/>}
     
     </>
   );

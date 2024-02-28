@@ -3,6 +3,7 @@ import styles from "./mobilemenu.module.css";
 import {  useEffect, useRef } from "react";
 import collections from '@/data/collections.json'
 import Image from "next/image";
+import classNames from "classnames";
 
 export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMenu}){
 
@@ -24,7 +25,14 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       }
 
    
-    
+      const closeMenu = ()=>{ 
+        
+        document.getElementById('mobileMenu').classList.add(styles.menuClosed);
+        setTimeout(()=>{
+        //  .menuClosed
+        
+        setIsMenuOpen(false);
+      },500)};
 
       const handleClickOutside = (event) => {
         // if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;return;}
@@ -47,7 +55,9 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         
        if(clickStabilizerRef.current){
         clickStabilizerRef.current=false;
-        setIsMenuOpen(false);
+
+        closeMenu();
+       
        
         return;
        }
@@ -59,7 +69,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         // }
 
         if( nextLink.current){
-          setIsMenuOpen(false); 
+          closeMenu();
           window?.removeEventListener("popstate", handlePopState);
           router.push(nextLink.current);
           nextLink.current=undefined;
@@ -81,7 +91,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           //     history.go(1); subMenuEnteredRef.current=false; }
 
 
-        setIsMenuOpen(false); 
+          closeMenu();
         window?.removeEventListener("popstate", handlePopState);
       }
        
@@ -143,16 +153,10 @@ window.history.pushState(null, null, router.asPath);
  
 
 
-  //   return <div
-    
-  //   className={`${styles.mobileMenu} ${isMenuClosing && styles.menuCoverDissapear}`
-    
-  //   }
-  //   onClick={handleMobileMenuClose} ${!isMenuOpen && styles.menuClosed}
-  // >
+
     return <div
     id='mobileMenu'
-      className={`${styles.mainMenuCard} ${!isMenuOpen && styles.menuClosed}` }
+      className={`${styles.mainMenuCard}` }
       
     >
       <div className={styles.menuItemsDiv}>
