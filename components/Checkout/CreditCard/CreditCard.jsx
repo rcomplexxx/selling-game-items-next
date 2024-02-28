@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 
 import styles from './creditcard.module.css'
-import 'react-credit-cards/es/styles-compiled.css';
 import CCInput from './CCInput/CCInput';
 import FloatingBadge from '../FloatingBadge/FloatingBadge';
 
