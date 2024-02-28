@@ -30,6 +30,7 @@
     "chart.js": "^4.4.1",
     "chartjs-adapter-moment": "^1.0.1",
     "classnames": "^2.3.2",
+    "compression-next": "^1.0.3",
     "eslint": "^6.8.0",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
