@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "./adminhome.module.css";
-import dynamic from "next/dynamic";
-const AdminStatistics = dynamic(()=>{import("./AdminStatistics/AdminStatistics")});
+import AdminStatistics from "./AdminStatistics/AdminStatistics";
 
 export default function AdminHome() {
   return (
