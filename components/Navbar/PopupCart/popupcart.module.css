@@ -18,7 +18,7 @@
   }
 
   .materialize{
-    max-height:  var(--size-13-5);
+    max-height:  var(--size-14);
     border-bottom: 1px solid rgb(39, 35, 44);
     border-top: 1px solid rgb(39, 35, 44);
     border-left: 1px solid rgb(39, 35, 44);
@@ -71,7 +71,7 @@
     background-color: var(--blue-5);
     color: #fff;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
   }
@@ -89,7 +89,7 @@
     border: 1px solid rgb(159, 160, 92);
     color: #fff;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 4px;
   }
