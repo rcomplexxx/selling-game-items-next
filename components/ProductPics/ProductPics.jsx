@@ -22,6 +22,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
   const router = useRouter();
   const variantImageIndexMountedRef=useRef(false);
+  const fixedAddToCartRef= useRef();
 
   useEffect(() => {
     if(zoomed===undefined){
@@ -64,13 +65,30 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
     const AddToCartEl = document.getElementById("addToCart");
     const  masonryEl = document.getElementById("masonry");
+    
     setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
     
+    let destroyFixedCartTimeout;
    
     const handleScroll = () => {
-   
-      setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
-
+      const shouldSpawn= AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight;
+      
+      if(shouldSpawn){
+        setSpawnAddToCart(true)
+      if(destroyFixedCartTimeout){
+        clearTimeout(destroyFixedCartTimeout);
+        destroyFixedCartTimeout=null;
+      }
+    }
+    else{
+      if(fixedAddToCartRef.current){
+      fixedAddToCartRef.current.style.opacity=0;
+      fixedAddToCartRef.current.style.transform='translateY(100%)';
+      destroyFixedCartTimeout= setTimeout(()=>{
+        setSpawnAddToCart(false);
+      },300)
+    }
+    }
       
     };
 
@@ -279,9 +297,10 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
       </div>
      
 
- <div className={`${styles.fixedAddToCartDiv} ${spawnAddToCart && styles.fixedAddToCartDivSpawn}`}>
-          <button className={styles.fixedAddToCart}   onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{onAddToCart()}}>Add to cart</button>
+ {spawnAddToCart && <div ref={fixedAddToCartRef} className={`${styles.fixedAddToCartDiv}`}
+  onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{onAddToCart()}}>Add to cart
         </div>
+}
 
       {zoomed && (
         <FullScreenZoomableImage

@@ -344,47 +344,39 @@
     .fixedAddToCartDiv{
       position: fixed;
       bottom: 0;
-    
+      background-color: var(--gray-9-elegant);
+      height: var(--size-8);
       width: 100%;
      
      
       display: flex;
       justify-content: center;
       align-items: center;
-     
-      border-top: 1px solid gray;
-      opacity: 0;
-      transform: translateY(100%);
       transition: opacity 0.3s ease, transform 0.3s ease;
-    overflow: hidden;
+      border-top: 1px solid gray;
+      font-size: var(--font-size-1);
+      animation: spawnAddToCart 0.3s ease;
+      cursor: pointer;
     z-index: 10;
      
     }
 
-    .fixedAddToCartDivSpawn{
+
+
+  
+  
+  
+  }
+
+
+  @keyframes spawnAddToCart {
+    0%{
+      opacity: 0;
+      transform: translateY(100%);
+    
+    }
+    100%{
       opacity: 1;
       transform: translatey(0);
     }
-
-  
-    .fixedAddToCart{
-      height: var(--size-8);
-      width: 100%;
-      max-width: var(--size-15);
-  
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      background-color: var(--gray-9-elegant);
-    
-      border: none;
-      border-radius: 0;
-     
-    }
-  
-    .fixedAddToCart:hover{
-      cursor: pointer;
-    }
   }
-
