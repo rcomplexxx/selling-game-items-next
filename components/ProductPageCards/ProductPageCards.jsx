@@ -2,7 +2,6 @@ import Image from "next/image";
 import DropCard from "./DropCard/DropCard";
 import styles from "./productPageCards.module.css";
 import { useRef, useState } from "react";
-import Link from "next/link";
 
 export default function ProductPageCards() {
   const [messageLoading, setMessageLoading]= useState(false);
