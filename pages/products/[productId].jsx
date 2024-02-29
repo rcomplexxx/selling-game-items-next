@@ -77,8 +77,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
       
       <div className={styles.productPageDiv}>
        
-          <ProductPics productId={product.id} onAddToCart ={ onAddToCart } images={images} variantImageIndex={variantImageIndex} />
-      
+     
 
         <div className={styles.productInfo}>
           <h1 className={styles.product_title}>{product.name}</h1>
