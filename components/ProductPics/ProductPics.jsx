@@ -15,7 +15,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
   const [imageIndex, setImageIndex] = useState(0);
   const [zoomed, setZoomed] = useState(undefined);
   
-  const [fixedMedia, setFixedMedia] = useState(0);
+ 
   const [spawnAddToCart, setSpawnAddToCart] = useState(false);
   const [swiper, setSwiper] = useState(null);
   const [swiperMini, setSwiperMini] = useState(null);
@@ -62,24 +62,49 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
     // Check if the element exists
 
-    const productPicsElement = document.getElementById("productPics");
     const AddToCartEl = document.getElementById("addToCart");
     const  masonryEl = document.getElementById("masonry");
     setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
     
-    console.log('mason', masonryEl);
    
-
-
-    const observer = new ResizeObserver((entries) => {
+    const handleScroll = () => {
    
-  
       setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
-    });
 
-    observer.observe(productPicsElement);
+      
+    };
 
+   
+
+    
+
+    // const options = {
+    //   root: null, 
+    //   rootMargin: '0px', 
+    //   threshold: 0, 
+    // };
+    
+    // const observer = new IntersectionObserver((entries, observer) => {
+    //   entries.forEach(entry => {
+    //     if (!entry.isIntersecting && entry.boundingClientRect.y < 0) {
+    //       setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
+    //     }
+    //   });
+    // }, options);
+    
+    // // Start observing the target element
+    // observer.observe(AddToCartEl);
+
+
+
+
+  
+
+    window.addEventListener("scroll", handleScroll);
+   
+     
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
   }, []);
