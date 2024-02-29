@@ -68,48 +68,22 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
     setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
     
     console.log('mason', masonryEl);
-    const productImagesEl=document.getElementById("productImages");
-    const handleScroll = () => {
-      if(!productPicsElement || !productImagesEl) return;
-      const height = productPicsElement.clientHeight;
+   
 
-      setFixedMedia(
-        window.scrollY >= 96
-          ? window.scrollY <=
-            height - productImagesEl.clientHeight + 96
-            ? 1
-            : 2
-          : 0
-      );
-     
-      setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
-
-      
-    };
 
     const observer = new ResizeObserver((entries) => {
    
-      if(!productImagesEl) return;
-      const height = productPicsElement.clientHeight;
-      setFixedMedia(
-        window.scrollY >= 96
-          ? window.scrollY <=
-            height - productImagesEl.clientHeight + 96
-            ? 1
-            : 2
-          : 0
-      );
+  
       setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
     });
 
     observer.observe(productPicsElement);
 
-    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
   }, []);
+  
 
   useEffect(()=>{
     console.log('variant image index', variantImageIndex);
@@ -147,16 +121,14 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
   return (
     <>
        
-       
+   
       
 
     
       <div id="productPics" className={styles.productPicsWrapper}>
         <div
           id="productImages"
-          className={`${fixedMedia == 1 ? styles.productPicsFixed : ""} ${
-            fixedMedia == 2 ? styles.productPicsBot : ""
-          }`}
+          className={styles.productImagesWrapper}
         >
         
         <Swiper  onSwiper={setSwiper} speed={400} slidesPerView='auto' onSlideChange={handleSlideChange}
@@ -280,7 +252,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
           
         </div>
       </div>
-
+     
 
  <div className={`${styles.fixedAddToCartDiv} ${spawnAddToCart && styles.fixedAddToCartDivSpawn}`}>
           <button className={styles.fixedAddToCart}   onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{onAddToCart()}}>Add to cart</button>
@@ -299,6 +271,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
           images={images}
         />
       )}
+     
     </>
   );
 }

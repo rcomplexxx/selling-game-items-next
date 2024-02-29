@@ -21,7 +21,6 @@ import { useRouter } from "next/router";
 import { getReviewsData } from "@/utils/getStartReviews";
 import getRatingData from "@/utils/getRatingData";
 import PayPalButton from "@/components/Checkout/PayPal/PayPal";
-import GooglePay from "@/components/Checkout/GooglePay/GooglePay";
 
 //slickGoTo
 //afterChange(index)=>{}
@@ -77,9 +76,9 @@ export default function ProductPage({ product, images, startReviews, ratingData 
     <>
       
       <div className={styles.productPageDiv}>
-        <div className={styles.media}>
+       
           <ProductPics productId={product.id} onAddToCart ={ onAddToCart } images={images} variantImageIndex={variantImageIndex} />
-        </div>
+      
 
         <div className={styles.productInfo}>
           <h1 className={styles.product_title}>{product.name}</h1>
@@ -148,7 +147,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
 
           <div className={styles.paypalWrapper}>
             <PayPalButton type='instant' color='gold' organizeUserData={
-             (paymentMethod)=>{
+             useCallback((paymentMethod)=>{
                 const email = "";
                 const firstName = "";
                 const lastName = "";
@@ -190,7 +189,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
                 return requestData
               }
             
-          }/>
+  ,[])}/>
           </div>
 
 

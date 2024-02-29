@@ -16,7 +16,6 @@ const FreqProduct = ({ productId, variantIndex, onAddToCart }) => {
     <div className={styles.product_style_div}>
       <Link
         href={`/products/${product.id}`}
-        className={styles.product_style_span}
       >
         <Image
         height={0} width={0}
@@ -27,7 +26,7 @@ const FreqProduct = ({ productId, variantIndex, onAddToCart }) => {
           
         />
       </Link>
-      <div className={styles.infoSpaceDiv}>
+      <div>
         <p className={styles.product_title}>{product.name}</p>
         <p className={styles.product_price}>${product.price}</p>
       </div>
