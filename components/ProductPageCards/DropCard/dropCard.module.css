@@ -13,18 +13,20 @@
 }
 
 .title_div {
+  color: white;
+  background-color: transparent;
   width: 100%;
-    background-color: transparent;
-    border: none;
-    color: white;
+    
+   
+    
     box-sizing: border-box;
     padding: var(--size-5) var(--size-2);
-   
+    border: none;
     display: flex;
     justify-content: space-between;
     font-size: var(--font-size-4);
     
-    font-weight: 500;
+    font-weight: 600;
   }
 
  

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useRef, useState } from "react";
 import DropCard from '../DropCard/DropCard';
 import styles from "./contactcard.module.css";
@@ -20,7 +20,7 @@ export default function ContactCard() {
 
 
   
-    const handleSubmit = async () => {
+    const handleSubmit = useCallback( async () => {
         if(messageSent)return;
         console.log("submite Starter.");
         setMessageLoading(true);
@@ -78,7 +78,7 @@ export default function ContactCard() {
         } catch (error) {
           console.error("Error sending question:", error);
         } finally{setMessageLoading(false);}
-      };
+      },[messageSent]);
     
 
 
@@ -91,25 +91,23 @@ export default function ContactCard() {
 
 
 
-  return (  <DropCard dropCardId={'3'} title="Ask a question"  contactCard={true}>
+  return (  <DropCard dropCardId={'3'} title="Ask a question" icon='chatIcon6.png'  contactCard={true}>
     
 
 
       
         
 
-    <div className={styles.mainDiv}>
-        {/* <p className={styles.getInTouch}>
-         
-         For any question or enquiry, feel free to contact our helpful Customer Service team.
-          </p> */}
+    <div className={styles.mainContactDiv}>
+        
+        
 
           <p className={styles.getInTouch}><b>Please note</b>, normal response time is 1 - 2 days. Please be patient, we answer all questions as quickly as possible.</p>
           <div className={styles.contactInfoDiv}>
             
-            <div className={styles.infoDiv}>
+            
               <div className={styles.inputGroup}>
-                <label>Name</label>
+                <label className={styles.contactLabel}>Name</label>
                 <input
                   id="name"
                   placeholder="Write your name here"
@@ -121,7 +119,7 @@ export default function ContactCard() {
               </div>
 
               <div className={styles.inputGroup}>
-                <label>Email</label>
+                <label className={styles.contactLabel}>Email</label>
                 <input
                 placeholder="Write your email here"
                   id="email"
@@ -132,10 +130,10 @@ export default function ContactCard() {
                 
                 {contactErrors.email && <span className={styles.contactError}>{contactErrors.email}</span>}
               </div>
-            </div>
+          
           </div>
           <div className={styles.messageField}>
-            <label>Question</label>
+            <label className={styles.messageLabel}>Question</label>
             <textarea
             placeholder="Write your question here"
               ref={messageRef}

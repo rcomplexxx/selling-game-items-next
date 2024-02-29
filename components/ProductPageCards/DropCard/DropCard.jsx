@@ -68,29 +68,28 @@ export default function DropCard(props) {
   return (
     <div className={styles.dropDiv}>
       <button className={styles.title_div} onClick={summonAnswer}>
-        <div className={styles.titleStyleDiv}>
-        <Image height={16} width={16} sizes="16px" loading="lazy" src={`/images/${props.title=='Description'?'description_icon6':
-      props.title=='Key features'?'keyIcon7':props.title=='Shipping & Returns'?'shippingReturnIcon2'
-      :props.title=='Ask a question'?'chatIcon6':'description'
-      }.png`} className={styles.cardIcon}/>
+        <div>
+        <Image height={16} width={16} sizes="16px" loading="lazy" src={`/images/${props.icon}`} className={styles.cardIcon}/>
         {props.title}
         </div>
         <Image
         src={'/images/greaterLess3.png'}
         height={16}
         width={16}
+        alt='Show card'
+        loading={'lazy'}
           className={`${styles.plusStyle} ${
             showAnswer ? styles.plusStyleRotate : ""
           }`}
         />
          
       </button>
+
+      
       <div
       id={`dropCardAnswer${props.dropCardId}`}
       ref={dropCardAnswerRef}
-        className={`${styles.emerge} ${
-          showAnswer && props.contactCard && styles.borderRad
-        }`}
+        className={`${styles.emerge}`}
       >
         {props.children}
       </div>

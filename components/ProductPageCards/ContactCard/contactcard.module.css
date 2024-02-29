@@ -1,10 +1,8 @@
-.mainDiv{
+.mainContactDiv{
     display: flex;
     flex-direction: column;
   
-    /* border: 1px solid #b1b1b17a;
-    border-bottom: none; */
-    /* border-radius: 8px; */
+  
     padding: var(--size-2) 0;
 }
 
@@ -14,7 +12,10 @@
 }
 
 .contactInfoDiv{
-    width: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
@@ -43,13 +44,6 @@
     margin-left: 6px;
 }
 
-.infoDiv{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    
-}
-
 
 
 .inputGroup{
@@ -62,14 +56,15 @@
 }
 
 
-.inputGroup label{
+
+.contactLabel{
     margin-left: var(--size-1);
     margin-bottom: var(--size-1);
     
     font-family: var(--font-neutral);
 }
 
-.inputGroup input{
+.contactInput{
     height: 28px;
     width: 100%;
     color: white;
@@ -81,13 +76,17 @@
     outline: none;
 }
 
-.inputGroup input::placeholder{
-  
-}
+.contactInput:focus{
+    border: 1px solid   gray;
+ }
+ 
 
-.inputGroup input:focus{
-   border: 1px solid   gray;
-}
+
+
+
+
+
+
 
 
 
@@ -105,12 +104,12 @@
    
    
 
-    box-sizing: border-box;
+   
     border-radius: 8px;
    
 }
 
-.messageField label{
+.messageLabel{
     margin-left: var(--size-1);
     margin-bottom: var(--size-1);
     font-family: var(--font-neutral);
@@ -148,18 +147,19 @@
 }
 
 .sendButton{
-   
-    width: var(--size-10);
-    height: var(--size-7);
-    border: none;
-    border-radius: 12px;
     color: rgba(255, 255, 255, 0.9);
     background-color: var(--action-button-bg-color);
+    width: var(--size-10);
+    height: var(--size-7);
+  
+   
     /* color:white;
     background-color: #202020; */
   
     margin-right: var(--size-4);
     margin-bottom: var(--size-4);
+    border: none;
+    border-radius: 12px;
     font-family: var(--font-neutral);
     align-self: flex-end;
 }

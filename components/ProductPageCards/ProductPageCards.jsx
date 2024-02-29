@@ -8,7 +8,7 @@ export default function ProductPageCards() {
 
   return (
     <>
-      <DropCard dropCardId={'0'} title="Description">
+      <DropCard dropCardId={'0'} title="Description" icon="description_icon6.png">
         <div className={styles.descriptionDiv}>
           <p>
             Satisfy your cat’s natural instincts to scratch, perch, play, and
@@ -59,7 +59,7 @@ export default function ProductPageCards() {
         </div>
       </DropCard>
 
-      <DropCard dropCardId={'1'} title="Key features">
+      <DropCard dropCardId={'1'} title="Key features" icon='keyIcon7.png'>
         <div className={styles.descriptionDiv}>
          
           <ul>
@@ -81,7 +81,7 @@ export default function ProductPageCards() {
           </ul>
         </div>
       </DropCard>
-      <DropCard dropCardId={'2'} title="Shipping & Returns">
+      <DropCard dropCardId={'2'} title="Shipping & Returns" icon='shippingReturnIcon2.png'>
         <div className={styles.descriptionDiv}>
           <p>
             THIS PRODUCT SHIPS FREE TO CONTINENTAL USA. A SAVINGS OF OVER $75!
