@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect} from "react";
 import { useRouter } from "next/router";
 import products from "../../../data/products.json";
 import Products from "@/components/Products/Products.jsx";
@@ -13,7 +13,7 @@ const ProductPage = ({  pageId, products, links }) => {
 
   const router = useRouter();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (pageId === 1) {
       router.push("/products"); // Perform the redirect
     }

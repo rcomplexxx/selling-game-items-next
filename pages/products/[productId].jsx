@@ -218,7 +218,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
             onAddToCart={onAddToCart}
           />
 
-         
+          <ProductPageCards />
         </div>
       </div>
 
