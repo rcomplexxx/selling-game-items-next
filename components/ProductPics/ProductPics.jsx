@@ -94,7 +94,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
     
     // // Start observing the target element
     // observer.observe(AddToCartEl);
-
+    // observer.disconnect();
 
 
 
@@ -105,7 +105,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
      
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
+     
     };
   }, []);
   

@@ -83,13 +83,17 @@
 
 }
 
+html{
+  margin: 0 auto;
+  
+}
 
 body{
   color:var(--yellow-white);
  background-color: var(--gray-9-elegant);
 
   min-height: 100%;
- 
+  width: 100%;
  
 
   
