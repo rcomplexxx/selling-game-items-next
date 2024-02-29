@@ -11,6 +11,49 @@ const PayPalButton=({checkFields, organizeUserData, method='paypal',  type='norm
 
   const router = useRouter();
 
+  const organizeUserDataFinal= type=='instant'?()=>{
+   
+       const email = "";
+       const firstName = "";
+       const lastName = "";
+       const address = "";
+       const apt = "";
+       const country = "";
+       const zipcode = "";
+       const state = "";
+       const city = "";
+       const phone = "";
+      
+       const items=[{
+         id: product.id,
+         quantity: quantity,  
+         variant: variant
+       }];
+      
+       const requestData = {
+         order: {
+           email,
+           firstName,
+           lastName,
+           address,
+           apt,
+           country,
+           zipcode,
+           state,
+           city,
+           phone,
+           discountCode: "",
+           tip: 0,
+           items:items ,
+         },
+         paymentMethod: paymentMethod,
+         paymentToken: undefined
+   
+         // Include other payment-related data if required
+       };
+       return requestData;
+   }:organizeUserData;
+
 
 
     const handlePayPalButtonClick =  async(data, actions) => {
@@ -43,7 +86,7 @@ const PayPalButton=({checkFields, organizeUserData, method='paypal',  type='norm
         try {
 
           console.log('creating order');
-          let requestData = organizeUserData(type=="normal"?"PAYPAL":(type=="express"?"PAYPAL(EXPRESS)":"PAYPAL(INSTANT)"));
+          let requestData = organizeUserDataFinal(type=="normal"?"PAYPAL":(type=="express"?"PAYPAL(EXPRESS)":"PAYPAL(INSTANT)"));
           const discEle = document.getElementById("discountCode");
           if(discEle){
             console.log('discount exists', discEle.innerText)
