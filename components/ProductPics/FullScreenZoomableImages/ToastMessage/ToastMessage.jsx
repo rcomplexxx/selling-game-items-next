@@ -9,12 +9,12 @@ export default function ToastMessage({showToastMessage, setShowToastMessage}) {
 
     useEffect(()=>{
 
-        console.log('Hello', showToastMessage)
-
+       
         const toast = toastRef.current;
 
+
         if(showToastMessage==1){
-        global.toastMessageShowable=true;
+         global.toastMessageNotShowable=true;
 
         toastTimeout.current= setTimeout(()=> {
            
@@ -23,8 +23,8 @@ export default function ToastMessage({showToastMessage, setShowToastMessage}) {
             toast.classList.add(styles.dissapearingToast);      
       
             setTimeout(()=>{
-              setShowToastMessage(0);
-              clearTimeout(toastTimeout.current);
+              setShowToastMessage(2);
+              
             },500);
             
             
@@ -32,18 +32,22 @@ export default function ToastMessage({showToastMessage, setShowToastMessage}) {
           },
           4500);
         }
+
+
+
+
         else if(showToastMessage==2){
 
             clearTimeout(toastTimeout.current);
-
-            setTimeout(()=>{
+          
                
                 if(toast){
-                
-                toast.classList.add(styles.dissapearingToast);  
+                    toast.classList.add(styles.dissapearingToast); 
+
+                 
                 setTimeout(()=>{setShowToastMessage(0)},300)    
                 } 
-              },300)
+            
         }
 
         else if(showToastMessage==3){

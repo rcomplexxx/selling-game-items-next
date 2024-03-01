@@ -234,7 +234,7 @@ const FullScreenZoomableImage = ({
 
         const lastTouch = event.changedTouches[0];
         if (currY < -128 || currY > 128) {
-          if(showToastMessage>0)
+      
            setShowToastMessage(2);
           killFullScreen(currY);
         } else {
@@ -386,7 +386,7 @@ const FullScreenZoomableImage = ({
       },
       zoomed ? 300 : 0
     );
-  },[zoomed, ToastMessage, imageIndex]);
+  },[zoomed, showToastMessage, imageIndex]);
 
 
  
