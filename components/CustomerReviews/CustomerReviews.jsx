@@ -20,7 +20,7 @@ function Review({ name, text,  stars, imageNames }) {
               width={0}
               src={`/images/review_images/${image}`}
               alt="review image"
-              loading="lazy"
+              loading={"lazy"}
               sizes="(max-width: 580px) 100vw, (max-width: 700px) 50vw, (max-width: 1200px) 33vw, 25vw"
               className={styles.reviewImage}
             />
@@ -44,10 +44,122 @@ function Review({ name, text,  stars, imageNames }) {
 }
 
 export default function CustomerReviews({ product_id, ratingData, startReviews }) {
+ 
   const [reviews, setReviews] = useState(startReviews ? startReviews : []);
-  const newReviews = useRef([]);
+  const newReviews = useRef(startReviews ? startReviews : []);
   const [loadButtonExists, setLoadButtonExists] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+
+
+
+  const handleShowMore= async () => {
+    if (isLoading) {
+      // Prevent multiple clicks while the operation is in progress
+      return;
+    }
+
+    setIsLoading(true);
+    console.log('Review info before', newReviews.current, ' | ', reviews);
+
+    try {
+
+
+      let currentReviewLength= reviews.length;
+      const index = newReviews.current.findIndex(
+        (review) => review.id === reviews[reviews.length - 1].id,
+      );
+
+
+        
+        
+      if(index < newReviews.current.length-9){
+       
+          setReviews([
+            ...reviews,
+            ...newReviews.current.slice(index + 1, index + 9),
+          ]);
+          currentReviewLength= currentReviewLength + 8;
+        }
+     
+
+          
+        
+
+      
+
+        //index != newReviews.current.length - 1 je stavljeno cisto onako, mozda izbaciti
+       
+        
+      
+
+    else{
+
+      const response = await fetch("/api/getreviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          product_id: product_id,
+          starting_position: currentReviewLength,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+
+     
+
+
+
+       
+        if (data.reviews.length === 0) 
+        {
+          setReviews([
+            ...reviews,
+            ...newReviews.current.slice(index+1, newReviews.current.length)
+          ]);
+          setLoadButtonExists(false);
+        
+        }
+
+
+    
+
+
+
+        setReviews([
+          ...reviews,
+          ...data.reviews.slice(0,8)
+        ]);
+
+      
+
+        newReviews.current = [...data.reviews.slice(8,data.reviews.length)]; // Load 6 more reviews
+   
+
+      
+      } else {
+        throw new Error("Network response was not ok.");
+      }
+    } 
+    
+  }catch (error) {
+      console.error("Error loading reviews:", error);
+    } finally {
+      setIsLoading(false); // Reset loading state regardless of success or failure
+    }
+  }
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className={styles.mainDiv} id="customerReviews">
@@ -92,61 +204,9 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
         <button
        
           className={styles.showMoreButton}
-          onClick={async () => {
-            if (isLoading) {
-              // Prevent multiple clicks while the operation is in progress
-              return;
-            }
-
-            setIsLoading(true);
-
-            try {
-              if (newReviews.current.length > 0) {
-                const index = newReviews.current.findIndex(
-                  (review) => review.id === reviews[reviews.length - 1].id,
-                );
-
-                if (index !== 31 && index != newReviews.current.length - 1) {
-                  setReviews((prevReviews) => [
-                    ...prevReviews,
-                    ...newReviews.current.slice(index + 1, index + 9),
-                  ]);
-                  return;
-                }
-              }
-
-              const response = await fetch("/api/getreviews", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  product_id: product_id,
-                  starting_position: reviews.length - 20,
-                }),
-              });
-
-              if (response.ok) {
-                const data = await response.json();
-                if (data.reviews.length === 0) setLoadButtonExists(false);
-
-                newReviews.current = [...data.reviews]; // Load 6 more reviews
-
-                setReviews((prevReviews) => [
-                  ...prevReviews,
-                  ...newReviews.current.slice(0, 8),
-                ]); // Append the new reviews to the existing ones
-              } else {
-                throw new Error("Network response was not ok.");
-              }
-            } catch (error) {
-              console.error("Error loading reviews:", error);
-            } finally {
-              setIsLoading(false); // Reset loading state regardless of success or failure
-            }
-          }}
+          onClick={handleShowMore}
         >
-          Show More
+          {isLoading?"Loading...":"Show More"}
         </button>
       )}
     </div>

@@ -31,6 +31,8 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
      
       return;
     }
+
+    
     if (zoomed) {
       if(!router.asPath.includes("#zoom"))router.push(router.asPath + "#zoom");
 

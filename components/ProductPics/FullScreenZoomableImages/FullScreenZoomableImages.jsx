@@ -232,8 +232,7 @@ const FullScreenZoomableImage = ({
 
         const lastTouch = event.changedTouches[0];
         if (currY < -128 || currY > 128) {
-          if(showToastMessage>0)
-           setShowToastMessage(2);
+        
           killFullScreen(currY);
         } else {
           if (currY > 16 || currY < -16) {//
@@ -290,7 +289,7 @@ const FullScreenZoomableImage = ({
       window.removeEventListener("touchmove", handleTouchYMove, true);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [imageIndex,zoomed, showToastMessage]);
+  }, [imageIndex,zoomed]);
 
 
 
@@ -303,9 +302,14 @@ const FullScreenZoomableImage = ({
   
     if (zoomed) swiper.zoom.toggle();
 
-    
-    if(showToastMessage>0)
-    setShowToastMessage(2);
+    if(global.toastMessageNotShowable ){
+    if(currY!=0){
+      
+      setShowToastMessage(2);
+    }
+    else
+    setShowToastMessage(3);
+    }
 
 
 
@@ -381,7 +385,7 @@ const FullScreenZoomableImage = ({
       },
       zoomed ? 300 : 0
     );
-  },[zoomed, imageIndex, showToastMessage]);
+  },[zoomed, imageIndex]);
 
 
  
