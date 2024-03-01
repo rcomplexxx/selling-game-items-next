@@ -1,11 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./fullscreenzoomableimage.module.css";
-import { Zoom, Navigation } from "swiper/core";
+import { Zoom } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/zoom";
 
-import "swiper/css/navigation";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import ToastMessage from "./ToastMessage/ToastMessage";
@@ -30,7 +29,7 @@ const FullScreenZoomableImage = ({
  
 
   const fixedZoomDivRef= useRef();
-  const firstImageRef= useRef();
+  const fullImageRef= useRef();
 
  
   const routeMounted=useRef(false)
@@ -44,7 +43,7 @@ const FullScreenZoomableImage = ({
 
     const mainImg = document.getElementById(`mainImage${imageIndex}`);
 
-    const fullImg = document.getElementById(`fullImage${imageIndex}`);
+    const fullImg = fullImageRef.current;
     const biggerWidth =
       (window.innerHeight - 48) / window.innerWidth >
       fullImg.naturalHeight / fullImg.naturalWidth;
@@ -319,9 +318,9 @@ const FullScreenZoomableImage = ({
 
 
 
-    const timeoutIdMain = setTimeout(
+    setTimeout(
       function () {
-        const fullImg = document.getElementById(`fullImage${imageIndex}`);
+        const fullImg = fullImageRef.current;
         const mainImg = document.getElementById(`mainImage${imageIndex}`);
         const biggerWidth =
           (window.innerHeight - 48) / window.innerWidth >
@@ -364,18 +363,21 @@ const FullScreenZoomableImage = ({
             currY
           : distanceDifference;
 
-        if (matchMedia("(pointer:fine)").matches && window.innerWidth > 980) {
+
+
+          // if (matchMedia("(pointer:fine)").matches && window.innerWidth > 980) {
       
 
-          mainImg.style.opacity = "0";
+          //   mainImg.style.opacity = "0";
+  
+          //   setTimeout(() => {
+          //     mainImg.style.opacity = "1";
+             
+          //   }, 300);
+          // }
 
-          setTimeout(() => {
-            mainImg.style.opacity = "1";
-           
-          }, 300);
-        }
-
-        //doraditi
+      
+          //doraditi
         document
           .getElementsByClassName(styles.leftArrow)[0]
           .classList.remove(styles.arrowSpawn);
@@ -397,13 +399,14 @@ const FullScreenZoomableImage = ({
 
         setNavLocked(true);
         document.body.classList.remove("hideScroll");
-        const timeoutId = setTimeout(function () {
+
+        setTimeout(function () {
           fullScreenChange(false);
 
-          clearTimeout(timeoutId);
+      
         }, 300);
 
-        clearTimeout(timeoutIdMain);
+       
       },
       zoomed ? 300 : 0
     );
@@ -414,13 +417,11 @@ const FullScreenZoomableImage = ({
 
 
   return (
-    <>
+  
       <div ref={fixedZoomDivRef} className={styles.full_screen_container}>
-        {/* document.addEventListener("mousemove", handleUserInteraction);
-  document.addEventListener("click", handleUserInteraction);
-  document.addEventListener("touchstart", handleUserInteraction); */}
- {showToastMessage!=0 && <ToastMessage showToastMessage={showToastMessage} setShowToastMessage={setShowToastMessage}/>}
-        <div className={styles.spaceController}>
+ 
+
+      
           <div
             className={`${styles.closeSuiter} ${
               !navLocked && navActive ? styles.navActive : styles.navInactive
@@ -497,18 +498,19 @@ const FullScreenZoomableImage = ({
               setZoomed(!zoomed);
             }}
             onSlideChange={(swiper) => {
-              if (zoomed) swiper.zoom.out();
+              if (zoomed) {swiper.zoom.out();
               setZoomed(false);
+              }
               changeImageIndex(swiper.activeIndex);
             }}
             onSwiper={setSwiper}
-            modules={[Zoom, Navigation]}
+            modules={[Zoom]}
             className={styles.productImageSwiper}
             grabCursor={true}
           >
             {images.map((image, index) => (
               <SwiperSlide
-                id={`slide${index}`}
+               
                 key={index}
                 className="carousel-item"
               >
@@ -552,7 +554,7 @@ const FullScreenZoomableImage = ({
                   >
                     <Image
                       id={`fullImage${index}`}
-                      ref={index==imageIndex?firstImageRef:undefined}
+                      ref={index==imageIndex?fullImageRef:undefined}
                       height={0}
                       width={0}
                       sizes="100vw"
@@ -566,9 +568,10 @@ const FullScreenZoomableImage = ({
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        
+        {showToastMessage!=0 && <ToastMessage showToastMessage={showToastMessage} setShowToastMessage={setShowToastMessage}/>}
       </div>
-    </>
+  
   );
 };
 
