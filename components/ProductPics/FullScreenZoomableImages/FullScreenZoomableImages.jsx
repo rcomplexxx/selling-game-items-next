@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./fullscreenzoomableimage.module.css";
 import { Zoom, Navigation } from "swiper/core";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -300,11 +300,17 @@ const FullScreenZoomableImage = ({
   }, [imageIndex,zoomed]);
 
 
+  useEffect(() => {
+    if (routeMounted.current && !router.asPath.includes("#zoom")) ;
+    
+    routeMounted.current=true;
+  }, [router.asPath]);
+
 
 
   
 
-  const killFullScreen = (currY = 0) => {
+  const killFullScreen = useCallback((currY = 0) => {
   
     if (zoomed) swiper.zoom.toggle();
 
@@ -401,16 +407,10 @@ const FullScreenZoomableImage = ({
       },
       zoomed ? 300 : 0
     );
-  };
+  },[zoomed, ToastMessage, imageIndex]);
 
 
-  useEffect(() => {
-    if (routeMounted.current && !router.asPath.includes("#zoom")) ;
-    
-    routeMounted.current=true;
-  }, [router.asPath]);
-
-
+ 
 
 
   return (

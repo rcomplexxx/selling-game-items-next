@@ -154,12 +154,16 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
  
 
-  const fullScreenChange = (index) => {
-    setImageIndex(index);
-    swiper.slideTo(index);
-     swiperMini.slideTo(index - 1);
+  const fullScreenChange = useCallback(() => {
+    
     setZoomed(false);
-  };
+  },[]);
+
+
+  const handleChangeImage = useCallback((imageIndex)=>{
+            
+    swiper.slideTo(imageIndex, 0, false);
+    setImageIndex(imageIndex)},[swiper])
 
   return (
     <>
@@ -307,10 +311,8 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
        
           imageIndex={imageIndex}
          
-          changeImageIndex={(imageIndex)=>{
+          changeImageIndex={handleChangeImage}
             
-            swiper.slideTo(imageIndex, 0, false);
-            setImageIndex(imageIndex)}}
           fullScreenChange={fullScreenChange}
           images={images}
         />
