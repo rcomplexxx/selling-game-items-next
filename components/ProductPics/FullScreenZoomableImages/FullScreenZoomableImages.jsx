@@ -26,6 +26,7 @@ const FullScreenZoomableImage = ({
   const [zoomed, setZoomed] = useState(false);
   const [swiper, setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({ x: 0, y: 0 });
+  const [arrowDissapear, setArrowDissapear] = useState(false);
  
 
   const fixedZoomDivRef= useRef();
@@ -72,12 +73,7 @@ const FullScreenZoomableImage = ({
     fixedZoomDiv.style.transition = "background-color 0.2s 0.01s ease";
     fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 1)`;
 
-    document
-      .getElementsByClassName(styles.leftArrow)[0]
-      .classList.add(styles.arrowSpawn);
-    document
-      .getElementsByClassName(styles.rightArrow)[0]
-      .classList.add(styles.arrowSpawn);
+ 
 
     const deltaX = biggerWidth
       ? 0
@@ -365,31 +361,11 @@ const FullScreenZoomableImage = ({
 
 
 
-          // if (matchMedia("(pointer:fine)").matches && window.innerWidth > 980) {
+       
+      
       
 
-          //   mainImg.style.opacity = "0";
-  
-          //   setTimeout(() => {
-          //     mainImg.style.opacity = "1";
-             
-          //   }, 300);
-          // }
-
-      
-          //doraditi
-        document
-          .getElementsByClassName(styles.leftArrow)[0]
-          .classList.remove(styles.arrowSpawn);
-        document
-          .getElementsByClassName(styles.rightArrow)[0]
-          .classList.remove(styles.arrowSpawn);
-        document
-          .getElementsByClassName(styles.leftArrow)[0]
-          .classList.add(styles.arrowSpawnReverse);
-        document
-          .getElementsByClassName(styles.rightArrow)[0]
-          .classList.add(styles.arrowSpawnReverse);
+          setArrowDissapear(true)
 
         fullImg.style.transformOrigin = "top center";
         fullImg.style.transition = "transform 0.3s ease";
@@ -469,7 +445,7 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slidePrev();
             }}
-            className={`${styles.leftArrow} ${
+            className={`${styles.leftArrow} ${arrowDissapear?styles.arrowSpawnReverse:styles.arrowSpawn} ${
               !matchMedia("(pointer:fine)").matches && styles.noArrow
             }`}
           ></Image>
@@ -480,7 +456,7 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slideNext();
             }}
-            className={`${styles.rightArrow} ${
+            className={`${styles.rightArrow} ${arrowDissapear?styles.arrowSpawnReverse:styles.arrowSpawn} ${
               !matchMedia("(pointer:fine)").matches && styles.noArrow
             }`}
           ></Image>

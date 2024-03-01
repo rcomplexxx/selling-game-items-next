@@ -148,7 +148,7 @@
 
 
  .arrowSpawn{
-  animation: spawnArrow 0.2s 0.01s ease;
+  animation: spawnArrow 0.2s 0.01s ease forwards;
  }
  
  .arrowSpawnReverse{
