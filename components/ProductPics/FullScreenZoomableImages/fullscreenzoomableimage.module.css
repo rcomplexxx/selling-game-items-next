@@ -92,15 +92,14 @@
     position: absolute;
     top: calc(50% + 24px);
     left: 16px;
-    height: 12px;
-    width: 12px;
+  
     background-color: rgba(27, 60, 73, 0.501);
     padding: 8px;
     border-radius: 4px;
     transform: translateY(-50%);
     z-index: 8;
     cursor: pointer;
- 
+    animation: spawnArrow 0.2s 0.01s ease forwards;
   }
 
   @media (hover: hover) {
@@ -115,17 +114,11 @@
   }
 
   .rightArrow{
-    position: absolute;
-    top: calc(50% + 24px);
+    left: 0;
     right: 16px;
-    height: 12px;
-    width: 12px;
-    background-color: rgba(27, 60, 73, 0.501);
-    padding: 8px;
-    border-radius: 4px;
-    z-index: 8;
+  
     transform: translateY(-50%) rotate(180deg);
-    cursor: pointer;
+
   
  
    
@@ -147,9 +140,7 @@
 
 
 
- .arrowSpawn{
-  animation: spawnArrow 0.2s 0.01s ease forwards;
- }
+
  
  .arrowSpawnReverse{
   animation: killArrow 0.2s 0.01s ease forwards;

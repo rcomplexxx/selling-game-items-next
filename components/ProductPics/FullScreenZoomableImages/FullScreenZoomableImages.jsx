@@ -445,7 +445,7 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slidePrev();
             }}
-            className={`${styles.leftArrow} ${arrowDissapear?styles.arrowSpawnReverse:styles.arrowSpawn} ${
+            className={`${styles.leftArrow} ${arrowDissapear && styles.arrowSpawnReverse} ${
               !matchMedia("(pointer:fine)").matches && styles.noArrow
             }`}
           ></Image>
@@ -456,7 +456,7 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slideNext();
             }}
-            className={`${styles.rightArrow} ${arrowDissapear?styles.arrowSpawnReverse:styles.arrowSpawn} ${
+            className={`${styles.leftArrow} ${styles.rightArrow} ${arrowDissapear && styles.arrowSpawnReverse} ${
               !matchMedia("(pointer:fine)").matches && styles.noArrow
             }`}
           ></Image>
