@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/zoom";
 
 import Image from "next/image";
-import { useRouter } from "next/router";
 import ToastMessage from "./ToastMessage/ToastMessage";
 
 
@@ -33,8 +32,7 @@ const FullScreenZoomableImage = ({
   const fullImageRef= useRef();
 
  
-  const routeMounted=useRef(false)
-  const router = useRouter();
+
 
 
 
@@ -234,7 +232,7 @@ const FullScreenZoomableImage = ({
 
         const lastTouch = event.changedTouches[0];
         if (currY < -128 || currY > 128) {
-      
+          if(showToastMessage>0)
            setShowToastMessage(2);
           killFullScreen(currY);
         } else {
@@ -292,14 +290,10 @@ const FullScreenZoomableImage = ({
       window.removeEventListener("touchmove", handleTouchYMove, true);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [imageIndex,zoomed]);
+  }, [imageIndex,zoomed, showToastMessage]);
 
 
-  useEffect(() => {
-    if (routeMounted.current && !router.asPath.includes("#zoom")) ;
-    
-    routeMounted.current=true;
-  }, [router.asPath]);
+
 
 
 
@@ -310,7 +304,8 @@ const FullScreenZoomableImage = ({
     if (zoomed) swiper.zoom.toggle();
 
     
-    setShowToastMessage(3);
+    if(showToastMessage>0)
+    setShowToastMessage(2);
 
 
 
@@ -386,7 +381,7 @@ const FullScreenZoomableImage = ({
       },
       zoomed ? 300 : 0
     );
-  },[zoomed, imageIndex]);
+  },[zoomed, imageIndex, showToastMessage]);
 
 
  
