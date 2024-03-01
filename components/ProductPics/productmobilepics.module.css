@@ -19,6 +19,7 @@
 
   .productPicsWrapper{
    
+
     margin-right:var(--size-6);
     position:relative;
     width: var(--size-15-5);
@@ -182,6 +183,7 @@
   @media(max-width: 980px){
 
     .productPicsWrapper{
+      margin-top: var(--size-5);
       margin-right: 0;
       width: 100%;
     }

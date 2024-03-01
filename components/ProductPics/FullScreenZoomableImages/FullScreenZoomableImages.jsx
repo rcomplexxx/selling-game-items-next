@@ -309,7 +309,7 @@ const FullScreenZoomableImage = ({
   
     if (zoomed) swiper.zoom.toggle();
 
-    if(showToastMessage>0)
+    
     setShowToastMessage(3);
 
 
@@ -386,7 +386,7 @@ const FullScreenZoomableImage = ({
       },
       zoomed ? 300 : 0
     );
-  },[zoomed, showToastMessage, imageIndex]);
+  },[zoomed, imageIndex]);
 
 
  
