@@ -398,7 +398,7 @@ const FullScreenZoomableImage = ({
         setNavLocked(true);
         document.body.classList.remove("hideScroll");
         const timeoutId = setTimeout(function () {
-          fullScreenChange(imageIndex);
+          fullScreenChange(false);
 
           clearTimeout(timeoutId);
         }, 300);

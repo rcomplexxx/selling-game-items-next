@@ -6,9 +6,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
-// import FullScreenZoomableImage from "./FullScreenZoomableImages/FullScreenZoomableImages";
+import FullScreenZoomableImage from "./FullScreenZoomableImages/FullScreenZoomableImages";
 
-const FullScreenZoomableImage = dynamic(() => import('@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages'));
+// const FullScreenZoomableImage = dynamic(() => import('@/components/ProductPics/FullScreenZoomableImages/FullScreenZoomableImages'));
 
 
 export default function ProductPics({ images, onAddToCart, variantImageIndex }) {
@@ -154,10 +154,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
  
 
-  const fullScreenChange = useCallback(() => {
-    
-    setZoomed(false);
-  },[]);
+  
 
 
   const handleChangeImage = useCallback((imageIndex)=>{
@@ -313,7 +310,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
          
           changeImageIndex={handleChangeImage}
             
-          fullScreenChange={fullScreenChange}
+          fullScreenChange={setZoomed}
           images={images}
         />
       )}
