@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import styles from "./customerreviews.module.css";
 import StarRatings from "react-star-ratings";
@@ -52,7 +52,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
 
 
 
-  const handleShowMore= async () => {
+  const handleShowMore= useCallback( async () => {
     if (isLoading) {
       // Prevent multiple clicks while the operation is in progress
       return;
@@ -149,7 +149,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
     } finally {
       setIsLoading(false); // Reset loading state regardless of success or failure
     }
-  }
+  },[isLoading, reviews, newReviews.current])
 
 
 
