@@ -116,13 +116,15 @@
 
 
     .ratingInfoWrapper{
-      width: 100% ;
+      max-width: var(--size-14);
+      width: calc(100% + var(--size-6)) ;
       position: static;
       transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
       opacity: 0;
       transform: translateY(-16px);
       max-height: 0;
       margin-bottom: var(--size-3);
+      overflow-x: hidden;
      
     }
 
@@ -130,11 +132,11 @@
 
     .ratingInfo{
        
-        width: calc(100% + var(--size-3));
+        width: 100%;
         margin-top: var(--size-3);
         margin-bottom: var(--size-4);
-       
-        padding: var(--size-5) var(--size-3);
+        box-sizing: border-box;
+        padding: var(--size-4) var(--size-5);
     }
 
    
