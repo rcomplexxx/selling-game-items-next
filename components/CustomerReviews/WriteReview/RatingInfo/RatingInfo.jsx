@@ -6,24 +6,24 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
   
   const ratingInfoWrapperRef = useRef();
   const pointerEventTimeoutRef = useRef();
+  
  
    
   useEffect(()=>{
 
-    let firstClick=false;
-
+  
     const handleClick= (event)=>{
-      if(!firstClick){firstClick=true;return;}
-      console.log('click',!ratingInfoWrapperRef.current.contains(event.target) )
+    
+  
       if (!ratingInfoWrapperRef.current.contains(event.target) && window.innerWidth>480)
       setOpenRatingInfo(false);
     }
 
 
    if(openRatingInfo) {
-    // ratingInfoWrapperRef.current.focus();
 
     pointerEventTimeoutRef.current= setTimeout(()=>{
+  
       ratingInfoWrapperRef.current.style.pointerEvents='auto'
     },300)
    
@@ -38,13 +38,19 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
     ratingInfoWrapperRef.current.style.pointerEvents='none'
       ratingInfoWrapperRef.current.classList.remove(styles.ratingInfoOpenManualClass);
       ratingInfoWrapperRef.current.style.maxHeight = `0`;
+
+
       document.removeEventListener("click", handleClick)
 
 
 
    }
 
-   return ()=>{ document.removeEventListener("click", handleClick)}
+   return ()=>{ 
+    clearTimeout(pointerEventTimeoutRef.current);
+    document.removeEventListener("click", handleClick)
+  
+  }
   
 
 }, [openRatingInfo])
@@ -52,16 +58,10 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
 
   return (
     <div ref={ratingInfoWrapperRef} className={`${styles.ratingInfoWrapper} ${openRatingInfo && styles.ratingInfoOpen}`} 
-    tabIndex={0} 
-    // onBlur={(event)=>{
    
-    //   if(window.innerWidth>480)
-    //   setOpenRatingInfo(false)}}
-    >
-    <div   className={`${styles.ratingInfo}`} tabIndex={0} 
-     
-      
-      >
+    onClick={(event)=>{if(openRatingInfo)event.preventDefault();}}
+   >
+  
         <div className={styles.ratingTitle}>
                <StarRatings
             rating={ratingData.rating}
@@ -79,7 +79,7 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
           <RatingMetric rating={3} rateNumber={ratingData.stars3} sumOfAllReviews={ratingData.reviewsNumber}/>
           <RatingMetric rating={2} rateNumber={ratingData.stars2} sumOfAllReviews={ratingData.reviewsNumber}/>
           <RatingMetric rating={1} rateNumber={ratingData.stars1} sumOfAllReviews={ratingData.reviewsNumber}/>
-    </div>
+   
     </div>
   );
 }
@@ -89,7 +89,9 @@ function RatingMetric({rating, rateNumber,  sumOfAllReviews}) {
 
     const [opened, setOpened]= useState(false);
 
-    useEffect(()=>{setOpened(true)},[]);
+    useEffect(()=>{setOpened(true);
+    
+    },[]);
     const percentage= Math.round(rateNumber / sumOfAllReviews *100);
 
 
@@ -105,7 +107,7 @@ return <div className={styles.ratingMetric}>
             starSpacing="2px"
           />
           <div className={styles.percentRatingWrapper}>
-            <div style={{width:`${opened?percentage:0}%`}} className={styles.percentageRatingDiv}></div>
+            <div className={styles.percentageRatingDiv} style={{width:`${opened?percentage:0}%`}} ></div>
           </div>
           <span className={styles.rateNumber}>({rateNumber})</span>
 </div>

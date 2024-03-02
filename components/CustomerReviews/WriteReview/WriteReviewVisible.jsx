@@ -29,7 +29,12 @@ export default function WriteReviewVisible({ratingData}) {
 
   return (<>
     <div className={styles.writeReviewDiv}>
-        <div id="ratingDiv" className={styles.ratingDiv} onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{setOpenRatingInfo(!openRatingInfo)}}>
+        <div className={styles.ratingDiv}
+        onClick={(event)=>{
+          event.stopPropagation();
+          event.preventDefault();
+          
+         setOpenRatingInfo(!openRatingInfo)}}>
           <StarRatings
             rating={ratingData.rating}
             starRatedColor="#97892F"
@@ -54,10 +59,11 @@ export default function WriteReviewVisible({ratingData}) {
           }`}
         />
 
-            
-
         </div>
        <RatingInfo ratingData={ratingData} openRatingInfo={openRatingInfo} setOpenRatingInfo={setOpenRatingInfo}/>
+
+
+
         <button
           onClick={() => {
             setInfoDivOpen(!infoDivOpen);

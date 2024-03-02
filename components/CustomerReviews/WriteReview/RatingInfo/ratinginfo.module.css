@@ -1,43 +1,39 @@
 .ratingInfoWrapper{
   position: absolute;
   top: 40px;
-  left: 15px;
+  left: 0;
+  background-color: rgb(17, 20, 16);
   width: var(--size-14);
  
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  z-index: 9;
-  transform-origin: top center;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-sizing: border-box;
+  padding: 0 var(--size-5);
+  border-radius: 4px;
+ 
   opacity: 0;
+ 
+  transform-origin: top center;
   transform: translateY(-24px) scale(0.6);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+ 
+
+
+  z-index: 9;
+  overflow: hidden;
   pointer-events: none;
 }
 
-.ratingInfoWrapper:focus{
-   
-     
-  outline: none;
 
 
+.ratingInfoWrapper > :last-child{
+ margin-bottom: var(--size-6);
 }
 
 
-
-.ratingInfo{
-   
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-    width: var(--size-14);
-    background-color: rgb(17, 20, 16);
-    border-radius: 4px;
-    padding: 24px 16px;
-   
-  }
 
 
 
@@ -52,7 +48,8 @@
   .ratingTitle{
     display: flex;
     align-items: center;
-    
+    margin-top: 16px;
+    padding-top: 0;
   }
 
   .ratingSpan{
@@ -89,14 +86,12 @@
   }
 
   .rateNumber{
-    width: 34px;
+    width: var(--size-7);
   }
 
 
   @media (min-width: 480px){
-    .ratingInfo{
-    max-height: none !important;
-    }
+
 
 
     .ratingInfoOpen{
@@ -116,28 +111,32 @@
 
 
     .ratingInfoWrapper{
-      max-width: var(--size-14);
-      width: calc(100% + var(--size-6)) ;
+
       position: static;
-      transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
-      opacity: 0;
-      transform: translateY(-16px);
+
+      max-width: var(--size-14);
       max-height: 0;
+
+      width: calc(100% + var(--size-6)) ;
+      
+
+
       margin-bottom: var(--size-3);
+      transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
+      transform: translateY(-16px);
+
+
+      opacity: 0;
+     
+     
+     
       overflow-x: hidden;
      
     }
 
 
 
-    .ratingInfo{
-       
-        width: 100%;
-        margin-top: var(--size-3);
-        margin-bottom: var(--size-4);
-        box-sizing: border-box;
-        padding: var(--size-4) var(--size-5);
-    }
+  
 
    
   
