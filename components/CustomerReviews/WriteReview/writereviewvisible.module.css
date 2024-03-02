@@ -64,7 +64,7 @@
         .writeReviewDiv{
  
             width: calc(100% - var(--size-11));
-            margin: 32px var(--size-3);
+            margin: var(--size-7) var(--size-3);
             margin-bottom: var(--size-7);
            
           
@@ -84,6 +84,7 @@
 
       @media(max-width: 480px){
       .writeReviewDiv{
+        width: calc(100% - var(--size-8));
         flex-direction: column;
          justify-content: center;
          align-items: center;

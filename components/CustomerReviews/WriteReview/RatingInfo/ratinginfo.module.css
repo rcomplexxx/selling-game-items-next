@@ -112,24 +112,32 @@
 
 
   @media (max-width: 480px)  {
-    .ratingInfo{
-       
-        width: calc(100% - 42px);
-        margin-top: var(--size-3);
-        margin-bottom: var(--size-4);
-       
-      
-    }
+
+
 
     .ratingInfoWrapper{
+      width: 100% ;
       position: static;
       transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
       opacity: 0;
       transform: translateY(-16px);
       max-height: 0;
-      overflow: hidden;
+      margin-bottom: var(--size-3);
+     
     }
 
+
+
+    .ratingInfo{
+       
+        width: calc(100% + var(--size-3));
+        margin-top: var(--size-3);
+        margin-bottom: var(--size-4);
+       
+        padding: var(--size-5) var(--size-3);
+    }
+
+   
   
     .ratingInfoOpenManualClass{
       

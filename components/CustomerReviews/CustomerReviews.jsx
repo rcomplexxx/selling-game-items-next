@@ -176,8 +176,9 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
 
 
 
-      <div  id='masonry' className={styles.coolDiv}>
+    
         <Masonry
+        id='masonry'
           breakpointCols={{
             default: 4,
             1200: 3,
@@ -199,7 +200,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
             );
           })}
         </Masonry>
-      </div>
+    
       {loadButtonExists && (
         <button
        

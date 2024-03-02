@@ -21,7 +21,7 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
 
 
    if(openRatingInfo) {
-    ratingInfoWrapperRef.current.focus();
+    // ratingInfoWrapperRef.current.focus();
 
     pointerEventTimeoutRef.current= setTimeout(()=>{
       ratingInfoWrapperRef.current.style.pointerEvents='auto'
