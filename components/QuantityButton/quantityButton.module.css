@@ -1,36 +1,35 @@
 .quantityMainDiv{
   
-  margin-top: var(--size-7);
-  
+ 
   width: 100%;
-  max-width: var(--size-15);
+ 
   display: flex;
   flex-direction: column;
  
+  margin-top: var(--size-7);
   
 }
 
-.quantityMainDiv p{
-  margin:0;
+.quantityTitle{
+ 
   margin-bottom: var(--size-2);
   margin-left: 4px;
  
 }
 
 
-.quantity_button {
+.quantityInfo {
  
  
    width:100%;
     display: flex;
     align-items: center;
-    padding: 0;
-    margin: 0;
+   
    
   }
 
   
-.quantity_button button{
+.quantityButton{
 
     width: var(--size-8);
     background-color: var(--gray-9-elegant);
@@ -49,44 +48,39 @@
 
 
 }  
-.quantity_button button:hover{
+.quantityButton:hover{
   background-color:rgb(20, 22, 41);
 }
 
 
-
-.buttons{
+.decrementButton{
   margin-left: var(--size-5);
-} 
+  margin-right: var(--size-4);
+}
 
-  .decrement{
-    
-    margin-right: var(--size-4);
-  }
 
-  .increment {
-    margin-right: 0;
-  }
+ 
 
 
   
   .quantityInput {
     
-   padding: 0;
-   margin: 0;
-    color:white;
+
     flex-grow: 1;
+    color:white;
+    
     background-color: #172247;
-    width: var(--size-8);
-    text-align: left;
-    padding: 8px;
-    font-size: 16px;
+    
+   
+   
     border: none;
     border-radius: 4px;
     padding: 12px 8px;
 
-  }
-
-  .quantityInput:focus{
+   
+    text-align: left;
+   
+    font-size: 16px;
     outline: none;
   }
+

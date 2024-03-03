@@ -16,17 +16,23 @@ const QuantityButton = ({ quantity, setQuantity }) => {
 
   return (
     <div className={styles.quantityMainDiv}>
-      <p>Quantity</p>
-      <div className={styles.quantity_button}>
+      <span className={styles.quantityTitle}>Quantity</span>
+      <div className={styles.quantityInfo}>
+
         <input className={styles.quantityInput} value={quantity} readOnly />
-        <div className={styles.buttons}>
-        <button className={styles.decrement} onClick={decrementQuantity}>
+
+      
+        <button className={`${styles.quantityButton} ${styles.decrementButton}`} onClick={decrementQuantity}>
           -
         </button>
-        <button className={styles.increment} onClick={incrementQuantity}>
+
+
+        <button className={styles.quantityButton} onClick={incrementQuantity}>
           +
         </button>
-        </div>
+
+
+        
       </div>
     </div>
   );
