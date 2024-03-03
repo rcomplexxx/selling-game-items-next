@@ -176,7 +176,7 @@ setSubMenu(subMenu==2?0:2);
   setSubMenu(0);
   }}
   >
-  <p>{c.name}</p>
+  {c.name}
   </Link>
 })
 }
@@ -216,7 +216,7 @@ setSubMenu(subMenu==2?0:2);
           setSubMenu(0);
         }}
                 >
-                 <p>Our story</p> 
+                 Our story
                 </Link>
 
       <Link
@@ -229,7 +229,7 @@ setSubMenu(subMenu==2?0:2);
           setSubMenu(0);
         }}
       >
-        <p>FAQ</p>
+      FAQ
       </Link>
 
       <Link
@@ -242,7 +242,7 @@ setSubMenu(subMenu==2?0:2);
           setSubMenu(0);
         }}
       >
-        <p>Terms of service</p>
+        Terms of service
       </Link>
       <Link
         href="/privacy-policy"
@@ -254,7 +254,7 @@ setSubMenu(subMenu==2?0:2);
           setSubMenu(0);
         }}
       >
-        <p>Privacy policy</p>
+        Privacy policy
       </Link>
       <Link
         href="/shipping-policy"
@@ -266,7 +266,7 @@ setSubMenu(subMenu==2?0:2);
           setSubMenu(0);
         }}
       >
-        <p>Shipping policy</p>
+        Shipping policy
       </Link>
       <Link
         href="/refund-policy"
@@ -278,7 +278,7 @@ setSubMenu(subMenu==2?0:2);
           setSubMenu(0);
         }}
       >
-        <p>Refund policy</p>
+        Refund policy
       </Link>
 
        

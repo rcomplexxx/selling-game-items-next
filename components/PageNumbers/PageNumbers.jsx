@@ -14,7 +14,7 @@ export default function PageNumber({ mainLink, links, pageId}){
         href={`${mainLink=='/products/page/' && pageId==2?'/products/':mainLink+(pageId - 1)}`}
         className={styles.arrowLink}
       >
-        {" "}
+       
         <span className={styles.arrowSpan}>
           <Image
             src={"/images/greater.svg"}
