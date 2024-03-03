@@ -99,8 +99,8 @@
   .closeButton{
    
     position: absolute;
-    left: 16px;
-    top:16px;
+    left: var(--size-4);
+    top:var(--size-4);
     
     height: 24px;
     width: 24px;
@@ -244,17 +244,48 @@
   }
 
   .arrowBack{
-    transform: rotate(180deg);
-    height: 24px;
+    
+    
     width: max-content;
-    margin-top: 2px;
-    margin-right: 2px;
+  
+
+   
+    
+    height: 24px;
+    width: 24px;
+
+    transform: rotate(180deg);
+   
+    cursor: pointer;
   }
 
   .arrowBackMob{
    
+    margin-top: 10px;
+   
     padding:  var(--size-4);
   }
+
+
+  .skipInFooter{
+    margin-top: var(--size-3)
+   
+  
+  }
+
+  @media (hover: hover) {
+
+  
+    .arrowBackMob:hover{
+    background-color: #364658;
+    border-radius: 6px;
+    }
+
+  }
+
+
+
+
 
   .remindMeLater{
   
@@ -285,6 +316,7 @@
       background-color: #364658;
     }
    }
+   
 
    .upFooterBackBtn{
     min-width: 32px;

@@ -106,7 +106,7 @@ export default function WriteReview({ setInfoDivOpen }) {
 
      
         <div className={styles.writeReviewPopupDiv}>
-          
+          <div className={styles.reviewBackgroundDiv} />
           <div className={styles.mainReviewDiv}>
             {ratingPage !== 0 && ratingPage !== 4 && (
               <div
@@ -115,7 +115,7 @@ export default function WriteReview({ setInfoDivOpen }) {
                 
                 <Image src='/images/arrowRight3.png'
                 onClick={handleBack}
-                className={`${styles.arrowBackMob} ${styles.arrowBackMob}`}
+                className={`${styles.arrowBack} ${styles.arrowBackMob}`}
                 height={0}
                 width={0}
                 sizes="32px"
@@ -123,7 +123,7 @@ export default function WriteReview({ setInfoDivOpen }) {
               
                 {/* //doraditi uslov */}
                 {ratingPage == 1 && images.length===0 && (
-                  <button onClick={handleNext} className={styles.remindMeLater}>
+                  <button onClick={handleNext} className={`${styles.remindMeLater} ${styles.skipInFooter}`}>
                     Skip
                   </button>
                 )}
@@ -201,7 +201,7 @@ export default function WriteReview({ setInfoDivOpen }) {
                   
                      
                     </div>
-                    <button className={styles.userImgsContinue} onClick={handleNext}>Continue</button>
+                    
                       {errors.images5 && <p className={styles.requiredError}>You can select up to 5 photos</p>}
                       </div>
                   ) : (
@@ -407,7 +407,7 @@ export default function WriteReview({ setInfoDivOpen }) {
 
                 <button
                 onClick={handleNext}
-                className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}
+                className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl} ${images.length!=0 && styles.userImgsContinue}`}
                 >
                 {images.length!=0?'Continue':'Skip'}
                 </button>
@@ -417,7 +417,7 @@ export default function WriteReview({ setInfoDivOpen }) {
                 
                 
                 :(ratingPage==1 || (ratingPage==2 &&  animation != "swipeOutLeft")) ?
-                
+              
                 <button
                       
                       onClick={()=>{if(reviewInfo.text == undefined || reviewInfo.text == "")return; handleNext();}}
