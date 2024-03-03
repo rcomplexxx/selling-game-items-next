@@ -1,5 +1,13 @@
 
-    .writeReviewPopupDiv{
+  
+  .submittedReview{
+    color: #43a047;
+    margin: var(--size-7) 0;
+  }
+  
+
+
+  .writeReviewPopupDiv{
     position: fixed;
     left: 0;
     top: 0;
@@ -15,9 +23,7 @@
     z-index: 11;
   }
 
-
-  .writeReviewPopupDiv::before{
-    content: "";
+  .reviewBackgroundDiv{
     position: absolute;
     left: 0;
     top: 0;
@@ -25,12 +31,9 @@
     width: 100%;
     background-color: black;
     opacity: 0.3;
-   
+
+
   }
-
- 
-
-
 
   .mainReviewDiv{
     position: relative;
@@ -45,12 +48,9 @@
     background-color: #1b191a;
     transform: scale(0);
     animation: scaleAnim 0.5s ease-out 0.2s 1 normal forwards;
-    z-index: 12;
+    z-index: 2;
     overflow: hidden;
   }
-
-
-
  
   .reviewPageDiv{
   
@@ -153,6 +153,8 @@
   
   .progressDiv{
     display: flex;
+    flex: 1;
+    justify-content: center;
    
   }
 
