@@ -106,7 +106,7 @@ export default function WriteReview({ setInfoDivOpen }) {
 
      
         <div className={styles.writeReviewPopupDiv}>
-          <div className={styles.reviewBackgroundDiv} />
+          
           <div className={styles.mainReviewDiv}>
             {ratingPage !== 0 && ratingPage !== 4 && (
               <div
@@ -400,28 +400,35 @@ export default function WriteReview({ setInfoDivOpen }) {
                   </div>
                 </div>
 
-                {ratingPage == 1 ? (
-                  animation == "swipeOutLeft" ? (
-                    <button
-                      disabled={reviewInfo.text == ""}
-                      onClick={handleNext}
+
+                {
+
+                (ratingPage==1 &&  animation != "swipeOutLeft") ?
+
+                <button
+                onClick={handleNext}
+                className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}
+                >
+                {images.length!=0?'Continue':'Skip'}
+                </button>
+                
+                
+                
+                
+                
+                :(ratingPage==1 || (ratingPage==2 &&  animation != "swipeOutLeft")) ?
+                
+                <button
+                      
+                      onClick={()=>{if(reviewInfo.text == undefined || reviewInfo.text == "")return; handleNext();}}
                       className={`${styles.nextButton} ${
                         reviewInfo.text == "" && styles.nextButtonDisabled
                       }`}
                     >
                       Next
-                    </button>
-                  ) : (
-                    <button
-                      onClick={handleNext}
-                      className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}
-                    >
-                      {images.length!=0?'Continue':'Skip'}
-                    </button>
-                  )
-                ) : ratingPage == 2 ? (
-                  animation == "swipeOutLeft" ? (
-                    <button
+                    </button>: (ratingPage==2 || ratingPage==3) &&
+
+                      <button
                       onClick={() => {
                         if (reviewInfo.firstName == "") {
                           if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email))
@@ -439,54 +446,22 @@ export default function WriteReview({ setInfoDivOpen }) {
                         }
                       }}
                       className={`${styles.nextButton}`}
-                    >
+                      >
                       Done
-                    </button>
-                  ) : (
-                    <button
-                      disabled={reviewInfo.text == ""}
-                      onClick={handleNext}
-                      className={`${styles.nextButton} ${
-                        reviewInfo.text == "" && styles.nextButtonDisabled
-                      }`}
-                    >
-                      Next
-                    </button>
-                  )
-                ) : ratingPage == 3 ? (
-                  <button
-                    onClick={() => {
-                      if (reviewInfo.firstName == "") {
-                        if (!/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email))
-                          setErrors({ email: true, firstName: true });
-                        else setErrors({ email: false, firstName: true });
-                        return;
-                      } else if (
-                        !/^\S{3,}@\S{3,}\.\S{2,}$/.test(reviewInfo.email)
-                      ) {
-                        setErrors({ firstName: false, email: true });
-                        return;
-                      } else {
-                        setErrors({ firstName: false, email: false });
-                        handleNext();
-                      }
-                    }}
-                    className={`${styles.nextButton}`}
-                  >
-                    Done
-                  </button>
-                ) : (
-                  <></>
-                )}
+                      </button>
+
+                }
+
+
               </div>
             )}
 
             {ratingPage == 4 && (
               <div
-                className={`${styles.writeReviewFooter} ${styles.continueFooter}`}
+                className={`${styles.writeReviewFooter}`}
               >
-                <Link href="/products" className={styles.continueLink}>
-                  <button className={styles.nextButton}>Continue</button>
+                <Link href="/products" className={`${styles.continueLink}`}>
+                  Continue
                 </Link>
               </div>
             )}
