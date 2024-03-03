@@ -127,7 +127,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                 <Link
                   href="/"
                   className={`${styles.linkStyle} ${
-                    pathname === "/" ? styles.currentLink : ""
+                    pathname === "/" && styles.currentLink
                   }`}
                 >
                   Home
@@ -135,7 +135,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                 <Link
                   href="/products"
                   className={`${styles.linkStyle} ${
-                    pathname === "/products" ? styles.currentLink : ""
+                    pathname === "/products" && styles.currentLink
                   }`}
                 >
                   Products
@@ -145,7 +145,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                 <Link
                   href="/collection/sale/page/1"
                   className={`${styles.linkStyle} ${
-                    pathname === "/collection/sale/page/1" ? styles.currentLink : ""
+                    pathname === "/collection/sale/page/1" && styles.currentLink
                   }`}
                 >
                   Sale
@@ -235,7 +235,7 @@ setSubMenu(subMenu==2?0:2);
       <Link
         href="/terms-of-service"
         className={`${styles.menuItemDiv} ${
-          pathname === "/terms-of-service" ? styles.currentLinkMobile : ""
+          pathname === "/terms-of-service" && styles.currentLinkMobile 
         }`}
         onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
@@ -247,7 +247,7 @@ setSubMenu(subMenu==2?0:2);
       <Link
         href="/privacy-policy"
         className={`${styles.menuItemDiv} ${
-          pathname === "/privacy-policy" ? styles.currentLinkMobile : ""
+          pathname === "/privacy-policy" && styles.currentLinkMobile
         }`}
         onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
@@ -259,7 +259,7 @@ setSubMenu(subMenu==2?0:2);
       <Link
         href="/shipping-policy"
         className={`${styles.menuItemDiv} ${
-          pathname === "/shipping-policy" ? styles.currentLinkMobile : ""
+          pathname === "/shipping-policy" && styles.currentLinkMobile
         }`}
         onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
@@ -271,7 +271,7 @@ setSubMenu(subMenu==2?0:2);
       <Link
         href="/refund-policy"
         className={`${styles.menuItemDiv} ${
-          pathname === "/refund-policy" ? styles.currentLinkMobile : ""
+          pathname === "/refund-policy" && styles.currentLinkMobile 
         }`}
         onMouseDown={(event)=>{event.preventDefault()}}
         onClick={() => {
