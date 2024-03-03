@@ -104,20 +104,19 @@
     
     height: 24px;
     width: 24px;
-    background-color: transparent;
-    border: none;
+    
     border-radius: 6px;
-    font-size: var(--font-size-5);
+
  
       padding: var(--size-4);
      
-     
+      cursor: pointer;
   }
 
   @media (hover: hover) {
   .closeButton:hover{
     background-color: #364658;
-    cursor: pointer;
+    
   }
 }
 
@@ -127,7 +126,7 @@
     width: 100%;
     margin: 16px 0;
     box-sizing: border-box;
-    padding: 0 var(--size-5);
+    padding: 0 var(--size-4);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -174,19 +173,20 @@
     background-color: gray;
   }
 
-  .fillProgressBar{
-    height: 100%;
+  .progressBarFiller{
     background-color: gray;
-    animation: fillBar 0.25s ease-out forwards;
+    height: 100%;
+    width: 0;
+    transition: width 0.25s ease;
   }
 
-  .fillOutProgressBar{
-    animation: fillOutBar 0.25s ease-out forwards;
+  .fillProgressBarFiller{
+    width: 100%;
   }
 
 
 
-  .mediaTitle h1{
+  .showImageTitle{
     margin-bottom: var(--size-2);
   }
 
@@ -213,11 +213,12 @@
     margin: var(--size-2) 0;
     font-size: var(--font-size-3);
     font-weight: 600;
+    cursor: pointer;
   }
   
   @media (hover: hover) {
     .mediaButton:hover{
-      cursor: pointer;
+     
       transition: background-color 0.1s ease;
       background-color: rgb(112, 128, 118)
     }
@@ -232,11 +233,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-  }
-
-  .mediaButtonImgInput:hover{
     cursor: pointer;
   }
+
+  
 
   .arrowBackDiv{
   
@@ -247,35 +247,42 @@
   .arrowBack{
     transform: rotate(180deg);
     height: 24px;
+    width: max-content;
     margin-top: 2px;
     margin-right: 2px;
   }
 
   .arrowBackMob{
-    transform: rotate(180deg);
-    height: 24px;
+   
+    padding:  var(--size-4);
   }
 
   .remindMeLater{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color:transparent;
-    
-    border: none;
+  
+
     min-width: 80px;
     width: max-content;
     height: 40px;
+
+    color: white;
+    background-color:transparent;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    
+    border: none;
+  
     padding: var(--size-4);
     border-radius: 6px;
     font-size: var(--font-size-3);
+    cursor: pointer;
   }
 
   @media (hover: hover) {
     .remindMeLater:hover{
-      cursor: pointer;
+    
       background-color: #364658;
     }
    }
@@ -287,7 +294,7 @@
    }
 
   .userImagesDivWrapper{
-    position: relative;
+   
     width: 100%;
     margin: var(--size-9);
    
@@ -317,6 +324,7 @@
     aspect-ratio: 1;
     margin: 6px 6px;
    box-sizing: border-box;
+   cursor: pointer;
   }
 
 
@@ -324,7 +332,7 @@
     .addImageDiv:hover{
       background-color: #1b191a;
       border: 1px solid rgb(104, 111, 207);
-      cursor: pointer;
+     
     }
    }
 
@@ -369,13 +377,10 @@
     border-radius: 100%;
     font-size: var(--font-size-2);
     
-    
+    cursor: pointer;
   
   }
 
-  .cancelImage:hover{
-    cursor: pointer;
-  }
 
 
   .userImgsContinue{
@@ -399,12 +404,12 @@
     border-radius: 6px;
     font-size: var(--font-size-3);
     transition: background-color 0.1s ease;
-    
+    cursor: pointer;
   }
 
   @media (hover: hover) {
     .nextButton:hover{
-      cursor: pointer;
+     
       background-color: #364658;
      }
 }
@@ -433,14 +438,16 @@
 
   .writeReviewText{
     color:white;
+    background-color: transparent;
     height: var(--size-11);
     width: 100%;
     margin-top:var(--size-7);
-    background-color: transparent;
-    border: 1px solid gray;
-    font-family: var(--hand-writing-font);
+   
+    
     box-sizing: border-box;
     padding: var(--size-3) var(--size-3);
+    border: 1px solid gray;
+    
   }
 
   .writeReviewText:focus{
@@ -516,7 +523,7 @@
 
   .required{
     margin-left:var(--size-1);
-    font-weight: 400;
+   
     font-size: var(--font-size-1);
     align-self: flex-start;
     opacity: 0.7;
@@ -607,13 +614,8 @@
       display:none;
     }
 
-    .progressDiv{
-     margin: 0 auto;
-    }
-
-    .writeReviewFooter{
-      height: max-content;
-    }
+  
+  
 
     .nextButtonMobileAnim{
       
@@ -641,24 +643,28 @@
     
 
      .userImgsContinue{
+
       display: block;
       position:absolute;
-      bottom: -64px;
-      left: 0;
-      width: 100%;
-      height: max-content;
+      bottom: var(--size-9);
+      left: var(--size-5);
+
       color: black;
       background-color: rgb(112, 128, 118);
-      border: none;
+      
+      width: calc(100% - var(--size-7));
+      
      
       padding: var(--size-4);
+      border: none;
       border-radius: 4px;
+     
+      
       font-size: var(--font-size-3);
-    }
-
-    .userImgsContinue:hover{
       cursor: pointer;
     }
+
+  
 
   }
 

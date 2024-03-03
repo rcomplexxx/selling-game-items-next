@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./writereview.module.css";
 import StarRatings from "react-star-ratings";
 import { useRouter } from "next/router";
@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RatingInfo from "./RatingInfo/RatingInfo";
 
-export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
+export default function WriteReview({ setInfoDivOpen }) {
  
   
   const [rating, setRating] = useState(5);
@@ -14,20 +14,26 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
   const [animation, setAnimation] = useState(false);
   const [images, setImages] = useState([]);
   const [reviewInfo, setReviewInfo] = useState({
-    text: "",
-    firstName: "",
-    lastName: "",
-    email: "",
+   
   });
   const [errors, setErrors] = useState({ firstName: false, email: false, images5: false });
   
 
 
+  useEffect(()=>{
+    const handlePopState=()=>{ global.stopRouteExecution=true; setInfoDivOpen(false);}
 
-  const outAnimationTime = 500;
-  const inAnimationTime = 200;
+    window?.addEventListener("popstate", handlePopState);
 
-  const handleImageUpload = (e) => {
+   return ()=>{
+    window?.removeEventListener("popstate", handlePopState);
+   }
+  },[])
+
+
+
+
+  const handleImageUpload = useCallback((e) => {
 
     const files = e.target.files;
     
@@ -47,20 +53,12 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
     }
     setImages(newImages);
 
-    // if (file) {
-    //   const reader = new FileReader();
+ 
+  },[images]);
 
-    //   // Callback function to handle the result of the file reading
-    //   reader.onloadend = () => {
-    //     setImage(reader.result); // Store the image data in the state
-    //   };
-
-    //   // Read the contents of the uploaded file as a data URL
-    //   reader.readAsDataURL(file);
-    // }
-  };
-
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
+    const outAnimationTime = 500;
+    const inAnimationTime = 200;
     if (animation) return;
 
     setAnimation("swipeOutLeft");
@@ -73,9 +71,13 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
         setAnimation(undefined);
       }, inAnimationTime);
     }, outAnimationTime);
-  };
+  },[]);
 
-  const handleBack = () => {
+  
+
+  const handleBack = useCallback(() => {
+    const outAnimationTime = 500;
+    const inAnimationTime = 200;
     if (animation) return;
 
     setAnimation("swipeOutRight");
@@ -88,76 +90,21 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
         setAnimation(undefined);
       }, inAnimationTime);
     }, outAnimationTime);
-  };
-
-  const router = useRouter();
-
-  const popTriggeredRef= useRef(false);
+  },[]);
 
 
 
-  useEffect(() => {
 
-
-    router.beforePopState((state) => {
-      popTriggeredRef.current=true;
-      state.options.scroll = false;
-      if(infoDivOpen){
-      setInfoDivOpen(false);
-      setImages([]);
-      setReviewInfo({
-        text: "",
-        firstName: "",
-        lastName: "",
-        email: "",
-      });
-     setErrors({ firstName: false, email: false });
-     
-  return true;
-    }
-    return true;
-    });
-
-    
-  }, [router]);
-
-
-
-  useEffect(() => {
-
-    if(infoDivOpen===undefined){
-      if(router.asPath.includes("#write-review"))
-      router.push(router.asPath.split('#write-review')[0]);
-    
-      return;
-    }
-    
-    if (infoDivOpen) {
-      if(!router.asPath.includes("#write-review")) router.push(router.asPath + "#write-review");
-    }
-
-    else{
-
-    if (router.asPath.includes("#write-review") && !popTriggeredRef.current) router.back();
-    else if(popTriggeredRef.current) popTriggeredRef.current=false;
-    }
-
-    setRatingPage(0);
-  }, [infoDivOpen, router]);
 
  
 
-  const handleRatingClick = (newRating) => {
-    setRating(newRating);
-    handleNext();
-    // You can perform additional actions here when a rating is clicked.
-  };
+
 
   return (
-    <>
+   
       
 
-      {infoDivOpen && (
+     
         <div className={styles.writeReviewPopupDiv}>
           <div className={styles.reviewBackgroundDiv} />
           <div className={styles.mainReviewDiv}>
@@ -165,13 +112,17 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
               <div
                 className={`${styles.writeReviewFooter} ${styles.writeReviewFooterMobile}`}
               >
-                <button onClick={handleBack} className={`${styles.remindMeLater} ${styles.upFooterBackBtn}`}>
-                <img src='/images/arrowRight3.png'
-                className={styles.arrowBackMob}
-                ></img> 
-                </button>
-
-                {ratingPage == 1 && images.length===1 && (
+                
+                <Image src='/images/arrowRight3.png'
+                onClick={handleBack}
+                className={`${styles.arrowBackMob} ${styles.arrowBackMob}`}
+                height={0}
+                width={0}
+                sizes="32px"
+                />
+              
+                {/* //doraditi uslov */}
+                {ratingPage == 1 && images.length===0 && (
                   <button onClick={handleNext} className={styles.remindMeLater}>
                     Skip
                   </button>
@@ -188,8 +139,8 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
                   : animation == "swipeInLeft"
                   ? styles.swipeInLeftAnimation
                   : animation == "swipeOutRight"
-                  ? styles.swipeOutRightAnimation
-                  : ""
+                  && styles.swipeOutRightAnimation
+                  
               }`}
             >
               {ratingPage == 0 ? (
@@ -201,7 +152,10 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
                     rating={rating}
                     starRatedColor="#97892F"
                     numberOfStars={5}
-                    changeRating={handleRatingClick}
+                    changeRating={(newRating) => {    
+                      setRating(newRating);
+                      handleNext();
+                    }}
                     starEmptyColor={"#103939"}
                     starHoverColor="orange"
                     starDimension="48px"
@@ -210,11 +164,11 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
                 </>
               ) : ratingPage == 1 ? (
                 <>
-                  <div className={styles.mediaTitle}>
-                    <h1>Show it off!</h1>
+                 
+                    <h1 className={styles.showImageTitle}>Show it off!</h1>
 
                     <span>We'd love to see it in action!</span>
-                  </div>
+                 
 
                   {images.length !== 0 ? (
                     <div className={styles.userImagesDivWrapper}><div className={styles.userImagesDiv}>
@@ -254,7 +208,7 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
                     <>
                       <div className={styles.centerButtons}>
                         <button className={styles.mediaButton}>
-                          Add photos{" "}
+                          Add photos
                           <input
                             type="file"
                             accept="image/*"
@@ -266,7 +220,7 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
                           ></input>
                         </button>
                         <button className={styles.mediaButton}>
-                          Add video{" "}
+                          Add video
                           <input
                             type="file"
                             accept="video/*"
@@ -309,13 +263,9 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
                       <input
                         value={reviewInfo.firstName}
                         onChange={(event) => {
-                          if (errors.firstName)
-                            setErrors((prev) => {
-                              return { ...errors, firstName: false };
-                            });
-                          setReviewInfo((prev) => {
-                            return { ...prev, firstName: event.target.value };
-                          });
+                        
+                            setErrors( { ...errors, firstName: false } );
+                          setReviewInfo( {...reviewInfo, firstName: event.target.value });
                         }}
                         className={styles.personInfoInput}
                       />
@@ -329,9 +279,7 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
                         className={styles.personInfoInput}
                         value={reviewInfo.lastName}
                         onChange={(event) => {
-                          setReviewInfo((prev) => {
-                            return { ...prev, lastName: event.target.value };
-                          });
+                          setReviewInfo( { ...reviewInfo, lastName: event.target.value });
                         }}
                       />
                     </div>
@@ -339,19 +287,16 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
 
                   <div className={styles.personEmailDiv}>
                     <label>
-                      Email<span className={styles.required}> *</span>
+                      Email<span className={styles.required}>*</span>
                     </label>
                     <input
                       className={styles.personEmail}
                       value={reviewInfo.email}
                       onChange={(event) => {
                         if (errors.email)
-                          setErrors((prev) => {
-                            return { ...errors, email: false };
-                          });
-                        setReviewInfo((prev) => {
-                          return { ...prev, email: event.target.value };
-                        });
+                          setErrors({ ...errors, email: false });
+                        
+                        setReviewInfo({ ...reviewInfo, email: event.target.value});
                       }}
                     />
                     {errors.email && (
@@ -378,25 +323,18 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
             </div>
 
             {ratingPage == 0 || ratingPage == 4 ? (
-               <img height={0} width={0} src='/images/cancelWhite.png'
+               <Image height={24} width={24} src='/images/cancelWhite.png'
                 onClick={() => {
                   setInfoDivOpen(false);
-                  setImages([]);
-                  setReviewInfo({
-                    text: "",
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                  });
-                 setErrors({ firstName: false, email: false });
+               
                 }}
                 className={styles.closeButton}
-              >
+              />
              
                
                             
 
-                          </img>
+                     
             ) : (
               <div
                 className={`${styles.writeReviewFooter} ${
@@ -416,14 +354,15 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
                   onClick={handleBack}
                   className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}
                 >
-            <img src='/images/arrowRight3.png'
+            <Image src='/images/arrowRight3.png'
                 className={styles.arrowBack}
-                ></img> <span>Back</span> 
+                height={0} width={0} sizes="32px"
+                /> Back
                 </button>
 
                 <div
-                  className={`${styles.progressDiv} ${
-                    (ratingPage > 1 ||
+                  className={`${styles.progressDiv} 
+                   ${(ratingPage > 1 ||
                       (ratingPage == 1 && animation == "swipeOutLeft")) &&
                     styles.progressDivMobileControl
                   }`}
@@ -434,46 +373,30 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
 
                   <div className={styles.progressBar}>
                     <div
-                      className={`${
-                        ratingPage == 0 &&
-                        animation == "swipeOutLeft" &&
-                        styles.fillProgressBar
-                      } ${ratingPage > 0 && styles.progressBarFilled} ${
-                        ratingPage == 1 &&
-                        animation == "swipeOutRight" &&
-                        styles.fillOutProgressBar
-                      }
-   }`}
-                    />{" "}
+                      className={`${styles.progressBarFiller} ${
+                        ((ratingPage == 0 &&
+                        animation == "swipeOutLeft") || (ratingPage == 1 && animation != "swipeOutRight") || ratingPage>1) &&
+                        styles.fillProgressBarFiller
+                      }`}
+                    />
                   </div>
 
                   <div className={styles.progressBar}>
                     <div
-                      className={`${
-                        (ratingPage > 1 ||
-                          (ratingPage == 1 && animation == "swipeOutLeft")) &&
-                        styles.fillProgressBar
-                      } ${
-                        ratingPage == 2 &&
-                        animation == "swipeOutRight" &&
-                        styles.fillOutProgressBar
-                      }
-   }`}
-                    />{" "}
+                      className={`${styles.progressBarFiller} ${
+                        ((ratingPage == 1 && animation == "swipeOutLeft") ||  (ratingPage == 2 && animation != "swipeOutRight") || (ratingPage>2)) &&
+                         
+                        styles.fillProgressBarFiller
+                      }`}
+                    />
                   </div>
                   <div className={styles.progressBar}>
                     <div
-                      className={`${
-                        (ratingPage > 2 ||
-                          (ratingPage == 2 && animation == "swipeOutLeft")) &&
-                        styles.fillProgressBar
-                      } ${
-                        ratingPage == 3 &&
-                        animation == "swipeOutRight" &&
-                        styles.fillOutProgressBar
-                      }
-   }`}
-                    />{" "}
+                      className={`${styles.progressBarFiller} 
+                      ${ ((ratingPage == 2 && animation == "swipeOutLeft") ||  (ratingPage == 3 && animation != "swipeOutRight")) &&
+                        styles.fillProgressBarFiller
+                      }`}
+                    />
                   </div>
                 </div>
 
@@ -569,7 +492,7 @@ export default function WriteReview({ infoDivOpen, setInfoDivOpen }) {
             )}
           </div>
         </div>
-      )}
-    </>
+      
+   
   );
 }

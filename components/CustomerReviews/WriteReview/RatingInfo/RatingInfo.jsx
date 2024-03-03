@@ -56,6 +56,7 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
 }, [openRatingInfo])
 
 
+
   return (
     <div ref={ratingInfoWrapperRef} className={`${styles.ratingInfoWrapper} ${openRatingInfo && styles.ratingInfoOpen}`} 
    
@@ -74,6 +75,9 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
           />
           <span className={styles.ratingSpan}>{ratingData.rating}</span>
           </div>
+          {
+
+          }
           <RatingMetric rating={5} rateNumber={ratingData.stars5} sumOfAllReviews={ratingData.reviewsNumber}/>
           <RatingMetric rating={4} rateNumber={ratingData.stars4} sumOfAllReviews={ratingData.reviewsNumber}/>
           <RatingMetric rating={3} rateNumber={ratingData.stars3} sumOfAllReviews={ratingData.reviewsNumber}/>

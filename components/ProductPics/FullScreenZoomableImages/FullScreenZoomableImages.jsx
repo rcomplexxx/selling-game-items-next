@@ -138,8 +138,10 @@ const FullScreenZoomableImage = ({
   }, []);
   //
 
+  //Mozda izbaciti navlocked i active
+
   useEffect(()=>{
-    const handlePopState=()=>{ setNavLocked(false); setNavActive(false);killFullScreen();}
+    const handlePopState=()=>{  setNavActive(false);killFullScreen();}
 
     window?.addEventListener("popstate", handlePopState);
 

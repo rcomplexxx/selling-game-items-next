@@ -1,10 +1,11 @@
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect,  useState } from 'react'
 import StarRatings from 'react-star-ratings';
 import RatingInfo from './RatingInfo/RatingInfo';
 import styles from './writereviewvisible.module.css';
 
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 
 
 const WriteReview = dynamic(() => import('./WriteReview'));
@@ -13,6 +14,55 @@ const WriteReview = dynamic(() => import('./WriteReview'));
 export default function WriteReviewVisible({ratingData}) {
     const [openRatingInfo, setOpenRatingInfo]=useState(false);
     const  [infoDivOpen, setInfoDivOpen] = useState(undefined);
+
+    const router = useRouter();
+
+  
+
+
+    useEffect(() => {
+
+      if(infoDivOpen===undefined){
+        if(router.asPath.includes("#write-review"))
+        router.push(router.asPath.split('#write-review')[0]);
+      
+        return;
+      }
+      
+      if (infoDivOpen) {
+        if(!router.asPath.includes("#write-review")) router.push(router.asPath + "#write-review");
+
+
+        
+      router.beforePopState((state) => {
+       
+        state.options.scroll = false;
+        return true;
+      });
+
+      }
+  
+      else{
+  
+      if (router.asPath.includes("#write-review")) {
+        if(global.stopRouteExecution)global.stopRouteExecution=false;
+        else router.back();
+      }
+    
+      }
+  
+    
+    }, [infoDivOpen]);
+
+
+   
+  
+  
+  
+
+
+
+
 
    
     useEffect(()=>{
