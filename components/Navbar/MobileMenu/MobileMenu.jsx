@@ -15,7 +15,14 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const historyPushMountedRef=useRef(false);
     // const subMenuEnteredRef=useRef(false);
     const nextLink= useRef();
-    const clickStabilizerRef=useRef(false);
+    const backBlocker = useRef(false);
+
+
+
+
+  
+
+
 
    
     useEffect(() => {
@@ -40,7 +47,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { event.stopPropagation(); event.preventDefault(); 
-        clickStabilizerRef.current=true; history.back();
+        backBlocker.current=true; history.back();
         // setIsMenuOpen(false);
         document.removeEventListener('click', handleClickOutside, true);}
         
@@ -51,10 +58,10 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
 
 
-      const handlePopState = (event)=>{
+      const handlePopState = ()=>{
         
-       if(clickStabilizerRef.current){
-        clickStabilizerRef.current=false;
+       if(backBlocker.current){
+        backBlocker.current=false;
 
         closeMenu();
        
@@ -62,11 +69,6 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         return;
        }
 
-        // if(nextLinkSecondLevelStopper.current){
-        //   nextLinkSecondLevelStopper.current=false;
-        //   history.back();
-        //   return;
-        // }
 
         if( nextLink.current){
           closeMenu();
@@ -76,19 +78,15 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           return;
         }
        
-       if(subMenu!=0 ) {if(isMenuOpen){setSubMenu(0); 
+       if(subMenu!=0 ) {
+        
+        if(isMenuOpen){setSubMenu(0); 
         window.history.pushState(null, null, router.asPath);
         history.go(1);}}
       //  subMenuPopstateStabilizer.current=true;
        else {
       
 
-
-          // if(subMenu!=0 ) {if(isMenuOpen){setSubMenu(0); subMenuEnteredRef.current=true; }}
-          // //  subMenuPopstateStabilizer.current=true;
-          //  else {
-          //   if(subMenuEnteredRef.current){ window.history.pushState(null, null, router.asPath);
-          //     history.go(1); subMenuEnteredRef.current=false; }
 
 
           closeMenu();
@@ -105,9 +103,9 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
 
 
-      if(isMenuOpen){
+ 
 
-      if(subMenu==0 && !historyPushMountedRef.current){
+      if(!historyPushMountedRef.current){
 window.history.pushState(null, null, router.asPath);
         history.go(1);
         historyPushMountedRef.current=true;
@@ -119,35 +117,31 @@ window.history.pushState(null, null, router.asPath);
         window?.addEventListener("resize", handleResize);
         window?.addEventListener("popstate", handlePopState);
         document?.addEventListener('click', handleClickOutside, true);
-      }
-      else{
-        historyPushMountedRef.current=false;
-        window?.removeEventListener("resize", handleResize);
-        window?.removeEventListener("popstate", handlePopState);
-        document?.removeEventListener('click', handleClickOutside, true);
-      }
   
       return () => {
         
         if (isMenuOpen) {
+          window?.removeEventListener("resize", handleResize);
           window?.removeEventListener("popstate", handlePopState);
           document?.removeEventListener('click', handleClickOutside, true);
          
         }
       };
-    }, [isMenuOpen, subMenu]);
+    }, [subMenu]);
+
+    
+    
+
 
     useEffect(()=>{
       router.beforePopState((state) => {
-        if(isMenuOpen){
+        
         state.options.scroll = false;
           
         return false;
-      }
-    return true;
+     
       });
-    },[isMenuOpen,router])
-  
+    },[router])
    
 
  
@@ -165,7 +159,7 @@ window.history.pushState(null, null, router.asPath);
    
       <Image id='cancelMobileMenu' loading={'lazy'} alt='Cancel' height={16} width={16} src='/images/cancelWhite.png' 
       onClick={()=>{
-         clickStabilizerRef.current=true; history.back();
+         backBlocker.current=true; history.back();
         // setIsMenuOpen(false); 
         }} className={styles.menuItem_x_button}/>                 
                     

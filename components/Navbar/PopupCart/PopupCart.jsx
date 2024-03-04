@@ -26,14 +26,7 @@ useEffect(()=>{
 
 
 
-  router.beforePopState((state) => {
-
-    state.options.scroll = false;
-      
-    return false;
  
-  });
-
 
 
   window.history.pushState(null, null, router.asPath);
@@ -41,6 +34,8 @@ useEffect(()=>{
 
 
   const handlePopState = (event)=>{
+
+  
    
     backStopper.current = true; 
     setNewProduct();
@@ -51,6 +46,7 @@ useEffect(()=>{
   const handleClick = (event) => {
    
     if (!navBar.contains(event.target)) {
+      console.log('lol')
       setNewProduct();
     }
   };
@@ -75,6 +71,17 @@ useEffect(()=>{
    
 
   }
+},[])
+
+useEffect(()=>{
+  router.beforePopState((state) => {
+
+    state.options.scroll = false;
+      
+    return false;
+ 
+  });
+
 },[])
 
 
@@ -106,7 +113,7 @@ useEffect(()=>{
   
     </Link>
     
-    <span className={styles.continue_shopping}  onClick={()=>{setNewProduct();}} onMouseDown={(event)=>{event.preventDefault()}} >Continue shopping</span>
+    <span className={styles.continue_shopping}  onClick={()=>{setNewProduct();}} >Continue shopping</span>
     
 
  
