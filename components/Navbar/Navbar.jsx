@@ -28,12 +28,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   };
  
 
-  useEffect(()=>{if(newProduct) {
-    const popupCart = document.getElementById('popupCart');
-    if (popupCart) {
-      popupCart.focus();
-    }
-  }},[newProduct])
+  
 
 
   useEffect(()=>{
@@ -319,7 +314,7 @@ setSubMenu(subMenu==2?0:2);
               </Link>
                   </div>
         </div>
-        {!isMenuOpen && <PopupCart totalItems={totalItems} newProduct={newProduct} setNewProduct={setNewProduct}/>}
+        {!isMenuOpen &&  newProduct && <PopupCart totalItems={totalItems} newProduct={newProduct} setNewProduct={setNewProduct}/>}
       </nav>
 
     
