@@ -139,8 +139,8 @@ export default function ProductPage({ product, images, startReviews, ratingData 
           <button
           id='addToCart'
             className={styles.add_to_cart_button}
-            onClick={() => onAddToCart( quantity)}
-            onMouseDown={(event)=>{event.preventDefault()}}
+            onClick={(event) => {event.stopPropagation();onAddToCart( quantity)}}
+         
           >
             Add to Cart
           </button>

@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import styles from './popupcart.module.css'
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
 
@@ -12,6 +12,8 @@ export default function PopupCart({totalItems,newProduct, setNewProduct}){
 
 
 const router = useRouter();
+
+const backStopper = useRef(false);
 
 
 
@@ -35,30 +37,35 @@ useEffect(()=>{
   history.go(1);
 
 
-
-
   const handlePopState = (event)=>{
    
-  
-     
+    backStopper.current = true; 
     setNewProduct();
- 
   
   }
 
+  const navBar = document.getElementById('navBar')
+  const handleClick = (event) => {
+   
+    if (!navBar.contains(event.target)) {
+      setNewProduct();
+    }
+  };
      
 
 
-  window?.addEventListener("popstate", handlePopState);
-
-
+  document?.addEventListener("popstate", handlePopState);
+  document.addEventListener('click', handleClick);
+  
 
 
   return ()=>{
     //Doraditi za uslov ako je kliknuto back?
     // history.back();
-    window?.removeEventListener("popstate", handlePopState);
-  
+    if(!backStopper.current)
+    history.back();
+    document?.removeEventListener("popstate", handlePopState);
+    document.removeEventListener('click', handleClick);
   }
 },[])
 

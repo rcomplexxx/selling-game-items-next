@@ -51,10 +51,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
    
   }, [zoomed]);
 
-  // useEffect(() => {
-  //   if (!router.asPath.includes("#zoom")) setZoomed(false);
-    
-  // }, [router.asPath]);
+
   
   useEffect(()=>{
     swiper && swiper.slideTo(0, 400);
@@ -301,7 +298,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
      
 
  {spawnAddToCart && <div ref={fixedAddToCartRef} className={`${styles.fixedAddToCartDiv}`}
-  onMouseDown={(event)=>{event.preventDefault()}} onClick={()=>{onAddToCart()}}>Add to cart
+  onClick={(event)=>{event.stopPropagation();onAddToCart()}}>Add to cart
         </div>
 }
 

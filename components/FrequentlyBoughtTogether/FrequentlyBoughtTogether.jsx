@@ -32,8 +32,8 @@ const FreqProduct = ({ productId, variantIndex, onAddToCart }) => {
       </div>
       <button
         className={styles.add_to_cart_button}
-        onClick={() => onAddToCart(1,product, variantName)}
-        onMouseDown={(event)=>{event.preventDefault()}}
+        onClick={(event) => {event.stopPropagation();onAddToCart(1,product, variantName)}}
+       
       >
         Add to Cart
       </button>
