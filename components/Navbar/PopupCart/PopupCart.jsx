@@ -19,23 +19,20 @@ const backStopper = useRef(false);
 
 
 
+
+
+
 useEffect(()=>{
+
+
+
   router.beforePopState((state) => {
 
     state.options.scroll = false;
       
-    return true;
+    return false;
  
   });
-},[router])
-
-
-
-useEffect(()=>{
-
-
-
-
 
 
 
@@ -66,12 +63,10 @@ useEffect(()=>{
 
 
   return ()=>{
-    //Doraditi za uslov ako je kliknuto back?
-    // history.back();
+
     if(!backStopper.current){
     history.back();
-    
-  }
+    }
     
     window?.removeEventListener("popstate", handlePopState);
     document.removeEventListener('click', handleClick);
@@ -98,19 +93,18 @@ useEffect(()=>{
  </div>
  
 
-  <span  className={styles.add_to_cart_button}
-  onClick={()=>{backStopper.current=true; history.back();  router.push('/cart') }}
+  <Link href='/cart'  className={styles.add_to_cart_button}
      >
 
       View my cart ({totalItems})
     
-    </span>
+    </Link>
 
-    <span  className={styles.buyNowButton}   onClick={()=>{backStopper.current=true;history.back();  router.push('/checkout') }}>
+    <Link href='/checkout' className={styles.buyNowButton} >
     
      Check out
   
-    </span>
+    </Link>
     
     <span className={styles.continue_shopping}  onClick={()=>{setNewProduct();}} onMouseDown={(event)=>{event.preventDefault()}} >Continue shopping</span>
     
