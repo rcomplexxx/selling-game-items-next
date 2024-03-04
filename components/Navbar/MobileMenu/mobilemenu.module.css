@@ -61,21 +61,38 @@
   }
   
 
-  .menuItemDiv{
-    display: flex;
-    justify-content: flex-start;
-   padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 8px;
+  .linkStyle {
+    color: var(--red-2);
+    text-decoration: none;
+    transition: transform 0.08s ease-in;
+    
+   
+    padding: var(--size-4) var(--size-6);
+
+    font-size: var(--font-size-4);
+    white-space: nowrap;
     cursor: pointer;
+   
+ 
   }
 
-  .menuItemDiv p{
-    font-size: var(--font-size-4);
-     font-weight: 400;
-     
-       margin: 0;
+
+
+
+  .menuItemDiv{
+  
+  
+  
+   
   }
+
+ 
+
+  .subMenuTitle{
+    font-size: var(--font-size-2);
+  }
+
+
 
   .subMenuPortal{
     display: flex;
@@ -107,55 +124,10 @@
   }
 
 
-.linkStyle {
-    color: var(--red-2);
-    text-decoration: none;
-    transition: transform 0.08s ease-in;
-    font-size: var(--font-size-3);
-    padding-left: var(--size-6);
-    padding-right: var(--size-6);
-    white-space: nowrap;
-   
- 
-  }
 
 
 
-  .linkStyle:nth-child(2){
-    animation-delay: 0.05s;
-  }
-  .linkStyle:nth-child(3){
-    animation-delay:0.1s;
-  }
 
-  .linkStyle:nth-child(4){
-    animation-delay: 0.15s;
-  }
-  .linkStyle:nth-child(5){
-    animation-delay: 0.2s;
-  }
-
-  .linkStyle:nth-child(6){
-    animation-delay: 0.25s;
-  }
-  .linkStyle:nth-child(7){
-    animation-delay: 0.3s;
-  }
-
-  .linkStyle:nth-child(8){
-    animation-delay: 0.35s;
-  }
-
-  
-  .linkStyle:hover {
-    transform: scale(1.1);
-  }
-  
-  .linkStyle:active {
-    transform: scale(1);
-  }
-  
-  
   
   
   .currentLinkMobile {

@@ -182,7 +182,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
             {subMenu===0 &&
       <><span
        
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
@@ -193,11 +193,11 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           }
         }}
       >
-        <p>Home</p>
+       Home
       </span>
 
       <span
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/products" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
@@ -208,12 +208,12 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           }
         }}
       >
-        <p>Products</p>
+        Products
       </span>
 
       <span
        
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/collection/sale/page/1" ?  styles.currentLinkMobile : ""
         }`}
         onClick={() => {
@@ -224,35 +224,35 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           }
         }}
       >
-        <p>Sale</p>
+        Sale
       </span>
 
 
       <div
        
-        className={`${styles.subMenuPortal} ${styles.linkStyle} ${styles.menuItemDiv}`}
+        className={`${styles.subMenuPortal} ${styles.linkStyle}`}
         onClick={() => {
           setSubMenu(2);
         }}
       >
-        <p>Collections</p>
+        Collections
         <Image loading={'lazy'} alt='Go' height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
 
     
       <div
        
-        className={`${styles.subMenuPortal} ${styles.linkStyle} ${styles.menuItemDiv}`}
+        className={`${styles.subMenuPortal} ${styles.linkStyle}`}
         onClick={() => {
           setSubMenu(1);
         }}
       >
-        <p>Info</p>
+      Info
         <Image loading={'lazy'} alt='Go' height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
      
       <span
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/contact-us" ?  styles.currentLinkMobile : ""
         }`}
        
@@ -265,7 +265,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         }
       }
       >
-        <p>Contact us</p>
+        Contact us
       </span></>
         
       }
@@ -274,16 +274,17 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       <>
  <div
        
-       className={`${styles.linkStyle} ${styles.menuItemDiv}  ${styles.subMenuBack}`}
+       className={`${styles.linkStyle}`}
        onClick={() => {
          setSubMenu(0);
        }}
      >
-       <Image loading={'lazy'} alt='Back' height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Info</p>
+       <Image loading={'lazy'} alt='Back' height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/>
+       <span className={styles.subMenuTitle}>Info</span>
      </div>
 
      <span
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/our-story" ?  styles.currentLinkMobile : ""
         }`}
   
@@ -295,13 +296,13 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           }
         }}
       >
-        <p>Our story</p>
+        Our story
       </span>
 
 
       <span
       
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/faq" ? styles.currentLinkMobile : ""
         }`}
        
@@ -313,11 +314,11 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           }
         }}
       >
-        <p>FAQ</p>
+        FAQ
       </span>
       <span
        
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/terms-of-service" ? styles.currentLinkMobile : ""
         }`}
     
@@ -328,12 +329,12 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           }
         }}
       >
-        <p>Terms of service</p>
+        Terms of service
       </span>
       <span
       
       
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/privacy-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
@@ -344,11 +345,11 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           }
         }}
       >
-        <p>Privacy policy</p>
+       Privacy policy
       </span>
       <span
      
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/shipping-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
@@ -359,10 +360,10 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           }
         }}
       >
-        <p>Shipping policy</p>
+        Shipping policy
       </span>
       <span
-        className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+        className={`${styles.linkStyle} ${
           pathname === "/refund-policy" ? styles.currentLinkMobile : ""
         }`}
         onClick={() => {
@@ -374,7 +375,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           }
         }}
       >
-        <p>Refund policy</p>
+        Refund policy
       </span>
       </>
       }
@@ -383,16 +384,17 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
         <div
        
-       className={`${styles.linkStyle} ${styles.menuItemDiv}  ${styles.subMenuBack}`}
+       className={`${styles.linkStyle} ${styles.subMenuTitle}`}
        onClick={() => {
          setSubMenu(0);
        }}
      >
-       <Image loading={'lazy'} alt='Back' height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/><p>Collections</p>
+       <Image loading={'lazy'} alt='Back' height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/>
+       <span className={styles.subMenuTitle}>Collections</span>
      </div>
 
 {collections.map((c, index) => {return <span key={index}
-  className={`${styles.linkStyle} ${styles.menuItemDiv} ${
+  className={`${styles.linkStyle} ${
     pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
   }`}
   onClick={() => {
@@ -404,7 +406,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     
   }}
   >
-  <p>{c.name}</p>
+ {c.name}
   </span>
 })}
 </>
