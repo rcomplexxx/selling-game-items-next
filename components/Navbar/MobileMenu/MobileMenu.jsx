@@ -12,8 +12,8 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
     const router = useRouter();
     const pathname = router.asPath;
-    const historyPushMountedRef=useRef(false);
-    // const subMenuEnteredRef=useRef(false);
+  
+
     const nextLink= useRef();
     const backBlocker = useRef(false);
 
@@ -36,19 +36,22 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         
         document.getElementById('mobileMenu').classList.add(styles.menuClosed);
         setTimeout(()=>{
-        //  .menuClosed
+       
         
         setIsMenuOpen(false);
       },500)};
 
       const handleClickOutside = (event) => {
-        // if(subMenuPopstateStabilizer.current){subMenuPopstateStabilizer.current=false;return;}
         
 
         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
-       { event.stopPropagation(); event.preventDefault(); 
-        backBlocker.current=true; history.back();
-        // setIsMenuOpen(false);
+       { 
+        event.stopPropagation(); 
+        event.preventDefault(); 
+        backBlocker.current=true; 
+        
+        history.back();
+      
         document.removeEventListener('click', handleClickOutside, true);}
         
       };
@@ -80,9 +83,13 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
        
        if(subMenu!=0 ) {
         
-        if(isMenuOpen){setSubMenu(0); 
+      setSubMenu(0); 
+
         window.history.pushState(null, null, router.asPath);
-        history.go(1);}}
+        
+        history.go(1);
+        
+      }
       //  subMenuPopstateStabilizer.current=true;
        else {
       
@@ -105,12 +112,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
  
 
-      if(!historyPushMountedRef.current){
-window.history.pushState(null, null, router.asPath);
-        history.go(1);
-        historyPushMountedRef.current=true;
-      }
-     
+      
 
      
        
@@ -129,6 +131,19 @@ window.history.pushState(null, null, router.asPath);
       };
     }, [subMenu]);
 
+
+
+
+
+    useEffect(()=>{
+
+      
+        window.history.pushState(null, null, router.asPath);
+                history.go(1);
+           
+             
+    },[])
+
     
     
 
@@ -138,7 +153,7 @@ window.history.pushState(null, null, router.asPath);
         
         state.options.scroll = false;
           
-        return false;
+        return true;
      
       });
     },[router])
