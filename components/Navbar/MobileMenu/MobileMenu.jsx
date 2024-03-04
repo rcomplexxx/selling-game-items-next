@@ -13,6 +13,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const router = useRouter();
     const pathname = router.asPath;
   
+    const mobileMenuRef = useRef();
 
     const nextLink= useRef();
     const backBlocker = useRef(false);
@@ -34,7 +35,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
    
       const closeMenu = ()=>{ 
         
-        document.getElementById('mobileMenu').classList.add(styles.menuClosed);
+        mobileMenuRef.current.classList.add(styles.menuClosed);
         setTimeout(()=>{
        
         
@@ -44,7 +45,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       const handleClickOutside = (event) => {
         
 
-        if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
+        if(!mobileMenuRef.current.contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { 
         event.stopPropagation(); 
         event.preventDefault(); 
@@ -161,13 +162,13 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
 
     return <div
-    id='mobileMenu'
+    ref={mobileMenuRef}
       className={`${styles.mainMenuCard}` }
       
     >
     
    
-      <Image id='cancelMobileMenu' loading={'lazy'} alt='Cancel' height={16} width={16} src='/images/cancelWhite.png' 
+      <Image loading={'lazy'} alt='Cancel' height={16} width={16} src='/images/cancelWhite.png' 
       onClick={()=>{
          backBlocker.current=true; history.back();
         // setIsMenuOpen(false); 
