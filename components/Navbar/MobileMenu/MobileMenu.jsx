@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import styles from "./mobilemenu.module.css";
-import {  useEffect, useRef } from "react";
+import {  useCallback, useEffect, useRef } from "react";
 import collections from '@/data/collections.json'
 import Image from "next/image";
 import classNames from "classnames";
@@ -14,14 +14,53 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const pathname = router.asPath;
   
 
+  
     const nextLink= useRef();
-    const backBlocker = useRef(false);
+    const doAnotherBack = useRef(false);
+
+
+
+    const closeMenu = useCallback(()=>{ 
+        
+      document.getElementById('mobileMenu').classList.add(styles.menuClosed);
+      setTimeout(()=>{
+     
+      
+      setIsMenuOpen(false);
+    },500)});
 
 
 
 
   
+  const clearMenuRouting = useCallback(()=>{
 
+
+  
+    closeMenu();
+
+    if(nextLink.current){
+      if(subMenu!=0)
+      doAnotherBack.current= true;
+      history.back();
+    }
+
+    else{
+     if(subMenu!=0)
+    history.back();
+
+
+    history.back();
+    
+   
+    }
+ 
+
+    
+
+
+
+  },[subMenu])
 
 
    
@@ -32,14 +71,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       }
 
    
-      const closeMenu = ()=>{ 
-        
-        document.getElementById('mobileMenu').classList.add(styles.menuClosed);
-        setTimeout(()=>{
-       
-        
-        setIsMenuOpen(false);
-      },500)};
+      
 
       const handleClickOutside = (event) => {
         
@@ -48,11 +80,13 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
        { 
         event.stopPropagation(); 
         event.preventDefault(); 
-        backBlocker.current=true; 
+       
+       
         
-        history.back();
+        clearMenuRouting ();
+        document.removeEventListener('click', handleClickOutside, true);
       
-        document.removeEventListener('click', handleClickOutside, true);}
+      }
         
       };
 
@@ -61,36 +95,37 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
 
 
-      const handlePopState = ()=>{
+      const handlePopState = (event)=>{
+      
+      
+
+
         
-       if(backBlocker.current){
-        backBlocker.current=false;
-
-        closeMenu();
        
-       
-        return;
-       }
-
 
         if( nextLink.current){
-          closeMenu();
-          window?.removeEventListener("popstate", handlePopState);
-          router.push(nextLink.current);
-          nextLink.current=undefined;
-          return;
-        }
+         if(doAnotherBack.current){
+          doAnotherBack.current= false;
+            history.back();
+            return;
+         }
+         window?.removeEventListener("popstate", handlePopState);
+            router.push(nextLink.current)
+            return;
+          }
+         
+         
+        
        
        if(subMenu!=0 ) {
-        
+
+       
       setSubMenu(0); 
 
-        window.history.pushState(null, null, router.asPath);
         
-        history.go(1);
         
       }
-      //  subMenuPopstateStabilizer.current=true;
+     
        else {
       
 
@@ -112,7 +147,11 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
  
 
-      
+        if(subMenu!=0){
+          window.history.pushState(null, null, router.asPath);
+        
+        history.go(1);
+        }
 
      
        
@@ -122,12 +161,14 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
   
       return () => {
         
-        if (isMenuOpen) {
+        
           window?.removeEventListener("resize", handleResize);
           window?.removeEventListener("popstate", handlePopState);
           document?.removeEventListener('click', handleClickOutside, true);
+
+       
          
-        }
+        
       };
     }, [subMenu]);
 
@@ -135,20 +176,17 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
 
 
+ 
+    
+    
+
+
     useEffect(()=>{
 
-      
-        window.history.pushState(null, null, router.asPath);
+
+   window.history.pushState(null, null, router.asPath);
                 history.go(1);
-           
-             
-    },[])
 
-    
-    
-
-
-    useEffect(()=>{
       router.beforePopState((state) => {
         
         state.options.scroll = false;
@@ -156,7 +194,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         return true;
      
       });
-    },[router])
+    },[])
    
 
  
@@ -174,8 +212,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
    
       <Image id='cancelMobileMenu' loading={'lazy'} alt='Cancel' height={16} width={16} src='/images/cancelWhite.png' 
       onClick={()=>{
-         backBlocker.current=true; history.back();
-        // setIsMenuOpen(false); 
+        clearMenuRouting ();
         }} className={styles.menuItem_x_button}/>                 
                     
 
@@ -190,8 +227,9 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         }`}
         onClick={() => {
           if(pathname !== "/") { 
+
             nextLink.current='/';
-           history.back();
+            clearMenuRouting ();
 
           }
         }}
@@ -206,7 +244,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         onClick={() => {
           if(pathname !== "/products") { 
             nextLink.current='/products';
-           history.back();
+            clearMenuRouting ();
 
           }
         }}
@@ -222,7 +260,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         onClick={() => {
           if(pathname !== "/collection/sale/page/1") { 
             nextLink.current='/collection/sale/page/1';
-           history.back();
+            clearMenuRouting ();
 
           }
         }}
@@ -262,7 +300,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         onClick={() => {
           if(pathname !== "/contact-us") { 
             nextLink.current='/contact-us';
-           history.back();
+            clearMenuRouting ();
 
           }
         }
@@ -293,7 +331,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         onClick={() => {
           if(pathname !== "/our-story") { 
             nextLink.current='/our-story';
-           history.back();
+            clearMenuRouting ();
 
           }
         }}
@@ -311,7 +349,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         onClick={() => {
           if(pathname !== "/faq") { 
             nextLink.current="/faq";
-           history.back();
+            clearMenuRouting ();
 
           }
         }}
@@ -327,7 +365,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         onClick={() => {
           if(pathname !== "/terms-of-service") { 
             nextLink.current="/terms-of-service";
-           history.back();
+            clearMenuRouting ();
           }
         }}
       >
@@ -343,7 +381,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           if(pathname !== "/privacy-policy") { 
         
             nextLink.current="/privacy-policy";
-           history.back();
+            clearMenuRouting ();
           }
         }}
       >
@@ -358,7 +396,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           if(pathname !== "/shipping-policy") { 
        
             nextLink.current="/shipping-policy";
-           history.back();
+            clearMenuRouting ();
           }
         }}
       >
@@ -373,7 +411,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
           if(pathname !== "/refund-policy") { 
          
             nextLink.current="/refund-policy";
-           history.back();
+            clearMenuRouting ();
           }
         }}
       >
@@ -402,7 +440,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     if(pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`) { 
 
       nextLink.current=`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`;
-     history.back();
+      clearMenuRouting ();
     }
     
   }}
