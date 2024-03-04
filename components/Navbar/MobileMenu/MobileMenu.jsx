@@ -165,9 +165,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       className={`${styles.mainMenuCard}` }
       
     >
-      <div className={styles.menuItemsDiv}>
-
-
+    
    
       <Image id='cancelMobileMenu' loading={'lazy'} alt='Cancel' height={16} width={16} src='/images/cancelWhite.png' 
       onClick={()=>{
@@ -177,14 +175,12 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
                     
 
      
-      </div>
+      
      
             {subMenu===0 &&
       <><span
        
-        className={`${styles.linkStyle} ${
-          pathname === "/" ? styles.currentLinkMobile : ""
-        }`}
+        className={`${styles.linkStyle} ${pathname === "/" && styles.currentLinkMobile}`}
         onClick={() => {
           if(pathname !== "/") { 
             nextLink.current='/';
@@ -197,9 +193,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       </span>
 
       <span
-        className={`${styles.linkStyle} ${
-          pathname === "/products" ?  styles.currentLinkMobile : ""
-        }`}
+        className={`${styles.linkStyle} ${pathname === "/products" && styles.currentLinkMobile}`}
         onClick={() => {
           if(pathname !== "/products") { 
             nextLink.current='/products';
@@ -214,7 +208,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       <span
        
         className={`${styles.linkStyle} ${
-          pathname === "/collection/sale/page/1" ?  styles.currentLinkMobile : ""
+          pathname === "/collection/sale/page/1" &&  styles.currentLinkMobile
         }`}
         onClick={() => {
           if(pathname !== "/collection/sale/page/1") { 
@@ -253,7 +247,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
      
       <span
         className={`${styles.linkStyle} ${
-          pathname === "/contact-us" ?  styles.currentLinkMobile : ""
+          pathname === "/contact-us" && styles.currentLinkMobile
         }`}
        
         onClick={() => {
@@ -285,7 +279,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
      <span
         className={`${styles.linkStyle} ${
-          pathname === "/our-story" ?  styles.currentLinkMobile : ""
+          pathname === "/our-story" &&  styles.currentLinkMobile
         }`}
   
         onClick={() => {
@@ -303,7 +297,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       <span
       
         className={`${styles.linkStyle} ${
-          pathname === "/faq" ? styles.currentLinkMobile : ""
+          pathname === "/faq" && styles.currentLinkMobile
         }`}
        
         onClick={() => {
@@ -319,7 +313,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       <span
        
         className={`${styles.linkStyle} ${
-          pathname === "/terms-of-service" ? styles.currentLinkMobile : ""
+          pathname === "/terms-of-service" && styles.currentLinkMobile
         }`}
     
         onClick={() => {
@@ -335,7 +329,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       
       
         className={`${styles.linkStyle} ${
-          pathname === "/privacy-policy" ? styles.currentLinkMobile : ""
+          pathname === "/privacy-policy" && styles.currentLinkMobile
         }`}
         onClick={() => {
           if(pathname !== "/privacy-policy") { 
@@ -350,7 +344,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       <span
      
         className={`${styles.linkStyle} ${
-          pathname === "/shipping-policy" ? styles.currentLinkMobile : ""
+          pathname === "/shipping-policy" && styles.currentLinkMobile
         }`}
         onClick={() => {
           if(pathname !== "/shipping-policy") { 
@@ -364,7 +358,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       </span>
       <span
         className={`${styles.linkStyle} ${
-          pathname === "/refund-policy" ? styles.currentLinkMobile : ""
+          pathname === "/refund-policy" && styles.currentLinkMobile
         }`}
         onClick={() => {
         
@@ -395,7 +389,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
 {collections.map((c, index) => {return <span key={index}
   className={`${styles.linkStyle} ${
-    pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` ? styles.currentLinkMobile : ""
+    pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` && styles.currentLinkMobile
   }`}
   onClick={() => {
     if(pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`) { 

@@ -30,61 +30,53 @@
 
   .menuClosed{
     transform: translateX(-100%);
-    /* max-width: 0; */
+
   }
   
-  .menuCompletelyClosed{
-    display:none;
-  }
+
  
   
   .menuItemsDiv{
     display: flex;
     justify-content: flex-end;
-    margin-top: 32px;
-    margin-bottom: 16px;
-    margin-right: 24px;
+  
    
   }
 
  
   .menuItem_x_button {
+
     
-    border: none;
-    color: var(--red-2);
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    font-weight: 600;
+    margin-top: var(--size-7);
+    margin-bottom: var(--size-5);
+    margin-right: var(--size-6);
+  
+
+   
+
+    align-self: flex-end;
     cursor: pointer;
   }
   
 
   .linkStyle {
     color: var(--red-2);
-    text-decoration: none;
-    transition: transform 0.08s ease-in;
+   
+    
     
    
     padding: var(--size-4) var(--size-6);
 
     font-size: var(--font-size-4);
     white-space: nowrap;
+
+    text-decoration: none;
     cursor: pointer;
    
  
   }
 
 
-
-
-  .menuItemDiv{
-  
-  
-  
-   
-  }
 
  
 
@@ -105,21 +97,14 @@
     transform: rotate(180deg);
   }
 
-  .subMenuBack{
-   
-    display: flex;
-    align-items: center;
- 
-  }
+
 
   /* background-color: rgb(13, 24, 27); */
 
-  .subMenuBack p{
-    font-size: var(--font-size-2);
-  }
+  
 
   .subMenuBackArrow{
-    margin-right: 8px;
+    margin-right: var(--size-3);
     transform: rotate(0deg);
   }
 
@@ -140,45 +125,6 @@
  
 
 
-  @media(min-width: 980px){
-    .mainMenuCard{
-        display: none;
-    }
-  }
-
-
-  @keyframes slideIn {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-
-  @keyframes slideOut {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  @keyframes spawnLink {
-    0% {
-      opacity: 0;
-    transform: translateY(50%);
-    }
-
- 
-  
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
   @keyframes spawnMobileMenu {
     0% {
