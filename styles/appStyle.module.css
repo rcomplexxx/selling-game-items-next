@@ -46,7 +46,7 @@
   .heroImage{
     position: relative;
     width: 100%;
-    height: max-content;
+    height: auto;
   
     min-height: var(--size-13);
     max-height: calc(100vh - var(--size-11));
@@ -71,8 +71,18 @@
     align-items: center;
   }
 
-  @media (max-width: 600px)  {
+
+  @media (min-width: 720px){
     .heroImage{
-      
+  
+      height: calc(100vw *  1 / 2); 
     }
   }
+
+  @media (max-width: 720px){
+    .heroImage{
+  
+      aspect-ratio: 1 !important;
+    }
+  }
+

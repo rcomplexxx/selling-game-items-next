@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
-import HomeText from "@/components/HomeText/HomeText";
+import React from "react";
 import HomeReviews from "../components/HomeReviews/HomeReviews.jsx";
 import Products from "@/components/Products/Products.jsx";
 import products from "../data/products.json";
 import styles from "../styles/appStyle.module.css";
-import Head from "next/head";
 import Link from "next/link";
-import Ticker from 'react-ticker'
 import Image from "next/image";
 
 const HomePage = ({ products }) => {
@@ -37,14 +34,9 @@ const HomePage = ({ products }) => {
    
    
 
-
-
- 
-
-
       <picture className={styles.heroWindow}>
-    <source media="(min-width: 720px)" srcSet="/images/gameGirl2Zoomed.png"  />
-          
+    <source media="(min-width: 720px)" srcSet="/images/gameGirl2Zoomed.png" />
+           
    
         <Image
           height={0}
