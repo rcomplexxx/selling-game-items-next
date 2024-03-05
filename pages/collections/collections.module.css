@@ -57,12 +57,10 @@
     transition: all 0.005s ease-in;
     overflow: hidden;
     border-radius:  var(--size-2);
-  }
- 
-  
-  .media:hover {
     cursor: pointer;
   }
+ 
+
 
   
 

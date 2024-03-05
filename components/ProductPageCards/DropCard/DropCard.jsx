@@ -14,43 +14,10 @@ export default function DropCard(props) {
     const emergeTimeoutRef = useRef();
  
 
+
+
+
     
-  // useEffect(()=>{
-  //   if(!mounted.current){mounted.current=true; return;}
-   
-    
-  //   let myAnswer=dropCardAnswerRef.current;
-  
- 
-    
-  
-  // if(showAnswer){
-
-
- 
-  //   myAnswer.style.maxHeight=`${myAnswer.scrollHeight}px`;
-  //   emergeTimeoutRef.current= setTimeout(()=>{
-  //     myAnswer.style.maxHeight='none'
-  //   },500);
-    
-  // }
-  // else{
-
-  //   clearTimeout(emergeTimeoutRef.current);
-   
-
-  //   myAnswer.style.maxHeight=`${myAnswer.scrollHeight}px`;
-  //   setTimeout(()=>{
-  //     myAnswer.style.transition=`max-height 0.5s ease`;
-  //     myAnswer.style.maxHeight="0";
-  //    }, 1)
-  
-   
-  // }
-
-
-  // },[showAnswer]);
-
 
   function summonAnswer() {
     setShowAnswer(!showAnswer);

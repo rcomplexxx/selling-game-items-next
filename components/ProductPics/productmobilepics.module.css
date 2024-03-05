@@ -61,11 +61,10 @@
     width:100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
   
   }
-  .productImage:hover{
-    cursor: pointer;
-  }
+
 
   .productImage:hover + .zoomImg{
     /* Styles applied to .target when .trigger is hovered */
@@ -265,12 +264,13 @@
     padding: var(--size-3);
     
     transform: translateY(-50%);
+    cursor: pointer;
   }
 
   @media (hover: hover) {
   .leftArrowDiv:hover{
     background-color: rgb(19, 23, 57);
-    cursor: pointer;
+    
   }
 
    }
@@ -290,9 +290,7 @@
   }
 
 
- .disabledArrow:hover{
-  cursor:auto;
- }
+
 
 
   .disabledArrow:active{

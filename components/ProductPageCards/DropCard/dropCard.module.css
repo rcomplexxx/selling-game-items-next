@@ -27,13 +27,12 @@
     font-size: var(--font-size-4);
     
     font-weight: 600;
+    cursor: pointer;
   }
 
  
   
-  .title_div:hover{
-    cursor: pointer;
-  }
+ 
 
   
   .plusStyle {

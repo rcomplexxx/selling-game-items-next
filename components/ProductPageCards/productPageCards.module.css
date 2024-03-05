@@ -207,22 +207,24 @@
     border-radius: 12px;
     font-family: var(--font-neutral);
     align-self: flex-end;
+    cursor: pointer;
 }
 
 .sendButton:hover{
   
     background-color: var(--action-button-bg-color-hover);
     /* background-color: rgb(35, 49, 48); */
-    cursor: pointer;
+   
 }
 
 .sendButtonDisabled{
     opacity: 0.7;
+    cursor:auto;
 }
 
 .sendButtonDisabled:hover{
     background-color:  var(--action-button-bg-color);
-    cursor:auto;
+   
 }
 
 

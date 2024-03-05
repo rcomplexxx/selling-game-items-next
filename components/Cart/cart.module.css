@@ -82,10 +82,11 @@ visibility: hidden;
     border: none;
     font-size: var(--font-size-3);   
     transition: background-color 0.3s ease;
+    cursor: pointer;
   }
 
   .checkoutButtonNew:hover{
-    cursor: pointer;
+  
     background-color: #1565C0;;
   }
   
@@ -156,12 +157,12 @@ visibility: hidden;
       border: none;
       font-size: var(--font-size-3);   
       transition: background-color 0.3s ease;
-
+      cursor: pointer;
 
   }
 
 .shopNow:hover{
-  cursor: pointer;
+  
   background-color: #1565C0;;
 }
 

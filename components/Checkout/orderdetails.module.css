@@ -38,7 +38,7 @@
   
   .checkout_right h2 {
     font-size: var(--font-size-6);
-    font-weight: 600;
+    font-weight: bold;
     
   }
 
@@ -119,11 +119,11 @@
   }
   
   .applyEnabled{
-
+    cursor: pointer;
   }
 
   .applyEnabled:hover{
-    cursor: pointer;
+   
     background-color: #254766;
   }
 
@@ -368,16 +368,15 @@
       justify-content: space-between;
       align-items: center;
       font-size: var(--font-size-4);
-      font-weight: 600;
+      font-weight: bold;
+      cursor: pointer;
     }
     
     .title_div h2{
       font-size:  var(--font-size-6);
     }
     
-    .title_div:hover{
-      cursor: pointer;
-    }
+   
   
     
    

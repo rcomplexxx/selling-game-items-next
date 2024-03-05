@@ -110,7 +110,7 @@ const totalItems= useMemo(()=>{
         </Head>
        
       
-      
+        {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
      <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>
 
       
@@ -119,7 +119,7 @@ const totalItems= useMemo(()=>{
       </AppContext.Provider>
       
        <Footer />
-       {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
+     
     </div>
    
      

@@ -17,12 +17,13 @@
     position: absolute;
     font-family: var(--hand-writing-font);
     font-weight: 600; 
+    cursor: pointer;
   }
 
   .linkButton:hover{
     transition: transform 0.1s ease;
     transform: scale(1.1) !important;
-    cursor: pointer;
+  
   }
  
  

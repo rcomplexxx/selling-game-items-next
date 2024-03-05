@@ -20,12 +20,10 @@
     transition: all 0.005s ease-in;
     overflow: hidden;
     border-radius:  var(--size-2);
-  }
- 
-  
-  .media:hover {
     cursor: pointer;
   }
+ 
+ 
 
   
 
@@ -46,12 +44,13 @@
     height: 24px;
     width: 24px;
     margin-right: 2px;
+    cursor: pointer;
     
   }
 
 
   .addToCartImg:hover {
-    cursor: pointer;
+    
     transform: scale(1.2);
   }
   
