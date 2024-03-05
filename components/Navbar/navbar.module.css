@@ -174,18 +174,35 @@
   }
 
   .subMenuPortal{
-    
+    position: relative;
     
     user-select: none;
     cursor: pointer;
   }
+
+
+  .subMenuTitle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+   
+  .subMenuArrow{
+ 
+    margin-left: 8px;
+    transform: rotate(-90deg);
+  }
+
+  .subMenuArrowOpen{ transform: rotate(90deg);}
+
   
   
   
   .subMenu{
     position: absolute;
     top: calc(100% + 8px);
-    left: 200px;
+    left: 0;
     background-color: var(--gray-9-elegant);
     border: 1px solid rgb(72, 69, 85);
 
@@ -194,22 +211,7 @@
     animation: spawnSubMenu 0.2s ease;
   }
 
-  .subMenuFaq{
-    left: 312px;
-  }
 
-  .subMenuTitle{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .subMenuArrow{
- 
-    margin-left: 8px;
-    transform: rotate(-90deg);
-  }
-
-  .subMenuArrowOpen{ transform: rotate(90deg);}
 
 
   .menuItemDiv{

@@ -4,15 +4,14 @@ import styles from "./footer.module.css";
 import Image from "next/image";
 import LinkCard from "./LinkCard/LinkCard";
 import collections from "@/data/collections.json";
-import BenefitSwiper from "./BenefitSwiper/BenefitSwiper";
 
 
 export default function Footer() {
  
-  const [error, setError] = useState(null);
+  const [error, setError] = useState();
   const [successful, setSuccessful] = useState(false);
 
-  const handleSubscribe =async () => {
+  const handleSubscribe = useCallback(async () => {
     const email= document.getElementById('subscribe');
     const emailPattern = /^\w+@\w+\.\w+$/;
     if (!emailPattern.test(email.value)) {
@@ -32,7 +31,7 @@ export default function Footer() {
         .then((response) => {
           if (response.ok) {
             setSuccessful(true);
-            setError(null);
+            setError();
           } else {
             setError("Server error");
           }
@@ -44,7 +43,7 @@ export default function Footer() {
           email.value = "";
         });
     }
-  }
+  });
 
 
 
@@ -108,7 +107,7 @@ export default function Footer() {
           placeholder="Enter your email address"
          
           onChange={() => {
-            if (error) setError(null);
+            if (error) setError();
             if (successful) setSuccessful(false);
           }}
         />

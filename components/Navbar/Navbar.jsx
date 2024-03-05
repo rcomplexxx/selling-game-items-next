@@ -61,7 +61,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
         ) {
           setSubMenu(0);
         }
-     
+        document.removeEventListener("click", handleClickOutside, true);
       };
 
       document?.addEventListener("click", handleClickOutside, true);
@@ -83,9 +83,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
         className={`${styles.appBar} ${
           (newProduct || searchOpen || isMenuOpen) && styles.appBarFixed
         } ${newProduct && window.scrollY > 0 && styles.appBarMaterialize}`}
-        onMouseDown={(event) => {
-          if (newProduct) event.preventDefault();
-        }}
+      
         id="navBar"
       >
         <div className={styles.toolbarDiv}>
@@ -214,7 +212,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                 <div
                   id="infoDropMenu"
                   ref={subMenuRef}
-                  className={`${styles.subMenu} ${styles.subMenuFaq}`}
+                  className={`${styles.subMenu}`}
                 >
                   <Link
                     href="/our-story"

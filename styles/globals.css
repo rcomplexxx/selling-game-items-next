@@ -1,73 +1,4 @@
-/* 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap'); */
-/* 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Helvetica&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Didot:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baskervville:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Adore+Modern+Serif:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap'); /* Example of a popular serif font */
-/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap'); /* Another example of a popular serif font */
-/* @import url('https://fonts.googleapis.com/css2?family=Tiempos+Text&display=swap');  */
-
-
-/* @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
- font-family: 'Raleway', sans-serif !important; */
-
-
-
-
-
-/* @font-face {
-  font-family: 'Inter';
-  font-weight: 500;
-  src: url('../public/fonts/Inter/Inter-Medium.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Inter';
-  font-weight: 400;
-  src: url('../public/fonts/Inter/Inter-Regular.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Inter';
-  font-weight: 300;
-  src: url('../public/fonts/Inter/Inter-Light.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Inter';
-  font-weight: 600;
-  src: url('../public/fonts/Inter/Inter-Bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'EB Garamond';
-  font-weight: 400;
-  src: url('../public/fonts/EB_Garamond/EBGaramond-Medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'EB Garamond';
-  font-weight: 500;
-  src: url('../public/fonts/EB_Garamond/EBGaramond-Medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'EB Garamond';
-  font-weight: 600;
-  src: url('../public/fonts/EB_Garamond/EBGaramond-SemiBold.woff2') format('woff2');
-}
- */
 
  .hronika{
  
@@ -75,20 +6,25 @@
   height: max-content;
   display: flex;
   flex-direction: column;
+   align-items: center;
   
   min-height: 100svh;
   width: 100% ;
-  align-items: center;
+ 
 
 
 }
 
 html{
   margin: 0 auto;
+ 
   
 }
 
 body{
+
+
+
   color:var(--yellow-white);
  background-color: var(--gray-9-elegant);
 
