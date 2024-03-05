@@ -1,4 +1,4 @@
-import React, { useState, useEffect,  useMemo, useRef, useCallback } from "react";
+import React, { useState, useEffect,  useMemo } from "react";
 import { useRouter } from "next/router";
 
 
@@ -11,74 +11,83 @@ import EmailFlowPopup from "@/components/EmailFlowPopup/EmailFlowPopup";
 import { inter, eb_Garamond } from "@/utils/fonts";
 
 export default function App({ Component, pageProps }) {
-  const [cartProducts, _setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
   const [newProduct, setNewProduct]=useState();
   const [emailPopup, setEmailPopup] = useState(false);
 
   const router = useRouter();
-  const popupTimeout=useRef();
+  
 
   useEffect(() => {
 
-  
-    const fetchData = async () => {
-      // Set the HTML class names
-      document.querySelector("html").className = `${inter.variable} ${eb_Garamond.variable}`;
-  
-      // Retrieve cart products from localStorage
-      const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
-      setCartProducts(storedCartProducts || []);
-  
-      // Set a default value for popupShownDateInDays if it doesn't exist
-      if (!localStorage.getItem("popupShownDateInDays")) {
-        localStorage.setItem("popupShownDateInDays", Math.floor(Date.now() / 86400000));
+    
+
+
+    let popupTimeout;
+
+
+    const handleRouteChangeStart = (url) => {
+
+      clearTimeout(popupTimeout); 
+      
+      popupTimeout= setTimeout(()=>{
+
+     
+       
+         
+      if(  url!=='/404' && (url==='/' || (url.includes('/products') && !url.includes('#zoom')
+      && !url.includes('#write-review')) ||url.includes('/collection') || url==='/our-story' || url==='/faq')){
+        setEmailPopup(true); 
       }
+     
+      }, 30000);
+      
     };
+
   
-    // Call the async function immediately
-    fetchData();
+    if(localStorage.getItem("popupShownDateInDays")){
+      if((Math.floor(Date.now() / 86400000))-localStorage.getItem("popupShownDateInDays")>15)
+      router.events.on('routeChangeStart', handleRouteChangeStart);
+    }
+    else{
+      localStorage.setItem("popupShownDateInDays", Math.floor(Date.now() / 86400000));
+    }
+    
+
+  
+
+    document.querySelector("html").className=`${inter.variable} ${eb_Garamond.variable}`;
+
+    const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+    setCartProducts(storedCartProducts || []);
+
+ 
+ 
+ 
+  
+
+
+
+   
+    handleRouteChangeStart(router.pathname);
+
+   
+
+  return () => {
+      router.events.off('routeChangeStart', handleRouteChangeStart);
+    };
+
+
+  
 
 
   }, []);
 
- 
-
-  const setCartProducts = useCallback((cartProducts)=>{
-    _setCartProducts(cartProducts);
-    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
-  })
-
-
-
   useEffect(() => {
-  
-    
+    localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
 
-
-    
-   
-    popupTimeout.current= setTimeout(()=>{
-      if((Math.floor(Date.now() / 86400000))-localStorage.getItem("popupShownDateInDays")>15  &&
-      
-      router.pathname!=='/404' && (router.pathname==='/' || (router.pathname.includes('/products') && !router.asPath.includes('#zoom')
-    && !router.asPath.includes('#write-review')) || router.pathname.includes('/collection') || router.pathname=='/our-story' || router.pathname=='/faq')){
-     
-       
-    
-      setEmailPopup(true); 
-    }
-   
-    }, 30000);
- 
-
-    return ()=>{ clearTimeout(popupTimeout.current); }
-
-
-
-
-
-  }, [router.asPath]);
 
 
 
@@ -110,7 +119,7 @@ const totalItems= useMemo(()=>{
         </Head>
        
       
-        {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
+      {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
      <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>
 
       
@@ -119,7 +128,6 @@ const totalItems= useMemo(()=>{
       </AppContext.Provider>
       
        <Footer />
-     
     </div>
    
      

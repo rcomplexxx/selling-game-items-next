@@ -74,8 +74,8 @@
 
   @media (min-width: 720px){
     .heroImage{
-  
-      height: calc(100vw *  1 / 2); 
+      aspect-ratio: 2 !important;
+    
     }
   }
 
