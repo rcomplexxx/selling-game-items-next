@@ -26,6 +26,25 @@ useEffect(()=>{
 
 
 
+
+  const handleRouteChangeStart = () => {
+
+    
+    setNewProduct();
+    
+  };
+
+ 
+  
+
+  router.events.on('routeChangeStart', handleRouteChangeStart);
+
+
+
+
+
+
+
  
 
 
@@ -71,7 +90,7 @@ useEffect(()=>{
     
     window?.removeEventListener("popstate", handlePopState);
     document.removeEventListener('click', handleClick);
-
+    router.events.off('routeChangeStart', handleRouteChangeStart);
 
    
 

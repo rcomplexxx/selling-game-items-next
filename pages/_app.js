@@ -24,35 +24,19 @@ export default function App({ Component, pageProps }) {
   
     
 
-    const handleRouteChangeStart = (url) => {
+  
 
-      
-      // 'url' parameter contains the new route
-      setNewProduct();
-      
-      console.log('Route change started to:', url);
-    };
-
-   
-    handleRouteChangeStart(router.pathname);
-
-    router.events.on('routeChangeStart', handleRouteChangeStart);
-    //NAPRAVITI SMOOTH ANIMACIJU ZATVARANJA NAVBARA CIM SE KLIKNE NA LINK KOJI NE TREBA DA SADRZI NAVBAR
-
-
-
-
+    document.querySelector("html").className=`${inter.variable} ${eb_Garamond.variable}`;
 
     const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
     setCartProducts(storedCartProducts || []);
 
-  document.querySelector("html").className=`${inter.variable} ${eb_Garamond.variable}`;
+    if(!localStorage.getItem("popupShownDateInDays"))localStorage.setItem("popupShownDateInDays", Math.floor(Date.now() / 86400000))
+ 
  
  
 
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChangeStart);
-    };
+  
 
 
   }, []);
@@ -67,23 +51,23 @@ export default function App({ Component, pageProps }) {
 
 
 
-    clearInterval(popupTimeout.current); 
     
-    
-    popupTimeout.current= setInterval(()=>{
-
-      console.log('lstr', localStorage.getItem("popupShownDateInDays"), Math.floor(Date.now() / 86400000) )
-
-     
-       
-    if(localStorage.getItem("popupShownDateInDays") && (Math.floor(Date.now() / 86400000))-localStorage.getItem("popupShownDateInDays")>15  &&
+    if((Math.floor(Date.now() / 86400000))-localStorage.getItem("popupShownDateInDays")>15  &&
       
       router.pathname!=='/404' && (router.pathname==='/' || (router.pathname.includes('/products') && !router.asPath.includes('#zoom')
     && !router.asPath.includes('#write-review')) || router.pathname.includes('/collection') || router.pathname=='/our-story' || router.pathname=='/faq')){
-      setEmailPopup(true);  clearTimeout(popupTimeout.current);
-    }
+    popupTimeout.current= setTimeout(()=>{
+
+     
+       
+    
+      setEmailPopup(true); 
+    
    
     }, 30000);
+  }
+
+    return ()=>{ clearTimeout(popupTimeout.current); }
 
 
 
@@ -121,7 +105,7 @@ const totalItems= useMemo(()=>{
         </Head>
        
       
-      {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
+      
      <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>
 
       
@@ -130,6 +114,7 @@ const totalItems= useMemo(()=>{
       </AppContext.Provider>
       
        <Footer />
+       {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
     </div>
    
      
