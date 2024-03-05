@@ -3,9 +3,8 @@ import styles from "./mobilemenu.module.css";
 import {  useEffect, useRef } from "react";
 import collections from '@/data/collections.json'
 import Image from "next/image";
-import classNames from "classnames";
 
-export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMenu}){
+export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
 
  
   
@@ -13,7 +12,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
     const router = useRouter();
     const pathname = router.asPath;
   
-    const mobileMenuRef = useRef();
+    
 
     const nextLink= useRef();
     const backBlocker = useRef(false);
@@ -35,25 +34,37 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
    
       const closeMenu = ()=>{ 
         
-        mobileMenuRef.current.classList.add(styles.menuClosed);
+        document.getElementById('mobileMenu').classList.add(styles.menuClosed);
         setTimeout(()=>{
        
         
         setIsMenuOpen(false);
-      },500)};
+      },500)
+    
+    };
 
       const handleClickOutside = (event) => {
+
+       
         
 
-        if(!mobileMenuRef.current.contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
+         if(!document?.getElementById('mobileMenu').contains(event.target) && !document?.getElementById('mobileMenuSpawn').contains(event.target))
        { 
+        
         event.stopPropagation(); 
         event.preventDefault(); 
-        backBlocker.current=true; 
         
+        if(subMenu!=0){
+          closeMenu();
+          window?.removeEventListener("popstate", handlePopState);
+          history.back();
+        }
         history.back();
       
-        document.removeEventListener('click', handleClickOutside, true);}
+        // document.removeEventListener('click', handleClickOutside, true);
+      
+      
+      }
         
       };
 
@@ -64,10 +75,13 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
       const handlePopState = ()=>{
         
+        console.log('popon')
+       
+
        if(backBlocker.current){
         backBlocker.current=false;
 
-        closeMenu();
+        // closeMenu();
        
        
         return;
@@ -75,30 +89,33 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
 
         if( nextLink.current){
-          closeMenu();
+          
           window?.removeEventListener("popstate", handlePopState);
           router.push(nextLink.current);
-          nextLink.current=undefined;
+          closeMenu();
           return;
         }
        
        if(subMenu!=0 ) {
         
+       
       setSubMenu(0); 
 
-        window.history.pushState(null, null, router.asPath);
+      // backBlocker.current=true;
+
+      //   // window.history.pushState(null, null, router.asPath);
         
-        history.go(1);
+      //   history.go(1);
         
       }
-      //  subMenuPopstateStabilizer.current=true;
+    
        else {
       
 
 
 
           closeMenu();
-        window?.removeEventListener("popstate", handlePopState);
+   
       }
        
          console.log('popstate')
@@ -113,6 +130,11 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
  
 
+        if(subMenu!=0){
+            window.history.pushState(null, null, router.asPath);
+        
+        history.go(1);
+        }
       
 
      
@@ -123,12 +145,12 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
   
       return () => {
         
-        if (isMenuOpen) {
+       
           window?.removeEventListener("resize", handleResize);
           window?.removeEventListener("popstate", handlePopState);
           document?.removeEventListener('click', handleClickOutside, true);
          
-        }
+        
       };
     }, [subMenu]);
 
@@ -162,7 +184,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
 
 
     return <div
-    ref={mobileMenuRef}
+    id='mobileMenu'
       className={`${styles.mainMenuCard}` }
       
     >
@@ -171,6 +193,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
       <Image loading={'lazy'} alt='Cancel' height={16} width={16} src='/images/cancelWhite.png' 
       onClick={()=>{
          backBlocker.current=true; history.back();
+         closeMenu();
         // setIsMenuOpen(false); 
         }} className={styles.menuItem_x_button}/>                 
                     
@@ -228,6 +251,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         className={`${styles.subMenuPortal} ${styles.linkStyle}`}
         onClick={() => {
           setSubMenu(2);
+       
         }}
       >
         Collections
@@ -240,6 +264,7 @@ export default function MobileMenu({isMenuOpen, setIsMenuOpen, subMenu, setSubMe
         className={`${styles.subMenuPortal} ${styles.linkStyle}`}
         onClick={() => {
           setSubMenu(1);
+          
         }}
       >
       Info

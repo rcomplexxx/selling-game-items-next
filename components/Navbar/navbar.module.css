@@ -115,23 +115,6 @@
 }
   
  
-  
-
-  
-  .menuIconDiv{
-    position:relative;
-    height:24px;
-    width: 24px;
-    
-    margin:8px;
-    margin-left: 0px;
-  }
-
-  .menuIconDiv:hover{
-    
-    cursor: pointer;
-  }
-
 
   
  
@@ -299,8 +282,16 @@
     align-items: center;
   }
   .smallMenuImage{
-    height: 100%;
-    width:100%;
+ 
+    position:relative;
+    height:24px;
+    width: 24px;
+    
+    margin:8px;
+    margin-left: 0px;
+    cursor: pointer;
+
+
   }
 
 
@@ -337,7 +328,7 @@
     }
 
     @media(min-width: 980px){
-      .menuIconDiv{
+      .smallMenuImage{
         display: none;
       }
 

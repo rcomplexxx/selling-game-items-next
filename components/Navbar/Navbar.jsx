@@ -29,43 +29,33 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   };
 
   useEffect(() => {
-    let handleClickOutside;
 
-    if (subMenu == 1) {
+
+
+    let handleClickOutside = (event) => {
+        
+      if(isMenuOpen)return;
+
+      if (
+        (subMenu == 1 && !document?.getElementById("infoDropMenuLink").contains(event.target)) ||
+        (subMenu == 2 && !document?.getElementById("collectionsDropMenuLink").contains(event.target))
+      ) {
+        
+        setSubMenu(0);
+      }
+    
+    };
+
+
+    
+
+    if (subMenu !=0) {
       subMenuRef.current.style.top = "40px";
 
-      handleClickOutside = (event) => {
      
 
-        if (
-          !subMenuRef.current?.contains(event.target) &&
-          !document?.getElementById("infoDropMenuLink").contains(event.target)
-        ) {
-          setSubMenu(0);
-        }
-      
-      };
-
       document?.addEventListener("click", handleClickOutside, true);
-    } else if (subMenu == 2) {
-      subMenuRef.current.style.top = "40px";
-
-      handleClickOutside = (event) => {
-      
-
-        if (
-          !subMenuRef.current?.contains(event.target) &&
-          !document
-            ?.getElementById("collectionsDropMenuLink")
-            .contains(event.target)
-        ) {
-          setSubMenu(0);
-        }
-        document.removeEventListener("click", handleClickOutside, true);
-      };
-
-      document?.addEventListener("click", handleClickOutside, true);
-    }
+    } 
 
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
@@ -89,11 +79,12 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
         <div className={styles.toolbarDiv}>
           <div className={styles.growAlt}>
             <div
-              id="mobileMenuSpawn"
+              
               className={styles.menuIconDiv}
               onClick={handleMobileMenuOpen}
             >
               <Image
+              id="mobileMenuSpawn"
                 height={0}
                 width={0}
                 sizes="24px"
@@ -164,9 +155,10 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
               </div>
               {subMenu == 2 && (
                 <div id="collectionsDropMenu"   ref={subMenuRef} className={`${styles.subMenu}`}>
-                  {collections.map((c) => {
+                  {collections.map((c, index) => {
                     return (
                       <Link
+                      key={index}
                         href={`/collection/${c.name
                           .toLowerCase()
                           .replace(/ /g, "-")}/page/1`}
@@ -217,7 +209,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                   <Link
                     href="/our-story"
                     className={`${styles.menuItemDiv} ${
-                      pathname === "/our-story" ? styles.currentLinkMobile : ""
+                      pathname === "/our-story" && styles.currentLinkMobile
                     }`}
                     onClick={() => {
                       setSubMenu(0);
@@ -229,7 +221,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                   <Link
                     href="/faq"
                     className={`${styles.menuItemDiv} ${
-                      pathname === "/faq" ? styles.currentLinkMobile : ""
+                      pathname === "/faq" && styles.currentLinkMobile
                     }`}
                     onClick={() => {
                       setSubMenu(0);
@@ -327,7 +319,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
 
       {isMenuOpen && (
         <MobileMenu
-          isMenuOpen={isMenuOpen}
+        
           subMenu={subMenu}
           setSubMenu={setSubMenu}
           setIsMenuOpen={setIsMenuOpen}
