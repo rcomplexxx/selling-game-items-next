@@ -24,9 +24,13 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   const pathname = router.asPath;
 
   const handleMobileMenuOpen = (event) => {
+    // event.stopPropagation();
+   
     setSubMenu(0);
     setIsMenuOpen(true);
   };
+
+  console.log('nav change', isMenuOpen, newProduct)
 
   useEffect(() => {
 
@@ -78,21 +82,18 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
       >
         <div className={styles.toolbarDiv}>
           <div className={styles.growAlt}>
-            <div
-              
-              className={styles.menuIconDiv}
-              onClick={handleMobileMenuOpen}
-            >
+          
               <Image
               id="mobileMenuSpawn"
-                height={0}
-                width={0}
+                height={24}
+                width={24}
                 sizes="24px"
                 src="/images/menuIcon2.png"
+                onClick={handleMobileMenuOpen}
                 className={styles.smallMenuImage}
                 alt="Mobile menu"
               />
-            </div>
+          
             <Link href="/" className={styles.logoLink}>
               <Image
                 height={24}
@@ -308,7 +309,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
             </Link>
           </div>
         </div>
-        {!isMenuOpen && newProduct && (
+        {newProduct && (
           <PopupCart
             totalItems={totalItems}
             newProduct={newProduct}

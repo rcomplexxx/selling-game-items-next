@@ -44,10 +44,15 @@ useEffect(()=>{
 
   const navBar = document.getElementById('navBar')
   const handleClick = (event) => {
-   
-    if (!navBar.contains(event.target)) {
-      console.log('lol')
+  
+    if (!navBar.contains(event.target) ) {
+    
       setNewProduct();
+    }
+    else if (navBar.contains(document.getElementById('mobileMenuSpawn'))) {
+      backStopper.current = true; 
+      
+    
     }
   };
      
@@ -88,8 +93,8 @@ useEffect(()=>{
 // useEffect(()=>{ popupCart.focus();},[])
 
     return <div className={`${styles.cartPopup}`} >
-   <div  className={styles.contentWrapper}>
-  <div className={styles.cartPopupTitle}>
+  
+  <div className={`${styles.cartPopupTitle} ${styles .firstPopupTitle}`}>
      <Image height={12} width={12} src='/images/smallCorrect.png' className={styles.smallCorrect}/>
      <h3>Item added to your cart</h3>
       </div>
@@ -97,7 +102,7 @@ useEffect(()=>{
  <Image height={54} width={96} src={`/images/${newProduct.image}`} className={styles.productImage}/> 
  <h2 className={styles.productTitle}>{newProduct.name}</h2>
  </div>
- </div>
+
  
 
   <Link href='/cart'  className={styles.add_to_cart_button}

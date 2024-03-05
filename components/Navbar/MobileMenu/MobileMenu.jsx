@@ -17,6 +17,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
     const nextLink= useRef();
     const backBlocker = useRef(false);
 
+    const whiteButtonCancelRef= useRef(false);
 
 
 
@@ -35,6 +36,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
       const closeMenu = ()=>{ 
         
         document.getElementById('mobileMenu').classList.add(styles.menuClosed);
+        window?.removeEventListener("popstate", handlePopState);
         setTimeout(()=>{
        
         
@@ -54,9 +56,9 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         event.stopPropagation(); 
         event.preventDefault(); 
         
-        if(subMenu!=0){
+        
           closeMenu();
-          window?.removeEventListener("popstate", handlePopState);
+          if(subMenu!=0){
           history.back();
         }
         history.back();
@@ -87,6 +89,14 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         return;
        }
 
+       if(whiteButtonCancelRef.current){
+        closeMenu();
+        if(subMenu!=0){
+        history.back();
+      }
+
+       }
+
 
         if( nextLink.current){
           
@@ -101,11 +111,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
        
       setSubMenu(0); 
 
-      // backBlocker.current=true;
-
-      //   // window.history.pushState(null, null, router.asPath);
-        
-      //   history.go(1);
+   
         
       }
     
@@ -192,8 +198,9 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
    
       <Image loading={'lazy'} alt='Cancel' height={16} width={16} src='/images/cancelWhite.png' 
       onClick={()=>{
-         backBlocker.current=true; history.back();
-         closeMenu();
+        whiteButtonCancelRef.current= true
+         history.back();
+         
         // setIsMenuOpen(false); 
         }} className={styles.menuItem_x_button}/>                 
                     

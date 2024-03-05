@@ -23,7 +23,7 @@
    
    
     box-sizing: border-box;
-    padding: var(--size-5) var(--size-7);
+    padding: 0 var(--size-7);
     border: 1px solid rgb(39, 35, 44);
   
 
@@ -41,6 +41,9 @@
  
   } */
 
+  .firstPopupTitle{
+    margin-top:  var(--size-5);
+  }
  
 
   .cartPopupTitle{
@@ -48,6 +51,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+   
     margin-bottom: var(--size-3);
 
     
@@ -130,7 +134,7 @@
    
 
     margin: var(--size-2) auto;
-    margin-bottom: var(--size-3);
+    margin-bottom: var(--size-6);
    justify-self: center;
     cursor: pointer;
   }
