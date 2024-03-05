@@ -35,7 +35,6 @@ export default function App({ Component, pageProps }) {
 
    
     handleRouteChangeStart(router.pathname);
-    handleRouteChangeComplete(router.pathname);
 
     router.events.on('routeChangeStart', handleRouteChangeStart);
     //NAPRAVITI SMOOTH ANIMACIJU ZATVARANJA NAVBARA CIM SE KLIKNE NA LINK KOJI NE TREBA DA SADRZI NAVBAR
