@@ -128,7 +128,7 @@ const FullScreenZoomableImage = ({
 
 
     setTimeout(() => {
-      document.body.classList.add("hideScroll");
+      document.documentElement.classList.add("hideScroll");
       
     }, 280);
 
@@ -375,7 +375,7 @@ const FullScreenZoomableImage = ({
         fixedZoomDivRef.current.style.backgroundColor = `rgba(0, 0, 0, 0)`;
 
         setNavLocked(true);
-        document.body.classList.remove("hideScroll");
+        document.documentElement.classList.remove("hideScroll");
 
         setTimeout(function () {
           fullScreenChange(false);
