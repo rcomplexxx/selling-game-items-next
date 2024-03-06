@@ -149,6 +149,15 @@ const totalItems= useMemo(()=>{
             
             url: 'https://www.selling-game-items-next.vercel.app/',
             siteName: 'Gamebuff',
+            images: [
+              {
+              url: 'https://selling-game-items-next.vercel.app/images/gameGirl2.png',
+            width: 800,
+            height: 600,
+            alt: 'Gamebuff',
+            type: 'image/png',
+              }
+            ]
             
           }}
           twitter= {{
