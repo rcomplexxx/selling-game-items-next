@@ -3,6 +3,7 @@ import styles from "./mobilemenu.module.css";
 import {  useEffect, useRef } from "react";
 import collections from '@/data/collections.json'
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
 
@@ -81,10 +82,14 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
        
 
        if(backBlocker.current){
-        backBlocker.current=false;
+        // backBlocker.current=false;
+        // if(subMenu!=0){
+        //   history.back();
+        
+        // }
 
         // closeMenu();
-       
+      
        
         return;
        }
@@ -100,9 +105,17 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
 
         if( nextLink.current){
           
+         
+         
+          // if(subMenu!=0){
+          //   history.back();
+          
+          // }
+
           window?.removeEventListener("popstate", handlePopState);
-          router.push(nextLink.current);
           closeMenu();
+          router.push(nextLink.current);
+          
           return;
         }
        
@@ -209,34 +222,37 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
       
      
             {subMenu===0 &&
-      <><span
-       
+      <><Link
+              href ='/'
         className={`${styles.linkStyle} ${pathname === "/" && styles.currentLinkMobile}`}
         onClick={() => {
           if(pathname !== "/") { 
             nextLink.current='/';
+           
            history.back();
 
           }
         }}
       >
        Home
-      </span>
+      </Link>
 
-      <span
+      <Link
+      href= '/products'
         className={`${styles.linkStyle} ${pathname === "/products" && styles.currentLinkMobile}`}
         onClick={() => {
           if(pathname !== "/products") { 
             nextLink.current='/products';
-           history.back();
+            history.back();
 
           }
         }}
       >
         Products
-      </span>
+      </Link>
 
-      <span
+      <Link
+      href= '/collection/sale/page/1'
        
         className={`${styles.linkStyle} ${
           pathname === "/collection/sale/page/1" &&  styles.currentLinkMobile
@@ -250,7 +266,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
         Sale
-      </span>
+      </Link>
 
 
       <div
@@ -278,7 +294,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         <Image loading={'lazy'} alt='Go' height={12} width={12} src="/images/greaterLessx.png" className={styles.subMenuArrow}/>
       </div>
      
-      <span
+      <Link href="/contant-us"
         className={`${styles.linkStyle} ${
           pathname === "/contact-us" && styles.currentLinkMobile
         }`}
@@ -293,7 +309,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
       }
       >
         Contact us
-      </span></>
+      </Link></>
         
       }
 
@@ -310,7 +326,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
        <span className={styles.subMenuTitle}>Info</span>
      </div>
 
-     <span
+     <Link
+     href='/our-story'
         className={`${styles.linkStyle} ${
           pathname === "/our-story" &&  styles.currentLinkMobile
         }`}
@@ -324,11 +341,11 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
         Our story
-      </span>
+      </Link>
 
 
-      <span
-      
+      <Link
+     href='/faq'
         className={`${styles.linkStyle} ${
           pathname === "/faq" && styles.currentLinkMobile
         }`}
@@ -342,8 +359,9 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
         FAQ
-      </span>
-      <span
+      </Link>
+       <Link
+     href='/terms-of-service'
        
         className={`${styles.linkStyle} ${
           pathname === "/terms-of-service" && styles.currentLinkMobile
@@ -357,9 +375,9 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
         Terms of service
-      </span>
-      <span
-      
+      </Link>
+      <Link
+     href='/privacy-policy'
       
         className={`${styles.linkStyle} ${
           pathname === "/privacy-policy" && styles.currentLinkMobile
@@ -373,8 +391,9 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
        Privacy policy
-      </span>
-      <span
+      </Link>
+      <Link
+      href="/shipping-policy"
      
         className={`${styles.linkStyle} ${
           pathname === "/shipping-policy" && styles.currentLinkMobile
@@ -388,8 +407,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
         Shipping policy
-      </span>
-      <span
+      </Link>
+      <Link href="/refund-policy"
         className={`${styles.linkStyle} ${
           pathname === "/refund-policy" && styles.currentLinkMobile
         }`}
@@ -403,7 +422,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         }}
       >
         Refund policy
-      </span>
+      </Link>
       </>
       }
 
@@ -420,7 +439,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
        <span className={styles.subMenuTitle}>Collections</span>
      </div>
 
-{collections.map((c, index) => {return <span key={index}
+{collections.map((c, index) => {return <Link href={`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`} key={index}
   className={`${styles.linkStyle} ${
     pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` && styles.currentLinkMobile
   }`}
@@ -434,7 +453,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
   }}
   >
  {c.name}
-  </span>
+  </Link>
 })}
 </>
 
