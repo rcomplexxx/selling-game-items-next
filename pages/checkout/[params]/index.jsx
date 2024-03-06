@@ -32,10 +32,7 @@ const BuyNowPage = () => {
     const variant = urlParams.get("variant");
     const quantity = urlParams.get("quantity");
 
-    // if (!productid || !quantity) {
-    //   setCartProducts([]);
-    // }
-
+  
     const product = products.find((p) => {
       return p.id == productid && p.variants.find((v)=>{return v.name==variant});
     });
