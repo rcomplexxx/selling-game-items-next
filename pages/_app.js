@@ -152,7 +152,7 @@ const totalItems= useMemo(()=>{
             images: [
               {
               url: 'https://selling-game-items-next.vercel.app/images/gameGirl2.png',
-            width: 800,
+            width: 600,
             height: 600,
             alt: 'Gamebuff',
             type: 'image/png',
