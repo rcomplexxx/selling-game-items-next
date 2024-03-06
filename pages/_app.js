@@ -9,6 +9,11 @@ import Footer from "@/components/Footer/Footer";
 import Head from "next/head";
 import EmailFlowPopup from "@/components/EmailFlowPopup/EmailFlowPopup";
 import { inter, eb_Garamond } from "@/utils/fonts";
+import { DefaultSeo } from "next-seo";
+
+
+
+
 
 export default function App({ Component, pageProps }) {
   const [cartProducts, setCartProducts] = useState([]);
@@ -123,11 +128,31 @@ const totalItems= useMemo(()=>{
     //   className={`hronika`}
     
     <>
-       <Head>
+       {/* <Head>
       <title>Gamebuff</title>
         <link rel="icon" href="/images/favicon.ico" />
      
-        </Head>
+        </Head> */}
+        <DefaultSeo 
+      
+          titleTemplate= {'%s - Gamebuff'}
+            defaultTitle= {"Gamebuff"}
+            themeColor= {"red"}
+          openGraph={{
+            type: 'website',
+            
+            url: 'https://www.selling-game-items-next.vercel.app/',
+            siteName: 'Gamebuff',
+            
+          }}
+          twitter= {{
+            handle: '@handle',
+            site: '@site',
+            cardType: 'summary_large_image',
+          }
+        }
+      
+        />
        
       
       {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
