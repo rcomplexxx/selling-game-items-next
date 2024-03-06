@@ -149,6 +149,8 @@ const totalItems= useMemo(()=>{
             
             url: 'https://www.selling-game-items-next.vercel.app/',
             siteName: 'Gamebuff',
+            title: 'Gambuff',
+        description: 'Buy perfect equipment for deep-night gaming',
             images: [
               {
               url: 'https://selling-game-items-next.vercel.app/images/gameGirl2.png',
