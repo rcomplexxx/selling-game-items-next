@@ -10,6 +10,9 @@ const nextConfig = {
           optimizeFonts: true,
      
       },
+      images: {
+        deviceSizes: [320, 400, 480, 560, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+      },
       compression: true,
       optimization: {
         usedExports: true,  // Enable tree shaking by marking unused exports

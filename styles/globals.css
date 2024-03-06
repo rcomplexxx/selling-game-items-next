@@ -115,7 +115,7 @@ p {
 }
 
 .hideScroll{
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 
