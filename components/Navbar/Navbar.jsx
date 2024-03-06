@@ -18,7 +18,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
   const [subMenu, setSubMenu] = useState(0);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const subMenuRef = useRef();
+
 
   const router = useRouter();
   const pathname = router.asPath;
@@ -54,9 +54,9 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
     
 
     if (subMenu !=0) {
-      subMenuRef.current.style.top = "40px";
+  
 
-     
+    // document.getElementById(`${subMenu == 1?"collectionsDropMenu":"infoDropMenu"}`).style.top = "40px";
 
       document?.addEventListener("click", handleClickOutside, true);
     } 
@@ -154,23 +154,17 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                   }`}
                 />
               </div>
-              {subMenu == 2 && (
-                <div id="collectionsDropMenu"   ref={subMenuRef} className={`${styles.subMenu}`}>
+             
+                <div id="collectionsDropMenu" className={`${styles.subMenu} ${subMenu == 2 && styles.showSubMenu}`}>
                   {collections.map((c, index) => {
+                    const linkUrl= `/collection/${c.name
+                      .toLowerCase()
+                      .replace(/ /g, "-")}/page/1`;
                     return (
                       <Link
                       key={index}
-                        href={`/collection/${c.name
-                          .toLowerCase()
-                          .replace(/ /g, "-")}/page/1`}
-                        className={`${styles.menuItemDiv} ${
-                          pathname ===
-                          `/collection/${c.name
-                            .toLowerCase()
-                            .replace(/ /g, "-")}/page/1`
-                            ? styles.currentLinkMobile
-                            : ""
-                        }`}
+                        href={linkUrl}
+                        className={`${styles.menuItemDiv} ${ pathname ===linkUrl && styles.currentLinkMobile }`}
                         onClick={() => {
                           setSubMenu(0);
                         }}
@@ -180,7 +174,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                     );
                   })}
                 </div>
-              )}
+            
             </div>
 
             <div className={styles.subMenuPortal}>
@@ -201,11 +195,11 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                   }`}
                 />
               </div>
-              {subMenu == 1 && (
+              
                 <div
                   id="infoDropMenu"
-                  ref={subMenuRef}
-                  className={`${styles.subMenu}`}
+                 
+                  className={`${styles.subMenu} ${subMenu == 1 && styles.showSubMenu}`}
                 >
                   <Link
                     href="/our-story"
@@ -268,9 +262,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                   </Link>
                   <Link
                     href="/refund-policy"
-                    className={`${styles.menuItemDiv} ${
-                      pathname === "/refund-policy" && styles.currentLinkMobile
-                    }`}
+                    className={`${styles.menuItemDiv} ${ pathname === "/refund-policy" && styles.currentLinkMobile }`}
                     onClick={() => {
                       setSubMenu(0);
                     }}
@@ -278,7 +270,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
                     Refund policy
                   </Link>
                 </div>
-              )}
+             
             </div>
 
             <Link

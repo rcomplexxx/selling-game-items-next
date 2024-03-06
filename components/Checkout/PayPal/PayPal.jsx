@@ -109,8 +109,8 @@ const PayPalButton=({checkFields, organizeUserData, method='paypal',  type='norm
             console.log("Payment was successful");
             // Handle successful payment logic here
             
-            // setCartProducts([]);
-            // router.push("/thank-you");
+            
+            router.push("/thank-you");
           } else {
             const data = await response.json();
     

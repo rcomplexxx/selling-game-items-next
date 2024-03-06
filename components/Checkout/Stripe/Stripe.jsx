@@ -277,7 +277,7 @@ const handleStripePay= async(event)=>{
               if(data.success) {
                
                
-                setCartProducts([]);
+               
                 router.push("/thank-you");
                   
                   

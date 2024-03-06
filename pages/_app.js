@@ -20,7 +20,15 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
 
-    
+    document.querySelector("html").className=`${inter.variable} ${eb_Garamond.variable}`;
+
+    const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
+    setCartProducts(storedCartProducts || []);
+
+
+
+
+
 
 
     let popupTimeout;
@@ -29,6 +37,9 @@ export default function App({ Component, pageProps }) {
     const handleRouteChangeStart = (url) => {
 
       clearTimeout(popupTimeout); 
+
+
+
       
       popupTimeout= setTimeout(()=>{
 
@@ -38,6 +49,8 @@ export default function App({ Component, pageProps }) {
       if(  url!=='/404' && (url==='/' || (url.includes('/products') && !url.includes('#zoom')
       && !url.includes('#write-review')) ||url.includes('/collection') || url==='/our-story' || url==='/faq')){
         setEmailPopup(true); 
+        localStorage.setItem("popupShownDateInDays", Math.floor(Date.now() / 86400000));
+        router.events.off('routeChangeStart', handleRouteChangeStart);
       }
      
       }, 30000);
@@ -56,11 +69,8 @@ export default function App({ Component, pageProps }) {
 
   
 
-    document.querySelector("html").className=`${inter.variable} ${eb_Garamond.variable}`;
-
-    const storedCartProducts = JSON.parse(localStorage.getItem("cartProducts"));
-    setCartProducts(storedCartProducts || []);
-
+  
+   
  
  
  
@@ -69,7 +79,7 @@ export default function App({ Component, pageProps }) {
 
 
    
-    handleRouteChangeStart(router.pathname);
+   
 
    
 

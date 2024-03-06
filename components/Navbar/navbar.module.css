@@ -186,6 +186,7 @@
   
   
   .subMenu{
+    display: none;
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
@@ -195,6 +196,10 @@
     width: var(--size-11-5);
     padding: var(--size-3) 0;
     animation: spawnSubMenu 0.2s ease;
+  }
+
+  .showSubMenu{
+    display: block;
   }
 
 
