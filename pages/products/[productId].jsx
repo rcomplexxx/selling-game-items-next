@@ -21,6 +21,8 @@ import { useRouter } from "next/router";
 import { getReviewsData } from "@/utils/getStartReviews";
 import getRatingData from "@/utils/getRatingData";
 import PayPalButton from "@/components/Checkout/PayPal/PayPal";
+import { NextSeo } from "next-seo";
+import { productPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 //slickGoTo
 //afterChange(index)=>{}
@@ -74,7 +76,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
 
   return (
     <>
-      
+        <NextSeo {...productPageSeo(product.id)}/>
       <div className={styles.productPageDiv}>
        
           <ProductPics productId={product.id} onAddToCart ={ onAddToCart } images={images} variantImageIndex={variantImageIndex} />

@@ -6,7 +6,7 @@ import "../styles/globals.css";
 import Navbar from "../components/Navbar/Navbar.jsx";
 import AppContext from "@/contexts/AppContext";
 import Footer from "@/components/Footer/Footer";
-import SEO from '@/utils/next-seo.config.js'
+import SEO from '@/utils/SEO-configs/next-seo.config.js'
 import Head from "next/head";
 import EmailFlowPopup from "@/components/EmailFlowPopup/EmailFlowPopup";
 import { inter, eb_Garamond } from "@/utils/fonts";

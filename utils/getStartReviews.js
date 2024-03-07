@@ -1,5 +1,5 @@
 import betterSqlite3 from "better-sqlite3";
-import reviewsData from "@/public/reviews.json";
+import reviewsData from "@/data/reviews.json";
 
 
 

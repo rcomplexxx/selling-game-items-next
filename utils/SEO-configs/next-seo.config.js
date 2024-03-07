@@ -1,3 +1,29 @@
+import products from '../../data/products.json'
+
+
+
+
+
+
+// const getImageSize = (url) =>
+//    {
+//     const img = new ImageData();
+//     img.onload = () => resolve(img);
+//     img.onerror = (err) => reject(err);
+//     img.src = url;
+//     return {height: img.height, width: img.width}
+//   };
+
+
+
+
+const siteUrl = 'https://selling-game-items-next.vercel.app/';
+
+
+
+
+
+
 export default {
     titleTemplate: '%s - Gamebuff',
       defaultTitle: "Gamebuff",
@@ -8,7 +34,7 @@ export default {
     openGraph: {
       type: 'website',
       
-      url: 'https://selling-game-items-next.vercel.app/',
+      url: '/products/page/',
       siteName: 'Gamebuff',
       title: "Gamebuff",
       description: 'Buy perfect equipment for deep-night gaming',
@@ -35,6 +61,35 @@ export default {
     },
     canonical: 'https://selling-game-items-next.vercel.app/',
   };
+
+  export function productPageSeo(productId){
+
+    const product = products.find((p) => {
+      return p.id == productId;
+    });
+
+    return {
+      title: product.name,
+      description: product.description,
+      url:`https://selling-game-items-next.vercel.app/products/page/${product.id}`,
+      openGraph:{
+        title: product.name,
+        
+       
+        url:`https://selling-game-items-next.vercel.app/products/page/${product.id}`,
+        images: [
+          {
+            url:`https://selling-game-items-next.vercel.app/images/${product.images[0]}`,
+            height: 600,
+            width: 600,
+            alt: 'Gamebuff',
+            type: 'image/png',
+          } 
+      ],
+      }
+    }
+
+  }
 
 
 
