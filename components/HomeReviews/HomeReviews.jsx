@@ -38,7 +38,7 @@ const reviews = [
 ];
 //
 
-function Review({ title, reviewText, author, authorImage }) {
+function Review({ reviewText, author, authorImage }) {
   console.log('authorImage', `/images/${authorImage}`);
   return (
     <div className={styles.reviewDiv}>
@@ -59,7 +59,7 @@ function Review({ title, reviewText, author, authorImage }) {
 
       <p className={styles.reviewText}>{reviewText}</p>
       <div className={styles.authorDiv}>
-        <Image className={styles.authorImage} src={`/images/${authorImage}`} height={48} width={48} sizes="48px"/>
+        <Image alt={author} className={styles.authorImage} src={`/images/${authorImage}`} height={48} width={48} sizes="48px"/>
       <p className={styles.authorName}>{author}</p>
       </div>
     </div>

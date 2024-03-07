@@ -130,7 +130,7 @@ export default function Footer() {
           <LinkCard title={"Get in touch"}>
      <span className={styles.getInTouch}>
          
-     To get in touch with our helpful Customer Service team, please <Link href='/contact-us'>click here</Link>. They will respond to all your questions and enquiries ASAP.
+     To get in touch with our helpful Customer Service team, please <Link aria-label="Contact us" href='/contact-us'>click here</Link>. They will respond to all your questions and enquiries ASAP.
        </span>
       </LinkCard>
 
