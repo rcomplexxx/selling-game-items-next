@@ -8,7 +8,7 @@ export default {
     openGraph: {
       type: 'website',
       
-      url: 'https://www.selling-game-items-next.vercel.app/',
+      url: 'https://selling-game-items-next.vercel.app/',
       siteName: 'Gamebuff',
       title: "Gamebuff",
       description: 'Buy perfect equipment for deep-night gaming',
@@ -29,7 +29,11 @@ export default {
       handle: '@handle',
       site: '@site',
       cardType: 'summary_large_image',
+      title: "Gamebuff",
+      description: 'Buy perfect equipment for deep-night gaming',
+      image: 'https://selling-game-items-next.vercel.app/images/gameGirl2.png',
     },
+    canonical: 'https://selling-game-items-next.vercel.app/',
   };
 
 
