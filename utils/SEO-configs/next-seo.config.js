@@ -71,12 +71,12 @@ export default {
     return {
       title: product.name,
       description: product.description,
-      url:`https://selling-game-items-next.vercel.app/products/page/${product.id}`,
+      url:`https://selling-game-items-next.vercel.app/products/${product.id}`,
       openGraph:{
         title: product.name,
         
        
-        url:`https://selling-game-items-next.vercel.app/products/page/${product.id}`,
+        url:`https://selling-game-items-next.vercel.app/products/${product.id}`,
         images: [
           {
             url:`https://selling-game-items-next.vercel.app/images/${product.images[0]}`,
