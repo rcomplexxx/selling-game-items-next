@@ -149,7 +149,7 @@ const GooglePay = ({
           if (validation.success) {
             console.log("Validation true", validation.message);
 
-            setCartProducts([]);
+            
             router.push("/thank-you");
 
             return { transactionState: "SUCCESS" };

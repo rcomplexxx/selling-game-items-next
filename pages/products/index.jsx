@@ -6,11 +6,13 @@ import styles from "./page/page.module.css";
 import Head from "next/head";
 import Image from "next/image";
 import PageNumber from "@/components/PageNumbers/PageNumbers";
+import { NextSeo } from "next-seo";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 export default function ProductPage({ products, links }) {
   return (
     <div className={styles.mainDiv}>
-      
+      <NextSeo {...unimportantPageSeo('/products')}/>
       <Products showAll={true} products={products}></Products>
 
       <PageNumber mainLink='/products/page/' links={links} pageId={1}/>

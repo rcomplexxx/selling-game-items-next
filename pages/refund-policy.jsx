@@ -1,10 +1,13 @@
 import React from "react";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 function RefundPolicy() {
   return (
     <PolicyCard>
+      <NextSeo {...unimportantPageSeo('/refund-policy')}/>
    
       <h1>Refund policy</h1>
      

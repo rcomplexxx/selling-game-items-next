@@ -3,6 +3,8 @@ import React, { useRef, useState } from "react";
 import Head from "next/head";
 import styles from '../styles/contactus.module.css'
 import Link from "next/link";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
+import { NextSeo } from "next-seo";
 
 export default function ContactUs() {
 
@@ -80,6 +82,7 @@ export default function ContactUs() {
 
 
     <div className={styles.mainDiv}>
+      <NextSeo {...unimportantPageSeo('/contact-us')}/>
         <h1>Contact Us</h1>
         <div className={styles.contactUsTextDiv}>
 

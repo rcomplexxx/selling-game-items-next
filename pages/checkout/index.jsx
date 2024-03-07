@@ -7,6 +7,8 @@ import Head from "next/head";
 import CheckoutLogo from "@/components/Checkout/CheckoutLogo/CheckoutLogo";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 const CheckoutPage = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
@@ -36,6 +38,7 @@ const CheckoutPage = () => {
   return (
    
       <div className={styles.checkoutMainContainer}>
+        <NextSeo {...unimportantPageSeo('/checkout')}/>
       {cartProducts.length==0 ?renderEmptyCartCheckout():
       <>
       <CheckoutLogo/>

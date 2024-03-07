@@ -4,12 +4,15 @@ import Head from "next/head";
 
 import Image from "next/image";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
+import { NextSeo } from "next-seo";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 
 export default function Faq({ questionData }) {
   return (
     <PolicyCard>
       
+      <NextSeo {...unimportantPageSeo('/faq')}/>
    
         <h1>FAQ</h1>
         <p>

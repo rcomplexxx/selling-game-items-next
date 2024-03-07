@@ -5,12 +5,14 @@ import Link from "next/link";
 import styles from "./collections.module.css";
 import Head from "next/head";
 import Image from "next/image";
+import { NextSeo } from "next-seo";
+import { collectionsPageSeo, unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 export default function Collections({ collections}) {
   return (
     <>
      
-      {/* <Products showAll={true} products={products}></Products> */}
+     <NextSeo {...unimportantPageSeo('/collections')}/>
 
 
 

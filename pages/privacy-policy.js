@@ -1,11 +1,13 @@
 import React from "react";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 export default function PrivacyPolicy() {
   return (
     <PolicyCard>
-    
+    <NextSeo {...unimportantPageSeo('/privacy-policy')}/>
       <h1>Privacy Policy</h1>
 
 <h2>Section 1: Consent</h2>

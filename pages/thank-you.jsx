@@ -3,7 +3,8 @@ import styles from "../styles/thankyou.module.css";
 import React, { useEffect, useContext } from "react";
 import AppContext from "@/contexts/AppContext";
 import Link from "next/link";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 export default function ThankYou() {
   const { cartProducts, setCartProducts } = useContext(AppContext);
@@ -14,7 +15,7 @@ export default function ThankYou() {
 
   return (
     <div className={styles.thankYouWrapper}>
-     
+     <NextSeo {...unimportantPageSeo('/thank-you')}/>
     <div className={styles.mainDiv}>
       <div className={styles.titleDiv}>
         <h1 className={styles.title}>Thank you</h1>

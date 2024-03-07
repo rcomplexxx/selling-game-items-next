@@ -8,6 +8,8 @@ import PageNumber from "@/components/PageNumbers/PageNumbers";
 import { useRouter } from "next/router";
 import styles from "./collectionpage.module.css";
 import Image from "next/image";
+import { NextSeo } from "next-seo";
+import { collectionPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 export default function Collection({
   collectionName,
@@ -20,6 +22,7 @@ export default function Collection({
 }) {
   return (
     <div className={styles.mainDiv}>
+      <NextSeo {...collectionPageSeo(`/collection/${collectionName}/page/${pageId}`)}/>
       
       {/* <Products showAll={true} products={products}></Products> */}
 

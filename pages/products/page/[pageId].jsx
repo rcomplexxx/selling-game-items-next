@@ -7,6 +7,8 @@ import styles from "./page.module.css";
 import Head from "next/head";
 import Image from "next/image";
 import PageNumber from "@/components/PageNumbers/PageNumbers";
+import { NextSeo } from "next-seo";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 const ProductPage = ({  pageId, products, links }) => {
   // Redirect to home page if no product
@@ -25,9 +27,8 @@ const ProductPage = ({  pageId, products, links }) => {
 
   return (
     <div className={styles.mainDiv}>
-      <Head>
-        <title>Products - Page {pageId} - {process.env.NEXT_PUBLIC_SITE_NAME}</title>
-      </Head>
+      
+      <NextSeo {...unimportantPageSeo(`/products/page/${pageId + 1}`)}/>
       <Products
         showAll={true}
         products={products}

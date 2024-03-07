@@ -3,13 +3,15 @@
 import React from "react";
 import PolicyCard from "@/components/Cards/PolicyCard/PolicyCard";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 export default function TermsOfService() {
 
 
   return (
     <PolicyCard>
-    
+    <NextSeo {...unimportantPageSeo('/terms-of-service')}/>
 
 
 

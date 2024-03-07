@@ -10,6 +10,8 @@ import Head from "next/head";
 import styles from "../checkout.module.css";
 import CheckoutLogo from "@/components/Checkout/CheckoutLogo/CheckoutLogo";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
+import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 const BuyNowPage = () => {
   const router = useRouter();
@@ -78,7 +80,7 @@ const BuyNowPage = () => {
   return (
     <>
       
-
+      <NextSeo {...unimportantPageSeo('/checkout')}/>
       <div className={styles.checkoutMainContainer}>
       <CheckoutLogo/>
       <div className={styles.checkout_container}>
