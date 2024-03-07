@@ -39,10 +39,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
    
 
 
-      router.beforePopState((state) => {
-        state.options.scroll = false;
-        return true;
-      });
+     
 
     } else { 
     if (router.asPath.includes("#zoom")) {router.back();}
@@ -53,9 +50,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
 
   
-  useEffect(()=>{
-    swiper && swiper.slideTo(0, 400);
-  },[images])
+ 
 
   useEffect(() => {
     //129
@@ -95,26 +90,6 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
     
 
-    // const options = {
-    //   root: null, 
-    //   rootMargin: '0px', 
-    //   threshold: 0, 
-    // };
-    
-    // const observer = new IntersectionObserver((entries, observer) => {
-    //   entries.forEach(entry => {
-    //     if (!entry.isIntersecting && entry.boundingClientRect.y < 0) {
-    //       setSpawnAddToCart(AddToCartEl.getBoundingClientRect().bottom < 0 && masonryEl.getBoundingClientRect().bottom > window.innerHeight);
-    //     }
-    //   });
-    // }, options);
-    
-    // // Start observing the target element
-    // observer.observe(AddToCartEl);
-    // observer.disconnect();
-
-
-
   
 
     window.addEventListener("scroll", handleScroll);
@@ -125,10 +100,12 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
      
     };
   }, []);
+
+  
   
 
   useEffect(()=>{
-    console.log('variant image index', variantImageIndex);
+    
     if(variantImageIndex && variantImageIndex>=-1 && variantImageIndex < images.length && variantImageIndexMountedRef.current){
       swiper?.slideTo(variantImageIndex,window.innerWidth<980?400:0);
       
@@ -137,7 +114,9 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
   },[variantImageIndex])
 
   
-
+  useEffect(()=>{
+    swiper && swiper.slideTo(0, 400);
+  },[images])
 
  
  
@@ -178,18 +157,22 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
         >
       {images.map((img, index) => (
         <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}
-        onClick={() => {
-          setZoomed(true);
-        }}>
+       >
          
             <Image
             id={`mainImage${index}`}
+            
+            onClick={() => {
+              setZoomed(true);
+            }}
+
+            height={0}
+            width={0}
               className={styles.productImage}
               src={img.src}
               alt={img.alt}
               sizes="(max-width: 980px) 100vw, 576px"
-              height={0}
-              width={0}
+             
               priority={index == 0}
               loading={index==0?'eager':'lazy'}
               draggable="false"
@@ -224,7 +207,8 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                 />
             </div>
 
-            <div className={`${styles.leftArrowDiv} ${styles.rightArrowDiv} ${imageIndex===images.length-1 && styles.disabledArrow}`} onClick={()=>{ swiper.slideTo(imageIndex+1);}}>
+            <div className={`${styles.leftArrowDiv} ${styles.rightArrowDiv} ${imageIndex===images.length-1 && styles.disabledArrow}`} 
+            onClick={()=>{ swiper.slideTo(imageIndex+1);}}>
                 <Image 
                height={12}
                width={12}
@@ -241,7 +225,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
     className={styles.slider2} onSwiper={setSwiperMini}>
            
           {images.map((img, index) => (
-            <SwiperSlide key={index}  className={`carousel-item ${styles.slide2} ${imageIndex === index && styles.selectedImage}`}
+            <SwiperSlide key={index}  className={`carousel-item ${styles.slide2}`}
             
             onClick={() => {
               swiper.slideTo(index);
@@ -250,7 +234,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
             >
               
                 <Image
-                  className={styles.productImage}
+                  className={`${styles.productImage} ${imageIndex === index && styles.selectedImage}`}
                   src={img.src}
                   alt={img.alt}
                   sizes="25vw"

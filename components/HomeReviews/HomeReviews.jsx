@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { RatingStar } from "rating-star";
 import StarRatings from "react-star-ratings";
 import styles from "./homeReviews.module.css";
 import Slider from "react-slick";
