@@ -9,13 +9,14 @@ export default {
       type: 'website',
       
       url: 'https://www.selling-game-items-next.vercel.app/',
-      siteName: 'Gamebuffsadsadsa',
+      siteName: 'Gamebuff',
+      title: "Gamebuff",
       description: 'Buy perfect equipment for deep-night gaming',
       images: [
         {
         url: 'https://selling-game-items-next.vercel.app/images/gameGirl2.png',
-      width: 600,
-      height: 600,
+      width: 737,
+      height: 737,
       alt: 'Gamebuff',
       type: 'image/png',
         }
