@@ -124,11 +124,11 @@ const totalItems= useMemo(()=>{
  
      
     
-    // <div
-    //   id="hronika"
-    //   className={`hronika`}
+    <div
+      id="hronika"
+      className={`hronika`}>
     
-    <>
+    
        {/* <Head>
       <title>Gamebuff</title>
         <link rel="icon" href="/images/favicon.ico" />
@@ -146,7 +146,7 @@ const totalItems= useMemo(()=>{
       </AppContext.Provider>
       
        <Footer />
-    </>
+       </div>
    
      
   
