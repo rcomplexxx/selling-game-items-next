@@ -33,7 +33,7 @@
     "classnames": "^2.3.2",
     "compression-next": "^1.0.3",
     "eslint": "^6.8.0",
-    "fs": "^0.0.1-security",
+    
     "image-size": "^1.1.1",
     "jsonwebtoken": "^9.0.2",
     "masonic": "^3.7.0",
