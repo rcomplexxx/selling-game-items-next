@@ -15,6 +15,8 @@ const router = useRouter();
 
 const backStopper = useRef(false);
 
+const nextLink = useRef();
+
 
 
 
@@ -23,21 +25,6 @@ const backStopper = useRef(false);
 
 
 useEffect(()=>{
-
-
-
-
-  const handleRouteChangeStart = () => {
-
-    
-    setNewProduct();
-    
-  };
-
- 
-  
-
-  router.events.on('routeChangeStart', handleRouteChangeStart);
 
 
 
@@ -54,7 +41,8 @@ useEffect(()=>{
 
   const handlePopState = (event)=>{
 
-  
+    
+    if(nextLink.current)router.push(nextLink.current);
    
     backStopper.current = true; 
     setNewProduct();
@@ -90,7 +78,7 @@ useEffect(()=>{
     
     window?.removeEventListener("popstate", handlePopState);
     document.removeEventListener('click', handleClick);
-    router.events.off('routeChangeStart', handleRouteChangeStart);
+   
 
    
 
@@ -111,6 +99,14 @@ useEffect(()=>{
 
 // useEffect(()=>{ popupCart.focus();},[])
 
+const handlePopCartLinkClick=(event, nextLinkHref)=>{
+  event.preventDefault();
+  if(!backStopper.current){
+    nextLink.current= nextLinkHref;
+  history.back();
+}
+}
+
     return <div className={`${styles.cartPopup}`} >
   
   <div className={`${styles.cartPopupTitle} ${styles .firstPopupTitle}`}>
@@ -125,13 +121,20 @@ useEffect(()=>{
  
 
   <Link href='/cart'  className={styles.add_to_cart_button}
+  onClick={(event)=>{
+    handlePopCartLinkClick(event, '/cart')
+  }}
      >
 
       View my cart ({totalItems})
     
     </Link>
 
-    <Link href='/checkout' className={styles.buyNowButton} >
+    <Link href='/checkout' className={styles.buyNowButton} 
+     onClick={(event)=>{
+      handlePopCartLinkClick(event, '/checkout')
+    }}
+    >
     
      Check out
   

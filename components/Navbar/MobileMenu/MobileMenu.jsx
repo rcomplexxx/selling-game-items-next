@@ -225,7 +225,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
       <><Link
               href ='/'
         className={`${styles.linkStyle} ${pathname === "/" && styles.currentLinkMobile}`}
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           if(pathname !== "/") { 
             nextLink.current='/';
            
@@ -240,7 +241,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
       <Link
       href= '/products'
         className={`${styles.linkStyle} ${pathname === "/products" && styles.currentLinkMobile}`}
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           if(pathname !== "/products") { 
             nextLink.current='/products';
             history.back();
@@ -257,7 +259,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         className={`${styles.linkStyle} ${
           pathname === "/collection/sale/page/1" &&  styles.currentLinkMobile
         }`}
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           if(pathname !== "/collection/sale/page/1") { 
             nextLink.current='/collection/sale/page/1';
            history.back();
@@ -299,7 +302,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
           pathname === "/contact-us" && styles.currentLinkMobile
         }`}
        
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           if(pathname !== "/contact-us") { 
             nextLink.current='/contact-us';
            history.back();
@@ -319,6 +323,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
        
        className={`${styles.linkStyle}`}
        onClick={() => {
+        
          setSubMenu(0);
        }}
      >
@@ -332,7 +337,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
           pathname === "/our-story" &&  styles.currentLinkMobile
         }`}
   
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           if(pathname !== "/our-story") { 
             nextLink.current='/our-story';
            history.back();
@@ -350,7 +356,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
           pathname === "/faq" && styles.currentLinkMobile
         }`}
        
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           if(pathname !== "/faq") { 
             nextLink.current="/faq";
            history.back();
@@ -367,7 +374,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
           pathname === "/terms-of-service" && styles.currentLinkMobile
         }`}
     
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           if(pathname !== "/terms-of-service") { 
             nextLink.current="/terms-of-service";
            history.back();
@@ -382,7 +390,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         className={`${styles.linkStyle} ${
           pathname === "/privacy-policy" && styles.currentLinkMobile
         }`}
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           if(pathname !== "/privacy-policy") { 
         
             nextLink.current="/privacy-policy";
@@ -398,7 +407,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         className={`${styles.linkStyle} ${
           pathname === "/shipping-policy" && styles.currentLinkMobile
         }`}
-        onClick={() => {
+        onClick={(event) => {
+          event.preventDefault();
           if(pathname !== "/shipping-policy") { 
        
             nextLink.current="/shipping-policy";
@@ -412,8 +422,9 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         className={`${styles.linkStyle} ${
           pathname === "/refund-policy" && styles.currentLinkMobile
         }`}
-        onClick={() => {
+        onClick={(event) => {
         
+          event.preventDefault();
           if(pathname !== "/refund-policy") { 
          
             nextLink.current="/refund-policy";
@@ -443,7 +454,8 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
   className={`${styles.linkStyle} ${
     pathname === `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1` && styles.currentLinkMobile
   }`}
-  onClick={() => {
+  onClick={(event) => {
+    event.preventDefault();
     if(pathname !== `/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`) { 
 
       nextLink.current=`/collection/${c.name.toLowerCase().replace(/ /g, '-')}/page/1`;
