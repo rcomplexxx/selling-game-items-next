@@ -44,7 +44,7 @@ const FreqProduct = ({ productId, variantIndex, onAddToCart }) => {
 export default function FrequentlyBoughtTogether({ fbtProductInfo, onAddToCart }) {
   return (
     <div className={styles.freqMain}>
-      <h3 className={styles.h2Title}>Frequently bought together</h3>
+      <h2 className={styles.h2Title}>Frequently bought together</h2>
       <div className={styles.freqBought}>
         {fbtProductInfo ? (
           fbtProductInfo.map((p, index) => (

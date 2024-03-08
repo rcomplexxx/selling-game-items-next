@@ -16,10 +16,10 @@ const QuantityButton = ({ quantity, setQuantity }) => {
 
   return (
     <div className={styles.quantityMainDiv}>
-      <span className={styles.quantityTitle}>Quantity</span>
+      <label htmlFor="Quantity" className={styles.quantityTitle}>Quantity</label>
       <div className={styles.quantityInfo}>
 
-        <input className={styles.quantityInput} value={quantity} readOnly />
+        <input id="Quantity" className={styles.quantityInput} value={quantity} readOnly />
 
       
         <button className={`${styles.quantityButton} ${styles.decrementButton}`} onClick={decrementQuantity}>
