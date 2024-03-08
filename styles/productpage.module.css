@@ -146,7 +146,7 @@
     z-index: 1;
     border-radius: 4px;
     box-sizing: border-box;
-    border: 1px solid #41855b;
+    border: 1px solid #000000;
     margin-bottom: 4px;
     overflow: clip;
   }

@@ -158,7 +158,7 @@ const FullScreenZoomableImage = ({
     let timeoutId;
     let swipeYLock = false;
     let touchCoordinates = { x: 0, y: 0 };
-    const imgDiv = document.getElementById("fullImage" + imageIndex);
+    const imgDiv = document.getElementById("zoomDiv" + imageIndex);
 
     let currX = 0;
     let currY = 0;
@@ -493,7 +493,7 @@ const FullScreenZoomableImage = ({
               >
                 <div className="swiper-zoom-container">
                   <div
-                   
+                    id={"zoomDiv" + index}
                     className={`${styles.productImageDiv} ${
                       zoomed && styles.productImageDivZoomed //zoomedChange
                     } swiper-zoom-target`}
