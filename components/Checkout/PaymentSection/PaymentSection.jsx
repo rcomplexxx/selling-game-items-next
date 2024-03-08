@@ -21,6 +21,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
    
     if(!mounted.current){
       lastSelectedPaymentRef.current= creditCardPaymentFieldsRef.current;
+      lastSelectedPaymentRef.current.style.overflow = 'visible';
       mounted.current=true;
       return;
     }
@@ -39,7 +40,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
   nonSelectedPaymentFields = lastSelectedPaymentRef.current;
   }
 
-  if(selectedPaymentFields){
+  
 
 
  
@@ -59,7 +60,7 @@ export default function PaymentSection({ checkFields, organizeUserData, setError
      }, 600);
 
      lastSelectedPaymentRef.current= selectedPaymentFields;
-  }
+  
 
 
   },[paymentMethod]);

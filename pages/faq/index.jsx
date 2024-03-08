@@ -26,7 +26,7 @@ export default function Faq({ questionData }) {
         {questionData.map((q, i) => {
           return (
            
-              <p>
+              <p key={i}>
            <strong>
             Q: {q.question}
             </strong><br/><br/>
