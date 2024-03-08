@@ -71,7 +71,7 @@ if (window.innerWidth<980){
 
 
 
-  const renderEmptyCart = () => (
+  const renderEmptyCart = useCallback(() => {
     <div className={styles.emptyCartDiv}>
     <p className={styles.emptyCartText}>
     Add your favorite items to your cart.
@@ -80,14 +80,14 @@ if (window.innerWidth<980){
           <button className={styles.shopNow}>Shop Now</button>
         </Link>
     </div>
-  );
+  },[]);
 
   const subtotal = cartProducts
     .reduce((sum, cp) => sum + cp.quantity * cp.price, 0)
     .toFixed(2);
 
-  const renderCart = () => (
-    <>
+  const renderCart = useCallback(() => {
+   return  <>
       <div className={styles.itemsDiv}>
         {cartProducts.map((lineItem) => (
           <CartItem item={lineItem} key={lineItem.id} />
@@ -100,19 +100,26 @@ if (window.innerWidth<980){
         </Link>
       </div>
     </>
-  );
+},[]);
 
-  if(cartProducts.length === 0) return  <div className={styles.mainWrapper}>
+
+
+
+
+ 
+  return (<>
+  {invDivsPresent && <><div id="invisibleDiv2" ref={obtainDiv2Height} className={styles.invisibleDiv2}/><div id="invisibleDiv" ref={obtainDivHeight} className={styles.invisibleDiv}/></>}
+   
+  {cartProducts.length === 0? <div className={styles.mainWrapper}>
   <div className={`${styles.containerStyle} ${styles.emptyCartMainDiv}`}>
   <h1 className={`${styles.title}  ${styles.emptyTitle}`}>Your cart is empty!</h1>
  
   {renderEmptyCart()}
   </div>
   <BestSellers/>
-  </div>
+  </div>:
 
-  return (<>
-  {invDivsPresent && <><div id="invisibleDiv2" ref={obtainDiv2Height} className={styles.invisibleDiv2}/><div id="invisibleDiv" ref={obtainDivHeight} className={styles.invisibleDiv}/></>}
+
     <div className={styles.mainWrapper} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
     <div className={`${styles.containerStyle}`} style={{minHeight:`${addressBarUp?"calc(100svh - 64px)":"calc(100vh - 64px)"}`}}>
       
@@ -123,6 +130,7 @@ if (window.innerWidth<980){
     </div>
     <BestSellers/>
     </div>
+  }
     </>
   );
 };

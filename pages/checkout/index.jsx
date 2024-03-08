@@ -12,13 +12,21 @@ import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 const CheckoutPage = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
+  const [loaded, setLoaded] = useState(false);
   const [discount, setDiscount] = useState({code:'', discount:0});
   const [tip, setTip]= useState(0);
+
+  useEffect(()=>{
+    setLoaded(true)
+  },[])
+
  
   
 
    const renderEmptyCartCheckout = ()=> { return <div className={styles.mainWrapper}>
+     
     <div className={`${styles.containerStyle} ${styles.emptyCartMainDiv}`}>
+    {loaded?<>
     <h1 className={`${styles.title}  ${styles.emptyTitle}`}>Your cart is empty</h1>
     <div className={styles.emptyCartDiv}>
       <p className={styles.emptyCartText}>
@@ -28,9 +36,15 @@ const CheckoutPage = () => {
             <button className={styles.shopNow}>Shop Now</button>
           </Link>
       </div>
+      </>:<h1 className={`${styles.title}  ${styles.emptyTitle}`}>Loading checkout...</h1>
+    
+      }
     </div>
-    </div>;}
-
+   
+    
+   
+    </div>;
+ }
  
   
   console.log('cp', cartProducts.length);
@@ -39,7 +53,7 @@ const CheckoutPage = () => {
    
       <div className={styles.checkoutMainContainer}>
         <NextSeo {...unimportantPageSeo('/checkout')}/>
-      {cartProducts.length==0 ?renderEmptyCartCheckout():
+      {cartProducts.length===0 ?renderEmptyCartCheckout():
       <>
       <CheckoutLogo/>
       <div className={`${styles.checkout_container} ${styles.checkoutAbsolute}`}>

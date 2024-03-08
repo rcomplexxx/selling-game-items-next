@@ -19,7 +19,7 @@ const BuyNowPage = () => {
   const { params } = router.query;
   console.log(params);
 
-  const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
   const [discount, setDiscount] = useState({code:'', discount: 0 });
   const [tip, setTip]= useState(0);
@@ -52,18 +52,27 @@ const BuyNowPage = () => {
     } else {
       // setCartProducts([]);
     }
-    setLoading(false);
+    setLoaded(true);
   }, []);
 
-  if (loading)
-    return <div className={styles.loading}>Loading...</div>;
+  const renderFail = () =>{
 
-  if (params != "buynow" || cartProducts.length == 0)
+  
+  
+
+
+
+
+
+ 
     return <div className={styles.checkoutMainContainer}>
 
 <div className={styles.mainWrapper}>
     <div className={`${styles.containerStyle} ${styles.emptyCartMainDiv}`}>
-    <h1 className={`${styles.title}  ${styles.emptyTitle}`}>Product not found.</h1>
+
+    {loaded && params?<>
+
+    <h1 className={`${styles.title} ${styles.emptyTitle}`}>Product not found.</h1>
     <div className={styles.emptyCartDiv}>
       <p className={styles.emptyCartText}>
    Check url for type errors, or go to product page.
@@ -72,23 +81,30 @@ const BuyNowPage = () => {
             <button className={styles.shopNow}>Shop Now</button>
           </Link>
       </div>
+      </>:<h1 className={`${styles.title}  ${styles.emptyTitle}`}>Loading checkout...</h1>
+      }
     </div>
     </div>
  
     </div>;
+  }
 
   return (
     <>
       
       <NextSeo {...unimportantPageSeo('/checkout')}/>
       <div className={styles.checkoutMainContainer}>
+        {params != "buynow" || cartProducts.length == 0?renderFail():
+        <>
       <CheckoutLogo/>
       <div className={styles.checkout_container}>
         <OrderDetails discount={discount} setDiscount={setDiscount} tip={tip} products={cartProducts} />
 
         <CheckoutInfo discount={discount} tip={tip} setTip={setTip} products={cartProducts} setCartProducts={setCartProducts}/>
-        
+       
         </div>
+        </>
+      }
       </div>
     </>
   );
