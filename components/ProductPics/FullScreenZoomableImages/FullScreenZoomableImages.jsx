@@ -158,7 +158,7 @@ const FullScreenZoomableImage = ({
     let timeoutId;
     let swipeYLock = false;
     let touchCoordinates = { x: 0, y: 0 };
-    const imgDiv = document.getElementById("zoomDiv" + imageIndex);
+    const imgDiv = document.getElementById("fullImage" + imageIndex);
 
     let currX = 0;
     let currY = 0;
@@ -304,7 +304,7 @@ const FullScreenZoomableImage = ({
   
     if (zoomed) swiper.zoom.toggle();
 
-    if(global.toastMessageNotShowable ){
+    if(!global.toastMessageNotShowable ){
     if(currY!=0){
       
       setShowToastMessage(2);
@@ -493,21 +493,21 @@ const FullScreenZoomableImage = ({
               >
                 <div className="swiper-zoom-container">
                   <div
-                    id={"zoomDiv" + index}
+                   
                     className={`${styles.productImageDiv} ${
                       zoomed && styles.productImageDivZoomed //zoomedChange
                     } swiper-zoom-target`}
                     onMouseDown={(event) => {
-                      ;
+                      
                       if (
                         event.button !== 0 ||
                         !matchMedia("(pointer:fine)").matches
                       )
                         return;
-                      const { clientX, clientY } = event;
-
-                      setMouseStartingPoint({ x: clientX, y: clientY });
+                    
+                      setMouseStartingPoint({ x: event.clientX, y: event.clientY });
                     }}
+                    
                     onMouseUp={(event) => {
                      
                       if (

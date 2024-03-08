@@ -12,14 +12,16 @@ export default function ToastMessage({showToastMessage, setShowToastMessage}) {
        
         const toast = toastRef.current;
 
-
+        if(showToastMessage === 2 || showToastMessage===3){
+          global.toastMessageNotShowable=true;
+        }
         if(showToastMessage==1){
          global.toastMessageNotShowable=true;
 
         toastTimeout.current= setTimeout(()=> {
            
             if(toast){
-            
+              global.toastMessageNotShowable=true;
             toast.classList.add(styles.dissapearingToast);      
       
             setTimeout(()=>{
