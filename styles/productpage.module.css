@@ -142,13 +142,13 @@
     
     background-color: #FFC439;
     max-width: var(--size-15);
-    width: calc(100% - 2px);
+    width: 100%;
     z-index: 1;
     border-radius: 4px;
-    
+    box-sizing: border-box;
     border: 1px solid #41855b;
     margin-bottom: 4px;
-    overflow: hidden;
+    overflow: clip;
   }
 
 
