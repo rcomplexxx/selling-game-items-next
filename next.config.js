@@ -21,16 +21,10 @@ const nextConfig = {
       optimization: {
         usedExports: true,  // Enable tree shaking by marking unused exports
         minimize: true,     // Enable minification to further reduce bundle size
-        removeAvailableModules: true,
-        mergeDuplicateChunks: true,
         experimental: {
           optimizeCss: true,
         },
-      }, plugins: [
-        purgecss({
-          content: ['./**/*.css']
-        })
-      ]
+      }
 
 }
 
