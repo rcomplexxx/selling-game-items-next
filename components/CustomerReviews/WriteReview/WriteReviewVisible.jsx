@@ -69,11 +69,13 @@ export default function WriteReviewVisible({ratingData}) {
 
         if(infoDivOpen) { 
           
-         document.body.classList.add('hideScroll'); }
+        //  document.body.classList.add('hideScroll'); 
+        document.documentElement.classList.add("hideScroll");
+      }
        
      
-      
-        else document.body.classList.remove('hideScroll');
+         else document.documentElement.classList.remove("hideScroll");
+        // document.body.classList.remove('hideScroll');
        
      },[infoDivOpen]);
 
