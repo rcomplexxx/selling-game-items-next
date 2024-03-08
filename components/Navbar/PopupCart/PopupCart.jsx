@@ -44,7 +44,7 @@ useEffect(()=>{
     
     if(nextLink.current)router.push(nextLink.current);
    
-    backStopper.current = true; 
+   
     setNewProduct();
   
   }
@@ -54,13 +54,14 @@ useEffect(()=>{
   
     if (!navBar.contains(event.target) ) {
     
-      setNewProduct();
+      history.back();
+      
     }
-    else if (navBar.contains(document.getElementById('mobileMenuSpawn'))) {
-      backStopper.current = true; 
+    // else if (navBar.contains(document.getElementById('mobileMenuSpawn'))) {
+   
       
     
-    }
+    // }
   };
      
 
@@ -72,10 +73,7 @@ useEffect(()=>{
 
   return ()=>{
 
-    if(!backStopper.current){
-    history.back();
-    }
-    
+   
     window?.removeEventListener("popstate", handlePopState);
     document.removeEventListener('click', handleClick);
    
@@ -85,26 +83,17 @@ useEffect(()=>{
   }
 },[])
 
-useEffect(()=>{
-  router.beforePopState((state) => {
 
-    state.options.scroll = false;
-      
-    return false;
- 
-  });
-
-},[])
 
 
 // useEffect(()=>{ popupCart.focus();},[])
 
 const handlePopCartLinkClick=(event, nextLinkHref)=>{
   event.preventDefault();
-  if(!backStopper.current){
+ 
     nextLink.current= nextLinkHref;
   history.back();
-}
+
 }
 
     return <div className={`${styles.cartPopup}`} >

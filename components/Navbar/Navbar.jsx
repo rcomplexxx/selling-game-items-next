@@ -310,9 +310,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
             setNewProduct={setNewProduct}
           />
         )}
-      </nav>
-
-      {isMenuOpen && (
+          {isMenuOpen && (
         <MobileMenu
         
           subMenu={subMenu}
@@ -320,6 +318,9 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
           setIsMenuOpen={setIsMenuOpen}
         />
       )}
+      </nav>
+
+    
     </>
   );
 };
