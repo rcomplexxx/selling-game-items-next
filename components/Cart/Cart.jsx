@@ -80,7 +80,7 @@ if (window.innerWidth<980){
           <button className={styles.shopNow}>Shop Now</button>
         </Link>
     </div>
-  },[]);
+  },[cartProducts]);
 
   const subtotal = cartProducts
     .reduce((sum, cp) => sum + cp.quantity * cp.price, 0)
@@ -100,7 +100,7 @@ if (window.innerWidth<980){
         </Link>
       </div>
     </>
-},[]);
+},[cartProducts]);
 
 
 
