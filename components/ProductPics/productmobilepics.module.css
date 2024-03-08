@@ -92,7 +92,6 @@
   .slider2Suiter{
     position: relative;
     width: 100%;
-    contain: content;
   }
 
 
@@ -249,7 +248,7 @@
     position: relative;
     width: calc(100%  / 3 - 16px) !important;
     aspect-ratio: 16/9;
-    overflow: hidden;
+    overflow: clip;
     margin: 8px !important;
   }
 
