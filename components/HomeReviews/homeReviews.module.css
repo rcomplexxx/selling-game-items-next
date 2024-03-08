@@ -43,6 +43,7 @@
     min-height: max-content;
     width: max-content;
     user-select: none;
+     contain: layout;
   }
 
   .reviewTitle {

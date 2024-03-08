@@ -31,6 +31,7 @@
     position: sticky;
     top: 32px;
     bottom: 100%;
+    contain: content;
   }
   
 
@@ -129,7 +130,7 @@
   .productImage2Div{
     width: calc(25% - 9px);
     aspect-ratio: 16/9;
-    overflow: clip;
+    overflow: hidden;
   
  
   }
@@ -247,7 +248,7 @@
     position: relative;
     width: calc(100%  / 3 - 16px) !important;
     aspect-ratio: 16/9;
-    overflow: clip;
+    overflow: hidden;
     margin: 8px !important;
   }
 

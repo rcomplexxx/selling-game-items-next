@@ -9,7 +9,7 @@
     border-top: 1px solid rgb(72, 69, 85);
     
     z-index: 4;
-    
+    contain: content;
     margin-top: auto;
   }
 

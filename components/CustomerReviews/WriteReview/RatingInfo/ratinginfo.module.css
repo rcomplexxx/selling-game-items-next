@@ -23,7 +23,7 @@
 
 
   z-index: 9;
-  overflow: clip;
+  contain:content;
   pointer-events: none;
 }
 
