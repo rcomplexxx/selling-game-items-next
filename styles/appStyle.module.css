@@ -39,7 +39,6 @@
     /* #2e2e31 */  /* #2e2e31 */
         border-top:1px black solid;
         min-height: var(--size-13);
-        contain: content;
     
        
   }
