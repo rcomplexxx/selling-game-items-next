@@ -31,7 +31,6 @@
     position: sticky;
     top: 32px;
     bottom: 100%;
-    contain: content;
   }
   
 
@@ -92,6 +91,7 @@
   .slider2Suiter{
     position: relative;
     width: 100%;
+    contain: paint;
   }
 
 
@@ -248,7 +248,7 @@
     position: relative;
     width: calc(100%  / 3 - 16px) !important;
     aspect-ratio: 16/9;
-    overflow: clip;
+    overflow: hidden;
     margin: 8px !important;
   }
 
