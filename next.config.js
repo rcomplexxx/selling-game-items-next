@@ -71,6 +71,7 @@ const webpackConfig = (config, { isServer }) => {
       }
     }
   }
+  return config;
 };
 
 module.exports = {...nextConfig, webpack: webpackConfig}
