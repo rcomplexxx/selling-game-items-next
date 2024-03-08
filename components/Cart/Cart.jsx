@@ -27,7 +27,7 @@ const obtainDiv2Height = useCallback((node) => {
 }, []);
 
 
-  useLayoutEffect(()=>{
+  useEffect(()=>{
    
     if(!invisibleDivHeight || !invisibleDiv2Height){return}
   firstHeightRef.current= invisibleDivHeight;
@@ -108,7 +108,9 @@ if (window.innerWidth<980){
 
  
   return (<>
-  {invDivsPresent && <><div id="invisibleDiv2" ref={obtainDiv2Height} className={styles.invisibleDiv2}/><div id="invisibleDiv" ref={obtainDivHeight} className={styles.invisibleDiv}/></>}
+  {invDivsPresent && <>
+  <div id="invisibleDiv2" ref={obtainDiv2Height} className={`${styles.invisibleDiv2} ${styles.invisibleDiv}`}/>
+  <div id="invisibleDiv" ref={obtainDivHeight} className={styles.invisibleDiv}/></>}
    
   {cartProducts.length === 0? <div className={styles.mainWrapper}>
   <div className={`${styles.containerStyle} ${styles.emptyCartMainDiv}`}>

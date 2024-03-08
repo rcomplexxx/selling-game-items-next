@@ -5,14 +5,13 @@
   left:0;
 height : 100dvh;
 visibility: hidden;
+contain: layout paint size style;
 }
 
 .invisibleDiv2{
-  position : absolute;
-  top : 0;
-  left:0;
+
 height : 100vh;
-visibility: hidden;
+
 
 
 } 
