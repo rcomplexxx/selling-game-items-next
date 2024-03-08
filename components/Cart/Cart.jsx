@@ -12,7 +12,7 @@ import FreeShippingSlider from "./FreeShippingSlider/FreeShippingSlider";
 const Cart = () => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
   const [addressBarUp, setAddressBarUp] = useState(false);
-  const [invDivsPresent, setInvDivsPresent] = useState(true);
+  // const [invDivsPresent, setInvDivsPresent] = useState(true);
   const firstHeightRef = useRef();
   const [invisibleDivHeight, setInvisibleDivHeight] = useState();
   const [invisibleDiv2Height, setInvisibleDiv2Height] = useState();
@@ -27,7 +27,7 @@ const obtainDiv2Height = useCallback((node) => {
 }, []);
 
 
-  useEffect(()=>{
+  useLayoutEffect(()=>{
    
     if(!invisibleDivHeight || !invisibleDiv2Height){return}
   firstHeightRef.current= invisibleDivHeight;
@@ -72,7 +72,7 @@ if (window.innerWidth<980){
 
 
   const renderEmptyCart = useCallback(() => {
-    <div className={styles.emptyCartDiv}>
+    return <div className={styles.emptyCartDiv}>
     <p className={styles.emptyCartText}>
     Add your favorite items to your cart.
     </p>
@@ -108,9 +108,10 @@ if (window.innerWidth<980){
 
  
   return (<>
-  {invDivsPresent && <>
+  {/* {invDivsPresent && <> */}
   <div id="invisibleDiv2" ref={obtainDiv2Height} className={`${styles.invisibleDiv2} ${styles.invisibleDiv}`}/>
-  <div id="invisibleDiv" ref={obtainDivHeight} className={styles.invisibleDiv}/></>}
+  <div id="invisibleDiv" ref={obtainDivHeight} className={styles.invisibleDiv}/>
+  {/* </>} */}
    
   {cartProducts.length === 0? <div className={styles.mainWrapper}>
   <div className={`${styles.containerStyle} ${styles.emptyCartMainDiv}`}>
