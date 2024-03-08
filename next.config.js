@@ -17,18 +17,45 @@ const nextConfig = {
         locales: ['en'],
         defaultLocale: 'en',
       },
-      compression: true,
-      optimization: {
-        usedExports: true,  // Enable tree shaking by marking unused exports
-        minimize: true,     // Enable minification to further reduce bundle size
-        experimental: {
-          optimizeCss: true,
-        },
-      }, plugins: [
-        purgecss({
-          content: ['./**/*.html']
-        })
-      ]
+      webpack: (config, { isServer }) => {
+        if (!isServer) {
+          // Find the TerserPlugin in the minimizer array
+          for (const plugin of config.optimization.minimizer) {
+            if (plugin.constructor.name === 'TerserPlugin') {
+              // Customize Terser options
+              plugin.options.terserOptions = {
+                // Enable ES6+ transformations
+                ecma: 2015,
+                // Preserve function names
+                mangle: {
+                  keep_fnames: false,
+                },
+                // Additional optimizations
+                compress: {
+                  // Remove console.* statements
+                  drop_console: true,
+                  // Optimize numerical expressions
+                  unsafe_math: true,
+                  // Inline simple functions
+                  inline: 3,
+                  // Join consecutive var, let, and const statements
+                  join_vars: true,
+                },
+                // Preserve class names
+                keep_classnames: false,
+                // Evaluate constant expressions
+                evaluate: true,
+                // Preserve completion values from terminal statements
+                expression: true,
+                // Hoist function declarations
+                hoist_funs: true,
+                // Hoist properties from constant object and array literals
+                hoist_props: true,
+              };
+            }
+          }
+        }
+      }
 
 }
 
