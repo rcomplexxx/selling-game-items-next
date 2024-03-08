@@ -147,7 +147,53 @@ export default function ProductPage({ product, images, startReviews, ratingData 
             Add to Cart
           </button>
 
-          
+          <div className={styles.paypalWrapper}>
+            <PayPalButton type='instant' color='gold' organizeUserData={
+             useCallback((paymentMethod)=>{
+                const email = "";
+                const firstName = "";
+                const lastName = "";
+                const address = "";
+                const apt = "";
+                const country = "";
+                const zipcode = "";
+                const state = "";
+                const city = "";
+                const phone = "";
+               
+                const items=[{
+                  id: product.id,
+                  quantity: quantity,  
+                  variant: variant
+                }];
+               
+                const requestData = {
+                  order: {
+                    email,
+                    firstName,
+                    lastName,
+                    address,
+                    apt,
+                    country,
+                    zipcode,
+                    state,
+                    city,
+                    phone,
+                    discountCode: "",
+                    tip: 0,
+                    items:items ,
+                  },
+                  paymentMethod: paymentMethod,
+                  paymentToken: undefined
+            
+                  // Include other payment-related data if required
+                };
+                return requestData
+              }
+            
+  ,[])}/>
+          </div>
+
 
           <button className={styles.but_now_button} onClick={() => buyNow()}>
             Buy it now

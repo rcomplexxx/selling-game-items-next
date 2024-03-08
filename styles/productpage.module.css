@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  contain: layout;
+  
   }
   
 /* .mediaWrapper{
@@ -146,9 +146,9 @@
     z-index: 1;
     border-radius: 4px;
     box-sizing: border-box;
-    border: 1px solid #000000;
+    border: 1px solid #41855b;
     margin-bottom: 4px;
-    overflow: clip;
+    overflow: hidden;
   }
 
 
