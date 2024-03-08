@@ -66,7 +66,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
     };
   }, [subMenu]);
 
-  // !showNav && styles.disableNav
+
   return (
     <>
       {(newProduct || searchOpen || isMenuOpen) && (

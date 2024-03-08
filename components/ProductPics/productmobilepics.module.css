@@ -129,7 +129,7 @@
   .productImage2Div{
     width: calc(25% - 9px);
     aspect-ratio: 16/9;
-    overflow: hidden;
+    overflow: clip;
   
  
   }
@@ -247,7 +247,7 @@
     position: relative;
     width: calc(100%  / 3 - 16px) !important;
     aspect-ratio: 16/9;
-    overflow: hidden;
+    overflow: clip;
     margin: 8px !important;
   }
 
