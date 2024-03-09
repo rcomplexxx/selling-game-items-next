@@ -29,7 +29,7 @@ height : 100vh;
   flex-direction: column;
   width: 100%;
   min-width: 100%;
-  transition: min-height 0.2s ease;
+  /* transition: min-height 0.2s ease; */
   padding: 0 var(--size-10);
   padding-bottom: var(--size-7) ;
   box-sizing: border-box;
