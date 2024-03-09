@@ -17,6 +17,13 @@ export default function WriteReviewVisible({ratingData}) {
 
     const router = useRouter();
 
+
+    useEffect(()=>{ router.beforePopState((state) => {
+       
+      state.options.scroll = false;
+      return false;
+    });},[])
+
   
 
 
@@ -34,11 +41,7 @@ export default function WriteReviewVisible({ratingData}) {
 
 
         
-      router.beforePopState((state) => {
-       
-        state.options.scroll = false;
-        return true;
-      });
+   
 
       }
   
@@ -50,6 +53,8 @@ export default function WriteReviewVisible({ratingData}) {
       }
     
       }
+
+     
   
     
     }, [infoDivOpen]);
@@ -70,7 +75,7 @@ export default function WriteReviewVisible({ratingData}) {
         if(infoDivOpen) { 
           
         //  document.body.classList.add('hideScroll'); 
-        document.documentElement.classList.add("hideScroll");
+        document.documentElement.classList.remove("hideScroll");
       }
        
      
