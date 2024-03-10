@@ -53,7 +53,7 @@
 .campaignInput{
     
     color: rgb(225, 236, 238);
-    background-color: rgb(15, 15, 14);
+    background-color: var(--email-input-bg);
   
     width: 100%;
 
@@ -77,7 +77,7 @@
 
 .campaignEmailsDiv{
 
-    background-color: rgba(43, 35, 35, 0.145);
+    background-color: var(--campaign-display-emails-bg);
     min-height: var(--size-12);
     max-width: var(--size-17);
     width: 100%;

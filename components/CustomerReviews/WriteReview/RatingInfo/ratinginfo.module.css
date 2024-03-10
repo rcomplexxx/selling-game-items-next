@@ -30,7 +30,7 @@
 
 
 .ratingInfoWrapper > :last-child{
- margin-bottom: var(--size-6);
+padding-bottom: var(--size-6);
 }
 
 
@@ -130,7 +130,7 @@
      
      
      
-      overflow-x: hidden;
+      overflow: hidden;
      
     }
 

@@ -62,7 +62,7 @@
    
     height: max-content;
     width: var(--size-11-5);
-    background-color: rgba(127, 127, 163, 0.9);
+    background-color: var(--badge-popup-message-bg);
     color: black;
     padding: 8px;
     border-radius: 4px;
@@ -81,7 +81,7 @@
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 8px solid rgba(127, 127, 163, 0.9);
+  border-top: 8px solid var(--badge-popup-message-bg);
  
 }
 

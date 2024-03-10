@@ -28,7 +28,7 @@
     width: 100%;
   height: var(--size-3);
 
-  background-color: rgb(107, 101, 101);
+  background-color: var(--free-shipping-slider-empty-color);
   border-radius: 8px;
 }
 
@@ -36,7 +36,7 @@
 .sliderCore{
     position: relative;
     height: 100%;
-    background-color: brown;
+    background-color: var(--free-shipping-slider-fill-color);
     border-radius: 8px;
     transition: width 0.5s ease-out;
 }
@@ -45,7 +45,7 @@
     position: absolute;
     top: calc(50% - var(--size-3));
     left: calc(100% - var(--size-3));
-    background-color: brown;
+    background-color: var(--free-shipping-slider-fill-color);
     height: var(--size-5);
     width: var(--size-5);
     

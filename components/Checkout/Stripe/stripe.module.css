@@ -93,7 +93,7 @@
       height: 40px;
       /* background-color: rgb(191, 209, 208); */
     
-      background-color: #151921;
+      background-color: var(--input-color);
       color: white;
       border-radius: 2px;
       align-self: center;
@@ -118,7 +118,7 @@
     /* background-color: #202020; */
     /* rgba(53, 60, 110, 0.459); */
     /* rgb(134, 110, 114); */
-    /* #1c2025; */
+    /* var(--input-autofill-color); */
 
     .stripeFieldFocused { 
       outline: none !important;
@@ -140,7 +140,7 @@
    
     .input_error{
       border: none;
-      box-shadow: 0 0 4px rgb(158, 49, 6);
+      box-shadow: 0 0 4px var(--error-box-shadow-color);
     }
 
     .error{

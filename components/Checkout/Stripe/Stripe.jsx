@@ -347,7 +347,7 @@ const handleCCBlur= ()=>{
     options={{placeholder:'',  style: {
       base: {
         color: 'white',
-        backgroundColor:'#151921',
+        backgroundColor:'var(--input-color)',
         lineHeight:"52px",
       },
     
@@ -382,7 +382,7 @@ const handleCCBlur= ()=>{
       options={{placeholder:'',  style: {
         base: {
           color: 'white',
-          backgroundColor:'#151921',
+          backgroundColor:'var(--input-color)',
           lineHeight:"52px",
         },
         invalid: {
@@ -407,7 +407,7 @@ const handleCCBlur= ()=>{
    options={{placeholder:'',  style: {
     base: {
       color: 'white',
-      backgroundColor:'#151921',
+      backgroundColor:'var(--input-color)',
       lineHeight:"52px",
     },
     invalid: {

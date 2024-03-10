@@ -72,7 +72,7 @@
 
 .textArea{
     color: rgb(225, 236, 238);
-    background-color: rgb(15, 15, 14);
+    background-color: var(--email-input-bg);
     min-height: 96px;
     width: 100%;
     box-sizing: border-box;
@@ -116,7 +116,7 @@
 
 .textAreaName{
     color: rgb(225, 236, 238);
-    background-color: rgb(15, 15, 14);
+    background-color: var(--email-input-bg);
     
     width: auto;
     align-self: flex-start;

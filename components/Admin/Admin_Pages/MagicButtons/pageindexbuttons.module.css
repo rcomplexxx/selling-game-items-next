@@ -2,9 +2,9 @@
     position:relative;  height:24px; width:8px;
   }
   
-  .arrowLink{
-    background-color: rgb(44, 95, 93);
-  }
+  /* .arrowLink{
+       background-color: var(--arrow-bg);
+  } */
 
 
   .leftArrowImg {

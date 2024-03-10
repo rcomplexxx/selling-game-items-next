@@ -105,7 +105,7 @@
     align-self: flex-end;
   }
 
-  .checkMarkText{
+  /* .checkMarkText{
     opacity: 1;
   }
 
@@ -146,12 +146,12 @@
   }
   
   /* Show the indicator (dot/circle) when checked */
-  .shipping_method input:checked ~ .checkmark:after {
+  /* .shipping_method input:checked ~ .checkmark:after {
     display: block;
     
   }
   
-  /* Style the indicator (dot/circle) */
+  /* Style the indicator (dot/circle) 
   .shipping_method .checkmark:after {
      top: 2px;
     left: 2px;
@@ -160,10 +160,10 @@
     border-radius: 50%;
     background-color: var(--gray-9-elegant);
    
-  }
+  } */
 
   
-  
+   
  
  
   .requiredNote{

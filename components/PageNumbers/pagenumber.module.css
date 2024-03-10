@@ -58,7 +58,7 @@
   }
   
   .arrowLink{
-    background-color: rgb(44, 95, 93);
+    background-color: var(--arrow-bg);
   }
   
   .leftArrowImg {

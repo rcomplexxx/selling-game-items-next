@@ -35,6 +35,8 @@
     font-size: var(--font-size-2);
   }
 
+  /* //autofill zadrzi boju */
+
   .custom_search_bar input:focus{
     border-color: #7daee2;;
     outline: none;

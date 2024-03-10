@@ -8,7 +8,7 @@
     box-shadow: none;
     background-color: var(--gray-9-elegant);
     color: white;
-    border-bottom: 1px solid rgb(72, 69, 85);
+    border-bottom: 1px solid var(--border-color-weak);
     transition: height 0.2s ease, opacity 0.2s ease;
     
     z-index: 5;
@@ -28,7 +28,7 @@
     width:100%;
     max-width: 100%;
     height: var(--size-9);
-    border-bottom: 1px solid rgb(72, 69, 85);
+    
     background-color: var(--gray-9-elegant);
   }
 
@@ -184,7 +184,7 @@
     top: calc(100% + 8px);
     left: 0;
     background-color: var(--gray-9-elegant);
-    border: 1px solid rgb(72, 69, 85);
+    border: 1px solid var(--border-color-weak);
 
     width: var(--size-11-5);
     padding: var(--size-3) 0;
@@ -216,7 +216,7 @@
   }
 
   .menuItemDiv:hover{
-    background-color: rgb(13, 24, 27);
+    background-color: var(--nav-select-search-link-color);
   }
 
   .menuItemDiv p{
@@ -225,7 +225,7 @@
 
   .currentLinkMobile {
     color: var(--blue-1);
-    background-color: rgb(13, 24, 27);
+    background-color: var( --nav-select-search-link-color);
   }
   
 

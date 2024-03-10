@@ -99,7 +99,7 @@
 
 
 
-  /* background-color: rgb(13, 24, 27); */
+  /* background-color: var( --nav-select-search-link-color); */
 
   
 
@@ -117,7 +117,7 @@
   
   .currentLinkMobile {
     color: var(--blue-1);
-    background-color: rgb(13, 24, 27);
+    background-color: var( --nav-select-search-link-color);
   }
   
 

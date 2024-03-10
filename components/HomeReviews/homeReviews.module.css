@@ -16,7 +16,7 @@
  
   
   .reviewDiv { 
-    background-color: #081522;
+    background-color: var(--home-review-color);
     min-height: max-content;
     height: var(--size-13-5);
    
@@ -136,14 +136,13 @@ width: 100vw ;
  
 
   .reviewDiv{
-    background-color: #081522;
     max-width: var(--size-13);
     max-height: var(--size-13-5);
     width: calc(100vw - var(--size-11));
     height: calc((100vw - var(--size-11)) * 5 / 4);
     margin-bottom: var(--size-8);
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: var(--size-7);
+    margin-right: var(--size-7);
   }
 
  

@@ -139,7 +139,7 @@ flex: 2;
 .transactionCovered{
     height: 100%;
     color: rgba(255, 255, 255, 0.405);
-    background-color: rgb(10, 12, 19);
+    background-color: var(--order-cover-details-color);
     display: flex;
     justify-content: center;
     font-size: var(--font-size-2);
@@ -165,7 +165,7 @@ white-space: nowrap;
 
 .paymentIdCovered{
     color: rgba(255, 255, 255, 0.848);
-    background-color: rgb(12, 17, 50);
+    background-color: var(--order-cover-details-color);
     font-size: var(--font-size-2);
     padding: var(--size-2) var(--size-3);
     border-radius: 4px;
@@ -178,7 +178,7 @@ white-space: nowrap;
 
    
         color: white;
-        background-color: rgb(15, 9, 23);
+        background-color: rgb(20, 50, 48);
         padding: var(--size-3) var(--size-6);
         border-radius: 2px;
         border: 1px solid gray;
