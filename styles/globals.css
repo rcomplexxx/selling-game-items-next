@@ -232,13 +232,17 @@ Cormorant+Garamond */
 
   --home-review-color:  #081522;
 
-
+  --checkout-order-summery-bg-mobile: #0e2438;
   --checkout-order-summery-bg: #091a29;
   --checkout-order-summery-bg-light: #0c2133;
   --apply-coupon-color: #1e374d;
   --apply-coupon-hover-color: #254766;
   --coupon-code-bg: rgb(36, 48, 58);
   --express-checkout-button-bg: #151921;
+
+  --payment-div-bg: rgb(11, 18, 24);
+
+  --add-tip-button-disabled: rgb(24, 24, 34);
   
   --input-color:#151921;
   --input-border-color: rgba(134, 110, 114, 0.425);
@@ -253,10 +257,17 @@ Cormorant+Garamond */
  --contact-input-color: #0c212b;
 
 
+ --writing-next-button-bg: rgb(112, 128, 118);
+ --writing-next-button-hover-bg: #364658;
+
  color-scheme: light only;
 
 
 /* Utility colors */
+
+
+--more-cards-card-bg: rgb(195, 229, 251);  
+
 --arrow-bg: rgb(44, 95, 93);
 
  --input-autofill-color: #1c2025;

@@ -54,7 +54,7 @@
 
 
 .tipDiv{
-  background-color: rgb(11, 18, 24);
+  background-color: var(--payment-div-bg);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -230,12 +230,12 @@
 
   .addTipDisabled{
     color: rgb(152, 152, 152);
-    background-color: rgb(24, 24, 34);
+    background-color: var(--add-tip-button-disabled);
     cursor:auto;
   }
 
   .addTipDisabled:hover{
-    background-color: rgb(24, 24, 34);
+    background-color: var(--add-tip-button-disabled);
 
   }
   

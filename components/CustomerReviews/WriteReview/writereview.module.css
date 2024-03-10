@@ -115,7 +115,7 @@
 
   @media (hover: hover) {
   .closeButton:hover{
-    background-color: #364658;
+    background-color: var(---writing-next-button-hover-bg);
     
   }
 }
@@ -219,7 +219,7 @@
     .mediaButton:hover{
      
       transition: background-color 0.1s ease;
-      background-color: rgb(112, 128, 118)
+      background-color: var(--writing-next-button-bg)
     }
    }
 
@@ -277,7 +277,7 @@
 
   
     .arrowBackMob:hover{
-    background-color: #364658;
+    background-color: var(---writing-next-button-hover-bg);
     border-radius: 6px;
     }
 
@@ -313,7 +313,7 @@
   @media (hover: hover) {
     .remindMeLater:hover{
     
-      background-color: #364658;
+      background-color: var(---writing-next-button-hover-bg);
     }
    }
    
@@ -426,7 +426,7 @@
     justify-content: center;
     align-items: center;
     color: black;
-    background-color: rgb(112, 128, 118);
+    background-color: var(--writing-next-button-bg);
     border: none;
     min-width: 80px;
     width: max-content;
@@ -441,14 +441,14 @@
   @media (hover: hover) {
     .nextButton:hover{
      
-      background-color: #364658;
+      background-color: var(---writing-next-button-hover-bg);
      }
 }
 
 
  .nextButton:active{
      
-     background-color: #364658;
+     background-color: var(---writing-next-button-hover-bg);
  }
 
  .nextButtonDisabled{
@@ -458,7 +458,7 @@
 }
 .nextButtonDisabled:hover{
   
-  background-color: rgb(112, 128, 118);
+  background-color: var(--writing-next-button-bg);
 
 }
 
@@ -666,7 +666,7 @@
       height: 40px;
 
       color: black;
-      background-color: rgb(112, 128, 118);
+      background-color: var(--writing-next-button-bg);
 
       display: flex;
       justify-content: center;
@@ -691,14 +691,14 @@
     @media (hover: hover) {
       .continueLink:hover{
        
-        background-color: #364658;
+        background-color: var(---writing-next-button-hover-bg);
        }
   }
   
   
   .continueLink:active{
        
-       background-color: #364658;
+       background-color: var(---writing-next-button-hover-bg);
    }
 
 
@@ -720,7 +720,7 @@
       left: var(--size-5);
 
       color: black;
-      background-color: rgb(112, 128, 118);
+      background-color: var(--writing-next-button-bg);
       
       width: calc(100% - var(--size-7));
       

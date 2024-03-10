@@ -140,7 +140,7 @@
 .moreCards{
     position: relative;
     color: var(--blue-8);
-    background-color: rgb(195, 229, 251);  
+    background-color: var(--more-cards-card-bg);  
     height: 26px;
     width: 46px;
     
@@ -192,7 +192,7 @@
     height: 32px;
     display: flex;
     
-    background-color: rgba(127, 127, 163, 0.9);
+    background-color: var(--badge-popup-message-bg);
     color: black;
     padding: 8px;
     border-radius: 4px;
@@ -210,7 +210,7 @@
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 8px solid rgba(127, 127, 163, 0.9);
+  border-top: 8px solid var(--badge-popup-message-bg);
  
 }
 
@@ -220,7 +220,7 @@
 
 
 .paymentFields{
-    background-color: rgb(11, 18, 24);
+    background-color: var(--payment-div-bg);
     
     width: 100%;
     display: flex;
