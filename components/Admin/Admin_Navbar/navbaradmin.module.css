@@ -4,8 +4,8 @@
   height: var(--size-9);
     box-shadow: none;
     background-color: var(--gray-9-elegant);
-    color: white;
-    border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+   
+    border-bottom: 1px solid var(--border-color-weak);
     z-index: 1;
    
   }
@@ -51,6 +51,10 @@
   
   .menuButton:active {
     transform: scale(1);
+  }
+
+  .menuIcon{
+    cursor: pointer;
   }
   
   .image {

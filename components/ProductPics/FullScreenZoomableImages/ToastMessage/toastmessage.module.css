@@ -4,7 +4,7 @@
     left: 50%;
    
 
-    background-color: #323232;
+    background-color: var(--toast-message-bg);
     
     box-sizing: border-box;
     border-radius: 4px;

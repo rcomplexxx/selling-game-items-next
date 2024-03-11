@@ -51,22 +51,27 @@ const AdminNavbar = ({ setIsAdmin }) => {
           {/* Doradi className={classNames(styles.menuButton)} */}
           {windowWidth < 980 ? (
             <div className={styles.growAlt}>
-              <IconButton
-                onClick={handleMobileMenuOpen}
-                aria-label="Menu"
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
+           
+
+              <Image
+                    src="/images/menuIcon2.png"
+                    onClick={handleMobileMenuOpen}
+                    alt="Gamebuff"
+                    height={24}
+                    width={24}
+                    className={styles.menuIcon}
+                  />
+
+
+
               <Link
                 href="/admin"
                 style={{ marginLeft: "10px" }}
                 className="text_decoration_none"
               >
-                <Typography
-                  variant="h6"
+                <div
                   className={styles.title}
-                  color="inherit"
+                  
                 >
                   <Image
                     src="/images/hackerLight2.png"
@@ -77,7 +82,7 @@ const AdminNavbar = ({ setIsAdmin }) => {
                   />
                   
                   Welcome Admin!
-                </Typography>
+                </div>
               </Link>
             </div>
           ) : (
@@ -147,10 +152,9 @@ const AdminNavbar = ({ setIsAdmin }) => {
             </>
           )}
 
-          <IconButton
+          <div
             className={styles.cartStyle}
-            aria-label="Show cart items"
-            color="inherit"
+           
             onClick={async () => {
               const response = await fetch("/api/adminlog", {
                 method: "POST",
@@ -169,7 +173,7 @@ const AdminNavbar = ({ setIsAdmin }) => {
             }}
           >
             Logout
-          </IconButton>
+          </div>
         </Toolbar>
       </nav>
 

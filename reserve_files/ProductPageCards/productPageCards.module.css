@@ -155,7 +155,7 @@
     height: var(--size-7);
     border: none;
     border-radius: 12px;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--action-button-txt-color);
     background-color: var(--action-button-bg-color);
     /* color:white;
     background-color: #202020; */
@@ -180,7 +180,7 @@
 }
 
 .sendButtonDisabled:hover{
-    background-color: #202020;
+    background-color: var(--action-button-bg-color);
   
 }
 

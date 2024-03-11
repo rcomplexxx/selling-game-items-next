@@ -23,9 +23,9 @@
 
      width: var(--size-12);
     height: 32px;
-    /* background-color: rgb(191, 209, 208); */
-    background-color: #0f1316;
-    color: white;
+    
+    background-color: var(--search-bg);
+    color: var(--light-txt-color);
     padding: var(--size-3);
   
     border-radius: 2px;
@@ -71,7 +71,7 @@
 }
   
 .result_item{
-  color:white;
+  color: var(--light-txt-color);
   text-decoration: none;
   width: 100%;
   padding: 8px var(--size-3);
@@ -79,12 +79,13 @@
   display: flex;
   align-items: flex-start;
   
+  font-size: var(--font-size-1);
   box-sizing: border-box;
   cursor: pointer;
 }
 
 .result_item:hover{
-    background-color: #0f1316;
+    background-color: var(--search-bg)#0f1316;
 }
 
 .resultProductsLabel{

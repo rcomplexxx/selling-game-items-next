@@ -27,8 +27,8 @@
 .floatingDiv{
     height: 16px;
     width: 16px;
-    color: gray;
-    border: 1px solid gray;
+    color: var(--floating-badge-color);
+    border: 1px solid var(--floating-badge-color);
     box-sizing: border-box;
     font-size: var(--font-size-1);
 

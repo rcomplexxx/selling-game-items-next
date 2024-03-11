@@ -87,13 +87,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid gray;
+    border: 1px solid var(--select-payment-circle-color);
     border-radius: 100%;
     margin: 0 var(--size-3);
 }
 
 .pickCheckSelected{
-    background-color: aqua;
+    background-color: var(--select-payment-circle-ring-color);
 }
 
 .ringEffectDiv{
@@ -160,7 +160,7 @@
     z-index: 15;
 }
 
-/* background-color: rgb(179, 220, 245);   */
+/* bg-alt: rgb(179, 220, 245);   */
 
 
 .moreCardsPopupWrapper{

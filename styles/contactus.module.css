@@ -6,7 +6,7 @@
     flex-direction: column;
     border-bottom: none;
     border-radius: 8px;
-     /* color: rgba(255, 255, 255, 0.9); */
+     /* color: var(--action-button-txt-color); */
    
 }
 
@@ -179,9 +179,9 @@
     height: var(--size-7);
     border: none;
     border-radius: 12px;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--action-button-txt-color);
     background-color: var(--action-button-bg-color);
-    /* background-color: #202020; */
+ 
     margin-left: var(--size-4);
     margin-right: var(--size-4);
     margin-bottom: var(--size-7);

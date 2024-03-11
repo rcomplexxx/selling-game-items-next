@@ -42,7 +42,7 @@
     
       height: max-content;
       width: 45%;
-        color:var(--yellow-white);
+       
          overflow: auto;
          margin-top: var(--size-3);
          margin-bottom:var(--size-3);

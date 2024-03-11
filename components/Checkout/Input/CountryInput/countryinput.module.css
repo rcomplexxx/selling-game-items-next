@@ -33,11 +33,11 @@
 
  
 
-  .countryColoredPlaceholder{ color: white;}
+  .countryColoredPlaceholder{ color: var(--high-contrast-light-txt-color);}
 
 
   .countrySelectStyle option{
-    color: white;
+    color: var(--light-txt-color);
   }
 
 
@@ -89,7 +89,7 @@
     }
 
     .countryNameLabel{
-      color: white;
+      color: var(--high-contrast-light-txt-color);
       position: absolute;
       left: 8px;
       top: 19px;

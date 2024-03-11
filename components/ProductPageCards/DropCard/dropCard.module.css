@@ -13,7 +13,7 @@
 }
 
 .title_div {
-  color: white;
+  color: var(--dropcard-title-color); 
   background-color: transparent;
   width: 100%;
     

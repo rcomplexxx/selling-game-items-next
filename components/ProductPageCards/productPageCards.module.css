@@ -112,7 +112,7 @@
 .contactInput{
     height: 28px;
     width: 100%;
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     background-color: var(--contact-input-color);
     font-family: var(--font-neutral);
     font-size: var(--font-size-2);
@@ -162,7 +162,7 @@
 
 .messageTextArea{
     border: none;
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     background-color: var(--contact-input-color);
  
    
@@ -192,14 +192,12 @@
 }
 
 .sendButton{
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--action-button-txt-color);
     background-color: var(--action-button-bg-color);
     width: var(--size-10);
     height: var(--size-7);
   
    
-    /* color:white;
-    background-color: #202020; */
   
     margin-right: var(--size-4);
     margin-bottom: var(--size-4);

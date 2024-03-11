@@ -2,7 +2,7 @@
   position: absolute;
   top: 40px;
   left: 0;
-  background-color: rgb(17, 20, 16);
+  background-color: var(--rating-info-bg);
   width: var(--size-14);
  
   display: flex;
@@ -30,7 +30,7 @@
 
 
 .ratingInfoWrapper > :last-child{
-padding-bottom: var(--size-6);
+margin-bottom: var(--size-6);
 }
 
 
@@ -73,7 +73,7 @@ padding-bottom: var(--size-6);
   .percentRatingWrapper{
     height: var(--size-4);
     flex-grow: 1;
-    background-color: rgb(30, 51, 59);
+    background-color: var(--rating-info-percent-bar-empty);
     margin-top: 1px;
     margin-left: 4px;
     margin-right: 16px;
@@ -81,7 +81,7 @@ padding-bottom: var(--size-6);
   .percentageRatingDiv{
     height: 100%;
     width: 0;
-    background-color: rgb(116, 145, 147);
+    background-color: var(--rating-info-percent-bar-fill);
     transition: width 0.5s ease;
   }
 

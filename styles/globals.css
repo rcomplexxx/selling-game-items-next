@@ -25,7 +25,7 @@ body{
 
 
 
-  color:var(--yellow-white);
+  color:var(--light-txt-color);
  background-color: var(--gray-9-elegant);
 
   min-height: 100%;
@@ -200,20 +200,26 @@ Cormorant+Garamond */
   --gray-9-elegant:#02050a;
   --gray-9-elegant-op08: #02050acc;
   --gray-9-elegant-original:#010203;
-  --yellow-white: #e0ded2;
+  
   --yellow-8: #796632;
   --practice:#e9e2c3;
 
 
   /* Take your primary branding color, convert it to HSL then shift the lightness up to the 90-99% range until it's bright enough. Or #f2f2f2/F4F3F2*/
 
+  --high-contrast-light-txt-color: white;
+  --light-txt-color: #e0ded2;
+
   --main-button-color: #1976d2;
   --main-button-hover-color: #1565C0;
   --main-light-color: #989898;
   --main-dark-color: #323232;
-  
+  --action-button-footer-txt-color: rgba(255, 255, 255, 0.8);
+  --action-button-txt-color: rgba(255, 255, 255, 0.9);
   --action-button-bg-color: rgb(62, 44, 36);
   --action-button-bg-color-hover:rgb(50, 36, 30);
+  /* txt-Alt:white; bg-Alt #202020 */
+
  
   /* //#43A146 //#42A147 */
 
@@ -227,9 +233,13 @@ Cormorant+Garamond */
 
 
   
+  --cart-button-items-number-bg: rgb(97, 26, 97);
 
+  --search-bg: #0f1316;
   --nav-select-search-link-color:rgb(13, 24, 27);
+  
 
+  --shop-now-hero-button-bg: #060f18ef;
   --home-review-color:  #081522;
 
   --checkout-order-summery-bg-mobile: #0e2438;
@@ -239,12 +249,23 @@ Cormorant+Garamond */
   --apply-coupon-hover-color: #254766;
   --coupon-code-bg: rgb(36, 48, 58);
   --express-checkout-button-bg: #151921;
-
+  
+  --select-payment-circle-ring-color: aqua;
+  --select-payment-circle-color: gray;
   --payment-div-bg: rgb(11, 18, 24);
 
   --add-tip-button-disabled: rgb(24, 24, 34);
   
   --input-color:#151921;
+
+   /* input-color-alt: rgb(191, 209, 208); rgb(74, 85, 187) #202020; rgba(53, 60, 110, 0.459); rgb(134, 110, 114); var(--input-autofill-color);*/
+ 
+   
+   
+   
+    
+
+
   --input-border-color: rgba(134, 110, 114, 0.425);
   --input-box-shadow-color: #7daee2;
 
@@ -257,31 +278,67 @@ Cormorant+Garamond */
  --contact-input-color: #0c212b;
 
 
+ --rating-info-bg: rgb(17, 20, 16);
+ --rating-info-percent-bar-empty:rgb(30, 51, 59);
+ --rating-info-percent-bar-fill: rgb(116, 145, 147);
+
+ --write-review-main-bg: #1b191a;
+ --writing-accent-color: gray;
+ --writing-empty-progress-bar: rgb(55, 55, 62);
+ --writing-media-button:  rgb(149, 165, 170);
  --writing-next-button-bg: rgb(112, 128, 118);
  --writing-next-button-hover-bg: #364658;
+
+ --mini-slider-arrow-bg:rgb(19, 23, 57);
+ --quantity-input-bg: #172247;
+ --quantity-button-border: rgb(80, 77, 90);
+ --quantity-button-hover: rgb(20, 22, 41);
+
+ --collection-info-bg: rgb(18, 25, 39);
+
+
+ --fullscreen-nav-bg: rgba(45, 95, 145, 0.604);
+ --fullscreen-arrow-bg:rgba(27, 60, 73, 0.501);
+ --fullscreen-arrow-hover-bg:rgba(48, 62, 68, 0.501);
+ --fullscreen-arrow-active-bg: rgba(113, 154, 170, 0.526);
+
+ --dropcard-title-color: rgb(116, 44, 44);
+
 
  color-scheme: light only;
 
 
 /* Utility colors */
 
+--product-on-sale-bg: rgb(18, 14, 56);
 
+--toast-message-bg: #323232;
 --more-cards-card-bg: rgb(195, 229, 251);  
 
 --arrow-bg: rgb(44, 95, 93);
 
  --input-autofill-color: #1c2025;
  
+ --floating-badge-color: gray;
  --badge-popup-message-bg: rgba(127, 127, 163, 0.9);
 
+ --email-popup-bg: rgb(22, 42, 60);
+
+--email-popup-cancel-button-bg: rgb(28, 49, 50);
+
+--paypal-bg:#FFC439;
 
   /*~Admin sector colors*/
+
+  --package-status-button-bg: rgb(20, 50, 48);
 
   --order-cover-details-color: rgb(10, 12, 19);
 
   --email-input-bg: rgb(15, 15, 14);
 
   --campaign-display-emails-bg:rgba(43, 35, 35, 0.145);
+
+  --admin-campaign-type-options-bg: rgb(76, 46, 46);
 
 }
 

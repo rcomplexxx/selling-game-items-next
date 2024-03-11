@@ -23,7 +23,7 @@
     height: var(--size-8);
     width: calc(100% - 16px);
     background-color: var(--blue-7);
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     margin-top: var(--size-5);
     margin-bottom: var(--size-2);
     margin-left: 8px;

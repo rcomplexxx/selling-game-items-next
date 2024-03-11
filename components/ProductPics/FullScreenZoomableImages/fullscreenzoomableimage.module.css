@@ -20,7 +20,7 @@
   
   
   .closeSuiter{
-    background-color: rgba(45, 95, 145, 0.604);
+    background-color: var(--fullscreen-nav-bg);
     position: fixed;
     top:0;
     left: 0;
@@ -95,7 +95,7 @@
     top: calc(50% + 24px);
     left: 16px;
   
-    background-color: rgba(27, 60, 73, 0.501);
+    background-color: var(--fullscreen-arrow-bg);
     padding: 8px;
     border-radius: 4px;
     transform: translateY(-50%);
@@ -106,17 +106,17 @@
 
   @media (hover: hover) {
     .leftArrow:hover{
-      background-color: rgba(48, 62, 68, 0.501);
+      background-color: var(--fullscreen-arrow-hover-bg);
     }
    }
 
 
   .leftArrow:active{
-    background-color: rgba(113, 154, 170, 0.526);
+    background-color:  var(--fullscreen-arrow-active-bg);
   }
 
   .rightArrow{
-    left: 0;
+    left: unset;
     right: 16px;
   
     transform: translateY(-50%) rotate(180deg);
@@ -126,15 +126,7 @@
    
   }
 
-  @media (hover: hover) {
-    .rightArrow:hover{
-      background-color: rgba(48, 62, 68, 0.501);
-    }
-   }
 
-  .rightArrow:active{
-    background-color: rgba(113, 154, 170, 0.526);
-  }
 
   .noArrow{
     visibility: hidden !important;

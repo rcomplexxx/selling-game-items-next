@@ -129,7 +129,7 @@
   }
 
   .continue_shopping{
-    color:white;
+    color: var(--light-txt-color);
    
    
 

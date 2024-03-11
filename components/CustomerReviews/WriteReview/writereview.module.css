@@ -45,7 +45,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1b191a;
+    background-color: var(--write-review-main-bg);
     transform: scale(0);
     animation: scaleAnim 0.5s ease-out 0.2s 1 normal forwards;
     z-index: 2;
@@ -115,7 +115,7 @@
 
   @media (hover: hover) {
   .closeButton:hover{
-    background-color: var(---writing-next-button-hover-bg);
+    background-color: var(--writing-next-button-hover-bg);
     
   }
 }
@@ -161,7 +161,7 @@
   .progressBar{
    height: var(--size-3);
    width: var(--size-9);
-   background-color: rgb(55, 55, 62);
+   background-color: var(--writing-empty-progress-bar);
    border-radius: 4px; 
    margin: 0 var(--size-2);
    overflow: hidden;
@@ -169,11 +169,11 @@
   
   .progressBarFilled{
     height: 100%;
-    background-color: gray;
+    background-color: var(--writing-accent-color);
   }
 
   .progressBarFiller{
-    background-color: gray;
+    background-color: var(--writing-accent-color);
     height: 100%;
     width: 0;
     transition: width 0.25s ease;
@@ -198,13 +198,13 @@
     padding: var(--size-4);
     margin: var(--size-9);
     border-radius: 4px;
-    border: 1px solid gray;
+    border: 1px solid var(--writing-accent-color);
   }
 
   .mediaButton{
     position: relative;
-    color: var(--gray-9-elegant);
-    background-color: rgb(149, 165, 170);
+    color: var(--var(--writing-accent-color)-9-elegant);
+    background-color: var(--writing-media-button);
     width: 100%;
     height: 40px;
     border: none;
@@ -277,7 +277,7 @@
 
   
     .arrowBackMob:hover{
-    background-color: var(---writing-next-button-hover-bg);
+    background-color: var(--writing-next-button-hover-bg);
     border-radius: 6px;
     }
 
@@ -294,7 +294,7 @@
     width: max-content;
     height: 40px;
 
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     background-color:transparent;
     
     display: flex;
@@ -313,7 +313,7 @@
   @media (hover: hover) {
     .remindMeLater:hover{
     
-      background-color: var(---writing-next-button-hover-bg);
+      background-color: var(--writing-next-button-hover-bg);
     }
    }
    
@@ -340,7 +340,7 @@
    
     padding: 6px;
     box-sizing: border-box;
-    border: 1px solid gray;
+    border: 1px solid var(--writing-accent-color);
   }
 
 
@@ -350,7 +350,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid gray;
+    border: 1px solid var(--writing-accent-color);
     width: calc(100% / 5 - 12px);
     aspect-ratio: 1;
     margin: 6px 6px;
@@ -361,14 +361,14 @@
 
   @media (hover: hover) {
     .addImageDiv:hover{
-      background-color: #1b191a;
+    
       border: 1px solid rgb(104, 111, 207);
      
     }
    }
 
-   .addImageDiv:hover:active{
-    background-color: #1b191a;
+   .addImageDiv:active{
+   
     border: 1px solid rgb(104, 111, 207);
    }
 
@@ -401,12 +401,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid gray;
+    border: 2px solid var(--writing-accent-color);
 
-    color: white;
     background-color: rgb(0, 0, 0);
     border-radius: 100%;
-    font-size: var(--font-size-2);
     
     cursor: pointer;
   
@@ -441,14 +439,14 @@
   @media (hover: hover) {
     .nextButton:hover{
      
-      background-color: var(---writing-next-button-hover-bg);
+      background-color: var(--writing-next-button-hover-bg);
      }
 }
 
 
  .nextButton:active{
      
-     background-color: var(---writing-next-button-hover-bg);
+     background-color: var(--writing-next-button-hover-bg);
  }
 
  .nextButtonDisabled{
@@ -468,7 +466,7 @@
  
 
   .writeReviewText{
-    color:white;
+    color:var(--light-txt-color);
     background-color: transparent;
     height: var(--size-11);
     width: 100%;
@@ -477,7 +475,7 @@
     
     box-sizing: border-box;
     padding: var(--size-3) var(--size-3);
-    border: 1px solid gray;
+    border: 1px solid var(--writing-accent-color);
     
   }
 
@@ -501,11 +499,11 @@
 
 
   .personInfoInput{
-    color:white;
+    color: var(--high-contrast-light-txt-color);
    width: 100%;
     height: 40px;
     background-color: transparent;
-    border: 1px solid gray;
+    border: 1px solid var(--writing-accent-color);
     border-radius: 8px;
     margin-top: var(--size-2);
     box-sizing: border-box;
@@ -531,11 +529,11 @@
   }
 
   .personEmail{
-    color:white;
+    color:var(--high-contrast-light-txt-color);
     width: 100%;
     height: 40px;
     background-color: transparent;
-    border: 1px solid gray;
+    border: 1px solid var(--writing-accent-color);
     border-radius: 8px;
     margin-top: var(--size-2);
     box-sizing: border-box;
@@ -573,7 +571,7 @@
   }
 
   .writeReviewTerms a{
-    color:white;
+    color:var(--high-contrast-light-txt-color);
   }
 
   
@@ -691,14 +689,14 @@
     @media (hover: hover) {
       .continueLink:hover{
        
-        background-color: var(---writing-next-button-hover-bg);
+        background-color: var(--writing-next-button-hover-bg);
        }
   }
   
   
   .continueLink:active{
        
-       background-color: var(---writing-next-button-hover-bg);
+       background-color: var(--writing-next-button-hover-bg);
    }
 
 

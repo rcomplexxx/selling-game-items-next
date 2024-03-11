@@ -7,7 +7,7 @@
  
     box-shadow: none;
     background-color: var(--gray-9-elegant);
-    color: white;
+
     border-bottom: 1px solid var(--border-color-weak);
     transition: height 0.2s ease, opacity 0.2s ease;
     
@@ -264,16 +264,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    background-color: rgb(97, 26, 97);
+    color: var(--light-txt-color);
+    background-color: var(--cart-button-items-number-bg);
    
     border-radius: 100%;
     font-size: var(--font-size-2);
   }
   
-  .bagImg{
-   
-  }
+ 
   
 
   .rightOptions{

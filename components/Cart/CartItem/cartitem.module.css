@@ -2,7 +2,7 @@
 
 height: auto;
 width: 100%;
- color: white; 
+color: var(--high-contrast-light-txt-color);
  
  display: flex;
  flex-direction: row;
@@ -116,7 +116,7 @@ width: 100%;
 
 
   .quantityButton{
-    color: white;
+    color: var(--light-txt-color);
     height: 20px;
     width: 20px;
     display: flex;
@@ -153,7 +153,7 @@ width: 100%;
   }
 
   .link {
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     text-decoration: none;
   }
 

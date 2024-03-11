@@ -35,7 +35,8 @@
     width: var(--size-8);
     background-color: var(--gray-9-elegant);
     color: #979797;
-    border: 1px solid rgb(80, 77, 90);
+    border: 1px solid var(--quantity-button-border);
+   
     
     background-color: transparent;
     cursor: pointer;
@@ -50,7 +51,7 @@
 
 }  
 .quantityButton:hover{
-  background-color:rgb(20, 22, 41);
+  background-color:var(--quantity-button-hover);
 }
 
 
@@ -70,7 +71,7 @@
     flex-grow: 1;
     color:white;
     
-    background-color: #172247;
+    background-color: var(--quantity-input-bg);
     
    
    

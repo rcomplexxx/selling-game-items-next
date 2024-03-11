@@ -45,7 +45,7 @@ height : 100vh;
 
   
   .title {
-    color: white;
+    color: var(--high-contrast-light-txt-color);
       margin-bottom: var(--size-7);
       margin-top: var(--size-5);
     font-weight: 400;
@@ -56,7 +56,7 @@ height : 100vh;
  
 
   .subtotalNew{
-    color:white;
+    color: var(--high-contrast-light-txt-color);
     font-size: var(--font-size-7); /* Adjust the font size as needed */
     font-weight: 400; /* You can adjust the font weight */
     padding:0;
@@ -73,7 +73,7 @@ height : 100vh;
   .checkoutButtonNew{
     height: 40px;
     min-width: var(--size-12);
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     background-color: var(--main-button-color);
      /* var(--main-button-hover-color);  */
      box-sizing: border-box;
@@ -129,7 +129,7 @@ height : 100vh;
   }
   
   .emptyCartText {
-    color: white;
+   
     font-size: var(--font-size-5);
     
     font-weight: 400;
@@ -137,7 +137,6 @@ height : 100vh;
   }
 
   .shopNowLink{
-    color:white;
     display: flex;
     justify-content: center;
     margin-top: var(--size-5);
@@ -149,7 +148,7 @@ height : 100vh;
 
       height: 40px;
       min-width: var(--size-12);
-      color: white;
+      color: var(--high-contrast-light-txt-color);
       background-color: var(--main-button-color);
      
       border-radius: 4px;

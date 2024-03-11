@@ -18,7 +18,7 @@
   display: flex;
   justify-content: center;
   padding: var(--size-7);
-  background-color: rgb(18, 25, 39);
+  background-color: var(--collection-info-bg);
   box-sizing: border-box;
   border-radius: 4px;
   contain: content;

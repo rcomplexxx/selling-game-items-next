@@ -58,7 +58,7 @@
     width: 0;
     flex: 1;
     height: var(--size-7);
-    color: white;
+    color: var(--light-txt-color);
     background-color: transparent;
     outline: none;
     border: solid rgba(128, 128, 128, 0.804) 1px;
@@ -91,7 +91,7 @@
   }
 
   .subscribeButton{
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--action-button-footer-txt-color);
     background-color: var(--action-button-bg-color);
 
     width: var(--size-10);
@@ -108,7 +108,7 @@
   }
 
   .subscribeButton:hover{
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--action-button-txt-color);
     background-color: var(--action-button-bg-color-hover);
   }
   
