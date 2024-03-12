@@ -38,7 +38,7 @@
   /* //autofill zadrzi boju */
 
   .custom_search_bar input:focus{
-    border-color: #7daee2;;
+    border-color: var(--input-box-shadow-color);;
     outline: none;
   }
 

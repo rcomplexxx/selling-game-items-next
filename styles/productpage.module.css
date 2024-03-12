@@ -124,7 +124,7 @@
     margin-top: 24px;
     margin-bottom: 8px;
     background-color: var(--blue-5);
-    color: #fff;
+    color: var(--high-contrast-light-txt-color);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -162,7 +162,7 @@
     margin-bottom: 8px;
     background-color: transparent;
     border: 1px solid rgb(159, 160, 92);
-    color: #fff;
+    color: var(--high-contrast-light-txt-color);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;

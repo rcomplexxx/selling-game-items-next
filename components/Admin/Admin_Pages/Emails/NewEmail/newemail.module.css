@@ -83,7 +83,7 @@
 .previewButton{
     margin: var(--size-4) var(--size-2);
     margin-top: 32px;
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     background-color: transparent;
     padding: var(--size-3) var(--size-6);
     border-radius: 2px;

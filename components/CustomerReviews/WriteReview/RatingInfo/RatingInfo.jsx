@@ -66,10 +66,10 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
         <div className={styles.ratingTitle}>
                <StarRatings
             rating={ratingData.rating}
-            starRatedColor="#97892F"
+            starRatedColor="var(--star-color)"
             numberOfStars={1}
-            starEmptyColor={"#103939"}
-            starHoverColor="orange"
+            starEmptyColor={"var(--star-empty-color)"}
+          
             starDimension="32px"
             starSpacing="2px"
           />
@@ -103,10 +103,10 @@ function RatingMetric({rating, rateNumber,  sumOfAllReviews}) {
 return <div className={styles.ratingMetric}>
     <StarRatings
             rating={rating}
-            starRatedColor="#97892F"
+            starRatedColor="var(--star-color)"
             numberOfStars={5}
-            starEmptyColor={"#103939"}
-            starHoverColor="orange"
+            starEmptyColor={"var(--star-empty-color)"}
+            
             starDimension="16px"
             starSpacing="2px"
           />

@@ -15,7 +15,7 @@
 
 
 .magicButton{
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     background-color: transparent;
 
 

@@ -64,7 +64,7 @@
     height: var(--size-8);
     max-width: calc(var(--size-16) - var(--size-9));
     width: calc(100% - var(--size-9));
-    color:white;
+    color: var(--high-contrast-light-txt-color);
     border: 1px solid gray;
     border-radius: 4px;
     background-color: transparent;

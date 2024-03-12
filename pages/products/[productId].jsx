@@ -95,9 +95,9 @@ export default function ProductPage({ product, images, startReviews, ratingData 
            
             <StarRatings
               rating={ratingData.rating?ratingData.rating:4.7}
-              starRatedColor="#97892F"
+              starRatedColor="var(--star-color)"
               numberOfStars={5}
-              starEmptyColor={"#ebebeb"}
+              starEmptyColor={"var(--star-empty-color)"}
               starDimension="20px"
               starSpacing="0.4px"
             />

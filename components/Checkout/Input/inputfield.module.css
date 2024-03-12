@@ -29,8 +29,8 @@
 
   .input_field:focus { 
     outline: none !important;
-    border-color: #7daee2;
-    box-shadow: 0 0 6px #7daee2;
+    border-color: var(--input-box-shadow-color);
+    box-shadow: 0 0 6px var(--input-box-shadow-color);
     
 }
 
@@ -67,7 +67,7 @@
 
 
   .label{
-    color: #979797;
+    color: var(--checkout-input-placeholder);
     position: absolute;
     left: 8px;
     top: 12px;
@@ -86,7 +86,7 @@
 }
 
 .input_field:-webkit-autofill + .label {
-  color: #979797;
+  color: var(--checkout-input-placeholder);
   position: absolute;
   left: 8px;
   top: 3px;
@@ -97,7 +97,7 @@
 
 /* For Firefox */
 .input_field:-moz-autofill + .label {
-  color: #979797;
+  color: var(--checkout-input-placeholder);
   position: absolute;
   left: 8px;
   top: 3px;

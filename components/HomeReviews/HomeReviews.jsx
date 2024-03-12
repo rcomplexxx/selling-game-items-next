@@ -47,9 +47,9 @@ function Review({ reviewText, author, authorImage }) {
       <StarRatings
           rating={5}
         
-          starRatedColor="#FFCA28"
+          starRatedColor="var(--star-home-review-color)"
           numberOfStars={5}
-          starEmptyColor={"#103939"}
+          starEmptyColor={"var(--star-empty-color)"}
           starDimension="24px"
           starSpacing="2px"
         />

@@ -157,14 +157,14 @@ export default function WriteReview({ setInfoDivOpen }) {
                   </span>
                   <StarRatings
                     rating={rating}
-                    starRatedColor="#97892F"
+                    starRatedColor="var(--star-color)"
                     numberOfStars={5}
                     changeRating={(newRating) => {    
                       setRating(newRating);
                       handleNext();
                     }}
-                    starEmptyColor={"#103939"}
-                    starHoverColor="orange"
+                    starEmptyColor={"var(--star-empty-color)"}
+                    starHoverColor="var(--star-hover-color)"
                     starDimension="48px"
                     starSpacing="12px"
                   />

@@ -200,7 +200,7 @@ export default function ProductPageCards() {
         
         </div>
         <div className={styles.messageField}>
-          <label className={styles.messageLabel}>Question</label>
+          <label className={styles.contactLabel}>Question</label>
           <textarea
           placeholder="Write your question here"
             ref={messageRef}

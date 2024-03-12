@@ -22,7 +22,7 @@
   
   .linkDiv a {
     text-decoration: none;
-    color: rgb(239, 241, 217);
+    color: var(--high-contrast-light-txt-color);
     margin-left: 12px;
     margin-right: 12px;
     font-size: var(--font-size-6);

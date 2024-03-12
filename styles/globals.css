@@ -214,6 +214,9 @@ Cormorant+Garamond */
   --main-button-hover-color: #1565C0;
   --main-light-color: #989898;
   --main-dark-color: #323232;
+  --footer-txt-color: rgba(255, 255, 255, 0.65);
+  --footer-link-active-color: #ccc;
+  --footer-email-placeholder-color: #7a857a;
   --action-button-footer-txt-color: rgba(255, 255, 255, 0.8);
   --action-button-txt-color: rgba(255, 255, 255, 0.9);
   --action-button-bg-color: rgb(62, 44, 36);
@@ -242,18 +245,25 @@ Cormorant+Garamond */
   --shop-now-hero-button-bg: #060f18ef;
   --home-review-color:  #081522;
 
+
+  --summery-light-color: #e5e5e6;
   --checkout-order-summery-bg-mobile: #0e2438;
   --checkout-order-summery-bg: #091a29;
   --checkout-order-summery-bg-light: #0c2133;
+
+  --checkout-input-placeholder: #979797;
   --apply-coupon-color: #1e374d;
   --apply-coupon-hover-color: #254766;
   --coupon-code-bg: rgb(36, 48, 58);
   --express-checkout-button-bg: #151921;
   
+  --apt-txt-color: rgb(230, 245, 254);
+
   --select-payment-circle-ring-color: aqua;
   --select-payment-circle-color: gray;
   --payment-div-bg: rgb(11, 18, 24);
 
+  --add-tip-button-disabled-txt-color: rgb(152, 152, 152);
   --add-tip-button-disabled: rgb(24, 24, 34);
   
   --input-color:#151921;
@@ -288,6 +298,7 @@ Cormorant+Garamond */
  --writing-media-button:  rgb(149, 165, 170);
  --writing-next-button-bg: rgb(112, 128, 118);
  --writing-next-button-hover-bg: #364658;
+ --writing-next-button-disabled-txt-color: rgb(15, 16, 26);
 
  --mini-slider-arrow-bg:rgb(19, 23, 57);
  --quantity-input-bg: #172247;
@@ -310,6 +321,12 @@ Cormorant+Garamond */
 
 /* Utility colors */
 
+
+--star-color:#97892F;
+--star-empty-color: #103939;
+--star-hover-color: orange;
+--star-home-review-color: #FFCA28;
+
 --product-on-sale-bg: rgb(18, 14, 56);
 
 --toast-message-bg: #323232;
@@ -324,6 +341,7 @@ Cormorant+Garamond */
 
  --email-popup-bg: rgb(22, 42, 60);
 
+--email-popup-light-color: white;
 --email-popup-cancel-button-bg: rgb(28, 49, 50);
 
 --paypal-bg:#FFC439;

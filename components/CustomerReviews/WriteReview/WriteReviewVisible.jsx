@@ -91,10 +91,10 @@ export default function WriteReviewVisible({ratingData}) {
          setOpenRatingInfo(!openRatingInfo)}}>
           <StarRatings
             rating={ratingData.rating}
-            starRatedColor="#97892F"
+            starRatedColor="var(--star-color)"
             numberOfStars={5}
-            starEmptyColor={"#103939"}
-            starHoverColor="orange"
+            starEmptyColor={"var(--star-empty-color)"}
+           
             starDimension="24px"
             starSpacing="2px"
           />

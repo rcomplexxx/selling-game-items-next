@@ -96,7 +96,7 @@ export default function ContactUs() {
           <div className={styles.contactInfoDiv}>
             <div className={styles.infoDiv}>
               <div className={styles.inputGroup}>
-                <label>Name</label>
+                <label className={styles.inputGroupLabel}>Name</label>
                 <input
                   id="name"
                   placeholder="Write your name here"
@@ -108,7 +108,7 @@ export default function ContactUs() {
               </div>
 
               <div className={styles.inputGroup}>
-                <label>Email</label>
+                <label className={styles.inputGroupLabel}>Email</label>
                 <input
                 placeholder="Write your email here"
                 id="email"
@@ -121,7 +121,7 @@ export default function ContactUs() {
             </div>
           </div>
           <div className={styles.messageField}>
-            <label>Message</label>
+            <label className={styles.inputGroupLabel}>Message</label>
             <textarea
             placeholder="Write your message here"
               ref={messageRef}

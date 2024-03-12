@@ -18,9 +18,9 @@ const Product = ({ product}) => {
         <div className={styles.starDiv}>
 <StarRatings
 rating={product.raiting?product.raiting:4.7}
-starRatedColor="#97892F"
+starRatedColor="var(--star-color)"
 numberOfStars={5}
-starEmptyColor={"#103939"}
+starEmptyColor={"var(--star-empty-color)"}
 starDimension="20px"
 starSpacing="2px"
 /> {product.reviewNumber} reviews</div>

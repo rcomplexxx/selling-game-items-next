@@ -28,7 +28,7 @@
 
 
 .continueShopping{
-    color:white;
+  
     display: flex;
     justify-content: center;
     margin-top: var(--size-5);
@@ -37,10 +37,10 @@
 
   .shopNow{
   
-
+    color: var(--high-contrast-light-txt-color);
       height: 48px;
       min-width: var(--size-13);
-      color: white;
+      
       background-color: var(--main-button-color);
      
       border-radius: 4px;

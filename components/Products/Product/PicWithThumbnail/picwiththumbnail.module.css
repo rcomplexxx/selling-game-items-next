@@ -20,7 +20,7 @@
     bottom: 6px;
     left: 6px;
     background-color: var(--product-on-sale-bg);
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     padding: 4px 12px;
     border-radius: 16px;
     font-size: var(--font-size-1);

@@ -30,9 +30,9 @@ function Review({ name, text,  stars, imageNames }) {
       
         <StarRatings
           rating={parseInt(stars, 10)}
-          starRatedColor="#97892F"
+          starRatedColor="var(--star-color)"
           numberOfStars={5}
-          starEmptyColor={"#103939"}
+          starEmptyColor={"var(--star-empty-color)"}
           starDimension="20px"
           starSpacing="2px"
         />

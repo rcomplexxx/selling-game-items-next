@@ -52,7 +52,7 @@ const CartItem = ({ item }) => {
        
      
         <p className={styles.itemPrice}>${item.price}</p>
-        {item.variant && <p className={styles.color}>{`Color: ${item.variant}`}</p>}
+        {item.variant && <p className={styles.variant}>{`Color: ${item.variant}`}</p>}
 
 
 

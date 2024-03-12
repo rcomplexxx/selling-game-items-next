@@ -86,7 +86,7 @@
     margin-top: 32px;
     margin-bottom: 8px;
     background-color: var(--blue-5);
-    color: #fff;
+    color:  var(--high-contrast-light-txt-color);
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -104,7 +104,7 @@
   .buyNowButton{
 
 
-    color: #fff;
+    color:  var(--high-contrast-light-txt-color);
     background-color: transparent;
 
     max-width: var(--size-15);

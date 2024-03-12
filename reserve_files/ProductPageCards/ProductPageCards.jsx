@@ -175,10 +175,12 @@ export default function ProductPageCards() {
           <div className={styles.contactInfoDiv}>
             
             <div className={styles.infoDiv}>
+
               <div className={styles.inputGroup}>
-                <label>Name</label>
+                <label className={styles.inputGroupLabel}>Name</label>
                 <input
                   id="name"
+                 
                   placeholder="Write your name here"
                   ref={nameRef}
                   className={styles.contactInput}
@@ -188,7 +190,7 @@ export default function ProductPageCards() {
               </div>
 
               <div className={styles.inputGroup}>
-                <label>Email</label>
+                <label className={styles.inputGroupLabel}>Email</label>
                 <input
                 placeholder="Write your email here"
                   id="email"

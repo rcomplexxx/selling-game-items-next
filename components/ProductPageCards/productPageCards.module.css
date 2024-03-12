@@ -154,11 +154,7 @@
    
 }
 
-.messageLabel{
-    margin-left: var(--size-1);
-    margin-bottom: var(--size-1);
-    font-family: var(--font-neutral);
-}
+
 
 .messageTextArea{
     border: none;

@@ -42,11 +42,7 @@
 
 }
 
-.contactInput{
-    width: calc(100% - var(--size-3));
-    box-sizing: border-box;
-    
-}
+
 
 .contactError{
   color: var(--error-color);
@@ -85,17 +81,18 @@
 }
 
 
-.inputGroup label{
+.inputGroupLabel{
     margin-left: var(--size-1);
     margin-bottom: var(--size-1);
     font-family: var(--font-neutral);
     opacity: 1;
 }
 
-.inputGroup input{
+.contactInput{
+
     height: 28px;
     width: 100%;
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     background-color: var(--contact-input-color);
     /* font-family: var(--font-neutral); */
     border: none;
@@ -103,10 +100,12 @@
     outline: none;
     font-size: var(--font-size-2);
     font-family: var(--font-neutral);
+    width: calc(100% - var(--size-3));
+    box-sizing: border-box;
+    
 }
 
-.inputGroup input::placeholder{
-}
+
 
 .inputGroup input:focus{
     border: 1px solid   gray;
@@ -143,7 +142,7 @@
 
 .messageTextArea{
     border: none;
-    color: white;
+    color: var(--high-contrast-light-txt-color);
     background-color: var(--contact-input-color);
     flex-grow: 1;
     margin-left: var(--size-2);
