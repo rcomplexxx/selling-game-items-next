@@ -62,6 +62,8 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
    
     onClick={(event)=>{if(openRatingInfo)event.preventDefault();}}
    >
+
+    <div className={styles.ratingInfoMain}>
   
         <div className={styles.ratingTitle}>
                <StarRatings
@@ -83,7 +85,7 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
           <RatingMetric rating={3} rateNumber={ratingData.stars3} sumOfAllReviews={ratingData.reviewsNumber}/>
           <RatingMetric rating={2} rateNumber={ratingData.stars2} sumOfAllReviews={ratingData.reviewsNumber}/>
           <RatingMetric rating={1} rateNumber={ratingData.stars1} sumOfAllReviews={ratingData.reviewsNumber}/>
-   
+          </div>
     </div>
   );
 }
