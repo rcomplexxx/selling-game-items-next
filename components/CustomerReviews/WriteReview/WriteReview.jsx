@@ -71,14 +71,14 @@ export default function WriteReview({ setInfoDivOpen }) {
     setAnimation("swipeOutLeft");
 
     setTimeout(() => {
-      setRatingPage((prev) => prev + 1);
+      setRatingPage(ratingPage + 1);
 
       setAnimation("swipeInRight");
       setTimeout(() => {
         setAnimation(undefined);
       }, inAnimationTime);
     }, outAnimationTime);
-  },[]);
+  },[ratingPage, animation]);
 
   
 
@@ -90,14 +90,15 @@ export default function WriteReview({ setInfoDivOpen }) {
     setAnimation("swipeOutRight");
 
     setTimeout(() => {
-      setRatingPage((prev) => prev - 1);
+     
+      setRatingPage(ratingPage>0?ratingPage-1:0);
 
       setAnimation("swipeInLeft");
       setTimeout(() => {
         setAnimation(undefined);
       }, inAnimationTime);
     }, outAnimationTime);
-  },[]);
+  },[ratingPage, animation]);
 
 
 
@@ -129,9 +130,9 @@ export default function WriteReview({ setInfoDivOpen }) {
                 />
               
                 {/* //doraditi uslov */}
-                {ratingPage == 1 && images.length===0 && (
+                {ratingPage == 1 && (
                   <button onClick={handleNext} className={`${styles.remindMeLater} ${styles.skipInFooter}`}>
-                    Skip
+                    {images.length===0?'Skip':'Continue'}
                   </button>
                 )}
               </div>
@@ -414,7 +415,7 @@ export default function WriteReview({ setInfoDivOpen }) {
 
                 <button
                 onClick={handleNext}
-                className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl} ${images.length!=0 && styles.userImgsContinue}`}
+                className={`${styles.remindMeLater} ${styles.remindMeLaterMobileControl}`}
                 >
                 {images.length!=0?'Continue':'Skip'}
                 </button>

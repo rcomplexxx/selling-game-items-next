@@ -38,7 +38,7 @@ height : 100vh;
 
 
 .itemsDiv{
-  border-top: 1px solid rgba(128, 128, 128, 0.503);
+  border-top: 1px solid var(--border-color-mid);
   margin-bottom: var(--size-10);
  
 }

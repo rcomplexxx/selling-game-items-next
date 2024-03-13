@@ -42,7 +42,7 @@
     top: 1px;
     left: 1px;
     border-radius: 8px;
-    outline: 1px solid rgba(128, 128, 128, 0.503); /* Inner border color and width */
+    outline: 1px solid var(--border-color-mid); /* Inner border color and width */
     pointer-events: none;
     z-index: 2;
   }
@@ -67,7 +67,7 @@
 }
 
 .optionBorderTop{
-    border-top: 1px solid rgba(128, 128, 128, 0.503);
+    border-top: 1px solid var(--border-color-mid);
 }
 
 .selectedOption{
@@ -152,7 +152,7 @@
     padding-bottom: 1px;
     margin-left: 2px;
     margin-right: 2px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--more-cards-card-border);
     border-radius: 3px;
     font-size: var(--font-size-1);
     font-weight: 600;

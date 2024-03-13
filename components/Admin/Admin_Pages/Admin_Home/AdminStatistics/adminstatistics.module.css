@@ -27,7 +27,7 @@
     margin-bottom: var(--size-7);
     padding: var(--size-2) var(--size-4);
     box-sizing: border-box;
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -82,7 +82,7 @@
     background-color: black ;
     padding: var(--size-2);
     margin: var(--size-3) 0;
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
 }
 
 

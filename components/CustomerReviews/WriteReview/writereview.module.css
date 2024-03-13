@@ -362,14 +362,14 @@
   @media (hover: hover) {
     .addImageDiv:hover{
     
-      border: 1px solid rgb(104, 111, 207);
+      border: 1px solid var(--writing-add-image-div-border);
      
     }
    }
 
    .addImageDiv:active{
    
-    border: 1px solid rgb(104, 111, 207);
+    border: 1px solid var(--writing-add-image-div-border);
    }
 
 

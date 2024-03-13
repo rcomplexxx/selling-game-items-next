@@ -106,7 +106,7 @@
 
   .productVariantSelected{
     box-sizing: border-box;
-    border: 1px solid rgb(204, 67, 101);
+    border: 1px solid var(--selected-product-image-border);
   }
   
   .productVariantImage{
@@ -146,7 +146,7 @@
     z-index: 1;
     border-radius: 4px;
     box-sizing: border-box;
-    border: 1px solid #41855b;
+    border: 1px solid var(--paypal-wrapper-border);
     margin-bottom: 4px;
     overflow: hidden;
   }
@@ -161,7 +161,7 @@
     margin-top: 4px;
     margin-bottom: 8px;
     background-color: transparent;
-    border: 1px solid rgb(159, 160, 92);
+    border: 1px solid var(--buy-now-border);
     color: var(--high-contrast-light-txt-color);
     font-size: 16px;
     font-weight: bold;
@@ -171,7 +171,7 @@
 
 
   .but_now_button:hover {
-    box-shadow: 0 0 3px rgb(182, 184, 100);
+    box-shadow: 0 0 3px var(--buy-now-hover-box-shadow-border);
   }
 
 
@@ -207,7 +207,7 @@
     box-sizing: border-box;
   
     margin: var(--size-4) var(--size-2);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--more-cards-card-border);
     border-radius: 3px;
     font-size: var(--font-size-4);
     font-weight: 600;

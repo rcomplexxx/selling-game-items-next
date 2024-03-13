@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid var(--border-color-strong);
 }
 
 
@@ -30,7 +30,7 @@
     color: rgb(184, 189, 182);
     margin: var(--size-4) var(--size-5);
     border-radius: 2px;
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
     opacity: 0.5;
 }
 
@@ -60,7 +60,7 @@
     background-color: transparent;
     padding: var(--size-3) var(--size-6);
     border-radius: 2px;
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
     cursor: pointer;
     user-select: none;
     margin: var(--size-4) var(--size-5);

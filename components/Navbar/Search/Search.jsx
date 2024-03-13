@@ -139,10 +139,11 @@ export default function Search({searchOpen, setSearchOpen}){
       
 
 
-    return <div className={`${styles.custom_search_bar} ${searchOpen && styles.custom_search_bar_open}`}>
+    return <div className={`${styles.customSearchBar} ${searchOpen && styles.customSearchBarOpen}`}>
       <div className={styles.searchBarWrapper}>
           <input
           id='search'
+          className={styles.customSearchBarInput}
           ref={searchInputRef}
             type="text"
             placeholder="Search products..."
@@ -154,12 +155,12 @@ export default function Search({searchOpen, setSearchOpen}){
           <Image ref={searchIconRef}  src={`/images/searchIcon.png`} alt='Search' className={styles.searchIcon} height={0} width={0} sizes='20px' onClick={()=>{setSearchOpen(!searchOpen);
         }}/>
           {/* Custom results section */}
-          <div ref={searchBoxRef} className={`${styles.custom_results} ${searchOpen && styles.itemsVisible}` }>
+          <div ref={searchBoxRef} className={`${styles.customResults} ${searchOpen && styles.itemsVisible}` }>
 
 
           {filteredcollections.length>0 && <div className={styles.resultProductsLabel}>Collections</div>}
             {filteredcollections.map((collection, index) => (
-              <span key={index} className={styles.result_item} 
+              <span key={index} className={styles.resultItem} 
               onClick={(event)=>{
             
                 event.preventDefault();
@@ -185,7 +186,7 @@ export default function Search({searchOpen, setSearchOpen}){
 
             {filteredProducts.length>0 && <div className={styles.resultProductsLabel}>Products</div>}
             {filteredProducts.map((product, index) => (
-              <span key={index} className={styles.result_item} 
+              <span key={index} className={styles.resultItem} 
               onClick={(event)=>{
             
                 event.preventDefault();
@@ -198,6 +199,7 @@ export default function Search({searchOpen, setSearchOpen}){
               }}
               onMouseDown={(event)=>{event.preventDefault()}}
               >
+                
                 <Image height={36} width={64} src={`/images/${product.images[0]}`} className={styles.searchItemImg}/>
                 <strong>{product.name}</strong>
                 
@@ -206,8 +208,16 @@ export default function Search({searchOpen, setSearchOpen}){
           </div>
          
           </div>
-          {searchOpen && <span onClick={()=>{  setSearchOpen(false);
-          history.back();}} className={styles.searchCancel}>X</span>}
+          {searchOpen && <Image height={0} width={0}
+          src="/images/cancelWhite.png"
+          sizes='32px'
+          onClick={()=>{  
+            
+            setSearchOpen(false);
+          history.back();}} 
+          className={styles.searchCancel}
+          
+          />}
         </div>
     
     

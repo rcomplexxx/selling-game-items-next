@@ -18,7 +18,7 @@
     border-radius: 2px;
     box-sizing: border-box;
     
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
    
 }
 
@@ -31,7 +31,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid var(--border-color-strong);
     
 }
 
@@ -51,7 +51,7 @@
     box-sizing: border-box;
    padding: var(--size-3);
 
-   border-right: 1px solid gray;
+   border-right: 1px solid var(--border-color-strong);
 }
 
 .emailP{

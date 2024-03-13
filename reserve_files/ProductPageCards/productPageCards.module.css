@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
   
-    border: 1px solid #b1b1b17a;
+    /* border: 1px solid #c80000f5; */
     border-bottom: none;
     border-radius: 8px;
     padding: var(--size-2) 0;
@@ -38,7 +38,7 @@
 
 
 .contactError{
-    color: red;
+    color: var(--error-color);
     
     margin-top:  var(--size-1);
     margin-left: var(--size-1);
@@ -94,7 +94,7 @@
 }
 
 .contactInput:focus{
-   border: 1px solid   gray;
+   border: 1px solid var(--border-color-strong);
 }
 
 
@@ -143,7 +143,7 @@
 }
 
 .messageTextArea:focus{
-    border: 1px solid   gray;
+    border: 1px solid var(--border-color-strong);
 }
 
 .messageSuccess{

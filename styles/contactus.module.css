@@ -6,7 +6,6 @@
     flex-direction: column;
     border-bottom: none;
     border-radius: 8px;
-     /* color: var(--action-button-txt-color); */
    
 }
 
@@ -108,7 +107,7 @@
 
 
 .inputGroup input:focus{
-    border: 1px solid   gray;
+    border: 1px solid var(--border-color-strong);
 }
 
 
@@ -161,7 +160,7 @@
 }
 
 .messageTextArea:focus{
-    border: 1px solid   gray;
+    border: 1px solid var(--border-color-strong);
 }
 
 .messageSuccess{

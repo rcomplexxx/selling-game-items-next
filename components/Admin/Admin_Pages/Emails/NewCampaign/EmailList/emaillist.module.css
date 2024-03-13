@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-self: space-between;
-    border-top: 1px solid gray;
+    border-top: 1px solid var(--border-color-strong);
 }
 
 .emailsListDiv > :last-child{
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--size-3);
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid var(--border-color-strong);
     box-sizing: border-box;
     padding: var(--size-3);
 }
@@ -52,7 +52,7 @@ align-items: center;
     background-color: black ;
     padding: var(--size-2);
     margin: var(--size-3) 0;
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
 }
 
 .addEmailWrapper{
@@ -70,7 +70,7 @@ align-items: center;
     padding: var(--size-3) var(--size-6);
    
     border-radius: 2px;
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
     cursor: pointer;
     user-select: none;
 }

@@ -140,7 +140,7 @@
 
   .selectedImage{
     box-sizing: border-box;
-    border: 1px solid rgb(204, 67, 101);
+    border: 1px solid var(--selected-product-image-border);
     
     
   }
@@ -350,7 +350,7 @@
       justify-content: center;
       align-items: center;
       transition: opacity 0.3s ease, transform 0.3s ease;
-      border-top: 1px solid gray;
+      border-top: 1px solid var(--border-color-strong);
       font-size: var(--font-size-1);
       animation: spawnAddToCart 0.3s ease;
       cursor: pointer;

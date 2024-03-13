@@ -46,7 +46,7 @@
     font-size: var(--font-size-5);
     line-height: var(--size-7);
    margin-bottom: var(--size-6);
-   /* border: 1px solid gray; */
+   /* border: 1px solid var(--border-color-strong); */
    border: none;
  
    border-radius: 8px;
@@ -90,7 +90,7 @@
     background-color: transparent;
     padding: var(--size-3) var(--size-6);
     border-radius: 2px;
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
     cursor: pointer;
     user-select: none;
 }

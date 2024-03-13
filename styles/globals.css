@@ -217,6 +217,7 @@ Cormorant+Garamond */
   --footer-txt-color: rgba(255, 255, 255, 0.65);
   --footer-link-active-color: #ccc;
   --footer-email-placeholder-color: #7a857a;
+  --subscribe-input-border: rgba(128, 128, 128, 0.804);
   --action-button-footer-txt-color: rgba(255, 255, 255, 0.8);
   --action-button-txt-color: rgba(255, 255, 255, 0.9);
   --action-button-bg-color: rgb(62, 44, 36);
@@ -231,6 +232,8 @@ Cormorant+Garamond */
   --error-box-shadow-color: rgb(158, 49, 6);
 
   --border-color-weak: rgb(72, 69, 85);
+  --border-color-mid: rgba(128, 128, 128, 0.503);
+  --border-color-strong: gray;
 
   /*~Specific~*/
 
@@ -252,6 +255,7 @@ Cormorant+Garamond */
   --checkout-order-summery-bg-light: #0c2133;
 
   --checkout-input-placeholder: #979797;
+  --checkout-input-border-color: rgba(134, 110, 114, 0.425);
   --apply-coupon-color: #1e374d;
   --apply-coupon-hover-color: #254766;
   --coupon-code-bg: rgb(36, 48, 58);
@@ -296,10 +300,14 @@ Cormorant+Garamond */
  --writing-accent-color: gray;
  --writing-empty-progress-bar: rgb(55, 55, 62);
  --writing-media-button:  rgb(149, 165, 170);
+
+ --writing-add-image-div-border: rgb(104, 111, 207);
  --writing-next-button-bg: rgb(112, 128, 118);
  --writing-next-button-hover-bg: #364658;
  --writing-next-button-disabled-txt-color: rgb(15, 16, 26);
 
+
+ --selected-product-image-border:rgb(204, 67, 101);
  --mini-slider-arrow-bg:rgb(19, 23, 57);
  --quantity-input-bg: #172247;
  --quantity-button-border: rgb(80, 77, 90);
@@ -331,10 +339,12 @@ Cormorant+Garamond */
 
 --toast-message-bg: #323232;
 --more-cards-card-bg: rgb(195, 229, 251);  
+--more-cards-card-border: rgba(0, 0, 0, 0.08);
 
 --arrow-bg: rgb(44, 95, 93);
 
- --input-autofill-color: #1c2025;
+/*autofill boja je ista kao i search boja! */
+ --input-autofill-color: #0f1316;
  
  --floating-badge-color: gray;
  --badge-popup-message-bg: rgba(127, 127, 163, 0.9);
@@ -344,7 +354,14 @@ Cormorant+Garamond */
 --email-popup-light-color: white;
 --email-popup-cancel-button-bg: rgb(28, 49, 50);
 
+--buy-now-border: rgb(159, 160, 92);
+--buy-now-hover-box-shadow-border: rgb(182, 184, 100);
+--paypal-wrapper-border: #41855b;
 --paypal-bg:#FFC439;
+
+--google-pay-border-color: rgb(64, 73, 65);
+
+--best-sellers-addtocart-border: rgb(64, 73, 65);
 
   /*~Admin sector colors*/
 
@@ -353,6 +370,8 @@ Cormorant+Garamond */
   --order-cover-details-color: rgb(10, 12, 19);
 
   --email-input-bg: rgb(15, 15, 14);
+  --email-popup-send-button-border: white;
+  --email-popup-input-border: white;
 
   --campaign-display-emails-bg:rgba(43, 35, 35, 0.145);
 

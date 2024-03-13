@@ -9,7 +9,7 @@ color: var(--high-contrast-light-txt-color);
  justify-content: flex-start;
  align-items: stretch;
  padding: var(--size-5) var(--size-2);
- border-bottom: 1px solid rgba(128, 128, 128, 0.503);
+ border-bottom: 1px solid var(--border-color-mid);
 }
 
 
@@ -128,7 +128,7 @@ color: var(--high-contrast-light-txt-color);
 
     box-sizing: border-box;
     border-radius: 2px;
-     border: 1px solid rgba(128, 128, 128, 0.503);
+     border: 1px solid var(--border-color-mid);
     font-weight: 400;
     opacity: 0.9;
      cursor: pointer;

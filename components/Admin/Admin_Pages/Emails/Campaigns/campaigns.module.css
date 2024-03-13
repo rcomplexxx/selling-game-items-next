@@ -45,7 +45,7 @@
     width: min-content;
     margin-bottom: var(--size-3);
     padding:var(--size-3) var(--size-5);
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
 
 }
 
@@ -62,7 +62,7 @@
     font-size: var(--font-size-5);
     line-height: var(--size-7);
    margin-bottom: var(--size-6);
-   /* border: 1px solid gray; */
+   /* border: 1px solid var(--border-color-strong); */
    
    border: none;
  

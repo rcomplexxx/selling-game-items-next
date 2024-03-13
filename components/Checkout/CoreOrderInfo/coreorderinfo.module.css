@@ -58,7 +58,7 @@
           border-radius: 2px;
           align-self: center;
           box-sizing: border-box;
-          border: solid 1px rgba(134, 110, 114, 0.425);
+          border: solid 1px var(--checkout-input-border-color);
         
           font-size: var(--font-size-2);
       }

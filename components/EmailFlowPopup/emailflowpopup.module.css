@@ -84,7 +84,7 @@
     margin-right: var(--size-3);
     box-sizing: border-box;
     text-indent: var(--size-2);
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid var(--email-popup-input-border);
     border-radius: 8px;
 }
 
@@ -101,7 +101,7 @@
     background-color: transparent;
     height: var(--size-7);
     box-sizing: border-box;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid var(--email-popup-send-button-border);
     border-radius: 8px;
     white-space: nowrap;
     cursor: pointer;

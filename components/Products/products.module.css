@@ -12,7 +12,7 @@
   }
 
   .toolbarBorder{
-    border: 1px solid gray;
+    border: 1px solid var(--border-color-strong);
   }
   
   /* #030a08 */
@@ -44,7 +44,7 @@
     padding: var(--size-3) var(--size-5);
     color: gray;
     background-color: transparent;
-    border: solid gray 1px;
+    border: solid var(--border-color-strong) 1px;
     border-radius: var(--size-2);
     text-decoration: none;
   }

@@ -52,7 +52,7 @@
         height: var(--size-8);
         width: var(--size-11);
         background-color: transparent;
-        border: 1px solid gray;
+        border: 1px solid var(--border-color-strong);
         cursor: pointer;
         
        
