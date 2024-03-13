@@ -136,8 +136,8 @@ const handleCouponApply = () => {
              {isUpperSummery && <div className={styles.title_div} onClick={summonAnswer}>
                 <div className={styles.segmentWrapper}>
                   <div className={styles.titleWrapper}>
-                    <h2 className={styles.mobileTitle}>
-                      {`Order summery`}
+                    <div className={styles.mobileTitle}>
+                      Order summery
                       <Image
                         src={"/images/greaterLessx.png"}
                         height={8}
@@ -147,7 +147,7 @@ const handleCouponApply = () => {
                           !showAnswer && styles.arrowDown
                         }`}
                       />
-                    </h2>
+                    </div>
                   </div>
   
                   <div className={styles.mainPriceDiv}>

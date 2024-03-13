@@ -160,9 +160,7 @@
     border-radius: 4px;
   }
 
-  .mainCouponCode span{
-
-  }
+  
   .mainDiscountImg{
     opacity: 0.7;
     margin-left: var(--size-2);
@@ -427,10 +425,7 @@
 
   @media (max-width: 980px)  {
 
-    .orderDiv span{
-      margin: 0 4px;
-    }
-  
+
   
    
    
@@ -473,21 +468,20 @@
 
   }
 
-   .titleWrapper h2{
-    user-select: none;
-    font-size: var(--font-size-4);
-    font-weight: 400;
-   }
+
+
 
    
 
-   .segmentWrapper span{
-    color: var(--summery-light-color);
-    
+  
+
+   .mobileTitle{
+    color: var(--summery-color);
     user-select: none;
     font-size: var(--font-size-4);
     font-weight: 400;
-   }
+  
+  }
 
  
 
@@ -501,6 +495,7 @@
     transform: rotateY(0deg) rotate(90deg);
     transform-origin: center;
     transition: transform 0.2s ease;
+    contain: paint;
     
    }
 
@@ -521,7 +516,15 @@
     text-decoration: line-through;
    }
 
-   .mainPrice{}
+   .mainPrice{
+
+    color: var(--summery-light-color);
+    
+    user-select: none;
+    font-size: var(--font-size-4);
+    font-weight: 400;
+
+   }
 
    .segmentWrapper h2{
     margin-right: 0;

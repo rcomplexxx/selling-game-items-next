@@ -69,7 +69,7 @@
 
   
   .aptAdder{
-    color: var(--apt-txt-color);
+    color: var(--high-contrast-light-txt-color);
     margin: 0 var(--size-4);
     user-select: none;
     cursor: pointer;

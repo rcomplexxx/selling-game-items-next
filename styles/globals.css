@@ -209,6 +209,7 @@ Cormorant+Garamond */
 
   --high-contrast-light-txt-color: white;
   --light-txt-color: #e0ded2;
+  /*#e5e5e6*/
 
   --main-button-color: #1976d2;
   --main-button-hover-color: #1565C0;
@@ -249,7 +250,8 @@ Cormorant+Garamond */
   --home-review-color:  #081522;
 
 
-  --summery-light-color: #e5e5e6;
+  --summery-color: #DA0226;
+  --summery-light-color: white;
   --checkout-order-summery-bg-mobile: #0e2438;
   --checkout-order-summery-bg: #091a29;
   --checkout-order-summery-bg-light: #0c2133;
@@ -261,7 +263,6 @@ Cormorant+Garamond */
   --coupon-code-bg: rgb(36, 48, 58);
   --express-checkout-button-bg: #151921;
   
-  --apt-txt-color: rgb(230, 245, 254);
 
   --select-payment-circle-ring-color: aqua;
   --select-payment-circle-color: gray;

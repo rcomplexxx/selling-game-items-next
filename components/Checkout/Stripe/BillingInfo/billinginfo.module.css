@@ -55,7 +55,7 @@
 
  
 .aptAdder{
-    color: var(--apt-txt-color);
+    color: var(--high-contrast-light-txt-color);
     margin: 0 var(--size-4) ;
     margin-bottom: var(--size-5);
     user-select: none;
