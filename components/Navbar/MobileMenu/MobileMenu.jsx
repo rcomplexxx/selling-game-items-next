@@ -16,7 +16,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
     
 
     const nextLink= useRef();
-    const backBlocker = useRef(false);
+    const subMenuBackDone= useRef(false);
 
     const whiteButtonCancelRef= useRef(false);
 
@@ -81,24 +81,14 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
         console.log('popon')
        
 
-       if(backBlocker.current){
-        // backBlocker.current=false;
-        // if(subMenu!=0){
-        //   history.back();
-        
-        // }
-
-        // closeMenu();
       
-       
-        return;
-       }
 
        if(whiteButtonCancelRef.current){
         closeMenu();
         if(subMenu!=0){
         history.back();
       }
+      return;
 
        }
 
@@ -107,13 +97,15 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
           
          
          
-          // if(subMenu!=0){
-          //   history.back();
-          
-          // }
+          if(subMenu!=0 && !subMenuBackDone.current){
+            subMenuBackDone.current=true;
+            history.back();
+            return;
+          }
 
           window?.removeEventListener("popstate", handlePopState);
           closeMenu();
+          
           router.push(nextLink.current);
           
           return;
@@ -324,7 +316,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
        className={`${styles.linkStyle}`}
        onClick={() => {
         
-         setSubMenu(0);
+        history.back();
        }}
      >
        <Image loading={'lazy'} alt='Back' height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/>
@@ -443,7 +435,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
        
        className={`${styles.linkStyle} ${styles.subMenuTitle}`}
        onClick={() => {
-         setSubMenu(0);
+         history.back();
        }}
      >
        <Image loading={'lazy'} alt='Back' height={12} width={12} src="/images/greaterLessx.png" className={`${styles.subMenuArrow} ${styles.subMenuBackArrow}`}/>
