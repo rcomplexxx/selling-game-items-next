@@ -38,7 +38,7 @@
   .shopNow{
   
     color: var(--high-contrast-light-txt-color);
-      height: 48px;
+      height: var(--size-8);
       min-width: var(--size-13);
       
       background-color: var(--main-button-color);

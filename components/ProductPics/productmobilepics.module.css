@@ -3,11 +3,11 @@
 .zoomImg{
  
     position: absolute;
-    left: 4px;
-    top: 4px;
-    height: 16px;
-    width: 16px;
-    padding: 4px;
+    left: var(--size-2);
+    top: var(--size-2);
+    height: var(--size-5);
+    width: var(--size-5);
+    padding: var(--size-2);
     opacity: 1;
     border-radius: 100%;
     background-color: var(--gray-9-elegant-op08);
@@ -29,7 +29,7 @@
   .productImagesWrapper{
     position: -webkit-sticky;
     position: sticky;
-    top: 32px;
+    top: var(--size-7);
     bottom: 100%;
   }
   
@@ -38,7 +38,7 @@
     
     width: var(--size-15-5);
     position: fixed;
-    top: 32px;
+    top: var(--size-7);
   }
 
   .productPicsBot{
@@ -117,7 +117,7 @@
     margin-top: var(--size-5);
   
     grid-template-columns: repeat(4, 1fr); /* Two columns */
-    grid-gap: 12px; /* Gap between grid items */
+    grid-gap: var(--size-4); /* Gap between grid items */
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -228,7 +228,7 @@
     width: calc(100% - 40px) !important;
    
    
-    margin: 0 4px !important;
+    margin: 0 var(--size-2) !important;
     transform: translateX(16px) !important;
   }
 
@@ -236,7 +236,7 @@
 
 
   .lastSlide{
-    padding-right: 32px !important;
+    padding-right: var(--size-7) !important;
   }
 
 
@@ -246,10 +246,10 @@
   .slide2{
     
     position: relative;
-    width: calc(100%  / 3 - 16px) !important;
+    width: calc(100%  / 3 - var(--size-5)) !important;
     aspect-ratio: 16/9;
     overflow: hidden;
-    margin: 8px !important;
+    margin: var(--size-3) !important;
   }
 
   .leftArrowDiv{

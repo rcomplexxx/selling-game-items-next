@@ -27,7 +27,7 @@
     margin-bottom: var(--size-7);
   }
   
-  .checkout_section h2 {
+  .checkoutTitle {
     font-size:  var(--font-size-6);
     margin-bottom: var(--size-4);
     opacity: 0.9;
@@ -35,18 +35,20 @@
   }
 
 
-  .checkout_section h1 {
+  /* .checkout_section h1 {
     opacity: 0.8;
     font-weight: 400;
     font-size: var(--font-size-6);
-  }
+  } */
 
   .deliveryTitle{
     
     margin-bottom: 0;
   }
 
-  .deliveryTitleNormal{margin-bottom: var(--size-5);}
+  .deliveryTitleNormal{
+    margin-bottom: var(--size-5);
+  }
   
  
   
@@ -92,7 +94,7 @@
     display: flex;
     align-items: center;
     gap: var(--size-2);
-    font-size: 16px;
+    font-size:  var(--size-5);
     margin-right: var(--size-3);
   }
   
@@ -101,7 +103,7 @@
   .shipping_method_sp {
     margin:0;
     margin-top:0;
-    font-size: 14px;
+    font-size: var(--font-size-2);
     align-self: flex-end;
   }
 
@@ -155,8 +157,8 @@
   .shipping_method .checkmark:after {
      top: 2px;
     left: 2px;
-    width: 8px;
-    height: 8px;
+    width: var(--size-3);
+    height: var(--size-3);
     border-radius: 50%;
     background-color: var(--gray-9-elegant);
    
@@ -179,8 +181,8 @@
   .paypalNote{
     color: var(--error-color);
     font-size: var(--font-size-2);
-    margin-top: 2px;
-    margin-bottom: 16px;
+    margin-top: var(--size-1);
+    margin-bottom:  var(--size-5);
    
     
   }
@@ -307,7 +309,7 @@
     }
 
     .checkoutFooter{
-      width: calc(100% - 48px);
+      width: calc(100% - var(--size-8));
     
     }
 

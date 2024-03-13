@@ -20,14 +20,14 @@
     margin-bottom: var(--size-8);
   }
   
-  .linkDiv a {
+  .pageLink {
     text-decoration: none;
     color: var(--high-contrast-light-txt-color);
-    margin-left: 12px;
-    margin-right: 12px;
+    margin-left: var(--size-4);
+    margin-right: var(--size-4);
     font-size: var(--font-size-6);
-    height: 32px;
-    width:32px;
+    height: var(--size-7);
+    width:var(--size-7);
     display: flex;
    justify-content: center;
    align-items: center;
@@ -37,10 +37,10 @@
   
 
   
-  .pageLink a {
+  .currentPageLink {
   
-    height: 32px;
-    width:32px;
+    height: var(--size-7);
+    width:var(--size-7);
     opacity: 0.4;
     pointer-events: none; /* Disable pointer events to prevent clicks */
     cursor: not-allowed;
@@ -51,14 +51,21 @@
 
   
   .arrowSpan{
-    position:relative;  height:24px; width:8px;
+    position:relative;  
   }
   
   .arrowLink{
+    height: var(--size-7);
+    width:var(--size-7);
     background-color: var(--arrow-bg);
   }
   
-  .leftArrowImg {
+  .rightArrowImg {
+    height:var(--size-6); width:var(--size-3);
+   
+  }
+
+  .leftArrowImg{
     transform: scaleX(-1);
   }
   
@@ -67,9 +74,9 @@
     .linkDiv{
       margin-top: var(--size-6);
     }
-    .linkDiv a{
-      margin-left: 8px;
-      margin-right: 8px;
+    .pageLink{
+      margin-left: var(--size-3);
+      margin-right: var(--size-3);
     }
   }
   
@@ -78,9 +85,9 @@
       margin-top: var(--size-5);
     }
   
-    .linkDiv a{
-      margin-left: 4px;
-      margin-right: 4px;
+    .pageLink{
+      margin-left: var(--size-2);
+      margin-right: var(--size-2);
     }
   
     

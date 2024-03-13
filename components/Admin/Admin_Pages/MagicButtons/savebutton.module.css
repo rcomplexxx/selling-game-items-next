@@ -9,6 +9,6 @@
 
 
     position:absolute;
-    margin-top: 64px;
+    margin-top: var(--size-9);
     right: var(--size-5);
 }

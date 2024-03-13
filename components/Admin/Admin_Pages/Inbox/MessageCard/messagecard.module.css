@@ -25,7 +25,7 @@
     justify-content: center;
     align-items: center;
    
-    padding: 2px 8px;
+    padding: var(--size-1) var(--size-3);
     font-size: var(--font-size-6);
     color: rgb(184, 189, 182);
     margin: var(--size-4) var(--size-5);

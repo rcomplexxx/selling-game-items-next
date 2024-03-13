@@ -29,9 +29,9 @@
   
 
   .addToCartImg{
-    height: 24px;
-    width: 24px;
-    margin-right: 2px;
+    height: var(--size-6);
+    width: var(--size-6);
+    margin-right: var(--size-1);
     cursor: pointer;
     
   }
@@ -143,8 +143,8 @@
 
     .addToCartImg{
     
-      height: 24px;
-      width: 24px;
+      height: var(--size-6);
+      width: var(--size-6);
     }
   
   .cardContentText{

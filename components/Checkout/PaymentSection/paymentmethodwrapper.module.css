@@ -9,8 +9,8 @@
   .paymentNotification{
     opacity: 0.5;
     font-size: 14px;
-    margin-top: 2px;
-    margin-bottom: 16px;
+    margin-top: var(--size-1);
+    margin-bottom:  var(--size-5);
   }
 
 
@@ -28,15 +28,15 @@
 
 
 .mainWrapper > :first-child{
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: var(--size-3);
+    border-top-right-radius: var(--size-3);
 }
 
 
 
 .innerBorder {
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
+    width: calc(100% - var(--size-1));
+    height: calc(100% - var(--size-1));
     box-sizing: border-box;
     position: absolute;
     top: 1px;
@@ -150,8 +150,8 @@
     box-sizing: border-box;
     padding-top: 1px;
     padding-bottom: 1px;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-left: var(--size-1);
+    margin-right: var(--size-1);
     border: 1px solid var(--more-cards-card-border);
     border-radius: 3px;
     font-size: var(--font-size-1);
@@ -169,7 +169,7 @@
     align-items: center;
 
     position:absolute;
-    bottom: calc(100% + 2px);
+    bottom: calc(100% + var(--size-1));
     right: -64px;
     transform: scale(0.6) translateY(4px);
     opacity: 0;
@@ -189,12 +189,12 @@
 
 .moreCardsPopup{
    
-    height: 32px;
+    height: var(--size-7);
     display: flex;
     
     background-color: var(--badge-popup-message-bg);
     color: black;
-    padding: 8px;
+    padding: var(--size-3);
     border-radius: 4px;
     text-align: center;
     font-size: var(--font-size-2);
@@ -210,7 +210,7 @@
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 8px solid var(--badge-popup-message-bg);
+  border-top: var(--size-3) solid var(--badge-popup-message-bg);
  
 }
 
@@ -236,8 +236,8 @@
 }
 
 .paypalField{
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: var(--size-3);
+    border-bottom-right-radius: var(--size-3);
 }
 
 
@@ -262,13 +262,13 @@
 .moreCards{
     height: 22px;
     width: 38px;
-    margin-right: 2px;
+    margin-right: var(--size-1);
 }
 
 .moreCardsPopupWrapper{
     align-items: flex-end;
     right: -28px;
-    bottom: calc(100% + 2px);
+    bottom: calc(100% + var(--size-1));
     transform-origin: bottom right;
     transform: scale(0.6) translateY(4px) translateX(-28px);
    

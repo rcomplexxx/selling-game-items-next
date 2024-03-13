@@ -42,7 +42,7 @@
     width: 100%;
     align-self: flex-start;
     box-sizing: border-box;
-    padding: 8px 8px;
+    padding:var(--size-3);
     font-size: var(--font-size-5);
     line-height: var(--size-7);
    margin-bottom: var(--size-6);
@@ -68,7 +68,7 @@
     min-height: var(--size-12);
     width: 100%;
     box-sizing: border-box;
-    padding: 24px;
+    padding: var(--size-6);
     font-size: var(--font-size-5);
     line-height: var(--size-7);
   
@@ -85,7 +85,7 @@
 
 .previewButton{
     margin: var(--size-4) var(--size-5);
-    margin-top: 32px;
+    margin-top: var(--size-7);
     color: var(--high-contrast-light-txt-color);
     background-color: transparent;
     padding: var(--size-3) var(--size-6);
@@ -113,5 +113,5 @@
     border-radius: 8px;
     margin-top: var(--size-5);
     box-sizing: border-box;
-    padding: 32px;
+    padding: var(--size-7);
 }

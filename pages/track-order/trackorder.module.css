@@ -2,7 +2,7 @@
 
 
 .mainDiv{
-    min-height: calc(100svh - 64px);
+    min-height: calc(100svh - var(--size-9));
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -23,5 +23,5 @@
 
 
 .trackIdInput{
-    margin-right: 8px;
+    margin-right: var(--size-3);
 }

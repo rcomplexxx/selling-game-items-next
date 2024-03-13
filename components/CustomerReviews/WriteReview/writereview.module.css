@@ -102,8 +102,8 @@
     left: var(--size-4);
     top:var(--size-4);
     
-    height: 24px;
-    width: 24px;
+    height: var(--size-6);
+    width: var(--size-6);
     
     border-radius: 6px;
 
@@ -122,9 +122,9 @@
 
   .writeReviewFooter{
  
-    height: 32px;
+    height: var(--size-7);
     width: 100%;
-    margin: 16px 0;
+    margin:  var(--size-5) 0;
     box-sizing: border-box;
     padding: 0 var(--size-4);
     display: flex;
@@ -251,8 +251,8 @@
 
    
     
-    height: 24px;
-    width: 24px;
+    height: var(--size-6);
+    width: var(--size-6);
 
     transform: rotate(180deg);
    
@@ -319,7 +319,7 @@
    
 
    .upFooterBackBtn{
-    min-width: 32px;
+    min-width: var(--size-7);
     height: auto;
     aspect-ratio: 1;
    }
@@ -351,7 +351,7 @@
     justify-content: center;
     align-items: center;
     border: 1px solid var(--writing-accent-color);
-    width: calc(100% / 5 - 12px);
+    width: calc(100% / 5 - var(--size-4));
     aspect-ratio: 1;
     margin: 6px 6px;
    box-sizing: border-box;
@@ -376,7 +376,7 @@
 
   .userImageDiv{
   
-    width: calc(100% / 5 - 12px);
+    width: calc(100% / 5 - var(--size-4));
     aspect-ratio: 1;
     margin: 6px 6px;
     position: relative;
@@ -611,14 +611,14 @@
 
     .addImageDiv{
       
-      width: calc(100% / 3 - 12px);
+      width: calc(100% / 3 - var(--size-4));
      
     }
   
 
     .userImageDiv{
     
-      width: calc(100% / 3 - 12px);
+      width: calc(100% / 3 - var(--size-4));
      
     }
 
@@ -872,7 +872,7 @@
     }
     100% {
       
-      max-height: 32px;
+      max-height: var(--size-7);
     }
   }
 

@@ -1,7 +1,7 @@
 
 .paypalButton{
     position: relative;
-    height: 48px;
+    height: var(--size-8);
     width: 100% !important;
     /* box-shadow: 0 0 2px #704c96; */
     
@@ -15,7 +15,7 @@
 
 }
 
-/* margin-top: 24px;#2C2E2F
+/* margin-top: var(--size-6);#2C2E2F
 margin-bottom: 8px; */
 
 .paypalError{

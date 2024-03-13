@@ -12,26 +12,25 @@ export default function PageNumber({ mainLink, links, pageId}){
     {pageId > 1 && (
       <Link
         href={`${mainLink=='/products/page/' && pageId==2?'/products/':mainLink+(pageId - 1)}`}
-        className={styles.arrowLink}
+        className={`${styles.pageLink} ${styles.arrowLink}`}
       >
        
-        <span className={styles.arrowSpan}>
-          <Image
-            src={"/images/greater.svg"}
-            alt="Black"
-            className={styles.leftArrowImg}
-            fill
-          />
-        </span>
+      
+        <Image className={`${styles.rightArrowImg} ${styles.leftArrowImg}`} src={"/images/greater.svg"} alt="Back" height={0} width={0} sizes='32px' />
+       
       </Link>
     )}
     {links.length>1 && links.map((link, index) => {
       return pageId == link ? (
-        <span className={styles.pageLink} key={index}>
-          <Link href={`${mainLink}${link}`}>{link}</Link>
-        </span>
+   
+          <Link  className={`${styles.pageLink} ${styles.currentPageLink}`} key={index} href={`${mainLink}${link}`}>{link}</Link>
+       
       ) : (
-        <Link key={index} href={`${mainLink=='/products/page/' && link==1?'/products/':mainLink+link}`}>
+        <Link 
+        
+        key={index} 
+        className={styles.pageLink}
+        href={`${mainLink=='/products/page/' && link==1?'/products/':mainLink+link}`}>
           {link}
         </Link>
       );
@@ -39,12 +38,12 @@ export default function PageNumber({ mainLink, links, pageId}){
     {pageId < links.length && (
       <Link
         href={`${mainLink}${pageId + 1}`}
-        className={styles.arrowLink}
+        className={`${styles.pageLink} ${styles.arrowLink}`}
       >
-        {" "}
-        <span className={styles.arrowSpan}>
-          <Image src={"/images/greater.svg"} alt="Black" fill />
-        </span>
+       
+       
+          <Image className={styles.rightArrowImg} src={"/images/greater.svg"} alt="Next" height={0} width={0} sizes='32px' />
+       
       </Link>
     )}
   </div>

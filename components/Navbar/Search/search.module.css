@@ -22,7 +22,7 @@
   .customSearchBarInput {
 
      width: var(--size-12);
-    height: 32px;
+    height: var(--size-7);
     
     background-color: var(--search-bg);
     color: var(--light-txt-color);
@@ -63,7 +63,7 @@
 
   .searchIcon{
     opacity: 0.8;
-    margin-left: 16px;
+    margin-left: var(--size-5);
     width: 20px;
     height: 20px;
     cursor: pointer;
@@ -110,8 +110,8 @@
 .resultProductsLabel{
   width: calc(100% - var(--size-5));
   box-sizing: border-box;
-  padding-top: 12px;
-  padding-bottom: 4px;
+  padding-top: var(--size-4);
+  padding-bottom: var(--size-2);
   border-bottom: 1px solid rgba(100, 94, 140, 0.833);
   opacity: 0.8;
 }
@@ -137,9 +137,9 @@
          top:0;
          right: 0;
          background-color: var(--gray-9-elegant);
-        height:64px;
+        height:var(--size-9);
         width: 100%;
-        padding-right: 64px;
+        padding-right: var(--size-9);
         justify-content: flex-end;
         z-index: 9;
 
@@ -149,7 +149,7 @@
       display: block;
       position: absolute;
      
-      right: 32px;
+      right: var(--size-7);
 
       height: var(--size-6);
       width: var(--size-6);
@@ -162,7 +162,7 @@
     }
 
     .customResults{
-        margin-right: 32px;
+        margin-right: var(--size-7);
    
     }
 

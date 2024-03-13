@@ -20,7 +20,7 @@ import Tip from "./Tip/Tip";
 export default function CheckoutInfo({ products, discount,  tip, setTip, setCartProducts }) {
   const [showApt, setShowApt] = useState(false);
   const [errors, setErrors] = useState({});
-  const [shippingType, setShippingType] = useState("free");
+  // const [shippingType, setShippingType] = useState("free");
 
   const contactScrollRef = useRef();
 
@@ -166,7 +166,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
         <div className={styles.checkout_left}>
           <ExpressCheckout discount={discount} tip={tip} products={products} checkFields={checkFields} organizeUserData={organizeUserData} setCartProducts={setCartProducts } setErrors={setErrors}/>
           <div className={styles.checkout_section}>
-            <h2 ref={contactScrollRef}>Contact</h2>
+            <h2 className={styles.checkoutTitle} ref={contactScrollRef}>Contact</h2>
             <form>
               <div className={styles.input_row}>
                 <InputField
@@ -183,11 +183,9 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
               </div>
 
               <h2
-                className={
-                  Object.keys(errors).length > 0
+                className={`${styles.checkoutTitle} ${Object.keys(errors).length > 0
                     ? styles.deliveryTitle
-                    : styles.deliveryTitleNormal
-                }
+                    : styles.deliveryTitleNormal} `}
               >
                 Delivery
               </h2>

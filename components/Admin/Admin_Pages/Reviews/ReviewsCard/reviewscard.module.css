@@ -12,7 +12,7 @@
     align-items: center;
     border: 1px solid rgb(143, 151, 156);
     border-radius: 8px;
-    padding: 32px;
+    padding: var(--size-7);
 }
 
 .cardMainDivDeleted{
@@ -24,9 +24,9 @@
 
 
 .identifier{
-    height: 64px;
+    height: var(--size-9);
     width: auto;
-    padding: 2px 16px;
+    padding: var(--size-1)  var(--size-5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +43,7 @@
 
 .reviewEditButton{
     margin: var(--size-4) var(--size-5);
-    margin-top: 32px;
+    margin-top: var(--size-7);
     color: var(--high-contrast-light-txt-color);
     background-color: transparent;
     padding: var(--size-3) var(--size-6);
@@ -76,7 +76,7 @@
     min-height: 96px;
     width: 100%;
     box-sizing: border-box;
-    padding: 24px;
+    padding: var(--size-6);
     font-size: var(--font-size-5);
     line-height: var(--size-7);
     padding-bottom: 128px;
@@ -94,8 +94,8 @@
 
 .swiperLabelCurrentId{
     position: absolute;
-    top:-64px;
-    left:2px;
+    top:-var(--size-9);
+    left:var(--size-1);
     font-size: var(--font-size-8);
     color: rgb(134, 149, 180);
 }
@@ -109,7 +109,7 @@
 .swiperLabelDescription{
     position: absolute;
     top:-20px;
-    left:2px;
+    left:var(--size-1);
     font-size: var(--font-size-2);
     opacity: 0.5;
 }
@@ -121,20 +121,20 @@
     width: auto;
     align-self: flex-start;
     box-sizing: border-box;
-    padding: 8px 24px;
+    padding: var(--size-3) var(--size-6);
     font-size: var(--font-size-5);
     line-height: var(--size-7);
-   margin-bottom: 32px;
+   margin-bottom: var(--size-7);
    border-radius: 8px;
 }
 
 
 .imagesDiv{
     height: auto;
-    width: calc(100% + 16px);
-    margin-top: 4px;
+    width: calc(100% +  var(--size-5));
+    margin-top: var(--size-2);
     margin-left: -16px;
-    padding-right: 16px;
+    padding-right:  var(--size-5);
     display: flex;
     justify-content: flex-start;
     align-self: flex-start;
@@ -146,13 +146,13 @@
 
 
 .imagesDiv *{
-    margin-bottom:24px;
-    margin-left: 16px;
+    margin-bottom:var(--size-6);
+    margin-left:  var(--size-5);
 }
 
 .addImage{
-    margin-bottom:24px;
-    margin-left: 32px;
+    margin-bottom:var(--size-6);
+    margin-left: var(--size-7);
     align-self: center;
     border-radius: 100%;
 }
@@ -165,7 +165,7 @@
 
 .deleteImageInstruction{
     align-self: flex-start;
-    margin-top: 24px;
+    margin-top: var(--size-6);
 }
 
 .savedImage{

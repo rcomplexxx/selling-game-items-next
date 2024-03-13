@@ -31,7 +31,7 @@ color: var(--high-contrast-light-txt-color);
 .productName{
   font-size: var(--font-size-7);
   font-weight: 400;
-  margin: 0 4px;
+  margin: 0 var(--size-2);
  
   padding: 0;
   
@@ -52,15 +52,15 @@ color: var(--high-contrast-light-txt-color);
       }
 
       .itemPrice{
-        margin: 16px 4px;
+        margin: var(--size-5) var(--size-2);
         opacity: 0.7;
         font-size: var(--font-size-5);
         font-weight: 400;
       }
 
       .variant{
-        margin: 0 4px;
-        margin-bottom: 16px;
+        margin: 0 var(--size-2);
+        margin-bottom:  var(--size-5);
         opacity: 0.7;
         font-size: var(--font-size-4);
         font-weight: 400;
@@ -87,7 +87,7 @@ color: var(--high-contrast-light-txt-color);
 
   .totalPrice2{
    
-    margin: 0 4px;
+    margin: 0 var(--size-2);
     font-size: var(--font-size-5);
     font-weight: 400;
   
@@ -145,7 +145,7 @@ color: var(--high-contrast-light-txt-color);
 
   .totalPrice{
    
-      margin: 0 4px;
+      margin: 0 var(--size-2);
     
       font-size: var(--font-size-5);
       font-weight: 400;
@@ -178,13 +178,13 @@ color: var(--high-contrast-light-txt-color);
       }
 
       .itemPrice{
-        margin: 12px 4px;
+        margin:  var(--size-4) var(--size-2);
      
       }
 
       .variant{
        
-        margin-bottom: 12px;
+        margin-bottom: var(--size-4);
       }
       
 
@@ -268,12 +268,12 @@ color: var(--high-contrast-light-txt-color);
      
      
         font-size: var(--font-size-3);
-        margin: 12px 4px;
+        margin: var(--size-4) var(--size-2);
       }
 
       .variant{
         font-size: var(--font-size-3);
-        margin-bottom: 12px;
+        margin-bottom: var(--size-4);
        
       }
 

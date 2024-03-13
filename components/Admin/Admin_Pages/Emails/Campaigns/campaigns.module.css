@@ -58,7 +58,7 @@
     width: 100%;
 
     box-sizing: border-box;
-    padding: 8px 8px;
+    padding: var(--size-3);
     font-size: var(--font-size-5);
     line-height: var(--size-7);
    margin-bottom: var(--size-6);

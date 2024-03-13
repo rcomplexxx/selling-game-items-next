@@ -14,7 +14,7 @@
 .quantityTitle{
  
   margin-bottom: var(--size-2);
-  margin-left: 4px;
+  margin-left: var(--size-2);
  
 }
 
@@ -41,7 +41,7 @@
     background-color: transparent;
     cursor: pointer;
     font-size: 18px;
-    padding: 8px var(--size-3);
+    padding: var(--size-3) var(--size-3);
     
     border-radius: 4px;
    
@@ -77,12 +77,12 @@
    
     border: none;
     border-radius: 4px;
-    padding: 12px 8px;
+    padding: var(--size-4) var(--size-3);
 
    
     text-align: left;
    
-    font-size: 16px;
+    font-size: var(--font-size-3);
     outline: none;
   }
 

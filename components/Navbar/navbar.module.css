@@ -95,7 +95,7 @@
 .grow{
   width: max-content;
   position:absolute;
-  top: 24px;
+  top: var(--size-6);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -238,8 +238,8 @@
 
   .cartStyle {
     position: relative;
-    height: 32px;
-    width: 32px;
+    height: var(--size-7);
+    width: var(--size-7);
     color: #888b88;
     transition: transform 0.1s ease-in;
     margin: 8px;
@@ -283,8 +283,8 @@
   .smallMenuImage{
  
     position:relative;
-    height:24px;
-    width: 24px;
+    height:var(--size-6);
+    width: var(--size-6);
     
     align-self: center;
     margin:0 8px;

@@ -18,19 +18,19 @@
 
 
 
-.mainDiv h1{
+
+.bestSellersTitle{
     align-self: flex-start;
     margin-top: var(--size-9);
-    margin-left: 32px;
-    margin-bottom: 16px;
+    margin-left: var(--size-7);
+    margin-bottom: var(--size-5);
     font-weight: 400;
-    
 }
 
 .slider{ 
     box-sizing: border-box;
-    padding-left: 32px !important;
-    padding-right: 8px !important;
+    padding-left: var(--size-7) !important;
+    padding-right: var(--size-3) !important;
     width: 100%;
    
 
@@ -93,12 +93,12 @@
 
 @media(max-width: 980px){
 
-    .mainDiv h1{
-        margin-left: 24px;
+    .bestSellersTitle{
+        margin-left: var(--size-6);
     }
 
     .slider{ 
-        padding-left: 24px !important;
+        padding-left: var(--size-6) !important;
        
        
     
@@ -115,13 +115,13 @@
 
 @media(max-width: 600px){
 
-    .mainDiv h1{
-        margin-left: 16px;
+    .bestSellersTitle{
+        margin-left: var(--size-5);
     }
 
 
     .slider{ 
-        padding-left: 16px !important;
+        padding-left: var(--size-5) !important;
        
        
     

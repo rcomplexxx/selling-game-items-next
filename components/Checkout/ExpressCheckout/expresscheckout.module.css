@@ -35,7 +35,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: calc(50% - 8px);
+    width: calc(50% - var(--size-3));
     min-height: var(--size-8);
    
 
@@ -126,24 +126,6 @@
     }
 }
 
-
-
-
-
-
-.expressPaymentsWrapperadasdasdasdasdasdsadsadsa {
-    display: flex;
-    justify-content: space-between;
-}
-
-.expressPaymentsWrapperasdasdasdasdasdsadasd > * {
-    flex: 1;
-    margin-right: calc(4px + 2vw); /* 4px + 2% of the viewport width */
-}
-
-.expressPaymentsWrapperadasdasdasdasdasdasda > *:last-child {
-    margin-right: 0; /* Remove margin from the last child to prevent extra space */
-} 
 
 
 

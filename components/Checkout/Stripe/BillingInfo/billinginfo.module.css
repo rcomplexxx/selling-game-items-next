@@ -2,7 +2,7 @@
 
 
 .billingAddressWrapper{
-    width: calc(100% + 4px);
+    width: calc(100% + var(--size-2));
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease;
@@ -30,7 +30,7 @@
 
 .InputFieldRow{
     position: relative;
-    width: calc(100% - 4px);
+    width: calc(100% - var(--size-2));
     box-sizing: border-box;
     padding: 0;
   

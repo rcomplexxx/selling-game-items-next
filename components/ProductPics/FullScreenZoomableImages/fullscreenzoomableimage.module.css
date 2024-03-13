@@ -31,7 +31,7 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 0 16px;
+    padding: 0 var(--size-5);
     
     opacity: 0;
     z-index: 11;
@@ -70,8 +70,8 @@
   }
 
   .zoomButton{
-    height: 24px;
-    width:24px;
+    height: var(--size-6);
+    width:var(--size-6);
     border-radius: 100%;
     cursor: pointer;
     margin-right: var(--size-4);
@@ -79,8 +79,8 @@
 
   .close_button {
    
-    height: 24px;
-    width:24px;
+    height: var(--size-6);
+    width:var(--size-6);
  
     border-radius: 100%;
    
@@ -92,11 +92,11 @@
 
   .leftArrow{
     position: absolute;
-    top: calc(50% + 24px);
-    left: 16px;
+    top: calc(50% + var(--size-6));
+    left: var(--size-5);
   
     background-color: var(--fullscreen-arrow-bg);
-    padding: 8px;
+    padding: var(--size-3);
     border-radius: 4px;
     transform: translateY(-50%);
     z-index: 8;
@@ -117,7 +117,7 @@
 
   .rightArrow{
     left: unset;
-    right: 16px;
+    right: var(--size-5);
   
     transform: translateY(-50%) rotate(180deg);
 
@@ -190,11 +190,11 @@
 
 @media(max-width: 1280px){
   .leftArrow{
-    left: 8px;
+    left: var(--size-3);
    
   }
   .rightArrow{
-    right: 8px;
+    right: var(--size-3);
   }
 }
 
@@ -208,7 +208,7 @@
   }
   .zoomButton{
    
-    margin-right: 8px;
+    margin-right: var(--size-3);
   }
 
  
@@ -220,10 +220,10 @@
 
 @media(max-width: 600px){
   .leftArrow{
-    left: 2px;
+    left: var(--size-1);
   }
   .rightArrow{
-    right: 2px;
+    right: var(--size-1);
   }
 }
   

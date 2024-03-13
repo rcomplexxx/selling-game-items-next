@@ -10,7 +10,7 @@
     align-items: center;
     /* border: 1px solid rgb(143, 151, 156); */
     border-radius: 8px;
-    padding: 32px;
+    padding: var(--size-7);
     padding-top: 0;
 }
 
@@ -44,7 +44,7 @@
     width: 100%;
     align-self: flex-start;
     box-sizing: border-box;
-    padding: 8px 8px;
+    padding:  var(--size-3);
     font-size: var(--font-size-5);
     line-height: var(--size-7);
    margin-bottom: var(--size-6);
