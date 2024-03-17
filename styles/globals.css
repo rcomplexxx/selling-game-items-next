@@ -245,7 +245,7 @@ Cormorant+Garamond */
   /*~ Navbar ~*/
 
   --nav-site-title-color: var(--blue-2);
-  --nav-txt-color: var(--light-txt-color)
+  --nav-txt-color: var(--light-txt-color);
   --navbar-bg: var(--gray-9-elegant);
   --search-bg: #0f1316;
   --nav-links-color: var(--red-2);
