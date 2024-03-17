@@ -40,8 +40,13 @@ const FullScreenZoomableImage = ({
 
   useEffect(() => {
 
+    swiper.slideTo(imageIndex, 0);
+
 
     if(fullScreenUnlocked){
+
+     
+     
 
     const fixedZoomDiv = fixedZoomDivRef.current;
 
