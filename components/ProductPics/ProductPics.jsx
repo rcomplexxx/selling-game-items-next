@@ -158,7 +158,6 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
       {images.map((img, index) => (
         <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}
        >
-        <div className={styles.imageDivWrapper}>
          
             <Image
             id={`mainImage${index}`}
@@ -189,7 +188,6 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
               src={"/images/zoomIconAw.png"}
               loading={'lazy'}
             />}
-            </div>
          
         </SwiperSlide>
       ))}
@@ -288,18 +286,17 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
         </div>
 }
 
-       
+      {zoomed && (
         <FullScreenZoomableImage
-       
        
           imageIndex={imageIndex}
          
           changeImageIndex={handleChangeImage}
-          fullScreenUnlocked={zoomed}
+            
           fullScreenChange={setZoomed}
           images={images}
         />
-      
+      )}
      
     </>
   );

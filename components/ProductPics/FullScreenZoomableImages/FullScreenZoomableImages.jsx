@@ -15,11 +15,10 @@ import ToastMessage from "./ToastMessage/ToastMessage";
 const FullScreenZoomableImage = ({
   imageIndex,
   changeImageIndex,
-  fullScreenUnlocked,
   fullScreenChange,
   images,
 }) => {
-  const [navActive, setNavActive] = useState(false);
+  const [navActive, setNavActive] = useState(true);
   const [navLocked, setNavLocked] = useState(false);
 
   const [showToastMessage, setShowToastMessage] = useState(0);
@@ -39,15 +38,6 @@ const FullScreenZoomableImage = ({
 
 
   useEffect(() => {
-
-    swiper?.slideTo(imageIndex, 0);
-
-
-    if(fullScreenUnlocked){
-
-     
-     
-
     const fixedZoomDiv = fixedZoomDivRef.current;
 
     const mainImg = document.getElementById(`mainImage${imageIndex}`);
@@ -142,26 +132,23 @@ const FullScreenZoomableImage = ({
       
     }, 280);
 
-  }
 
 
-  }, [fullScreenUnlocked, imageIndex]);
+
+  }, []);
   //
 
   //Mozda izbaciti navlocked i active
 
   useEffect(()=>{
     const handlePopState=()=>{  setNavActive(false);killFullScreen();}
-    if(fullScreenUnlocked)
+
     window?.addEventListener("popstate", handlePopState);
-  else{
-    window?.removeEventListener("popstate", handlePopState);
-  }
 
    return ()=>{
     window?.removeEventListener("popstate", handlePopState);
    }
-  },[fullScreenUnlocked,imageIndex,zoomed])
+  },[imageIndex,zoomed])
 
   useEffect(() => {
     const fixedZoomDiv = fixedZoomDivRef.current;
@@ -274,7 +261,7 @@ const FullScreenZoomableImage = ({
 
           timeoutId = setTimeout(() =>{
                 
-            setNavActive(!navActive);
+            setNavActive((navActive) => !navActive);
             clearTimeout(timeoutId);
             timeoutId = null;
           }, 300);
@@ -282,8 +269,6 @@ const FullScreenZoomableImage = ({
           
       
     };
-
-    if(fullScreenUnlocked){
 
     if (matchMedia("(pointer:fine)").matches) {
       handleUserInteraction();
@@ -295,18 +280,6 @@ const FullScreenZoomableImage = ({
 
     window.addEventListener("touchend", handleTouchEnd);
     }
-  }
-
-  else{
-    clearTimeout(timeoutId);
-    timeoutId = null;
-    
-      window.removeEventListener("mousemove", handleUserInteraction);
- 
-    window.removeEventListener("touchstart", handleTouchStart, true);
-    window.removeEventListener("touchmove", handleTouchYMove, true);
-    window.removeEventListener("touchend", handleTouchEnd);
-  }
 
     return () => {
       clearTimeout(timeoutId);
@@ -318,7 +291,7 @@ const FullScreenZoomableImage = ({
       window.removeEventListener("touchmove", handleTouchYMove, true);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [fullScreenUnlocked,imageIndex,zoomed]);
+  }, [imageIndex,zoomed]);
 
 
 
@@ -414,7 +387,7 @@ const FullScreenZoomableImage = ({
       },
       zoomed ? 300 : 0
     );
-  },[fullScreenUnlocked,zoomed, imageIndex]);
+  },[zoomed, imageIndex]);
 
 
  
@@ -422,13 +395,13 @@ const FullScreenZoomableImage = ({
 
   return (
   
-      <div ref={fixedZoomDivRef} className={`${styles.full_screen_container} ${fullScreenUnlocked && styles.fullScreenUnlock}`}>
+      <div ref={fixedZoomDivRef} className={styles.full_screen_container}>
  
 
       
           <div
             className={`${styles.closeSuiter} ${
-              !navLocked && navActive && styles.navActive
+              !navLocked && navActive ? styles.navActive : styles.navInactive
             }`}
           >
             <div className={styles.pagination}>
@@ -473,7 +446,9 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slidePrev();
             }}
-            className={`${styles.leftArrow} ${arrowDissapear && styles.arrowSpawnReverse}`}
+            className={`${styles.leftArrow} ${arrowDissapear && styles.arrowSpawnReverse} ${
+              !matchMedia("(pointer:fine)").matches && styles.noArrow
+            }`}
           ></Image>
           <Image
             height={12}
@@ -482,7 +457,9 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slideNext();
             }}
-            className={`${styles.leftArrow} ${styles.rightArrow} ${arrowDissapear && styles.arrowSpawnReverse}`}
+            className={`${styles.leftArrow} ${styles.rightArrow} ${arrowDissapear && styles.arrowSpawnReverse} ${
+              !matchMedia("(pointer:fine)").matches && styles.noArrow
+            }`}
           ></Image>
           <Swiper
             initialSlide={imageIndex}
@@ -492,7 +469,7 @@ const FullScreenZoomableImage = ({
             zoom={{
               enabled: true,
               maxRatio: 2,
-              toggle: typeof matchMedia !== 'undefined' && !matchMedia("(pointer:fine)").matches,
+              toggle: !matchMedia("(pointer:fine)").matches,
             }}
             onZoomChange={() => {
               setZoomed(!zoomed);
