@@ -156,7 +156,8 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
         <Swiper  onSwiper={setSwiper} speed={400} slidesPerView='auto' onSlideChange={handleSlideChange}
          a11y={false}
          edgeSwipeThreshold={500}
-      
+
+         threshold={20}
         preventClicks={false}
         preventClicksPropagation={false}
         touchStartPreventDefault={false}
