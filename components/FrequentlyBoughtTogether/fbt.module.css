@@ -40,7 +40,7 @@
 
 
   .productImage{
-    height: 72px;
+    height: var(--size-11);
     width: 100%;
     object-fit: cover;
     cursor: pointer;

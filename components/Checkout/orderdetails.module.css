@@ -97,7 +97,7 @@
   .productImage{
     height:auto;
     width: var(--size-9-5);
-    aspect-ratio: 16/9;
+    aspect-ratio: 1;
     margin-right: var(--size-5);
     object-fit: cover;
   }
