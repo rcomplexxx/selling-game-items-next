@@ -154,6 +154,13 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
         >
         
         <Swiper  onSwiper={setSwiper} speed={400} slidesPerView='auto' onSlideChange={handleSlideChange}
+         a11y={false}
+         edgeSwipeThreshold={200}
+        //  touchStartPreventDefault={false}
+        preventClicks={false}
+        preventClicksPropagation={false}
+        touchStartPreventDefault={false}
+          cssMode={true}
         >
       {images.map((img, index) => (
         <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}

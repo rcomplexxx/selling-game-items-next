@@ -465,8 +465,7 @@ const FullScreenZoomableImage = ({
             initialSlide={imageIndex}
             speed={400}
             slidesPerView={1}
-            touchStartPreventDefault={false}
-             cssMode={true}
+           
             
             zoom={{
               enabled: true,
