@@ -288,17 +288,18 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
         </div>
 }
 
-      {zoomed && (
+       
         <FullScreenZoomableImage
+       
        
           imageIndex={imageIndex}
          
           changeImageIndex={handleChangeImage}
-            
+          fullScreenUnlocked={zoomed}
           fullScreenChange={setZoomed}
           images={images}
         />
-      )}
+      
      
     </>
   );
