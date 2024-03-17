@@ -33,18 +33,18 @@ const CartItem = ({ item }) => {
 
   return (
     <div className={styles.mainItemDiv}>
-       <div className={styles.media}>
-      <Link href={`/products/${item.id}`}>
+      
+      <Link href={`/products/${item.id}`} >
        
           <Image
             src={`/images/${item.image}`}
             alt={item.name}
-            layout="fill"
-            objectFit="cover"
+            className={styles.media}
+            height={0} width={0} sizes="72px"
           />
        
       </Link>
-      </div>
+     
       <div className={styles.mainItemInfo}>
         <Link className={styles.link} href={`/products/${item.id}`}>
           <h4 className={styles.productName}>{item.name}</h4>
@@ -56,7 +56,7 @@ const CartItem = ({ item }) => {
 
 
 
-        <div className={styles.cardActions}>
+        
           <div className={styles.buttons}>
             <button
               className={styles.quantityButton}
@@ -74,17 +74,23 @@ const CartItem = ({ item }) => {
           </div>
         
            
-        </div>
+        
 
        
       </div>
       <div className={styles.edgeDiv}>
-      <h2 className={styles.totalPrice}>${item.quantity*item.price}</h2>
-      <img
+
+      <Image
           src='/images/bin.png'
             className={styles.removeButton}
             onClick={() => handleRemoveFromCart(item.id, item.variant)}
+            height={0} width={0}
+            sizes="48px"
           />
+
+
+      <h2 className={styles.totalPrice}>${item.quantity*item.price}</h2>
+     
       </div>
     </div>
   );
