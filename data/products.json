@@ -21,15 +21,15 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       },
       {
         "name": "orange",
-        "image": "boxItem2.png",
+        "image": "boxItem7.png",
         "variantProductImageIndex": 4
       }
     ]
@@ -49,12 +49,13 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
+     
     ],
     "raiting": 5
   },
@@ -74,11 +75,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 5
@@ -98,11 +99,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 5
@@ -138,11 +139,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -173,11 +174,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -197,11 +198,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -222,11 +223,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -246,11 +247,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -271,11 +272,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -295,11 +296,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -319,11 +320,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -343,11 +344,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -367,11 +368,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7
@@ -391,11 +392,11 @@
       },
       {
         "name": "gray",
-        "image": "keyboard.png"
+        "image": "boxItem4.jpg"
       },
       {
         "name": "white",
-        "image": "boxItem.png"
+        "image": "boxItem5.png"
       }
     ],
     "raiting": 4.7

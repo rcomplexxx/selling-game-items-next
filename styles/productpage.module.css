@@ -98,7 +98,7 @@
   .product_style_span{
     position:relative;
     width: var(--size-9);
-    aspect-ratio: 16/9;
+    aspect-ratio: 1;
     
     margin-right: var(--size-4);
     cursor: pointer;
