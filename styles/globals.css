@@ -26,7 +26,7 @@ body{
 
 
   color:var(--light-txt-color);
- background-color: var(--gray-9-elegant);
+ background-color: var(--bg-color);
 
   min-height: 100%;
   width: 100%;
@@ -172,13 +172,14 @@ Cormorant+Garamond */
   --font-size-10: 60px;
   --font-size-11: 72px;
 
+  /* Main colors */
 
   --test: #171425;
   --blue-1: #c0b5db;
   --blue-2: rgb(105, 154, 182);
   --blue-3: #4285B0;
-  --blue-4: #2965AB;
-  --blue-5: #1B4B83;
+  --blue-4: #1976d2;
+  --blue-5: #1565C0;
   --blue-6: #193563;
   --blue-7: #0A2249;
   --blue-8: #06133D;
@@ -207,19 +208,21 @@ Cormorant+Garamond */
 
   /* Take your primary branding color, convert it to HSL then shift the lightness up to the 90-99% range until it's bright enough. Or #f2f2f2/F4F3F2*/
 
-  --high-contrast-light-txt-color: white;
-  --light-txt-color: #e0ded2;
+
+  /* General */
+
+  --high-contrast-light-txt-color: rgb(255, 255, 255);
+  --light-txt-color: #e5e5e6;
+  --bg-color: var(--gray-9-elegant);
   /*#e5e5e6*/
 
-  --main-button-color: #1976d2;
-  --main-button-hover-color: #1565C0;
+  --main-button-color: var(--blue-4);
+  --main-button-hover-color: var(--blue-5);
   --main-light-color: #989898;
   --main-dark-color: #323232;
-  --footer-txt-color: rgba(255, 255, 255, 0.65);
-  --footer-link-active-color: #ccc;
-  --footer-email-placeholder-color: #7a857a;
-  --subscribe-input-border: rgba(128, 128, 128, 0.804);
-  --action-button-footer-txt-color: rgba(255, 255, 255, 0.8);
+
+
+ 
   --action-button-txt-color: rgba(255, 255, 255, 0.9);
   --action-button-bg-color: rgb(62, 44, 36);
   --action-button-bg-color-hover:rgb(50, 36, 30);
@@ -236,77 +239,58 @@ Cormorant+Garamond */
   --border-color-mid: rgba(128, 128, 128, 0.503);
   --border-color-strong: gray;
 
-  /*~Specific~*/
 
 
-  
+
+  /*~ Navbar ~*/
+
+  --nav-site-title-color: var(--blue-2);
+  --nav-txt-color: var(--light-txt-color)
+  --navbar-bg: var(--gray-9-elegant);
+  --search-bg: #0f1316;
+  --nav-links-color: var(--red-2);
+  --navbar-current-link-color: var(--blue-1);
+  --nav-select-search-link-color:rgb(13, 24, 27);
   --cart-button-items-number-bg: rgb(97, 26, 97);
 
-  --search-bg: #0f1316;
-  --nav-select-search-link-color:rgb(13, 24, 27);
-  
-
-  --shop-now-hero-button-bg: #060f18ef;
-  --home-review-color:  #081522;
 
 
-  --summery-color: #DA0226;
-  --summery-light-color: white;
-  --checkout-order-summery-bg-mobile: #0a1d2f;
-  /* #0e2438*/
-  --checkout-order-summery-bg: #091a29;
-  --checkout-order-summery-bg-light: #0c2133;
+   /*~ Footer ~*/
 
-  --checkout-input-placeholder: #979797;
-  --checkout-input-border-color: rgba(134, 110, 114, 0.425);
-  --apply-coupon-color: #1e374d;
-  --apply-coupon-hover-color: #254766;
-  --coupon-code-bg: rgb(36, 48, 58);
-  --express-checkout-button-bg: #151921;
-  
+   --footer-bg: var(--gray-9-elegant);
+   --footer-title-color: white;
+  --footer-txt-color: rgba(255, 255, 255, 0.65);
+  --footer-link-active-color: #ccc;
+  --footer-email-placeholder-color: #7a857a;
+  --subscribe-input-border: rgba(128, 128, 128, 0.804);
+  --action-button-footer-txt-color: rgba(255, 255, 255, 0.8);
 
-  --select-payment-circle-ring-color: aqua;
-  --select-payment-circle-color: gray;
-  --payment-div-bg: rgb(11, 18, 24);
-
-  --add-tip-button-disabled-txt-color: rgb(152, 152, 152);
-  --add-tip-button-disabled: rgb(24, 24, 34);
-  
-  --input-color:#151921;
-
-   /* input-color-alt: rgb(191, 209, 208); rgb(74, 85, 187) #202020; rgba(53, 60, 110, 0.459); rgb(134, 110, 114); var(--input-autofill-color);*/
- 
-   
-   
-   
-    
+ /*~ Home page ~*/
 
 
-  --input-border-color: rgba(134, 110, 114, 0.425);
-  --input-box-shadow-color: #7daee2;
 
- 
- --free-shipping-slider-empty-color: rgb(107, 101, 101);
-
- --free-shipping-slider-fill-color: brown;
-
-
- --contact-input-color: #0c212b;
+ --shop-now-hero-button-bg: #060f18ef;
+  --home-review-color: #081522;
+   /*#081522*/
+  --home-review-box-shadow: 0px -1px 0px #091a27,  0px 1px 0px #07121e;
+  /*  0px 2px 6px #1b1e22;*/
+  --star-home-review-color: #daaf2e;
 
 
- --rating-info-bg: rgb(17, 20, 16);
- --rating-info-percent-bar-empty:rgb(30, 51, 59);
- --rating-info-percent-bar-fill: rgb(116, 145, 147);
 
- --write-review-main-bg: #1b191a;
- --writing-accent-color: gray;
- --writing-empty-progress-bar: rgb(55, 55, 62);
- --writing-media-button:  rgb(149, 165, 170);
 
- --writing-add-image-div-border: rgb(104, 111, 207);
- --writing-next-button-bg: rgb(112, 128, 118);
- --writing-next-button-hover-bg: #364658;
- --writing-next-button-disabled-txt-color: rgb(15, 16, 26);
+   /*Product list ~ Products ~ Collections */
+
+   --arrow-bg: rgb(44, 95, 93);
+   --collection-info-bg: rgb(18, 25, 39);
+   --product-on-sale-bg: rgb(18, 14, 56);
+
+
+
+
+
+ /*~ Product page ~*/
+
 
 
  --selected-product-image-border:rgb(204, 67, 101);
@@ -315,55 +299,156 @@ Cormorant+Garamond */
  --quantity-button-border: rgb(80, 77, 90);
  --quantity-button-hover: rgb(20, 22, 41);
 
- --collection-info-bg: rgb(18, 25, 39);
+ --paypal-bg:#FFC439;
+
+ --buy-now-border: rgb(159, 160, 92);
+ --buy-now-hover-box-shadow-border: rgb(182, 184, 100);
+
+ --dropcard-title-color: var(--high-contrast-light-txt-color);
+
+ --faq-add-to-cart-bg: var(--blue-6);
+ --faq-add-to-cart-hover-bg: var(--blue-4);
+ 
+          /*~ Fullscreen product~*/
 
 
+ --toast-message-bg: #323232;
  --fullscreen-nav-bg: rgba(45, 95, 145, 0.604);
  --fullscreen-arrow-bg:rgba(27, 60, 73, 0.501);
  --fullscreen-arrow-hover-bg:rgba(48, 62, 68, 0.501);
  --fullscreen-arrow-active-bg: rgba(113, 154, 170, 0.526);
 
- --dropcard-title-color: rgb(116, 44, 44);
+
+            /*~ Customer reviews ~*/
+
+ --rating-info-bg: rgb(17, 20, 16);
+ --rating-info-percent-bar-empty:rgb(30, 51, 59);
+ --rating-info-percent-bar-fill: rgb(116, 145, 147);
+
+ --star-color:#97892F;
+--star-empty-color: #103939;
+--star-hover-color: orange;
+
+
+ --customer-reviews-bg: red;
+ --customer-reviews-color: red;
+ --customer-reviews-author-color: red;
+
+
+
+
+
+
+              /*~ Writing review ~*/
+
+
+  --write-review-main-bg: #1b191a;
+  --writing-accent-color: gray;
+  --writing-empty-progress-bar: rgb(55, 55, 62);
+  --writing-media-button:  rgb(149, 165, 170);
+ 
+  --writing-add-image-div-border: rgb(104, 111, 207);
+  --writing-next-button-bg: rgb(112, 128, 118);
+  --writing-next-button-hover-bg: #364658;
+  --writing-next-button-disabled-txt-color: rgb(15, 16, 26);
+ 
+ 
+
+  
+
+  
+
+
+/*~ Cart ~*/
+  --free-shipping-slider-empty-color: rgb(107, 101, 101);
+  --free-shipping-slider-fill-color: brown;
+  --best-sellers-addtocart-border: rgb(64, 73, 65);
+
+  
+  
+
+ /*~ Contact us ~*/
+ --contact-input-color: #0c212b;
+
+
+
+
+
+
+  /*~ Checkout ~*/
+
+
+  --checkout-high-contrast-color: white;
+  --checkout-color: var(--light-txt-color);
+  --checkout-bg: var(--gray-9-elegant);
+
+  --input-color:#151921;
+     /* rgb(191, 209, 208); rgb(74, 85, 187) #202020; rgba(53, 60, 110, 0.459); rgb(134, 110, 114); var(--input-autofill-color);*/
+ 
+  --input-border-color: rgba(134, 110, 114, 0.425);
+  --input-box-shadow-color: #7daee2;
+  --checkout-input-placeholder: #979797;
+  --checkout-input-border-color: rgba(134, 110, 114, 0.425);
+  --input-autofill-color: #0f1316;
+ 
+  --express-checkout-button-bg: #151921;
+  --paypal-wrapper-border: #41855b;
+  --google-pay-border-color: rgb(64, 73, 65);
+
+  --select-payment-circle-ring-color: aqua;
+  --select-payment-circle-color: gray;
+
+  --payment-div-bg: rgb(11, 18, 24);
+ 
+
+  --more-cards-card-bg: rgb(195, 229, 251);  
+--more-cards-card-border: rgba(0, 0, 0, 0.08);
+
+--floating-badge-color: gray;
+--badge-popup-message-bg: rgba(127, 127, 163, 0.9);
+
+
+
+
+              /*Order summery*/
+  
+  --summery-color: #DA0226;
+  --summery-light-color: white;
+  --checkout-order-summery-bg-mobile: #0a1d2f;
+  /* #0e2438*/
+  --checkout-order-summery-bg: #091a29;
+  --checkout-order-summery-bg-light: #0c2133;
+
+ 
+  --apply-coupon-color: #1e374d;
+  --apply-coupon-hover-color: #254766;
+  --coupon-code-bg: rgb(36, 48, 58);
+
+                  /*Tip*/
+
+  --add-tip-button-disabled-txt-color: rgb(152, 152, 152);
+  --add-tip-button-disabled: rgb(24, 24, 34);
+  
+
+
 
 
  color-scheme: light only;
 
 
-/* Utility colors */
+/* Email popup */
 
-
---star-color:#97892F;
---star-empty-color: #103939;
---star-hover-color: orange;
---star-home-review-color: #FFCA28;
-
---product-on-sale-bg: rgb(18, 14, 56);
-
---toast-message-bg: #323232;
---more-cards-card-bg: rgb(195, 229, 251);  
---more-cards-card-border: rgba(0, 0, 0, 0.08);
-
---arrow-bg: rgb(44, 95, 93);
-
-/*autofill boja je ista kao i search boja! */
- --input-autofill-color: #0f1316;
  
- --floating-badge-color: gray;
- --badge-popup-message-bg: rgba(127, 127, 163, 0.9);
 
  --email-popup-bg: rgb(22, 42, 60);
 
 --email-popup-light-color: white;
 --email-popup-cancel-button-bg: rgb(28, 49, 50);
 
---buy-now-border: rgb(159, 160, 92);
---buy-now-hover-box-shadow-border: rgb(182, 184, 100);
---paypal-wrapper-border: #41855b;
---paypal-bg:#FFC439;
 
---google-pay-border-color: rgb(64, 73, 65);
 
---best-sellers-addtocart-border: rgb(64, 73, 65);
+
+
 
   /*~Admin sector colors*/
 

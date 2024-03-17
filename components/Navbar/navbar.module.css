@@ -1,12 +1,18 @@
 .appBar {
+
   position:relative;
+
+  color: var(--nav-txt-color);
+  background-color: var(--navbar-bg);
+
+
+ 
   width:100%;
   max-width: 100%;
   
   height: var(--size-9);
  
-    box-shadow: none;
-    background-color: var(--gray-9-elegant);
+   
 
     border-bottom: 1px solid var(--border-color-weak);
     transition: height 0.2s ease, opacity 0.2s ease;
@@ -27,9 +33,9 @@
     
     width:100%;
     max-width: 100%;
-    height: var(--size-9);
+    height: calc(var(--size-9) + 1px);
     
-    background-color: var(--gray-9-elegant);
+    background-color: var(--navbar-bg);
   }
 
 
@@ -48,7 +54,7 @@
  
   
   .title {
-    color: var(--blue-2);
+    color: var(--nav-site-title-color);
     align-items: center;
     display: flex;
     text-decoration: none;
@@ -130,7 +136,7 @@
  
   
   .linkStyle {
-    color: var(--red-2);
+    color: var(--nav-links-color);
     text-decoration: none;
     transition: transform 0.08s ease-in;
     font-size: var(--font-size-3);
@@ -149,7 +155,7 @@
   
   
   .currentLink {
-    color: var(--blue-1);
+    color: var(--navbar-current-link-color);
   }
 
   .subMenuPortal{
@@ -224,7 +230,7 @@
   }
 
   .currentLinkMobile {
-    color: var(--blue-1);
+    color: var(--navbar-current-link-color);
     background-color: var( --nav-select-search-link-color);
   }
   

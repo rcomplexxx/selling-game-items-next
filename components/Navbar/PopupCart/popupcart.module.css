@@ -85,7 +85,7 @@
     padding: 12px var(--size-6);
     margin-top: var(--size-7);
     margin-bottom: var(--size-3);
-    background-color: var(--blue-5);
+    background-color: var(--main-button-color);
     color:  var(--high-contrast-light-txt-color);
     font-size: var(--size-5);
     font-weight: 600;

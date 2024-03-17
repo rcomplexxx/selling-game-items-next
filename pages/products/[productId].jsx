@@ -254,19 +254,19 @@ export async function getStaticProps(context) {
     })
     .concat([
       {
-        src: "/images/keyboard.png",
+        src: "/images/boxItem5.png",
         alt: "second product image",
       },
       {
-        src: "/images/keyboard2.png",
+        src: "/images/boxItem6.png",
         alt: "third product image",
       },
       {
-        src: "/images/boxItem2.png",
+        src: "/images/boxItem7.png",
         alt: "third product image",
       },
       {
-        src: "/images/boxItem.png",
+        src: "/images/boxItem8.png",
         alt: "third product image",
       },
     ]);

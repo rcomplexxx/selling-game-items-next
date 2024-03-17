@@ -3,8 +3,8 @@
     "id": 0,
     "name": "Joystick blanket",
     "images": [
-      "1.png",
-      "boxItem3.png"
+      "1a.png",
+      "boxItem4.jpg"
     ],
     "thumbnails": [
       3,
@@ -17,7 +17,7 @@
     "variants": [
       {
         "name": "black",
-        "image": "1.png"
+        "image": "1a.png"
       },
       {
         "name": "gray",
@@ -112,7 +112,7 @@
     "name": "Assassin's creed Joystick",
     "images": [
       "5.png",
-      "boxItem3.png"
+      "boxItem4.jpg"
     ],
     "thumbnails": [
       0,

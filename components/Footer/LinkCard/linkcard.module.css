@@ -21,6 +21,7 @@
   }
 
   .title{
+    color: var(--footer-title-color);
     font-size: var(--font-size-5);
   }
 

@@ -60,7 +60,7 @@
   
 
   .linkStyle {
-    color: var(--red-2);
+    color: var(--nav-links-color);
    
     
     
@@ -116,7 +116,7 @@
   
   
   .currentLinkMobile {
-    color: var(--blue-1);
+    color: var(--navbar-current-link-color);
     background-color: var( --nav-select-search-link-color);
   }
   

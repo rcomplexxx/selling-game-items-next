@@ -18,7 +18,7 @@
   }
   
   .title {
-    color: var(--blue-2);
+    color: var(--nav-site-title-color);
     align-items: center;
     display: flex;
     text-decoration: none;
@@ -226,7 +226,7 @@
   }
   
   .currentLink {
-    color: var(--blue-1);
+    color: var(--navbar-current-link-color);
   }
   
   .cartStyle {
