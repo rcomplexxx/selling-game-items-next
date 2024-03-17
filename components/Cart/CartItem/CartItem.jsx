@@ -34,7 +34,7 @@ const CartItem = ({ item }) => {
   return (
     <div className={styles.mainItemDiv}>
       
-      <Link href={`/products/${item.id}`} >
+      <Link className={styles.mediaLink} href={`/products/${item.id}`} >
        
           <Image
             src={`/images/${item.image}`}
