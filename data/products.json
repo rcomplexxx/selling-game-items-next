@@ -3,7 +3,7 @@
     "id": 0,
     "name": "Joystick blanket",
     "images": [
-      "1a.png",
+      "1.png",
       "boxItem4.jpg"
     ],
     "thumbnails": [
@@ -17,7 +17,7 @@
     "variants": [
       {
         "name": "black",
-        "image": "1a.png"
+        "image": "1.png"
       },
       {
         "name": "gray",
@@ -61,7 +61,7 @@
   },
   {
     "id": 2,
-    "name": "Anime Joystick",
+    "name": "Cute Joystick",
     "images": [
       "3.png"
     ],
@@ -86,7 +86,7 @@
   },
   {
     "id": 3,
-    "name": "Colored Joystick",
+    "name": "Evilly elegant Joystick",
     "images": [
       "4.png"
     ],
@@ -355,7 +355,7 @@
   },
   {
     "id": 14,
-    "name": "Gaming mobile VivoY20S",
+    "name": "Huawei Honor 9X",
     "images": [
       "15.png"
     ],
@@ -379,7 +379,7 @@
   },
   {
     "id": 15,
-    "name": "Ios Xbox Expending",
+    "name": "Lenovo Legion 2024",
     "images": [
       "16.png"
     ],
