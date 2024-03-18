@@ -37,8 +37,8 @@
 
   .mainReviewDiv{
     position: relative;
-    max-width: var(--size-16);
-    max-height: var(--size-16);
+    max-width: var(--size-17);
+    max-height: var(--size-17);
     height: calc(100% - var(--size-7));
     width: calc(100% - var(--size-7));
     display: flex;
