@@ -305,6 +305,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
          
           changeImageIndex={handleChangeImage}
             
+          fullScreen = {zoomed}
           fullScreenChange={setZoomed}
           images={images}
         />

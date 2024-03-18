@@ -15,6 +15,7 @@ import ToastMessage from "./ToastMessage/ToastMessage";
 const FullScreenZoomableImage = ({
   imageIndex,
   changeImageIndex,
+  fullScreen,
   fullScreenChange,
   images,
 }) => {
@@ -38,6 +39,9 @@ const FullScreenZoomableImage = ({
 
 
   useEffect(() => {
+
+
+    if(fullScreen){
     const fixedZoomDiv = fixedZoomDivRef.current;
 
     const mainImg = document.getElementById(`mainImage${imageIndex}`);
@@ -132,10 +136,12 @@ const FullScreenZoomableImage = ({
       
     }, 280);
 
+  }
 
 
 
-  }, []);
+
+  }, [fullScreen]);
   //
 
   //Mozda izbaciti navlocked i active
@@ -269,6 +275,7 @@ const FullScreenZoomableImage = ({
           
       
     };
+    if(fullScreen){
 
     if (matchMedia("(pointer:fine)").matches) {
       handleUserInteraction();
@@ -280,6 +287,17 @@ const FullScreenZoomableImage = ({
 
     window.addEventListener("touchend", handleTouchEnd);
     }
+  }
+  else{
+    clearTimeout(timeoutId);
+    timeoutId = null;
+    
+      window.removeEventListener("mousemove", handleUserInteraction);
+ 
+    window.removeEventListener("touchstart", handleTouchStart, true);
+    window.removeEventListener("touchmove", handleTouchYMove, true);
+    window.removeEventListener("touchend", handleTouchEnd);
+  }
 
     return () => {
       clearTimeout(timeoutId);
@@ -291,7 +309,7 @@ const FullScreenZoomableImage = ({
       window.removeEventListener("touchmove", handleTouchYMove, true);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [imageIndex,zoomed]);
+  }, [imageIndex,zoomed,fullScreen]);
 
 
 
