@@ -15,6 +15,11 @@
     z-index: 12;
   }
 
+  .disabeFullScreen{
+   
+    display: none;
+  }
+
 
 
   
@@ -33,26 +38,23 @@
     box-sizing: border-box;
     padding: 0 var(--size-5);
     
-    opacity: 0;
+   
     z-index: 11;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 
     
     
   }
 
   .navActive{
-    animation: spawnNav 0.2s ease forwards;
+    opacity: 1 !important;
   }
 
-  .navInactive{
-    
-    animation: killNav 0.2s ease forwards;
-  }
+ 
 
   @media(hover:hover){
-    .navActive{
-      animation: spawnNav 0.3s ease forwards;
-    }
+  
   
     .navInactive{
       
@@ -127,10 +129,11 @@
   }
 
 
-
+  @media (hover: none) {
   .noArrow{
     visibility: hidden !important;
   }
+}
 
 
 

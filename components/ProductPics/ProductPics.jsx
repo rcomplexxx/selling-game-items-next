@@ -298,7 +298,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
         </div>
 }
 
-      {zoomed && (
+       
         <FullScreenZoomableImage
        
           imageIndex={imageIndex}
@@ -309,7 +309,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
           fullScreenChange={setZoomed}
           images={images}
         />
-      )}
+      
      
     </>
   );

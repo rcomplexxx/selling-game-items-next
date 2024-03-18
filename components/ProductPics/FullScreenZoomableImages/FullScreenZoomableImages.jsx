@@ -19,7 +19,7 @@ const FullScreenZoomableImage = ({
   fullScreenChange,
   images,
 }) => {
-  const [navActive, setNavActive] = useState(true);
+  const [navActive, setNavActive] = useState(false);
   const [navLocked, setNavLocked] = useState(false);
 
   const [showToastMessage, setShowToastMessage] = useState(0);
@@ -42,6 +42,8 @@ const FullScreenZoomableImage = ({
 
 
     if(fullScreen){
+       setNavLocked(false);
+      setNavActive(true);
     const fixedZoomDiv = fixedZoomDivRef.current;
 
     const mainImg = document.getElementById(`mainImage${imageIndex}`);
@@ -141,7 +143,7 @@ const FullScreenZoomableImage = ({
 
 
 
-  }, [fullScreen]);
+  }, [fullScreen,fullImageRef]);
   //
 
   //Mozda izbaciti navlocked i active
@@ -338,6 +340,7 @@ const FullScreenZoomableImage = ({
     setTimeout(
       function () {
         const fullImg = fullImageRef.current;
+        if(!fullImg)return;
         const mainImg = document.getElementById(`mainImage${imageIndex}`);
         const biggerWidth =
           (window.innerHeight - 48) / window.innerWidth >
@@ -415,13 +418,13 @@ const FullScreenZoomableImage = ({
 
   return (
   
-      <div ref={fixedZoomDivRef} className={styles.full_screen_container}>
+      <div ref={fixedZoomDivRef} className={`${styles.full_screen_container} ${!fullScreen && styles.disabeFullScreen}`}>
  
 
       
           <div
             className={`${styles.closeSuiter} ${
-              !navLocked && navActive ? styles.navActive : styles.navInactive
+              !navLocked && navActive && styles.navActive
             }`}
           >
             <div className={styles.pagination}>
@@ -467,7 +470,7 @@ const FullScreenZoomableImage = ({
               swiper.slidePrev();
             }}
             className={`${styles.leftArrow} ${arrowDissapear && styles.arrowSpawnReverse} ${
-              !matchMedia("(pointer:fine)").matches && styles.noArrow
+              styles.noArrow
             }`}
           ></Image>
           <Image
@@ -477,11 +480,9 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slideNext();
             }}
-            className={`${styles.leftArrow} ${styles.rightArrow} ${arrowDissapear && styles.arrowSpawnReverse} ${
-              !matchMedia("(pointer:fine)").matches && styles.noArrow
-            }`}
+            className={`${styles.leftArrow} ${styles.rightArrow} ${arrowDissapear && styles.arrowSpawnReverse} ${styles.noArrow}`}
           ></Image>
-          <Swiper
+          {fullScreen && <Swiper
             initialSlide={imageIndex}
             speed={400}
             slidesPerView={1}
@@ -567,8 +568,9 @@ const FullScreenZoomableImage = ({
               </SwiperSlide>
             ))}
           </Swiper>
+}
         
-        {showToastMessage!=0 && <ToastMessage showToastMessage={showToastMessage} setShowToastMessage={setShowToastMessage}/>}
+        {fullScreen && showToastMessage!=0 && <ToastMessage showToastMessage={showToastMessage} setShowToastMessage={setShowToastMessage}/>}
       </div>
   
   );
