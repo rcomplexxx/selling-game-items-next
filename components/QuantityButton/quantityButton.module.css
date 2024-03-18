@@ -52,8 +52,15 @@
 
 
 }  
+
+.quantityButton:active{
+  background-color:var(--quantity-button-hover);
+}
+
+@media(hover:hover){
 .quantityButton:hover{
   background-color:var(--quantity-button-hover);
+}
 }
 
 

@@ -10,7 +10,7 @@
   display: flex;
    justify-content: center ;
    align-items:stretch;
-     margin-top: var(--size-9) ;
+     margin-top: var(--size-8) ;
  
     
 }
@@ -19,7 +19,7 @@
 
   .productInfo{
     
-    width: var(--size-15);
+    width: var(--size-14-5);
    
     margin-left:  var(--size-9);
   display: flex;
@@ -57,7 +57,7 @@
  margin-bottom: var(--size-5);
 }
 
-.product_price span{
+.product_price_span{
   font-size: var(--font-size-4);
   margin-right: var(--size-4);
   text-decoration: line-through;
@@ -89,13 +89,13 @@
   .variantDiv{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    align-self: flex-start;
+    align-items: center;
+    margin-top: var(--size-5);
   }
 
   .product_style_label{
    
-    margin-top: var(--size-7);
+   
     font-size: var(--font-size-4);
   }
 
