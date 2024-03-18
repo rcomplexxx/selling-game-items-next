@@ -154,7 +154,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
           className={styles.productImagesWrapper}
         >
         
-        <Swiper  onSwiper={setSwiper} speed={400} onSlideChange={handleSlideChange}
+        <Swiper  onSwiper={setSwiper} speed={400} slidesPerView='auto' onSlideChange={handleSlideChange}
        
 
    
