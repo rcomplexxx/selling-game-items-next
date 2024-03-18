@@ -324,7 +324,7 @@ Cormorant+Garamond */
 
             /*~ Customer reviews ~*/
 
- --rating-info-bg: rgb(17, 20, 16);
+ --rating-info-bg: rgb(16, 22, 22);
  --rating-info-percent-bar-empty:rgb(30, 51, 59);
  --rating-info-percent-bar-fill: rgb(116, 145, 147);
 
@@ -345,7 +345,8 @@ Cormorant+Garamond */
               /*~ Writing review ~*/
 
 
-  --write-review-main-bg: #1b191a;
+  --write-review-main-bg: rgb(16, 22, 22);
+  /* #1b191a */
   --writing-accent-color: gray;
   --writing-empty-progress-bar: rgb(55, 55, 62);
   --writing-media-button:  rgb(149, 165, 170);

@@ -75,7 +75,7 @@ export default function RatingInfo({ratingData, openRatingInfo, setOpenRatingInf
             starDimension="32px"
             starSpacing="2px"
           />
-          <span className={styles.ratingSpan}>{ratingData.rating}</span>
+          <span className={styles.ratingSpan}>{ratingData.rating.toFixed(1)}</span>
           </div>
           {
 
