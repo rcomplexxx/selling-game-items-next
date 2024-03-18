@@ -103,7 +103,20 @@
     transform: translateY(-50%);
     z-index: 8;
     cursor: pointer;
-    animation: spawnArrow 0.2s 0.01s ease forwards;
+    transition: opacity 0.2s 0.01s ease;
+    opacity: 0;
+    /* animation: spawnArrow 0.2s 0.01s ease forwards; */
+  }
+
+  .spawnArrow{
+    opacity: 1;
+  }
+
+
+  @media (hover: none) {
+    .leftArrow{
+      visibility: hidden !important;
+    }
   }
 
   @media (hover: hover) {
@@ -117,10 +130,12 @@
     background-color:  var(--fullscreen-arrow-active-bg);
   }
 
+
+
+
   .rightArrow{
-    left: unset;
-    right: var(--size-5);
-  
+ 
+    margin-left: auto;
     transform: translateY(-50%) rotate(180deg);
 
   
@@ -129,19 +144,15 @@
   }
 
 
-  @media (hover: none) {
-  .noArrow{
-    visibility: hidden !important;
-  }
-}
+
 
 
 
 
  
- .arrowSpawnReverse{
+ /* .arrowSpawnReverse{
   animation: killArrow 0.2s 0.01s ease forwards;
- }
+ } */
 
 
   
@@ -261,7 +272,7 @@
 
 
 
-@keyframes spawnArrow{
+/* @keyframes spawnArrow{
   0% {
     opacity: 0;
   }
@@ -271,7 +282,7 @@
   100% {
     opacity: 1;
   }
-}
+} */
 
 @keyframes killArrow{
   0% {

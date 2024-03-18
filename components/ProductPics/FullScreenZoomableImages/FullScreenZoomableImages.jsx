@@ -294,7 +294,7 @@ const FullScreenZoomableImage = ({
     clearTimeout(timeoutId);
     timeoutId = null;
     
-      window.removeEventListener("mousemove", handleUserInteraction);
+      window.removeEventListener("mousemove", handleUserInteraction,true);
  
     window.removeEventListener("touchstart", handleTouchStart, true);
     window.removeEventListener("touchmove", handleTouchYMove, true);
@@ -305,7 +305,7 @@ const FullScreenZoomableImage = ({
       clearTimeout(timeoutId);
       timeoutId = null;
       
-        window.removeEventListener("mousemove", handleUserInteraction);
+        window.removeEventListener("mousemove", handleUserInteraction,true );
    
       window.removeEventListener("touchstart", handleTouchStart, true);
       window.removeEventListener("touchmove", handleTouchYMove, true);
@@ -469,9 +469,7 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slidePrev();
             }}
-            className={`${styles.leftArrow} ${arrowDissapear && styles.arrowSpawnReverse} ${
-              styles.noArrow
-            }`}
+            className={`${styles.leftArrow} ${fullScreen && styles.spawnArrow}`}
           ></Image>
           <Image
             height={12}
@@ -480,13 +478,15 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slideNext();
             }}
-            className={`${styles.leftArrow} ${styles.rightArrow} ${arrowDissapear && styles.arrowSpawnReverse} ${styles.noArrow}`}
+            className={`${styles.leftArrow} ${styles.rightArrow} ${fullScreen && styles.spawnArrow}`}
           ></Image>
           {fullScreen && <Swiper
             initialSlide={imageIndex}
             speed={400}
             slidesPerView={1}
-           
+            preventClicks={false}
+        preventClicksPropagation={false}
+        touchStartPreventDefault={false}
             
             zoom={{
               enabled: true,
@@ -521,36 +521,37 @@ const FullScreenZoomableImage = ({
                       zoomed && styles.productImageDivZoomed //zoomedChange
                     } swiper-zoom-target`}
                     onMouseDown={(event) => {
+                 
+                        
+                        if (
+                          event.button !== 0 ||
+                          !matchMedia("(pointer:fine)").matches
+                        )
+                          return;
                       
-                      if (
-                        event.button !== 0 ||
-                        !matchMedia("(pointer:fine)").matches
-                      )
-                        return;
-                    
-                      setMouseStartingPoint({ x: event.clientX, y: event.clientY });
-                    }}
-                    
-                    onMouseUp={(event) => {
+                        setMouseStartingPoint({ x: event.clientX, y: event.clientY });
+                      }}
+                      
+                      onMouseUp={(event) => {
                      
-                      if (
-                        event.button !== 0 ||
-                        !matchMedia("(pointer:fine)").matches
-                      )
-                        return;
-                      const { clientX, clientY } = event;
-
-                      const differenceX = Math.abs(
-                        clientX - mouseStartingPoint.x
-                      );
-                      const differenceY = Math.abs(
-                        clientY - mouseStartingPoint.y
-                      );
-
-                      if (differenceX < 12 && differenceY < 12) {
-                        swiper.zoom.toggle(event);
-                      }
-                    }}
+                        if (
+                          event.button !== 0 ||
+                          !matchMedia("(pointer:fine)").matches
+                        )
+                          return;
+                        const { clientX, clientY } = event;
+  
+                        const differenceX = Math.abs(
+                          clientX - mouseStartingPoint.x
+                        );
+                        const differenceY = Math.abs(
+                          clientY - mouseStartingPoint.y
+                        );
+  
+                        if (differenceX < 12 && differenceY < 12) {
+                          swiper.zoom.toggle();
+                        }
+                      }}
                   >
                     <Image
                       id={`fullImage${index}`}
@@ -564,7 +565,7 @@ const FullScreenZoomableImage = ({
                       draggable={false}
                     />
                   </div>
-               
+             
               </SwiperSlide>
             ))}
           </Swiper>

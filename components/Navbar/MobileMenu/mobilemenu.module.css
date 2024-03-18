@@ -22,13 +22,14 @@
     transform: translateX(0);
      transition: transform 0.5s ease;
      contain: content;
-     animation: spawnMobileMenu 0.5s ease;
+     animation: spawnMobileMenu 0.5s ease forwards;
 
   }
 
 
 
   .menuClosed{
+    animation: none;
     transform: translateX(-100%);
 
   }
