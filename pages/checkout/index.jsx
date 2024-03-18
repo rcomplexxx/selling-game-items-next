@@ -18,6 +18,7 @@ const CheckoutPage = () => {
 
   useEffect(()=>{
     setLoaded(true)
+    
   },[])
 
  

@@ -67,12 +67,14 @@ color: var(--high-contrast-light-txt-color);
   height: min-content;
   width:var(--size-11);
  aspect-ratio: 1;
+ border-radius: 4px;
 
   }
 
   .productImage{
     height: 100%;
     width: 100%;
+    
   }
 
   .edgeDiv{

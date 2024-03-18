@@ -80,9 +80,14 @@ import React, {
                   width={0}
                   sizes="25vw"
                 />
+                <div className={styles.productTitleDiv}>
                 <span>
                   {cp.quantity} {cp.name}s
                 </span>
+                <span className={styles.variant}>
+                  {cp.variant}
+                </span>
+                </div>
               </div>
               <span>${(cp.quantity * cp.price).toFixed(2)}</span>
             </div>

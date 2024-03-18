@@ -96,10 +96,21 @@
 
   .productImage{
     height:auto;
-    width: var(--size-9-5);
+    width: var(--size-9);
     aspect-ratio: 1;
     margin-right: var(--size-5);
     object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .productTitleDiv{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .variant{
+    font-weight: 300;
+    opacity: 0.7;
   }
   
  
