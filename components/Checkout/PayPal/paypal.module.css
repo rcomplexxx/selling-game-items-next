@@ -11,8 +11,12 @@
 
 
 .instantPaypalButton{
-    height: 44px;
-
+    height: var(--size-8) !important;
+   
+  
+   
+  
+    
 }
 
 /* margin-top: var(--size-6);#2C2E2F

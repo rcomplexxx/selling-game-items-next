@@ -20,9 +20,9 @@
   .productPicsWrapper{
    
     position:relative;
-    margin-right:var(--size-6);
    
-    width: var(--size-15-5);
+   
+    width: var(--size-16);
     height: auto;
   }
 

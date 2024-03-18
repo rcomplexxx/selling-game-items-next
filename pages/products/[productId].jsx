@@ -107,6 +107,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
             {product.stickerPrice && <span>${product.stickerPrice.toFixed(2)}</span>}$
             {product.price.toFixed(2)}
           </div>
+          <div className={styles .variantDiv}>
           <p className={styles.product_style_label}>Color: {variant}</p>
           <div className={styles.product_style_options}>
             {product.variants && product.variants.map((v, i)=>{
@@ -132,6 +133,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
 
 }
            
+          </div>
           </div>
 
           <QuantityButton quantity={quantity} setQuantity={setQuantity} />

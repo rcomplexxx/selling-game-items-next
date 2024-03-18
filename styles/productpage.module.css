@@ -19,9 +19,9 @@
 
   .productInfo{
     
-    width: var(--size-14-5);
+    width: var(--size-15);
    
-    margin-left:  var(--size-6);
+    margin-left:  var(--size-9);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -86,7 +86,18 @@
 
   
   
-  
+  .variantDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+  }
+
+  .product_style_label{
+   
+    margin-top: var(--size-7);
+    font-size: var(--font-size-4);
+  }
 
   .product_style_options {
     display: flex;
@@ -97,7 +108,7 @@
   
   .product_style_span{
     position:relative;
-    width: var(--size-9);
+    width: var(--size-8);
     aspect-ratio: 1;
     
     margin-right: var(--size-4);
@@ -116,11 +127,12 @@
   }
 
   .add_to_cart_button {
+    height: var(--size-8);
     max-width: var(--size-15);
     width:100%;
     display: inline-block;
     border: none;
-    padding: var(--size-4) var(--size-6);
+    padding: 0 var(--size-6);
     margin-top: var(--size-6);
     margin-bottom: var(--size-3);
     background-color: var(--main-button-color);
@@ -139,8 +151,9 @@
   }
 
   .paypalWrapper{
-    
+    height: var(--size-8);
     background-color: var(--paypal-bg);
+  
     max-width: var(--size-15);
     width: 100%;
     z-index: 1;
@@ -154,10 +167,11 @@
 
 
   .but_now_button{
+    height: var(--size-8);
     max-width: var(--size-15);
     width:100%;
     display: inline-block;
-    padding: var(--size-4) var(--size-6);
+    padding: 0 var(--size-6);
     margin-top: var(--size-2);
     margin-bottom: var(--size-3);
     background-color: transparent;
