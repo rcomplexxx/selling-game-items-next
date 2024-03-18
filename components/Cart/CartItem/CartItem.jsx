@@ -47,7 +47,7 @@ const CartItem = ({ item }) => {
      
       <div className={styles.mainItemInfo}>
         <Link className={styles.link} href={`/products/${item.id}`}>
-          <h4 className={styles.productName}>{item.name}</h4>
+          <span className={styles.productName}>{item.name}</span>
         </Link>
        
      

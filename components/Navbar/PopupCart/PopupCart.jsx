@@ -103,8 +103,11 @@ const handlePopCartLinkClick=(event, nextLinkHref)=>{
      <h3>Item added to your cart</h3>
       </div>
  <div className={styles.cartPopupTitle}> 
- <Image height={54} width={96} src={`/images/${newProduct.image}`} className={styles.productImage}/> 
- <h2 className={styles.productTitle}>{newProduct.name}</h2>
+ <Image height={64} width={64} src={`/images/${newProduct.image}`} className={styles.productImage}/> 
+ <div className={styles.productTitleDiv}>
+ <span className={styles.productTitle}>{newProduct.name}</span>
+ <span className={styles.productVariant}>{newProduct.variant}</span>
+ </div>
  </div>
 
  
