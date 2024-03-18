@@ -183,7 +183,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
               sizes="(max-width: 980px) 100vw, 576px"
              
               priority={index == 0}
-              loading={index==0?'eager':'lazy'}
+              loading={index==0?'eager':undefined}
               draggable="false"
             />
            {imageIndex==index && <Image
@@ -247,7 +247,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
                   src={img.src}
                   alt={img.alt}
                   sizes="25vw"
-                  loading={index>2 ? 'lazy':undefined}
+                 
                   height={0}
                   width={0}
                   draggable="false"
