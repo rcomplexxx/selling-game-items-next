@@ -11,21 +11,21 @@ export default function ToastMessage({showToastMessage, setShowToastMessage}) {
 
        
         const toast = toastRef.current;
+        
 
-        if(showToastMessage === 2 || showToastMessage===3){
-          global.toastMessageNotShowable=true;
-        }
+       
         if(showToastMessage==1){
-         global.toastMessageNotShowable=true;
+       
 
         toastTimeout.current= setTimeout(()=> {
            
             if(toast){
-              global.toastMessageNotShowable=true;
+            
             toast.classList.add(styles.dissapearingToast);      
       
             setTimeout(()=>{
-              setShowToastMessage(2);
+              global.toastMessageNotShowable=true;
+              setShowToastMessage(0);
               
             },500);
             
@@ -47,7 +47,7 @@ export default function ToastMessage({showToastMessage, setShowToastMessage}) {
                     toast.classList.add(styles.dissapearingToast); 
 
                  
-                setTimeout(()=>{setShowToastMessage(0)},300)    
+                setTimeout(()=>{  global.toastMessageNotShowable=true;setShowToastMessage(0)},300)    
                 } 
             
         }
@@ -58,13 +58,13 @@ export default function ToastMessage({showToastMessage, setShowToastMessage}) {
               if(toast){
                 toast.classList.add(styles.instantDissapearingToast);
              
-              
+                global.toastMessageNotShowable=true;
         
         
             }
         }
 
-    },[showToastMessage])
+    },[showToastMessage, toastRef])
 
 
    

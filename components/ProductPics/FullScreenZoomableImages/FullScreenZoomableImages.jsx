@@ -304,13 +304,15 @@ const FullScreenZoomableImage = ({
   
     if (zoomed) swiper.zoom.toggle();
 
-    if(!global.toastMessageNotShowable ){
+    console.log('Toast should be 2? ',showToastMessage, ' ', currY)
+    if( !global.toastMessageNotShowable ){
     if(currY!=0){
-      
+     
       setShowToastMessage(2);
     }
     else
     setShowToastMessage(3);
+
     }
 
 
@@ -387,7 +389,7 @@ const FullScreenZoomableImage = ({
       },
       zoomed ? 300 : 0
     );
-  },[zoomed, imageIndex]);
+  },[zoomed, imageIndex, showToastMessage]);
 
 
  
