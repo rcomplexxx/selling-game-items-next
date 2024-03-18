@@ -122,6 +122,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
  
 
   const handleSlideChange = useCallback((swiper) => {
+    
     const index = swiper.activeIndex;
     setImageIndex(index);
     if (index < imageIndex) swiperMini.slideTo(index);
@@ -153,7 +154,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
           className={styles.productImagesWrapper}
         >
         
-        <Swiper  onSwiper={setSwiper} speed={400} slidesPerView='auto' onSlideChange={handleSlideChange}
+        <Swiper  onSwiper={setSwiper} speed={400} onSlideChange={handleSlideChange}
        
 
    
@@ -165,15 +166,16 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 
         >
       {images.map((img, index) => (
-        <SwiperSlide key={index} className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}
+       
+        <SwiperSlide key={index}  onClick={() => {
+              setZoomed(true);
+            }}  className={`carousel-item ${styles.slide} ${index==images.length-1 && styles.lastSlide}`}
        >
          
             <Image
             id={`mainImage${index}`}
             
-            onClick={() => {
-              setZoomed(true);
-            }}
+           
 
             height={0}
             width={0}
@@ -199,6 +201,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
             />}
          
         </SwiperSlide>
+       
       ))}
     </Swiper>
         <div className={styles.slider2Suiter}>

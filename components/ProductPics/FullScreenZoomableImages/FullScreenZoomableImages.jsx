@@ -493,8 +493,9 @@ const FullScreenZoomableImage = ({
                
                 key={index}
                 className="carousel-item"
+                zoom={true}
               >
-                <div className="swiper-zoom-container">
+                
                   <div
                     id={"zoomDiv" + index}
                     className={`${styles.productImageDiv} ${
@@ -544,7 +545,7 @@ const FullScreenZoomableImage = ({
                       draggable={false}
                     />
                   </div>
-                </div>
+               
               </SwiperSlide>
             ))}
           </Swiper>
