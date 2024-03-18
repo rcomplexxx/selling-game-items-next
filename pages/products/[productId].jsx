@@ -92,6 +92,8 @@ export default function ProductPage({ product, images, startReviews, ratingData 
                 .scrollIntoView({ behavior: "smooth" });
             }}
           >
+
+        {/* <span className={styles.ratingNumber}>{ratingData.rating.toFixed(1)}</span> */}
            
             <StarRatings
               rating={ratingData.rating?ratingData.rating:4.7}
@@ -101,14 +103,14 @@ export default function ProductPage({ product, images, startReviews, ratingData 
               starDimension="20px"
               starSpacing="0.4px"
             />
-            <span>({ratingData.reviewsNumber})</span>
+            <span className={styles.product_rating_reviews_number}>({ratingData.reviewsNumber})</span>
           </div>
           <div className={styles.product_price}>
             {product.stickerPrice && <span className={styles.product_price_span}>${product.stickerPrice.toFixed(2)}</span>}$
             {product.price.toFixed(2)}
           </div>
           <div className={styles .variantDiv}>
-          <p className={styles.product_style_label}>Color: {variant}</p>
+          <span className={styles.product_style_label}>Color: {variant}</span>
           <div className={styles.product_style_options}>
             {product.variants && product.variants.map((v, i)=>{
            return  <div
