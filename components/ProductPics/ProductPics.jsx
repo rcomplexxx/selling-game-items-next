@@ -160,7 +160,7 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
    
  
         preventClicks={false}
-        preventClicksPropagation={false}
+        // preventClicksPropagation={false}
         touchStartPreventDefault={false}
      
 

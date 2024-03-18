@@ -59,9 +59,11 @@ export default function ToastMessage({showToastMessage, setShowToastMessage}) {
                 toast.classList.add(styles.instantDissapearingToast);
              
                 global.toastMessageNotShowable=true;
+                setTimeout(()=>{  global.toastMessageNotShowable=true;setShowToastMessage(0)},150)    
+              }
         
         
-            }
+            
         }
 
     },[showToastMessage, toastRef])
