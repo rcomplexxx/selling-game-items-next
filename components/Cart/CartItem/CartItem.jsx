@@ -64,7 +64,7 @@ const CartItem = ({ item }) => {
             >
               -
             </button>
-            <h2 className={styles.quantity}>{item.quantity}</h2>
+            <span className={styles.quantity}>{item.quantity}</span>
             <button
               className={styles.quantityButton}
               onClick={() => handleUpdateCartQty(1)}
