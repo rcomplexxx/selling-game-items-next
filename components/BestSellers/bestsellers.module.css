@@ -151,11 +151,19 @@
     
     }
 
+   
 
 }
 
 @media(max-width: 480px){
-    .productImageDiv h2{
+    .productTitle{
         font-size: var(--font-size-3);
     }
+
+    .addToCartButton{
+        height: 40px;
+    }
+
+
+
 }

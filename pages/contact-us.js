@@ -129,7 +129,7 @@ export default function ContactUs() {
              setErrors({...errors, message: false})
               }}
               className={styles.messageTextArea}
-              rows={6}
+              
               maxLength={500}
               
             />
