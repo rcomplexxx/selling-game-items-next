@@ -342,7 +342,7 @@
       position: fixed;
       bottom: 0;
       background-color: var(--gray-9-elegant);
-      height: var(--size-8-5);
+      height: var(--size-8);
       width: 100%;
      
      
@@ -351,7 +351,7 @@
       align-items: center;
       transition: opacity 0.3s ease, transform 0.3s ease;
       border-top: 1px solid var(--border-color-strong);
-      font-size: var(--font-size-2);
+      font-size: var(--font-size-1);
       animation: spawnAddToCart 0.3s ease;
       cursor: pointer;
     z-index: 10;

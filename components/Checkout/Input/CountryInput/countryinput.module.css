@@ -1,6 +1,6 @@
 .countrySelectStyle{
     width: 100%;
-    height: 38px;
+    height: 46px;
     background-color: var(--input-color);
     padding: 0 var(--size-2);
     color: var(--checkout-input-placeholder);
@@ -26,6 +26,7 @@
 
   .arrowDown{
     position:absolute;
+    top: calc(50% - var(--size-2));
     align-self: flex-end;
     transform: rotate(90deg);
     margin-right: var(--size-3);
@@ -76,7 +77,7 @@
       color: var(--checkout-input-placeholder);
       position: absolute;
       left: var(--size-3);
-      top: 11px;
+      top: calc(50% - var(--size-3));
       transition: all 0.3s ease;
       pointer-events: none;
       opacity: 0.7;
@@ -84,7 +85,7 @@
 
     .labelDown{
       opacity: 0.9;
-      top: 3px;
+      top: 7px;
       font-size: var(--font-size-1);
     }
 
@@ -92,7 +93,7 @@
       color: var(--high-contrast-light-txt-color);
       position: absolute;
       left: var(--size-3);
-      top: 19px;
+      top: 23px;
      
       font-size: var(--font-size-2);
       pointer-events: none;
