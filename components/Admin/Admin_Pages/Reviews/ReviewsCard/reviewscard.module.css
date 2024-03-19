@@ -94,7 +94,7 @@
 
 .swiperLabelCurrentId{
     position: absolute;
-    top:-var(--size-9);
+    top:calc(-1 * var(--size-9));
     left:var(--size-1);
     font-size: var(--font-size-8);
     color: rgb(134, 149, 180);

@@ -1,8 +1,25 @@
 import Image from "next/image";
 import styles from "./pageindexbuttons.module.css";
+import { useCallback } from "react";
 
 export default function PageIndexButtons({ data, page, setPage }) {
   if (data.length == 0) return;
+
+
+
+
+  const getPageNumbersArray = useCallback(()=>{
+   
+      const max = Math.ceil(data.length / 10);
+      if(max<18) return Array.from({ length: Math.ceil(data.length / 10) }, (_, index) =>  index);
+      else {
+        console.log('act', page)
+        if(page<9)return Array.from({ length: 18 }, (_, index) =>  index);
+        else if(max-page<9)return Array.from({ length: 18 }, (_, index) => max - 18 + index);
+        else return Array.from({ length: 18 }, (_, index) => {return page - 9 + index});
+      }
+  },[page])
+
 
   return (
     <div className={styles.linkDiv}>
@@ -21,20 +38,20 @@ export default function PageIndexButtons({ data, page, setPage }) {
           </span>
         </div>
       )}
-      {Array.from({ length: Math.ceil(data.length / 10) }).map((_, i) =>
-        page === i ? (
+      {getPageNumbersArray().map((pageNumber, i) =>
+        page === pageNumber+1 ? (
           <span key={i} className={styles.linkDivPageNumber}>
-            <div className={styles.pageLink} onClick={() => setPage(i)}>
-              {i + 1}
+            <div className={styles.pageLink} onClick={() => setPage(pageNumber+1)}>
+              {pageNumber+1}
             </div>
           </span>
         ) : (
           <div
             key={i}
             className={styles.linkDivPageNumber}
-            onClick={() => setPage(i)}
+            onClick={() => setPage(pageNumber+1)}
           >
-            {i + 1}
+            {pageNumber+1}
           </div>
         ),
       )}

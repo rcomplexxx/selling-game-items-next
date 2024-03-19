@@ -7,6 +7,7 @@ export default function ReviewsCard({
   imageName,
   deleted,
   setImages,
+  changed
 }) {
   console.log(deleted);
 
@@ -16,10 +17,9 @@ export default function ReviewsCard({
       src={`/images/review_images/${imageName}`}
       height={0} width={0}
       sizes="100vw"
-      className={`${styles.reviewImage} ${
-        deleted ? styles.deletedImage : styles.unDeletedImage
-      }`}
+      className={`${styles.reviewImage} ${deleted && styles.deletedImage} ${changed && styles.imageChanged}`}
       onClick={() => {
+        if(changed)return
         setImages((prev) => {
           let newImages = [...prev];
 

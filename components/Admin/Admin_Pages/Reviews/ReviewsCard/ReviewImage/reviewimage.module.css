@@ -10,6 +10,8 @@
 .reviewImage{
    height:100%;
    width: auto;
+   border: 2px solid rgb(74, 228, 125);
+   box-shadow: 0 0 8px #4fabe0;
 }
 
 
@@ -19,7 +21,8 @@
     box-shadow: 0 0 6px #5e550a;
 }
 
-.unDeletedImage{
-    border: 2px solid rgb(74, 228, 125);
-    box-shadow: 0 0 8px #4fabe0;
+
+
+.imageChanged{
+    cursor: auto;
 }

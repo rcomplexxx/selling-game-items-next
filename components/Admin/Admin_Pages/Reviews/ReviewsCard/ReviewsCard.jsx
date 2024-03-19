@@ -148,6 +148,7 @@ export default function ReviewsCard({
                 imageName={img.imageName}
                 deleted={img.deleted}
                 setImages={setImages}
+                changed={changed}
               />
             );
           })}

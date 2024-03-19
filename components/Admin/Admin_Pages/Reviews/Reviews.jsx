@@ -87,7 +87,7 @@ export default function Reviews({ reviews, setReviews }) {
 
           <GetDataButton
             name="Reviews"
-            reqData={{ product_id: "0" }}
+            reqData={{ product_id: productId }}
             dataType={"get_reviews"}
             setData={setReviews}
             initializeData={initializeReviewsData}

@@ -578,7 +578,24 @@
   .continueLink{
     margin-left: auto;
     text-decoration: none;
+
+    padding: var(--size-4);
+    color:var(--high-contrast-light-txt-color);
+   
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 6px;
+      
   }
+
+  @media(hover:hover){
+  .continueLink:hover{
+    background-color: var(--writing-next-button-hover-bg);
+  }
+}
   
   
   @media (max-width: 980px)  {
@@ -671,6 +688,7 @@
       align-items: center;
       
       box-sizing: border-box;
+      
       padding: var(--size-4);
       border-radius: 6px;
 
