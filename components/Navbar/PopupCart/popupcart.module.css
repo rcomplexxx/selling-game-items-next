@@ -10,9 +10,9 @@
     background-color: var(--gray-9-elegant);
 
 
-    max-height: 0;
+    /* max-height: 0; */
     width:var(--size-14);
-
+    height: 0;
 
     display: flex;
     flex-direction: column;
@@ -26,20 +26,16 @@
     padding: 0 var(--size-7);
     border: 1px solid rgb(39, 35, 44);
   
-
+    transition: height 0.5s 0s ease;
   
 
-    animation: materializePopup 0.5s 0.18s ease forwards;
+    /* animation: materializePopup 0.5s 0.18s ease forwards; */
 
     user-select: none;
     overflow: hidden;
   }
 
-  /* .materialize{
-    
-    transition: max-height 0.5s 0.028s ease;
- 
-  } */
+
 
   .firstPopupTitle{
     margin-top:  var(--size-5);
@@ -92,6 +88,7 @@
 
 
   .add_to_cart_button {
+    flex-shrink: 0;
     max-width: var(--size-15);
     height: var(--size-8);
     width:100%;
@@ -118,11 +115,11 @@
 
 
   .buyNowButton{
-
+    flex-shrink: 0;
 
     color:  var(--high-contrast-light-txt-color);
     background-color: transparent;
-    height: var(--size-8);
+    height: var(--size-8) !important;
     max-width: var(--size-15);
     width:100%;
     display: flex;
@@ -145,6 +142,7 @@
   }
 
   .continue_shopping{
+    flex-shrink: 0;
     color: var(--light-txt-color);
    
    
@@ -158,7 +156,7 @@
 
   @media (max-width: 600px){
     .cartPopup{
-        height: auto;
+        height: 0;
         
         right: 0;
         width: 100%;
@@ -167,10 +165,10 @@
        border-top: 1px solid rgb(39, 35, 44);
        border-left: none;
        border-right: none;
+ 
+       /* animation: materializePopup 0.6s 0.18s ease forwards; */
 
-       animation: materializePopup 0.6s 0.18s ease forwards;
-
-       /* transition: max-height 0.6s ease; */
+     
     }
 
    
@@ -179,11 +177,11 @@
 
   }
 
-@keyframes materializePopup {
+/* @keyframes materializePopup {
   0%{
     max-height: 0;
   }
   100%{
     max-height:  var(--size-14);
   }
-}
+} */

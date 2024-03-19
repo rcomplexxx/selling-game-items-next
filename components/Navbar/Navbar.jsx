@@ -56,7 +56,7 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
     if (subMenu !=0) {
   
 
-    document.getElementById(`${subMenu == 1?"collectionsDropMenu":"infoDropMenu"}`).style.top = "40px";
+    document.getElementById(`${subMenu == 1?"collectionsDropMenu":"infoDropMenu"}`).style.top = "calc(100% + var(--size-3))";//40px
 
       document?.addEventListener("click", handleClickOutside, true);
     } 

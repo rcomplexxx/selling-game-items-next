@@ -13,7 +13,7 @@ export default function PopupCart({totalItems,newProduct, setNewProduct}){
 
 const router = useRouter();
 
-const backStopper = useRef(false);
+const popCartRef=useRef();
 
 const nextLink = useRef();
 
@@ -29,9 +29,9 @@ useEffect(()=>{
 
 
 
-
-
-
+  const popCart= popCartRef.current;
+  popCart.style.height= `${popCart.scrollHeight}px`;
+  console.log('pop', popCart.scrollHeight)
  
 
 
@@ -96,7 +96,7 @@ const handlePopCartLinkClick=(event, nextLinkHref)=>{
 
 }
 
-    return <div className={`${styles.cartPopup}`} >
+    return <div id='popCart' ref={popCartRef} className={`${styles.cartPopup}`} >
   
   <div className={`${styles.cartPopupTitle} ${styles .firstPopupTitle}`}>
      <Image height={12} width={12} src='/images/smallCorrect.png' className={styles.smallCorrect}/>
@@ -132,7 +132,7 @@ const handlePopCartLinkClick=(event, nextLinkHref)=>{
   
     </Link>
     
-    <span className={styles.continue_shopping}  onClick={()=>{setNewProduct();}} >Continue shopping</span>
+    <span className={styles.continue_shopping}  onClick={()=>{setNewProduct();}}>Continue shopping</span>
     
 
  
