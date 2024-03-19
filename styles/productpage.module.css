@@ -156,7 +156,7 @@
     background-color: var(--main-button-color);
     color: var(--high-contrast-light-txt-color);
     font-size:var(--font-size-3);
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     border-radius: 4px;
   }
@@ -189,14 +189,14 @@
     max-width: var(--size-15);
     width:100%;
     display: inline-block;
-    padding: 0 var(--size-6);
+   
     margin-top: var(--size-2);
     margin-bottom: var(--size-3);
     background-color: transparent;
     border: 1px solid var(--buy-now-border);
     color: var(--high-contrast-light-txt-color);
     font-size: var(--font-size-3);
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
     border-radius: 4px;
   }
