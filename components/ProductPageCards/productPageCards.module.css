@@ -46,7 +46,7 @@
 .mainContactDiv{
     display: flex;
     flex-direction: column;
-  
+    align-items: center;
   
     padding: var(--size-2) 0;
 }
@@ -60,21 +60,72 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    
+    align-items: center;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     margin-top: var(--size-3);
-    padding-left:  var(--size-4);
-    padding-right:  var(--size-4);
+    box-sizing: border-box;
+    padding: 0 var(--size-3);
+  
+  
 
+}
+
+
+
+
+
+
+
+.inputGroup{
+  
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+    box-sizing: border-box;
+    margin-top: var(--size-2);
+    
+    
+    margin-bottom: var(--size-3);
+}
+
+
+.inputGroupLabel{
+    margin-left: var(--size-1);
+    margin-bottom: var(--size-1);
+    font-family: var(--font-neutral);
+    opacity: 1;
 }
 
 .contactInput{
-  
+
+    height: var(--size-8);
+    width: 100%;
+   
+    color: var(--high-contrast-light-txt-color);
+    background-color: var(--contact-input-color);
+    /* font-family: var(--font-neutral); */
+    border: none;
+    border-radius: 4px;
     box-sizing: border-box;
-    margin-bottom: 0;
+    padding: 0 var(--size-3);
+
+    outline: none;
+    font-size: var(--font-size-3);
+    font-family: var(--font-neutral);
+   
+
+    
 }
+
+
+
+.contactInput:focus{
+    border: 1px solid var(--border-color-strong);
+}
+
 
 .contactError{
     color: var(--error-color);
@@ -90,93 +141,54 @@
 }
 
 
-
-.inputGroup{
-    display: flex;
-    flex-direction: column;
- 
-    margin-top: var(--size-2);
-   
-    margin-bottom: var(--size-3);
-}
-
-
-
-.contactLabel{
-    margin-left: var(--size-1);
-    margin-bottom: var(--size-1);
-    
-    font-family: var(--font-neutral);
-}
-
-.contactInput{
-    height: 28px;
-    width: 100%;
-    color: var(--high-contrast-light-txt-color);
-    background-color: var(--contact-input-color);
-    font-family: var(--font-neutral);
-    font-size: var(--font-size-2);
-    border: none;
-    border-radius: 4px;
-    outline: none;
-}
-
-.contactInput:focus{
-    border: 1px solid var(--border-color-strong);
- }
- 
-
-
-
-
-
-
-
-
-
-
 .messageField{
- 
+    width: 100%;
    
     display: flex;
     flex-direction: column;
+  
    
-    margin: var(--size-5) var(--size-4);
-   
-
+    margin: var(--size-5) var(--size-3);
+  
     box-sizing: border-box;
-    padding-top: var(--size-2);
-   
-   
-
+    padding: var(--size-2);
+    padding-bottom: 0;
    
     border-radius: 8px;
-   
 }
 
-
+.messageText{
+    margin-left: 6px;
+    margin-bottom: var(--size-1);
+    font-family: var(--font-neutral);
+    opacity: 1;
+}
 
 .messageTextArea{
+    height: var(--size-12);
     border: none;
     color: var(--high-contrast-light-txt-color);
     background-color: var(--contact-input-color);
- 
-   
-   
-  
-
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-family: var(--font-neutral);
-    /* font-family: var(--font-neutral); */
-    font-size: var(--font-size-2);
+    flex-grow: 1;
+    margin-left: var(--size-2);
+    margin-right: var(--size-2);
     resize: none;
+    border-radius: 8px;
+    font-family: var(--font-neutral);
+    font-size: var(--font-size-3);
+    box-sizing: border-box;
+    padding: var(--size-3);
     outline: none;
+}
+
+.messageTextArea::placeholder{
+    font-family: var(--font-neutral);
 }
 
 .messageTextArea:focus{
     border: 1px solid var(--border-color-strong);
 }
+
 
 .messageSuccess{
     color: var(--success-color);
@@ -188,19 +200,18 @@
 }
 
 .sendButton{
-    color: var(--action-button-txt-color);
-    background-color: var(--action-button-bg-color);
-    width: var(--size-10);
-    height: var(--size-7);
-  
-   
-  
-    margin-right: var(--size-4);
-    margin-bottom: var(--size-4);
+    align-self: flex-end;
+    width: var(--size-11);
+    height: var(--size-8);
     border: none;
     border-radius: 12px;
-    font-family: var(--font-neutral);
-    align-self: flex-end;
+    color: var(--action-button-txt-color);
+    background-color: var(--action-button-bg-color);
+ 
+
+    margin: var(--size-5) var(--size-4);
+    margin-bottom: var(--size-7);
+    font-size: var(--font-size-4);
     cursor: pointer;
 }
 
@@ -240,6 +251,23 @@
     .trustIcon{
         margin-top: var(--size-6);
     }
+}
+
+@media(max-width: 480px){
+  
+    
+    .sendButton{
+        align-self: center;
+        width: calc(100% - var(--size-6));
+      
+        margin-top: var(--size-6);
+       
+        
+        border-radius: 4px;
+      
+    }
+
+
 }
 
 
