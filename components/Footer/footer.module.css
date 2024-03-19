@@ -78,8 +78,25 @@
   }
 
   .subscribeInput:focus{
-    border: solid var(--input-box-shadow-color) 2px;
+    border: 1px solid var(--border-color-strong);
   }
+
+
+  .subscribeInput:-webkit-autofill {
+    background-color: var(--bg-color);
+    -webkit-box-shadow: 0 0 0 30px var(--bg-color) inset !important;
+    -webkit-text-fill-color: var(--light-txt-color);
+   
+  }
+  
+  /* For Firefox */
+  .subscribeInput:-moz-autofill {
+    background-color: var(--bg-color);
+    -webkit-box-shadow: 0 0 0 30px var(--bg-color) inset !important;
+    -webkit-text-fill-color: var(--light-txt-color);
+  }
+  
+
 
   .subscribeValidationMessage{
     color: var(--error-color);
