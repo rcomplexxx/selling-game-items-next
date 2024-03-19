@@ -351,7 +351,8 @@
       align-items: center;
       transition: opacity 0.3s ease, transform 0.3s ease;
       border-top: 1px solid var(--border-color-strong);
-      font-size: var(--font-size-1);
+      font-size: var(--font-size-2);
+     
       animation: spawnAddToCart 0.3s ease;
       cursor: pointer;
     z-index: 10;
