@@ -121,7 +121,7 @@ export default function ContactUs() {
             </div>
           </div>
           <div className={styles.messageField}>
-            <label className={styles.inputGroupLabel}>Message</label>
+            <label className={`${styles.messageText}`}>Message</label>
             <textarea
             placeholder="Write your message here"
               ref={messageRef}
