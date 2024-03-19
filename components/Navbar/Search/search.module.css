@@ -99,6 +99,7 @@
   align-items: flex-start;
   
   font-size: var(--font-size-1);
+
   box-sizing: border-box;
   cursor: pointer;
 }
@@ -117,8 +118,8 @@
 }
 
 .searchItemImg{
-  height: 36px;
-  width: var(--size-9);
+  height: var(--size-8);
+  width: var(--size-8);
   flex-shrink: 0;
   object-fit: cover;
   margin-right: var(--size-3);
@@ -154,9 +155,9 @@
       height: var(--size-6);
       width: var(--size-6);
      
-      font-size: var(--font-size-5);
-    
-      font-weight: 400;
+      /* font-size: var(--font-size-5);
+      font-weight: 400; */
+
       user-select: none;
       cursor: pointer;
     }
