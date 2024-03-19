@@ -11,7 +11,7 @@
 
 
     max-height: 0;
-    width:var(--size-13-5);
+    width:var(--size-14);
 
 
     display: flex;
@@ -93,11 +93,12 @@
 
   .add_to_cart_button {
     max-width: var(--size-15);
+    height: var(--size-8);
     width:100%;
     display: inline-block;
     border: none;
     box-sizing: border-box;
-    padding: 12px var(--size-6);
+    
     margin-top: var(--size-7);
     margin-bottom: var(--size-3);
     background-color: var(--main-button-color);
@@ -121,7 +122,7 @@
 
     color:  var(--high-contrast-light-txt-color);
     background-color: transparent;
-
+    height: var(--size-8);
     max-width: var(--size-15);
     width:100%;
     display: flex;
@@ -129,10 +130,10 @@
     align-items: center;
     
     margin-top: var(--size-2);
-    margin-bottom: var(--size-3);
+    margin-bottom: var(--size-4);
     box-sizing: border-box;
     
-    padding: 12px var(--size-6);
+   
    
     border: 1px solid rgb(159, 160, 92);
     border-radius: 4px;
