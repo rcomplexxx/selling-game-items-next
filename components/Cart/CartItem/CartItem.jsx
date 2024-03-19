@@ -10,7 +10,9 @@ import AppContext from "@/contexts/AppContext";
 const CartItem = ({ item }) => {
   const { cartProducts, setCartProducts } = useContext(AppContext);
 
-  const handleUpdateCartQty = async (quantity) => {
+  console.log('it', item)
+
+  const handleUpdateCartQty = (quantity) => {
     setCartProducts(
       cartProducts
         .map((cp) => {
@@ -24,7 +26,7 @@ const CartItem = ({ item }) => {
     );
   };
 
-  const handleRemoveFromCart = async (lineItemId, lineItemVariant) => {
+  const handleRemoveFromCart =  (lineItemId, lineItemVariant) => {
     const newCartProducts = cartProducts.filter((cp) => cp.id != lineItemId || cp.variant != lineItemVariant);
     console.log(lineItemId);
     console.log(newCartProducts);

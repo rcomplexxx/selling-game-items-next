@@ -102,7 +102,7 @@
       transform: scale(1);
     }
     50% {
-      transform: scale(0.9);
+      transform: scale(0.95);
     }
     100% {
       transform: scale(1);
@@ -111,7 +111,7 @@
   
   .addToCartButton:active {
     
-    animation: bump 0.3s ease;
+    animation: bump 0.2s ease;
   }
 
 
