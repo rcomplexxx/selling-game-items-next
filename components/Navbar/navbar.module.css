@@ -10,7 +10,7 @@
   width:100%;
   max-width: 100%;
   
-  height: var(--size-10);
+  height: var(--size-9);
  
    
 
@@ -33,7 +33,7 @@
     
     width:100%;
     max-width: 100%;
-    height: var(--size-10);
+    height: var(--size-9);
     border-bottom: 1px solid var(--border-color-weak);
     background-color: var(--navbar-bg);
   }
@@ -44,7 +44,7 @@
     top:0;
     min-height: 0;
     
-    max-height:  var(--size-10);
+    max-height:  var(--size-9);
     
    
   }
@@ -73,7 +73,7 @@
     display: flex;
     text-decoration: none;
     transition: transform 0.08s ease-in;
-    font-size: var(--font-size-6);
+    font-size: var(--font-size-5);
  
     font-weight: 300;
     margin-top: var(--size-2);
@@ -102,9 +102,8 @@
  
   
   .image {
-   
-    height: var(--size-7);
-    width: var(--size-7);
+    height: var(--size-6);
+    width: var(--size-6);
     border-radius: 100%;
     margin-right: var(--size-3);
 
@@ -155,7 +154,7 @@
     color: var(--nav-links-color);
     text-decoration: none;
     transition: transform 0.08s ease-in;
-    font-size: var(--font-size-4);
+    font-size: var(--font-size-3);
     padding-left: var(--size-4);
     padding-right: var(--size-4);
   }
@@ -264,9 +263,9 @@
     width: var(--size-7);
     color: #888b88;
     transition: transform 0.1s ease-in;
+    
     margin-left: var(--size-3);
-    margin-bottom: var(--size-3);
-   
+  
   }
   
   .cartStyle:hover {
@@ -277,9 +276,11 @@
     transform: scale(1);
   }
 
+
+ 
   .bagImg{
-    height: 40px;
-    width: 40px;
+    height: var(--size-7);
+    width: var(--size-7);
   }
 
   .badgeDiv{
@@ -311,12 +312,11 @@
   .smallMenuImage{
  
     position:relative;
-    height:var(--size-7);
-    width: var(--size-7);
+    height:var(--size-6);
+    width: var(--size-6);
     
     align-self: center;
     margin-right:var(--size-3);
-   
     cursor: pointer;
 
 
@@ -368,7 +368,7 @@
    }
 
 
-  @media(max-width: 520px){
+  @media(max-width: 500px){
     .growAlt{
       z-index: 1;
       }

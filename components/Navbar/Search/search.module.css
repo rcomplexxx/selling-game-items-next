@@ -21,8 +21,8 @@
   
   .customSearchBarInput {
 
-     width: var(--size-13);
-    height: var(--size-8);
+     width: var(--size-12);
+    height: var(--size-7);
     
     background-color: var(--search-bg);
     color: var(--light-txt-color);
@@ -64,8 +64,8 @@
   .searchIcon{
     opacity: 0.8;
     margin-left: var(--size-5);
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
   }
   
@@ -183,7 +183,7 @@
 }
 
 
-@media(max-width: 600px){
+@media(max-width: 480px){
   .customSearchBarInput {
 
     width: var(--size-12);
@@ -191,7 +191,7 @@
 }
 
 
-@media(max-width: 520px){
+@media(max-width: 380px){
 
   .customSearchBarInput {
 

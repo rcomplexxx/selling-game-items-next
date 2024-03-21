@@ -71,7 +71,7 @@ height : 100vh;
   }
 
   .checkoutButtonNew{
-    height: 40px;
+    height: var(--size-8);
     min-width: var(--size-12);
     color: var(--high-contrast-light-txt-color);
     background-color: var(--main-button-color);
