@@ -12,6 +12,7 @@ import Emails from "./Admin_Pages/Emails/Emails";
 import NewEmail from "./Admin_Pages/Emails/NewEmail/NewEmail";
 import NewCampaign from "./Admin_Pages/Emails/NewCampaign/NewCampaign";
 import Campaigns from "./Admin_Pages/Emails/Campaigns/Campaigns";
+import DataWiper from "./Admin_Pages/DataWiper/DataWiper";
 
 export default function Admin() {
   const [isAdmin, setIsAdmin] = useState();
@@ -108,7 +109,7 @@ export default function Admin() {
 
     for (let i = 0; i < data.length; i++) {
       const review = data[i];
-      console.log(review.imageName);
+  
       newReviews.push({
         id: review.id,
         name: review.name,
@@ -189,7 +190,12 @@ export default function Admin() {
 
         
             break;
-           
+
+            case "datawiper":
+              content = (
+                <DataWiper/>
+              );
+            break;
         default:
           content = <h1>Error 404. Page does not exist.</h1>;
       }

@@ -62,6 +62,74 @@ else{
     }
   };
 
+
+
+  function  wipeReviewImageDirectory(product_id) {
+
+    const path = require('path');
+
+    const directoryPath = `${process.cwd()}/public/images/review_images/productId_${product_id}/`
+    // Get a list of all files and directories in the specified directory
+    const files = fs.readdirSync(directoryPath);
+
+    // Iterate over each file/directory
+    files.forEach(file => {
+        const filePath = path.join(directoryPath, file);
+
+        // Delete the file or directory
+        fs.rmSync(filePath, { recursive: true, force: true });
+    });
+
+    // Remove the directory itself
+    fs.rmdirSync(directoryPath);
+}
+
+
+
+  const wipeData =(tableName, product_id)=>{
+
+
+
+    try {
+
+      console.log('reviews wipiong', tableName, product_id)
+    const db = betterSqlite3(process.env.DB_PATH);
+
+      if(tableName==='reviews'){
+      if (product_id == 'all'){
+
+
+        const query = db.prepare('SELECT DISTINCT product_id FROM reviews');
+        const product_ids = query.all();
+        console.log('productids', product_ids)
+        product_ids.forEach(product_id =>{
+          wipeReviewImageDirectory(product_id.product_id)
+        })
+
+        db.prepare(`DELETE FROM ${tableName}`).run();
+          }
+          else{
+            db.prepare(`DELETE FROM ${tableName} WHERE product_id = ?`).run(product_id);
+            wipeReviewImageDirectory(product_id)
+            
+
+
+
+          }
+        }
+        else{
+          db.prepare(`DELETE FROM ${tableName}`).run();
+        }
+        db.close();
+        return res.status(200).json({ data_wiped: true });
+      } catch (error) {
+        console.error(error);
+        return res
+          .status(500)
+          .json({ successfulLogin: false, error: "Database update error" });
+      }
+  }
+
   const updateDb = async (table, data, queryCondition) => {
     try {
       const db = betterSqlite3(process.env.DB_PATH);
@@ -95,7 +163,7 @@ else{
 
            if(deletedImages) deletedImages.forEach((deletedImage)=>{
             console.log('path', deletedImage);
-            fs.rename(process.cwd() +`/public/images/review_images/${deletedImage}`, process.cwd() +`/public/images/review_images/deleted_images/${deletedImage}`,function (err) {
+            fs.rename(process.cwd() +`${process.cwd()}/public/images/review_images/productId_${data[i].id}/${deletedImage}/`, process.cwd() +`${process.cwd()}/public/images/review_images/productId_${data[i].id}/deleted_images/${deletedImage}`,function (err) {
               if (err) throw err
               console.log('Successfully renamed - AKA moved!')
             });
@@ -260,6 +328,7 @@ else{
     // For simplicity, let's assume userId 1 is the admin
     if (userIsAdmin) {
       const { dataType, data } = req.body;
+      console.log('data', data);
       console.log(dataType);
       if (!dataType) return res.status(200).json({ successfulLogin: true });
       else {
@@ -355,6 +424,16 @@ else{
             
             'updateEmails'
           );
+        }
+        else if(dataType === `wipe_orders`){
+          wipeData('orders')
+        }
+        else if(dataType === `wipe_messages`){
+          wipeData('messages')
+        }
+        else if(dataType === `wipe_reviews`){
+          console.log('reviews wipiong', data.product_id)
+          wipeData('reviews', data.product_id)
         }
         
         

@@ -1,0 +1,73 @@
+
+
+.mainDiv{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+}
+
+.warning{
+    margin-bottom: var(--size-7);
+    color: rgb(230, 239, 51)
+}
+
+.wipeButton{
+    color: var(--high-contrast-light-txt-color);
+    background-color: transparent;
+    padding: var(--size-3) var(--size-6);
+    border-radius: 2px;
+    border: 1px solid var(--border-color-strong);
+    margin-bottom: var(--size-3);
+    cursor: pointer;
+    user-select: none;
+}
+
+.enterIdSpan{
+    margin-top: var(--size-6);
+    font-size: var(--font-size-2);
+   opacity: 0.9;
+}
+
+.reviewIdInput{
+    color: rgb(225, 236, 238);
+    background-color: var(--email-input-bg);
+    
+    width: auto;
+  
+    box-sizing: border-box;
+    padding: var(--size-3);
+    font-size: var(--font-size-5);
+    line-height: var(--size-7);
+   margin-top: var(--size-3);
+   border: 1px solid var(--border-color-strong);
+   border-radius: 8px;
+   outline: none;
+}
+
+.reviewIdInput::placeholder{
+    font-size: var(--font-size-1);
+}
+
+.wipeReviews{
+    margin-top: var(--size-5);
+}
+
+
+.loginBox{
+    height: var(--size-10);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: var(--size-9);
+}
+
+.adminVerified{
+    color: green;
+    margin-bottom: var(--size-9);
+}
+
+
+.dataWipedSuccessfully{
+    color: green;
+}

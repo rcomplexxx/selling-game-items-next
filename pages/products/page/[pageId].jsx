@@ -32,6 +32,7 @@ const ProductPage = ({  pageId, products, links }) => {
       <Products
         showAll={true}
         products={products}
+        productListTitle= "Trending products"
       
       />
       <PageNumber mainLink='/products/page/' links={links} pageId={pageId}/>

@@ -3,18 +3,18 @@ import styles from "./reviewimage.module.css";
 import Image from "next/image";
 
 export default function ReviewsCard({
+  productId,
   imageIndex,
   imageName,
   deleted,
   setImages,
   changed
 }) {
-  console.log(deleted);
-
+ 
   return (
     <div className={styles.imgController}>
     <Image
-      src={`/images/review_images/${imageName}`}
+      src={`/images/review_images/productId_${productId}/${imageName}`}
       height={0} width={0}
       sizes="100vw"
       className={`${styles.reviewImage} ${deleted && styles.deletedImage} ${changed && styles.imageChanged}`}

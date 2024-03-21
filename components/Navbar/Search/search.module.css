@@ -21,8 +21,8 @@
   
   .customSearchBarInput {
 
-     width: var(--size-12);
-    height: var(--size-7);
+     width: var(--size-13);
+    height: var(--size-8);
     
     background-color: var(--search-bg);
     color: var(--light-txt-color);
@@ -64,8 +64,8 @@
   .searchIcon{
     opacity: 0.8;
     margin-left: var(--size-5);
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
   }
   
@@ -135,13 +135,14 @@
   
     .customSearchBarOpen{
         position:absolute;
-         top:0;
+         top:50%;
          right: 0;
          background-color: var(--gray-9-elegant);
         height:var(--size-9);
         width: 100%;
         padding-right: var(--size-9);
         justify-content: flex-end;
+        transform: translateY(-50%);
         z-index: 9;
 
     }
@@ -182,7 +183,7 @@
 }
 
 
-@media(max-width: 480px){
+@media(max-width: 600px){
   .customSearchBarInput {
 
     width: var(--size-12);
@@ -190,7 +191,7 @@
 }
 
 
-@media(max-width: 380px){
+@media(max-width: 520px){
 
   .customSearchBarInput {
 

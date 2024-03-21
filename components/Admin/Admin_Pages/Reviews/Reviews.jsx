@@ -19,6 +19,8 @@ export default function Reviews({ reviews, setReviews }) {
     deleted,
     swapId,
   ) => {
+
+    
     let updatedReviewsArray = [...reviewsArray];
     let idAlreadyIncluded = false;
     updatedReviewsArray = updatedReviewsArray.map((r) => {
@@ -152,6 +154,7 @@ export default function Reviews({ reviews, setReviews }) {
                   id={review.id}
                   name={review.name}
                   text={review.text}
+                  productId={productId}
                   imageNames={review.imageNames}
                   handleReviewsChange={handleReviewsChange}
                 />

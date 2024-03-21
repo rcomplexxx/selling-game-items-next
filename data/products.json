@@ -12,8 +12,8 @@
     ],
     "price": 12,
     "stickerPrice": 32,
-    "raiting": 5,
-    "reviewNumber": 703,
+    "raiting": 4.7,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -41,7 +41,7 @@
       "2.png"
     ],
     "price": 42,
-    "reviewNumber": 7,
+    "reviewNumber": 50,
     "variants": [
       {
         "name": "black",
@@ -55,7 +55,6 @@
         "name": "white",
         "image": "boxItem5.png"
       }
-     
     ],
     "raiting": 5
   },
@@ -67,7 +66,7 @@
     ],
     "price": 74,
     "stickerPrice": 99.99,
-    "reviewNumber": 7,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -82,7 +81,7 @@
         "image": "boxItem5.png"
       }
     ],
-    "raiting": 5
+    "raiting": 4.7
   },
   {
     "id": 3,
@@ -91,7 +90,7 @@
       "4.png"
     ],
     "price": 120,
-    "reviewNumber": 92,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -106,7 +105,7 @@
         "image": "boxItem5.png"
       }
     ],
-    "raiting": 5
+    "raiting": 4.7
   },
   {
     "id": 4,

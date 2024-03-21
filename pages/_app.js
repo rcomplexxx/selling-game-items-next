@@ -138,14 +138,14 @@ const totalItems= useMemo(()=>{
        
       
       {emailPopup && <EmailFlowPopup setEmailPopup={setEmailPopup}/>}
-     <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>
+    {!router.pathname.includes('admin') && <Navbar totalItems={totalItems}  newProduct={newProduct} setNewProduct={setNewProduct}/>}
 
       
       <AppContext.Provider value={{ cartProducts, setCartProducts, setNewProduct }}>
         <Component {...pageProps} />
       </AppContext.Provider>
       
-       <Footer />
+      {!router.pathname.includes('admin') &&  <Footer />}
        </div>
    
      

@@ -4,12 +4,12 @@ import Product from "./Product/Product";
 import styles from "./products.module.css";
 import AppContext from "@/contexts/AppContext";
 
-const Products = ({ products, showAll }) => {
+const Products = ({ products, showAll, productListTitle }) => {
  
 
   return (
     <div className={styles.toolbar}>
-      <h1 className={styles.title}>Trending products</h1>
+     {productListTitle && <h1 className={styles.title}>{productListTitle}</h1>}
       <div className={styles.mainGridStyle}>
         {products.map((product, i) => (
           <Product

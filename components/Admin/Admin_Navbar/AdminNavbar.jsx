@@ -148,6 +148,14 @@ const AdminNavbar = ({ setIsAdmin }) => {
                 >
                   Emails
                 </Link>
+                <Link
+                  href="/admin/datawiper"
+                  className={`${styles.linkStyle} ${
+                    adminroute==="datawiper" ? styles.currentLink : ""
+                  }`}
+                >
+                  Data wiper
+                </Link>
               </div>
             </>
           )}

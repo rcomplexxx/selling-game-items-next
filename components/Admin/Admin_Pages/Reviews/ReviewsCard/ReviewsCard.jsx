@@ -9,6 +9,7 @@ export default function ReviewsCard({
   index,
   name,
   text,
+  productId,
   imageNames,
   handleReviewsChange,
 }) {
@@ -144,6 +145,7 @@ export default function ReviewsCard({
           images.map((img, i) => {
             return (
               <ReviewImage
+              productId={productId}
                 imageIndex={i}
                 imageName={img.imageName}
                 deleted={img.deleted}

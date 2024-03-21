@@ -8,7 +8,8 @@ import classNames from "classnames";
 
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
 
-function Review({ name, text,  stars, imageNames }) {
+function Review({ product_id, name, text,  stars, imageNames }) {
+ 
   return (
     <div className={styles.reviewDiv}>
       {imageNames &&
@@ -18,7 +19,7 @@ function Review({ name, text,  stars, imageNames }) {
               key={index}
               height={0}
               width={0}
-              src={`/images/review_images/${image}`}
+              src={`/images/review_images/productId_${product_id}/${image}`}
               alt="review image"
               loading={"lazy"}
               sizes="(max-width: 580px) 100vw, (max-width: 700px) 50vw, (max-width: 1200px) 33vw, 25vw"
@@ -44,6 +45,8 @@ function Review({ name, text,  stars, imageNames }) {
 }
 
 export default function CustomerReviews({ product_id, ratingData, startReviews }) {
+
+
  
   const [reviews, setReviews] = useState(startReviews ? startReviews : []);
   const newReviews = useRef(startReviews ? startReviews : []);
@@ -195,6 +198,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
                 name={review.name}
                 text={review.text}
                 stars={review.stars}
+                product_id={product_id}
                 imageNames={review.imageNames} //popravi ovo
               />
             );

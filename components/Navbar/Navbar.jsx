@@ -85,9 +85,9 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
           
               <Image
               id="mobileMenuSpawn"
-                height={24}
-                width={24}
-                sizes="24px"
+                height={0}
+                width={0}
+                sizes="32px"
                 src="/images/menuIcon2.png"
                 onClick={handleMobileMenuOpen}
                 className={styles.smallMenuImage}
@@ -96,8 +96,9 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
           
             <Link href="/" className={styles.logoLink}>
               <Image
-                height={24}
-                width={24}
+                height={0}
+                width={0}
+                sizes="32px"
                 src="/images/commerce.png"
                 alt={`${process.env.NEXT_PUBLIC_SITE_NAME} icon`}
                 className={styles.image}
@@ -290,8 +291,9 @@ const NavBar = ({ totalItems, newProduct, setNewProduct }) => {
             <Link href="/cart">
               <div className={styles.cartStyle}>
                 <Image
-                  height={32}
-                  width={32}
+                  height={0}
+                  width={0}
+                  sizes="48px"
                   src="/images/bagBlue.png"
                   className={styles.bagImg}
                   alt="cart"
