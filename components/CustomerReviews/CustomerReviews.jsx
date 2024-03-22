@@ -4,9 +4,8 @@ import styles from "./customerreviews.module.css";
 import StarRatings from "react-star-ratings";
 import ReactHtmlParser from "react-html-parser";
 // import Masonry from "react-masonry-css";
-// import classNames from "classnames";
-// import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
-import { Masonry } from "react-plock";
+import classNames from "classnames";
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
 
@@ -180,31 +179,42 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
 
 
 
-      <div  id='masonry' className={styles.masonryWrapper}>
-    
 
-      <Masonry
-      items={reviews}
-      config={{
-        columns: [1, 2, 3, 4],
-        
-        media: [580, 700, 1200],
-      }}
-      render={(review, index) => (
-        <Review
-        key={index}
-        name={review.name}
-        text={review.text}
-        stars={review.stars}
-        product_id={product_id}
-        imageNames={review.imageNames} //popravi ovo
-      />
-      )}
-    >
-        
+      <div  id='masonry' className={styles.masonryWrapper}>
+
+
+      <ResponsiveMasonry
+                 columnsCountBreakPoints={{
+          
+            1200: 4,
+            700: 3,
+            580: 2,
+            0: 1,
+          }}
+            >
+             
+
+        <Masonry
+       
+         
+          className={classNames(styles.my_masonry_grid)}
+          columnClassName={classNames(styles.my_masonry_grid_column)}
+        >
+          {reviews.map((review, index) => {
+            return (
+              <Review
+                key={index}
+                name={review.name}
+                text={review.text}
+                stars={review.stars}
+                product_id={product_id}
+                imageNames={review.imageNames} //popravi ovo
+              />
+            );
+          })}
         </Masonry>
 
-
+        </ResponsiveMasonry>
         </div>
       {loadButtonExists && (
         <button

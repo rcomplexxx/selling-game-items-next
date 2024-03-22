@@ -53,6 +53,40 @@
  
 }
 
+.my_masonry_grid {
+ 
+  width: calc(100% - var(--size-5));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+
+  }
+
+  @media(max-width: 1200px){
+    .my_masonry_grid {
+ 
+    
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  
+  @media(max-width: 700px){
+    .my_masonry_grid {
+ 
+    
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  
+  @media(max-width: 580px){
+    .my_masonry_grid {
+ 
+    
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 
 
 .reviewDiv{
