@@ -4,8 +4,8 @@ import styles from "./customerreviews.module.css";
 import StarRatings from "react-star-ratings";
 import ReactHtmlParser from "react-html-parser";
 // import Masonry from "react-masonry-css";
-
-
+import classNames from "classnames";
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
 
@@ -180,14 +180,10 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
 
 
 
-     
-             
+    
 
-        <div
-       
-       id='masonry'
-          className={styles.my_masonry_grid}
-        >
+
+      <div  id='masonry'  className={styles.masonry}>
           {reviews.map((review, index) => {
             return (
               <Review
@@ -200,10 +196,8 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
               />
             );
           })}
-        </div>
-
-      
-      
+       </div>
+       
       {loadButtonExists && (
         <button
        
