@@ -49,6 +49,7 @@
    
      margin-left: var(--size-3);
     margin-right: var(--size-3);
+    contain: content;
  
 }
 
