@@ -188,7 +188,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
       items={reviews}
       config={{
         columns: [1, 2, 3, 4],
-        gap: [0],
+        
         media: [580, 700, 1200],
       }}
       render={(review, index) => (
