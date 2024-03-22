@@ -151,7 +151,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
             Add to Cart
           </button>
 
-          <div className={styles.paypalWrapper}>
+          {/* <div className={styles.paypalWrapper}>
             <PayPalButton type='instant' color='gold' organizeUserData={
              useCallback((paymentMethod)=>{
                 const email = "";
@@ -196,7 +196,7 @@ export default function ProductPage({ product, images, startReviews, ratingData 
               }
             
   ,[])}/>
-          </div>
+          </div> */}
 
 
           <button className={styles.but_now_button} onClick={() => buyNow()}>
