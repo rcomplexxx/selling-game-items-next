@@ -560,6 +560,7 @@ const FullScreenZoomableImage = ({
                       height={0}
                       width={0}
                       sizes="100vw"
+                      loading={"eager"}
                       src={image.src}
                       alt="Zoomable"
                       className={`${styles.productImage}`}
