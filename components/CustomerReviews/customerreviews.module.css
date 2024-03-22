@@ -53,22 +53,30 @@
  
 }
 
+
 .my_masonry_grid {
  
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  column-fill: balance;
+   margin-left: var(--size-3);
+  margin-right: var(--size-3);
+  contain: content;
+
+}
+
+
+.reviewDiv{
+width: 100%;
+ max-height: max-content;
  
+}
+
+
+
   
-  }
-  .my_masonry_grid_column {
-   
-    /* background-clip: padding-box; */
-   
-  }
-  
-  /* Style your items */
-  .my_masonry_grid_column > div { /* change div to reference your elements you put in <Masonry> */
-    
-  
-  }
+
 
 .reviewDiv{
   width: 100%;

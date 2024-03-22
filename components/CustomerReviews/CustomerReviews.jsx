@@ -3,9 +3,8 @@ import Image from "next/image";
 import styles from "./customerreviews.module.css";
 import StarRatings from "react-star-ratings";
 import ReactHtmlParser from "react-html-parser";
-// import Masonry from "react-masonry-css";
+import Masonry from "react-masonry-css";
 import classNames from "classnames";
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
 
@@ -180,23 +179,15 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
 
 
 
-      <div  id='masonry' className={styles.masonryWrapper}>
-
-
-      <ResponsiveMasonry
-                 columnsCountBreakPoints={{
-          
-            1200: 4,
-            700: 3,
-            580: 2,
-            0: 1,
-          }}
-            >
-             
-
+    
         <Masonry
-       
-         
+        id='masonry'
+          breakpointCols={{
+            default: 4,
+            1200: 3,
+            700: 2,
+            580: 1,
+          }}
           className={classNames(styles.my_masonry_grid)}
           columnClassName={classNames(styles.my_masonry_grid_column)}
         >
@@ -213,9 +204,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
             );
           })}
         </Masonry>
-
-        </ResponsiveMasonry>
-        </div>
+    
       {loadButtonExists && (
         <button
        
