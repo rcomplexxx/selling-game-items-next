@@ -26,7 +26,7 @@ const FullScreenZoomableImage = ({
   const [zoomed, setZoomed] = useState(false);
   const [swiper, setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({ x: 0, y: 0 });
-  const [arrowDissapear, setArrowDissapear] = useState(false);
+  const [arrowDissapear, setArrowDissapear] = useState(true);
  
 
   const fixedZoomDivRef= useRef();
@@ -44,6 +44,7 @@ const FullScreenZoomableImage = ({
     if(fullScreen){
        setNavLocked(false);
       setNavActive(true);
+      setArrowDissapear(false);
     const fixedZoomDiv = fixedZoomDivRef.current;
 
     const mainImg = document.getElementById(`mainImage${imageIndex}`);
@@ -469,7 +470,7 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slidePrev();
             }}
-            className={`${styles.leftArrow} ${fullScreen && styles.spawnArrow}`}
+            className={`${styles.leftArrow} ${!arrowDissapear && styles.spawnArrow}`}
           ></Image>
           <Image
             height={12}
@@ -478,7 +479,7 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slideNext();
             }}
-            className={`${styles.leftArrow} ${styles.rightArrow} ${fullScreen && styles.spawnArrow}`}
+            className={`${styles.leftArrow} ${styles.rightArrow} ${!arrowDissapear && styles.spawnArrow}`}
           ></Image>
           {fullScreen && <Swiper
             initialSlide={imageIndex}

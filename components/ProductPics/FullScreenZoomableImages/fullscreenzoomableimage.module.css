@@ -134,8 +134,9 @@
 
 
   .rightArrow{
- 
-    margin-left: auto;
+    justify-self: flex-end;
+    left: auto;
+    right: var(--size-5);
     transform: translateY(-50%) rotate(180deg);
 
   
