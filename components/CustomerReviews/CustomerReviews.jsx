@@ -180,23 +180,12 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
 
 
 
-      <div  id='masonry' className={styles.masonryWrapper}>
-
-
-      <ResponsiveMasonry
-                 columnsCountBreakPoints={{
-          
-            1200: 4,
-            700: 3,
-            580: 2,
-            0: 1,
-          }}
-            >
+     
              
 
-        <Masonry
+        <div
        
-         
+       id='masonry'
           className={classNames(styles.my_masonry_grid)}
           columnClassName={classNames(styles.my_masonry_grid_column)}
         >
@@ -212,10 +201,10 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
               />
             );
           })}
-        </Masonry>
-
-        </ResponsiveMasonry>
         </div>
+
+      
+      
       {loadButtonExists && (
         <button
        
