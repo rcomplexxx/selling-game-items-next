@@ -43,19 +43,22 @@
 }
 
 
-.my_masonry_grid {
- 
-    display: flex;
-    flex-direction: row;
-    width: auto;
-    column-fill: balance;
+.masonryWrapper{
+  
+    width: calc(100% - var(--size-5));
+   
      margin-left: var(--size-3);
     margin-right: var(--size-3);
-    contain: content;
+ 
+}
+
+.my_masonry_grid {
+ 
+ 
   
   }
   .my_masonry_grid_column {
-    padding: 0 var(--size-3);
+   
     /* background-clip: padding-box; */
    
   }
@@ -63,13 +66,15 @@
   /* Style your items */
   .my_masonry_grid_column > div { /* change div to reference your elements you put in <Masonry> */
     
-    margin-bottom: var(--size-7);
+  
   }
 
 .reviewDiv{
   width: 100%;
    max-height: max-content;
-   
+   box-sizing: border-box;
+   padding: 0 var(--size-3);
+   margin-bottom: var(--size-6);
 }
 
   /* .reviewDivImage{
@@ -122,6 +127,16 @@
 
 
   @media (max-width: 980px)  {
+
+
+    .masonryWrapper{
+  
+      width: calc(100% - var(--size-11));
+     
+   
+  }
+
+
     .my_masonry_grid{
       width: calc(100% - var(--size-11));
     }
@@ -131,6 +146,15 @@
   }
   
   @media (max-width: 600px)  {
+
+    .masonryWrapper{
+  
+      width: calc(100% - var(--size-8));
+     
+   
+  }
+
+
     .my_masonry_grid{
       width: calc(100% - var(--size-8));
     }

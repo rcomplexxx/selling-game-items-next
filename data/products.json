@@ -12,8 +12,8 @@
     ],
     "price": 12,
     "stickerPrice": 32,
-    "raiting": 4.7,
-    "reviewNumber": 621,
+    "raiting": 5,
+    "reviewNumber": 50,
     "variants": [
       {
         "name": "black",
@@ -41,7 +41,7 @@
       "2.png"
     ],
     "price": 42,
-    "reviewNumber": 50,
+    "reviewNumber": 621,
     "variants": [
       {
         "name": "black",
@@ -56,7 +56,7 @@
         "image": "boxItem5.png"
       }
     ],
-    "raiting": 5
+    "raiting": 4.7
   },
   {
     "id": 2,

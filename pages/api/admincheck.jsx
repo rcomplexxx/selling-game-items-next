@@ -66,6 +66,8 @@ else{
 
   function  wipeReviewImageDirectory(product_id) {
 
+    console.log('wipe dir entered, ', product_id)
+
     const path = require('path');
 
     const directoryPath = `${process.cwd()}/public/images/review_images/productId_${product_id}/`

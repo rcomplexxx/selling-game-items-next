@@ -306,9 +306,11 @@
    
     
 
-
-
-
+    .variantDiv{
+     
+      align-self: center;
+      width: 100%;
+    }
   
    
 
@@ -317,6 +319,8 @@
       
       margin-right: var(--size-3);
     }
+
+    
 
   
 
@@ -328,6 +332,9 @@
       width: calc(100% - var(--size-8));
     }
 
+   
+
+
   }
 
   @media (max-width: 580px)  {
@@ -337,6 +344,8 @@
      
     
     }
+
+ 
   }
 
   @media(max-width: 500px){
