@@ -4,8 +4,8 @@ import styles from "./customerreviews.module.css";
 import StarRatings from "react-star-ratings";
 import ReactHtmlParser from "react-html-parser";
 // import Masonry from "react-masonry-css";
-import classNames from "classnames";
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
+// import classNames from "classnames";
+// import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
 
