@@ -54,29 +54,6 @@
 }
 
 
-.my_masonry_grid {
- 
-  display: flex;
-  flex-direction: row;
-  width: auto;
-  column-fill: balance;
-   margin-left: var(--size-3);
-  margin-right: var(--size-3);
-  contain: content;
-
-}
-
-
-.reviewDiv{
-width: 100%;
- max-height: max-content;
- 
-}
-
-
-
-  
-
 
 .reviewDiv{
   width: 100%;
