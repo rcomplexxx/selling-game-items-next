@@ -4,8 +4,8 @@ import styles from "./customerreviews.module.css";
 import StarRatings from "react-star-ratings";
 import ReactHtmlParser from "react-html-parser";
 // import Masonry from "react-masonry-css";
-import classNames from "classnames";
-import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
+
+
 
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
 
@@ -186,8 +186,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
         <div
        
        id='masonry'
-          className={classNames(styles.my_masonry_grid)}
-          columnClassName={classNames(styles.my_masonry_grid_column)}
+          className={styles.my_masonry_grid}
         >
           {reviews.map((review, index) => {
             return (
