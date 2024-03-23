@@ -85,6 +85,9 @@
     margin-bottom: var(--size-5);
 }
 
+.inputGroupErrorMargin{
+    margin-bottom: 0;
+}
 
 
 
@@ -99,7 +102,7 @@
     border: none;
     border-radius: 4px;
     box-sizing: border-box;
-      padding: var(--size-4) 0;
+      padding: var(--size-4) var(--size-3);
       padding-bottom: 0;
     outline: none;
     font-size: var(--font-size-3);
@@ -151,15 +154,18 @@ font-size: var(--font-size-1);
 
 .contactError{
     color: var(--error-color);
-    
-    margin-top:  var(--size-1);
+    margin-bottom: var(--size-5);
+    margin-top:  var(--size-2);
     margin-left: var(--size-1);
     font-family: var(--font-neutral);
     font-size: var(--font-size-2);
+    align-self: flex-start;
 }
 
 .contactMessageError{
-    margin-left: 6px;
+    margin-bottom: 0;
+      
+    margin-left: 4px;
 }
 
 

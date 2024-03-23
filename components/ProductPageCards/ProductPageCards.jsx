@@ -173,7 +173,7 @@ export default function ProductPageCards() {
         <div className={styles.contactInfoDiv}>
           
           
-            <div className={styles.inputGroup}>
+            <div className={`${styles.inputGroup} ${contactErrors.name && styles.inputGroupErrorMargin}`}>
              
               <input
                 id="name"
@@ -183,10 +183,10 @@ export default function ProductPageCards() {
                 onChange={()=>{ setContactErrors({...contactErrors, name: false})}}
               />
                <label htmlFor="name" className={styles.inputGroupLabel}>Name</label>
-              {contactErrors.name && <span className={styles.contactError}>{contactErrors.name}</span>}
-            </div>
-
-            <div className={styles.inputGroup}>
+               </div>
+               {contactErrors.name && <span className={styles.contactError}>{contactErrors.name}</span>}
+          
+            <div className={`${styles.inputGroup} ${contactErrors.email && styles.inputGroupErrorMargin}`}>
              
               <input
               placeholder=" "
@@ -196,9 +196,9 @@ export default function ProductPageCards() {
                 onChange={()=>{ setContactErrors({...contactErrors, email: false})}}
               />
                <label className={styles.inputGroupLabel}>Email</label>
+              </div>
               {contactErrors.email && <span className={styles.contactError}>{contactErrors.email}</span>}
-            </div>
-        
+           
         </div>
         <div className={styles.messageField}>
           
