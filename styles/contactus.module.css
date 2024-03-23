@@ -89,7 +89,7 @@
      
     margin-bottom: var(--size-5);
       margin-top:  var(--size-2);
-      margin-left: var(--size-1);
+      margin-left: var(--size-2);
       font-family: var(--font-neutral);
       font-size: var(--font-size-2);
   }
@@ -132,6 +132,36 @@
 
 
 
+.contactInput:focus{
+    border: 1px solid var(--border-color-strong);
+}
+
+
+.contactInput:-webkit-autofill {
+    background-color: var(--input-autofill-color);
+    -webkit-box-shadow: 0 0 0 30px var(--input-autofill-color) inset !important;
+    -webkit-text-fill-color: var(--high-contrast-light-txt-color) !important;
+    
+    padding: var(--size-3);
+    padding-top: 22px;
+
+  
+  }
+  
+  /* For Firefox */
+  .contactInput:-moz-autofill {
+    background-color: var(--input-autofill-color);
+    -webkit-box-shadow: 0 0 0 30px var(--input-autofill-color) inset !important;
+    -webkit-text-fill-color: var(--high-contrast-light-txt-color) !important;
+    
+    padding: var(--size-3);
+    padding-top: 22px;
+  
+  }
+  
+
+
+
 
 
 .inputGroupLabel{
@@ -148,9 +178,6 @@
   }
 
 
-.contactInput:focus{
-    border: 1px solid var(--border-color-strong);
-}
 
 
 
@@ -252,9 +279,10 @@ font-size: var(--font-size-1);
 .messageSuccess{
     font-family: var(--font-neutral);
     font-size: var(--font-size-2);
-    margin-top:var(--size-1);
+  
     color: var(--success-color);
-    margin-left: var(--size-3);
+    margin-top: var(--size-2);
+    margin-left: var(--size-2);
 }
 
 .sendButton{
