@@ -94,36 +94,39 @@ export default function ContactUs() {
 
         </div>  
           <div className={styles.contactInfoDiv}>
-            <div className={styles.infoDiv}>
-              <div className={styles.inputGroup}>
-                <label className={styles.inputGroupLabel}>Name</label>
+          
+              <div className={`${styles.inputGroup} ${errors.name && styles.inputGroupErrorMargin}`}>
+              
                 <input
                   id="name"
-                  placeholder="Write your name here"
+                  placeholder=""
                   ref={nameRef}
                   className={styles.contactInput}
                   onChange={()=>{setErrors({...errors, name: false})}}
                 />
-                  {errors.name && <span className={styles.contactError}>{errors.name}</span>}
+                  <label className={`${styles.inputGroupLabel} ${errors.name && styles.inputGroupLabelErrorCorrection}`}>Name</label>
+                 
               </div>
+              {errors.name && <span className={styles.contactError}>{errors.name}</span>}
 
-              <div className={styles.inputGroup}>
-                <label className={styles.inputGroupLabel}>Email</label>
+              <div className={`${styles.inputGroup} ${errors.email && styles.inputGroupErrorMargin}`}>
+           
                 <input
-                placeholder="Write your email here"
+                placeholder=""
                 id="email"
                 ref={emailRef}
                 className={styles.contactInput}
                 onChange={()=>{setErrors({...errors, email: false})}}
                 />
-                {errors.email && <span className={styles.contactError}>{errors.email}</span>}
+                     <label className={styles.inputGroupLabel}>Email</label>
+                
               </div>
-            </div>
+              {errors.email && <span className={styles.contactError}>{errors.email}</span>}
           </div>
           <div className={styles.messageField}>
-            <label className={`${styles.messageText}`}>Message</label>
+         
             <textarea
-            placeholder="Write your message here"
+            placeholder=""
               ref={messageRef}
               onChange={()=>{setMessageSent(false);
              setErrors({...errors, message: false})
@@ -133,6 +136,7 @@ export default function ContactUs() {
               maxLength={500}
               
             />
+               <label className={`${styles.messageText}`}>Message</label>
           {errors.message &&  <span className={`${styles.contactError} ${styles.contactMessageError}`}>{errors.message}</span>}
            {messageSent && <span className={styles.messageSuccess}>Message sent successfully.</span>}
           </div>
