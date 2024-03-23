@@ -303,7 +303,8 @@ font-size: var(--font-size-1);
 @media(max-width: 480px){
     .mainDiv{
        
-        width: calc(100% - var(--size-4));
+        padding: 0 var(--size-5);
+     
     }
 
     .contactInput{
@@ -318,7 +319,7 @@ font-size: var(--font-size-1);
     
     .sendButton{
         align-self: center;
-        width: calc(100% - var(--size-7));
+        width: calc(100% - var(--size-2));
       
         margin-top: var(--size-6);
        
