@@ -174,35 +174,36 @@ export default function ProductPageCards() {
           
           
             <div className={styles.inputGroup}>
-              <label className={styles.contactLabel}>Name</label>
+             
               <input
                 id="name"
-                placeholder="Write your name here"
+                placeholder=" "
                 ref={nameRef}
                 className={styles.contactInput}
                 onChange={()=>{ setContactErrors({...contactErrors, name: false})}}
               />
+               <label htmlFor="name" className={styles.inputGroupLabel}>Name</label>
               {contactErrors.name && <span className={styles.contactError}>{contactErrors.name}</span>}
             </div>
 
             <div className={styles.inputGroup}>
-              <label className={styles.contactLabel}>Email</label>
+             
               <input
-              placeholder="Write your email here"
+              placeholder=" "
                 id="email"
                 ref={emailRef}
                 className={styles.contactInput}
                 onChange={()=>{ setContactErrors({...contactErrors, email: false})}}
               />
-              
+               <label className={styles.inputGroupLabel}>Email</label>
               {contactErrors.email && <span className={styles.contactError}>{contactErrors.email}</span>}
             </div>
         
         </div>
         <div className={styles.messageField}>
-          <label className={styles.messageText}>Question</label>
+          
           <textarea
-          placeholder="Write your question here"
+          placeholder=" "
             ref={messageRef}
             onChange={()=>{setMessageSent(false);
              setContactErrors({...contactErrors, message: false})
@@ -211,6 +212,7 @@ export default function ProductPageCards() {
             rows={6}
             maxLength={500}
           />
+          <label className={styles.messageText}>Question</label>
            {contactErrors.message && <span className={`${styles.contactError} ${styles.contactMessageError}`}>{contactErrors.message}</span>}
           
           {messageSent && <span className={styles.messageSuccess}>Question sent successfully.</span>}

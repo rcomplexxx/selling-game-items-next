@@ -48,13 +48,9 @@
     flex-direction: column;
     align-items: center;
   
-    padding: var(--size-2) 0;
+    padding: var(--size-2) var(--size-4);
 }
 
-.getInTouch{
-    padding-left:  var(--size-4);
-    padding-right:  var(--size-4);
-}
 
 .contactInfoDiv{
     width: 100%;
@@ -64,9 +60,9 @@
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
-    margin-top: var(--size-3);
+    margin-top: var(--size-5);
     box-sizing: border-box;
-    padding: 0 var(--size-3);
+    
   
   
 
@@ -79,29 +75,22 @@
 
 
 .inputGroup{
-  
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
    
     box-sizing: border-box;
-    margin-top: var(--size-2);
-    
-    
-    margin-bottom: var(--size-3);
+
+    margin-bottom: var(--size-5);
 }
 
 
-.inputGroupLabel{
-    margin-left: var(--size-1);
-    margin-bottom: var(--size-1);
-    font-family: var(--font-neutral);
-    opacity: 1;
-}
+
 
 .contactInput{
-
-    height: var(--size-8);
+  
+    height: 40px;
     width: 100%;
    
     color: var(--high-contrast-light-txt-color);
@@ -110,8 +99,8 @@
     border: none;
     border-radius: 4px;
     box-sizing: border-box;
-    padding: 0 var(--size-3);
-
+      padding: var(--size-4) 0;
+      padding-bottom: 0;
     outline: none;
     font-size: var(--font-size-3);
     font-family: var(--font-neutral);
@@ -125,6 +114,39 @@
 .contactInput:focus{
     border: 1px solid var(--border-color-strong);
 }
+
+
+.inputGroupLabel{
+    color: var(--checkout-input-placeholder);
+    position: absolute;
+    left: var(--size-3);
+    top: calc(50% - var(--size-3));
+
+   
+
+    transition: all 0.2s ease;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+
+.contactInput:focus{
+    border: 1px solid var(--border-color-strong);
+}
+
+
+
+.contactInput:focus + .inputGroupLabel,
+.contactInput:not(:placeholder-shown) + .inputGroupLabel {
+  opacity: 0.9;
+top: 2px;
+font-size: var(--font-size-1);
+
+}
+
+
+
+
 
 
 .contactError{
@@ -142,27 +164,22 @@
 
 
 .messageField{
+    position: relative;
     width: 100%;
    
     display: flex;
     flex-direction: column;
   
    
-    margin: var(--size-5) var(--size-3);
+    margin-top: var(--size-5);
   
-    box-sizing: border-box;
-    padding: var(--size-2);
-    padding-bottom: 0;
+    
+   
    
     border-radius: 8px;
 }
 
-.messageText{
-    margin-left: 6px;
-    margin-bottom: var(--size-1);
-    font-family: var(--font-neutral);
-    opacity: 1;
-}
+
 
 .messageTextArea{
     height: var(--size-12);
@@ -170,14 +187,14 @@
     color: var(--high-contrast-light-txt-color);
     background-color: var(--contact-input-color);
     flex-grow: 1;
-    margin-left: var(--size-2);
-    margin-right: var(--size-2);
+
     resize: none;
     border-radius: 8px;
     font-family: var(--font-neutral);
     font-size: var(--font-size-3);
     box-sizing: border-box;
-    padding: var(--size-3);
+    padding: 0 var(--size-3);
+    padding-top: var(--size-6);
     outline: none;
 }
 
@@ -188,6 +205,36 @@
 .messageTextArea:focus{
     border: 1px solid var(--border-color-strong);
 }
+
+
+
+.messageText{
+    color: var(--checkout-input-placeholder);
+    position: absolute;
+    left: var(--size-3);
+    top: var(--size-4);
+
+   
+
+    transition: all 0.2s ease;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+
+
+
+
+  .messageTextArea:focus + .messageText,
+  .messageTextArea:not(:placeholder-shown) + .messageText {
+  opacity: 0.9;
+top: 8px;
+font-size: var(--font-size-1);
+
+}
+
+
+
 
 
 .messageSuccess{
@@ -209,8 +256,8 @@
     background-color: var(--action-button-bg-color);
  
 
-    margin: var(--size-5) var(--size-4);
-    margin-bottom: var(--size-7);
+    margin: var(--size-6) var(--size-1);
+    margin-bottom: 40px;
     font-size: var(--font-size-4);
     cursor: pointer;
 }
@@ -258,7 +305,7 @@
     
     .sendButton{
         align-self: center;
-        width: calc(100% - var(--size-6));
+        width: calc(100% - var(--size-2));
       
         margin-top: var(--size-6);
        

@@ -119,8 +119,8 @@
 
     box-sizing: border-box;
 
-    padding: var(--size-4) var(--size-3);
-    padding-bottom: 0;
+    padding: 0 var(--size-3);
+    padding-top: var(--size-4);
 
     outline: none;
     font-size: var(--font-size-3);
@@ -131,12 +131,7 @@
 }
 
 
-/* .inputGroupLabel{
-    margin-left: var(--size-1);
-    margin-bottom: var(--size-1);
-    font-family: var(--font-neutral);
-    opacity: 1;
-} */
+
 
 
 .inputGroupLabel{
