@@ -157,7 +157,8 @@ Adore+Modern+Serif
 Playfair+Display
 Cormorant+Garamond */
 
-  --hand-writing-font: var(--font-eb_garamond);
+  /* --hand-writing-font: var(--font-eb_garamond); */
+  --hand-writing-font: "Times New Roman", serif;
   /* --font-neutral: 'Roboto', sans-serif; */
   --font-neutral: var(--font-inter);
   --font-size-1: 12px;
