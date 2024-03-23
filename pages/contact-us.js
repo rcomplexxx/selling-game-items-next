@@ -99,7 +99,7 @@ export default function ContactUs() {
               
                 <input
                   id="name"
-                  placeholder=""
+                  placeholder={""}
                   ref={nameRef}
                   className={styles.contactInput}
                   onChange={()=>{setErrors({...errors, name: false})}}
@@ -112,7 +112,7 @@ export default function ContactUs() {
               <div className={`${styles.inputGroup} ${errors.email && styles.inputGroupErrorMargin}`}>
            
                 <input
-                placeholder=""
+                placeholder={""}
                 id="email"
                 ref={emailRef}
                 className={styles.contactInput}
@@ -126,7 +126,7 @@ export default function ContactUs() {
           <div className={styles.messageField}>
          
             <textarea
-            placeholder=""
+             placeholder={""}
               ref={messageRef}
               onChange={()=>{setMessageSent(false);
              setErrors({...errors, message: false})
