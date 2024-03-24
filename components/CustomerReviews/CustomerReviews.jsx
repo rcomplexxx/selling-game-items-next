@@ -8,26 +8,24 @@ import ReactHtmlParser from "react-html-parser";
 // import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
+import FullScreenReview from "./FullScreenReview/FullScreenReview";
 
-function Review({ product_id, name, text,  stars, imageNames }) {
+function Review({ product_id, setFullScreenReview, name, text,  stars, imageNames }) {
  
   return (
-    <div className={styles.reviewDiv}>
-      {imageNames &&
-        JSON.parse(imageNames).map((image, index) => {
-          return (
+    <div onClick={()=>{setFullScreenReview({spawn:true,authorName:name, text:text, stars:stars, imageSrc:`/images/review_images/productId_${product_id}/${JSON.parse(imageNames)[0]}`})}} className={styles.reviewDiv}>
+      {imageNames && 
             <Image
-              key={index}
+            
               height={0}
               width={0}
-              src={`/images/review_images/productId_${product_id}/${image}`}
+              src={`/images/review_images/productId_${product_id}/${JSON.parse(imageNames)[0]}`}
               alt="review image"
               loading={"lazy"}
               sizes="(max-width: 580px) 100vw, (max-width: 700px) 50vw, (max-width: 1200px) 33vw, 25vw"
               className={styles.reviewImage}
             />
-          );
-        })}
+        }
 
       
         <StarRatings
@@ -54,6 +52,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
   const [loadButtonExists, setLoadButtonExists] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [fullScreenReview, setFullScreenReview] = useState(false);
 
 
   const handleShowMore= useCallback( async () => {
@@ -188,6 +187,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
             return (
               <Review
                 key={index}
+                setFullScreenReview={setFullScreenReview}
                 name={review.name}
                 text={review.text}
                 stars={review.stars}
@@ -207,6 +207,34 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
           {isLoading?"Loading...":"Show More"}
         </button>
       )}
+      {fullScreenReview.spawn && <FullScreenReview authorName={fullScreenReview.authorName} text={fullScreenReview.text} stars={fullScreenReview.stars} imageSrc={fullScreenReview.imageSrc} setFullScreenReview={setFullScreenReview}/>}
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// {imageNames &&
+//   JSON.parse(imageNames).map((image, index) => {
+//     return (
+//       <Image
+//         key={index}
+//         height={0}
+//         width={0}
+//         src={`/images/review_images/productId_${product_id}/${image}`}
+//         alt="review image"
+//         loading={"lazy"}
+//         sizes="(max-width: 580px) 100vw, (max-width: 700px) 50vw, (max-width: 1200px) 33vw, 25vw"
+//         className={styles.reviewImage}
+//       />
+//     );
+//   })}
