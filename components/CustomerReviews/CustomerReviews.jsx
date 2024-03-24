@@ -1,15 +1,49 @@
 import React, { useState, useRef, useCallback } from "react";
-
+import Image from "next/image";
 import styles from "./customerreviews.module.css";
-
+import StarRatings from "react-star-ratings";
+import ReactHtmlParser from "react-html-parser";
 // import Masonry from "react-masonry-css";
 // import classNames from "classnames";
 // import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
-import Review from "./Review/Review";
 
+function Review({ product_id, name, text,  stars, imageNames }) {
+ 
+  return (
+    <div className={styles.reviewDiv}>
+      {imageNames &&
+        JSON.parse(imageNames).map((image, index) => {
+          return (
+            <Image
+              key={index}
+              height={0}
+              width={0}
+              src={`/images/review_images/productId_${product_id}/${image}`}
+              alt="review image"
+              loading={"lazy"}
+              sizes="(max-width: 580px) 100vw, (max-width: 700px) 50vw, (max-width: 1200px) 33vw, 25vw"
+              className={styles.reviewImage}
+            />
+          );
+        })}
 
+      
+        <StarRatings
+          rating={parseInt(stars, 10)}
+          starRatedColor="var(--star-color)"
+          numberOfStars={5}
+          starEmptyColor={"var(--star-empty-color)"}
+          starDimension="20px"
+          starSpacing="2px"
+        />
+    
+      <p className={styles.reviewText}>{ReactHtmlParser(text)}</p>
+      <p className={styles.reviewAuthor}>{name}</p>
+    </div>
+  );
+}
 
 export default function CustomerReviews({ product_id, ratingData, startReviews }) {
 
@@ -158,7 +192,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
                 text={review.text}
                 stars={review.stars}
                 product_id={product_id}
-                imageNames={JSON.parse(review.imageNames)} //popravi ovo
+                imageNames={review.imageNames} //popravi ovo
               />
             );
           })}
