@@ -35,6 +35,10 @@
  
 }
 
+.contactUsTextFirst{
+    margin-top: 0;
+}
+
 .contactInfoDiv{
     width: 100%;
     border-radius: 8px;

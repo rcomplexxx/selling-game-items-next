@@ -86,8 +86,8 @@ export default function ContactUs() {
         <h1 className={styles.contactUsTitle}>Contact Us</h1>
         <div className={styles.contactUsTextDiv}>
 
-        <span className={styles.contactUsText}>Before contacting us, please check if your question/concern has been answered on our <Link href={'/faq'}>FAQ PAGE</Link>.</span>
-        <span className={styles.contactUsText}>If your question/concern can't be found on our FAQ page, kindly provide us your <b>order id number</b>, from the email sent after purchase. If you can't find it, please provide us with <b>full name/address</b> you used when placing the order.</span>
+        <span className={`${styles.contactUsText} ${styles.contactUsTextFirst}`}>Before contacting us, you can check if your question/concern has been answered on our <Link href={'/faq'}>FAQ PAGE</Link>.</span>
+        <span className={styles.contactUsText}>We're happy to answer any question/concern you may have. If applicable, please include your <b>order id number</b> ex.#12345.</span>
         <span className={styles.contactUsText}><b>Please note</b>, normal response time is 1 - 2 days. Please be patient, we answer all questions as quickly as possible.</span>
         
 
