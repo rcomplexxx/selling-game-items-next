@@ -169,7 +169,7 @@ export default function ProductPageCards() {
         
         
 
-        <p className={styles.getInTouch}><b>Please note</b>, normal response time is 1 - 2 days. Please be patient, we answer all questions as quickly as possible.</p>
+        <p className={styles.getInTouch}>Please note, we will respond to you by email within 24-48 hours. Please include as much details as possible to help us understand your requirements.</p>
         <div className={styles.contactInfoDiv}>
           
           
