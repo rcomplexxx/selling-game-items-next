@@ -1,22 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from "next/image";
 import styles from './fullscreenreview.module.css';
 import StarRatings from 'react-star-ratings';
 
 export default function FullScreenReview({authorName, text, stars, imageSrc, setFullScreenReview}) {
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(()=>{
         document.documentElement.classList.add("hideScroll");
 
-        
+    
+      
   
-    },[])
+    },[]);
+
+    const mainReviewDiv= useRef();
 
 
 
     const killFullScreenReview = ()=>{
-        document.documentElement.classList.remove("hideScroll");
-        setFullScreenReview(false)
+     
+            document.documentElement.classList.remove("hideScroll");
+            setFullScreenReview(false);
+      
+    
+    
 
     }
 
@@ -26,7 +34,7 @@ export default function FullScreenReview({authorName, text, stars, imageSrc, set
     <div onClick={killFullScreenReview} className={styles.mainWrapper}>
 
       
-<div onClick={(event)=>{event.stopPropagation()}} className={styles.mainDiv}>
+<div ref={mainReviewDiv} onClick={(event)=>{event.stopPropagation()}} className={`${styles.mainDiv} ${imageLoaded && styles.spawnFullScreenReview}`}>
 
     <Image src='/images/cancelWhite.png' height={0} width={0} sizes='32px' onClick={killFullScreenReview} className={styles.closeFullScreen}/>
 
@@ -38,6 +46,7 @@ export default function FullScreenReview({authorName, text, stars, imageSrc, set
         sizes='448px'
         loading='eager'
         //za mobilni je 100vw, inace ima tacno odredjeno
+        onLoad={() => setImageLoaded(true)}
         className={styles.reviewImage}
         />
 
