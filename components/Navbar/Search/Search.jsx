@@ -21,6 +21,26 @@ export default function Search({searchOpen, setSearchOpen}){
     const nextLink= useRef();
 
 
+
+
+
+
+    useEffect(()=>{
+      router.beforePopState((state) => {
+        if(searchOpen){
+        state.options.scroll = false;
+          
+        return false;
+      }
+    return true;
+      });
+    },[searchOpen,router])
+
+
+
+
+
+
    
 
 
@@ -97,18 +117,7 @@ export default function Search({searchOpen, setSearchOpen}){
 
     },[searchOpen])
 
-    useEffect(()=>{
-      router.beforePopState((state) => {
-        if(searchOpen){
-        state.options.scroll = false;
-          
-        return false;
-      }
-    return true;
-      });
-    },[searchOpen,router])
-
-
+   
 
 
 

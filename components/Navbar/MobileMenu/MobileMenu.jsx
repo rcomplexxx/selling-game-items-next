@@ -22,6 +22,29 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
 
 
 
+
+
+
+
+
+
+    useEffect(()=>{
+
+
+      window.history.pushState(null, null, router.asPath);
+                   history.go(1);
+   
+         router.beforePopState((state) => {
+           
+           state.options.scroll = false;
+             
+           return true;
+        
+         });
+       },[])
+
+
+
   
 
 
@@ -174,20 +197,7 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
     
 
 
-    useEffect(()=>{
-
-
-   window.history.pushState(null, null, router.asPath);
-                history.go(1);
-
-      router.beforePopState((state) => {
-        
-        state.options.scroll = false;
-          
-        return true;
-     
-      });
-    },[])
+  
    
 
  
