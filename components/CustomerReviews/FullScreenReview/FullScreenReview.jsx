@@ -108,6 +108,7 @@ useEffect(()=>{
         loading='eager'
         //za mobilni je 100vw, inace ima tacno odredjeno
         onLoad={() => setImageLoaded(true)}
+        onError={() =>setImageLoaded(true)}
         className={styles.reviewImage}
         />
 
