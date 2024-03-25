@@ -97,18 +97,10 @@
    margin-bottom: var(--size-5);
    break-inside: avoid;
    cursor: pointer;
-  transition: transform 0.1s ease;
+
 }
 
-@media (hover:hover) {
-  
 
-.reviewDiv:hover{
- 
-  transform: scale(1.05);
-  z-index: 2;
-}
-}
 
 /* .reviewDiv{
   width: 100%;

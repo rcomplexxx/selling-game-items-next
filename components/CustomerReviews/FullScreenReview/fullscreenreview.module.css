@@ -8,11 +8,13 @@
     height: 100%;
     width: 100%;
 
+    background-color: rgba(0, 0, 0, 0.3);
+
     display: flex;
     justify-content: center;
     align-items: center;
 
- 
+    
     z-index: 200;
 }
 
@@ -34,12 +36,13 @@
 
     /* animation: spawnFullScreenReview 0.3s ease forwards; */
     
-    z-index: 200;
+    
    
 }
 
 .spawnFullScreenReview{
-    animation: spawnFullScreenReview 0.3s ease forwards;
+    /* animation: spawnFullScreenReview 0.3s ease forwards; */
+    transform: scale(1);
 }
 
 .closeFullScreen{
@@ -137,11 +140,14 @@
         min-height: 100svh;
         max-height: none;
         height: auto;
+       
+        transform: scale(1) translatey(100%);
      
     }
 
     .spawnFullScreenReview{
-        animation: spawnFullScreenReviewMob 0.3s ease forwards;
+        /* animation: spawnFullScreenReviewMob 0.3s ease forwards; */
+        transform: translatey(0);
     }
 
     .reviewImageDiv{
