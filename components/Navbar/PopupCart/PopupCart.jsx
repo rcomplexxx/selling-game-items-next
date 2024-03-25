@@ -28,6 +28,16 @@ useEffect(()=>{
 
 
 
+  
+  router.beforePopState((state) => {
+        
+    state.options.scroll = false;
+      
+    return true;
+ 
+  });
+
+
 
   const popCart= popCartRef.current;
   popCart.style.height= `${popCart.scrollHeight}px`;
@@ -41,7 +51,7 @@ useEffect(()=>{
 
   const handlePopState = (event)=>{
 
-    event.preventDefault(); 
+    
     if(nextLink.current)router.push(nextLink.current);
    
    

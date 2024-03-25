@@ -38,9 +38,6 @@ export default function Search({searchOpen, setSearchOpen}){
      
 
         const handlePopState = (event)=>{
-
-          event.preventDefault(); 
-
           if(nextLink.current){router.push(nextLink.current); nextLink.current=undefined;}
        
           // history.go(1);
@@ -100,7 +97,17 @@ export default function Search({searchOpen, setSearchOpen}){
 
     },[searchOpen])
 
- 
+    useEffect(()=>{
+      router.beforePopState((state) => {
+        if(searchOpen){
+        state.options.scroll = false;
+          
+        return false;
+      }
+    return true;
+      });
+    },[searchOpen,router])
+
 
 
 
