@@ -1,10 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./writereview.module.css";
 import StarRatings from "react-star-ratings";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import RatingInfo from "./RatingInfo/RatingInfo";
 
 export default function WriteReview({ setInfoDivOpen }) {
  
@@ -19,16 +17,12 @@ export default function WriteReview({ setInfoDivOpen }) {
   const [errors, setErrors] = useState({ firstName: false, email: false, images5: false });
   
 
-  const router = useRouter();
+ 
 
   useEffect(()=>{
-    const handlePopState=()=>{ global.stopRouteExecution=true; setInfoDivOpen(false);}
+    const handlePopState=(event)=>{  event.preventDefault(); global.stopRouteExecution=true; setInfoDivOpen(false);}
 
-    router.beforePopState((state) => {
-       
-      state.options.scroll = false;
-      return true;
-    });
+ 
 
     window?.addEventListener("popstate", handlePopState);
 

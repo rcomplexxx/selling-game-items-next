@@ -76,11 +76,11 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
 
 
 
-      const handlePopState = ()=>{
+      const handlePopState = (event)=>{
         
-        console.log('popon')
        
-
+       
+        event.preventDefault(); 
       
 
        if(whiteButtonCancelRef.current){
@@ -180,13 +180,6 @@ export default function MobileMenu({ setIsMenuOpen, subMenu, setSubMenu}){
    window.history.pushState(null, null, router.asPath);
                 history.go(1);
 
-      router.beforePopState((state) => {
-        
-        state.options.scroll = false;
-          
-        return true;
-     
-      });
     },[])
    
 

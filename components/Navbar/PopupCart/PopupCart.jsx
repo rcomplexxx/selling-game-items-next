@@ -41,7 +41,7 @@ useEffect(()=>{
 
   const handlePopState = (event)=>{
 
-    
+    event.preventDefault(); 
     if(nextLink.current)router.push(nextLink.current);
    
    

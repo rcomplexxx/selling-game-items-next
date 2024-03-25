@@ -6,9 +6,8 @@ import StarRatings from 'react-star-ratings';
 export default function FullScreenReview({authorName, text, stars, imageSrc, setFullScreenReview}) {
     const [imageLoaded, setImageLoaded] = useState(false);
 
-   
-
-
+    const reviewImageRef= useRef();
+  
 
 
     
@@ -52,7 +51,7 @@ useEffect(()=>{
 
 
   const handlePopState = (event)=>{
-    
+    event.preventDefault();
     killFullScreenReview();
 
    
@@ -64,7 +63,7 @@ useEffect(()=>{
 
   window?.addEventListener("popstate", handlePopState);
  
-  
+
 
 
   return ()=>{
@@ -80,6 +79,40 @@ useEffect(()=>{
 },[])
 
 
+useEffect(()=>{
+  if(imageLoaded && window.innerWidth>600)
+  {
+
+    const imageNaturalWidth = reviewImageRef.current.naturalWidth;
+
+    const imageNaturalHeight = reviewImageRef.current.naturalHeight;
+    const widthIsBigger = imageNaturalWidth> imageNaturalHeight
+    let imageClientSmallerSize;
+    if(
+      widthIsBigger
+    ){
+      imageClientSmallerSize = reviewImageRef.current.clientWidth/imageNaturalWidth * imageNaturalHeight
+    }
+    else{
+      imageClientSmallerSize = reviewImageRef.current.clientHeight/imageNaturalHeight * imageNaturalWidth
+  
+    }
+
+
+    console.log(`Image ${widthIsBigger?'height':'width'} without scale:`, imageClientSmallerSize);
+    
+   if(widthIsBigger){
+   if(imageClientSmallerSize < 576 && imageClientSmallerSize > 520){ //height
+    console.log('got height almost the same')
+   }
+  }
+    
+   else if(imageClientSmallerSize < 448 && imageClientSmallerSize > 400){
+    reviewImageRef.current.style.width='100%';
+    reviewImageRef.current.style.height='auto';
+ }
+  }
+},[imageLoaded])
 
 
 
@@ -103,6 +136,7 @@ useEffect(()=>{
 
         <Image
         src={imageSrc}
+        ref={reviewImageRef}
         height={0} width={0}
         sizes='448px'
         loading='eager'
