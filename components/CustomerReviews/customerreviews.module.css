@@ -80,13 +80,15 @@
 
 
 .reviewDiv{
-  color: black;
-  background-color: rgb(255, 255, 255);
+  color: white;
+  background-color: var(--write-review-main-bg);
 
    max-height: max-content;
    box-sizing: border-box;
    padding: var(--size-5) 0;
    padding-top: 0;
+   border-radius: 8px;
+   overflow: clip;
   
    margin-bottom: var(--size-5);
    break-inside: avoid;
