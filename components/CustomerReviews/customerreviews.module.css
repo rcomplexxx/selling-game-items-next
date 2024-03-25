@@ -36,7 +36,7 @@
 }
 
 
-/**/
+
 .coolDiv{
   display: flex;
   justify-content: center;
@@ -129,8 +129,10 @@
 
   .starDiv{
     margin-bottom: 0;
-    margin-top: var(--size-5);
+  
     padding: 0 var(--size-4);
+    box-sizing: border-box;
+    padding-top: var(--size-5);
   }
 
   .reviewText{
