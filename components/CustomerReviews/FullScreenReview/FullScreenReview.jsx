@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Image from "next/image";
 import styles from './fullscreenreview.module.css';
 import StarRatings from 'react-star-ratings';
+import { Router } from 'next/router';
 
 export default function FullScreenReview({authorName, text, stars, imageSrc, setFullScreenReview}) {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -39,6 +40,14 @@ const killFullScreenReview = ()=>{
 
 
 useEffect(()=>{
+
+  Router.beforePopState((state) => {
+       
+    state.options.scroll = false;
+      
+    return true;
+ 
+  });
 
 
   document.documentElement.classList.add("hideScroll");
