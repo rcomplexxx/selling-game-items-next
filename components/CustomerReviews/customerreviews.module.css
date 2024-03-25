@@ -31,7 +31,7 @@
   position: relative;
   width: 100%;
   height:max-content;
-  margin-bottom: var(--size-4);
+ 
    
 }
 
@@ -50,13 +50,17 @@
 
   width: calc(100% - var(--size-5));
    
-  margin: 0 var(--size-3);
+  box-sizing: border-box;
+  padding: 0 var(--size-3);
+  padding-bottom: var(--size-6);
   gap: 0;
 
  column-count: 4;
  column-gap: var(--size-5);
  contain: content;
 
+ 
+ user-select: none;
   
 }
 
@@ -89,11 +93,22 @@
    padding-top: 0;
    border-radius: 8px;
    overflow: clip;
-  
+   position: relative; 
    margin-bottom: var(--size-5);
    break-inside: avoid;
+   cursor: pointer;
+  transition: transform 0.1s ease;
 }
 
+@media (hover:hover) {
+  
+
+.reviewDiv:hover{
+ 
+  transform: scale(1.05);
+  z-index: 2;
+}
+}
 
 /* .reviewDiv{
   width: 100%;
@@ -114,6 +129,7 @@
 
   .starDiv{
     margin-bottom: 0;
+    margin-top: var(--size-5);
     padding: 0 var(--size-4);
   }
 
