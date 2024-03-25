@@ -13,7 +13,12 @@ import FullScreenReview from "./FullScreenReview/FullScreenReview";
 function Review({ product_id, setFullScreenReview, name, text,  stars, imageNames }) {
  
   return (
-    <div onClick={()=>{setFullScreenReview({spawn:true,authorName:name, text:text, stars:stars, imageSrc:`/images/review_images/productId_${product_id}/${JSON.parse(imageNames)[0]}`})}} className={styles.reviewDiv}>
+    <div onClick={()=>{setFullScreenReview({spawn:true,authorName:name, text:text, stars:stars, 
+    imageSrc:imageNames?`/images/review_images/productId_${product_id}/${JSON.parse(imageNames)[0]}`:undefined
+  
+  })}} 
+    
+    className={styles.reviewDiv}>
       {imageNames && 
             <Image
             
