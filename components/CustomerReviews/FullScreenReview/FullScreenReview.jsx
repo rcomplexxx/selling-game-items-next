@@ -80,7 +80,7 @@ useEffect(()=>{
 
 
 useEffect(()=>{
-  if(imageLoaded && window.innerWidth>600)
+  if(imageLoaded && reviewImageRef && window.innerWidth>600)
   {
 
     const imageNaturalWidth = reviewImageRef.current.naturalWidth;
