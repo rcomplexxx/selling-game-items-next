@@ -27,7 +27,7 @@ function Review({ product_id, setFullScreenReview, name, text,  stars, imageName
             />
         }
 
-      
+        <div className={styles.starDiv}>
         <StarRatings
           rating={parseInt(stars, 10)}
           starRatedColor="var(--star-color)"
@@ -36,7 +36,7 @@ function Review({ product_id, setFullScreenReview, name, text,  stars, imageName
           starDimension="20px"
           starSpacing="2px"
         />
-    
+    </div>
       <p className={styles.reviewText}>{ReactHtmlParser(text)}</p>
       <p className={styles.reviewAuthor}>{name}</p>
     </div>

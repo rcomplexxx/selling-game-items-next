@@ -54,6 +54,7 @@
   gap: 0;
 
  column-count: 4;
+ column-gap: var(--size-5);
  contain: content;
 
   
@@ -79,12 +80,29 @@
 
 
 .reviewDiv{
+  color: black;
+  background-color: rgb(255, 255, 255);
+
+   max-height: max-content;
+   box-sizing: border-box;
+   padding: var(--size-5) 0;
+   padding-top: 0;
+  
+   margin-bottom: var(--size-5);
+   break-inside: avoid;
+}
+
+
+/* .reviewDiv{
   width: 100%;
    max-height: max-content;
    box-sizing: border-box;
    padding: 0 var(--size-3);
-   margin-bottom: var(--size-6);
-}
+   margin-bottom: var(--size-7);
+   break-inside: avoid;
+} */
+
+
 
   /* .reviewDivImage{
     width: 100%; 
@@ -94,20 +112,25 @@
 
   .starDiv{
     margin-bottom: 0;
+    padding: 0 var(--size-4);
   }
 
   .reviewText{
     margin-top: var(--size-1);
     margin-bottom: var(--size-4);
     font-family: var(--hand-writing-font);
-  
+    
     font-size: var(--font-size-3);
     line-height: 24px;
+
+    padding: 0 var(--size-4);
   }
+  /* padding: 0; */
 
   .reviewAuthor{
     margin-top: var(--size-2);
     font-weight: 400;
+      padding: 0 var(--size-4);
     
   }
 

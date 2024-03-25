@@ -6,37 +6,98 @@ import StarRatings from 'react-star-ratings';
 export default function FullScreenReview({authorName, text, stars, imageSrc, setFullScreenReview}) {
     const [imageLoaded, setImageLoaded] = useState(false);
 
-    useEffect(()=>{
-        document.documentElement.classList.add("hideScroll");
+   
+
+
+
 
     
-      
+
+
+
+
+
+
+
+const mainReviewDiv= useRef();
+
+
+
+const killFullScreenReview = ()=>{
+ 
+        document.documentElement.classList.remove("hideScroll");
+        setFullScreenReview(false);
   
-    },[]);
-
-    const mainReviewDiv= useRef();
 
 
 
-    const killFullScreenReview = ()=>{
-     
-            document.documentElement.classList.remove("hideScroll");
-            setFullScreenReview(false);
-      
+}
+
+
+
+
+
+
+
+useEffect(()=>{
+
+
+  document.documentElement.classList.add("hideScroll");
+
+
+
+
+  window.history.pushState(null, null, location.href);
+  history.go(1);
+
+
+  const handlePopState = (event)=>{
     
-    
+    killFullScreenReview();
 
-    }
+   
+  
+  }
+
+ 
+
+
+  window?.addEventListener("popstate", handlePopState);
+ 
+  
+
+
+  return ()=>{
+
+   
+    window?.removeEventListener("popstate", handlePopState);
+ 
+   
+
+   
+
+  }
+},[])
+
+
+
+
+
+
+
+
+
+ 
 
 
 
   return (
-    <div onClick={killFullScreenReview} className={styles.mainWrapper}>
+    <div onClick={()=>{history.back();}} className={styles.mainWrapper}>
 
       
 <div ref={mainReviewDiv} onClick={(event)=>{event.stopPropagation()}} className={`${styles.mainDiv} ${imageLoaded && styles.spawnFullScreenReview}`}>
 
-    <Image src='/images/cancelWhite.png' height={0} width={0} sizes='32px' onClick={killFullScreenReview} className={styles.closeFullScreen}/>
+    <Image src='/images/cancelWhite.png' height={0} width={0} sizes='32px' onClick={()=>{history.back();}} className={styles.closeFullScreen}/>
 
    {imageSrc && <div className={styles.reviewImageDiv}>
 
