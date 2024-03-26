@@ -27,8 +27,8 @@ const FullScreenZoomableImage = ({
   const [showToastMessage, setShowToastMessage] = useState(0);
   const [zoomed, setZoomed] = useState(false);
   const [swiper, setSwiper] = useState();
-
-  const imageLoadedRef = useRef(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+ 
 
  const mouseStartingPointRef=useRef({x:0, y:0})
 
@@ -105,9 +105,9 @@ const FullScreenZoomableImage = ({
     fullImg.style.transition = "transform 0s linear";
     fullImg.style.transform = `translateX(${deltaX}px) translateY(${deltaY}px) scale(${scaleRatio})`;
 
-          console.log('rer',imageLoadedRef.current);
+         
 
-    if(imageLoadedRef.current){
+    if(imageLoaded){
 
     setTimeout(() => {
       fullImg.style.transition =
@@ -156,7 +156,7 @@ const FullScreenZoomableImage = ({
 
 
 
-  }, [fullScreen, imageLoadedRef.current]);
+  }, [fullScreen, imageLoaded]);
 
 
 
@@ -577,7 +577,7 @@ const FullScreenZoomableImage = ({
                       width={0}
                       sizes="100vw"
                       loading={"eager"}
-                      onLoad={()=>{imageLoadedRef.current=true}}
+                      onLoad={()=>{setImageLoaded(true)}}
                       src={image.src}
                       alt="Zoomable"
                       className={`${styles.productImage}`}
