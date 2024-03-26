@@ -97,40 +97,24 @@ useEffect(()=>{
 
 
 useEffect(()=>{
-  if(imageLoaded && imageSrc && reviewImageRef && window.innerWidth>600)
-  {
+  if(imageLoaded && imageSrc && reviewImageRef && window.innerWidth>600) {
+    const { naturalWidth, naturalHeight, clientWidth, clientHeight } = reviewImageRef.current;
+    const widthIsBigger = naturalWidth > naturalHeight;
+    const imageClientSmallerSize = widthIsBigger ? clientWidth/naturalWidth * naturalHeight : clientHeight/naturalHeight * naturalWidth;
 
-    const imageNaturalWidth = reviewImageRef.current.naturalWidth;
+    //widthIsBigger==true, Width je veci tj 100% od parent div, tako da trebam da zumiram height
 
-    const imageNaturalHeight = reviewImageRef.current.naturalHeight;
-    const widthIsBigger = imageNaturalWidth> imageNaturalHeight
-    let imageClientSmallerSize;
-    if(
-      widthIsBigger
-    ){
-      imageClientSmallerSize = reviewImageRef.current.clientWidth/imageNaturalWidth * imageNaturalHeight
+    if(widthIsBigger){
+      if(imageClientSmallerSize < 576 && imageClientSmallerSize > 520){
+        reviewImageRef.current.style.width = 'auto';
+        reviewImageRef.current.style.height = '100%';
+      }
+    } else if(imageClientSmallerSize < 448 && imageClientSmallerSize > 400){
+      reviewImageRef.current.style.width = '100%';
+      reviewImageRef.current.style.height = 'auto';
     }
-    else{
-      imageClientSmallerSize = reviewImageRef.current.clientHeight/imageNaturalHeight * imageNaturalWidth
-  
-    }
-
-
-    console.log(`Image ${widthIsBigger?'height':'width'} without scale:`, imageClientSmallerSize);
-    
-   if(widthIsBigger){
-   if(imageClientSmallerSize < 576 && imageClientSmallerSize > 520){ //height
-    console.log('got height almost the same')
-   }
   }
-    
-   else if(imageClientSmallerSize < 448 && imageClientSmallerSize > 400){
-    reviewImageRef.current.style.width='100%';
-    reviewImageRef.current.style.height='auto';
- }
-  }
-
-},[imageLoaded])
+}, [imageLoaded]);
 
 
 
@@ -147,7 +131,7 @@ useEffect(()=>{
 
       
 <div ref={mainReviewDiv} onClick={(event)=>{event.stopPropagation()}} className={`${styles.mainDiv} 
-${(((imageSrc && imageLoaded)) || (!imageSrc && spawnReviewAnyway)) && styles.spawnFullScreenReview}`}>
+${(imageSrc?imageLoaded:true) && styles.spawnFullScreenReview}`}>
 
     <Image src='/images/cancelWhite.png' height={0} width={0} sizes='32px' onClick={()=>{history.back();}} className={styles.closeFullScreen}/>
 

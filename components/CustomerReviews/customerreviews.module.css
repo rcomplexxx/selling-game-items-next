@@ -35,6 +35,12 @@
    
 }
 
+@media (hover:hover) {
+  .reviewImage{
+    cursor: zoom-in;
+  }
+}
+
 
 
 .coolDiv{
