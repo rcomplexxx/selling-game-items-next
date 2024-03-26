@@ -25,7 +25,7 @@ const FullScreenZoomableImage = ({
   const [zoomed, setZoomed] = useState(false);
   const [swiper, setSwiper] = useState();
   const [mouseStartingPoint, setMouseStartingPoint] = useState({ x: 0, y: 0 });
-  const [arrowDissapear, setArrowDissapear] = useState(true);
+
  
 
   const fixedZoomDivRef= useRef();
@@ -43,7 +43,7 @@ const FullScreenZoomableImage = ({
     if(fullScreen){
      
       setNavActive(true);
-      setArrowDissapear(false);
+
     const fixedZoomDiv = fixedZoomDivRef.current;
 
     const mainImg = document.getElementById(`mainImage${imageIndex}`);
@@ -400,7 +400,7 @@ const FullScreenZoomableImage = ({
 
         fixedZoomDivRef.current.style.backgroundColor = `rgba(0, 0, 0, 0)`;
 
-        setArrowDissapear(true)
+    
               setNavActive(false);
         document.documentElement.classList.remove("hideScroll");
 
