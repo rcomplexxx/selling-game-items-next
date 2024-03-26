@@ -41,8 +41,8 @@
 }
 
 .spawnFullScreenReview{
-    /* animation: spawnFullScreenReview 0.3s ease forwards; */
-    transform: scale(1);
+    animation: spawnFullScreenReview 0.3s ease forwards;
+    /* transform: scale(1); */
 }
 
 .closeFullScreen{
@@ -151,8 +151,8 @@
     }
 
     .spawnFullScreenReview{
-        /* animation: spawnFullScreenReviewMob 0.3s ease forwards; */
-        transform: translatey(0);
+        animation: spawnFullScreenReviewMob 0.3s ease forwards;
+        /* transform: translatey(0); */
     }
 
     .reviewImageDiv{

@@ -10,11 +10,11 @@ import ReactHtmlParser from "react-html-parser";
 import WriteReviewVisible from "./WriteReview/WriteReviewVisible";
 import FullScreenReview from "./FullScreenReview/FullScreenReview";
 
-function Review({ product_id, setFullScreenReview, name, text,  stars, imageNames }) {
+function Review({ product_id,  name, text,  stars, imageNames, setFullScreenReview }) {
  
   return (
-    <div onClick={()=>{setFullScreenReview({spawn:true,authorName:name, text:text, stars:stars, 
-    imageSrc:(imageNames && JSON.parse(imageNames).length!==0)?`/images/review_images/productId_${product_id}/${JSON.parse(imageNames)[0]}`:undefined
+    <div onClick={()=>{setFullScreenReview({authorName:name, text:text, stars:stars, 
+    imageSrc:(imageNames && JSON.parse(imageNames).length!==0) && `/images/review_images/productId_${product_id}/${JSON.parse(imageNames)[0]}`
   
   })}} 
     
@@ -57,7 +57,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
   const [loadButtonExists, setLoadButtonExists] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [fullScreenReview, setFullScreenReview] = useState(false);
+  const [fullScreenReview, setFullScreenReview] = useState();
 
 
   const handleShowMore= useCallback( async () => {
@@ -212,7 +212,7 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
           {isLoading?"Loading...":"Show More"}
         </button>
       )}
-      {fullScreenReview.spawn && <FullScreenReview authorName={fullScreenReview.authorName} text={fullScreenReview.text} stars={fullScreenReview.stars} 
+      {fullScreenReview && <FullScreenReview authorName={fullScreenReview.authorName} text={fullScreenReview.text} stars={fullScreenReview.stars} 
       imageSrc={fullScreenReview.imageSrc} setFullScreenReview={setFullScreenReview}/>}
     </div>
   );
