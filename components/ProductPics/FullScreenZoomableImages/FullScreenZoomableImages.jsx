@@ -21,9 +21,14 @@ const FullScreenZoomableImage = ({
 }) => {
   const [navActive, setNavActive] = useState(false);
 
+
+  
+
   const [showToastMessage, setShowToastMessage] = useState(0);
   const [zoomed, setZoomed] = useState(false);
   const [swiper, setSwiper] = useState();
+
+  const imageLoadedRef = useRef(false);
 
  const mouseStartingPointRef=useRef({x:0, y:0})
 
@@ -100,6 +105,10 @@ const FullScreenZoomableImage = ({
     fullImg.style.transition = "transform 0s linear";
     fullImg.style.transform = `translateX(${deltaX}px) translateY(${deltaY}px) scale(${scaleRatio})`;
 
+          console.log('rer',imageLoadedRef.current);
+
+    if(imageLoadedRef.current){
+
     setTimeout(() => {
       fullImg.style.transition =
         "left 0.3s ease, top 0.3s ease, transform 0.3s ease";
@@ -107,6 +116,7 @@ const FullScreenZoomableImage = ({
       fullImg.style.transform = `scale(1)`;
       fullImg.style.top = `0`;
     }, 1);
+  }
 
 
 
@@ -146,7 +156,7 @@ const FullScreenZoomableImage = ({
 
 
 
-  }, [fullScreen]);
+  }, [fullScreen, imageLoadedRef.current]);
 
 
 
@@ -485,7 +495,7 @@ const FullScreenZoomableImage = ({
             className={`${styles.leftArrow} ${styles.rightArrow} ${navActive && styles.spawnArrow}`}
           />
 
-          
+
           {fullScreen && <Swiper
             initialSlide={imageIndex}
             speed={400}
@@ -567,6 +577,7 @@ const FullScreenZoomableImage = ({
                       width={0}
                       sizes="100vw"
                       loading={"eager"}
+                      onLoad={()=>{imageLoadedRef.current=true}}
                       src={image.src}
                       alt="Zoomable"
                       className={`${styles.productImage}`}
