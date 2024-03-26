@@ -64,7 +64,6 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
       return true;
    
     });
-
     
     const AddToCartEl = document.getElementById("addToCart");
     const  masonryEl = document.getElementById("masonry");
