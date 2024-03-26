@@ -126,7 +126,8 @@ ${(imageSrc?imageLoaded:true) && styles.spawnFullScreenReview}`}>
         src={imageSrc}
         ref={reviewImageRef}
         height={0} width={0}
-        sizes='448px'
+        sizes='(max-width: 600px) 100vw, 448px'
+        
         loading='eager'
         //za mobilni je 100vw, inace ima tacno odredjeno
         onLoad={() => setImageLoaded(true)}

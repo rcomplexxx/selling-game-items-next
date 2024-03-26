@@ -193,8 +193,8 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
               alt={img.alt}
               sizes="(max-width: 980px) 100vw, 576px"
              
-              priority={index == 0}
-              loading={index==0?'eager':undefined}
+              priority={index == imageIndex}
+              loading={index==imageIndex?'eager':undefined}
               draggable="false"
             />
            {imageIndex==index && <Image
