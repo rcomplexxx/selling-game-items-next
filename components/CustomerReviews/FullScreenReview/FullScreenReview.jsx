@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 export default function FullScreenReview({authorName, text, stars, imageSrc, setFullScreenReview}) {
     const [imageLoaded, setImageLoaded] = useState();
-    const [spawnReviewAnyway, setSpawnReviewAnyway] = useState(false);
+  
 
     const reviewImageRef= useRef();
   
@@ -57,8 +57,6 @@ useEffect(()=>{
   document.documentElement.classList.add("hideScroll");
 
 
-  setTimeout(()=>{ setSpawnReviewAnyway(true);},1)
- 
 
 
 
