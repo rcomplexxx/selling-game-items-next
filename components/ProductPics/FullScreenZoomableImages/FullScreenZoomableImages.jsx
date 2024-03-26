@@ -33,7 +33,7 @@ const FullScreenZoomableImage = ({
 
  
 
-  console.log('swiper zoom', swiper.isZoomed);
+ 
 
 
 
