@@ -33,7 +33,7 @@ const FullScreenZoomableImage = ({
 
  
 
-
+  console.log('swiper zoom', swiper.isZoomed);
 
 
 
@@ -148,9 +148,8 @@ const FullScreenZoomableImage = ({
 
 
   }, [fullScreen,fullImageRef]);
-  //
 
-  //Mozda izbaciti navlocked i active
+
 
   useEffect(()=>{
     const handlePopState=(event)=>{  event.preventDefault();  setNavActive(false);killFullScreen();}
@@ -393,7 +392,7 @@ const FullScreenZoomableImage = ({
       
       
 
-          setArrowDissapear(true)
+         
 
         fullImg.style.transformOrigin = "top center";
         fullImg.style.transition = "transform 0.3s ease";
@@ -401,6 +400,7 @@ const FullScreenZoomableImage = ({
 
         fixedZoomDivRef.current.style.backgroundColor = `rgba(0, 0, 0, 0)`;
 
+        setArrowDissapear(true)
               setNavActive(false);
         document.documentElement.classList.remove("hideScroll");
 
@@ -473,7 +473,7 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slidePrev();
             }}
-            className={`${styles.leftArrow} ${!arrowDissapear && styles.spawnArrow}`}
+            className={`${styles.leftArrow} ${navActive && styles.spawnArrow}`} //!arrowDissapear
           ></Image>
           <Image
             height={12}
@@ -482,7 +482,7 @@ const FullScreenZoomableImage = ({
             onClick={() => {
               swiper.slideNext();
             }}
-            className={`${styles.leftArrow} ${styles.rightArrow} ${!arrowDissapear && styles.spawnArrow}`}
+            className={`${styles.leftArrow} ${styles.rightArrow} ${navActive && styles.spawnArrow}`}
           ></Image>
           {fullScreen && <Swiper
             initialSlide={imageIndex}
