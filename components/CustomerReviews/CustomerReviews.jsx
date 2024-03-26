@@ -14,12 +14,12 @@ function Review({ product_id, setFullScreenReview, name, text,  stars, imageName
  
   return (
     <div onClick={()=>{setFullScreenReview({spawn:true,authorName:name, text:text, stars:stars, 
-    imageSrc:imageNames?`/images/review_images/productId_${product_id}/${JSON.parse(imageNames)[0]}`:undefined
+    imageSrc:(imageNames && JSON.parse(imageNames).length!==0)?`/images/review_images/productId_${product_id}/${JSON.parse(imageNames)[0]}`:undefined
   
   })}} 
     
     className={styles.reviewDiv}>
-      {imageNames && 
+      {imageNames && JSON.parse(imageNames).length!==0 &&
             <Image
             
               height={0}
@@ -212,7 +212,8 @@ export default function CustomerReviews({ product_id, ratingData, startReviews }
           {isLoading?"Loading...":"Show More"}
         </button>
       )}
-      {fullScreenReview.spawn && <FullScreenReview authorName={fullScreenReview.authorName} text={fullScreenReview.text} stars={fullScreenReview.stars} imageSrc={fullScreenReview.imageSrc} setFullScreenReview={setFullScreenReview}/>}
+      {fullScreenReview.spawn && <FullScreenReview authorName={fullScreenReview.authorName} text={fullScreenReview.text} stars={fullScreenReview.stars} 
+      imageSrc={fullScreenReview.imageSrc} setFullScreenReview={setFullScreenReview}/>}
     </div>
   );
 }

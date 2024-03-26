@@ -142,7 +142,7 @@ const handlePopCartLinkClick=(event, nextLinkHref)=>{
   
     </Link>
     
-    <span className={styles.continue_shopping}  onClick={()=>{setNewProduct();}}>Continue shopping</span>
+    <span className={styles.continue_shopping}  onClick={()=>{ history.back();}}>Continue shopping</span>
     
 
  

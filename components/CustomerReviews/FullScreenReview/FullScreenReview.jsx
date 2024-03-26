@@ -3,9 +3,11 @@ import Image from "next/image";
 import styles from './fullscreenreview.module.css';
 import StarRatings from 'react-star-ratings';
 import { useRouter } from 'next/router';
+import classNames from 'classnames';
 
 export default function FullScreenReview({authorName, text, stars, imageSrc, setFullScreenReview}) {
-    const [imageLoaded, setImageLoaded] = useState(false);
+    const [imageLoaded, setImageLoaded] = useState();
+    const [spawnReviewAnyway, setSpawnReviewAnyway] = useState(false);
 
     const reviewImageRef= useRef();
   
@@ -50,7 +52,13 @@ useEffect(()=>{
   });
 
 
+
+
   document.documentElement.classList.add("hideScroll");
+
+
+  setTimeout(()=>{ setSpawnReviewAnyway(true);},1)
+ 
 
 
 
@@ -89,7 +97,7 @@ useEffect(()=>{
 
 
 useEffect(()=>{
-  if(imageLoaded && reviewImageRef && window.innerWidth>600)
+  if(imageLoaded && imageSrc && reviewImageRef && window.innerWidth>600)
   {
 
     const imageNaturalWidth = reviewImageRef.current.naturalWidth;
@@ -121,6 +129,7 @@ useEffect(()=>{
     reviewImageRef.current.style.height='auto';
  }
   }
+
 },[imageLoaded])
 
 
@@ -129,7 +138,7 @@ useEffect(()=>{
 
 
 
- 
+
 
 
 
@@ -137,7 +146,8 @@ useEffect(()=>{
     <div onClick={()=>{history.back();}} className={styles.mainWrapper}>
 
       
-<div ref={mainReviewDiv} onClick={(event)=>{event.stopPropagation()}} className={`${styles.mainDiv} ${imageLoaded && styles.spawnFullScreenReview}`}>
+<div ref={mainReviewDiv} onClick={(event)=>{event.stopPropagation()}} className={`${styles.mainDiv} 
+${(((imageSrc && imageLoaded)) || (!imageSrc && spawnReviewAnyway)) && styles.spawnFullScreenReview}`}>
 
     <Image src='/images/cancelWhite.png' height={0} width={0} sizes='32px' onClick={()=>{history.back();}} className={styles.closeFullScreen}/>
 
@@ -169,7 +179,7 @@ useEffect(()=>{
         </div>
         </div>
         <StarRatings
-          rating={stars}
+          rating={parseInt(stars, 10)}
          
           starRatedColor="var(--star-color)"
           numberOfStars={5}
