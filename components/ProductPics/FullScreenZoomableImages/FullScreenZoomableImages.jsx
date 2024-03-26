@@ -24,9 +24,8 @@ const FullScreenZoomableImage = ({
   const [showToastMessage, setShowToastMessage] = useState(0);
   const [zoomed, setZoomed] = useState(false);
   const [swiper, setSwiper] = useState();
-  const [mouseStartingPoint, setMouseStartingPoint] = useState({ x: 0, y: 0 });
 
- 
+ const mouseStartingPointRef=useRef({x:0, y:0})
 
   const fixedZoomDivRef= useRef();
   const fullImageRef= useRef();
@@ -147,7 +146,7 @@ const FullScreenZoomableImage = ({
 
 
 
-  }, [fullScreen,fullImageRef]);
+  }, [fullScreen]);
 
 
 
@@ -168,7 +167,7 @@ const FullScreenZoomableImage = ({
 
     let timeoutId;
     let swipeYLock = false;
-    let touchCoordinates = { x: 0, y: 0 };
+    let startingTouchCoordinates = { x: 0, y: 0 };
     const imgDiv = document.getElementById("zoomDiv" + imageIndex);
 
     let currX = 0;
@@ -194,7 +193,7 @@ const FullScreenZoomableImage = ({
 
       imgDiv.style.transition = "transform 0s ease";
 
-      touchCoordinates = {
+      startingTouchCoordinates = {
         x: event.touches[0].clientX,
         y: event.touches[0].clientY,
       };
@@ -208,21 +207,21 @@ const FullScreenZoomableImage = ({
       console.log('new touch start')
       currY =
         event.changedTouches[event.changedTouches.length - 1].clientY -
-        touchCoordinates.y;
+        startingTouchCoordinates.y;
       if (currY > -16 && currY < 16) {
         imgDiv.style.transform = `translateY(${0}px)`;
         fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${rgbValues[1]}, ${rgbValues[2]}, 1`;
 
         currX =
           event.changedTouches[event.changedTouches.length - 1].clientX -
-          touchCoordinates.x;
+          startingTouchCoordinates.x;
         if (currX < -5 || currX > 5) swipeYLock = true;
 
-        return;
+       
       }
 
-      
-
+      else{
+        //Pomeri sliku na dole, i smanji opacity pozadine
       imgDiv.style.transform = `translateY(${currY}px)`;
 
       fixedZoomDiv.style.backgroundColor = `rgba(${rgbValues[0]}, ${
@@ -234,6 +233,7 @@ const FullScreenZoomableImage = ({
         ) *
           2
       })`;
+    }
     };
 
     const handleTouchEnd = (event) => {
@@ -261,8 +261,8 @@ const FullScreenZoomableImage = ({
         }
 
         if (
-          Math.abs(lastTouch.clientX - touchCoordinates.x) < 16 &&
-          Math.abs(lastTouch.clientY - touchCoordinates.y) < 16 &&
+          Math.abs(lastTouch.clientX - startingTouchCoordinates.x) < 16 &&
+          Math.abs(lastTouch.clientY - startingTouchCoordinates.y) < 16 &&
           event.target !== document.querySelector(`.${styles.zoomButton}`) &&
           event.target !== document.querySelector(`.${styles.close_button}`)
         )
@@ -327,7 +327,7 @@ const FullScreenZoomableImage = ({
   
     if (zoomed) swiper.zoom.toggle();
 
-    console.log('Toast should be 2? ',showToastMessage, ' ', currY)
+    
     if( !global.toastMessageNotShowable ){
     if(currY!=0){
      
@@ -414,7 +414,7 @@ const FullScreenZoomableImage = ({
       },
       zoomed ? 300 : 0
     );
-  },[zoomed, imageIndex, showToastMessage]);
+  },[zoomed, imageIndex]);
 
 
  
@@ -474,7 +474,7 @@ const FullScreenZoomableImage = ({
               swiper.slidePrev();
             }}
             className={`${styles.leftArrow} ${navActive && styles.spawnArrow}`} //!arrowDissapear
-          ></Image>
+         / >
           <Image
             height={12}
             width={12}
@@ -483,7 +483,9 @@ const FullScreenZoomableImage = ({
               swiper.slideNext();
             }}
             className={`${styles.leftArrow} ${styles.rightArrow} ${navActive && styles.spawnArrow}`}
-          ></Image>
+          />
+
+          
           {fullScreen && <Swiper
             initialSlide={imageIndex}
             speed={400}
@@ -533,7 +535,8 @@ const FullScreenZoomableImage = ({
                         )
                           return;
                       
-                        setMouseStartingPoint({ x: event.clientX, y: event.clientY });
+                          mouseStartingPointRef.current={ x: event.clientX, y: event.clientY }
+                      
                       }}
                       
                       onMouseUp={(event) => {
@@ -546,10 +549,10 @@ const FullScreenZoomableImage = ({
                         const { clientX, clientY } = event;
   
                         const differenceX = Math.abs(
-                          clientX - mouseStartingPoint.x
+                          clientX - mouseStartingPointRef.current.x
                         );
                         const differenceY = Math.abs(
-                          clientY - mouseStartingPoint.y
+                          clientY - mouseStartingPointRef.current.y
                         );
   
                         if (differenceX < 12 && differenceY < 12) {
