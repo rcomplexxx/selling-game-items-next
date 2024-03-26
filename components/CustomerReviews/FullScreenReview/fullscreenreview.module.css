@@ -67,6 +67,11 @@
     background-color: var(--toast-message-bg);
 }
 
+.closeFullScreenNoImg{
+    left:auto;
+    right: var(--size-6);
+}
+
 
 .reviewImageDiv{
     height: auto;
@@ -96,6 +101,10 @@
     box-sizing: border-box;
     padding: var(--size-7) var(--size-6);
     overflow-y: auto;
+}
+
+.reviewDivNoImg{
+    padding-top: var(--size-9-5);
 }
 
 .authorDiv{

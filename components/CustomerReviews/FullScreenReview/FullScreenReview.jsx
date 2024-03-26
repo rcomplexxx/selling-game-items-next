@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 export default function FullScreenReview({authorName, text, stars, imageSrc, setFullScreenReview}) {
     const [imageLoaded, setImageLoaded] = useState();
   
-
+   
     const reviewImageRef= useRef();
   
 
@@ -23,16 +23,6 @@ export default function FullScreenReview({authorName, text, stars, imageSrc, set
 const mainReviewDiv= useRef();
 
 
-
-const killFullScreenReview = ()=>{
- 
-        document.documentElement.classList.remove("hideScroll");
-        setFullScreenReview(false);
-  
-
-
-
-}
 
 
 
@@ -66,14 +56,11 @@ useEffect(()=>{
 
   const handlePopState = (event)=>{
     event.preventDefault();
-    killFullScreenReview();
+    setFullScreenReview(false);
 
    
   
   }
-
- 
-
 
   window?.addEventListener("popstate", handlePopState);
  
@@ -84,7 +71,7 @@ useEffect(()=>{
 
    
     window?.removeEventListener("popstate", handlePopState);
- 
+    document.documentElement.classList.remove("hideScroll");
    
 
    
@@ -130,7 +117,8 @@ useEffect(()=>{
 <div ref={mainReviewDiv} onClick={(event)=>{event.stopPropagation()}} className={`${styles.mainDiv} 
 ${(imageSrc?imageLoaded:true) && styles.spawnFullScreenReview}`}>
 
-    <Image src='/images/cancelWhite.png' height={0} width={0} sizes='32px' onClick={()=>{history.back();}} className={styles.closeFullScreen}/>
+    <Image src='/images/cancelWhite.png' height={0} width={0} sizes='32px' onClick={()=>{history.back();}} 
+    className={`${styles.closeFullScreen} ${!imageSrc && styles.closeFullScreenNoImg}`}/>
 
    {imageSrc && <div className={styles.reviewImageDiv}>
 
@@ -149,7 +137,7 @@ ${(imageSrc?imageLoaded:true) && styles.spawnFullScreenReview}`}>
     </div>
 }
 
-    <div className={styles.reviewDiv}>
+    <div className={`${styles.reviewDiv} ${!imageSrc && styles.reviewDivNoImg}`}>
         <div className={styles.authorDiv}>
         <span className={styles.authorName}>{authorName}</span>
        
