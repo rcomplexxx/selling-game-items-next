@@ -405,7 +405,7 @@ const FullScreenZoomableImage = ({
 
         setTimeout(function () {
           fullScreenChange(false);
-          setImageLoaded(false)
+     
       
         }, 300);
 
