@@ -20,7 +20,6 @@ const FullScreenZoomableImage = ({
   images,
 }) => {
   const [navActive, setNavActive] = useState(false);
-  const [navLocked, setNavLocked] = useState(false);
 
   const [showToastMessage, setShowToastMessage] = useState(0);
   const [zoomed, setZoomed] = useState(false);
@@ -42,7 +41,7 @@ const FullScreenZoomableImage = ({
 
 
     if(fullScreen){
-       setNavLocked(false);
+     
       setNavActive(true);
       setArrowDissapear(false);
     const fixedZoomDiv = fixedZoomDivRef.current;
@@ -251,7 +250,7 @@ const FullScreenZoomableImage = ({
           killFullScreen(currY);
         } else {
           if (currY > 16 || currY < -16) {//
-            setNavLocked(false);
+          
             if (!zoomed) {
               imgDiv.style.transition =
                 "transform 0.3s ease, background-color 0.3s ease";
@@ -402,7 +401,7 @@ const FullScreenZoomableImage = ({
 
         fixedZoomDivRef.current.style.backgroundColor = `rgba(0, 0, 0, 0)`;
 
-        setNavLocked(true);
+       
         document.documentElement.classList.remove("hideScroll");
 
         setTimeout(function () {
@@ -429,7 +428,7 @@ const FullScreenZoomableImage = ({
       
           <div
             className={`${styles.closeSuiter} ${
-              !navLocked && navActive && styles.navActive
+              navActive && styles.navActive
             }`}
           >
             <div className={styles.pagination}>
