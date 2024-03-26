@@ -108,7 +108,7 @@ const FullScreenZoomableImage = ({
       fullImg.style.left = `0`;
       fullImg.style.transform = `scale(1)`;
       fullImg.style.top = `0`;
-    }, 10);
+    }, 1);
 
 
 
@@ -131,6 +131,10 @@ const FullScreenZoomableImage = ({
     
 
 
+  }
+
+  else{
+    global.toastMessageNotShowable=true;
   }
 
 

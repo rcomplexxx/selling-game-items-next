@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from './fullscreenreview.module.css';
 import StarRatings from 'react-star-ratings';
 import { useRouter } from 'next/router';
-import classNames from 'classnames';
 
 export default function FullScreenReview({authorName, text, stars, imageSrc, setFullScreenReview}) {
     const [imageLoaded, setImageLoaded] = useState();
