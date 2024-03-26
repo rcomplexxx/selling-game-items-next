@@ -53,10 +53,19 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
  
 
   useEffect(() => {
-    //129
+   
+    
 
-    // Check if the element exists
 
+    router.beforePopState((state) => {
+       
+      state.options.scroll = false;
+        
+      return true;
+   
+    });
+
+    
     const AddToCartEl = document.getElementById("addToCart");
     const  masonryEl = document.getElementById("masonry");
     
