@@ -299,16 +299,17 @@ export default function ProductPics({ images, onAddToCart, variantImageIndex }) 
 }
 
        
-        <FullScreenZoomableImage
+       {zoomed && <FullScreenZoomableImage
        
           imageIndex={imageIndex}
          
           changeImageIndex={handleChangeImage}
             
-          fullScreen = {zoomed}
+         
           fullScreenChange={setZoomed}
           images={images}
         />
+       }
       
      
     </>

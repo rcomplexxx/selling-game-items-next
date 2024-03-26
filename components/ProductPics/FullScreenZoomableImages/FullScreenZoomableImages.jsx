@@ -15,7 +15,6 @@ import ToastMessage from "./ToastMessage/ToastMessage";
 const FullScreenZoomableImage = ({
   imageIndex,
   changeImageIndex,
-  fullScreen,
   fullScreenChange,
   images,
 }) => {
@@ -44,7 +43,7 @@ const FullScreenZoomableImage = ({
   useEffect(() => {
 
 
-    if(fullScreen){
+   
      
       setNavActive(true);
 
@@ -151,12 +150,12 @@ const FullScreenZoomableImage = ({
       
     }, 280);
 
-  }
+  
 
 
 
 
-  }, [fullScreen, imageLoaded]);
+  }, [imageLoaded]);
 
 
 
@@ -290,7 +289,7 @@ const FullScreenZoomableImage = ({
           
       
     };
-    if(fullScreen){
+   
 
     if (matchMedia("(pointer:fine)").matches) {
       handleUserInteraction();
@@ -302,17 +301,7 @@ const FullScreenZoomableImage = ({
 
     window.addEventListener("touchend", handleTouchEnd);
     }
-  }
-  else{
-    clearTimeout(timeoutId);
-    timeoutId = null;
-    
-      window.removeEventListener("mousemove", handleUserInteraction,true);
  
-    window.removeEventListener("touchstart", handleTouchStart, true);
-    window.removeEventListener("touchmove", handleTouchYMove, true);
-    window.removeEventListener("touchend", handleTouchEnd);
-  }
 
     return () => {
       clearTimeout(timeoutId);
@@ -324,7 +313,7 @@ const FullScreenZoomableImage = ({
       window.removeEventListener("touchmove", handleTouchYMove, true);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [imageIndex,zoomed,fullScreen]);
+  }, [imageIndex,zoomed]);
 
 
 
@@ -432,7 +421,7 @@ const FullScreenZoomableImage = ({
 
   return (
   
-      <div ref={fixedZoomDivRef} className={`${styles.full_screen_container} ${!fullScreen && styles.disabeFullScreen}`}>
+      <div ref={fixedZoomDivRef} className={`${styles.full_screen_container}`}>
  
 
       
@@ -496,7 +485,7 @@ const FullScreenZoomableImage = ({
           />
 
 
-          {fullScreen && <Swiper
+           <Swiper
             initialSlide={imageIndex}
             speed={400}
             slidesPerView={1}
@@ -588,9 +577,9 @@ const FullScreenZoomableImage = ({
               </SwiperSlide>
             ))}
           </Swiper>
-}
+
         
-        {fullScreen && showToastMessage!=0 && <ToastMessage showToastMessage={showToastMessage} setShowToastMessage={setShowToastMessage}/>}
+        { showToastMessage!=0 && <ToastMessage showToastMessage={showToastMessage} setShowToastMessage={setShowToastMessage}/>}
       </div>
   
   );
