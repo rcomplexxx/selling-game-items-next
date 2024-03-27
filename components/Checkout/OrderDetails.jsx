@@ -175,9 +175,9 @@ const handleCouponApply = () => {
                         Coupon code
                       </label>
                       {couponError && (
-                    <p className={styles.couponError}>
+                    <span className={styles.couponError}>
                       Enter a valid discount code or gift card
-                    </p>
+                    </span>
                   )}
 
                 {couponValidCode &&
@@ -194,9 +194,7 @@ const handleCouponApply = () => {
 
 
                     <button
-                      className={`${styles.apply} ${
-                        couponCode !== "" && styles.applyEnabled
-                      }`}
+                      className={`${styles.apply} ${ couponCode !== "" && styles.applyEnabled }`}
                       onClick={handleCouponApply}
                     >
                       Apply

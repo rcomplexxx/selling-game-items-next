@@ -109,7 +109,7 @@ export default function Tip({products, tip, setTip}){
               <div className={styles.selectedPercent}/>
             }
             </div>
-            <div className={`${styles.roundPercent}`} 
+            <div className={`${styles.roundPercent} ${styles.lastRoundPercent}`} 
             onClick={()=>{setTipError();setTipInputValue(""); setApplyDisabled(true); setSelectedField(15); setTip((fullProductCost*15/100).toFixed(2));}}>
             <span className={styles.roundPercentSpan}>15%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*15/100).toFixed(2)}</span>
