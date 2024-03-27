@@ -15,23 +15,20 @@
   /* Ako hocu punu polovinu, samo izbaciti  flex: 1 1 auto; i ubaciti   width: 50%; i u checkout_right margin-left: var(--size-6); */
   
   .checkout_right {
+    height: min-content;
     width: var(--size-14);
     max-width: var(--size-14-5);
     
     margin-right: var(--size-8);
     margin-left: var(--size-8);
+    border-radius: 4px;
     contain:content;
   }
 
-  .orderWrapper{
-    border-radius: 4px;
-   
-    width: 100%;
-    display: flex;
-    justify-content: center;
-   box-sizing: border-box;
-   padding: 0;
-   
+ 
+
+  .checkout_right span {
+    margin: 0 var(--size-2);
   }
   
  
@@ -150,6 +147,15 @@
     font-size: var(--font-size-2);
    
   }
+
+  .discountPairTitle{
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-2);
+    margin: var(--size-4) 0;
+   
+ 
+  }
   
 
   .discountPair{
@@ -214,18 +220,20 @@
  
   
   .coupon_code{
-    height: 40px;
+   
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     border:none;
+    margin-bottom: var(--size-6);
+  
   }
   
   .form_group {
     position: relative;
-    height: 40px;
     
-   
+    
+  
     margin-right: var(--size-3);
       flex-grow: 1;
       display: flex;
@@ -260,21 +268,19 @@
 
 .couponError{
   color: var(--error-color);
-  margin-top: 6px;
+  margin-top: var(--size-2);
   margin-bottom: 0;
   margin-left: var(--size-1);
   font-size: var(--font-size-2);
   
 }
 
-.subTotal{
-  margin-top: var(--size-6);
-}
 
-.valute{
+
+.currency{
   opacity: 0.6;
   font-size: var(--font-size-1);
-  margin: 0 var(--size-1) !important;
+  margin: 0 var(--size-1);
   
 }
 
@@ -340,12 +346,6 @@
 
  
 
-  .orderDiv{ 
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
 
 
@@ -356,9 +356,7 @@
 
 
 
-  .orderDiv span{
-    margin: 0 var(--size-2);
-  }
+
 
 
 
@@ -413,12 +411,13 @@
         border-left: 1px solid var(--border-color-mid);
       }
 
-      .orderWrapper{
+      .checkout_right{
         position: sticky;
-       
       
         top: var(--size-8);
       }
+
+   
 
       .mobileTitle{
         display:none
@@ -441,13 +440,16 @@
    
    
    .rightWrapper{
-    
+    /* background-color: var(--checkout-order-summery-bg-light); */
+    background-color:var(--checkout-order-summery-bg-mobile);
+
     width: 100%;
     min-height: 0;
     padding-top: 0;
-    background-color: var(--checkout-order-summery-bg-light);
+   
     justify-content: center;
     margin-bottom: var(--size-6);
+
    }
 
    .title_div {
@@ -564,13 +566,7 @@
     }
    
 
-    .orderWrapper{
-      
-      background-color:var(--checkout-order-summery-bg-mobile);
-     margin-bottom: 0;
-     border-radius: 0;
-     
-    }
+   
 
     .emerge {
       display: flex;
@@ -627,11 +623,7 @@
   }
 
    
-@media(min-width: 980px){
-  .downOrderDetails{
-    display: none;
-  }
-}
+
 
 
 

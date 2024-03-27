@@ -66,35 +66,7 @@ import React, {
       setShowAnswer(!showAnswer);
     }
   
-    const getProductElements = () => {
-      return (
-        <>
-          {products.map((cp, i) => (
-            <div className={styles.order_pair} key={i}>
-              <div className={styles.productImageDiv}>
-                <Image
-                  className={styles.productImage}
-                  src={`/images/${cp.image}`}
-                  alt={`${cp.name}`}
-                  height={0}
-                  width={0}
-                  sizes="25vw"
-                />
-                <div className={styles.productTitleDiv}>
-                <span>
-                  {cp.quantity} {cp.name}s
-                </span>
-                <span className={styles.variant}>
-                  {cp.variant}
-                </span>
-                </div>
-              </div>
-              <span>${(cp.quantity * cp.price).toFixed(2)}</span>
-            </div>
-          ))}
-        </>
-      );
-    };
+   
   
     const prices = useMemo(() => {
       console.log('tip', tip)
@@ -131,13 +103,10 @@ const handleCouponApply = () => {
     
   
     return (
-      <div className={`${styles.rightWrapper} ${!isUpperSummery && styles.downOrderDetails}`}>
+      <div className={styles.rightWrapper}>
         <div id="checkout_right" className={styles.checkout_right}>
-          <div
-            id="orderWrapper"
-            className={`${styles.orderWrapper}`}
-          >
-            <div className={styles.orderDiv}>
+        
+           
              {isUpperSummery && <div className={styles.title_div} onClick={summonAnswer}>
                 <div className={styles.segmentWrapper}>
                   <div className={styles.titleWrapper}>
@@ -176,7 +145,29 @@ const handleCouponApply = () => {
                     </div>
                     </div>:<h2>Order summery</h2>)
                     }
-                 { getProductElements()}
+                 {products.map((cp, i) => (
+            <div className={styles.order_pair} key={i}>
+              <div className={styles.productImageDiv}>
+                <Image
+                  className={styles.productImage}
+                  src={`/images/${cp.image}`}
+                  alt={`${cp.name}`}
+                  height={0}
+                  width={0}
+                  sizes="25vw"
+                />
+                <div className={styles.productTitleDiv}>
+                <span>
+                  {cp.quantity} {cp.name}s
+                </span>
+                <span className={styles.variant}>
+                  {cp.variant}
+                </span>
+                </div>
+              </div>
+              <span>${(cp.quantity * cp.price).toFixed(2)}</span>
+            </div>
+          ))}
                   <div className={styles.coupon_code}>
                     <div className={styles.form_group}>
                       <input
@@ -195,11 +186,28 @@ const handleCouponApply = () => {
                       <label htmlFor={"coupon_code"} className={styles.myLabel}>
                         Coupon code
                       </label>
-                     
+                      {couponError && (
+                    <p className={styles.couponError}>
+                      Enter a valid discount code or gift card
+                    </p>
+                  )}
+
+                {couponValidCode &&
+                  <div className={styles.mainCouponCode}> 
+                      <Image src='/images/discount7.png' className={styles.mainDiscountImg} height={16} width={16}/>
+                      <span>{couponValidCode}</span>
+                      <Image src='/images/cancelWhite.png' onClick={(()=>{setCouponValidCode(undefined);setDiscount({code: '', discount: 0});})}
+                       className={styles.discountCancelImage} height={16} width={16}/>
+                      </div>
+                   }
+
+
                     </div>
+
+
                     <button
                       className={`${styles.apply} ${
-                        couponCode != "" && styles.applyEnabled
+                        couponCode !== "" && styles.applyEnabled
                       }`}
                       onClick={handleCouponApply}
                     >
@@ -207,32 +215,20 @@ const handleCouponApply = () => {
                     </button>
                   </div>
 
-                  {couponError && (
-                    <p className={styles.couponError}>
-                      Enter a valid discount code or gift card
-                    </p>
-                  )}
-            {couponValidCode &&
-                  <div className={styles.mainCouponCode}> 
-                      <Image src='/images/discount7.png' className={styles.mainDiscountImg} height={16} width={16}/>
-                      <span>{couponValidCode}</span>
-                      <Image src='/images/cancelWhite.png' onClick={(()=>{setCouponValidCode(undefined);setDiscount({code: '', discount: 0});})}
-                       className={styles.discountCancelImage} height={16} width={16}/>
-                      </div>
-  }
+                 
+        
 
                  
   
-                  <div className={`${styles.order_pair} ${styles.subTotal}`}>
+                  <div className={styles.order_pair}>
                     <span>Subtotal</span>
                     <span>${prices.subTotal}</span>
                   </div>
-                  {discount.discount != 0 && (
+                  {couponValidCode && (
                     <>
-                    <div className={styles.order_pair}>
-                      <span>Order Discount</span>
-                      <span></span>
-                    </div>
+                    
+                      <span className={styles.discountPairTitle}>Order Discount</span>
+                     
 
                     <div className={`${styles.order_pair} ${styles.discountPair}`}>
                     <div className={styles.discountCodeDiv}>
@@ -249,7 +245,7 @@ const handleCouponApply = () => {
                     <span>Free</span>
                   </div>
 
-                  {tip!==0 && tip!="" && <div className={styles.order_pair}>
+                  {tip!==0 && tip!=="" && <div className={styles.order_pair}>
                     <span>Tip</span>
                     <span id="tipPrice">${tip}</span>
                   </div>}
@@ -261,7 +257,7 @@ const handleCouponApply = () => {
                         <span className={styles.totalText}>Total</span>
                         
                         <div>
-                    <span className={styles.valute}>USD</span>
+                    <span className={styles.currency}>USD</span>
                     <span id='totalPrice' className={styles.total}>${prices.total}</span>
                     </div>
                   </div>
@@ -275,8 +271,7 @@ const handleCouponApply = () => {
   }
                 </div>
               </div>
-            </div>
-          </div>
+            
   
           {/* sacuvaj client id vrednost i ostale bitne informacije u .env fajlu */}
         </div>
