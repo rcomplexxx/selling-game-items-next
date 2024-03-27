@@ -2,18 +2,11 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import styles from "./checkoutinfo.module.css";
 import InputField from "./Input/InputField";
 import CountryInput from "./Input/CountryInput/CountryInput";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
-import GooglePay from "./GooglePay/GooglePay";
-import PayPalButton from "./PayPal/PayPal";
-import InjectStripe from "./Stripe/Stripe";
-import CreditCardForm from "./CreditCard/CreditCard";
+
 import FloatingBadge from "./FloatingBadge/FloatingBadge";
-import StripeWrapper from "./Stripe/Stripe";
 import ExpressCheckout from "./ExpressCheckout/ExpressCheckout";
 import Link from "next/link";
-import OrderDetails from "./OrderDetails";
-import PaymentMethodWrapper from "./PaymentSection/PaymentSection";
 import PaymentSection from "./PaymentSection/PaymentSection";
 import Tip from "./Tip/Tip";
 
@@ -22,7 +15,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
   const [errors, setErrors] = useState({});
   // const [shippingType, setShippingType] = useState("free");
 
-  const contactScrollRef = useRef();
+
 
   useEffect(()=>{
    showApt && document.getElementById("apt").focus();
@@ -161,13 +154,12 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
  
 
   return (
-    <>
       <div className={styles.leftWrapper}>
         <div className={styles.checkout_left}>
           <ExpressCheckout discount={discount} tip={tip} products={products} checkFields={checkFields} organizeUserData={organizeUserData} setCartProducts={setCartProducts } setErrors={setErrors}/>
           <div className={styles.checkout_section}>
-            <h2 className={styles.checkoutTitle} ref={contactScrollRef}>Contact</h2>
-            <form>
+            <h2 className={styles.checkoutTitle}>Contact</h2>
+          
               <div className={styles.input_row}>
                 <InputField
                   id="email"
@@ -229,13 +221,15 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
                 />
                  </div>
   <div className={styles.input_row}>
-    { showApt ? <InputField
+    { 
+    showApt ? <InputField
                   id="apt"
                   placeHolder="Apartment, suite, etc. (Optional)"
                   type="text"
                 />:<p onClick={()=>{setShowApt(true);}}
                 
-                className={styles.aptAdder}>+ Add apartment, suite etc.</p>}
+                className={styles.aptAdder}>+ Add apartment, suite etc.</p>
+                }
               </div>
               <div className={styles.input_row}>
               <InputField
@@ -272,7 +266,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
                   children={<FloatingBadge message={'In case we need to contact you about your order'}/>}
                 />
               </div>
-            </form>
+            
           </div>
 
           {/* <div className={styles.checkout_section}>
@@ -347,7 +341,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
                 </div>
         </div>
       </div>
-    </>
+ 
   );
 }
 

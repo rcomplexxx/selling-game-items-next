@@ -8,20 +8,18 @@ import React, {
   import Image from "next/image";
   import coupons from "@/data/coupons.json";
   
-  export default function OrderDetails({ discount, setDiscount,tip, products, isUpperSummery=true }) {
+  export default function OrderDetails({ discount, setDiscount,tip, products }) {
     const [showAnswer, setShowAnswer] = useState(false);
     const [couponCode, setCouponCode] = useState("");
     const [couponValidCode, setCouponValidCode] = useState("");
     const [couponError, setCouponError] = useState(false);
-    const [productsOpened, setProductsOpened] = useState(true);
     const summeryDivRef = useRef();
     const expendHeightTimeout = useRef();
     const mountedRef=useRef();
   
    
 
-    useEffect(()=>{ if(!isUpperSummery && products.length>1)setProductsOpened(false);
-      if(!isUpperSummery) setShowAnswer(true);},[products, isUpperSummery])
+   
 
 
       useEffect(()=>{
@@ -62,10 +60,7 @@ import React, {
       },[showAnswer])
 
   
-    function summonAnswer() {
-      setShowAnswer(!showAnswer);
-    }
-  
+
    
   
     const prices = useMemo(() => {
@@ -86,9 +81,9 @@ import React, {
 
 
 const handleCouponApply = () => {
-    if (couponCode == "") return;
+    if (couponCode === "") return;
     const newCoupon = coupons.find((c) => {
-      return c.code.toUpperCase() == couponCode.toUpperCase();
+      return c.code.toUpperCase() === couponCode.toUpperCase();
     });
     if (newCoupon) {
         setCouponValidCode(newCoupon.code.toUpperCase())
@@ -107,8 +102,8 @@ const handleCouponApply = () => {
         <div id="checkout_right" className={styles.checkout_right}>
         
            
-             {isUpperSummery && <div className={styles.title_div} onClick={summonAnswer}>
-                <div className={styles.segmentWrapper}>
+              <div className={styles.title_div} onClick={()=>{ setShowAnswer(!showAnswer);}}>
+               
                   <div className={styles.titleWrapper}>
                     <div className={styles.mobileTitle}>
                       Order summery
@@ -129,22 +124,15 @@ const handleCouponApply = () => {
                   <span className={styles.mainPrice}>${prices.total}</span>
                   
                   </div>
-                </div>
+             
               </div>
-  }
+  
               <div
               ref={summeryDivRef}
-                className={`${styles.emerge} ${showAnswer && styles.showEmerge}`}
+                className={styles.emerge}
               >
-                <div className={styles.segmentWrapper2}>
-                  {!isUpperSummery && (products.length>1? <div onClick={()=>{setProductsOpened(!productsOpened)}} className={styles.showProductsButton}>
-                    <h2>Order summery{products.length > 1 && ` (${products.length})`}</h2>
-                    <div className={styles.showProducts}>
-                    <span>Show</span>
-                    <Image src={'/images/greaterLess3.png'}  className={styles.showProductsImage} height={12} width={12}></Image>
-                    </div>
-                    </div>:<h2>Order summery</h2>)
-                    }
+                <div className={styles.orderDiv}>
+                 
                  {products.map((cp, i) => (
             <div className={styles.order_pair} key={i}>
               <div className={styles.productImageDiv}>

@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import InputField from '../Input/InputField'
 import styles from './tip.module.css'
 import Image from 'next/image';
@@ -9,36 +9,34 @@ export default function Tip({products, tip, setTip}){
 
     const [tipShow, setTipShow] = useState(false);
     const [selectedField, setSelectedField] =useState();
-    const [fullProductCost, setFullProductCost] = useState(0);
     
     const [tipInputValue, setTipInputValue]= useState("");
     const [tipInputFocused, setTipInputFocused] = useState(false);
     const [applyDisabled, setApplyDisabled] = useState(true);
     const [tipError, setTipError] = useState();
-    const visibilityTimeout = useRef();
+
+    const expendHeightTimeout = useRef();
     const mounted = useRef(false);
     const tipDivRef = useRef();
 
 
-    useEffect(() => {
-        const fullProductCostNow= products
+    const fullProductCost= useMemo(()=>{
+      return products
           .reduce((sum, product) => {
             sum += product.price * product.quantity;
     
             return sum;
           }, 0)
           .toFixed(2);
-    
-          console.log('products cost', fullProductCostNow);
-          setFullProductCost(fullProductCostNow);
-      }, [products]);
+    }, [products])
+ 
 
 
   useEffect(()=>{
 
-    if(!mounted.current)return;
+    if(!mounted.current){mounted.current=true;return;}
 
-          clearTimeout(visibilityTimeout.current);
+          clearTimeout(expendHeightTimeout.current);
           const tipDiv= tipDivRef.current;
           if(tipShow){
 
@@ -46,18 +44,18 @@ export default function Tip({products, tip, setTip}){
 
          
             tipDiv.style.maxHeight=`${ tipDiv.scrollHeight}px`;
-          visibilityTimeout.current=setTimeout(()=>{
-            tipDiv.style.overflow = `visible`
+          expendHeightTimeout.current=setTimeout(()=>{
+           
              tipDiv.style.maxHeight=`999px`;
            }, 600)
           }
           else{
 
-            tipDiv.style.overflow = `hidden`
+            
             tipDiv.style.transition=`max-height 0s ease`;
             tipDiv.style.maxHeight=`${tipDiv.scrollHeight}px`;
             setTimeout(()=>{
-              tipDiv.style.transition=`max-height 0.6s ease`;
+              tipDiv.style.transition=`max-height 0.5s ease`;
               tipDiv.style.maxHeight=`0`;
              }, 1)
              setTipInputValue("");
@@ -68,9 +66,7 @@ export default function Tip({products, tip, setTip}){
         },[tipShow])
 
 
-        useEffect(()=>{
-          mounted.current=true;
-        },[])
+       
 
     
       
