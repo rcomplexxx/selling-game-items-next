@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 
 import styles from './stripe.module.css'
 import { useStripe,  CardNumberElement, CardCvcElement, CardExpiryElement} from "@stripe/react-stripe-js"
@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import Image from 'next/image';
 import BillingInfo from './BillingInfo/BillingInfo';
 import swapCountryCode from '@/utils/countryList';
+import { CheckoutContext } from '@/contexts/CheckoutContext';
                
 
 const Stripe = ({organizeUserData, products, setCartProducts, checkFields}) => {
@@ -30,6 +31,8 @@ const Stripe = ({organizeUserData, products, setCartProducts, checkFields}) => {
     const elements= useElements();
 
     const router = useRouter();
+
+    const {total} = useContext(CheckoutContext);
 
 
     const deleteError = (field) => {
@@ -210,56 +213,12 @@ const handleStripePay= async(event)=>{
 
               const {id} = transactionPaymentMethod
              
-              console.log(products);
-              let totalPrice = products
-              .reduce((sum, product) => {
-              
-                  sum += product.price * product.quantity;
-                
-                
-        
-                return sum;
-              }, 0)
-              .toFixed(2);
-
-
-              console.log('first disc', totalPrice)
+           
              
 
-              const discountEl = document.getElementById("discountPrice");
-              let discount = "0";
-              if (discountEl) {
-                discount = discountEl.innerText;
-                discount = discount.substring(discount.indexOf("$") + 1).trim();
-              }
-            if (discount != "0") {
-              const discountFloat = parseFloat(discount);
-        
-              totalPrice = totalPrice - discountFloat;
-              totalPrice.toFixed(2);
-            }
-            console.log('after disc', totalPrice)
+  
 
-            const tipEl = document.getElementById("tipPrice");
-            let tip="0"
-            if (tipEl) {
-              tip = tipEl.innerText;
-              tip = tip.substring(tip.indexOf("$") + 1).trim();
-            }
-
-            if (tip != "0") {
-              const tipFloat = parseFloat(tip);
-        
-              totalPrice = parseFloat(totalPrice) + tipFloat;
-              totalPrice = totalPrice.toFixed(2);
-            }
-
-            console.log('after tip', totalPrice)
-
-
-
-
-              const requestDataFinal=  {...requestData, stripeId:id, amount: totalPrice};
+              const requestDataFinal=  {...requestData, stripeId:id, amount: total};
               console.log('reqdata BITNO ~!!!~', requestDataFinal)
 
               const response = await fetch("/api/make-payment", {

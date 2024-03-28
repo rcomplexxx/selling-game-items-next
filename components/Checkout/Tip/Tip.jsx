@@ -1,11 +1,12 @@
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import InputField from '../Input/InputField'
 import styles from './tip.module.css'
 import Image from 'next/image';
+import { CheckoutContext } from '@/contexts/CheckoutContext';
 
 
-export default function Tip({products, tip, setTip}){
+export default function Tip({products}){
 
     const [tipShow, setTipShow] = useState(false);
     const [selectedField, setSelectedField] =useState();
@@ -19,16 +20,12 @@ export default function Tip({products, tip, setTip}){
     const mounted = useRef(false);
     const tipDivRef = useRef();
 
+    const {subTotal, discount, tip, setTip} = useContext(CheckoutContext);
+
 
     const fullProductCost= useMemo(()=>{
-      return products
-          .reduce((sum, product) => {
-            sum += product.price * product.quantity;
-    
-            return sum;
-          }, 0)
-          .toFixed(2);
-    }, [products])
+    return subTotal - subTotal*discount/100;
+    }, [subTotal, discount])
  
 
 
@@ -90,33 +87,24 @@ export default function Tip({products, tip, setTip}){
       
       <div id='tipDiv' ref={tipDivRef} className={styles.tipDiv}>
         <div className={styles.roundPercentWrapper}>
-            <div className={`${styles.roundPercent}`} 
+            <div className={`${styles.roundPercent} ${styles.firstRoundPercent} ${selectedField==5 && styles.selectedPercent}`} 
             onClick={()=>{
-              setTipError(); setTipInputValue(""); setApplyDisabled(true); setSelectedField(5); setTip((fullProductCost*5/100).toFixed(2));}}>
+              setTipError(); setTipInputValue(""); setApplyDisabled(true); setSelectedField(5); setTip(parseFloat(fullProductCost*5/100, 2));}}>
             <span className={styles.roundPercentSpan}>5%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*5/100).toFixed(2)}</span>
-            {
-              selectedField==5 &&
-              <div className={styles.selectedPercent}/>
-            }
+           
             </div>
-            <div className={`${styles.roundPercent}`}
-             onClick={()=>{setTipError();setTipInputValue(""); setApplyDisabled(true); setSelectedField(10); setTip((fullProductCost*10/100).toFixed(2));}}>
+            <div className={`${styles.roundPercent} ${styles.centerRoundPercent}`}
+             onClick={()=>{setTipError();setTipInputValue(""); setApplyDisabled(true); setSelectedField(10); setTip(parseFloat(fullProductCost*10/100, 2));}}>
             <span className={styles.roundPercentSpan}>10%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*10/100).toFixed(2)}</span>
-            {
-              selectedField==10 &&
-              <div className={styles.selectedPercent}/>
-            }
+              {selectedField==10 && <div className={styles.selectedPercentCenter}/>}
             </div>
-            <div className={`${styles.roundPercent} ${styles.lastRoundPercent}`} 
-            onClick={()=>{setTipError();setTipInputValue(""); setApplyDisabled(true); setSelectedField(15); setTip((fullProductCost*15/100).toFixed(2));}}>
+            <div className={`${styles.roundPercent} ${styles.lastRoundPercent} ${selectedField==15 && styles.selectedPercent}`} 
+            onClick={()=>{setTipError();setTipInputValue(""); setApplyDisabled(true); setSelectedField(15); setTip(parseFloat(fullProductCost*15/100, 2));}}>
             <span className={styles.roundPercentSpan}>15%</span>
             <span className={styles.roundTipSpan}>${(fullProductCost*15/100).toFixed(2)}</span>
-            {
-              selectedField==15 &&
-              <div className={styles.selectedPercent}/>
-            }
+         
             </div>
            
         </div>
@@ -124,36 +112,27 @@ export default function Tip({products, tip, setTip}){
         <div className={styles.customTipField}>
       <input
         id="tip"
-        value={tipInputValue}
+         value={tipInputValue}
+        type='number'
         onChange={(event)=>{
             const tipValue= event.target.value;
 
-         
-
-            const dotIndex = tipValue.indexOf('.');
-            const hasOnlyOneDot = dotIndex !== -1 && dotIndex === tipValue.lastIndexOf('.');
+            const tipValueFloat = (tipValue=="" || tipValue=='.')?0:parseFloat(tipValue);
             
-            // Check if all other characters are digits
-            const areAllOtherCharsDigits = /^[0-9]+$/.test(tipValue.slice(0, -1));
-            if(tipValue==="" ){
-              if(tip==0)setApplyDisabled(true);
-              else setApplyDisabled(false);
-                setTipInputValue(tipValue);
-                return;
-            }    
-            if(hasOnlyOneDot && areAllOtherCharsDigits){
-              if(tip==parseFloat(tipValue.slice(0, -1)))setApplyDisabled(true);
-              else setApplyDisabled(false);
-              setTipInputValue(tipValue);
-              return;
-            }        
             setTipError();
-            const floatValue = parseFloat(tipValue);
-            if(isNaN(floatValue) || /^-?\d*\.\d{3,}$/.test(tipValue))return;
-            if(floatValue!=tip)setApplyDisabled(false);
-            else setApplyDisabled(true);
+
+          
+            setApplyDisabled(tipValueFloat==tip);
+
+
+            if(tipInputValue!=0 && tipValueFloat==0) {
+              setTipInputValue("")
+            }
+            else{
+            setTipInputValue(tipValue);
+            }
+            
         
-            setTipInputValue(floatValue)
         }}
         onFocus={()=>{setTipInputFocused(true)}}
         onBlur={()=>{setTipInputFocused(false)}}
@@ -174,7 +153,7 @@ export default function Tip({products, tip, setTip}){
             setSelectedField(0);
             setApplyDisabled(true);
             if(tipInputValue=="")setTip(0);
-            else setTip(parseFloat(tipInputValue).toFixed(2));
+            else setTip(parseFloat(tipInputValue, 2));
         }}    >{tip==0?"Add tip":"Update tip"}</span>
       
 

@@ -1,52 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import GooglePayButton from "@google-pay/button-react";
 import styles from "./googlepay.module.css";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import swapCountryCode from "@/utils/countryList";
+import { CheckoutContext } from "@/contexts/CheckoutContext";
 
 const GooglePay = ({
   products,
-  setCartProducts,
-  discount,
-  tip
+
 }) => {
   //paymentRequest.paymentMethodData.tokenizationData.token
   const [googlePayError, setGooglePayError] = useState();
 
-  const [totalPrice, setTotalPrice] = useState(
-    products
-      .reduce((sum, product) => {
-        sum += product.price * product.quantity;
 
-        return sum;
-      }, 0)
-      .toFixed(2)
-  );
+  const {subTotal, couponCode, discount, tip} = useContext(CheckoutContext);
+
+  const totalPrice = useMemo(()=>{
+   return (subTotal - discount*subTotal/100 + parseFloat(tip)).toFixed(2)
+}, [subTotal, discount, tip]);
 
   const router = useRouter();
 
-  useEffect(() => {
-    let totalPriceNow = products
-      .reduce((sum, product) => {
-        sum += product.price * product.quantity;
-
-        return sum;
-      }, 0)
-      .toFixed(2);
-
-    if (discount.discount!=0) {
-      
-      totalPriceNow = totalPriceNow - (totalPriceNow * discount.discount) / 100;
-      totalPriceNow = totalPriceNow.toFixed(2);
-    }
-    if(tip && tip!=0){
-      totalPriceNow=parseFloat(totalPriceNow) + parseFloat(tip);
-      totalPriceNow= totalPriceNow.toFixed(2);
-    }
-    console.log("price", totalPriceNow);
-    setTotalPrice(totalPriceNow);
-  }, [discount.discount, tip, products]);
+ 
 
   const handleGpayOrder = async (paymentData) => {
     try {
@@ -57,34 +33,11 @@ const GooglePay = ({
         paymentData.paymentMethodData.tokenizationData.token
       ).id;
 
-      const discountEl = document?.getElementById("discountCode");
-      console.log("disc el", discountEl);
-      let discountCode = "";
-      if (discountEl) {
-        discountCode = discountEl.innerText;
-      }
+   
 
-      const tipEl = document?.getElementById("tipPrice");
-      let tip = "";
-      if (tipEl) {
-        tip = tipEl.innerText;
-        tip = tip.substring(tip.indexOf("$") + 1).trim();
-      }
+     
+   
 
-
-
-
-      const finalTotalPriceEl = document?.getElementById("totalPrice");
-    
-      let finalTotalPrice = totalPrice;
-      console.log('final price', finalTotalPrice)
-      if (finalTotalPriceEl) {
-        finalTotalPrice = finalTotalPriceEl.innerText;
-        finalTotalPrice= finalTotalPrice.substring(finalTotalPrice.indexOf("$") + 1).trim();
-
-      }
-      console.log('final price', finalTotalPrice)
-      
 
       const items = [];
       products.map((product) => {
@@ -121,7 +74,7 @@ const GooglePay = ({
           state: paymentData.shippingAddress.administrativeArea,
           city: paymentData.shippingAddress.locality,
           phone: paymentData.shippingAddress.phoneNumber,
-          discountCode: discountCode,
+          discountCode: couponCode,
           tip:tip,
           items: items,
         },
@@ -131,7 +84,7 @@ const GooglePay = ({
         // Include other payment-related data if required
       };
 
-      const requestDataFinal = { ...requestData, amount: parseFloat(finalTotalPrice).toFixed(2) };
+      const requestDataFinal = { ...requestData, amount: parseFloat(totalPrice).toFixed(2) };
 
       console.log("mydata", requestData);
       return await fetch("/api/make-payment", {

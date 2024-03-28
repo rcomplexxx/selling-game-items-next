@@ -3,23 +3,26 @@ import React, {
     useMemo,
     useEffect,
     useRef,
+    useContext,
   } from "react";
   import styles from "./orderdetails.module.css";
   import Image from "next/image";
   import coupons from "@/data/coupons.json";
+import { CheckoutContext } from "@/contexts/CheckoutContext";
   
-  export default function OrderDetails({ discount, setDiscount,tip, products }) {
+  export default function OrderDetails({  products }) {
     const [showAnswer, setShowAnswer] = useState(false);
-    const [couponCode, setCouponCode] = useState("");
-    const [couponValidCode, setCouponValidCode] = useState("");
+
+    const [tempCouponCode, setTemptempCouponCode] = useState("");
     const [couponError, setCouponError] = useState(false);
+
     const summeryDivRef = useRef();
     const expendHeightTimeout = useRef();
     const mountedRef=useRef();
   
    
 
-   
+    const {total, subTotal, couponCode, setAndValidateCouponCode, discount, tip} = useContext(CheckoutContext);
 
 
       useEffect(()=>{
@@ -63,34 +66,21 @@ import React, {
 
    
   
-    const prices = useMemo(() => {
-      console.log('tip', tip)
-      let s = 0;
-      products.forEach((cp, i) => {
-        s = s + cp.quantity * cp.price;
-      });
-      s = s.toFixed(2);
-      let discountPrice = 0;
-      if (discount.discount != 0) discountPrice = ((s * discount.discount) / 100).toFixed(2);
-     
-      const total = (s  - discountPrice + parseFloat(tip)).toFixed(2);
-      return { subTotal: s, discount: discountPrice, total: total };
-    }, [products, tip, discount]);
+ 
 
 
 
 
 const handleCouponApply = () => {
-    if (couponCode === "") return;
-    const newCoupon = coupons.find((c) => {
-      return c.code.toUpperCase() === couponCode.toUpperCase();
-    });
-    if (newCoupon) {
-        setCouponValidCode(newCoupon.code.toUpperCase())
-      setDiscount({code: newCoupon.code, discount:newCoupon.discountPercentage});
+    if (tempCouponCode === "") return;
+    
+    const couponActivated = setAndValidateCouponCode(tempCouponCode);
+    if(couponActivated){
       setCouponError(false);
-      setCouponCode("");
-    } else if(!couponValidCode) setCouponError(true);
+          setTemptempCouponCode("");
+    }
+    else setCouponError(true);
+    
   }
 
 
@@ -120,8 +110,8 @@ const handleCouponApply = () => {
                   </div>
   
                   <div className={styles.mainPriceDiv}>
-                  {discount.code!="" && <span className={styles.mainPriceSub}>${prices.subTotal}</span>}
-                  <span className={styles.mainPrice}>${prices.total}</span>
+                  {discount.code!="" && <span className={styles.mainPriceSub}>${subTotal}</span>}
+                  <span className={styles.mainPrice}>${total}</span>
                   
                   </div>
              
@@ -161,9 +151,9 @@ const handleCouponApply = () => {
                       <input
                         id="coupon_code"
                         type="text"
-                        value={couponCode}
+                        value={tempCouponCode}
                         onChange={(event) => {
-                          setCouponCode(event.target.value);
+                          setTemptempCouponCode(event.target.value);
                         }}
                         onKeyUp={(e) => e.key === 'Enter' && handleCouponApply()}
                         className={`${styles.coupon_code_input} ${
@@ -180,11 +170,11 @@ const handleCouponApply = () => {
                     </span>
                   )}
 
-                {couponValidCode &&
-                  <div className={styles.mainCouponCode}> 
+                {couponCode &&
+                  <div className={styles.maintempCouponCode}> 
                       <Image src='/images/discount7.png' className={styles.mainDiscountImg} height={16} width={16}/>
-                      <span>{couponValidCode}</span>
-                      <Image src='/images/cancelWhite.png' onClick={(()=>{setCouponValidCode(undefined);setDiscount({code: '', discount: 0});})}
+                      <span>{couponCode}</span>
+                      <Image src='/images/cancelWhite.png' onClick={(()=>{setCouponCode(undefined);setDiscount({code: '', discount: 0});})}
                        className={styles.discountCancelImage} height={16} width={16}/>
                       </div>
                    }
@@ -194,7 +184,7 @@ const handleCouponApply = () => {
 
 
                     <button
-                      className={`${styles.apply} ${ couponCode !== "" && styles.applyEnabled }`}
+                      className={`${styles.apply} ${ tempCouponCode !== "" && styles.applyEnabled }`}
                       onClick={handleCouponApply}
                     >
                       Apply
@@ -208,9 +198,9 @@ const handleCouponApply = () => {
   
                   <div className={styles.order_pair}>
                     <span>Subtotal</span>
-                    <span>${prices.subTotal}</span>
+                    <span>${subTotal}</span>
                   </div>
-                  {couponValidCode && (
+                  {couponCode && (
                     <>
                     
                       <span className={styles.discountPairTitle}>Order Discount</span>
@@ -219,9 +209,9 @@ const handleCouponApply = () => {
                     <div className={`${styles.order_pair} ${styles.discountPair}`}>
                     <div className={styles.discountCodeDiv}>
                         <Image src='/images/discount7.png' className={styles.discountImg} height={12} width={12}/>
-                        <span id="discountCode">{couponValidCode}</span>
+                        <span id="discountCode">{couponCode}</span>
                         </div>
-                    <span id="discountPrice">- ${prices.discount}</span>
+                    <span id="discountPrice">- ${discount}</span>
                     </div>
                  </>
 
@@ -233,7 +223,7 @@ const handleCouponApply = () => {
 
                   {tip!==0 && tip!=="" && <div className={styles.order_pair}>
                     <span>Tip</span>
-                    <span id="tipPrice">${tip}</span>
+                    <span id="tipPrice">{`$${tip.toFixed(2)}`}</span>
                   </div>}
 
                   
@@ -244,14 +234,14 @@ const handleCouponApply = () => {
                         
                         <div>
                     <span className={styles.currency}>USD</span>
-                    <span id='totalPrice' className={styles.total}>${prices.total}</span>
+                    <span id='totalPrice' className={styles.total}>${total}</span>
                     </div>
                   </div>
 
-                  {couponValidCode &&
+                  {couponCode &&
                   <div className={styles.totalDiscount}> 
                       <Image src='/images/totalDiscount2.png' className={styles.totalDiscountImg} height={16} width={16}/>
-                      <span className={styles.totalDiscountSpan}>Total savings</span><span className={styles.totalDiscountSpan}>${prices.discount}</span>
+                      <span className={styles.totalDiscountSpan}>Total savings</span><span className={styles.totalDiscountSpan}>${discount}</span>
                       
                       </div>
   }

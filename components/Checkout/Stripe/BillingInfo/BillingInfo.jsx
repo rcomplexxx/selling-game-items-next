@@ -33,14 +33,13 @@ export default function BillingInfo({isOpen, errors, setErrors}){
          
           billingInfoDiv.style.maxHeight=`${billingInfoDiv.scrollHeight}px`;
           visibilityTimeout.current=setTimeout(()=>{
-            billingInfoDiv.style.overflow = `visible`
-            billingInfoDiv.style.maxHeight=`999px`;
+            billingInfoDiv.style.maxHeight=`none`;
            }, 500)
           }
           else{
 
             billingInfoDiv.style.transition=`max-height 0s ease`;
-            billingInfoDiv.style.overflow=`hidden`;
+           
             billingInfoDiv.style.maxHeight=`${billingInfoDiv.scrollHeight}px`;
             setTimeout(()=>{
               billingInfoDiv.style.transition=`max-height 0.5s ease`;

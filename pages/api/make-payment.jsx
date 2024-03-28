@@ -260,18 +260,13 @@ const makePayment = async (req, res) => {
    
     // stripeId amount totalPrice
     console.log('popusis ti meni STRIPE')
-    const {stripeId, amount} = req.body;
-    if(amount!= totalPrice)
-    return res
-      .status(400)
-      .json({ success: false, error: "Error occured. Payment was not approved." });
-
-      
+    const {stripeId} = req.body;
+ 
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
       
     const paymentIntent = await stripe.paymentIntents.create({
-      amount:parseInt(amount*100),
+      amount:parseInt(totalPrice*100),
 			currency: "USD",
       payment_method: stripeId, 
 			automatic_payment_methods: {

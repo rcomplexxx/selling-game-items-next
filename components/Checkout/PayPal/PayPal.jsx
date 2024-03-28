@@ -49,13 +49,19 @@ const PayPalButton=({checkFields, organizeUserData, method='paypal',  type='norm
             console.log('discount exists', discEle.innerText)
             requestData={...requestData, order:{...requestData.order, discountCode: discEle.innerText}}
           }
+          else{
+            requestData={...requestData, order:{...requestData.order, discountCode: ""}}
+          }
 
           const tipEl = document.getElementById("tipPrice");
          
           if (tipEl) {
-            tip = tipEl.innerText;
+           let tip = tipEl.innerText;
             tip = tip.substring(tip.indexOf("$") + 1).trim();
             requestData={...requestData, order:{...requestData.order, tip: tip}}
+          }
+          else{
+            requestData={...requestData, order:{...requestData.order, tip: "0.00"}}
           }
           
             const response = await fetch("/api/make-payment", {
@@ -72,10 +78,12 @@ const PayPalButton=({checkFields, organizeUserData, method='paypal',  type='norm
               console.log("order id returned", order.paymentId);
               return order.paymentId;
             } else {
+              console.log('myor', order);
               setPaypalError('Error occured. Payment was not processed.')
               return;
             }
           } catch (error) {
+            console.log('myerr', error);
             setPaypalError('Error occured. Payment was not processed.')
             
           }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback, useContext } from "react";
 import styles from "./checkoutinfo.module.css";
 import InputField from "./Input/InputField";
 import CountryInput from "./Input/CountryInput/CountryInput";
@@ -9,13 +9,14 @@ import ExpressCheckout from "./ExpressCheckout/ExpressCheckout";
 import Link from "next/link";
 import PaymentSection from "./PaymentSection/PaymentSection";
 import Tip from "./Tip/Tip";
+import { CheckoutContext } from "@/contexts/CheckoutContext";
 
-export default function CheckoutInfo({ products, discount,  tip, setTip, setCartProducts }) {
+export default function CheckoutInfo({ products,  setCartProducts }) {
   const [showApt, setShowApt] = useState(false);
   const [errors, setErrors] = useState({});
   // const [shippingType, setShippingType] = useState("free");
 
-
+  const {couponCode, tip} = useContext(CheckoutContext);
 
   useEffect(()=>{
    showApt && document.getElementById("apt").focus();
@@ -126,7 +127,7 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
       variant: product.variant
       })
     });
-    console.log('disc ele', discount.code)
+   
     const requestData = {
       order: {
         email,
@@ -139,9 +140,9 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
         state,
         city,
         phone,
-        discountCode: discount.code,
-        tip: tip,
         items:items ,
+        discountCode: couponCode,
+        tip: tip.toFixed(2)
       },
       paymentMethod: paymentMethod,
       paymentToken: paymentToken
@@ -149,14 +150,14 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
       // Include other payment-related data if required
     };
     return requestData
-  }, []);
+  }, [couponCode, tip]);
 
  
 
   return (
       <div className={styles.leftWrapper}>
         <div className={styles.checkout_left}>
-          <ExpressCheckout discount={discount} tip={tip} products={products} checkFields={checkFields} organizeUserData={organizeUserData} setCartProducts={setCartProducts } setErrors={setErrors}/>
+          <ExpressCheckout products={products} checkFields={checkFields} organizeUserData={organizeUserData} setCartProducts={setCartProducts } setErrors={setErrors}/>
           <div className={styles.checkout_section}>
             <h2 className={styles.checkoutTitle}>Contact</h2>
           
@@ -328,9 +329,9 @@ export default function CheckoutInfo({ products, discount,  tip, setTip, setCart
             </label>
           </div> */}
          
-         <PaymentSection discount={discount} checkFields={checkFields} organizeUserData={organizeUserData} products={products} setCartProducts={setCartProducts } setErrors={setErrors} />
+         <PaymentSection  checkFields={checkFields} organizeUserData={organizeUserData} products={products} setCartProducts={setCartProducts } setErrors={setErrors} />
                 
-                <Tip products={products} tip={tip} setTip={setTip} />
+                <Tip products={products} />
         </div>
         <div className={styles.checkoutFooterWrapper}>
                 <div className={styles.checkoutFooter}>

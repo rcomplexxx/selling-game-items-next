@@ -81,7 +81,7 @@ const BuyNowPage = () => {
             <button className={styles.shopNow}>Shop Now</button>
           </Link>
       </div>
-      </>:<h1 className={`${styles.title}  ${styles.emptyTitle}`}>Loading checkout...</h1>
+      </>:<h1 className={`${styles.title} ${styles.emptyTitle}`}>Loading checkout...</h1>
       }
     </div>
     </div>
@@ -90,7 +90,7 @@ const BuyNowPage = () => {
   }
 
   return (
-    <>
+    <CheckoutProvider>
       
       <NextSeo {...unimportantPageSeo('/checkout')}/>
       <div className={styles.checkoutMainContainer}>
@@ -98,15 +98,15 @@ const BuyNowPage = () => {
         <>
       <CheckoutLogo/>
       <div className={styles.checkout_container}>
-        <OrderDetails discount={discount} setDiscount={setDiscount} tip={tip} products={cartProducts} />
+        <OrderDetails products={cartProducts} />
 
-        <CheckoutInfo discount={discount} tip={tip} setTip={setTip} products={cartProducts} setCartProducts={setCartProducts}/>
+        <CheckoutInfo products={cartProducts} setCartProducts={setCartProducts}/>
        
         </div>
         </>
       }
       </div>
-    </>
+    </CheckoutProvider>
   );
 };
 
