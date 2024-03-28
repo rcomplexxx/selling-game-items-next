@@ -12,6 +12,7 @@ import CheckoutLogo from "@/components/Checkout/CheckoutLogo/CheckoutLogo";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
 import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
+import CheckoutProvider from "@/contexts/CheckoutContext";
 
 const BuyNowPage = () => {
   const router = useRouter();
