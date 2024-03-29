@@ -139,12 +139,25 @@ export default function Tip({products}){
         placeholder=" "
         className={`${styles.customTipInput}`}
       />
+
+       <div className={styles.tipChangerDiv}>
+        <span onClick={()=>{
+          if(tipInputValue===""){setTipInputValue(0);return;}
+
+          setTipInputValue(parseFloat(tipInputValue<1?1:tipInputValue)-1)}} 
+        className={`${styles.tipIncrement} ${styles.tipDecrement}`}>–</span>
+      <span onClick={()=>{setTipInputValue(parseFloat(tipInputValue===""?0:tipInputValue)+1)}} 
+      className={styles.tipIncrement}>+</span>
+      
+      </div>
         
       <label htmlFor={"tip"} className={styles.label}>
         {"Custom tip"}
       </label>
 
-      {(tipInputValue!=="" || tipInputFocused ) && <span className={styles.dollarSign}>$ </span>}
+       
+
+       <span className={styles.dollarSign}>$ </span>
 
         </div>
         <span className={`${styles.addTip} ${applyDisabled && styles.addTipDisabled}`}

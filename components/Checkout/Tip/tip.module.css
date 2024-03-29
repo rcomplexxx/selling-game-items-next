@@ -211,6 +211,7 @@
     top: 18px;
     left: var(--size-3);
     font-size: var(--font-size-2);
+    opacity: 0;
   }
 
   
@@ -228,10 +229,43 @@
       pointer-events: none;
       opacity: 0.7;
     }
+
+    .tipChangerDiv{
+      position: absolute;
+      right: var(--size-3);
+      top: var(--size-3);
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tipIncrement{
+
+     
+
+      opacity: 0.5;
+      font-size: var(--font-size-5);
+      cursor: pointer;
+
+
+    }
+
+    .tipDecrement{
+     
+      margin-right: var(--size-5);
+    }
+
+
+    .tipChangerDiv:active .customTipInput:not(:placeholder-shown) ~ .dollarSign,
+    .customTipInput:focus ~ .dollarSign,
+    .customTipInput:not(:placeholder-shown) ~ .dollarSign{
+      opacity: 1;
+
+    }
   
-  
-    .customTipInput:focus + .label,
-    .customTipInput:not(:placeholder-shown) + .label {
+    .tipChangerDiv:active + .label,
+    .customTipInput:focus ~ .label,
+    .customTipInput:not(:placeholder-shown) ~ .label {
       opacity: 0.9;
     top: 3px;
     font-size: var(--font-size-1);

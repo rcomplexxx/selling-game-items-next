@@ -5,13 +5,22 @@ import coupons from '@/data/coupons.json'
 
 
 
-export const CheckoutContext = createContext({subTotal:0, couponCode: "", discount:0, tip:0});
+export const CheckoutContext = createContext({total:0,subTotal:0, couponCode:"", setAndValidateCouponCode:()=>{}, discount:0, tip:0, setTip:()=>{} });
 
 
 
- const CheckoutProvider = ({ children }) => {
+ const CheckoutProvider = ({ children, buyNowProduct }) => {
 
-    const { cartProducts} = useContext(AppContext);
+
+ let  cartProducts;
+
+    if(buyNowProduct){
+      cartProducts= buyNowProduct;
+    }
+    else{
+      cartProducts = useContext(AppContext).cartProducts;
+    }
+   
 
     const [couponCode, setCouponCode] = useState('');
     const [tip, setTip]= useState(0);

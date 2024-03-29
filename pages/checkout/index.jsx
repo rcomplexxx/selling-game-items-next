@@ -10,7 +10,7 @@ import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 import CheckoutProvider from "@/contexts/CheckoutContext";
 
 const CheckoutPage = () => {
-  const { cartProducts, setCartProducts } = useContext(AppContext);
+  const { cartProducts } = useContext(AppContext);
   const [loaded, setLoaded] = useState(false);
  
 
@@ -46,7 +46,6 @@ const CheckoutPage = () => {
  }
  
   
-  console.log('cp', cartProducts.length);
 
   return (
     <CheckoutProvider>
@@ -58,7 +57,7 @@ const CheckoutPage = () => {
       <div className={`${styles.checkout_container} ${styles.checkoutAbsolute}`}>
         <OrderDetails  products={cartProducts} />
 
-        <CheckoutInfo  products={cartProducts} setCartProducts={setCartProducts}/>
+        <CheckoutInfo  products={cartProducts} />
           
        
       </div>

@@ -7,7 +7,7 @@ import { NextSeo } from "next-seo";
 import { unimportantPageSeo } from "@/utils/SEO-configs/next-seo.config";
 
 export default function ThankYou() {
-  const { cartProducts, setCartProducts } = useContext(AppContext);
+  const {  setCartProducts } = useContext(AppContext);
 
   useEffect(() => {
     setCartProducts([]);

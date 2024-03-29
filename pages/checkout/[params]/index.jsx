@@ -22,8 +22,7 @@ const BuyNowPage = () => {
 
   const [loaded, setLoaded] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
-  const [discount, setDiscount] = useState({code:'', discount: 0 });
-  const [tip, setTip]= useState(0);
+  
 
 
   useEffect(() => {
@@ -91,7 +90,7 @@ const BuyNowPage = () => {
   }
 
   return (
-    <CheckoutProvider>
+    <CheckoutProvider buyNowProduct={cartProducts}>
       
       <NextSeo {...unimportantPageSeo('/checkout')}/>
       <div className={styles.checkoutMainContainer}>
