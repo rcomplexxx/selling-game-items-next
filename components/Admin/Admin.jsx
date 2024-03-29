@@ -53,7 +53,7 @@ export default function Admin() {
         city: order.city,
         phone: order.phone,
         items: order.items,
-        discountCode: order.discountCode,
+        couponCode: order.couponCode,
         tip: order.tip,
         packageStatus: order.packageStatus,
         paymentMethod: order.paymentMethod,

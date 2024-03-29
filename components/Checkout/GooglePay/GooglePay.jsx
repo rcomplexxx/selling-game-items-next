@@ -74,7 +74,7 @@ const GooglePay = ({
           state: paymentData.shippingAddress.administrativeArea,
           city: paymentData.shippingAddress.locality,
           phone: paymentData.shippingAddress.phoneNumber,
-          discountCode: couponCode,
+          couponCode: couponCode,
           tip:tip,
           items: items,
         },

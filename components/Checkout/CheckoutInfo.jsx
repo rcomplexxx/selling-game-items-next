@@ -141,7 +141,7 @@ export default function CheckoutInfo({ products,  setCartProducts }) {
         city,
         phone,
         items:items ,
-        discountCode: couponCode,
+        couponCode: couponCode,
         tip: tip.toFixed(2)
       },
       paymentMethod: paymentMethod,

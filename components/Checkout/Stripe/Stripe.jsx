@@ -13,7 +13,7 @@ import swapCountryCode from '@/utils/countryList';
 import { CheckoutContext } from '@/contexts/CheckoutContext';
                
 
-const Stripe = ({organizeUserData, products, setCartProducts, checkFields}) => {
+const Stripe = ({organizeUserData, checkFields}) => {
     const [billingAddressSameAsShipping, setBillingAddressSameAsShipping] = useState(true);
     const [billingErrors, setBillingErrors]= useState({});
     const [floatingLabels, setFloatingLabels]= useState({});

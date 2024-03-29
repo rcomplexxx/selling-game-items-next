@@ -110,7 +110,7 @@ const handleCouponApply = () => {
                   </div>
   
                   <div className={styles.mainPriceDiv}>
-                  {discount.code!="" && <span className={styles.mainPriceSub}>${subTotal}</span>}
+                  {couponCode!="" && <span className={styles.mainPriceSub}>${subTotal}</span>}
                   <span className={styles.mainPrice}>${total}</span>
                   
                   </div>
@@ -166,15 +166,15 @@ const handleCouponApply = () => {
                       </label>
                       {couponError && (
                     <span className={styles.couponError}>
-                      Enter a valid discount code or gift card
+                      Enter a valid discount code.
                     </span>
                   )}
 
                 {couponCode &&
-                  <div className={styles.maintempCouponCode}> 
+                  <div className={styles.mainCouponCode}> 
                       <Image src='/images/discount7.png' className={styles.mainDiscountImg} height={16} width={16}/>
                       <span>{couponCode}</span>
-                      <Image src='/images/cancelWhite.png' onClick={(()=>{setCouponCode(undefined);setDiscount({code: '', discount: 0});})}
+                      <Image src='/images/cancelWhite.png' onClick={(()=>{setAndValidateCouponCode("");})}
                        className={styles.discountCancelImage} height={16} width={16}/>
                       </div>
                    }
@@ -207,11 +207,11 @@ const handleCouponApply = () => {
                      
 
                     <div className={`${styles.order_pair} ${styles.discountPair}`}>
-                    <div className={styles.discountCodeDiv}>
+                    <div className={styles.couponCodeDiv}>
                         <Image src='/images/discount7.png' className={styles.discountImg} height={12} width={12}/>
-                        <span id="discountCode">{couponCode}</span>
+                        <span id="couponCode">{couponCode}</span>
                         </div>
-                    <span id="discountPrice">- ${discount}</span>
+                    <span id="discountPrice">- ${(subTotal*discount/100).toFixed(2)}</span>
                     </div>
                  </>
 
@@ -241,7 +241,7 @@ const handleCouponApply = () => {
                   {couponCode &&
                   <div className={styles.totalDiscount}> 
                       <Image src='/images/totalDiscount2.png' className={styles.totalDiscountImg} height={16} width={16}/>
-                      <span className={styles.totalDiscountSpan}>Total savings</span><span className={styles.totalDiscountSpan}>${discount}</span>
+                      <span className={styles.totalDiscountSpan}>Total savings</span><span className={styles.totalDiscountSpan}>${(subTotal*discount/100).toFixed(2)}</span>
                       
                       </div>
   }

@@ -137,9 +137,9 @@ export default function CoreOrderInfo(discount, setDiscount, products){
         </div>
 
         <div className={`${styles.order_pair} ${styles.discountPair}`}>
-        <div className={styles.discountCodeDiv}>
+        <div className={styles.couponCodeDiv}>
             <Image src='/images/discount7.png' className={styles.discountImg} height={16} width={16}/>
-            <span id="discountCode">{couponValidCode}</span>
+            <span id="couponCode">{couponValidCode}</span>
             </div>
         <span id="discountPrice">- ${prices.discount}</span>
         </div>

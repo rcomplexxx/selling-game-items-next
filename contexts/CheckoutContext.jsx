@@ -19,6 +19,9 @@ export const CheckoutContext = createContext({subTotal:0, couponCode: "", discou
 
 
     const setAndValidateCouponCode = useCallback((tempCouponCode)=>{
+
+        if(tempCouponCode==="" && couponCode!==""){setCouponCode(""); return true;}
+
         const newCoupon = coupons.find((c) => {
             return c.code.toUpperCase() === tempCouponCode.toUpperCase();
           });
@@ -33,7 +36,7 @@ export const CheckoutContext = createContext({subTotal:0, couponCode: "", discou
 
 
 
-    },[])
+    },[couponCode])
 
 
 

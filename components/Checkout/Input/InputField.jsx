@@ -12,6 +12,7 @@ export default function InputField({
 }) {
   return (
     <div className={styles.form_group}>
+      <div className={styles.inputWrapper}>
       <input
         type={type}
         id={id}
@@ -20,9 +21,12 @@ export default function InputField({
         autoComplete={autocomplete && autocomplete}
         className={`${styles.input_field} ${error ? styles.input_error : ""}`}
       />
-      <label htmlFor={id} className={styles.label}>
+
+<label htmlFor={id} className={styles.label}>
         {placeHolder}
       </label>
+      </div>
+     
       {children && children}
     </div>
   );

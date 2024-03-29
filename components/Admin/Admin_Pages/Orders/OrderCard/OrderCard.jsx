@@ -47,9 +47,9 @@ export default function OrderCard({
 
 
               console.log(rawAmount);
-              console.log('ccCode', infoObj.discountCode)
-                if(infoObj.discountCode){
-      const myCoupon= coupons.find((c)=>{return infoObj.discountCode==c.code.toUpperCase()})
+              console.log('ccCode', infoObj.couponCode)
+                if(infoObj.couponCode){
+      const myCoupon= coupons.find((c)=>{return infoObj.couponCode==c.code.toUpperCase()})
       console.log('coupon', myCoupon);
       const myDiscountPercent= myCoupon?myCoupon.discountPercentage:0;
 
@@ -226,7 +226,7 @@ export default function OrderCard({
       transactionCovered && styles.transactionCovered
     }`}>
 
-  { transactionCovered ? <span>Click for details</span> :<> {infoObj.discountCode && discountPercent && discountInCash &&
+  { transactionCovered ? <span>Click for details</span> :<> {infoObj.couponCode && discountPercent && discountInCash &&
      <div className={styles.infoPair}>
          <p>Discount ({discountPercent}%)</p>
          <p>{discountInCash}</p>

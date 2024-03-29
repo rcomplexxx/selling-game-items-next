@@ -44,13 +44,13 @@ const PayPalButton=({checkFields, organizeUserData, method='paypal',  type='norm
 
           console.log('creating order');
           let requestData = organizeUserData(type=="normal"?"PAYPAL":(type=="express"?"PAYPAL(EXPRESS)":"PAYPAL(INSTANT)"));
-          const discEle = document.getElementById("discountCode");
+          const discEle = document.getElementById("couponCode");
           if(discEle){
             console.log('discount exists', discEle.innerText)
-            requestData={...requestData, order:{...requestData.order, discountCode: discEle.innerText}}
+            requestData={...requestData, order:{...requestData.order, couponCode: discEle.innerText}}
           }
           else{
-            requestData={...requestData, order:{...requestData.order, discountCode: ""}}
+            requestData={...requestData, order:{...requestData.order, couponCode: ""}}
           }
 
           const tipEl = document.getElementById("tipPrice");

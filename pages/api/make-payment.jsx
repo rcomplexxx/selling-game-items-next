@@ -77,7 +77,7 @@ const makePayment = async (req, res) => {
             state TEXT,
             city TEXT,
             phone TEXT,
-            discountCode TEXT,
+            couponCode TEXT,
             tip TEXT,
             items TEXT,
             paymentMethod TEXT,
@@ -100,7 +100,7 @@ const makePayment = async (req, res) => {
           state,
           city,
           phone,
-          discountCode,
+          couponCode,
           tip,
           items,
         } = req.body.order;
@@ -108,7 +108,7 @@ const makePayment = async (req, res) => {
       
 
         db.prepare(
-          `INSERT INTO orders (email, firstName, lastName, address, apt, country, zipcode, state, city, phone, discountCode, tip, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', ?, ?)`,
+          `INSERT INTO orders (email, firstName, lastName, address, apt, country, zipcode, state, city, phone, couponCode, tip, items, paymentMethod, paymentId, packageStatus, approved, createdDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '0', ?, ?)`,
         ).run(
           email,
           firstName,
@@ -120,7 +120,7 @@ const makePayment = async (req, res) => {
           state,
           city,
           phone,
-          discountCode,
+          couponCode,
           tip,
           JSON.stringify(items),
           paymentMethod,
@@ -156,10 +156,10 @@ const makePayment = async (req, res) => {
       .toFixed(2);
 
     console.log('TOTALPRICE!',totalPrice);
-    const discountCode = req.body.order.discountCode;
-    console.log('discount code is!', discountCode)
-    if (discountCode != "") {
-      const coupon= coupons.find((c)=>{return c.code.toUpperCase()===discountCode.toUpperCase()});
+    const couponCode = req.body.order.couponCode;
+    console.log('discount code is!', couponCode)
+    if (couponCode != "") {
+      const coupon= coupons.find((c)=>{return c.code.toUpperCase()===couponCode.toUpperCase()});
       console.log('coupon is!', coupon);
       if(coupon){
       const discount= coupon.discountPercentage;
