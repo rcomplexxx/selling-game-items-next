@@ -142,11 +142,17 @@ export default function Tip({products}){
 
        <div className={styles.tipChangerDiv}>
         <span onClick={()=>{
-          if(tipInputValue===""){setTipInputValue(0);return;}
-
-          setTipInputValue(parseFloat(tipInputValue<1?1:tipInputValue)-1)}} 
+          if(tipInputValue===""){setTipInputValue(0);  setApplyDisabled(0===tip);return;}
+          const newTip =parseFloat(tipInputValue<1?1:tipInputValue)-1;
+          setTipInputValue(newTip);
+          setApplyDisabled(newTip===tip);
+        }} 
         className={`${styles.tipIncrement} ${styles.tipDecrement}`}>–</span>
-      <span onClick={()=>{setTipInputValue(parseFloat(tipInputValue===""?0:tipInputValue)+1)}} 
+      <span onClick={()=>{
+        const newTip =parseFloat(tipInputValue===""?0:tipInputValue)+1;
+        setTipInputValue(newTip);
+        setApplyDisabled(newTip===tip);
+      }} 
       className={styles.tipIncrement}>+</span>
       
       </div>
