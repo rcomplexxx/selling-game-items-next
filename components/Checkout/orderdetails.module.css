@@ -10,6 +10,7 @@
     box-sizing: border-box;
     border-left: 1px solid var(--border-color-mid);
     justify-self: flex-start;
+    
  
   }
 
@@ -31,8 +32,10 @@
     align-items: center;
     justify-content: center;
     
-    margin-right: var(--size-8);
-    margin-left: var(--size-8);
+    
+    padding-right: var(--size-8);
+    padding-left: var(--size-8);
+    overflow-x: auto;
     border-radius: 4px;
     contain:content;
   }
@@ -522,7 +525,7 @@
       position: static;
         max-width: none;
       width: 100%;
-      margin: 0;
+      padding: 0;
      
     }
    
